@@ -1,0 +1,51 @@
+---
+layout: default
+title: Snapping To The Grid
+---                        
+
+
+  
+  
+<p>Ardour's editor utilizes a grid to assist in the placement of regions on the timeline, or with editing functions that need to happen on a specific time.  With these buttons you can choose if you want the cursor and various objects to snap to this grid, and how you want the snapping to act.  You can also modify what units the grid measures as well to fit your needs.</p>
+<p>With grid mode set to "No Grid", all kind of objects can be moved freely along the timeline. "Grid" will restrict the positions to certain grid units (i.e. beats), "Magnetic" will snap to grid units, but it is still possible to move objects to other places.</p>
+<h3>Syncing Regions to the Grid</h3>
+<p>By default a region's beginning will snap to points along the timeline, but you can change this behaviour by setting a sync point in the region. Select the region(s) and press v . This will set the sync point to your edit point.</p>
+<h3>Grid Units</h3>
+<p>The selector next to the grid mode selector defines the size of the grid elements. The most useful settings are "Bars" and "Beats", but you can set your grid to several different units:</p>
+<dl class="wide-table">
+<dt>CD Frames</dt>
+<dd>a CD Frame is 1/75th of a second. Snapping to CD Frames can be used to avoid issues with CD track lengths</dd>
+<dt>Timecode Frames/Seconds/Minutes</dt>
+<dd>These duration depend on the timecode settings for the session</dd>
+<dt>Seconds/Minutes</dt>
+<dd>These are absolute time units, unaffected by sample rate or timecode settings</dd>
+<dt>Beats/N</dt>
+<dd>Sets the grid to units of 1/N beats, where N can be 128, 64, 32, 16, 8, 7, 6, 5, 4, 3, 2. The duration of a grid unit will depend on the tempo and meter in effect at that point in the timeline.</dd>
+<dt>Beats</dt>
+<dd>Sets the grid to whole beats. The duration of a grid unit will depend on the tempo and meter in effect at that point in the timeline.</dd>
+<dt>Bars</dt>
+<dd>Sets the grid to whole bars. The duration of a grid unit will depend on the tempo and meter in effect at that point in the timeline.</dd>
+<dt>Markers</dt>
+<dd>Snaps positions to the nearest marker</dd>
+<dt>Region Starts</dt>
+<dd>Snaps positions to the nearest region start (see below)</dd>
+<dt>Region Ends</dt>
+<dd>Snaps positions to the nearest region end</dd>
+<dt>Region Syncs</dt>
+<dd>Snaps positions to the nearest region sync point</dd>
+<dt>Region Bounds</dt>
+<dd>Snaps positions to the nearest region start or end</dd>
+</dl>
+<p>To use Region starts/ends/syncs/bounds as snap choices, you must have either (a) NO tracks selected, which means that Ardour will snap to regions on any track, or (b) several tracks selected, and Ardour will only snap to regions on those selected tracks.   If you are moving items on a track, and only the current track is selected, then you will only be able to snap to other regions on the same track.  This means that enabling <code>Edit &gt; Preferences &gt; Editor &gt; Link Selections of Regions and Tracks</code> will make the "Region" grid units unusable.  Avoid the use of this option if you are going to use any of the Region grid units.</p>
+<h3>Snap Modes</h3>
+<p>Ardour supports three different types of snapping to the grid:</p>
+<dl class="wide-table">
+<dt>No Grid</dt>
+<dd>disables the grid. All objects can be moved freely in this mode.</dd>
+<dt>Grid</dt>
+<dd>activates normal snapping, all positions of objects are restricted to points of the grid. (See Grid Units on how to change these points) If you try to move  an object in "Grid"-mode, it will not change its position until you move the mouse far enough for the object to reach the next grid point. New objects will always be created at grid points, too.</dd>
+<dt>Magnetic</dt>
+<dd> is a less strict type of snapping. Objects can still be moved to any position, but positions close to grid points will snap to the grid point. In order to move an object very close to a grid point, it may be necessary to zoom in to prevent snapping to that point.</dd>
+</dl>
+<p> </p>
+  

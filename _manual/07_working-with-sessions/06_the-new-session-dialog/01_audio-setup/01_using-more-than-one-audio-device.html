@@ -1,0 +1,32 @@
+---
+layout: default
+title: Using More Than One Audio Device
+---                        
+
+
+  
+  
+<p>Ardour will only use a single interface.  If you want to use more than one interface you will need to lock them all to a sample clock, and then set up the device outside of Ardour.</p>
+<blockquote>
+<p>
+Ardour is fundamentally designed to be a component in a pro-audio/music creation environment and standard operating practice for such setups involves using only a single digital sample "clock" (something counting off the time between audio samples). This means that trying to use multiple independent soundcards is problematic, because each soundcard has its own sample clock, running independently from the others. Over time, these different clocks drift out of sync with each other, and cause glitches in the audio. You can't stop this drift, although in some cases the effects may be insignificant enough that some people might not care about them.</p>
+<p>Thus in an ideal world you should not use multiple independent soundcards but instead use a single device with a single clock and all the inputs, outputs and other features that you need.</p>
+<p>Of course, a lot of people don't live in an ideal world, and believe that software should make up for this.
+</p>
+</blockquote>
+<h3>OS X</h3>
+<p>The precise instructions for creating an "aggregate device" on OS X have varied from one released to another.</p>
+<dl class="wide-label">
+<dt>OS X 10.5</dt>
+<dd>Please read <a href="http://support.apple.com/kb/HT1215">http://support.apple.com/kb/HT1215</a>
+</dd>
+<dt>OS X 10.6 or later<br><dt>
+</dt>
+</dt>
+<dd>Please read <a href="http://support.apple.com/kb/HT3956">http://support.apple.com/kb/HT3956</a>
+</dd>
+</dl>
+<p>Aggregate devices also provide a method to use multiple soundcards as a single device. For example, you can "aggregate" 2 different 8-channel devices so that you can record 16 channels into Mixbus.</p>
+<h3>Linux</h3>
+<p>Please see the instructions at <a href="http://jackaudio.org/faq" title="http://jackaudio.org/faq">http://jackaudio.org/faq</a></p>
+  

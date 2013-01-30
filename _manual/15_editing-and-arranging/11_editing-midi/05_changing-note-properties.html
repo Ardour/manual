@@ -1,0 +1,31 @@
+---
+layout: default
+title: Changing Note Properties
+---                        
+
+
+  
+  
+<p>You can view all the details about a selected note by context-clicking on it. The dialog that pops up will also allow you to modify all the properties of the selected note(s). You can modify individual properties more efficiently using the techniques described below.</p>
+<h3>Moving notes</h3>
+<p>Right arrow and Left arrow move the selected note(s) early and later in time.</p>
+<h3>Changing pitch values</h3>
+<p>The up arrow key increases the pitch of the selected notes. The down arrow key reduces the pitch of the selected notes. If any of the selected notes are already at the maximum or minimum value, no changes will be made to any of the notes, to preserve relative pitches. You can override this with the Alt/Option key. The default shift distance is one semitone. Use the Shift modifier to alter this to one octave.</p>
+<h3>Changing velocity values</h3>
+<p><kbd class="mod1">Up arrow</kbd> increases the velocity of the selected notes. The <kbd class="mod1">Down arrow</kbd>reduces the velocity of the selected notes. If any of the selected notes are already at the maximum or minumum value, no changes will be made to any of the notes, to preserve relative velocities. You can override this with the Alt/Option key. </p>
+<p>You can also press <kbd>v</kbd> to popup a dialog that will allow you to set the absolute velocity value of each selected note.</p>
+<p>Finally, the scroll wheel will also adjust notes in the same way as the arrow keys (note that like the arrow keys it only affects selected notes, not the note the pointer is over). </p>
+<h3>Changing channel</h3>
+<p>
+Press the "c" key to bring up a dialog that allow you to see and alter the MIDI channel of the selected notes. If the selected notes use different channels, they will all be forced to the newly selected channel.
+</p>
+<h3>Changing start/end/duration</h3>
+<p>
+Comma (',') will alter the start time of the note. Period ('.') will alter the end time of the note. Both keys will by default make the note longer (either by moving the start earlier or the end later). For the opposite effect, use Ctrl-comma/Ctrl-period (or Cmd-command/Cmd-period on OS X). The note will be altered by the current grid setting. To change the start/end positions by 1/128th of a beat, use the Alt/Option key along with either Comma, Ctrl-Comma, etc.
+</p>
+<h3>Quantization</h3>
+<p>
+The q key will quantize the selected notes using the current quantize settings. If the quantize settings have not been set for this session yet, the quantize dialog will appear. Alt/Option-q will display the quantize dialog to allow you to reset the quantize settings and then quantizes the selected notes. The default quantize settings are: quantize note starts to the current grid setting, no swing, no threshold, full strength.</p>
+<p></p>
+<h2>Step Entry, Quantize etc.</h2>
+  

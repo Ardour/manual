@@ -1,0 +1,84 @@
+---
+bootstrap_path: /bootstrap-2.2.2
+page_title: The Ardour Manual
+---
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>{{page.page_title}}</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{{page.bootstrap_path}}/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{page.bootstrap_path}}/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+        <link href="/css/app.css" rel="stylesheet">
+
+        <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+
+        <!--
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+ 
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+ 
+                <a class="brand" href="#">The Ardour Manual</a>
+ 
+                <div class="nav-collapse collapse">
+                </div>
+ 
+            </div>
+        </div>
+    </div>
+    -->
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div id="tree">
+                <h1 class="title"><a href="/"><img src="/images/logo.png" alt="The Ardour Manual" /></a></h1>
+                {% tree %}
+            </div>
+            <div class="span12" id="content">
+                <h1 class="title">{{ page.title }}</h1>
+                {{ content }}
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        if (navigator.userAgent.match(/Mac/)) {
+            var e = document.getElementsByTagName('body')[0];
+            e.className += ' mac';
+        }
+
+        var tree = document.getElementById('tree'),
+            anchors = document.getElementsByTagName('a'),
+            name = '/' + document.location.pathname.split('/')[1] + '/',
+            offset;
+
+        for (var i = 0; i < anchors.length; i++) { 
+            if (anchors[i].getAttribute('name') === name) { 
+                offset = anchors[i].offsetTop;
+                break;
+            } 
+        }
+
+        if (tree && offset) {
+            tree.scrollTop = offset - 10;
+        }
+
+    </script>
+  
+    </body>
+</html>

@@ -1,0 +1,32 @@
+---
+layout: default
+title: Signal Routing
+---                        
+
+
+  
+  <p>The default connections created by Ardour are as follows:</p>
+<ul>
+<li>Track inputs are connected to hardware inputs, in round robin order (explained <a href="/missing">here</a> in more detail).
+</li>
+<li>Bus inputs are left disconnected
+</li>
+<li>Track and bus outputs are configured based on the channel count of the master bus
+</li>
+<li>Track and bus outputs are connected to the master bus inputs
+</li>
+<li>Master bus outputs are connected to hardware outputs
+</li>
+</ul>
+<p>this configuration is sufficient to do basic tracking and playback of many sessions without any adjustment by the user. If you are using Ardour and start to change these connections, be certain that you have a good reason to do so - it is generally not necessary and often leads to problems.</p>
+<p>However, for many workflows during mixing, more complicated signal routing is required. Ardour offers many possibilties for connecting things in the way you may need or want them.</p>
+  
+
+
+
+
+
+
+
+
+{% children %}

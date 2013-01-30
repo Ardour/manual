@@ -1,0 +1,29 @@
+---
+layout: default
+title: Audio Setup
+---                        
+
+
+  
+  
+<p>This is a tabbed-dialog within the New Session dialog that will appear only if JACK is <strong>not</strong> already running as you start Ardour.  It provides a simple interface to configure JACK, which will then be started by Ardour. For more control and options regarding JACK, it is recommended that you start JACK before using Ardour, via a JACK control application such as qjackctl (sometimes called "Jack Control"), JackPilot, etc.</p>
+<h3>Device Tab</h3>
+<p>  On this tab you can tell Ardour about the device it should use.  The driver setting will tell it what driver to attempt to access.  </p>
+<dl class="wide-table">
+<dt>Driver</dt>
+<dd>On Mac OS X this will typically be CoreAudio. On Linux usually this will be either FFADO or ALSA, depending on whether or not you are utilizing a firewire device. Advanced users on all platforms may also use NetJack which provides network audio I/O</dd>
+<dt>Interface</dt>
+<dd>The selector should show all availiable interfaces that driver provides that are duplex capable for Ardour to use. <strong>Important</strong> if you are using an Intel Mac running OS X and the builtin audio interface, you must first <a href="/working-with-sessions/the-new-session-dialog/audio-setup/using-more-than-one-audio-device">merge its separate input and output devices into a single "aggregate device"</a> before Ardour will be able to use it.<br>
+</dd>
+<dt>Sample Rate</dt>
+<dd>The selector will allow you to select from any sample rate supported by the device selected above it.</dd>
+<dt>Buffer Size</dt>
+<dd>You can adjust the size of the buffer used by your audio interface to allow for either lower latency, or lower CPU usage and higher latency.</dd>
+</dl>
+<h3>Options Tab</h3>
+<p>This tab has a few options that should be rarely used by most users.  The Realtime Option allows Jack to run with Realtime privileges, which allows for smoother audio.  The Verbose Output checkbox is primarily used for troubleshooting, it will cause Jack to use verbose messaging and output it to the console.  The client timeout will help prevent clients from disconnecting from Jack if they don't respond to Jack fast enough.  The number of ports changes the total number of ports that Jack will provide to all clients.  And the server dropdown will allow you to change the path to the Jack executable to match where it is installed on your system.</p>
+<h3>Advanced Tab</h3>
+<p>  The Advanced tab will allow you to set some advanced settings that are rarely needed.  By default the input and output channels will automatically try to give you the amount of inputs and outputs as requested by the software, however some software doesn't always request as many as you need, this can provide more to software that can handle it.</p>
+  
+
+{% children %}

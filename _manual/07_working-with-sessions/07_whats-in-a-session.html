@@ -1,0 +1,34 @@
+---
+layout: default
+title: What's In A Session?
+---                        
+
+
+  
+  
+<p>The Session is the fundamental document type that is created and modified by the Ardour workstation.  A "Session" is a folder on your computer filesystem that contains all the items that pertain to a particular project or "recording/editing/mixing session".</p>
+<p>The Session folder includes these files and folders:</p>
+<ul>
+<li>    The main session snapshot (session_name.ardour)
+</li>
+<li>    Any additional snapshots (filenames ending in ardour)
+</li>
+<li>    the auto-backup snapshot (session_name.ardour.bak)
+</li>
+<li>    the undo history for the session (session_name.history)
+</li>
+<li>    the instant file (instant.xml) which records the last-used zoom scale and other metadata
+</li>
+<li>    a folder called "interchange" which holds your raw audio and MIDI files (whether imported or recorded)
+</li>
+<li>    a folder called "export" which contains any files created by the "Export" function
+</li>
+<li>    a folder called "peaks" which contains a waveform rendering of each raw audio file in the session
+</li>
+<li>    a folder called "analysis" which contains transient and pitch information of each raw audio file
+</li>
+<li>    a folder called "dead sounds" which contains sounds which Ardour has detected are no longer used in the session
+</li>
+</ul>
+<p>A session combines some setup information (such as audio and MIDI routing, musical tempo &amp; meter, timecode synchronization, etc.) with one or more Tracks and Buses, and all the Regions and Plug-Ins they contain.</p>
+  

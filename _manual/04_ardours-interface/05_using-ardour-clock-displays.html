@@ -1,0 +1,94 @@
+---
+layout: default
+title: Using Ardour Clock Displays
+---                        
+
+
+  
+  
+<p>
+Clocks in Ardour are the basic way of displaying time values precisely. In many cases, they are also one  way to edit (change) time values, and in a few cases, the only way. All clocks share the same basic appearance and functionality, which is described below, but a few clocks serve particularly important roles.</p>
+<h3>Transport Clocks</h3>
+<p>
+In the transport bar of the editor window there are two (or, if you are on a very small screen, just one) clocks that display both the current position of the playhead, and additional information related to transport control and the timeline. These are called the "transport clocks"; the leftmost one is the primary transport clock and the rightmost one is the secondary transport clock. They look like this:
+</p>
+<p>
+<img src="/files/manual/a3/images/new_main_clocks.png" alt="an image of the transport clocks in ardour 3"></p>
+<p>
+Editing the time in the transport clocks will reposition the playhead in the same way that various other editing operations will.
+</p>
+<h4>The Big Clock</h4>
+<p>
+Under the <code>Windows</code> item in the main menu you will find the "Big Clock" window, which also shows the playhead position in a big, fully resizable window. The big clock is very useful when you need to work away from the screen but still want to see the playhead position clearly (such as when working with a remote control device across, or in another, room). The big clock will also change its visual appearance to indicate when active recording is taking place. Below on the left is a screenshot showing a fairly large big clock window filling a good part of the display, and on the right, the same clock during active recording.
+</p>
+<p>
+<a href="/files/bigclock.png"><img src="/files/bigclock.png" height="100" alt="an image of the big clock filling a screen"></a> <a href="/files/bigclock-recording.png"><img src="/files/bigclock-recording.png" height="100" alt="an image of the big clock while recording"></a>
+</p>
+<h4>The Special Role of the Secondary Transport Clock</h4>
+<p>
+There are a number occasions when Ardour needs to display time values to the user but there is no obvious way to specify what units to use. The most obvious is in the big cursor that appears when dragging regions. For this and other similar cases, Ardour will display time using the same units as the secondary clock.
+</p>
+<h4>Why are there two transport clocks</h4>
+<p>
+Having two transport clocks lets you see the playhead position in two different time units without having to change any settings. For example, you can see the playhead position in both timecode units and BBT time.</p>
+<h3>Selection and Punch Clocks</h3>
+<p>
+The transport bar also contains a set of 5 clocks that show the current selection range and punch ranges. Clicking on the punch range clocks will locate to either the beginning or end of the punch range. Similarly, clicking on the range clocks will locate to either the beginning or end of the current selection. In this screen shot there is no current selection range, so the selection clocks show an "off" state.
+</p>
+<p>
+<img src="/files/selectionpunchclocks.png" alt="an image of the the selection and punch clocks in ardour 3"></p>
+<p></p>
+<h2>Clock Modes</h2>
+<p>Every clock in Ardour has four different modes it can be set to, each of which displays time using different units. You can change the clock mode by right-clicking on the clock and selecting the desired mode from the menu. Some clocks are entirely independent of any other clock's mode; others are linked so that changing one changes all clocks in that group. The different modes are:</p>
+<dl>
+<dt>Timecode</dt>
+<dd>Time is shown as Hours:Minutes:Seconds:Frames, measured from the timecode zero point on the timeline (which may or may not correspond to the session start and/or absolute zero on the timeline). The frames per second (FPS) value is dictated by either the session FPS setting, or, if slaved to an external timecode master, the master. In the transport clocks, the FPS value is shown below the time display, along with an indication of the current timecode source (INT means that Ardour is its own timecode source)</dd>
+<dt>BBT</dt>
+<dd>Time is shown as Bars:Beats:Ticks, indicating musical time measured from the start of the session. The transport clocks show the current tempo (as bpm) and meter below the time display</dd>
+<dt>Minutes:Seconds</dt>
+<dd>Time is shown as Hours:Minutes:Seconds.Milliseconds, measured from the absolute start of the timeline (ignoring the session start and any timecode offsets).</dd>
+<dt>Samples</dt>
+<dd>Time is shown as a sample count from the absolute start of the timeline (ignoring the session start and any timecode offsets). The number of samples per second is given by the current sample rate, and in the transport clocks, this rate is shown below the time display along with any pullup/pulldown adjustment.</dd>
+</dl>
+<h3>Special Modes for the Transport Clocks</h3>
+<p>
+In addition to the time-unit modes mentioned above, each of the two transport clocks (if you work on a small screen, you may only have one) can be independently set to display "Delta to Edit Point" in whatever time units its current mode indicates. This setting means that the clock shows the distance between the playhead and the current edit point, and it may show a positive or negative value depending on the relationship between these two points. The clocks will use a different color when in this mode to avoid confusion about the displayed value.
+</p>
+<p>
+To switch either (or both!) of the transport clocks into this mode, use <code>Edit-&gt;Preferences-&gt;Transport</code> and select or de-select the relevant check-button.
+</p>
+<p>
+Note that when set into this "Delta to Edit Point" mode, the transport clocks cannot be edited.
+</p>
+<h2>Changing clock values with the keyboard</h2>
+<p>
+New values for the clock can be typed from the keyboard after clicking on the relevant clock. Clicking on the clock will show a thin vertical cursor bar just to the right of the next character to be overwritten. Enter time in the same order as the current clock mode - if the clock is in Timecode mode, you need to enter hours, minutes, seconds, frames. So, to change to a time of 12:15:20:15 you would type <code> 1 2 1 5 2 0 1 5</code>. Each number you type will appear in a different color, from right to left, overwriting the existing value. Mid-edit, after typing <code>3 2 2 2</code> the clock might look like this:</p>
+<p>
+<img src="/files/clockedit.png" alt="an image of a clock being edited in ardour 3"></p>
+<p>
+To finish the edit, press the enter/return or tab key. To exit an edit without changing the clock press the escape key. If you mis-type an entry so that the new value would be illegal (for example, resulting in more than 30 frames when Timecode is set to 30 frames per second), the clock will reset at the end of the edit, and move the cursor back to the start so that you may begin again.
+</p>
+<p>
+To end an edit without changing the clock press the escape key.
+</p>
+<h3>Avoiding the mouse entirely</h3>
+<p>
+There is a shortcut available for those who wish to be able to edit the transport clocks entirely without the mouse. It can be found in the keybinding editor under "Transport" called "Focus On Clock". If bound to a key (the divide key on a keypad is the default at time of writing), then pressing that key is equivalent to clicking on the primary (left) transport clock, and editing can begin immediately.
+</p>
+<h3>Entering Partial Times</h3>
+<p>
+One detail of the editing design that is not immediately obvious is that it is possible to enter part of a full time value. Suppose that the clock is in BBT mode, and displaying <code>024|03|0029</code> and you want to alter the value to be the first beat of the bar. Click on the clock and type <code>0 1 0 0 0 0</code>. Similarly, if it is in Minutes:Seconds mode, and displaying <code>02:03:04.456</code> and you want to get to exactly 2 hours, click on the clock and type <code>0 0 0 0 0 0 0</code> to reset the minutes, seconds and milliseconds fields.
+</p>
+<h3>Entering Delta Times</h3>
+<p>
+You can also type values into the clock that are intended as a relative change, rather than a new absolute value. Simply end the edit by pressing the + or - keys (the ones on any keypad will also work). Using the plus key will add the entered value to the current value of the clock; using minus will subtract it. For example, if the clock is in Samples mode and displays <code>2917839</code>, you move it back 2000 samples by typing <code>2 0 0 0</code> and then the - key rather than enter/return/tab. </p>
+<h2>Changing clock values with the mouse</h2>
+<h3>Using a scroll wheel</h3>
+<p>
+Position the mouse pointer over the clock, and move the scroll wheel. Moving the scroll wheel away from you will increase the value shown on the clock, moving it towards you will decrease the value shown on the clock. The step size is determined by which field of the clock you position the mouse over. If the clock is in Timecode mode and the mouse pointer is over the Seconds field, the clock value will increase or decrease by one second at a time. If you move the mouse point to the Hours field, the value will increase or decrease by one hour at a time. It works similarly in all other clock modes.
+</p>
+<h3>Dragging the mouse</h3>
+<p>
+Position the mouse pointer over the clock, press the left mouse button and drag. Dragging upwards will increase the value shown on the clock, dragging downwards will decrease the value shown on the clock. The step size is determined by which field of the clock you position the mouse over. If the clock is in Timecode mode and you begin dragging with the mouse pointer over the Seconds field, the clock value will increase or decrease by one second at a time. If you begin dragging with the mouse over the Hours field, the value will increase or decrease by one hour at a time. It works similarly in all other clock modes.
+</p>
+  

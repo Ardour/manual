@@ -1,0 +1,36 @@
+---
+layout: default
+title: Creating Music with Ardour
+---                        
+
+
+  
+  
+<p>Ardour can be used in many different ways, from extremely simple to extremely complex. Many projects will be handled using the following kind of workflow.</p>
+<h3>Stage 1: Creating Your Project</h3>
+<p>The first step is to create a new session, or open an existing one. A session consists of a folder containing a session file that defines all the information about the session. All media files used by the session can be stored within the session folder.</p>
+<p>More details on sessions can be found in <a href="/working-with-sessions">Working With Sessions</a>.</p>
+<h3>Stage 2: Creating and Importing Audio and MIDI data</h3>
+<p>Once you have a session, you will want to add some audio and/or MIDI material to it, which can be done in one of 3 ways:</p>
+<ul>
+<li>Record incoming audio or MIDI data, either via audio or MIDI hardware connected to your computer, or from other applications.
+</li>
+<li>Create new MIDI data using the mouse and/or various dialogs
+</li>
+<li>Import existing media files into the session
+</li>
+</ul>
+<p>MIDI recordings consist of "performance data" ("play note X at time T") rather than actual sound. As a result, they are more flexible than actual audio, since the precise sound that they will generate when played depends on where you send the MIDI to. Two different synthesizers may produce very different sound in response to the same incoming MIDI data.</p>
+<p>Audio recordings can be made from external instruments with electrical outputs (keyboards, guitars etc.) or via microphones for acoustic instruments. </p>
+<p>Ardour uses the JACK Audio Connection Kit for all audio and MIDI I/O, which means that recording audio/MIDI from other applications is fundamentally identical to recording audio/MIDI from your audio/MIDI hardware.</p>
+<h3>Stage 3: Editing and Arranging</h3>
+<p>Once you have some material within the session, you can start to arrange it in time. This is done in one of the two main windows of Ardour, the Editor window.</p>
+<p>Your audio/MIDI data appears in chunks called "regions", which are arranged into horizontal lanes called "tracks". Tracks are stacked vertically  in the Editor window. You can copy, shorten, move, and delete regions without changing the actual data stored in the session at all - Ardour is a <em>non-destructive</em> editor. (Almost) nothing that you do while editing will ever modify the files stored on disk (except the session file itself). </p>
+<p>You can also carry out many transformations to the contents of regions, again without altering anything on disk. You can alter/move/delete MIDI notes, and remove silence from audio regions, for example.</p>
+<h3>Stage 4: Mixing and Adding Effects</h3>
+<p>Once you have the arrangement of your session mostly complete, you will typically move on to the <em>mixing</em> phase. <em>Mixing</em> is a broad term to cover the way the audio signals that your session generates during playback and processed and added together into a final result that you actually hear. It can involve altering the relative levels of various parts of the session, adding effects that improve or transform certain elements, and others that bring the sound of the whole session to a new level.</p>
+<p>Ardour will allow you to automate changes to any mixing parameters (such as volume, panning, and effects controls) - it will record the changes you make over time, using a mouse or keyboard or some external control device, and can play back those changes later. This is very useful because often the changes you need, even for just one track, will vary in one part of a session compared to another - rather than a single new setting for the volume, you will often need increases followed by decreases (for example, to track the changing volume of a singer). Using automation can make all of this relatively simple.</p>
+<h3>Stage 5: Export</h3>
+<p>Once you are really satisfied with the arrangement and mix of your session, you will typically want to produce a single audio file that contains a ready-to-listen to version of the work. Ardour will allow you to <em>export</em> audio files in a variety of formats (simultaneously in some cases). This exported file would typically be used in creating a CD, or be the basis for digital distribution of the work.</p>
+<p>OI course sometimes you will want to do export material that isn't finished yet, for example to give a copy to someone else to try to mix on their own system. Ardour will allow you to export as much of a session as you want, at any time, in any supported format.</p>
+  

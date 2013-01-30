@@ -1,0 +1,244 @@
+---
+layout: default
+title: MIDI Binding Maps
+---                        
+
+
+  
+  
+<p>
+Ardour 2.X supported <a href="/generic_midi_control">MIDI learning</a> for more or less any control. This was a nice feature that quite a few other DAWs have now provided, but it didn't allow Ardour to work "out of the box" with sensible defaults for existing commercial MIDI controllers. In Ardour 3 and later versions, we have augmented the MIDI learn feature with the ability to load a MIDI binding map for a given controller, which can set up an arbitrary number of physical controls with anything inside Ardour that can be controlled. At this time, these binding maps need to be created with a text editor, but we currently have presets for </p>
+<ul>
+<li>Behringer BCF 2000
+</li>
+<li>Korg_nanoKONTROL
+</li>
+<li>M-Audio Oxygen 8 v2
+</li>
+<li>Roland SI-24
+</li>
+<li>Behringer DDX3216
+</li>
+<li>M-Audio Axiom 25
+</li>
+</ul>
+<p>
+MIDI binding maps are accessible by double clicking on the "Generic MIDI" line in the Control Surfaces tab of the Ardour preferences dialog. Ardour will retain your chosen map after you choose one.
+</p>
+<p>
+The information below describes in great detail how to create a new MIDI binding map.</p>
+<p></p>
+<h2>The Basic Concept</h2>
+<p>
+Since the beginning of time (well, sometime early in the 2.X series), Ardour has had the concept of identifying each track and bus with a <em>remote control ID</em>. This ID uniquely identifies a track or bus so that when messages arrive from elsewhere (MIDI or OSC), we can determine which track or bus they are intended to control. Ardour has a number of ways of assigning remote control IDs, but they don't really matter very much when creating MIDI binding maps, so we won't discuss that here. You just need to know that there is a "first track" and its remote control ID is 1, and so on.
+</p>
+<h2>Getting Started</h2>
+<p>
+MIDI bindings are stored in files with the suffix ".map" attached to their name. The minimal content looks like this:</p>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ArdourMIDIBindings version="1.0.0" name="The name of this set of bindings"&gt;
+&lt;/ArdourMIDIBindings&gt;
+</pre>
+<p>So, to start, create a file with that as the initial contents.
+</p>
+<h2>Finding out what your MIDI control surface sends</h2>
+<p>
+This is the most complex part of the job, but its still not very hard. You need to connect the control surface to an application that will show you the information that the device sends each time you modify a knob, slider, button etc. There are a variety of such applications (notably <code>gmidimon</code> and <code>kmidimon</code>, but you can actually use Ardour for this if you want. Start Ardour in a terminal window, connect MIDI ports up, and in the Preferences window, enable "Trace Input" on the relevant MIDI port. A full trace of the MIDI data received will show up in the terminal window. (Note: in Ardour3, you get a dedicated, custom dialog for this kind of tracing)
+</p>
+<h2>Types of Bindings</h2>
+<p>
+There are two basic kinds of bindings you can make between a MIDI message and something inside Ardour. The first is a binding to a specific parameter of a track or bus. The second is a binding to a function that will change Ardour's state in some way.
+</p>
+<h3>Binding to Track/Bus controls</h3>
+<p>
+A track/bus binding has one of two basic structures</p>
+<pre>
+  &lt;Binding <em>msg specification</em>  uri="<em>... control address ...</em>"/&gt;
+  &lt;Binding <em>msg specification</em>  function="<em>... function name ...</em>"/&gt;
+</pre>
+<h4>Message specifications</h4>
+<p>
+You can create a binding for either 3 types of channel messages, or for a system exclusive ("sysex") message.  A channel message specification looks like this:</p>
+<pre>
+   &lt;Binding channel="1" ctl="13" ....
+</pre>
+<p>This defines a binding for a MIDI Continuous Controller message involving controller 13, arriving on channel 1. There are 16 MIDI channels, numbered 1 to 16. Where the example above says <code>ctl</code>, you can alternatively use <code>note</code> (to create binding for a Note On message) or <code>pgm</code>  (to create a binding for a Program Change message).
+</p>
+<p>
+You can also bind sysex messages:</p>
+<pre>
+  &lt;Binding sysex="f0 0 0 e 9 0 5b f7" ....
+  &lt;Binding sysex="f0 7f 0 6 7 f7" ....
+</pre>
+<p>The string after the <code>sysex=</code> part is the sequence of MIDI bytes, as hexadecimal values, that make up the sysex message.
+</p>
+<p>
+Finally, you can bind a totally arbitrary MIDI message:</p>
+<pre>
+  &lt;Binding msg="f0 0 0 e 9 0 5b f7" ....
+  &lt;Binding msg="80 60 40" ....
+</pre>
+<p>The string after the <code>msg=</code> part is the sequence of MIDI bytes, as hexadecimal values, that make up the message you want to bind. Using this is slightly less efficient than the other variants shown above, but is useful for some oddly designed control devices.
+</p>
+<h4>Control address</h4>
+<p>
+A <em>control address</em> defines what the binding will actually control. There are quite a few different things that can be specified here:</p>
+<p></p>
+<dl class="wide-table">
+<dt>/route/gain</dt>
+<dd>the gain control ("fader") for the track/bus</dd>
+<dt>/route/solo</dt>
+<dd>a toggleable control for solo (and listen) of the track/bus</dd>
+<dt>/route/mute</dt>
+<dd>a toggleable control to mute/unmute the track/bus</dd>
+<dt>/route/recenable</dt>
+<dd>a toggleable control to record-enable the track</dd>
+<dt>/route/panwidth</dt>
+<dd>interpreted by the track/bus panner, should control image "width"</dd>
+<dt>/route/pandirection</dt>
+<dd>interpreted by the track/bus panner, should control image "direction"</dd>
+<dt>/route/plugin/parameter</dt>
+<dd>the Mth parameter of the Nth plugin of a track/bus
+</dd>
+<dt>/route/send/gain</dt>
+<dd>the gain control ("fader") of the Nth send of a track/bus</dd>
+</dl>
+<p>Each of the specifications needs an address, which takes various forms too. For track-level controls (solo/gain/mute/recenable), the address is one the following:</p>
+<dl class="wide-table">
+<dt>a number, eg. "1"
+</dt>
+<dd>identifies a track or bus by its remote control ID
+</dd>
+<dt>B, followed by a number
+</dt>
+<dd>identifies a track or bus by its remote control ID within the current bank (see below for more on banks)
+</dd>
+<dt>one or more words
+</dt>
+<dd>identifies a track or bus by its name
+</dd>
+<dt>
+</dt>
+</dl>
+<p>For send/insert/plugin controls, the address consists of a track/bus address (as just described) followed by a number identifying the plugin/send (starting from 1). For plugin parameters, there is an additional third component: a number identifying the plugin parameter number (starting from 1).
+</p>
+<p>
+One additional feature: for solo and mute bindings, you can also add <code>momentary="yes"</code> after the control address. This is useful primarily for NoteOn bindings - when Ardour gets the NoteOn it will solo or mute the targetted track or bus, but then when a NoteOff arrives, it will un-solo or un-mute it.
+</p>
+<h4>Bindings to Ardour "functions"</h4>
+<p>
+Rather than binding to a specific track/bus control, it may be useful to have a MIDI controller able to alter some part of Ardour's state. A binding definition that does this looks like this:</p>
+<pre>
+  &lt;Binding channel="1" note="13" function="transport-roll"/&gt;
+</pre>
+<p>In this case, a NoteOn message for note number 13 (on channel 1) will start the transport rolling. The following function names are available:
+</p>
+<dl class="narrower-table">
+<dt>
+<code>transport-stop</code>
+</dt>
+<dd>stop the transport
+</dd>
+<dt>
+<code>transport-roll</code>
+</dt>
+<dd>start the transport "rolling"
+</dd>
+<dt>
+<code>transport-zero</code>
+</dt>
+<dd>move the playhead to the zero position
+</dd>
+<dt>
+<code>transport-start</code>
+</dt>
+<dd>move the playhead to the start marker
+</dd>
+<dt>
+<code>transport-end</code>
+</dt>
+<dd>move the playhead to the end marker
+</dd>
+<dt>
+<code>loop-toggle</code>
+</dt>
+<dd>turn on loop playback
+</dd>
+<dt>
+<code>rec-enable</code>
+</dt>
+<dd>enable the global record button
+</dd>
+<dt>
+<code>rec-disable</code>
+</dt>
+<dd>disable the global record button
+</dd>
+<dt>
+<code>next-bank</code>
+</dt>
+<dd>Move track/bus mapping to the next bank (see Banks below)
+</dd>
+<dt>
+<code>prev-bank</code>
+</dt>
+<dd>Move track/bus mapping to the previous bank (see Banks below)<br>
+</dd>
+</dl>
+<h2>Binding to Ardour "actions"</h2>
+<p>
+You can also bind a sysex or arbitrary message to any of the items that occur in Ardour's main menu (and its submenus).  The best place to look for the (long) list of how to address each item is in your keybindings file, which will contain lines that look like this:</p>
+<pre>
+(gtk_accel_path "&lt;Actions&gt;/Editor/temporal-zoom-in" "equal")
+</pre>
+<p>To create a binding between an arbitrary MIDI message (we'll use a note-off on channel 1 of MIDI note 60 (hex) with release velocity 40 (hex)), the binding file would contain:</p>
+<pre>
+   &lt;Binding msg="80 60 40" action="Editor/temporal-zoom-in"/&gt;
+</pre>
+<p>The general rule, when taken an item from the keybindings file and using it in a MIDI binding is to simply strip the <code>&lt;Action&gt;</code> prefix of the second field in the keybinding definition.
+</p>
+<h2>Banks and Banking</h2>
+<p>
+Because many modern control surfaces offer per-track/bus controls for far fewer tracks &amp; busses than many users want to control, Ardour offers the relatively common place concept of "banks". Banks to allow you to relatively easily control any number of tracks and/or busses regardless of how many faders/knobs etc. your control surface has. To use banking, the control addresses must be specified using the <em>bank relative</em> format mentioned above ("B1" to identify the first track of a bank of tracks, rather than "1" to identify the first track).
+</p>
+<p>
+One very important extra piece of information is required to use banking: an extra line near the start of the list of bindings that specifies how many tracks/busses to use per bank. If the device has 8 faders, then 8 would be a sensible value to use for this. The line looks like this:</p>
+<pre>
+   &lt;DeviceInfo bank-size="8"/&gt;
+</pre>
+<p>In addition, you probably want to ensure that you bind something on the control surface to the <code>next-bank</code> and <code>prev-bank</code> functions, otherwise you and other users will have to use the mouse and the GUI to change banks, which rather defeats the purpose of the bindings.
+</p>
+<h2>A Complete (though muddled) Example</h2>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;ArdourMIDIBindings version="1.0.0" name="pc1600x transport controls"&gt;
+  &lt;DeviceInfo bank-size="16"/&gt;
+  &lt;Binding channel="1" ctl="1"   uri="/route/gain B1"/&gt;
+  &lt;Binding channel="1" ctl="2"   uri="/route/gain B2"/&gt;
+  &lt;Binding channel="1" ctl="3"   uri="/route/send/gain B1 1"/&gt;
+  &lt;Binding channel="1" ctl="4"   uri="/route/plugin/parameter B1 1 1"/&gt;
+  &lt;Binding channel="1" ctl="6"   uri="/bus/gain master"/&gt;
+
+  &lt;Binding channel="1" note="1"  uri="/route/solo B1"/&gt;
+  &lt;Binding channel="1" note="2"  uri="/route/solo B2" momentary="yes"/&gt;
+
+  &lt;Binding channel="1" note="15"  uri="/route/mute B1" momentary="yes"/&gt;
+  &lt;Binding channel="1" note="16"  uri="/route/mute B2" momentary="yes"/&gt;
+
+  &lt;Binding sysex="f0 0 0 e 9 0 5b f7" function="transport-start"/&gt;
+  &lt;Binding sysex="f0 7f 0 6 7 f7" function="rec-disable"/&gt;
+  &lt;Binding sysex="f0 7f 0 6 6 f7" function="rec-enable"/&gt;
+  &lt;Binding sysex="f0 0 0 e 9 0 53 0 0 f7" function="loop-toggle"/&gt;
+
+  &lt;Binding channel="1" note="13" function="transport-roll"/&gt;
+  &lt;Binding channel="1" note="14" function="transport-stop"/&gt;
+  &lt;Binding channel="1" note="12" function="transport-start"/&gt;
+  &lt;Binding channel="1" note="11" function="transport-zero"/&gt;
+  &lt;Binding channel="1" note="10" function="transport-end"/&gt;
+&lt;/ArdourMIDIBindings&gt;
+</pre>
+<p>
+Please note that channel, controller and note numbers are specified as decimal numbers in the ranges 1-16, 0-127 and 0-127 respectively (the channel range may change at some point)
+</p>
+  

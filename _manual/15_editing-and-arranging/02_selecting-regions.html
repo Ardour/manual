@@ -1,0 +1,35 @@
+---
+layout: default
+title: Selecting Regions
+---                        
+
+
+  
+  <p>Many editing operations in Ardour require you to first select one or more regions that you want to change in some way. You can select a single region, or multiple regions, including regions in different tracks. When you select a region, it will appear in a darker color than unselected regions.</p>
+<p>Note that if a track is a member of a group that is active and has the "Select" property enabled, then Ardour will attempt to match whatever selections you make in one track across every other track of the group. See <a href="/working-with-regions/region-selection-equivalence">Selection Equivalence</a> for more information on precisely how selections will be propagated to other tracks.</p>
+<h2>Region Selection and Track Selection</h2>
+<p>Please read <a href="/working-with-tracks/selecting-tracks/region-and-track-selection">Region &amp; Track Selection</a> for more information on how selecting regions and selecting tracks interact.</p>
+<h2>To select a region</h2>
+<p>Click on the region. If smart editing is enabled, click in the lower half of the region.</p>
+<h2>To deselect a region</h2>
+<p><kbd class="mod1">click</kbd> the region. If smart editing is enabled, click in the lower half of the region. </p>
+<p>Note that <kbd class="mod1">click</kbd> simply toggles the selected status of an object, so it can be used to select unselected regions too</p>
+<h2>To select multiple regions in the same track</h2>
+<p>Do one of the following:</p>
+<ul>
+<li>
+<kbd class="mod1">click</kbd> each region
+</li>
+<li>drag from a point in "empty space" in track before the first region you wish to select to a point within or after the last region you wish to select. You can use <kbd class="mod1">drag</kbd> to do this multiple times
+</li>
+<li>if the regions are all adjacent to one another, click the first region you wish to select, then <kbd>Shift-click</kbd> the last region you wish to select
+</li>
+</ul>
+<h2>To select multiple regions in different tracks</h2>
+<p><kbd class="mod1">click</kbd> or <kbd>Shift-click</kbd> the regions you wish to select.</p>
+<h2>To select a region from the region list</h2>
+<p>Click the name of the region in the region list. Note that this will do nothing for whole-file regions, since they do not exist anywhere in a playlist or track.</p>
+<h2>To select all regions in a track</h2>
+<p><kbd>Context-click</kbd> the track, and in the context menu, navigate to <code>Select &gt; Select All In Track</code></p>
+<p>See the <a href="/working-with-tracks/the-track-context-menu">Track Context Menu</a> for more information on other per-track selection operations that are available.</p>
+  

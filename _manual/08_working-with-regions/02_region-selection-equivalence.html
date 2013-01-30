@@ -1,0 +1,20 @@
+---
+layout: default
+title: Region Selection Equivalence
+---                        
+
+
+  
+  <p>Track Groups have a property titled "Select" which, if enabled, will cause Ardour to try to propagate a region selection in one of a group's member tracks to the other members of the group.. </p>
+<p>For example, let's assume you have used multiple microphones to record a drum kit to multiple tracks. You have created a track group, added all the drum tracks, enabled the group and enabled the "Select" property for the group. When you select a region in one of the drum tracks, Ardour will select the corresponding track in every other drum track, which in turn means that a subsequent edit operation will affect all the selected regions (and thus all the drum tracks) together. </p>
+<h2>How Ardour decides which regions are "equivalent"</h2>
+<p>Regions in different tracks are considered to be equivalent for the purposes of sharing "selection" if they satisfy all the following criteria:</p>
+<ol>
+<li>Each region starts at the same offset within its source file</li>
+<li>Each region is located at the same position on the timeline</li>
+<li>Each region has the same length</li>
+</ol>
+<h2>Overlap Equivalence</h2>
+<p>Sometimes, the rules outlined above are too strict to get Ardour to do what you want. Regions may be slightly different lengths, or positioned slightly differently, and this will cause Ardour to not select regions in other grouped tracks that you would like it to.</p>
+<p>In this case, enable <code>Edit &gt; Preferences &gt; Editor &gt; Use overlap equivalency for regions</code>. With this option enabled, regions in different tracks will be considered equivalent for the purposes of selection if they overlap. This is much more flexible and will cover almost all of the cases that the fixed rules above might make cumbersome.</p>
+  
