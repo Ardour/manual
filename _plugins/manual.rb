@@ -63,7 +63,7 @@ module Manual
           end
 
           block_given? ? block.call(h) : h
-      end
+      end.compact
     end
 
     def self.extract_data(filename)
@@ -182,7 +182,11 @@ module Manual
 
           url_a = url.split('/').reject(&:empty?)
 
+          depth = url_a.length
           is_current, position, level = *process_hierarchy(current_a, url_a)
+
+          # this massively speeds up build time by not including the whole menu tree for each page
+          next if depth > 1 && current_a[0] != url_a[0]
 
           css_classes = []
           css_classes << 'active' if is_current
@@ -190,7 +194,7 @@ module Manual
           css_classes << "#{position}-#{level}" if position && level
           css_classes << 'other' unless is_current || position || level
 
-          css_classes << "level-#{url_a.length}"
+          css_classes << "level-#{depth}"
           css_classes = css_classes.join(' ')
 
           if entry[:type] == 'directory'
@@ -200,9 +204,11 @@ module Manual
                       <a name="<%= entry[:url] %>" href="<%= entry[:url] %>"><%= entry[:menu_title] %></a>
                   </dt>
                   <dd class="<%= css_classes %>">
-                      <dl>
-                          <%= entry[:children].join %> 
-                      </dl>
+                      <% if entry[:children].any? %>
+                        <dl>
+                            <%= entry[:children].join %> 
+                        </dl>
+                      <% end %>
                   </dd>
               HTML
 
