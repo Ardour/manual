@@ -22,7 +22,7 @@ module Manual
 
   def self.traverse(path, directory_sort = false, paths = [], key_paths = [], &block)
 
-      entries = Dir.glob(File.join(path,'*'))
+      entries = Dir.glob(File.join(path,'*')).sort
 
       entries.sort_by! { |e| File.directory?(e) ? 1 : 0  } if directory_sort
 
