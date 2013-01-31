@@ -13,30 +13,7 @@ The site is built using ruby (I use 1.9[.3]) and [Jekyll](https://github.com/moj
     git clone <repo-url>
     cd ardour-manual
     
-### Run it locally
-
-This will generate the final html and start a local webserver.
-
-    jekyll --server
-    
-It should then be available at [localhost:4000](http://localhost:4000)
-    
-### Import content from drupal
-
-This will pull the content from the [ardour drupal manual](http://ardour.org/manual/ardour3) and turn it into the format used in `_manual/`. You shouldn't really need to run this.
-    
-    ruby import.rb
-    
-It's quite slow… :)
-
-
-### Upload static site to live server
-
-Once the content has been built (using jekyll) you can put it live with this (assuming your ssh key has been put on the server):
-
-    ./upload.sh
-
-## Strucuture of the content
+## Structure of the content
 
 There are 2 different types of content:
 
@@ -114,7 +91,36 @@ These are almost normal html, but extended with [Liquid templates](http://liquid
 - `{% tree %}` is what shows the manual structure in the left column
 - `{% children %}` shows the immediate list of children for a page
 
-## manual.rb plugin
+
+## More Advanced Stuff
+
+You probably don't want or need to do any of this, but here are some
+notes just in case you decide to anyway.
+
+### Run it locally
+
+This will generate the final html and start a local webserver.
+
+    jekyll --server
+    
+It should then be available at [localhost:4000](http://localhost:4000)
+    
+### Import content from drupal
+
+This will pull the content from the [ardour drupal manual](http://ardour.org/manual/ardour3) and turn it into the format used in `_manual/`. You shouldn't really need to run this.
+    
+    ruby import.rb
+    
+It's quite slow… :)
+
+
+### Upload static site to live server
+
+Once the content has been built (using jekyll) you can put it live with this (assuming your ssh key has been put on the server):
+
+    ./upload.sh
+
+### manual.rb plugin
 
 Much of the functionality comes from `_plugins/manual.rb` - it takes the _manual format_ (contained in `_manual/`) and mushes it around a bit into a tmp directory before letting jekyll do it's normal thing. It's all hooked into the jekyll command so no special actions are required.
 
