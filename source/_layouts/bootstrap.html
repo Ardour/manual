@@ -45,12 +45,19 @@ page_title: The Ardour Manual
     <div class="container-fluid">
         <div class="row-fluid">
             <div id="tree">
-                <h1 class="title"><a href="/"><img src="/images/logo.png" alt="The Ardour Manual" /></a></h1>
-                {% tree %}
+                <div id="tree-inner">
+                    <h1 class="title"><a href="/"><img src="/images/logo.png" alt="The Ardour Manual" /></a></h1>
+                    {% tree %}
+                </div>
             </div>
             <div class="span12" id="content">
-                <h1 class="title">{{ page.title }}</h1>
-                {{ content }}
+                <div id="search">
+                    <gcse:search></gcse:search>
+                </div>
+                <div id="content-main">
+                    <h1 class="title">{{ page.title }}</h1>
+                    {{ content }}
+                </div>
             </div>
         </div>
     </div>
@@ -78,6 +85,18 @@ page_title: The Ardour Manual
             tree.scrollTop = offset - 10;
         }
 
+    </script>
+
+    <script>
+        (function() {
+          var cx = '011950134405426689607:2lg2y9xgf3a';
+          var gcse = document.createElement('script'); gcse.type = 'text/javascript';
+          gcse.async = true;
+          gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+              '//www.google.com/cse/cse.js?cx=' + cx;
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(gcse, s);
+        })();
     </script>
   
     </body>

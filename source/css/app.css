@@ -1,6 +1,5 @@
 #tree {
-    padding: 20px; 
-    padding-bottom: 80px;
+ 
   background-color: #eee;
   height: 100%;
   overflow: scroll;
@@ -9,6 +8,10 @@
   bottom: 0;
   left: 0;
   width: 300px;
+}
+
+#tree-inner {
+    padding: 15px 20px 30px 30px;  
 }
 
 #tree h1.title {
@@ -47,9 +50,18 @@
 }
 
 
+#search {
+  height: 70px;
+}
+
 #content {
-    padding: 70px 30px 30px 360px;
+    padding: 10px 30px 30px 350px;
     margin-left: 0;
+}
+
+#content-main {
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
 #content p,
@@ -310,6 +322,13 @@
 }
 
 
+
+#gs_tti0 {
+
+  padding-top: 2px;
+  padding-bottom: 0;
+
+}
 
 
 
