@@ -23,7 +23,7 @@ In order to achieve exact time synchronization all sources of latency need to be
 <li><strong>Computer I/O Architecture</strong>: a computer is a general purpose processor, not a digital audio processor. This means our audio data has to jump a lot of fences in its path from the outside to the CPU and back, contending in the process with some other parts of the system vying for the same resources (CPU time, bus bandwidth, etc.) Thanks to the combined efforts of kernel, audio driver and jackd developers, you are in position to tune your system a bit more towards the digital audio processing task, but don&#039;t expect miracles. Remember you can use your computer also to write documents, surf the net, save some lemmings… Polyvalence comes at a cost.</li>
 </ul>
 
-<p><img src="/ardour/manual/html/diagrams/latency-chain.png"  title="Latency chain" alt="Latency chain" /></a></p>
+<p><img src="/ardour/manual/html/diagrams/latency-chain.png"  title="Latency chain" alt="Latency chain" /></p>
 <p><em>Figure: Latency chain.</em> The numbers are an example for a typical PC. With professional gear and an optimized system the total roundtrip latency is usually lower. The important point is that latency is always additive and a sum of many independent factors.</p>
 
 <p>
@@ -49,7 +49,7 @@ It is important to note that <strong>processing latency in a jackd is a matter o
 </p>
 
 <p>
-The digital I/O latency is usually negligible for integrated or <acronym title="Periphal Component Interface">PCI</acronym> audio devices but for USB or FireWire interfaces the bus clocking and buffering can add some milliseconds.
+The digital I/O latency is usually negligible for integrated or <abbr title="Periphal Component Interface">PCI</abbr> audio devices but for USB or FireWire interfaces the bus clocking and buffering can add some milliseconds.
 </p>
 
 <p>
@@ -114,7 +114,7 @@ In above figure, clients A and B need to be able to answer the following two que
 </ul>
 
 <p>
-JACK features an <acronym title="Application Programming Interface">API</acronym> that allows applications to determine the answers to above questions. However JACK can not know about the additional latency that is introduced by the computer architecture, operating system and soundcard. These values are indicated by <code>-I</code> and <code>-O</code> and vary from system to system but are constant on each. On a general purpose computer system the only way to accurately learn about the total (additional) latency is to measure it.
+JACK features an <abbr title="Application Programming Interface">API</abbr> that allows applications to determine the answers to above questions. However JACK can not know about the additional latency that is introduced by the computer architecture, operating system and soundcard. These values are indicated by <code>-I</code> and <code>-O</code> and vary from system to system but are constant on each. On a general purpose computer system the only way to accurately learn about the total (additional) latency is to measure it.
 </p>
 
 
@@ -137,7 +137,7 @@ You can close the loop in a number of ways:
 </p>
 <ul>
 <li>Putting a speaker close to a microphone. This is rarely done, as air propagation latency is well known so there is no need to measure it.</li>
-<li>Connecting the output of your audio interface to its input using a patch cable. This can be an analog or a digital loop, depending on the nature of the input/output you use. A digital loop won&#039;t factor in the <acronym title="Analog to Digital, Digital to Analog">AD/DA</acronym> converter latency.</li>
+<li>Connecting the output of your audio interface to its input using a patch cable. This can be an analog or a digital loop, depending on the nature of the input/output you use. A digital loop won&#039;t factor in the <abbr title="Analog to Digital, Digital to Analog">AD/DA</abbr> converter latency.</li>
 </ul>
 
 <p>

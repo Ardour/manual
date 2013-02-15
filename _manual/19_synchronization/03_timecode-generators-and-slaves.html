@@ -39,7 +39,7 @@ Each Ardour session has a specific timecode frames-per-second setting which is c
 </p>
 
 <p>
-Note that some timecode formats are limited to a subset of Ardour's available fps. e.g. MTC is limited to 24, 25, 29.97 and 30 fps.</p>
+Note that some timecode formats are limited to a subset of Ardour's available fps. e.g. MTC is limited to 24, 25, 29.97 and 30 fps.
 </p>
 
 <p>
@@ -135,7 +135,7 @@ An edge case can also occur with 29.97 drop-frame timecode. While the SMPTE 12M-
 </p>
 
 <p>
-When enabled the external timecode source is assumed to use 29.970000 fps instead of 30000/1001. SMPTE 12M-1999 specifies 29.97df as 30000/1001. The <acronym title="specification">spec</acronym> further mentions that drop-frame timecode has an accumulated error of -86ms over a 24-hour period. Drop-frame timecode would compensate exactly for a NTSC color frame rate of 30 * 0.9990 (ie 29.970000). That is not the actual rate. However, some vendors use that rate - despite it being against the specs - because the variant of using exactly 29.97 fps yields zero timecode drift.
+When enabled the external timecode source is assumed to use 29.970000 fps instead of 30000/1001. SMPTE 12M-1999 specifies 29.97df as 30000/1001. The <abbr title="specification">spec</abbr> further mentions that drop-frame timecode has an accumulated error of -86ms over a 24-hour period. Drop-frame timecode would compensate exactly for a NTSC color frame rate of 30 * 0.9990 (ie 29.970000). That is not the actual rate. However, some vendors use that rate - despite it being against the specs - because the variant of using exactly 29.97 fps yields zero timecode drift.
 </p>
 
 
@@ -183,7 +183,7 @@ The incoming timecode signal needs to arrive at the <code>ardour:LTC-in</code> p
 </p>
 
 <p>
-Ardour&#039;s transport is aligned to LTC-frame start/end positions according to the SMPTE 12M-1999 <acronym title="specification">spec</acronym> which means that the first bit of an LTC-Frame is aligned to different Lines of a Video-Frame, depending on the TV standard used. Only for Film (24fps) does the LTC-Frame directly match the video Frame boundaries.
+Ardour&#039;s transport is aligned to LTC-frame start/end positions according to the SMPTE 12M-1999 <abbr title="specification">spec</abbr> which means that the first bit of an LTC-Frame is aligned to different Lines of a Video-Frame, depending on the TV standard used. Only for Film (24fps) does the LTC-Frame directly match the video Frame boundaries.
 </p>
 
 <p><img src="/ardour/manual/html/diagrams/ltc-transport-alignment.png"  title="LTC frame alignment" alt="LTC frame alignment"/></p>
