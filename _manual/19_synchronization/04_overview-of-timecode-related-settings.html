@@ -10,43 +10,43 @@ Timecode related settings are accessed from the menus
 </p>
 
 <p>
-<strong>Session→Properties→Timecode</strong>
+<code>Session &gt; Properties &gt; Timecode</code>
 </p>
 
 <p>
-<strong>Edit→Preferences→Transport</strong>
+<code>Edit &gt; Preferences &gt; Transport</code>
 </p>
 
 <p>
-<strong>Edit→Preferences→MIDI</strong>
+<code>Edit &gt; Preferences &gt; MIDI</code>
 </p>
 
 
 
 <h3>Timecode Settings</h3>
 <ul>
-<li>“<strong>Timecode frames-per-second</strong>” – configure Timecode frames-per-second (23.976, 24, 24.975, 25, 29.97, 29.97 drop, 30, 30 drop, 59.94, 60). Note that all fractional framerates are actually fps*(1000.0/1001.0).</li>
-<li>“<strong>Pull up/down</strong>” – video-pullup modes change the effective samplerate of Ardour to allows for changing a film soundtrack from one frame rate to another. see <a href="http://en.wikipedia.org/wiki/Telecine" title="http://en.wikipedia.org/wiki/Telecine">Telecine</a></li>
-<li>“<strong>Slave Timecode offset</strong>” – The specified offset is added to the received timecode (MTC or LTC).</li>
-<li>“<strong>Timecode Generator offset</strong>” – Specify an offset which is added to the generated timecode (so far only LTC).</li>
-<li>“<strong>JACK Time Master</strong>” – provide Bar|Beat|Tick and other information to JACK</li>
+<li>"<strong>Timecode frames-per-second</strong>" – configure Timecode frames-per-second (23.976, 24, 24.975, 25, 29.97, 29.97 drop, 30, 30 drop, 59.94, 60). Note that all fractional framerates are actually fps*(1000.0/1001.0).</li>
+<li>"<strong>Pull up/down</strong>" – video-pullup modes change the effective samplerate of Ardour to allows for changing a film soundtrack from one frame rate to another. see <a href="http://en.wikipedia.org/wiki/Telecine" title="http://en.wikipedia.org/wiki/Telecine">Telecine</a></li>
+<li>"<strong>Slave Timecode offset</strong>" – The specified offset is added to the received timecode (MTC or LTC).</li>
+<li>"<strong>Timecode Generator offset</strong>" – Specify an offset which is added to the generated timecode (so far only LTC).</li>
+<li>"<strong>JACK Time Master</strong>" – provide Bar|Beat|Tick and other information to JACK</li>
 </ul>
 
 
 
 <h3>Transport Preferences</h3>
 <ul>
-<li>“<strong>External timecode source</strong>” – select timecode source: JACK, LTC, MTC, MClk</li>
-<li>“<strong>Match session video frame rate to external timecode</strong>” – This option controls the value of the video frame rate <em>while chasing</em> an external timecode source. <strong>When enabled</strong> the session video frame rate will be changed to match that of the selected external timecode source. <strong>When disabled</strong> the session video frame rate will not be changed to match that of the selected external timecode source. Instead the frame rate indication in the main clock will flash red and Ardour will convert between the external timecode standard and the session standard.</li>
-<li>“<strong>External timecode is sync locked</strong>” – <strong>When enabled</strong> indicates that the selected external timecode source shares sync (Black &amp;amp; Burst, Wordclock, etc) with the audio interface.</li>
-<li>“<strong>Lock to 29.9700 fps instead of 30000/1001</strong>” – <strong>When enabled</strong> the external timecode source is assumed to use 29.97 fps instead of 30000/1001. SMPTE 12M-1999 specifies 29.97df as 30000/1001. The <acronym title="specification">spec</acronym> further mentions that drop-frame timecode has an accumulated error of -86ms over a 24-hour period. Drop-frame timecode would compensate exactly for a NTSC color frame rate of 30 * 0.9990 (ie 29.970000). That is not the actual rate. However, some vendors use that rate - despite it being against the specs - because the variant of using exactly 29.97 fps has zero timecode drift.</li>
+<li>"<strong>External timecode source</strong>" – select timecode source: JACK, LTC, MTC, MClk</li>
+<li>"<strong>Match session video frame rate to external timecode</strong>" – This option controls the value of the video frame rate <em>while chasing</em> an external timecode source. <strong>When enabled</strong> the session video frame rate will be changed to match that of the selected external timecode source. <strong>When disabled</strong> the session video frame rate will not be changed to match that of the selected external timecode source. Instead the frame rate indication in the main clock will flash red and Ardour will convert between the external timecode standard and the session standard.</li>
+<li>"<strong>External timecode is sync locked</strong>" – <strong>When enabled</strong> indicates that the selected external timecode source shares sync (Black &amp;amp; Burst, Wordclock, etc) with the audio interface.</li>
+<li>"<strong>Lock to 29.9700 fps instead of 30000/1001</strong>" – <strong>When enabled</strong> the external timecode source is assumed to use 29.97 fps instead of 30000/1001. SMPTE 12M-1999 specifies 29.97df as 30000/1001. The <acronym title="specification">spec</acronym> further mentions that drop-frame timecode has an accumulated error of -86ms over a 24-hour period. Drop-frame timecode would compensate exactly for a NTSC color frame rate of 30 * 0.9990 (ie 29.970000). That is not the actual rate. However, some vendors use that rate - despite it being against the specs - because the variant of using exactly 29.97 fps has zero timecode drift.</li>
 </ul>
 
 
 
 <h3>MIDI Preferences</h3>
 <ul>
-<li>“<strong>Send MIDI Timecode</strong>” – enable MTC generator</li>
-<li>“<strong>Send MIDI Clock</strong>” – enable MIDI Clock generator</li>
+<li>"<strong>Send MIDI Timecode</strong>" – enable MTC generator</li>
+<li>"<strong>Send MIDI Clock</strong>" – enable MIDI Clock generator</li>
 </ul>
 

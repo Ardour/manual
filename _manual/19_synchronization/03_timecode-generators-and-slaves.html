@@ -35,7 +35,7 @@ Combining the timecode slave and generator modes, Ardour can also translate time
 <h2>Ardour Timecode Configuration</h2>
 
 <p>
-Each Ardour session has a specific timecode frames-per-second setting which is configured in <code>session→properties→timecode</code>.
+Each Ardour session has a specific timecode frames-per-second setting which is configured in <code>session &gt; properties &gt; timecode</code>.
 </p>
 
 
@@ -47,7 +47,7 @@ For the LTC generator the volume of the generated LTC can be configured. JACK-tr
 </p>
 
 <p>
-The relevant settings for timecode generator can be found in the Preferences dialog: “MIDI Preferences” (for MTC, MClk) and “Transport Preferences” respectively.
+The relevant settings for timecode generator can be found in the Preferences dialog: "MIDI Preferences" (for MTC, MClk) and "Transport Preferences" respectively.
 </p>
 
 <p>
@@ -59,7 +59,7 @@ Note that -as of writing- only the LTC generator supports latency compensation. 
 </p>
 
 <p>
-In <code>session→properties</code> it is possible to define an offset between Ardour&#039;s internal time and the timecode sent. Currently only the LTC generator honors this offset.
+In <code>session &gt; properties</code> it is possible to define an offset between Ardour&#039;s internal time and the timecode sent. Currently only the LTC generator honors this offset.
 </p>
 
 
@@ -75,7 +75,7 @@ There are no options. Ardour sends full MTC frames whenever the transport is rel
 <h3>LTC generator</h3>
 
 <p>
-The volume of the LTC signal can be conigured in in the <code>Preferences→Transport</code> dialog. By default it is set to -18dBFS which corresponds to 0dBu in an EBU calibrated system.
+The volume of the LTC signal can be conigured in in the <code>Preferences &gt; Transport</code> dialog. By default it is set to -18dBFS which corresponds to 0dBu in an EBU calibrated system.
 </p>
 
 <p>
@@ -86,7 +86,7 @@ The LTC generator has an additional option to keep sending timecode even when th
 <h2>Ardour Slave Configuration</h2>
 
 <p>
-Switching the timecode-source can be done via the button just right of Ardour&#039;s main clock. By default it is set to <code>Internal</code> in which case ardour will ignore any external timecode. The button allows to toggle between Internal and the configured timecode source which is chosen in <code>Edit→Preferences→Transport</code>.
+Switching the timecode-source can be done via the button just right of Ardour&#039;s main clock. By default it is set to <code>Internal</code> in which case ardour will ignore any external timecode. The button allows to toggle between Internal and the configured timecode source which is chosen in <code>Edit &gt; Preferences &gt; Transport</code>.
 </p>
 
 <p>
@@ -114,7 +114,7 @@ In both cases the first option is preferred: clock sync + same FPS setting.
 <h3>Frames-per-second</h3>
 
 <p>
-If the frames-per-second don&#039;t match, ardour can either re-calculate (map) the frames or the configured FPS (<code>session→properties</code>) can be changed automatically while the Slave is active. The behavior is configured with the checkbox in <code>Edit→Preferences→Transport</code> labeled <code>Match session video frame rate to external timecode</code>: <strong>When enabled</strong> the session video frame rate will be changed to match that of the selected external timecode source. <strong>When disabled</strong> the session video frame rate will not be changed to match that of the selected external timecode source. Instead the frame rate indication in the main clock will flash red and Ardour will convert between the external timecode standard and the session standard.
+If the frames-per-second don&#039;t match, ardour can either re-calculate (map) the frames or the configured FPS (<code>session &gt; properties</code>) can be changed automatically while the Slave is active. The behavior is configured with the checkbox in <code>Edit &gt; Preferences &gt; Transport</code> labeled <code>Match session video frame rate to external timecode</code>: <strong>When enabled</strong> the session video frame rate will be changed to match that of the selected external timecode source. <strong>When disabled</strong> the session video frame rate will not be changed to match that of the selected external timecode source. Instead the frame rate indication in the main clock will flash red and Ardour will convert between the external timecode standard and the session standard.
 </p>
 
 <p>
@@ -186,7 +186,7 @@ While Ardour is chasing LTC, the main transport clock will display the received 
 </p>
 
 <p>
-A global offset between incoming timecode and ardour&#039;s transport can be configured in <code>Session→Properties</code>.
+A global offset between incoming timecode and ardour&#039;s transport can be configured in <code>Session &gt; Properties</code>.
 </p>
 
 <p>
@@ -210,7 +210,7 @@ While Ardour is chasing MTC, the main transport clock will display the received 
 </p>
 
 <p>
-A global offset between incoming timecode and ardour&#039;s transport can be configured in <code>Session→Properties</code>.
+A global offset between incoming timecode and ardour&#039;s transport can be configured in <code>Session &gt; Properties</code>.
 </p>
 
 
@@ -226,6 +226,6 @@ JACK-transport does not support vari-speed, nor offsets. Ardour does not chase t
 </p>
 
 <p>
-JACK-transport also includes temp-based-time information ie. Bar:Beats:Ticks and beats-per-minute. However, only one JACK application can provide this information at a given time. The checkbox <code>JACK Time Master</code> in the <code>Session→Properties</code> dialog allows to configure ardour to act as translator from timecode to BBT information.
+JACK-transport also includes temp-based-time information ie. Bar:Beats:Ticks and beats-per-minute. However, only one JACK application can provide this information at a given time. The checkbox <code>JACK Time Master</code> in the <code>Session &gt; Properties</code> dialog allows to configure ardour to act as translator from timecode to BBT information.
 </p>
 
