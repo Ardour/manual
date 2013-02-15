@@ -31,7 +31,7 @@ The concept of clock and timecode is reflected in JACK and Ardour:
 <p>
 JACK provides clock-synchronization and is not concerned with time-code (this is not entirely true, more on jack-transport later).
 Within software, jackd provides sample-accurate synchronization between all JACK applications.
-On the harware side JACK uses the clock of the audio-interface. Synchronization of multiple interfaces requires hardware support to sync the clocks.
+On the hardware side JACK uses the clock of the audio-interface. Synchronization of multiple interfaces requires hardware support to sync the clocks.
 If two interfaces run at different clocks the only way to align the signals is via re-sampling (SRC - Sample Rate Conversion) - which decreases fidelity.
 </p>
 
