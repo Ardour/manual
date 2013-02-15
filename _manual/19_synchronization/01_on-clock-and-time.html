@@ -21,10 +21,6 @@ In the case of 48kHz and 25fps, there are 1920 samples per video frame.
 </p>
 
 <p>
-An interesting point to note is that LTC (Linear Time Code) is a Manchester Encoded, Frequency Modulated signal that carries both &#039;Clock&#039; and &#039;Time&#039;. It is possible to extract absolute position data and speed from it.
-</p>
-
-<p>
 The concept of clock and timecode is reflected in JACK and Ardour:
 </p>
 
@@ -43,4 +39,7 @@ Timecode is used to align systems already synchronized by a clock to a common po
 NB. to make things confusing, there are possibilities to synchronize clocks using timecode. e.g. using mechanism called <em>jam-sync</em> and a Phase-Locked-Loop.
 </p>
 
+<p>
+An interesting point to note is that LTC (Linear Time Code) is a Manchester encoded, frequency modulated signal that carries both &#039;Clock&#039; and &#039;Time&#039;. It is possible to extract absolute position data and speed from it.
+</p>
 

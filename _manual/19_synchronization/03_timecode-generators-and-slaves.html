@@ -35,15 +35,22 @@ Combining the timecode slave and generator modes, Ardour can also translate time
 <h2>Ardour Timecode Configuration</h2>
 
 <p>
-Each Ardour session has a specific timecode frames-per-second setting which is configured in <code>session &gt; properties &gt; timecode</code>.
+Each Ardour session has a specific timecode frames-per-second setting which is configured in <code>session &gt; properties &gt; timecode</code>. The selected timecode affects the timecode-ruler in the main window as well as the clock itself.
 </p>
 
+<p>
+Note that some timecode formats are limited to a subset of Ardour's available fps. e.g. MTC is limited to 24, 25, 29.97 and 30 fps.</p>
+</p>
+
+<p>
+The video-pullup modes change the effective samplerate of Ardour to allows for changing a film soundtrack from one frame rate to another. The scope is beyond this manual, but wikipedia's entry on <a href="http://en.wikipedia.org/wiki/Telecine" title="http://en.wikipedia.org/wiki/Telecine">Telecine</a> may get you started.
+</p>
 
 <h2>Ardour Timecode Generator Configuration</h2>
 
 <p>
 This is pretty straight forward: simply turn it on. The MTC and MIDI-Clock generator do not have any options.
-For the LTC generator the volume of the generated LTC can be configured. JACK-transport can not be <em>generated</em> jack itself is always sample-sync to the jack-cycle and does not slave to anything.
+For the LTC generator the volume of the generated LTC can be configured. JACK-transport can not be <em>generated</em>. Jack itself is always sample-sync to the jack-cycle and does not slave to anything.
 </p>
 
 <p>
@@ -55,7 +62,7 @@ The timecode is sent to jack-ports <code>ardour:MTC out</code>, <code>ardour:MID
 </p>
 
 <p>
-Note that -as of writing- only the LTC generator supports latency compensation. This is due to the fact the ardour MIDI ports are not yet latency compensated.
+Note that - at the time of writing this - only the LTC generator supports latency compensation. This is due to the fact the ardour MIDI ports are not yet latency compensated.
 </p>
 
 <p>
@@ -63,6 +70,9 @@ In <code>session &gt; properties</code> it is possible to define an offset betwe
 </p>
 
 
+<p>
+Both LTC and MTC are limited to max of 30fps. Using frame-rates larger than that will disable the generator. In both cases also only 24, 25, 29.97df and 30fps are well defined by specifications (such as SMPTE-12M, EU and the MIDI standard).
+<p>
 
 <h3>MTC Generator</h3>
 
@@ -81,6 +91,9 @@ The volume of the LTC signal can be conigured in in the <code>Preferences &gt; T
 <p>
 The LTC generator has an additional option to keep sending timecode even when the transport is stopped. This mode is intended to drive analog tape machines which unspool the tape if no LTC timecode is received.
 </p>
+
+<p>
+LTC is send regardless of Ardour's transport-speed. It is accurately generated even for very slow speeds (&lt;5%) and only limited by the soundcard's sampling-rate and filter (see <a href="http://en.wikipedia.org/wiki/Gibbs_phenomenon#Signal_processing_explanation" title="http://en.wikipedia.org/wiki/Gibbs_phenomenon">Gibbs phenomenon</a>) for high speeds.
 
 
 <h2>Ardour Slave Configuration</h2>
@@ -114,7 +127,7 @@ In both cases the first option is preferred: clock sync + same FPS setting.
 <h3>Frames-per-second</h3>
 
 <p>
-If the frames-per-second don&#039;t match, ardour can either re-calculate (map) the frames or the configured FPS (<code>session &gt; properties</code>) can be changed automatically while the Slave is active. The behavior is configured with the checkbox in <code>Edit &gt; Preferences &gt; Transport</code> labeled <code>Match session video frame rate to external timecode</code>: When enabled the session video frame rate will be changed to match that of the selected external timecode source. When disabled the session video frame rate will not be changed to match that of the selected external timecode source. Instead the frame rate indication in the main clock will flash red and Ardour will convert between the external timecode standard and the session standard.
+If the frames-per-second don&#039;t match, ardour can either re-calculate (map) the frames or the configured FPS (<code>session &gt; properties</code>) can be changed automatically while the slave is active. The behavior is configured with the checkbox in <code>Edit &gt; Preferences &gt; Transport</code> labeled <code>Match session video frame rate to external timecode</code>: When enabled the session video frame rate will be changed to match that of the selected external timecode source. When disabled the session video frame rate will not be changed to match that of the selected external timecode source. Instead the frame rate indication in the main clock will flash red and Ardour will convert between the external timecode standard and the session standard.
 </p>
 
 <p>
@@ -130,7 +143,7 @@ When enabled the external timecode source is assumed to use 29.970000 fps instea
 <h3>Clock Sync Lock</h3>
 
 <p>
-As described in the introduction, timecode and clock are independent. If the external timecode-source is not sample-sync with the audio-hardware (and jack), ardour needs to vari-speed to adjust for the discrepancy.
+As described in the <a href="http://manual.ardour.org/synchronization/on-clock-and-time/">On Clock and Time Section</a>, timecode and clock are independent. If the external timecode-source is not sample-sync with the audio-hardware (and jack), ardour needs to vari-speed to adjust for the discrepancy.
 </p>
 
 <p>
@@ -206,11 +219,7 @@ Ardour supports vari-speed and backwards playback but will only follow MTC speed
 </p>
 
 <p>
-While Ardour is chasing MTC, the main transport clock will display the received Timecode as well as the delta between the incoming signal and Ardour&#039;s transport position.
-</p>
-
-<p>
-A global offset between incoming timecode and ardour&#039;s transport can be configured in <code>Session &gt; Properties</code>.
+When Ardour is chasing MTC, the main transport clock will display the received Timecode as well as the delta between the incoming signal and Ardour&#039;s transport position.
 </p>
 
 
