@@ -51,7 +51,7 @@ The relevant settings for timecode generator can be found in the Preferences dia
 </p>
 
 <p>
-The timecode is sent to jack-ports <strong><code>ardour:MTC out</code></strong>, <strong><code>ardour:MIDI clock out</code></strong> and <strong><code>ardour:LTC-out</code></strong>. Multiple generators can be active simultaneously.
+The timecode is sent to jack-ports <code>ardour:MTC out</code>, <code>ardour:MIDI clock out</code> and <code>ardour:LTC-out</code>. Multiple generators can be active simultaneously.
 </p>
 
 <p>
@@ -114,7 +114,7 @@ In both cases the first option is preferred: clock sync + same FPS setting.
 <h3>Frames-per-second</h3>
 
 <p>
-If the frames-per-second don&#039;t match, ardour can either re-calculate (map) the frames or the configured FPS (<code>session &gt; properties</code>) can be changed automatically while the Slave is active. The behavior is configured with the checkbox in <code>Edit &gt; Preferences &gt; Transport</code> labeled <code>Match session video frame rate to external timecode</code>: <strong>When enabled</strong> the session video frame rate will be changed to match that of the selected external timecode source. <strong>When disabled</strong> the session video frame rate will not be changed to match that of the selected external timecode source. Instead the frame rate indication in the main clock will flash red and Ardour will convert between the external timecode standard and the session standard.
+If the frames-per-second don&#039;t match, ardour can either re-calculate (map) the frames or the configured FPS (<code>session &gt; properties</code>) can be changed automatically while the Slave is active. The behavior is configured with the checkbox in <code>Edit &gt; Preferences &gt; Transport</code> labeled <code>Match session video frame rate to external timecode</code>: When enabled the session video frame rate will be changed to match that of the selected external timecode source. When disabled the session video frame rate will not be changed to match that of the selected external timecode source. Instead the frame rate indication in the main clock will flash red and Ardour will convert between the external timecode standard and the session standard.
 </p>
 
 <p>
@@ -122,19 +122,19 @@ An edge case can also occur with 29.97 drop-frame timecode. While the SMPTE 12M-
 </p>
 
 <p>
-<strong>When enabled</strong> the external timecode source is assumed to use 29.970000 fps instead of 30000/1001. SMPTE 12M-1999 specifies 29.97df as 30000/1001. The <acronym title="specification">spec</acronym> further mentions that drop-frame timecode has an accumulated error of -86ms over a 24-hour period. Drop-frame timecode would compensate exactly for a NTSC color frame rate of 30 * 0.9990 (ie 29.970000). That is not the actual rate. However, some vendors use that rate - despite it being against the specs - because the variant of using exactly 29.97 fps yields zero timecode drift.
+When enabled the external timecode source is assumed to use 29.970000 fps instead of 30000/1001. SMPTE 12M-1999 specifies 29.97df as 30000/1001. The <acronym title="specification">spec</acronym> further mentions that drop-frame timecode has an accumulated error of -86ms over a 24-hour period. Drop-frame timecode would compensate exactly for a NTSC color frame rate of 30 * 0.9990 (ie 29.970000). That is not the actual rate. However, some vendors use that rate - despite it being against the specs - because the variant of using exactly 29.97 fps yields zero timecode drift.
 </p>
 
 
 
-<h3>Clock sync lock</h3>
+<h3>Clock Sync Lock</h3>
 
 <p>
 As described in the introduction, timecode and clock are independent. If the external timecode-source is not sample-sync with the audio-hardware (and jack), ardour needs to vari-speed to adjust for the discrepancy.
 </p>
 
 <p>
-The checkbox <code>External timecode is sync locked</code> allows to select the behavior according to your setup. <strong>When enabled</strong> indicates that the selected external timecode source shares sync (Black &amp; Burst, Wordclock, etc) with the audio interface.
+The checkbox <code>External timecode is sync locked</code> allows to select the behavior according to your setup. When enabled indicates that the selected external timecode source shares sync (Black &amp; Burst, Wordclock, etc) with the audio interface.
 </p>
 
 <p>
@@ -154,7 +154,7 @@ MIDI Clock is not a timecode format but tempo-based time. The absolute reference
 </p>
 
 <p>
-Note that the MIDI Clock source must be connected to <strong><code>ardour:MIDI clock in</code></strong> port.
+Note that the MIDI Clock source must be connected to <code>ardour:MIDI clock in</code> port.
 </p>
 
 
@@ -166,15 +166,15 @@ The LTC slave decodes an incoming LTC signal on a jack-audio port. It will auto-
 </p>
 
 <p>
-The incoming timecode signal needs to arrive at the <strong><code>ardour:LTC-in</code></strong> port. Port-connections are restored for each session and the preference dialog offers an option to select it for all sessions.
+The incoming timecode signal needs to arrive at the <code>ardour:LTC-in</code> port. Port-connections are restored for each session and the preference dialog offers an option to select it for all sessions.
 </p>
 
 <p>
 Ardour&#039;s transport is aligned to LTC-frame start/end positions according to the SMPTE 12M-1999 <acronym title="specification">spec</acronym> which means that the first bit of an LTC-Frame is aligned to different Lines of a Video-Frame, depending on the TV standard used. Only for Film (24fps) does the LTC-Frame directly match the video Frame boundaries.
 </p>
 
-<p><img src="/ardour/manual/html/diagrams/ltc-transport-alignment.png"  title="Figure 3: LTC frame alignment" alt="Figure 3: LTC frame alignment"/></p>
-<p>Figure 3: LTC frame alignment for the 525/60 TV standard</p>
+<p><img src="/ardour/manual/html/diagrams/ltc-transport-alignment.png"  title="LTC frame alignment" alt="LTC frame alignment"/></p>
+<p><em>Figure: LTC frame alignment for the 525/60 TV standard</em></p>
 
 
 <p>
@@ -198,7 +198,7 @@ The user-bits in the received LTC frame are ignored.
 <h3>MTC - MIDI Timecode</h3>
 
 <p>
-Ardour&#039;s MTC slave parses full timecode (sysex messages) as well as MTC quarter-frames arriving on the <strong><code>ardour:MTC in</code></strong> port. The transport will only start rolling once a complete sequence of 8 quarter frames has been received.
+Ardour&#039;s MTC slave parses full timecode (sysex messages) as well as MTC quarter-frames arriving on the <code>ardour:MTC in</code> port. The transport will only start rolling once a complete sequence of 8 quarter frames has been received.
 </p>
 
 <p>

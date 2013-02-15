@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Latency and Latency-Compensation
+menu_title: About Latency
 ---
 
 <h2>Latency</h2>
@@ -22,8 +23,8 @@ In order to achieve exact time synchronization all sources of latency need to be
 <li><strong>Computer I/O Architecture</strong>: a computer is a general purpose processor, not a digital audio processor. This means our audio data has to jump a lot of fences in his path from the outside to the CPU and back, contending in the process with some other parts of the system vying for the same resources (CPU time, bus bandwidth, etc.) Thanks to the combined efforts of kernel, audio driver and jackd developers, you are in position to tune your system a bit more towards the digital audio processing task, but don&#039;t expect miracles. Remember you can use your computer also to write documents, surf the net, save some lemmings… Polyvalence comes at a cost.</li>
 </ul>
 
-<p><img src="/ardour/manual/html/diagrams/latency-chain.png"  title="Figure 1: Latency chain" alt="Figure 1: Latency chain" /></a></p>
-<p>Figure 1: Latency chain. The numbers are an example for a typical PC. With professional gear and an optimized system the total roundtrip latency is usually lower. The important point is that latency is always additive and a sum of many independent factors.</p>
+<p><img src="/ardour/manual/html/diagrams/latency-chain.png"  title="Latency chain" alt="Latency chain" /></a></p>
+<p><em>Figure: Latency chain.</em> The numbers are an example for a typical PC. With professional gear and an optimized system the total roundtrip latency is usually lower. The important point is that latency is always additive and a sum of many independent factors.</p>
 
 <p>
 There is not much that can done about the first two other than using headphones or sitting near the loudspeaker and buying quality gear.
@@ -109,11 +110,11 @@ To achieve sample accurate timecode synchronization, the latency introduced by t
 In order to compensate for Latency, JACK or JACK applications need to know exactly how long a certain signal needs to be read-ahead or delayed:
 </p>
 
-<p><img src="/ardour/manual/html/diagrams/jack-latency-excerpt.png"  title="Figure 2: Jack Latency Compensation" alt="Figure 2: Jack Latency Compensation" /></p>
-<p>Figure 2: Jack Latency Compensation. This figure outlines the jack latency API. -- excerpt from http://jackaudio.org/files/jack-latency.png</p>
+<p><img src="/ardour/manual/html/diagrams/jack-latency-excerpt.png"  title="Jack Latency Compensation" alt="Jack Latency Compensation" /></p>
+<p><em>Figure: Jack Latency Compensation.</em>  This figure outlines the jack latency API. -- excerpt from http://jackaudio.org/files/jack-latency.png</p>
 
 <p>
-In Figure 2, clients A and B need to be able to answer the following two questions:
+In above figure, clients A and B need to be able to answer the following two questions:
 </p>
 <ul>
 <li>how long has it been since te data read from port Ai or Bi arrived at the edge of the JACK graph (capture)?</li>
@@ -121,7 +122,7 @@ In Figure 2, clients A and B need to be able to answer the following two questio
 </ul>
 
 <p>
-JACK includes an <acronym title="Application Programming Interface">API</acronym> that allows applications to determine the answers to above questions. However JACK can not know about the additional latency that is introduced by the computer architecture, operating system and soundcard. These values indicated by <code>-I</code> and <code>-O</code> in Figure 2 and vary from system to system but are generally constant values. On a general purpose computer system the only way to accurately learn about the total latency is to measure it.
+JACK includes an <acronym title="Application Programming Interface">API</acronym> that allows applications to determine the answers to above questions. However JACK can not know about the additional latency that is introduced by the computer architecture, operating system and soundcard. These values indicated by <code>-I</code> and <code>-O</code> and vary from system to system but are generally constant values. On a general purpose computer system the only way to accurately learn about the total latency is to measure it.
 </p>
 
 
