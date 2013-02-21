@@ -44,9 +44,9 @@ that some people might not care about them.</p>
 
 <h3>OS X</h3>
 <p>
-Aggregate devices also provide a method to use multiple soundcards as
+Aggregate devices provide a method to use multiple soundcards as
 a single device. For example, you can "aggregate" 2 different
-8-channel devices so that you can record 16 channels into Mixbus.
+8-channel devices so that you can record 16 channels into Ardour.
 </p>
 
 <p>
@@ -65,6 +65,11 @@ a single device. For example, you can "aggregate" 2 different
       want to start JACK using Ardour.</li>
   </ul>
   
+<p>In the case of your builtin audio device, you will need to create
+  an aggregate device that combines "Builtin Input" and "Builtin
+  Output" into one device.
+</p>
+
 <p>The precise instructions for creating an "aggregate device" on OS X have varied from one released to another.</p>
 
 <dl class="wide-label">
