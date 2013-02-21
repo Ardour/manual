@@ -1,0 +1,45 @@
+---
+layout: default
+title: On Clock and Time
+---
+
+<p>
+Synchronization in multimedia involves two concepts which are often confused: <strong>clock</strong> (or speed) and <strong>time</strong> (location in time).
+</p>
+
+<p>
+A <em>clock</em> is the mechanism by which two systems <em>tick</em> simultaneously.
+In the audio world this is generally referred to as <a href="http://en.wikipedia.org/wiki/Word_clock" title="http://en.wikipedia.org/wiki/Word_clock">Word Clock</a>.
+It does not carry any absolute reference to a point in time: A clock is used to keep a systems sample rate constant, regular and accurate.
+Word clock is usually at the frequency of the sample rate - ie at 48KHz, its period is about 20μs. Word Clock is the most common &#039;sample rate&#039; based clock but other clocks do exist such as Black and Burst, Tri-Level and DARS. Sample rates can also be derived from these clocks as well.
+</p>
+
+<p>
+Time – or <em>timecode</em> – on the other hand specifies an absolute relationship or position on a timeline e.g. <code>01:02:03:04</code> (expressed as Hours:Mins:Secs:Frames). It is actual <em>data</em> and not a clock <em>signal</em> per se.
+The granularity of timecode is <strong>Video Frames</strong> and is an order of magnitude lower than, say, Word Clock which is counted in <strong>samples</strong>. A typical frame rate is 25 fps with a period of 40ms.
+In the case of 48KHz and 25fps, there are 1920 audio samples per video frame.
+</p>
+
+<p>
+The concept of clock and timecode is reflected in JACK and Ardour:
+</p>
+
+<p>
+JACK provides clock synchronization and is not concerned with time code (this is not entirely true, more on jack-transport later).
+Within software, jackd provides sample-accurate synchronization between all JACK applications.
+On the hardware side JACK uses the clock of the audio-interface. Synchronization of multiple interfaces requires hardware support to sync the clocks.
+If two interfaces run at different clocks the only way to align the signals is via re-sampling (SRC - Sample Rate Conversion) - which decreases fidelity.
+</p>
+
+<p>
+Timecode is used to align systems already synchronized by a clock to a common point in time, this is application specific and various standards and methods exist to do this.
+</p>
+
+<p>
+NB. to make things confusing, there are possibilities to synchronize clocks using timecode. e.g. using mechanism called <em>jam-sync</em> and a Phase-Locked-Loop.
+</p>
+
+<p>
+An interesting point to note is that LTC (Linear Time Code) is a Manchester encoded, frequency modulated signal that carries both &#039;Clock&#039; and &#039;Time&#039;. It is possible to extract absolute position data and speed from it.
+</p>
+
