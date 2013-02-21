@@ -43,8 +43,20 @@ that some people might not care about them.</p>
 </p>
 
 <h3>OS X</h3>
-<p>You will need to set up what Apple refers to as an "aggregate
-  device" if any of the following conditions are true:
+<p>
+Aggregate devices also provide a method to use multiple soundcards as
+a single device. For example, you can "aggregate" 2 different
+8-channel devices so that you can record 16 channels into Mixbus.
+</p>
+
+<p>
+  If you are using a <strong>single</strong> typical 3rd party
+  audio interface (such as those from Apogee, RME, Presonus, and many
+  others), <strong>OR</strong> you are using JackPilot or a similar
+  application to start JACK, you do not need to worry about this.
+</p>
+
+<p>You will need to set up an aggregate device if either of the following conditions are true:</p>
 
   <ul>
     <li>You want to use two entirely separate
@@ -52,11 +64,6 @@ that some people might not care about them.</p>
     <li>You want to use your builtin audio device <strong>AND</strong>
       want to start JACK using Ardour.</li>
   </ul>
-
-If instead you are using a <strong>single</strong> typical 3rd party
-  audio interface (such as those from Apogee, RME, Presonus, and many
-  others), you do not need to worry about this
-</p>
   
 <p>The precise instructions for creating an "aggregate device" on OS X have varied from one released to another.</p>
 
@@ -70,11 +77,6 @@ If instead you are using a <strong>single</strong> typical 3rd party
     Please read <a href="http://support.apple.com/kb/HT3956">http://support.apple.com/kb/HT3956</a>
   </dd>
 </dl>
-<p>
-Aggregate devices also provide a method to use multiple soundcards as
-a single device. For example, you can "aggregate" 2 different
-8-channel devices so that you can record 16 channels into Mixbus.
-</p>
 
 <h3>Linux</h3>
 
