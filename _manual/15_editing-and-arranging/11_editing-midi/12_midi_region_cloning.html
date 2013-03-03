@@ -1,14 +1,15 @@
 ---
 layout: default
 title: Independent and Dependent MIDI Region Copies
+menu_title: MIDI Region Copies
 ---
 
 <p>
-When copying one or more MIDI regions, Ardour has to decide whether to
-make the copies refer to the same data as the originals or not. If
-they do refer to the same data, then editing any one of the copies
-will affect the contents of all the others. If they refer to a copy of
-the data then each copy can be edited independently.
+When copying a MIDI region, Ardour has to decide whether to make the
+copy refer to the same data as the original or not. If it does refer
+to the same data, then editing either the copy or the original will
+affect the both of them. If it refers to an independent copy of the
+data then they can both can be edited without affecting the other.
 </p>
 
 <h3>Changing dependent/independent copying for the entire session</h3>
