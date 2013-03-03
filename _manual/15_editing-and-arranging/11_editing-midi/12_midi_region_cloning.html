@@ -1,0 +1,50 @@
+---
+layout: default
+title: Independent and Dependent MIDI Region Copies
+---
+
+<p>
+When copying one or more MIDI regions, Ardour has to decide whether to
+make the copies refer to the same data as the originals or not. If
+they do refer to the same data, then editing any one of the copies
+will affect the contents of all the others. If they refer to a copy of
+the data then each copy can be edited independently.
+</p>
+
+<h3>Changing dependent/independent copying for the entire session</h3>
+
+<p>
+<code>Sesson > Properties > Misc > MIDI region copies are
+  independent</code> can be used to control the default behaviour when
+  making a copy of a MIDI region. 
+</p>
+<p>
+When enabled, every new copy of a MIDI
+region results in a copy being made of the MIDI data used by the
+region, and the new copy of the region will refer to that data. 
+</p>
+<p>
+When disabled, every new copy of a MIDI region will refer to the same
+MIDI data, and thus editing any copy will change the contents of all
+of them.
+</p>
+<p>Changing the status of this option has no effect on the existing
+  dependent/independent status of existing region copies.
+</p>
+
+<h3>Making an existing copy of a MIDI region independent</h3>
+<p>
+<key>Context-click</key> on the MIDI region you want to be
+independent. From the context menu, select <code>MIDI > Unlink From
+  Other Copies</code>. The copy is now using an independent version of
+the data, and edits to the copy will affect only the copy. Other
+copies will continue to share data.
+</p>
+
+<p>Note that the copied data only covers the extent of the region when
+  the copy is made. If the region was already trimmed and then a copy
+  is made, an independent copy will have no access to data that is
+  earlier or later than the bounds of the region it was copied
+  from. Put differently, if you make an independent copy of a trimmed
+  MIDI region, you cannot "untrim" it to a larger size.
+</p>
