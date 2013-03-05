@@ -1,0 +1,129 @@
+---
+layout: default
+title: Getting Plugins
+---
+
+<h2>Where do I get plugins from?</h2>
+
+<p>
+The following list shows plugin <em>packages</em>. In some cases, a package contains just 1 or 2 plugins; in other cases, dozens.
+</p>
+
+<h3 id="LADSPA">LADSPA</h3>
+
+<ul>
+<li>AMB <a href="http://kokkinizita.net/linuxaudio/index.html">http://kokkinizita.net/linuxaudio/index.html</a>
+</li>
+<li>Blepvco <a href="http://www.smbolton.com/linux.html">http://www.smbolton.com/linux.html</a>
+</li>
+<li>Blop <a href="http://blop.sf.net">http://blop.sf.net</a>
+</li>
+<li>CAPS <a href="http://quitte.de/dsp/caps.html">http://quitte.de/dsp/caps.html</a>
+</li>
+<li>CMT <a href="http://www.ladspa.org/cmt/">http://www.ladspa.org/cmt/</a>
+</li>
+<li>FIL <a href="http://kokkinizita.net/linuxaudio/index.html">http://kokkinizita.net/linuxaudio/index.html</a>
+</li>
+<li>FOO <a href="http://code.google.com/p/foo-plugins/">http://code.google.com/p/foo-plugins/</a>
+</li>
+<li>MCP <a href="http://kokkinizita.net/linuxaudio/index.html">http://kokkinizita.net/linuxaudio/index.html</a>
+</li>
+<li>NJL <a href="http://www.ecs.soton.ac.uk/~njl98r/code/ladspa/njl-plugins/">http://www.ecs.soton.ac.uk/~njl98r/code/ladspa/njl-plugins/</a>
+</li>
+<li>Omins <a href="http://www.nongnu.org/om-synth/omins.html">http://www.nongnu.org/om-synth/omins.html</a>
+</li>
+<li>REV <a href="http://kokkinizita.net/linuxaudio/index.html">http://kokkinizita.net/linuxaudio/index.html</a>
+</li>
+<li>SWH <a href="http://plugin.org.uk/">http://plugin.org.uk/</a>
+</li>
+<li>TAP <a href="http://tap-plugins.sourceforge.net/">http://tap-plugins.sourceforge.net/</a>
+</li>
+<li>VCF <a href="http://www.suse.de/~mana/ladspa.html">http://www.suse.de/~mana/ladspa.html</a>
+</li>
+<li>VCO <a href="http://kokkinizita.net/linuxaudio/index.html">http://kokkinizita.net/linuxaudio/index.html</a>
+</li>
+<li>VLevel <a href="http://vlevel.sourceforge.net/">http://vlevel.sourceforge.net/</a>
+</li>
+<li>Vocoder <a href="http://www.sirlab.de/linux/download_vocoder.html">http://www.sirlab.de/linux/download_vocoder.html</a>
+</li>
+<li>WASP <a href="http://linux01.gwdg.de/~nlissne/wasp/index.html">http://linux01.gwdg.de/~nlissne/wasp/index.html</span></a> (mar wanted!)
+</li>
+<li>Nova <a href="https://tim.klingt.org/nova/download/nova_filters-0.2.tar.bz2">https://tim.klingt.org/nova/download/nova_filters-0.2.tar.bz2</a>
+</li>
+<li>Calf <a href="http://calf.sourceforge.net/">http://calf.sourceforge.net/</a>
+</li>
+<li>Socal’s LEET Plugins <a href="http://code.google.com/p/leetplugins/">http://code.google.com/p/leetplugins/</a>
+</li>
+<li>Invada plugins <a href="http://www.invadarecords.com/Downloads.php?ID=00000263">http://www.invadarecords.com/Downloads.php?ID=00000263</a>
+</li>
+<li>DSSI-VST 0.7 now with LADSPA Extensions <a href="http://www.breakfastquay.com/">http://www.breakfastquay.com/</a>
+</li>
+<li>Holap synthesizer and DSP effects <a href="http://holap.berlios.de/">http://holap.berlios.de/</a>
+</li>
+</ul>
+
+<h3 id="LV2">LV2</h3>
+
+<ul>
+<li>SWH <a href="http://plugin.org.uk/lv2/">http://plugin.org.uk/lv2/</a>
+</li>
+<li>ll-plugins <a href="http://ll-plugins.nongnu.org/">http://ll-plugins.nongnu.org/</a>
+</li>
+<li>zynadd <a href="http://home.gna.org/zyn/">http://home.gna.org/zyn/</a>
+</li>
+<li>Calf <a href="http://calf.sourceforge.net/">http://calf.sourceforge.net/</a>
+</li>
+<li>LinuxDSP <a href="http://www.linuxdsp.co.uk/">http://www.linuxdsp.co.uk</a>
+</ul>
+
+<h3 id="LinuxVST">Linux VST (LXVST)</h3>
+
+<ul>
+  <li>Loomer <a href="http://loomer.co.uk/">http://loomer.co.uk/</a></li>
+  <li>Distrho <a href="http://distrho.sourceforge.net/ports.php">http://distrho.sourceforge.net/ports.php</a></li>
+  <li>Argotlunar <a href="http://argotlunar.info/">http://argotlunar.info/</a></li>
+  <li>MDA plugins (a collection ported from Windows
+    VST) <a href="http://www.linux-vst.com/download/mda_linux.tar.gz">http://www.linux-vst.com/download/mda_linux.tar.gz</a></li>
+</ul>
+
+<h3>How do I install plugins?</h3>
+
+<h4>Linux</h4>
+
+<p>
+  Installation will vary a little depending on how you get plugins.  If
+  your repository has a particular plugin package, just install it using
+  the normal software package management tool for your system.
+</p>
+<p>
+  If the package isn't available, then you can build the plugins from
+  source (plugins are generally fairly easy to compile). LADSPA Plugins
+  need to be installed in either /usr/lib/ladspa, /usr/local/lib/ladspa
+  or in a directory mentioned in your LADSPA_PATH environment
+  variable.
+</p>
+<p>
+  LV2 plugins are distributed as folders/directories. They need to
+  installed in either /usr/lib/lv2, /usr/local/lib/lv2 or a directory
+  mentioned in your LV2_PATH environment variable.
+</p>
+<p>
+  Linux VST (LXVST) plugins are distributed as shared library
+  files. They are typically installed in /usr/lib/lxvst,
+  /usr/local/lib/lxvst or a directory mentioned in your LXVST_PATH
+  environment variable. 
+</p>
+
+<h4>OS X</h4>
+<p>
+  Unless you're a particularly technical computer user, building and
+  installing plugins in the LV2 (or LADSPA) format is probably not
+  something worth planning on. Ardour releases for OS X ship with a
+  collection of many LADSPA plugins, some of which are very useful and
+  some of which are outright buggy. 
+<p>
+  Most of the plugins you are likely to use on OS X will be in Apple's
+  AudioUnit format. These have their own installation process that tends to
+  just work.
+</p>
+
