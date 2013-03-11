@@ -1,5 +1,4 @@
 #tree {
- 
   background-color: #eee;
   height: 100%;
   overflow: scroll;
@@ -11,7 +10,7 @@
 }
 
 #tree-inner {
-    padding: 15px 20px 30px 30px;  
+  padding: 15px 20px 30px 30px;  
 }
 
 #tree h1.title {
@@ -21,11 +20,11 @@
 }
 
 #tree h1.title a:hover {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 #tree a {
- font-size: 14px; 
+  font-size: 14px; 
   line-height: 28px;
 }
 
@@ -38,15 +37,15 @@
 #tree .child,
 #tree .parent *,
 #tree .child * {
-    display: inherit; 
-    color: inherit;
+  display: inherit; 
+  color: inherit;
 }
 
 #tree dd.child-1,
 #tree .child-2,
 #tree .child-3,
 #tree .child-4 {
- display: none; 
+  display: none; 
 }
 
 
