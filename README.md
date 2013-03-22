@@ -6,8 +6,6 @@ This is the project that generates the static ardour manual website available at
 
 The site is built using ruby (I use 1.9[.3]) and [Jekyll](https://github.com/mojombo/jekyll) (a ruby gem). You should be able to just install ruby and then `gem install jekyll` to get it up and running.
 
-`import.rb` (which gets the content from drupal) requires the `nokogiri` gem, but there are no other dependencies for the jekyll part (just the things required by jekyll itself).
-
 ### Get the code
 
     git clone <repo-url>
@@ -105,21 +103,6 @@ This will generate the final html and start a local webserver.
     
 It should then be available at [localhost:4000](http://localhost:4000)
     
-### Import content from drupal
-
-This will pull the content from the [ardour drupal manual](http://ardour.org/manual/ardour3) and turn it into the format used in `_manual/`. You shouldn't really need to run this.
-    
-    ruby import.rb
-    
-It's quite slow… :)
-
-
-### Upload static site to live server
-
-Once the content has been built (using jekyll) you can put it live with this (assuming your ssh key has been put on the server):
-
-    ./upload.sh
-
 ### manual.rb plugin
 
 Much of the functionality comes from `_plugins/manual.rb` - it takes the _manual format_ (contained in `_manual/`) and mushes it around a bit into a tmp directory before letting jekyll do it's normal thing. It's all hooked into the jekyll command so no special actions are required.
