@@ -3,4 +3,77 @@ layout: default
 title: Mono Panner
 ---                        
 
-<h2>Mono  Panner</h2>
+<p>
+The default mono panner distributes 1 input to 2 outputs. Its
+behaviour is controlled by one parameter, called position. The
+default setting is "center" (L=50%, R=50%).
+</p>
+
+<h2>Mono Panner User Interface</h2>
+
+<img src="/images/mono-panner-annotated.png" alt="image of the mono panner"/>
+
+<div class="well">
+<p>
+  The mono panner looks a quite similar to the
+  <a href="/mixing/panning/stereo_panner">stereo panner</a>
+  interface. The difference is that the L/R labels in the lower half
+  of the mono panner do not move because there is no "width" to
+  control
+</p>
+</div>
+
+<h2>Using the mouse</h2>
+
+<p>To change the position smoothly, press the right button and drag
+  anywhere within the panner. <em>Note: you do not need
+  to grab the position indicator in order to drag</em>
+</p>
+
+<dl class="faq">
+
+<dt>Reset to defaults</dt>
+<dd>Click <key class="mod3">right button</key></dd>
+
+<dt>Change to a "hard left"</dt>
+<dd>Double click <key>right button</key> in the left side
+  of the panner</dd>
+
+<dt>Change to a "hard right"</dt>
+<dd>Double click <key>right button</key> in the right side
+  of the panner</dd>
+
+<dt>Set the position to center</dt>
+<dd>Double Click <key>right button</key> in the middle of the panner</dd>
+</dl>
+
+<h2>Keyboard bindings</h2>
+
+<p>
+When the pointer is within a mono panner user interface, the following
+keybindings are available to operate on that panner:
+</p>
+
+<dl>
+  <dt><key>&larr;</key> / <key class="mod1">&larr;</key></dt>
+  <dd>move position 1&deg; / 5&deg; to the left</dd>
+  <dt><key>&rarr;</key> / <key class="mod1">&rarr;</key></dt>
+  <dd>move position 1&deg / 5&deg; to the right</dd>
+  <dt><key>0</key></dt>
+  <dd>reset position to center</dd>
+</dl>
+
+<h2>Using the scroll wheel/touch scroll</h2>
+
+<p>
+When the pointer is within a mono panner user interface, the scroll
+wheel may be used as follows:
+</p>
+
+<dl>
+<dt>up or left / <key class="mod1">up</key> or <key class="mod1">left</key></dt>
+<dd>move position to the left by 1&deg; / 5&deg;</dd>
+
+<dt>down or right / <key class="mod1">down</key> or <key class="mod1">right</key></dt>
+<dd>move position to the right by 1&deg; / 5&deg;</dd>
+</dl>
