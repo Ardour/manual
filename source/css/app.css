@@ -280,6 +280,10 @@
     content: "Alt-";
 }
 
+.mod3:before {
+    content: "Shift-";
+}
+
 .mod4:before {
     content: "Win-";
 }
@@ -302,6 +306,10 @@
 
 .mac .mod2:before {
     content: "Ctrl-";
+}
+
+.mac .mod3:before {
+    content: "Shift-";
 }
 
 .mac .mod4:before {
