@@ -1,0 +1,144 @@
+---
+layout: default
+title: Ubuntu Linux
+---                        
+
+<h2>Ubuntu Linux</h2>
+
+<p>
+  Ubuntu Linux is the most popular variety of Linux in use on desktop
+  and laptop systems. It has the backing of a for-profit corporation
+  (Canonical Inc.) behind it, a defined philosophy and a huge and
+  worldwide user base.As a result, it is a common platform for people
+  who want to use Ardour and other tools for music creation and
+  pro-audio work. 
+</p>
+<p>
+  Unfortunately, Ubuntu has repeatedly caused major headaches for
+  people who want to use Ardour. These problems have arisen from a
+  combination of two basic issues:
+
+  <ul>
+    <li>Badly built packages of Ardour</li>
+    <li>Poor system configuration related to JACK, which Ardour (and
+    most other pro-audio tools on Linux) uses for audio and MIDI I/O.
+    </li>
+  </ul>
+</p>
+
+<h3>Problems with Ardour Packages</h3>
+
+<p>
+  It is not possible to know whether the current package of Ardour
+  released by Ubuntu has been correctly built or not. Ubuntu has a
+  history of making packaging errors that lead to crashes, missing
+  functionality and odd behaviour that is not present in the
+  ready-to-run version of the program that you can get from ardour.org
+  (or in the packages released by other distributions)
+<p>
+  If you plan to use Ardour on Ubuntu, you are <strong>strongly
+  recommended</strong> to download the ready-to-run version from
+  ardour.org. Ardour's lead developer (and many of the most active
+  members of our user community) will not provide support for, and
+  will not investigate bugs reported for, Ubuntu's own packages of
+  Ardour.
+</p>
+<p>
+  If have already installed the Ubuntu package of Ardour and find that
+  although the program starts up and basically runs, but you are
+  running into more subtle problems (for example, with plugin GUIs or
+  with export, or with the use of certain specific plugins), then you
+  are <strong>strongly recommended</strong> to download the
+  ready-to-run version from ardour.org. 
+</p>
+
+<h3>Problems with PulseAudio and JACK Configuration</h3>
+
+<h4>Problems with the interaction between PulseAudio and JACK</h4>
+
+<p>
+  Like many distributions, Ubuntu has decide to use PulseAudio as the
+  default audio system. PulseAudio is a rich and capable system that
+  provides excellent services for typical users of Linux on the
+  desktop. However, it is not capable of the type of performance that
+  tools like Ardour require and in particular does not offer the
+  possibility of sending audio between applications that can makes the
+  Linux audio environment a very interesting one.
+</p>
+<p>
+  This would not a problem if it were not for the fact that JACK will
+  not run correctly (if at all) if it needs to use the same
+  soundcard/audio interface that PulseAudio is using. And since on
+  Ubuntu, PulseAudio is configured by default to always use the
+  (typically single) audio interface on your computer, this is a bit
+  of a problem.
+</p>
+<p>
+  The developers of JACK and PulseAudio got together in 2009 and
+  agreed upon a mechanism by which PulseAudio and JACK could cooperate
+  in their use of a single soundcard. Whether or not PulseAudio is running by
+  default, when JACK starts up it sends out a request to use the
+  soundcard. If PulseAudio is running, it will give up its use of the
+  soundcard to allow JACK to take over (and can optionally be told to
+  route its own audio through JACK). When JACK finishes, it sends out
+  another message, and PulseAudio can once again use the soundcard
+  directly.
+</p>
+<p>
+  This relatively simple system ought to be the basis for excellent
+  cooperation between PulseAudio and JACK. Unfortunately, it relies on
+  everything being correctly configured for it to work, and Ubuntu
+  have repeatedly failed to get this configuration correct.
+</p>
+
+<p>
+  The specific issues known at this time (spring 2013) are:
+  <ul>
+    <li>a bug in PulseAudio that causes it not to give up the
+      soundcard when JACK asks</li>
+    <li>bad package dependency information that causes a critical
+      package to be missing even when JACK and PulseAudio are
+      installed</li>
+    <li>a bug that causes JACK to freeze up when told to stop, 
+      causing issues with restarting</li>
+  </ul>
+
+<h5>Symptoms</h5>
+
+<p>
+  <ul>
+    <li>Cannot start JACK (though see the next section for other
+      causes of this)</li>
+    <li>JACK starts but there is no sound coming from Ardour or other
+    applications that use JACK.</li>
+  </ul>
+</p>
+
+<h5>How to fix</h5>
+
+<h2>Problems with JACK configuration<h2>
+
+<p>
+  To function as intended, JACK needs to run with access to two
+  operating system facilities called "realtime scheduling" and "memory
+  locking". This means that you, the user who starts JACK, must be
+  allowed access to these facilities. By default, Ubuntu does create a
+  user group that has this permission but ... it does not put new
+  users into this group by default. Consequently, you will not have
+  permission to run JACK in the way you should.
+</p>
+
+<h5>Symptoms</h5>
+
+<p>
+  A message like "Cannot lock down memory" in the output from JACK as
+  it starts up. This output may be "hidden" in the Messages window of
+  QJackctrl (aka JACK Control), so you should check there.
+</p>
+
+<h5>How to fix</h5>
+
+<p>
+  Run the command <code>sudo usermod -a -G
+  audio <em>YOUR-LOGIN-NAME</em></code>. Then logout and login again.
+</p>
