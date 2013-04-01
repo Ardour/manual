@@ -9,7 +9,7 @@ title: Ubuntu Linux
   Ubuntu Linux is the most popular variety of Linux in use on desktop
   and laptop systems. It has the backing of a for-profit corporation
   (Canonical Inc.) behind it, a defined philosophy and a huge and
-  worldwide user base.As a result, it is a common platform for people
+  worldwide user base. As a result, it is a common platform for people
   who want to use Ardour and other tools for music creation and
   pro-audio work. 
 </p>
@@ -63,10 +63,7 @@ title: Ubuntu Linux
 </dd>
 </dl>
 
-
-<h3>Problems with PulseAudio and JACK Configuration</h3>
-
-<h4>Problems with the interaction between PulseAudio and JACK</h4>
+<h3>Problems with the interaction between PulseAudio and JACK</h3>
 
 <dl>
 <dt>Background Info</dt>
@@ -136,29 +133,35 @@ title: Ubuntu Linux
 </dd>
 </dl>
 
-<h2>Problems with JACK configuration<h2>
+<h3>Problems with JACK configuration<h3>
 
-<p>
-  To function as intended, JACK needs to run with access to two
-  operating system facilities called "realtime scheduling" and "memory
-  locking". This means that you, the user who starts JACK, must be
-  allowed access to these facilities. By default, Ubuntu does create a
-  user group that has this permission but ... it does not put new
-  users into this group by default. Consequently, you will not have
-  permission to run JACK in the way you should.
-</p>
+<dl class="faq">
+  <dt>What is the problem?</dt>
+  <dd>
+    <p>
+      To function as intended, JACK needs to run with access to two
+      operating system facilities called "realtime scheduling" and "memory
+      locking". This means that you, the user who starts JACK, must be
+      allowed access to these facilities. By default, Ubuntu does create a
+      user group that has this permission but ... it does not put new
+      users into this group by default. Consequently, you will not have
+      permission to run JACK in the way you should.
+    </p>
+  </dd>
+  <dt>Symptoms</dt>
+  <dd>
+    <p>
+      A message like "Cannot lock down memory" in the output from JACK as
+      it starts up. This output may be "hidden" in the Messages window of
+      QJackctrl (aka JACK Control), so you should check there.
+    </p>
+  </dd>
+  <dt>How to fix</dt>
+  <dd>
+    <p>
+      Run the command <code>sudo usermod -a -G
+        audio <em>YOUR-LOGIN-NAME</em></code>. Then logout and login again.
+    </p>
+  </dd>
+</dl>
 
-<h5>Symptoms</h5>
-
-<p>
-  A message like "Cannot lock down memory" in the output from JACK as
-  it starts up. This output may be "hidden" in the Messages window of
-  QJackctrl (aka JACK Control), so you should check there.
-</p>
-
-<h5>How to fix</h5>
-
-<p>
-  Run the command <code>sudo usermod -a -G
-  audio <em>YOUR-LOGIN-NAME</em></code>. Then logout and login again.
-</p>
