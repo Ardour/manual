@@ -2,5 +2,12 @@
 layout: default
 title: Setting Up MIDI
 ---                        
+ <h2>MIDI Handling Frameworks</h2>
+<h4>CoreMIDI</h4>
+<p> CoreMIDI is the standard MIDI framework to comunicate with MIDI hardware on OSX systems. It provides drivers and libraries needed by MIDI clients. These ports do not show up in qjackctl</p>
+<h4>ALSA MIDI</h4>
+<p> ALSA MIDI is the standard MIDI framework to comunicate with MIDI hardware on Linux systems. It provides drivers and libraries needed by MIDI clients. These ports show up under the "MIDI" tab in qjackctl</p>
+<h4> JACK MIDI</h4>
+<p> JACK MIDI is a framework used to comunicate between JACK MIDI software clients. On OSX JACK MIDI provides 0 jitter and a fixed latency of 1 period MIDI routing. On Linux JACK MIDI provides zero latency, except when there is a midi loop where the latency would fixed at 1 perioud, and zero jitter MIDI routing. These ports show up under the "JACK MIDI" tab in qjackctl</p>
     
 {% children %}
