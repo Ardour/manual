@@ -148,8 +148,8 @@ title: Ubuntu Linux
       locking". This means that you, the user who starts JACK, must be
       allowed access to these facilities. By default, Ubuntu does create a
       user group that has this permission but ... it does not put new
-      users into this group by default. Consequently, you will not have
-      permission to run JACK in the way you should.
+      users into this group by default. Read more about why <a href="https://wiki.ubuntu.com/Audio/TheAudioGroup">here</a>.
+      Consequently, you will not have permission to run JACK in the way you should.
     </p>
   </dd>
   <dt>Symptoms</dt>
@@ -168,7 +168,7 @@ title: Ubuntu Linux
       Run the command <code>sudo usermod -a -G
         audio <em>YOUR-LOGIN-NAME</em></code>. Then logout and login again.
       On Ubuntu Studio the user is a member of audio group by default, but not
-      on other flavors. Read more about why <a href="https://wiki.ubuntu.com/Audio/TheAudioGroup">here</a>
+      on other official flavors.
     </p>
   </dd>
 </dl>
