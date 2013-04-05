@@ -115,8 +115,8 @@ title: Ubuntu Linux
   <ul>
     <li>a bug in PulseAudio that causes it not to give up the
       soundcard when JACK asks (<a href="https://bugs.launchpad.net/ubuntu/+source/pulseaudio/+bug/1163638">LP: #1163638</a></li>
-    <li>a bug that causes jackdbus v.1.9.8 (jackd does not suffer from this) to freeze up when told to stop, 
-      causing issues with restarting (<a href="https://bugs.launchpad.net/ubuntu/precise/+source/jackd2/+bug/956438">LP: #956438</a></li>
+    <li>a bug that causes jackdbus v.1.9.8 (jackd does not suffer from this) 
+      to freeze up when told to stop, causing issues with restarting (<a href="https://bugs.launchpad.net/ubuntu/precise/+source/jackd2/+bug/956438">LP: #956438</a></li>
   </ul>
 </dd>
 <dt>Symptoms</dt>
@@ -129,6 +129,10 @@ title: Ubuntu Linux
 </p>
 </dd>
 <dt>How to fix</dt>
+<p>
+  Install jackd2 1.9.9 to fix crash on stop bug.
+  Install pulseaudio-3.0 to fix card reservation bug.
+</p>
 <dd>
 </dd>
 </dl>
