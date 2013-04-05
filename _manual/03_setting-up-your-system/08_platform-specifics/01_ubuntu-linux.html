@@ -11,18 +11,6 @@ title: Ubuntu Linux
   who want to use Ardour and other tools for music creation and
   pro-audio work. 
 </p>
-<p>
-  Unfortunately, Ubuntu has repeatedly caused major headaches for
-  people who want to use Ardour. These problems have arisen from a
-  combination of two basic issues:
-
-  <ul>
-    <li>Badly built packages of Ardour</li>
-    <li>Poor system configuration related to JACK, which Ardour (and
-    most other pro-audio tools on Linux) uses for audio and MIDI I/O.
-    </li>
-  </ul>
-</p>
 
 <h2>High Level Recommendations for Ubuntu Users</h2>
 
@@ -37,43 +25,14 @@ title: Ubuntu Linux
   more up to date packages.
 <p>
 
-<h2>Problems with Ardour Packages</h2>
-
-<dl>
-<dt>What is the problem?</dt>
-<dd>
-<p>
-  It is not possible to know whether the current package of Ardour
-  released by Ubuntu has been correctly built or not. Ubuntu has a
-  history of making packaging errors that lead to crashes, missing
-  functionality and odd behaviour that is not present in the
+<h2>Installing Ardour</h2>
+  There may be unintended differences, and even bugs in Ubuntu native 
+  packages, as a result of a different building method. For this reason,
+  Ardour developers highly recommend you to install the official
   ready-to-run version of the program that you can get from <a
-  href="http://ardour.org/download">ardour.org</a> (or in the packages
-  released by other distributions)
-</p>
-<dt>Symptoms</dt>
-<dd>
-<p>
-  Ardour starts up and basically runs, but you encounter subtle
-  problems (for example, with plugin GUIs or with export, or with the
-  use of certain specific plugins), or are missing functionality, or
-  run into crashes.
-</p>
-</dd>
-<dt>How to Fix</dt>
-<dd>
-<p>
-  Download the ready-to-run version
-  from <a href="http://ardour.org/download">ardour.org</a>. Ardour's
-  lead developer (and many of the most active members of our user
-  community) will not provide support for, and will not investigate
-  bugs reported for, Ubuntu's own packages of Ardour. The ardour.org
-  packages install along side your distribution versions, and do not
-  interfere or interact in anyway other than sharing your own personal
-  Ardour settings and configuration choices.
-</p>
-</dd>
-</dl>
+  href="http://ardour.org/download">ardour.org</a>, as Ubuntu native
+  packages are not supported in official Ardour forums or other
+  support channels.
 
 <h2>Problems with the interaction between PulseAudio and JACK</h2>
 
