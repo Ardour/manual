@@ -112,13 +112,17 @@ title: Ubuntu Linux
 <dt>What is the problem?</dt>
 <dd>
 <p>
-  The specific issues known at this time (spring 2013) are:
+  The specific issues known at this time for all flavors of Ubuntu
+  12.04 and 12.10 are:
   <ul>
     <li>a bug in PulseAudio that causes it not to give up the
-      soundcard when JACK asks (<a href="https://bugs.launchpad.net/ubuntu/+source/pulseaudio/+bug/1163638">LP: #1163638</a></li>
+      soundcard when JACK asks (<a href="https://bugs.launchpad.net/ubuntu/+source/pulseaudio/+bug/1163638">LP: #1163638</a>
+      (fixed in Ubuntu 13.04).</li>
     <li>a bug that causes jackdbus v.1.9.8 (jackd does not suffer from this) 
       to freeze up when told to stop, causing issues with restarting (<a href="https://bugs.launchpad.net/ubuntu/precise/+source/jackd2/+bug/956438">LP: #956438</a></li>
+      (fixed in Ubuntu 13.04)
   </ul>
+</p>
 </dd>
 <dt>Symptoms</dt>
 <dd>
@@ -131,8 +135,8 @@ title: Ubuntu Linux
 </dd>
 <dt>How to fix</dt>
 <p>
-  Install jackd2 1.9.9 to fix crash on stop bug.
-  Install pulseaudio-3.0 to fix card reservation bug.
+  These bugs do not affect the upcoming 13.04 release, and earlier 
+  releases (12.04 and 12.10) are in the process of being fixed.
 </p>
 <dd>
 </dd>
