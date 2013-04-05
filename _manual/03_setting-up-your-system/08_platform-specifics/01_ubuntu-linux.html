@@ -164,6 +164,8 @@ title: Ubuntu Linux
   <dt>How to fix</dt>
   <dd>
     <p>
+      Make sure the file /etc/security/limits.d/audio.conf exists. If it is
+      named /etc/security/limits.d/audio.conf.disabled, rename it to the former.
       Run the command <code>sudo usermod -a -G
         audio <em>YOUR-LOGIN-NAME</em></code>. Then logout and login again.
     </p>
