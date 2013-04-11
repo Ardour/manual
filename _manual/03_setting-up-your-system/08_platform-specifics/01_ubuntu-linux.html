@@ -11,73 +11,29 @@ title: Ubuntu Linux
   who want to use Ardour and other tools for music creation and
   pro-audio work. 
 </p>
-<p>
-  Unfortunately, Ubuntu has repeatedly caused major headaches for
-  people who want to use Ardour. These problems have arisen from a
-  combination of two basic issues:
-
-  <ul>
-    <li>Badly built packages of Ardour</li>
-    <li>Poor system configuration related to JACK, which Ardour (and
-    most other pro-audio tools on Linux) uses for audio and MIDI I/O.
-    </li>
-  </ul>
-</p>
 
 <h2>High Level Recommendations for Ubuntu Users</h2>
 
 <p>
-  If you are really committed to using Ubuntu for pro-audio or music
-  creation work, you should .... 
+  Currently, installing pro audio applications on vanilla Ubuntu requires 
+  some configuration, in order for the user to gain realtime privilege 
+  (read below). 
+  Ubuntu Studio, which is an official flavor of Ubuntu, and thus shares 
+  the repositories with Ubuntu, has this already configured.
+  Other distributions, such as KXStudio, and Dreamstudio are largely based 
+  on Ubuntu, and like Ubuntu Studio, has these settings preconfigured, while
+  also containing customized versions of Ubuntu packages, which often are
+  more up to date.
 <p>
-<p>
-  If you not yet committed to using Ubuntu for pro-audio or music
-  creation work, you should probably consider using a different
-  distribution that has a demonstrated history of not making life for
-  users like you more complex than it needs to be. In particular you
-  might want to consider a distribution such
-  as <a href="http://www.bandshed.net/AVLinux.html">AVLinux</a>
-  or <a href="http://www.dickmacinnis.com/dreamstudio/">Dreamstudio</a>
-  that is specifically focused on media creation work.
-</p>
 
-<h2>Problems with Ardour Packages</h2>
-
-<dl>
-<dt>What is the problem?</dt>
-<dd>
-<p>
-  It is not possible to know whether the current package of Ardour
-  released by Ubuntu has been correctly built or not. Ubuntu has a
-  history of making packaging errors that lead to crashes, missing
-  functionality and odd behaviour that is not present in the
+<h2>Installing Ardour</h2>
+  There may be unintended differences, and even bugs in Ubuntu native 
+  packages, as a result of a different building method. For this reason,
+  Ardour developers highly recommend you to install the official
   ready-to-run version of the program that you can get from <a
-  href="http://ardour.org/download">ardour.org</a> (or in the packages
-  released by other distributions)
-</p>
-<dt>Symptoms</dt>
-<dd>
-<p>
-  Ardour starts up and basically runs, but you encounter subtle
-  problems (for example, with plugin GUIs or with export, or with the
-  use of certain specific plugins), or are missing functionality, or
-  run into crashes.
-</p>
-</dd>
-<dt>How to Fix</dt>
-<dd>
-<p>
-  Download the ready-to-run version
-  from <a href="http://ardour.org/download">ardour.org</a>. Ardour's
-  lead developer (and many of the most active members of our user
-  community) will not provide support for, and will not investigate
-  bugs reported for, Ubuntu's own packages of Ardour. The ardour.org
-  packages install along side your distribution versions, and do not
-  interfere or interact in anyway other than sharing your own personal
-  Ardour settings and configuration choices.
-</p>
-</dd>
-</dl>
+  href="http://ardour.org/download">ardour.org</a>, as Ubuntu native
+  packages are not supported in official Ardour forums or other
+  support channels.
 
 <h2>Problems with the interaction between PulseAudio and JACK</h2>
 
@@ -116,22 +72,14 @@ title: Ubuntu Linux
 <dt>What is the problem?</dt>
 <dd>
 <p>
-  This relatively simple system ought to be the basis for excellent
-  cooperation between PulseAudio and JACK. Unfortunately, it relies on
-  everything being correctly configured for it to work, and Ubuntu
-  have repeatedly failed to get this configuration correct.
-</p>
-<p>
-  The specific issues known at this time (spring 2013) are:
+  The specific issues known at this time for all flavors of Ubuntu
+  12.04 and 12.10 are:
   <ul>
     <li>a bug in PulseAudio that causes it not to give up the
-      soundcard when JACK asks</li>
-    <li>bad package dependency information that causes a critical
-      package to be missing even when JACK and PulseAudio are
-      installed</li>
-    <li>a bug that causes JACK to freeze up when told to stop, 
-      causing issues with restarting</li>
+      soundcard when JACK asks (<a href="https://bugs.launchpad.net/ubuntu/+source/pulseaudio/+bug/1163638">LP: #1163638</a>
+      (fixed in Ubuntu 13.04).</li>
   </ul>
+</p>
 </dd>
 <dt>Symptoms</dt>
 <dd>
@@ -139,12 +87,14 @@ title: Ubuntu Linux
   <ul>
     <li>Cannot start JACK (though see the next section for other
       causes of this)</li>
-    <li>JACK starts but there is no sound coming from Ardour or other
-    applications that use JACK.</li>
   </ul>
 </p>
 </dd>
 <dt>How to fix</dt>
+<p>
+  These bugs do not affect the upcoming 13.04 release, and earlier 
+  releases (12.04 and 12.10) are in the process of being fixed.
+</p>
 <dd>
 </dd>
 </dl>
@@ -160,8 +110,8 @@ title: Ubuntu Linux
       locking". This means that you, the user who starts JACK, must be
       allowed access to these facilities. By default, Ubuntu does create a
       user group that has this permission but ... it does not put new
-      users into this group by default. Consequently, you will not have
-      permission to run JACK in the way you should.
+      users into this group by default. Read more about why <a href="https://wiki.ubuntu.com/Audio/TheAudioGroup">here</a>.
+      Consequently, you will not have permission to run JACK in the way you should.
     </p>
   </dd>
   <dt>Symptoms</dt>
@@ -175,8 +125,12 @@ title: Ubuntu Linux
   <dt>How to fix</dt>
   <dd>
     <p>
+      Make sure the file /etc/security/limits.d/audio.conf exists. If it is
+      named /etc/security/limits.d/audio.conf.disabled, rename it to the former.
       Run the command <code>sudo usermod -a -G
         audio <em>YOUR-LOGIN-NAME</em></code>. Then logout and login again.
+      On Ubuntu Studio the user is a member of audio group by default, but not
+      on other official flavors.
     </p>
   </dd>
 </dl>
