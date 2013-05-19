@@ -53,6 +53,8 @@ MIDI bindings are stored in files with the suffix ".map" attached to their name.
 </pre>
 <p>So, to start, create a file with that as the initial contents.
 </p>
+<p>Ardour loads midi maps from its binary-bundle folder in <code>Ardour-&lt;version&gt;/midi_maps/</code> and checks various other locations as well (defined by ARDOUR_MIDIMAPS_PATH environment variable). On GNU/Linux the easiest is to save the file to <code>~/.config/ardour3/midi_maps/</code>.
+</p>
 <h2>Finding out what your MIDI control surface sends</h2>
 <p>
 This is the most complex part of the job, but its still not very hard. You need to connect the control surface to an application that will show you the information that the device sends each time you modify a knob, slider, button etc. There are a variety of such applications (notably <code>gmidimon</code> and <code>kmidimon</code>, but you can actually use Ardour for this if you want. Start Ardour in a terminal window, connect MIDI ports up, and in the Preferences window, enable "Trace Input" on the relevant MIDI port. A full trace of the MIDI data received will show up in the terminal window. (Note: in Ardour3, you get a dedicated, custom dialog for this kind of tracing)
