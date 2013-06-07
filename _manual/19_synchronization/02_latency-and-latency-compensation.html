@@ -7,9 +7,9 @@ menu_title: About Latency
 <h2>Latency</h2>
 
 <p>
-When speaking about synchronization, there is no way around also mentioning Latency:
-<a href="http://en.wikipedia.org/wiki/Latency_%28audio%29" title="http://en.wikipedia.org/wiki/Latency_%28audio%29">Latency</a> is how you call the reaction time of a system to a certain stimulus. There are many factors that contribute to the total latency of a given system.
-In order to achieve exact time synchronization all sources of latency need to be take into account and compensated for.
+When speaking about synchronization, it is also necessary to speak of latency.
+<a href="http://en.wikipedia.org/wiki/Latency_%28audio%29" title="http://en.wikipedia.org/wiki/Latency_%28audio%29">Latency</a> is a system's reaction time to a given stimulus. There are many factors that contribute to the total latency of a system.
+In order to achieve exact time synchronization all sources of latency need to be taken into account and compensated for.
 </p>
 <ul>
 <li><strong>Sound propagation through the air</strong>: since it is a mechanical perturbation in a fluid, sound travels at comparatively slow <a href="http://en.wikipedia.org/wiki/Speed_of_sound" title="http://en.wikipedia.org/wiki/Speed_of_sound">speed</a> of about 340 m/s. Some interesting consequences:
@@ -20,7 +20,7 @@ In order to achieve exact time synchronization all sources of latency need to be
 </li>
 <li><strong>Digital-to-Analog and Analog-to-Digital conversion</strong>: electric signals travel quite fast, so their propagation time is negligible in this context, but the conversions between the analog and digital domain take a comparatively long time to perform, so their contribution to the total latency may be considerable. Fast converters are, for instance, one of the factors that distinguishes a quality audio interface from a cheap one, along with other features like low noise, low distortion, etc.</li>
 <li><strong>Digital Signal Processing</strong>: digital processors tend to process audio in chunks, and the size of that chunk depends on the needs of the algorithm and performance/cost considerations. This is usually the main cause of latency when you use a computer and one you can try to predict and optimize.</li>
-<li><strong>Computer I/O Architecture</strong>: a computer is a general purpose processor, not a digital audio processor. This means our audio data has to jump a lot of fences in its path from the outside to the CPU and back, contending in the process with some other parts of the system vying for the same resources (CPU time, bus bandwidth, etc.) Thanks to the combined efforts of kernel, audio driver and jackd developers, you are in position to tune your system a bit more towards the digital audio processing task, but don&#039;t expect miracles. Remember you can use your computer also to write documents, surf the net, save some lemmings… Polyvalence comes at a cost.</li>
+<li><strong>Computer I/O Architecture</strong>: a computer is a general purpose processor, not a digital audio processor. This means our audio data has to jump a lot of fences in its path from the outside to the CPU and back, contending in the process with some other parts of the system vying for the same resources (CPU time, bus bandwidth, etc.) Thanks to the combined efforts of kernel, audio driver and jackd developers, you are in position to tune your system a bit more towards the digital audio processing task, but don&#039;t expect miracles. Remember you also use your computer to write documents, surf the net, save lemmings… Polyvalence comes at a cost.</li>
 </ul>
 
 <p><img src="/ardour/manual/html/diagrams/latency-chain.png"  title="Latency chain" alt="Latency chain" /></p>
@@ -57,10 +57,10 @@ Low-latency is <strong>not</strong> always a feature you want to have. It comes 
 </p>
 
 <p>
-Yet there are only few situations where a low-latency is really important, because they require very quick response from the computer. Some examples that come quickly to mind are:
+Yet there are a few situations where a low-latency is really important, because they require very quick response from the computer.
 </p>
 <ul>
-<li><strong>Playing virtual instruments</strong>: a large delay between the pressing of the keys and the sound the instrument produces will throw-off the timing of most instrumentalists (save if they are church organists, whom we believe are awesome latency-compensation organic systems.)</li>
+<li><strong>Playing virtual instruments</strong>: a large delay between the pressing of the keys and the sound the instrument produces will throw-off the timing of most instrumentalists (save church organists, whom we believe are awesome latency-compensation organic systems.)</li>
 <li><strong>Software audio monitoring</strong>: if a singer is hearing her own voice through two different paths, her head bones and headphones, large latencies can be disturbing.</li>
 <li><strong>Live-effects</strong>: This case is similar to playing virtual instruments: instead of virtual-instruments/sythensizers it is about real-instruments and and effects processing. Low latency is important when using the computer as effect-rack (e.g. guitar effects) - also precise synchronization may be important if you manually trigger sound effects like delays.</li>
 <li><strong>Live-mixing</strong>: Some sound engineers use a computer for mixing live performances. Basically that is a combination of the above: monitoring on stage, effect-processing and EQ. It is actually more tricky since one not only wants low latency (audio should not lag too much behind the performance) but exact low-latency (minimal jitter) for delay-lines between speaker in front and back.</li>
@@ -84,7 +84,7 @@ And <em>write-behind</em>; since we know that play-back has latency, the incomin
 </p>
 
 <p>
-As you may see, the second approach is prone to various implementation issues regarding timecode and transport synchronization. Ardour uses read-ahead to compensate for latency. The time displayed in the Ardour clock corresponds to the audio-signal that you hear on the speakers (and is not where ardour reads files from disk).
+As you may see, the second approach is prone to various implementation issues regarding timecode and transport synchronization. Ardour uses read-ahead to compensate for latency. The time displayed in the Ardour clock corresponds to the audio-signal that you hear on the speakers (and is not where Ardour reads files from disk).
 </p>
 
 <p>
@@ -106,11 +106,11 @@ In order to compensate for Latency, JACK or JACK applications need to know exact
 <p><em>Figure: Jack Latency Compensation.</em>  This figure outlines the jack latency API. -- excerpt from http://jackaudio.org/files/jack-latency.png</p>
 
 <p>
-In above figure, clients A and B need to be able to answer the following two questions:
+In the figure above, clients A and B need to be able to answer the following two questions:
 </p>
 <ul>
-<li>how long has it been since te data read from port Ai or Bi arrived at the edge of the JACK graph (capture)?</li>
-<li>how long will it be until teh data writen to port Ao or Bo arrives at the edge of the JACK graph (playback)?</li>
+<li>how long has it been since the data read from port Ai or Bi arrived at the edge of the JACK graph (capture)?</li>
+<li>how long will it be until the data writen to port Ao or Bo arrives at the edge of the JACK graph (playback)?</li>
 </ul>
 
 <p>
