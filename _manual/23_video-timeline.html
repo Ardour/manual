@@ -1,0 +1,54 @@
+---
+layout: default
+title: Video Timeline and Monitoring
+---                        
+
+<h2>Introduction</h2>
+<p>
+The integration of a video timeline and video monitoring into Ardour 3.x allows for convenient audio mixing and editing to video ie soundtracks, music videos, TV post production etc.
+</p>
+  
+
+<p>
+Ardour 3.x sessions provide facilities to:
+</p>
+<ul>
+<li>Import a single video and optionally extract the soundtrack from it.
+</li>
+<li>Provide a Video-monitor window, or full-screen display, of the imported video in sync with any of the available ardour timecode sources.
+</li>
+<li>Display a frame-by-frame (thumbnail) timeline of the video.
+</li>
+<li>time-offset the video
+</li>
+<li><em>Lock</em> audio-regions to the video: Move audio-regions with the video at video-frame granularity.
+</li>
+<li>Export the video, cut start/end, add blank frames and/or mux it with the soundtrack of the current-session.
+</li>
+</ul>
+
+<p>
+Furthermore setup is modular and can be configured in different ways, including:
+</p>
+<ul>
+<li>One machine: all video decoding, video monitoring and Ardour audio
+</li>
+<li>Two machines: separate video-monitor and Ardour
+</li>
+<li>Three machines: separate video-server (for timeline decoding and file-archive), dedicated video-monitor and Ardour
+</li>
+</ul>
+
+<p>
+Ardour does <strong>not</strong> :
+</p>
+<ul>
+<li>allow for more than one video to be loaded at a time.
+</li>
+<li>provide video editing capabilities
+</li>
+</ul>
+
+<h2>Subtopics</h2>
+
+{% children %}

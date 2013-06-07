@@ -1,0 +1,37 @@
+---
+layout: default
+title: Transcoding, Formats &amp; Codecs
+---
+
+<p>
+A short primer on video-files, formats and codecs – because it is often cause for confusion:
+</p>
+
+<p>
+A video file is a <em>container</em>. It usually contains one video-track and one or more audio-tracks.
+</p>
+
+<p>
+How these tracks are stored in the file is defined by the <strong>file-format</strong>. Common formats are avi, mov, ogg, mkv, mpeg, mpeg-ts, mp4, flv, vob
+</p>
+
+<p>
+Each of the tracks by itself in <em>encoded</em> - using a Codec. Common Video-Codecs are h264, mpeg2, mpeg4, theora, mjpeg, wmv3. Audio-Codecs: mp2, mp3, dts, aac, wav/pcm.
+</p>
+
+<p>
+Not all codecs can be packed into a given format. For example the &#039;mpeg&#039; format is limited to mpeg2, mpeg4 and mp3 codecs (not entirely true) and generally naming conventions uses for format and codecs are cause for a lot of confusion. DVDs do have stringent limitations…
+</p>
+
+<p>
+The export dialog includes presets for common format &amp; codec combinations (such as DVD, web-video,..). If in doubt use one of the presets.
+</p>
+
+<p>
+All in all it is a very wide and deep field. Suffice there are different uses for different codecs.
+When importing a video into ardour, it will be <em>transcoded</em> (transcoding: change from one format and codec to another) to avi/mjpeg for internal use (this allows reliable seeking to frames at low CPU cost - the file-size will increase, but hard-disks are large and fast).
+</p>
+
+<p>
+As last note: Every time a video is transcoded the quality gets worse. Hence for the final mastering/muxing process always to back to the original source of the video.
+</p>

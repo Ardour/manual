@@ -1,0 +1,85 @@
+---
+layout: default
+title: Video Timeline Setup
+---
+
+<p>
+Ardour 3.x requires no configuration if you intend to run everything on a single machine, and if you acquired Ardour 3.x from <a href="http://www.ardour.org" title="http://www.ardour.org"  rel="nofollow">http://www.ardour.org</a>, everything is pre-configured and included with the download/install.
+</p>
+
+
+<h2>Single Machine</h2>
+
+<p>
+If you compile Ardour 3.x from source, or have installed it from a 3rd party, additional tools will need to be installed.
+</p>
+
+<p>
+There are three separate standalone tools involved which are used by Ardour 3.x to provide video facilities.
+</p>
+<ul>
+<li>xjadeo – the video monitor window<a href="http://xjadeo.sf.net" title="http://xjadeo.sf.net"  rel="nofollow">http://xjadeo.sf.net</a>
+</li>
+<li>harvid – a video decoder used for the thumbnail timeline <a href="http://x42.github.com/harvid/" title="http://x42.github.com/harvid/"  rel="nofollow">http://x42.github.com/harvid/</a>
+</li>
+<li>ffmpeg, ffprobe – used to import/export video, extract soundtracks and query video information <a href="http://ffmpeg.org" title="http://ffmpeg.org"  rel="nofollow">http://ffmpeg.org</a>
+</li>
+</ul>
+
+<p>
+Ardour 3.x requires xjadeo &gt;= version 0.6.4, harvid &gt;= version 0.7.0 and ffmpeg == 1.2.
+</p>
+
+<p>
+The ardour-dev team is <em>in control</em> of the first two applications. ffmpeg can be a bit of a problem.
+To avoid conflicts with distribution packages, ardour looks for <code>ffmpeg_harvid</code> and <code>ffprobe_harvid</code>.
+</p>
+
+<p>
+All four applications need to be found in <code>$PATH</code> (e.g. <code>$HOME/bin</code> or <code>/usr/local/bin</code>). For convenience the binary releases of harvid include ffmpeg_harvid and ffprobe_harvid, but if your distribution provides suitable ffmpeg commands you can also just create a symbolic link from ffmpeg → ffmpeg_harvid and ffprobe → ffprobe_harvid.
+</p>
+
+<p>
+Binary releases are available from ardour.org as well as an installer script: <a href="https://github.com/Ardour/ardour/blob/master/tools/videotimeline/install_video_tools.sh" title="https://github.com/Ardour/ardour/blob/master/tools/videotimeline/install_video_tools.sh"  rel="nofollow">install_video_tools.sh</a>.
+</p>
+
+<p>
+You can run it directly as:
+</p>
+<pre class="code">sh -c &quot;$(curl -s -L http://git.io/tVUCkw)&quot;</pre>
+
+
+<h2>Studio Setup</h2>
+
+<p>
+Please read the info in the previous section to familiarize yourself with the tools involved.
+Setting up a proper A/V post-production studio can be a complicated task. As much as we streamline and simply the <em>single machine</em> setup, the studio-setup is focused on modularity.
+</p>
+
+<p>
+<em>TODO</em>
+</p>
+<ul>
+<li>Synchronization ardour → video-display-box should be accomplished by external means jack-transport(netjack), MTC, LTC (<acronym title="Open Sound Control - &quot;postmodern MIDI&quot;">OSC</acronym> and/or ssh-pipe work but introduce additional latency + jitter)
+</li>
+</ul>
+<ul>
+<li>Ardour launches <code>XJREMOTE</code> (environment variable, default &#039;xjremote&#039; which comes with xjadeo also on OSX).
+</li>
+</ul>
+<ul>
+<li>Either use a custom shell script that ssh&#039;es into the remote box and launches/controls xjadeo there, selects the sync-source and passes though communication between ardour ⇔ xjadeo via ssh (xjadeo is launched stopped with the session).
+</li>
+</ul>
+<ul>
+<li>..or override xjremote&#039;s behavior – instead of  IPC with a local running xjadeo-process, using <acronym title="Open Sound Control - &quot;postmodern MIDI&quot;">OSC</acronym> for example. xjadeo would run permanently and ardour will just tell it to load files and set offsets via <acronym title="Open Sound Control - &quot;postmodern MIDI&quot;">OSC</acronym>. see <a href="http://xjadeo.git.sourceforge.net/git/gitweb.cgi?p=xjadeo/xjadeo;a=blob_plain;f=contrib/xjremote-osc" title="http://xjadeo.git.sourceforge.net/git/gitweb.cgi?p=xjadeo/xjadeo;a=blob_plain;f=contrib/xjremote-osc"  rel="nofollow">xjremote-osc</a> example script.
+</li>
+</ul>
+<ul>
+<li>If the video server runs remotely, Ardour needs to be configured in Ardour &gt; Preference &gt; Video (hostname of the video-server).
+</li>
+</ul>
+
+<p>
+Ideally the machines have a common shared folder (NFS or similar).  Ardour&#039;s import (audio-extract) and export (mux) functionality depends on having access to the video file.  Also ardour video-import transcodes the file into a suitable proxy-format that allows reliable seeking to any frame…
+</p>
