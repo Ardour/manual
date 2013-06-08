@@ -4,18 +4,17 @@ title: Video Timeline Setup
 ---
 
 <p>
-Ardour 3.x requires no configuration if you intend to run everything on a single machine, and if you acquired Ardour 3.x from <a href="http://www.ardour.org" title="http://www.ardour.org"  rel="nofollow">http://www.ardour.org</a>, everything is pre-configured and included with the download/install.
+No configuration is required if you intend to run everything on a single machine, and if you acquired Ardour from <a href="http://www.ardour.org" title="http://www.ardour.org">http://www.ardour.org</a>, everything is pre-configured and included with the download/install.
 </p>
-
 
 <h2>Single Machine</h2>
 
 <p>
-If you compile Ardour 3.x from source, or have installed it from a 3rd party, additional tools will need to be installed.
+If you compile Ardour from source, or have installed it from a 3rd party repository, additional tools will need to be installed manually.
 </p>
 
 <p>
-There are three separate standalone tools involved which are used by Ardour 3.x to provide video facilities.
+There are three separate standalone tools which are used by Ardour to provide video features.
 </p>
 <ul>
 <li>xjadeo – the video monitor window<a href="http://xjadeo.sf.net" title="http://xjadeo.sf.net"  rel="nofollow">http://xjadeo.sf.net</a>
@@ -27,7 +26,7 @@ There are three separate standalone tools involved which are used by Ardour 3.x 
 </ul>
 
 <p>
-Ardour 3.x requires xjadeo &gt;= version 0.6.4, harvid &gt;= version 0.7.0 and ffmpeg == 1.2.
+Ardour requires xjadeo &gt;= version 0.6.4, harvid &gt;= version 0.7.0 and ffmpeg == 1.2.
 </p>
 
 <p>
@@ -44,7 +43,7 @@ Binary releases are available from ardour.org as well as an installer script: <a
 </p>
 
 <p>
-You can run it directly as:
+The easiest way to install the video-utilities is by running the following line in a terminal:
 </p>
 <pre class="code">sh -c &quot;$(curl -s -L http://git.io/tVUCkw)&quot;</pre>
 
@@ -52,19 +51,20 @@ You can run it directly as:
 <h2>Studio Setup</h2>
 
 <p>
-Please read the info in the previous section to familiarize yourself with the tools involved.
+Please read the info in the previous section to familiarize yourself with the tools involved first.
 Setting up a proper A/V post-production studio can be a complicated task. As much as we streamline and simply the <em>single machine</em> setup, the studio-setup is focused on modularity.
 </p>
 
 <p>
 <em>TODO</em>
+A
 </p>
 <ul>
 <li>Synchronization ardour → video-display-box should be accomplished by external means jack-transport(netjack), MTC, LTC (<acronym title="Open Sound Control - &quot;postmodern MIDI&quot;">OSC</acronym> and/or ssh-pipe work but introduce additional latency + jitter)
 </li>
 </ul>
 <ul>
-<li>Ardour launches <code>XJREMOTE</code> (environment variable, default &#039;xjremote&#039; which comes with xjadeo also on OSX).
+<li>Ardour launches <code>XJREMOTE</code> (environment variable, default &#039;xjremote&#039; which comes with xjadeo).
 </li>
 </ul>
 <ul>
