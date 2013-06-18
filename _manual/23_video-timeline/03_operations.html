@@ -84,14 +84,10 @@ Well now,..
 </p>
 
 
-<h2>Exporting Video</h2>
+<h2><a id="export" name="export"></a>Exporting Videoi</h2>
 
 <p>
 The video-export will take audio from the current Ardour session and multiplex it with a video-file.
-</p>
-
-<p>
-By default the video file that is displayed on the timeline is used as video-source. This may not be the best option but is usually sufficient for dailies and demo snapshots. For high quality exports the original file (before it was imported in the timeline) should be used. Any existing audio tracks on the video-file are stripped.
 </p>
 
 <p>
@@ -99,7 +95,11 @@ The soundtrack of the video is taken from an audio-export of Ardour's master bus
 </p>
 
 <p>
-The range selection allows to cut or extend the video. If the session is longer than the video duration, black frames are prefixed or appended to the video. If Ardour&#039;s session range is shorter the video will be cut accordingly.
+The video file can be chosen freely, For high quality exports, the original file (before it was imported in the timeline) should be used. This is also the default if the file can be found, if not ardour will suggest to use the imported proxy-video which is currently in use on the timeline.  Any existing audio tracks on the video-file are stripped.
+</p>
+
+<p>
+The range selection allows to cut or extend the video. If the session is longer than the video duration, black frames are prefixed or appended to the video (Note: this process may fail with non-standard pixel-aspect-ratios). If Ardour&#039;s session range is shorter the video will be cut accordingly.
 </p>
 
 <p>
@@ -107,6 +107,14 @@ Audio-samplerate and normalize-audio are options for Ardour's audio exporter. Th
 </p>
 
 <p>
+The file-format is determined by the file-extension that you choose for the output file (.avi, .mov, .flv, .ogv, .webm,...)
+Note: not all combinations of format+codec+settings produce files which are according so spec. e.g. flv files require sample-rates of 22.1kHz or 44.1kHz, mpeg containers can not be used with ac3 audio-codec, etc. If in doubt, use one of the built-in presets
+</p>
+
+<p>
 <img src="/files/a3/a3_video_export.png" alt="Video Export Dialog" width="300" />
 </p>
 
+<p>
+Ardour video export is not recommended for mastering!\nWhile 'ffmpeg' (which is used by ardour) can produce high-quality files, this export lacks the possibility to tweak many settings. We recommend to use 'winff', 'devede' or 'dvdauthor' to mux &amp; master. Nevertheless this video-export comes in handy to do quick snapshots, intermediates, dailies or online videos.
+</p>
