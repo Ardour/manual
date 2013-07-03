@@ -6,7 +6,7 @@ title: Track Types
 
   
   <h2>Data Type</h2>
-<p>An Ardour track can be either ‘audio’ or ‘MIDI’. The only real difference between the two is the type of data that the track will record and play back. Either type of track can pass either type of data. Hence, for example, one might have a MIDI track that contains an instrument plugin; such a track would record and playback MIDI data from disk but would produce audio, since the instrument would turn the one into the other. </p>
+<p>An Ardour track can be either ‘audio’ or ‘MIDI’. The only real difference between the two is the type of data that the track will record and play back. Either type of track can pass either type of data. Hence, for example, one might have a MIDI track that contains an instrument plugin; such a track would record and play back MIDI data from disk but would produce audio, since the instrument plugin would turn MIDI data into audio data.</p>
 <p>Nevertheless, when adding tracks to a session, you typically have an idea of what you need to use the new tracks for, and Ardour offers you three choices:</p>
 <dl class="narrower-table">
 <dt>Audio Tracks</dt>
@@ -16,6 +16,7 @@ title: Track Types
 <dt>Audio/MIDI Tracks</dt>
 <dd>There are a few notable plugins that can usefully accept both audio and MIDI data (Reaktor is one, and various "auto-tune" like plugins are another example.  It can be tricky to configure this type of track manually, so Ardour allows you to select this track type specifically for use when working with such plugins. It is <strong>not</strong> generally the right choice when working normal MIDI tracks, and a dialog will warn you of this.</dd>
 </dl>
+
 <h2>Track Modes</h2>
 <p>Audio tracks in Ardour can have a "mode" which affects how they behave when recording. </p>
 <dl class="narrower-table">
@@ -30,8 +31,8 @@ title: Track Types
 </dl>
 <p>Below is a screenshot that shows the subtly different results of an overdub in normal and non-layered mode. Both tracks were created using identical audio data. The upper track is in normal mode, and the overdub (the middle shorter region) has created a new region which if you look carefully has been layered on top of the the existing (longer) region. The lower track is in non-layered mode, and rather than overlay the overdub region, it split the existing region and inserted the new one in between. </p>
 <p><img src="/files/a3/a3_nonlayered_example.png" alt="normal and non-layered overdubbing comparision"></p>
-<p><a name="#channelconfiguration"><br><h2>Channel Configuration</h2>
-<p></p></a></p>
+
+<h2 id="channelconfiguration">Channel Configuration</h2>
 <p>Ardour tracks can have any number of inputs and any number of outputs, and the number of either can be changed at any time (subject to restrictions caused by any plugins in a track). However it is useful to not have to configure this sort of thing for the most common cases, and so the <a href="/working-with-tracks/adding-tracks">Add Tracks</a> dialog allows you to select "Mono", "Stereo" and few other typical configurations.</p>
 <h3>What does Mono or Stereo actually mean?</h3>
 <p>Given that tracks have a certain number of inputs and a certain number of outputs and that these numbers may not necessarily be the same, it is not immediately clear what terms like "Mono" or "Stereo" mean. Most people will know that they refer to "1 channel" and "2 channels" in some way, but this leaves room for interpretation. 1 input channel? 2 output channels? </p>
