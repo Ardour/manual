@@ -21,10 +21,12 @@ title: Working With Regions
 <li>    a layer</li>
 </ul>
 <p>There are other attributes as well, but they do not define the region. Things you should know about regions:</p>
-<h3>Regions are Cheap</h3>
+
+<h3>Regions Are Cheap</h3>
 <p>By themselves, regions consume very little of your computer's resources. Each region requires a small amount of memory, and represents a rather small amount of CPU work if placed into an active track. So, don't worry about creating regions whenever you need to.</p>
-<h3>Regions are not files</h3>
-<p>Although a region can represent an entire audio file, they are never equivalent to an audio file. Most regions represent just parts of an audio file(s) on disk, and removing a region from a track has nothing to do with removing the audio file(s) from the disk (the Destroy operation, one of Ardour's few destructive operations, can affect this). Changing the length of a region has no effect on the audio file(s) on disk. Splitting and copying regions does not alter the audio file in anyway, nor does it create new audio files (only recording, and the Export , Bounce and Reverse operations create new audio files).</p>
+
+<h3>Regions Are Not Files</h3>
+<p>Although a region can represent an entire audio file, they are never equivalent to an audio file. Most regions represent just parts of an audio file(s) on disk, and removing a region from a track has nothing to do with removing the audio file(s) from the disk (the Destroy operation, one of Ardour's few destructive operations, can affect this). Changing the length of a region has no effect on the audio file(s) on disk. Splitting and copying regions does not alter the audio file in anyway, nor does it create new audio files (only recording, and the Export, Bounce and Reverse operations create new audio files).</p>
 <p>This chapter covers the following:</p>
   
 

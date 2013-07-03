@@ -1,19 +1,23 @@
 ---
 layout: default
-title: The New Session Dialog
+title: New Session Dialog
 ---                        
 
 
   
   
-<h3>New Session Tab</h3>
-<p>In this tab you can type in the name of a session to create in the Name: field.  You can also select a folder for this session to be created in, and if desired a template to create the new session as a copy of.</p>
+<h3>New Session Page</h3>
+<p>In this tab you can type in the name of a session, select a folder to save in, and optionally use an existing <a href="/working-with-sessions/session-templates/">template</a>.</p>
+
+<h4>Advanced Options</h4>
 <p>Under the Advanced Options, you can select specific behaviors that occur by default.  This includes settings whether you wish to create a Master Bus, or a Control Bus, and how many channels you wish either to have.</p>
 <p>  You can also select whether you want Ardour to automatically connect all inputs to the physical ports of your hardware.  If you select this Ardour will do so sequentially, to give an example, the first input of a track or bus will be connected to the first input of your hardware.  The second input of a track or bus will be automatically connected to the second input of your hardware, and so on.  When Ardour reaches the limits of your hardware, it will circle around and begin connecting with the first physical input of your hardware again.  You can limit the number of channels on your physical hardware Ardour uses if you desire, and if that is the case, Ardour will only connect that many physical inputs to your tracks.  Useful if you only want to connect the first input to do some voice over recording for instance.</p>
 <p>  Just like you can tell Ardour not to automatically connect track inputs, you can also modify how it automatically connects the outputs of the track or bus.  By default Ardour will connect all tracks and busses to the Master Bus if there is one.  However you can also tell it to automatically connect each output to the physical outputs of your interface or sound card, and like inputs can also limit the amount of physical outputs used, so for instance if you only have stereo monitors attached to the first two outputs of your sound card, you would not want Ardour to automatically connect to the next 6 that may be there with nothing attached to them.</p>
-<h3>Open Session Tab</h3>
-<p>The Open Session Tab will allow you to open an already existing session.  You can also open any snapshot of a particular session by clicking on the arrow next to the session name to display all snapshots, and then selecting a snapshot.  If a session is not displayed by default in the dialog you can click on the button next to "Browse" in order to bring up a file selection dialog to navigate your hard drive to find the file.</p>
-<h3>Audio Setup Tab</h3>
+
+<h3>Open Session Page</h3>
+<p>The Open Session Tab lets you to open an existing session.  You can also open any <a href="/working-with-sessions/snapshots/">snapshot</a> of a particular session by clicking on the arrow next to the session name to display all snapshots, and then selecting a snapshot.  If a session is not displayed by default in the dialog you can click on the button next to "Browse" in order to bring up a file selection dialog to navigate your hard drive to find the file.</p>
+
+<h3>Audio Setup Page</h3>
 <p>More details on this dialog/tab can be found below. Note that this tab is not visible if JACK is already running when the New Session dialog is displayed.</p>
   
 

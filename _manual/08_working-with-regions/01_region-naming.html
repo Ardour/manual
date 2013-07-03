@@ -10,7 +10,7 @@ title: Region Naming
 <ul>
 <li>    the name of the playlist for which they were recorded
 </li>
-<li>    the name of the track for wich they were recorded
+<li>    the name of the track for which they were recorded
 </li>
 <li>    the name of the embedded/imported file they represent
 </li>
@@ -23,7 +23,7 @@ title: Region Naming
 <h3>Normal Region Names</h3>
 <p>When a region is inserted into a track/playlist, its initial name will end in a version number, such as ".1" or ".103". For a recorded region, if the whole file region was "Hang drum-1", then the region in the track will appear with the name "Hang drum-1.1". For an imported/embedded region, if the whole file region was "Bach:Invention3", then the region in the track will appear with the name "Bach:Invention3.1".</p>
 <h3>Copied Region Names</h3>
-<p>If the region is a copy of another region, it will begin life with the same name as the original. When an operation is carried out that modifies one of the copies, that particular copy will be renamed by incrementing the version number.</p>
+<p>If you copy a region, it initially shares the same name as the original. When you perform an operation modifies one of the copies, Ardour will increment the version number on the particular copy that changed.</p>
 <h3>Renaming Regions</h3>
-<p>You can rename a region at any time. Use the region context menu to popup the rename dialog. The new name does not need to have a version number in it (in fact, it probably should not). The region will retain its name until it is modified after being copied.</p>
+<p>You can rename a region at any time. Use the region context menu to popup the Rename dialog. The new name does not need to have a version number in it (in fact, it probably should not). Ardour will add a version number in the future if needed (e.g. if you copy or split the region).</p>
   
