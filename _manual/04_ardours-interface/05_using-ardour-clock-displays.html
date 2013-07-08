@@ -13,7 +13,7 @@ Clocks in Ardour are the basic way of displaying time values precisely. In many 
 In the transport bar of the editor window there are two (or, if you are on a very small screen, just one) clocks that display both the current position of the playhead, and additional information related to transport control and the timeline. These are called the "transport clocks"; the leftmost one is the primary transport clock and the rightmost one is the secondary transport clock. They look like this:
 </p>
 <p>
-<img src="/files/manual/a3/images/new_main_clocks.png" alt="an image of the transport clocks in ardour 3"></p>
+<img src="/files/manual/a3/images/new_main_clocks.png" alt="An image of the transport clocks in Ardour 3"></p>
 <p>
 Editing the time in the transport clocks will reposition the playhead in the same way that various other editing operations will.
 </p>
@@ -36,7 +36,7 @@ Having two transport clocks lets you see the playhead position in two different 
 The transport bar also contains a set of 5 clocks that show the current selection range and punch ranges. Clicking on the punch range clocks will locate to either the beginning or end of the punch range. Similarly, clicking on the range clocks will locate to either the beginning or end of the current selection. In this screen shot there is no current selection range, so the selection clocks show an "off" state.
 </p>
 <p>
-<img src="/files/selectionpunchclocks.png" alt="an image of the the selection and punch clocks in ardour 3"></p>
+<img src="/files/selectionpunchclocks.png" alt="An image of the the selection and punch clocks in Ardour 3"></p>
 <p></p>
 <h2>Clock Modes</h2>
 <p>Every clock in Ardour has four different modes it can be set to, each of which displays time using different units. You can change the clock mode by right-clicking on the clock and selecting the desired mode from the menu. Some clocks are entirely independent of any other clock's mode; others are linked so that changing one changes all clocks in that group. The different modes are:</p>
@@ -64,7 +64,7 @@ Note that when set into this "Delta to Edit Point" mode, the transport clocks ca
 <p>
 New values for the clock can be typed from the keyboard after clicking on the relevant clock. Clicking on the clock will show a thin vertical cursor bar just to the right of the next character to be overwritten. Enter time in the same order as the current clock mode - if the clock is in Timecode mode, you need to enter hours, minutes, seconds, frames. So, to change to a time of 12:15:20:15 you would type <code> 1 2 1 5 2 0 1 5</code>. Each number you type will appear in a different color, from right to left, overwriting the existing value. Mid-edit, after typing <code>3 2 2 2</code> the clock might look like this:</p>
 <p>
-<img src="/files/clockedit.png" alt="an image of a clock being edited in ardour 3"></p>
+<img src="/files/clockedit.png" alt="An image of a clock being edited in Ardour 3"></p>
 <p>
 To finish the edit, press the enter/return or tab key. To exit an edit without changing the clock press the escape key. If you mis-type an entry so that the new value would be illegal (for example, resulting in more than 30 frames when Timecode is set to 30 frames per second), the clock will reset at the end of the edit, and move the cursor back to the start so that you may begin again.
 </p>
