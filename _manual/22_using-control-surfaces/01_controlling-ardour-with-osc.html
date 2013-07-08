@@ -6,13 +6,16 @@ title: Controlling Ardour with OSC
 
   
   
+<p>Open Sound Control (<abbr title="Open Sound Control">OSC</abbr>) lets synthesizers and other devices communicate with Ardour. OSC devices can send commands relating to playback (such as play or stop), performance (such as volume, play, stop, and almost any other function (such as Edit, or Undo).</p>
 <p>Ardour is probably one of the most OSC-controllable audio applications around, but as with all OSC-controllable apps, you can't do much without knowing what messages can be sent. This document describes the various categories of messages that Ardour understands. It is subject to change, particular the "Actions" part below, since this relates to the GTK GUI for Ardour rather than the backend.</p>
-<h2>Connecting to Ardour via OSC</h2>
+
+<h2>Connect to Ardour via OSC</h2>
 <p>
 OSC support is not enabled by default, but can be turned on via <code>Edit &gt; Preferences &gt; User Interaction</code>. Once enabled, Ardour will listen on port 3819 by default. This port number can be changed by editing $ARDOUR_CONFIG and adding this line within the &lt;Config&gt; section:</p>
 <pre>
   &lt;Option name="osc-port" value="YourChoiceHere"/&gt;
 </pre>
+
 <h2>Transport Control</h2>
 <dl class="wide-table">
 <dt>/ardour/transport_stop
@@ -46,6 +49,7 @@ OSC support is not enabled by default, but can be turned on via <code>Edit &gt; 
 <dt>/ardour/loop_toggle<br>
 </dt>
 </dl>
+
 <h2>Editing-related</h2>
 <dl class="wide-table">
 <dt> /ardour/undo
@@ -57,6 +61,7 @@ OSC support is not enabled by default, but can be turned on via <code>Edit &gt; 
 <dd>(this is regular Session _&gt; Save operatio)<br>
 </dd>
 </dl>
+
 <h2>Recording control</h2>
 <dl class="wide-table">
 <dt> /ardour/toggle_punch_in
@@ -70,6 +75,7 @@ OSC support is not enabled by default, but can be turned on via <code>Edit &gt; 
 <dd>(toggles all tracks recording state). !currently toggles on but not off for 2.0 branch.<br>
 </dd>
 </dl>
+
 <h2>Track specific operations</h2>
 <p>
 For each of the following, [remote_id] is the remote_id or the track
@@ -96,6 +102,7 @@ For each of the following, [remote_id] is the remote_id or the track
 <dd>where [gain_db] is a float ranging from -400 to 6 representing the desired gain of the track in dB.<br>
 </dd>
 </dl>
+
 <h2>Menu actions</h2>
 <p>
 Every single menu item in Ardour's GUI is accessible via OSC. There is<br>

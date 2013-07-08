@@ -30,8 +30,8 @@ Ardour requires xjadeo &ge; version 0.6.4, harvid &ge; version 0.7.0 and ffmpeg 
 </p>
 
 <p>
-The ardour-dev team is <em>in control</em> of the first two applications. ffmpeg can be a bit of a problem.
-To avoid conflicts with distribution packages, ardour looks for <code>ffmpeg_harvid</code> and <code>ffprobe_harvid</code>.
+The Ardour development team is <em>in control</em> of the first two applications. ffmpeg can be a bit of a problem.
+To avoid conflicts with distribution packages, Ardour looks for <code>ffmpeg_harvid</code> and <code>ffprobe_harvid</code>.
 </p>
 
 <p>
@@ -60,7 +60,7 @@ Setting up a proper A/V post-production studio can be a complicated task. As muc
 </p>
 
 <ul>
-<li>Synchronization ardour → video-display-box should be accomplished by external means jack-transport(netjack), MTC, LTC (<acronym title="Open Sound Control - &quot;postmodern MIDI&quot;">OSC</acronym> and/or ssh-pipe work but introduce additional latency + jitter)
+<li>Synchronization ardour → video-display-box should be accomplished by external means jack-transport(netjack), MTC, LTC (<abbr title="Open Sound Control - &quot;postmodern MIDI&quot;">OSC</abbr> and/or ssh-pipe work but introduce additional latency + jitter)
 </li>
 </ul>
 <ul>
@@ -72,7 +72,7 @@ Setting up a proper A/V post-production studio can be a complicated task. As muc
 </li>
 </ul>
 <ul>
-<li>..or override xjremote&#039;s behavior – instead of  IPC with a local running xjadeo-process, using <acronym title="Open Sound Control - &quot;postmodern MIDI&quot;">OSC</acronym> for example. xjadeo would run permanently and ardour will just tell it to load files and set offsets via <acronym title="Open Sound Control - &quot;postmodern MIDI&quot;">OSC</acronym>. see <a href="http://xjadeo.git.sourceforge.net/git/gitweb.cgi?p=xjadeo/xjadeo;a=blob_plain;f=contrib/xjremote-osc" title="http://xjadeo.git.sourceforge.net/git/gitweb.cgi?p=xjadeo/xjadeo;a=blob_plain;f=contrib/xjremote-osc"  rel="nofollow">xjremote-osc</a> example script.
+<li>..or override xjremote&#039;s behavior – instead of  IPC with a local running xjadeo-process, using <abbr title="Open Sound Control - &quot;postmodern MIDI&quot;">OSC</abbr> for example. xjadeo would run permanently and Ardour will just tell it to load files and set offsets via <acronym title="Open Sound Control - &quot;postmodern MIDI&quot;">OSC</acronym>. see <a href="http://xjadeo.git.sourceforge.net/git/gitweb.cgi?p=xjadeo/xjadeo;a=blob_plain;f=contrib/xjremote-osc" title="http://xjadeo.git.sourceforge.net/git/gitweb.cgi?p=xjadeo/xjadeo;a=blob_plain;f=contrib/xjremote-osc"  rel="nofollow">xjremote-osc</a> example script.
 </li>
 </ul>
 <ul>
@@ -81,5 +81,5 @@ Setting up a proper A/V post-production studio can be a complicated task. As muc
 </ul>
 
 <p>
-Ideally the machines have a common shared folder (NFS or similar).  Ardour&#039;s import (audio-extract) and export (mux) functionality depends on having access to the video file.  Also ardour video-import transcodes the file into a suitable proxy-format that allows reliable seeking to any frame…
+Ideally the machines have a common shared folder (NFS or similar).  Ardour&#039;s import (audio-extract) and export (mux) functionality depends on having access to the video file.  Also Ardour's video-import transcodes the file into a suitable proxy-format that allows reliable seeking to any frame…
 </p>

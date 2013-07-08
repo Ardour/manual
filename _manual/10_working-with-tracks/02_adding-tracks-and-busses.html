@@ -1,0 +1,34 @@
+---
+layout: default
+title: Adding Tracks and Busses
+---                        
+
+
+  
+  <h2>Adding and removing tracks</h2>
+<p>A track or bus can be added to a session in various ways:</p>
+<ul>
+<li>Choose Add Track or Bus… from the Track menu.
+</li>
+<li>Right-click in an empty part of the track controls area.
+</li>
+<li>Click the plus (+) button underneath the list of tracks in the mixer.
+</li>
+</ul>
+<p>Any of these actions will open the Add Track or Bus dialog,</p>
+<p><img src="/ardour/manual/html/screenshots/add-track-or-bus.png" alt="the add-track dialog"></p>
+<p>From here, you can select firstly the number of tracks or busses to add, and the type; audio track, MIDI track or bus. There are also some options, which vary depending on the type of thing you are creating.</p>
+<p>These options are:</p>
+<dl class="wide-table">
+<dt>Configuration (for audio tracks and busses)</dt>
+<dd>this is the number of inputs the track is set up with. You can always change these counts later.</dd>
+<dt>Track mode (for audio tracks)</dt>
+<dd>this can be ‘normal’, ‘non-layered’ or ‘tape’. See <a href="/working-with-tracks/track-types/#trackmodes">Track Modes</a> on the Track Types page for details.</dd>
+<dt>Group</dt>
+<dd>tracks and busses can be assigned groups so that a selected range of operations are applied to all members of a group at the same time (selecting record enable, or editing, for example). This option lets you assign to an existing group, or create a new group.</dd>
+<dt>Instrument (for MIDI tracks)</dt>
+<dd>this is a short-cut to assign an instrument plugin to the new MIDI track. You can achieve the same effect by creating a MIDI track with no plugins and adding it yourself; this option just saves you a step.</dd>
+</dl>
+<p>New tracks appear in both the editor and mixer windows. The editor window shows the timeline, with any recorded data, and the mixer shows just the processing elements of the track (its plugins, fader and so on).</p>
+<p>Tracks and busses can be removed by selecting them, right-clicking and choosing ‘Remove’ from the menu. A warning dialog will pop up, as track removal cannot be undone; use this option with care! </p>
+

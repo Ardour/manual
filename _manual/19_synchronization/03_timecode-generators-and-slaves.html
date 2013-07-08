@@ -62,7 +62,7 @@ The timecode is sent to jack-ports <code>ardour:MTC out</code>, <code>ardour:MID
 </p>
 
 <p>
-Note that - at the time of writing this - only the LTC generator supports latency compensation. This is due to the fact the ardour MIDI ports are not yet latency compensated.
+Note that - at the time of writing this - only the LTC generator supports latency compensation. This is due to the fact the Ardour MIDI ports are not yet latency compensated.
 </p>
 
 <p>
@@ -99,11 +99,11 @@ LTC is send regardless of Ardour's transport-speed. It is accurately generated e
 <h2>Ardour Slave Configuration</h2>
 
 <p>
-Switching the timecode-source can be done via the button just right of Ardour&#039;s main clock. By default it is set to <code>Internal</code> in which case ardour will ignore any external timecode. The button allows to toggle between Internal and the configured timecode source which is chosen in <code>Edit &gt; Preferences &gt; Transport</code>.
+Switching the timecode-source can be done via the button just right of Ardour&#039;s main clock. By default it is set to <code>Internal</code> in which case Ardour will ignore any external timecode. The button allows to toggle between Internal and the configured timecode source which is chosen in <code>Edit &gt; Preferences &gt; Transport</code>.
 </p>
 
 <p>
-When ardour is chasing an external timecode source the following cases need to be distinguished:
+When Ardour is chasing an external timecode source the following cases need to be distinguished:
 </p>
 <ol>
 <li>the timecode source shares the clock</li>
@@ -114,7 +114,7 @@ When ardour is chasing an external timecode source the following cases need to b
 and
 </p>
 <ol>
-<li>the timecode source uses the same FPS setting as ardour</li>
+<li>the timecode source uses the same FPS setting as Ardour</li>
 <li>the timecode source runs at different frames-per-second</li>
 </ol>
 
@@ -127,7 +127,7 @@ In both cases the first option is preferred: clock sync + same FPS setting.
 <h3>Frames-per-second</h3>
 
 <p>
-If the frames-per-second don&#039;t match, ardour can either re-calculate (map) the frames or the configured FPS (<code>session &gt; properties</code>) can be changed automatically while the slave is active. The behavior is configured with the checkbox in <code>Edit &gt; Preferences &gt; Transport</code> labeled <code>Match session video frame rate to external timecode</code>: When enabled the session video frame rate will be changed to match that of the selected external timecode source. When disabled the session video frame rate will not be changed to match that of the selected external timecode source. Instead the frame rate indication in the main clock will flash red and Ardour will convert between the external timecode standard and the session standard.
+If the frames-per-second don&#039;t match, Ardour can either re-calculate (map) the frames or the configured FPS (<code>session &gt; properties</code>) can be changed automatically while the slave is active. The behavior is configured with the checkbox in <code>Edit &gt; Preferences &gt; Transport</code> labeled <code>Match session video frame rate to external timecode</code>: When enabled the session video frame rate will be changed to match that of the selected external timecode source. When disabled the session video frame rate will not be changed to match that of the selected external timecode source. Instead the frame rate indication in the main clock will flash red and Ardour will convert between the external timecode standard and the session standard.
 </p>
 
 <p>
@@ -151,11 +151,11 @@ The checkbox <code>External timecode is sync locked</code> allows to select the 
 </p>
 
 <p>
-In other words: if enabled, ardour will only use perform initial synchronization and keep playing at speed 1.0 instead of vari-speed adjusting to compensate for drift.
+In other words: if enabled, Ardour will only use perform initial synchronization and keep playing at speed 1.0 instead of vari-speed adjusting to compensate for drift.
 </p>
 
 <p>
-Note that vari-speed is unavailable when recording in ardour and all tracking happens at speed 1.0. So if you want to record in sync with external timecode it must be sample-locked or it will drift over time.
+Note that vari-speed is unavailable when recording in Ardour and all tracking happens at speed 1.0. So if you want to record in sync with external timecode it must be sample-locked or it will drift over time.
 </p>
 
 
@@ -199,7 +199,7 @@ While Ardour is chasing LTC, the main transport clock will display the received 
 </p>
 
 <p>
-A global offset between incoming timecode and ardour&#039;s transport can be configured in <code>Session &gt; Properties</code>.
+A global offset between incoming timecode and Ardour&#039;s transport can be configured in <code>Session &gt; Properties</code>.
 </p>
 
 <p>
@@ -235,6 +235,6 @@ JACK-transport does not support vari-speed, nor offsets. Ardour does not chase t
 </p>
 
 <p>
-JACK-transport also includes temp-based-time information ie. Bar:Beats:Ticks and beats-per-minute. However, only one JACK application can provide this information at a given time. The checkbox <code>JACK Time Master</code> in the <code>Session &gt; Properties</code> dialog allows to configure ardour to act as translator from timecode to BBT information.
+JACK-transport also includes temp-based-time information ie. Bar:Beats:Ticks and beats-per-minute. However, only one JACK application can provide this information at a given time. The checkbox <code>JACK Time Master</code> in the <code>Session &gt; Properties</code> dialog allows to configure Ardour to act as translator from timecode to BBT information.
 </p>
 

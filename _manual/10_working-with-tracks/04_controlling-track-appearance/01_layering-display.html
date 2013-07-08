@@ -5,13 +5,13 @@ title: Layering Display
 
 
   
-  <p>Ardour allows arbitrary layering of regions - you can stack as you wish in a given position. By default, the editor windows draws them overlapping, which has the big benefit that is very economical in terms of using vertical space.</p>
-<p>In this drawing mode however, working with a track that has many overdubs can sometimes be a little confusing because its not always entirely clear how the overdubs are all layered with respect to each other. Although there are other methods of moving particular regions to the top of an overlapping set, and although Ardour also has playlists to let you manage takes a bit more efficiently than just continually overdubbing, there are times when being able to clearly see all regions in a track without any overlaps is reassuring and potentially useful. </p>
+  <p>Ardour allows arbitrary layering of regions - you can stack as many regions you wish over a given position. By default, the editor windows overlaps the regions. The overlapping layers saves vertical space.</p>
+<p>However, this display mode can be confusing for tracks with many overdubs, because its not always entirely clear how the overdubs are all layered with respect to each other. Although there are other methods of moving particular regions to the top of an overlapping set, and although Ardour also has playlists to let you manage takes a bit more efficiently than just continually overdubbing, there are times when being able to clearly see all regions in a track without any overlaps is reassuring and useful. </p>
 <p>Here is an image of a track with a rather drastic overdub/overlap situation, viewed in normal "overlaid" mode:</p>
 <p><img src="/files/a3/a3_overlaps_layered.png" alt="overlapping regions in overlaid mode"></p>
 <p>To change this display, right click on the track header, and you'll see this menu:</p>
 <p><img src="/files/a3/a3_layers_menu.png" alt="layer display menu"></p>
 <p>You will see that there are two choices for "Layers": overlaid (currently selected) and stacked. Click on stacked and the track display changes to this:</p>
 <p><img src="/files/a3/a3_layers_stacked.png" alt="overlapping regions in stacked mode"></p>
-<p>You can still move regions around as usual, and in fact you can even drag them so that they overlay each again, but when you release the mouse button, things will flip back to them being all stacked cleaning. This display mode works best when you use sensible track heights. The number of "lanes" for the track is determined by the maximum number of regions existing in any one spot throughout the track, so if you have really stacked up 10 overdubs in one spot, you'll end up with 10 lanes. Obviously, using a large track height works much better for this than a small one.</p>
+<p>You can still move regions around as usual, and in fact you can even drag them so that they overlay each again, but when you release the mouse button, things will flip back to them all being stacked cleaning. This display mode works best when you use sensible track heights. The number of "lanes" for the track is determined by the maximum number of regions existing in any one spot throughout the track, so if you have really stacked up 10 overdubs in one spot, you'll end up with 10 lanes. Obviously, using a large track height works much better for this than a small one.</p>
   

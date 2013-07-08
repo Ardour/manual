@@ -5,35 +5,45 @@ title: Track and Bus Groups
 
 
   
-  <p> Tracks and busses can be put into groups. The members of a group can be set to share various settings, which can be useful for managing tracks which are closely related to each other. Examples might include tracks that contain multiple-microphone recordings of a single source (an acoustic guitar, perhaps, or a drum-kit).</p>
-<p>You can put tracks and busses into groups in various ways. In the editor window, a track's controls might look like these:</p>
+  <p> Tracks and busses can be put into groups. You can set members of a group can to share various settings - useful for managing tracks that are closely related to each other. Examples might include tracks that contain multiple-microphone recordings of a single source (an acoustic guitar, perhaps, or a drum-kit).</p>
+<p>You can group tracks and busses in various ways. In the editor window, a track's controls might look like these:</p>
 <p><img src="/ardour/manual/html/screenshots/track-in-group.png" alt="track headers for a group"></p>
-<p> The green tab to the left of the track header indicates that this track is in a group called ‘Fred’. These tabs can be dragged in the editor window to add to or remove tracks from groups. </p>
-<h2>Creating New Groups</h2>
-<p>There are several ways to create track/bus groups:</p>
-<p>Context-click on the group tab and use one of the "Create..." options there. You can create a group with no members, or one that starts with the currently selected tracks, or record-enabled tracks, or soloed tracks as it members.</p>
-<p>Alternatively, clicking the ‘g’ button on a track header opens a menu which gives a list of the available groups; selecting one of these groups will add the track or bus to that group. This menu also allows a new group to be created.</p>
-<p>Finally, the Groups tab of the <a href="/ardours-interface/introducing-the-editor-window/editor-lists">Editor Lists</a> or the Mixer Window has a "+" button at the bottom of the list that can be clicked upon to create a new group.</p>
-<h2>Removing Groups</h2>
+<p> The green tab to the left of the track header indicates that this track is in a group called ‘Fred’. You can drag these tabs to add or remove tracks from a group. </p>
+
+<h2>Create New Groups</h2>
+<p>There are several ways to create groups for tracks and bussess:</p>
+<ul>
+<li><p>Context-click (right-click) on the group tab and use one of the "Create..." options there. You can create a group with no members, or one that starts with the currently selected tracks, or record-enabled tracks, or soloed tracks.</p></li>
+<li><p>Alternatively, click the ‘g’ button on a track header to open the Group menu. The menu lists the available groups. Selecting one of these groups will add the track or bus to that group. The menu also lets you create a new group.</p></li>
+<li><p>Finally, the Groups tab of the <a href="/ardours-interface/introducing-the-editor-window/editor-lists">Editor Lists</a> or the Mixer Window has a plus (+) button at the bottom of the list. Click on the plus sign to create a new group.</p></li>
+</ul>
+
+<h2>Remove Groups</h2>
 <p>Context-click on a group tab and select <code>Remove Group</code> from the menu. Removing a group does <strong>not</strong> remove the members of a group.</p>
 <p>You can also remove groups by selecting them in the Groups tab of the <a href="/ardours-interface/introducing-the-editor-window/editor-lists">Editor Lists</a> or Mixer Window and then pressing the "-" button at the bottom of the list.</p>
-<h2>Adding/Removing Tracks and Busses to a Group</h2>
-<p>Clicking the ‘g’ button opens a menu which gives a list of the available groups; selecting one of these groups will add the track or bus to that group. Selecting "No Group" will remove it. </p>
-<p>You can also drag a group tab to add or remove tracks from the group.</p>
-<h2>Activating/Deactivating Groups via the group tab</h2>
-<p>Clicking on a group tab will toggle the group between being active and inactive. An inactive group will have no effect when editing its members. An active group will share 1 or more properties across its members. Tabs for disabled groups are coloured grey.</p>
-<h2>Modifying Group Properties</h2>
-<p>The properties of a group can be edited by right-clicking on its tab and choosing Edit Group…. This will open the track/bus group dialogue, which is also used when creating new groups:</p>
+
+<h2>Add/Remove Tracks and Busses From a Group</h2>
+<p>Click the ‘g’ button to display a menu with a list of the available groups. Select one of these groups to add the track or bus to that group. Select "No Group" to remove it. </p>
+<p>Alternatively, you can also drag a group tab to add or remove tracks from the group.</p>
+
+<h2>Activate/Deactivate Groups via the Group Tab</h2>
+<p>Clicking on a group tab toggles the group between being active and inactive. An inactive group has no effect when editing its members. An active group will share one or more properties across its members. Tabs for disabled groups are coloured grey.</p>
+
+<h2>Modify Group Properties</h2>
+<p>To edit the properties of a group, context-click (right-click) on its tab and choosing Edit Group…. This opens the track/bus group dialog, which is also used when creating new groups:</p>
 <p><img src="/ardour/manual/html/screenshots/route-group-dialogue.png" alt="the track/bus group dialog"></p>
+
 <h3>Group Color</h3>
-<p>Clicking on the color selector button allows the group's colour can be changed. This affects the colour of the group's tab in the editor and mixer windows. The color does <strong>not</strong> affect the color of the group members unless you also enable the shared <code>Color</code> property. </p>
+<p>Click on the color selector button to change a group's colour. This affects the colour of the group's tab in the editor and mixer windows. The color does <strong>not</strong> affect the color of the group members unless you also enable the shared <code>Color</code> property. </p>
 <p>Following these options are a list of the things that the members of the group can share. </p>
+
 <h3>Shared Properties</h3>
 <p><code>Gain</code> means that the track faders will be synced to always have the same value; ‘Relative’ means that the gain changes are applied relative to each member's current value. If, for example, there are two tracks in a group with relative gain sharing, and their faders are set to -3dB and -1dB, a change of the first track to a gain of -6dB will result in the second track having a gain of -4dB (so that the difference in gains is the same).</p>
-<p><code>Muting</code>, <code>soloing</code>, <code>record enable</code>, <code>route active state</code>, <code>colour</code> and <code>monitoring</code> are all straightforward; they simply mean that all member tracks or busses will share the same settings in these respects. See <a href="/working-with-tracks">Working With Tracks</a> for more on these properties.</p>
-<p><code>Selection</code> means that if a region is selected or deselected on one constituent track, corresponding regions on other member tracks will be similarly selected. Corresponding regions are those that are at the same position and have the same length. Since region editing operations are applied to all currently selected regions, this is the way to make edits apply across all tracks in the group. </p>
+<p><a href="/working-with-tracks/bus-controls/#mute"><code>Muting</code></a>, <a href="/working-with-tracks/bus-controls/#solo"><code>soloing</code></a>, <a href="/working-with-tracks/audio-track-controls/#record"><code>record enable</code></a>, <a href="/ardours-interface/introducing-the-editor-window/editor-lists/tracks--busses-list/#active"><code>active state</code></a>, <a href="/working-with-tracks/controlling-track-appearance/track-coloring/"><code>colour</code></a> and <a href="/recording/monitoring/"><code>monitoring</code></a> are all straightforward. They simply mean that all member tracks or busses will share the same settings in these respects.</p>
+<p><code>Selection</code> means that if a region is selected or deselected on one constituent track, corresponding regions on other member tracks will be similarly selected. Corresponding regions are those that are at the same position and have the same length. Since region editing operations are applied to all currently selected regions, this is the way to make edits apply across all tracks in the group. For more details see <a href="/working-with-regions/region-selection-equivalence/">Region Selection Equivalence</a></p>
+
 <h3>Group Tab Context Menu</h3>
-<p>Context-clicking on the group tab offers a further menu of group-related actions. </p>
+<p>Context-clicking (right-clicking) on the group tab offers a further menu of group-related actions. </p>
 <dl class="wide-table">
 <dt>Create a New Group</dt>
 <dd>create a new group</dd>

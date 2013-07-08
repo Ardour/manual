@@ -6,14 +6,16 @@ title: Controlling Track Ordering
 
   
   <p>Ardour does not impose any particular ordering of tracks and busses in either the editor or mixer windows. The default arrangement is as follows:</p>
-<h2>Editor default arrangement</h2>
+
+<h2>Editor Default Arrangement</h2>
 <ul>
 <li>Master bus on top</li>
 <li>Tracks in the order they are added below, including busses</li>
 <li>Even if you use a Monitor section, it is never visible in the editor window.
 </li>
 </ul>
-<h2>Mixer default arrangement</h2>
+
+<h2>Mixer Default Arrangement</h2>
 <ul>
 <li>Tracks in the order they are added, from left to right
 </li>
@@ -22,16 +24,21 @@ title: Controlling Track Ordering
 <li>If a Monitor section is used, that is at the right edge of the mixer window (it can be torn off, too)
 </li>
 </ul>
+
 <h2>Synchronizing Editor and Mixer Window Ordering</h2>
-<p><em>By default</em> the ordering within the editor and mixer windows is synchronized: if you reorder in one window, the ordering in the other window will change. You can disable this via <code>Edit &gt; Preferences &gt; Editor &gt; Synchronize Editor and Mixer Track Order</code>. When disabled, the ordering both both windows is totally indepedent of the other.</p>
+<p><em>By default</em> the ordering within the editor and mixer windows is synchronized: if you reorder in one window, the ordering in the other window will change. You can disable this via <code>Edit &gt; Preferences &gt; Editor &gt; Synchronize Editor and Mixer Track Order</code>. When disabled, the ordering one window is totally indepedent of the other.</p>
+
 <h2>Reordering Specific Tracks... </h2>
 <h3>... in the Editor Window, via the Keyboard</h3>
 <p>Select the tracks you want to move. Then use <code>Track &gt; Move Selected Tracks Up</code> (<kbd class="mod1">↑</kbd>) or <code>Track &gt; Move Selected Tracks Down</code> (<kbd class="mod1">↓</kbd>) to move the selected track(s) up or down in the editor window.</p>
+
 <h3>... in the Editor Window, via Drag-n-Drop</h3>
-<p>Make the Editor Lists visible. Select the <code>Tracks &amp; Busses</code> tab. In the browser there, you can freely drag-and-drop tracks and busses into any order you prefer.</p>
-<h3>... in the Editor Window, via Drag-n-Drop</h3>
-<p>Within the "Strips" browser in the upper left area of the Mixer window, you can freely drag-and-drop tracks and busses into any order you prefer.</p>
-<h2>"Collecting" Group Members together</h2>
+<p>Make the <a href="/ardours-interface/introducing-the-editor-window/editor-lists/">Editor Lists</a> visible. Select the <code>Tracks &amp; Busses</code> tab. In the Tracks &amp; Busses side panel, you can freely drag-and-drop tracks and busses into any order you prefer.</p>
+
+<h3>... in the Mixer Window, via Drag-n-Drop</h3>
+<p>Within the "Strips" pane (Mixer window, top left), you can freely drag-and-drop tracks and busses into any order you prefer.</p>
+
+<h2>"Collecting" Group Members</h2>
 <p>Tracks and Busses that are members of a group can be reordered so that they display contiguously within the Editor and Mixer windows. Context-click on the group tab and choose "Collect". </p>
   
 
