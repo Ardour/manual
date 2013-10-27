@@ -10,14 +10,14 @@ title: Controlling Track Ordering
 <h2>Editor Default Arrangement</h2>
 <ul>
 <li>Master bus on top</li>
-<li>Tracks in the order they are added below, including busses</li>
+<li>Tracks and busses in their initial order, from top to bottom.</li>
 <li>Even if you use a Monitor section, it is never visible in the editor window.
 </li>
 </ul>
 
 <h2>Mixer Default Arrangement</h2>
 <ul>
-<li>Tracks in the order they are added, from left to right
+<li>Tracks in their initial order, from left to right
 </li>
 <li>Master bus on the right, in its own pane so that it is always visible no matter how other mixer strips are scrolled.
 </li>
@@ -25,8 +25,8 @@ title: Controlling Track Ordering
 </li>
 </ul>
 
-<h2>Synchronizing Editor and Mixer Window Ordering</h2>
-<p><em>By default</em> the ordering within the editor and mixer windows is synchronized: if you reorder in one window, the ordering in the other window will change. You can disable this via <code>Edit &gt; Preferences &gt; Editor &gt; Synchronize Editor and Mixer Track Order</code>. When disabled, the ordering one window is totally indepedent of the other.</p>
+<h2>Synchronized Editor and Mixer Window Ordering</h2>
+<p>The ordering within the editor and mixer windows is synchronized: if you reorder in one window, the ordering in the other window will change.</p>
 
 <h2>Reordering Specific Tracks... </h2>
 <h3>... in the Editor Window, via the Keyboard</h3>
@@ -40,6 +40,11 @@ title: Controlling Track Ordering
 
 <h2>"Collecting" Group Members</h2>
 <p>Tracks and Busses that are members of a group can be reordered so that they display contiguously within the Editor and Mixer windows. Context-click on the group tab and choose "Collect". </p>
-  
+
+<h3>... via Adding New Tracks</h3>
+<p>When adding new tracks, the current selection determines their initial order. If one or several tracks are selected, new tracks will be placed after the rightmost (in the mixer) or bottom-most (in the editor) selected track. If no tracks are selected, new tracks will be last in the track order.</p>
+<h3>Note</h3>
+<blockquote><p>Because new tracks are automatically selected, you can quickly reorder them in the editor window via the keyboard (see above).</p></blockquote>
+
 
 {% children %}
