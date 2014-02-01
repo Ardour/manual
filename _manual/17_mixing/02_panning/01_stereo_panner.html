@@ -7,9 +7,10 @@ title: Stereo Panner
   The default stereo panner distributes 2 inputs to 2 outputs. Its
   behaviour is controlled by two parameters, width and position. The
   default settings for the stereo panner are width=100%, 
-  position=center (L=50%, R=50%). This panner assumes that you have 
-  2 uncorrelated, independent signals that you wish to distribute to 
-  two outputs. 
+  position=center (L=50%, R=50%). This panner assumes that the signals
+  you wish to distribute are  either uncorrelated (that means totally 
+  independent), or they contain a stereo image which is 
+  mono-compatible<sup><ahref="#caveat">*</a></sup>.
 </p>
 <div class="well">
 <p>
@@ -43,7 +44,6 @@ title: Stereo Panner
   single signal indicator marked "M" (for mono), and whose color will
   change to indicate the special state.
 </p>
-
 <p>
   It is possible to invert the outputs (see below) so that whatever
   would have gone to the right channel goes to the left and vice
@@ -97,19 +97,16 @@ title: Stereo Panner
   Mouse operations in the upper half of the panner adjust the position
   parameter, constrained by the current width setting. 
 </p>
-
 <p>
   Mouse operations in the lower half of the panner adjust the width
   parameter, constrained by the current position setting. 
 </p>
-
 <p>
   To change the position smoothly, press the right button and drag
   within the top half of the panner, then release. The position will
   be limited by the current width setting. <em>Note: you do not need
   to grab the position indicator in order to drag</em>
 </p>
-
 <p>
   To change the width smoothly, press the right button and drag
   within the lower half of the panner, then release. The width will be
@@ -170,7 +167,7 @@ title: Stereo Panner
   <dt><key>0</key></dt>
   <dd>reset position to center</dd>
   <dt><key class="mod2">&uarr;</key></dt>
-  <dd>reset width to 180&deg; (100%)</dd>
+  <dd>reset width to full (100%)</dd>
 </dl>
 
 <h4>Using the scroll wheel/touch scroll</h4>
@@ -193,3 +190,41 @@ title: Stereo Panner
 <dt>down / <key class="mod1">down</key></dt>
 <dd>move position 1&deg; / 5&deg;to the right</dd>
 </dl>
+
+<h2><a name="caveat" />Panning caveats</h2>
+
+<p>
+Note that the stereo panner will introduce unwanted side effects on
+material that includes a time difference between the channels, such
+as AB, ORTF or NOS microphone recordings, or delay-panned mixes.<br />   
+With such signals, when you reduce the with, you are summing two signals
+with different delays, which will introduce comb filtering.
+</p>
+<p>  
+Let's take a look at what happens when you record a source at 45° to the
+right side with an ORTF array (cardioids, spacing 17cm, opening angle
+110°):<br />
+The time difference is 350 usecs or approximately 15 samples at 44k1. The
+level difference due to the directivity of the microphones is about 7.5dB.
+</p>
+<img src="/images/stereo-panner-with-ORTF-fullwidth.png" />
+<p>
+For testing, we apply a pink noise signal, which displays as a straight line
+in the analyser. To simulate an ORTF, we use Robin Gareus' stereo balance
+control LV2 to set the level difference and time delay. Ignore the Trim/Gain
+- its purpose is just to align the test signal with the 0dB line of the
+analyser.
+</p>
+<p>
+Now for the interesting part: if we reduce the width of the signal to 50%,
+the time-delayed signals will be combined in the panner. Observe what
+happens to the frequency response:
+</p>
+<img src="/images/stereo-panner-with-ORTF-halfwidth.png" />
+<p>
+Depending on your material and on how much you need to manipulate the width,
+the comb filter may be acceptable. Then again, it may not be. Listen
+carefully for artefacts if you manipulate unknown stereo signals - many
+orchestra sample libraries for example do contain time-delay components.
+</p>
+
