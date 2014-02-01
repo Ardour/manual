@@ -4,12 +4,14 @@ title: Stereo Panner
 ---                        
 
 <p>
-The default stereo panner distributes 2 inputs to 2 outputs. Its
-behaviour is controlled by two parameters, width and position. The
-default settings for the stereo panner
-are width=100%>, position=center (L=50%,
-R=50%). This panner assumes that you have 2 uncorrelated,
-independent signals that you wish to distribute to two outputs. 
+  The default stereo panner distributes 2 inputs to 2 outputs. Its
+  behaviour is controlled by two parameters, width and position. The
+  default settings for the stereo panner are width=100%, 
+  position=center (L=50%, R=50%). This panner assumes that the signals
+  you wish to distribute are  either uncorrelated (that means totally 
+  independent), or they contain a stereo image which is 
+  mono-compatible, such as a co-incident microphone recording, or a 
+  stereo image that has been created with pan pots.<sup><a href="#caveat">*</a></sup>
 </p>
 <div class="well">
 <p>
@@ -43,7 +45,6 @@ independent signals that you wish to distribute to two outputs.
   single signal indicator marked "M" (for mono), and whose color will
   change to indicate the special state.
 </p>
-
 <p>
   It is possible to invert the outputs (see below) so that whatever
   would have gone to the right channel goes to the left and vice
@@ -72,8 +73,8 @@ independent signals that you wish to distribute to two outputs.
 </table>
 
 <p>
-One way to remember this sort of convention is that the middle of the
-USA is not Kansas, but "Los Angeles: 50% New York: 50%". 
+  One way to remember this sort of convention is that the middle of the
+  USA is not Kansas, but "Los Angeles: 50% New York: 50%". 
 </p>
 
 <h2>Examples In Use</h2>
@@ -93,21 +94,22 @@ USA is not Kansas, but "Los Angeles: 50% New York: 50%".
 
 <h2>Using the mouse</h2>
 
-<p>Mouse operations in the upper half of the panner adjust the position
+<p>
+  Mouse operations in the upper half of the panner adjust the position
   parameter, constrained by the current width setting. 
 </p>
-
-<p>Mouse operations in the lower half of the panner adjust the width
+<p>
+  Mouse operations in the lower half of the panner adjust the width
   parameter, constrained by the current position setting. 
 </p>
-
-<p>To change the position smoothly, press the right button and drag
+<p>
+  To change the position smoothly, press the right button and drag
   within the top half of the panner, then release. The position will
   be limited by the current width setting. <em>Note: you do not need
   to grab the position indicator in order to drag</em>
 </p>
-
-<p>To change the width smoothly, press the right button and drag
+<p>
+  To change the width smoothly, press the right button and drag
   within the lower half of the panner, then release. The width will be
   limited by the current position setting.<em>Note: you do not need to
   grab the L/R indicators in order to drag</em>
@@ -149,8 +151,10 @@ USA is not Kansas, but "Los Angeles: 50% New York: 50%".
 
 <h4>Keyboard bindings</h4>
 
-When the pointer is within a stereo panner user interface, the following
-keybindings are available to operate on that panner:
+<p>
+  When the pointer is within a stereo panner user interface, the following
+  keybindings are available to operate on that panner:
+</p>
 
 <dl>
   <dt><key>&uarr;</key> / <key class="mod1">&uarr;</key></dt>
@@ -164,13 +168,15 @@ keybindings are available to operate on that panner:
   <dt><key>0</key></dt>
   <dd>reset position to center</dd>
   <dt><key class="mod2">&uarr;</key></dt>
-  <dd>reset width to 180&deg; (100%)</dd>
+  <dd>reset width to full (100%)</dd>
 </dl>
 
 <h4>Using the scroll wheel/touch scroll</h4>
 
-When the pointer is within a stereo panner user interface, the scroll
-wheel may be used as follows:
+<p>
+  When the pointer is within a stereo panner user interface, the scroll
+  wheel may be used as follows:
+</p>
 
 <dl>
 <dt>left / <key class="mod1">left</key></dt>
@@ -185,3 +191,58 @@ wheel may be used as follows:
 <dt>down / <key class="mod1">down</key></dt>
 <dd>move position 1&deg; / 5&deg;to the right</dd>
 </dl>
+
+<h2><a name="caveat"></a>Panning caveats</h2>
+
+<div class="well">
+Note that the stereo panner will introduce unwanted side effects on
+material that includes a time difference between the channels, such
+as AB, ORTF or NOS microphone recordings, or delay-panned mixes.<br />   
+With such signals, when you reduce the with, you are summing two signals
+with different delays, which will introduce comb filtering.
+</div>
+<p>  
+Let's take a look at what happens when you record a source at 45° to the
+right side with an ORTF array and then manipulate the width.
+</p>
+<p>
+For testing, we apply a pink noise signal to both inputs of an Ardour stereo
+bus with the stereo panner, and feed the bus output to a two-channel analyser. 
+Since pink noise contains equal energy per octave, the readout is a straight line:
+</p>
+<img src="/images/stereo-panner-with-ORTF-fullwidth.png" />
+<p>
+To simulate an ORTF, we use Robin Gareus' stereo balance
+control LV2 to set the level difference and time delay. Ignore the Trim/Gain
+&mdash; its purpose is just to align the test signal with the 0dB line of the
+analyser.
+</p>
+<p> 
+Recall that an ORTF microphone pair consists of two cardioids spaced 17 cm
+apart, with an opening angle of 110°.<br />
+For a source at 45° to the right, the time difference between the capsules 
+is 350 usecs or approximately 15 samples at 44.1 kHz. The level difference 
+due to the directivity of the microphones is about 7.5dB.
+</p>
+<p>
+Now for the interesting part: if we reduce the width of the signal to 50%,
+the time-delayed signals will be combined in the panner. Observe what
+happens to the frequency response of the left and right outputs:
+</p>
+<img src="/images/stereo-panner-with-ORTF-halfwidth.png" />
+<p>
+You may argue that all spaced microphone recordings will get comb filters
+later, when the two channels recombine in the air between the speakers. But
+perceptually, this is a world of difference, since our hearing system is
+very good at eliminating comb filters in the real world, if their component
+signals are spatially separated. But once you combine two delayed signals
+inside your signal chain, this spatial separation is lost. As usual, you
+get to keep the pieces.
+</p>
+<div class="well">
+Depending on your material and on how much you need to manipulate the width,
+the comb filter may be acceptable. Then again, it may not. Listen
+carefully for artefacts if you manipulate unknown stereo signals &mdash; many
+orchestra sample libraries for example do contain time-delay components.
+</div>
+
