@@ -10,7 +10,7 @@ title: Stereo Panner
   position=center (L=50%, R=50%). This panner assumes that the signals
   you wish to distribute are  either uncorrelated (that means totally 
   independent), or they contain a stereo image which is 
-  mono-compatible<sup><ahref="#caveat">*</a></sup>.
+  mono-compatible<sup><a href="#caveat">*</a></sup>.
 </p>
 <div class="well">
 <p>
@@ -191,40 +191,57 @@ title: Stereo Panner
 <dd>move position 1&deg; / 5&deg;to the right</dd>
 </dl>
 
-<h2><a name="caveat" />Panning caveats</h2>
+<h2><a name="caveat"></a>Panning caveats</h2>
 
-<p>
+<div class="well">
 Note that the stereo panner will introduce unwanted side effects on
 material that includes a time difference between the channels, such
 as AB, ORTF or NOS microphone recordings, or delay-panned mixes.<br />   
 With such signals, when you reduce the with, you are summing two signals
 with different delays, which will introduce comb filtering.
-</p>
+</div>
 <p>  
 Let's take a look at what happens when you record a source at 45° to the
-right side with an ORTF array (cardioids, spacing 17cm, opening angle
-110°):<br />
-The time difference is 350 usecs or approximately 15 samples at 44k1. The
-level difference due to the directivity of the microphones is about 7.5dB.
+right side with an ORTF array and then manipulate the width.
+</p>
+<p>
+For testing, we apply a pink noise signal to both inputs of an Ardour stereo
+bus with the stereo panner, and feed the bus output to a two-channel analyser. 
+Since pink noise contains equal energy per octave, the readout is a straight line:
 </p>
 <img src="/images/stereo-panner-with-ORTF-fullwidth.png" />
 <p>
-For testing, we apply a pink noise signal, which displays as a straight line
-in the analyser. To simulate an ORTF, we use Robin Gareus' stereo balance
+To simulate an ORTF, we use Robin Gareus' stereo balance
 control LV2 to set the level difference and time delay. Ignore the Trim/Gain
-- its purpose is just to align the test signal with the 0dB line of the
+&mdash; its purpose is just to align the test signal with the 0dB line of the
 analyser.
+</p>
+<p> 
+Recall that an ORTF microphone pair consists of two cardioids spaced 17 cm
+apart, with an opening angle of 110°.<br />
+For a source at 45° to the right, the time difference between the capsules 
+is 350 usecs or approximately 15 samples at 44.1 kHz. The level difference 
+due to the directivity of the microphones is about 7.5dB.
 </p>
 <p>
 Now for the interesting part: if we reduce the width of the signal to 50%,
 the time-delayed signals will be combined in the panner. Observe what
-happens to the frequency response:
+happens to the frequency response of the left and right outputs:
 </p>
 <img src="/images/stereo-panner-with-ORTF-halfwidth.png" />
 <p>
-Depending on your material and on how much you need to manipulate the width,
-the comb filter may be acceptable. Then again, it may not be. Listen
-carefully for artefacts if you manipulate unknown stereo signals - many
-orchestra sample libraries for example do contain time-delay components.
+You may argue that all spaced microphone recordings will get comb filters
+later, when the two channels recombine in the air between the speakers. But
+perceptually, this is a world of difference, since our hearing system is
+very good at eliminating comb filters in the real world, if their component
+signals are spatially separated. But once you combine two delayed signals
+inside your signal chain, this spatial separation is lost. As usual, you
+get to keep the pieces.
 </p>
+<div class="well">
+Depending on your material and on how much you need to manipulate the width,
+the comb filter may be acceptable. Then again, it may not. Listen
+carefully for artefacts if you manipulate unknown stereo signals &mdash; many
+orchestra sample libraries for example do contain time-delay components.
+</div>
 
