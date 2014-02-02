@@ -3,11 +3,11 @@ bootstrap_path: /bootstrap-2.2.2
 page_title: The Ardour Manual
 ---
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+      
     <head>
-        <meta charset="utf-8" />
-
         <title>{{page.page_title}}</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -50,8 +50,7 @@ page_title: The Ardour Manual
                 </div>
             </div>
             <div class="span12" id="content">
-                <div id="search">
-                    <gcse:search></gcse:search>
+                <div id="search" class="gcse-search">
                 </div>
                 <div id="content-main">
                     <h1 class="title">{{ page.title }}</h1>
@@ -73,20 +72,20 @@ page_title: The Ardour Manual
             name = '/' + document.location.pathname.split('/')[1] + '/',
             offset;
 
-        for (var i = 0; i < anchors.length; i++) { 
+        for (var i = 0; i &lt; anchors.length; i++) { 
             if (anchors[i].getAttribute('name') === name) { 
                 offset = anchors[i].offsetTop;
                 break;
             } 
         }
 
-        if (tree && offset) {
+        if (tree &amp;&amp; offset) {
             tree.scrollTop = offset - 10;
         }
 
     </script>
 
-    <script>
+    <script type="text/javascript">
         (function() {
           var cx = '011950134405426689607:2lg2y9xgf3a';
           var gcse = document.createElement('script'); gcse.type = 'text/javascript';
