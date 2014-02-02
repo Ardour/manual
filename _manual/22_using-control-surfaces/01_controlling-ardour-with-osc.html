@@ -18,62 +18,40 @@ OSC support is not enabled by default, but can be turned on via <code>Edit &gt; 
 
 <h2>Transport Control</h2>
 <dl class="wide-table">
-<dt>/ardour/transport_stop
-<dt>/ardour/transport_play
-<dt>/ardour/set_transport_speed [transport_speed]
-</dt>
-</dt>
-</dt>
-<dd>where [transport_speed] is a float rangin from -8 to 8.
-</dd>
-<dt>/ardour/ffwd
-<dt>/ardour/rewind
-<dt>/ardour/goto_start
-<dt>/ardour/goto_end
-<dt>/ardour/add_marker
-</dt>
-</dt>
-</dt>
-</dt>
-</dt>
+<dt>/ardour/transport_stop</dt>
+<dt>/ardour/transport_play</dt>
+<dt>/ardour/set_transport_speed [transport_speed]</dt>
+<dd>where [transport_speed] is a float rangin from -8 to 8.</dd>
+<dt>/ardour/ffwd</dt>
+<dt>/ardour/rewind</dt>
+<dt>/ardour/goto_start</dt>
+<dt>/ardour/goto_end</dt>
+<dt>/ardour/add_marker</dt>
 <dd>(adds marker to the current transport position)
 </dd>
-<dt>/ardour/next_marker
-<dt>/ardour/prev_marker
-<dt>/ardour/locate [sample_pos] [with_roll]
-</dt>
-</dt>
-</dt>
+<dt>/ardour/next_marker</dt>
+<dt>/ardour/prev_marker</dt>
+<dt>/ardour/locate [sample_pos] [with_roll]</dt>
 <dd>where [sample_pos] is the target position and [with_roll] is a bool/integer (whether you want transport to be kept rolling or not).
 </dd>
-<dt>/ardour/loop_toggle<br>
-</dt>
+<dt>/ardour/loop_toggle</dt>
 </dl>
 
 <h2>Editing-related</h2>
 <dl class="wide-table">
-<dt> /ardour/undo
-<dt> /ardour/redo
-<dt> /ardour/save_state
-</dt>
-</dt>
-</dt>
-<dd>(this is regular Session _&gt; Save operatio)<br>
-</dd>
+<dt> /ardour/undo</dt>
+<dt> /ardour/redo</dt>
+<dt> /ardour/save_state</dt>
+<dd>(this is regular Session _&gt; Save operatio)</dd>
 </dl>
 
 <h2>Recording control</h2>
 <dl class="wide-table">
-<dt> /ardour/toggle_punch_in
-<dt> /ardour/toggle_punch_out
-<dt> /ardour/rec_enable_toggle
-<dt> /ardour/toggle_all_rec_enables
-</dt>
-</dt>
-</dt>
-</dt>
-<dd>(toggles all tracks recording state). !currently toggles on but not off for 2.0 branch.<br>
-</dd>
+<dt> /ardour/toggle_punch_in</dt>
+<dt> /ardour/toggle_punch_out</dt>
+<dt> /ardour/rec_enable_toggle</dt>
+<dt> /ardour/toggle_all_rec_enables</dt>
+<dd>(toggles all tracks recording state). !currently toggles on but not off for 2.0 branch.</dd>
 </dl>
 
 <h2>Track specific operations</h2>
