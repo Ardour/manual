@@ -4,15 +4,15 @@ title: Panning
 ---                        
 
 <p>
-<em>Panning</em> is the process of distributing 1 or more signals
+<strong>Panning</strong> is the process of distributing 1 or more signals
     across a series of outputs so that the listener will have the
-    experience of them coming from a particular "space" within the
+    experience of them coming from a particular point or area of the
     overall listening field.
 </p>
 <p>
   It is used to create a sense of space and/or a sense of motion in an
-  audio mix. You can spread out different signals acros the space, and
-  make them move within the space over time.
+  audio mix. You can spread out different signals across the space, and
+  make them move over time.
 </p>
 
 <h2>Types of Panners</h2>
@@ -31,41 +31,18 @@ title: Panning
   it has dedicated panners for the following situations:
 </p>
   <ul>
-    <li>1 signal distributed to 2 outputs (the "mono" panner)</li>
-    <li>2 signals distributed to 2 outputs (the "stereo" panner)</li>
-    <li>N signals distributed to N outputs (the "vbap" panner)</li>
+    <li>1 signal distributed to 2 outputs (the mono panner)</li>
+    <li>2 signals distributed to 2 outputs (the stereo panner)</li>
+    <li>N signals distributed to M outputs (the VBAP panner)</li>
   </ul>
 <p>  
   Even for each of these cases, there are many different ways to
   implement panning. Ardour currently offers just one solution to each
   of these situations, but in the future will offer more.
 </p>
-
-<h2>Panning is not Balance</h2>
-
 <p>
-  If you are used to the "balance" control found on most home music
-  playback devices, and on many DAWs and audio editors, you may have
-  gained a particular idea of how "panning" should work. You turn the
-  knob to the left, and the signal in the right speaker gradually
-  vanishes as you do. You turn it back to the right, and the signal in
-  the left speaker vanishes in the same way.
-</p>
-<p>
-  This is <strong>not</strong> panning. It does not alter the placement either the
-  left or right signal, but rather is just a different term for
-  "independent gain control". What is actually happening is that as
-  you move the balance control left of center, it reduces the volume
-  of the right channel towards zero, but leaves the left signal at
-  normal volume. When you move it back to right of center, it reduces
-  the volume of the left channel toward zero, and leaves the right
-  channel at normal volume. When the control is exactly in the middle,
-  both channels are at normal volume.
-</p>
-<p>
-  The panners in Ardour control the distribution of at least one
-  signal across at least 2 outputs. Ardour does not (currently) come
-  with a balance control. Many people would like to see one.
+  In addition to the panners, Ardour has a stereo balance control for subtle
+  corrections to an existing stereo image.
 </p>
 
 {% children %}
