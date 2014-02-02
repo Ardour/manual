@@ -9,16 +9,16 @@ title: Timecode Generators and Slaves
 There are three common timecode formats:
 </p>
 <ul>
-<li>LTC – Linear/Longitudinal Time Code</li>
-<li>MTC – MIDI Time Code</li>
-<li>MIDI-Clock – tempo based time</li>
+  <li>LTC – Linear/Longitudinal Time Code</li>
+  <li>MTC – MIDI Time Code</li>
+  <li>MIDI-Clock – tempo based time</li>
 </ul>
 
 <p>
 As well as a JACK specific timecode implementation:
 </p>
 <ul>
-<li>JACK-transport</li>
+  <li>JACK-transport</li>
 </ul>
 
 <p>
@@ -85,7 +85,7 @@ There are no options. Ardour sends full MTC frames whenever the transport is rel
 <h3>LTC Generator</h3>
 
 <p>
-The volume of the LTC signal can be conigured in in the <code>Preferences &gt; Transport</code> dialog. By default it is set to -18dBFS which corresponds to 0dBu in an EBU calibrated system.
+The volume of the LTC signal can be configured in in the <code>Preferences &gt; Transport</code> dialog. By default it is set to -18dBFS which corresponds to 0dBu in an EBU calibrated system.
 </p>
 
 <p>
@@ -94,6 +94,7 @@ The LTC generator has an additional option to keep sending timecode even when th
 
 <p>
 LTC is send regardless of Ardour's transport-speed. It is accurately generated even for very slow speeds (&lt;5%) and only limited by the soundcard's sampling-rate and filter (see <a href="http://en.wikipedia.org/wiki/Gibbs_phenomenon#Signal_processing_explanation" title="http://en.wikipedia.org/wiki/Gibbs_phenomenon">Gibbs phenomenon</a>) for high speeds.
+</p>
 
 
 <h2>Ardour Slave Configuration</h2>
@@ -106,16 +107,13 @@ Switching the timecode-source can be done via the button just right of Ardour&#0
 When Ardour is chasing an external timecode source the following cases need to be distinguished:
 </p>
 <ol>
-<li>the timecode source shares the clock</li>
-<li>the timecode source is independent (no wordclock sync)</li>
+  <li>the timecode source shares the clock</li>
+  <li>the timecode source is independent (no wordclock sync)</li>
 </ol>
-
-<p>
-and
-</p>
+<p>and</p>
 <ol>
-<li>the timecode source uses the same FPS setting as Ardour</li>
-<li>the timecode source runs at different frames-per-second</li>
+  <li>the timecode source uses the same FPS setting as Ardour</li>
+  <li>the timecode source runs at different frames-per-second</li>
 </ol>
 
 <p>

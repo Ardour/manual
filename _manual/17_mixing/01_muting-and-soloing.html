@@ -27,7 +27,7 @@ title: Muting and Soloing
 </ul>
 <p>There are further options with when solo controls are listen controls: the part of the track or bus from which the listen signal is obtained can be configured. Underneath the ‘Solo controls are Listen controls’ option in ‘Ardour Preferences’ is an option for ‘listen position’, which can be either After-Fade Listen (AFL) or Pre-Fade Listen (PFL). AFL, as its name suggests, obtains its signal from some point after the track or bus’ fader, and PFL from before it. The precise point to get the signal from can further be configured using the ‘PFL signals come from’ and ‘AFL signals come from’ options.</p>
 <p>The solo-mute arrangement with a monitor bus is shown below:</p>
-<p><img src="/ardour/manual/html/diagrams/solo-mute.png" alt="mute/solo signal flow"></p>
+<p><img src="/ardour/manual/html/diagrams/solo-mute.png" alt="mute/solo signal flow" /></p>
 <p> Here we have a number of tracks or busses (in orange). Each one has an output which feeds the master bus. In addition, each has PFL and AFL outputs; we have a choice of which to use. PFL/AFL from each track or bus are mixed. Then, whenever anything is set to AFL/PFL, the monitor out becomes just those AFL/PFL feeds; the rest of the time, the monitor out is fed from the master bus.</p>
 <p>In this scheme Solo has no effect other than to mute other non-soloed tracks; with solo (rather then listen), the monitor out is fed from the master bus.</p>
 <h2>Other solo options</h2>

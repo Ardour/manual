@@ -30,7 +30,8 @@ title: Track Types
 <dd>Tracks using this mode do <strong>destructive</strong> recording: all data is recorded to a single file and if you overdub a section of existing data, the existing data is destroyed (irrevocably - there is no undo). Fixed crossfades are added at every punch in and out point. This mode can be useful for certain kinds of dubbing workflows, but it not suggested for normal use.</dd>
 </dl>
 <p>The screenshot below shows a subtle difference between results of an overdub in normal mode (upper track) and non-layered mode (lower track). Both tracks were created using identical audio data. The upper track shows an overdub (the middle shorter region) in normal mode. In normal mode Ardour created a new region which if you look carefully has been layered on top of the the existing (longer) region. The lower track is in non-layered mode, and rather than overlay the overdub region, it split the existing region and inserted the new overdub region in between. </p>
-<p><img src="/files/a3/a3_nonlayered_example.png" alt="normal and non-layered overdubbing comparision"></p>
+<p><img src="/files/a3/a3_nonlayered_example.png" alt="normal and non-layered overdubbing comparision"
+/></p>
 
 <h2 id="channelconfiguration">Channel Configuration</h2>
 <p>Ardour tracks can have any number of inputs and any number of outputs, and the number of either can be changed at any time (subject to restrictions caused by any plugins in a track). However it is useful to not have to configure this sort of thing for the most common cases, and so the <a href="/working-with-tracks/adding-tracks">Add Tracks</a> dialog allows you to select "Mono", "Stereo" and few other typical configurations.</p>
