@@ -20,12 +20,12 @@ title: Understanding Basic Concepts and Terminology
 <p> A track is a concept common to most <abbr title="Digital Audio Workstation">DAWs</abbr>, and also used in Ardour. Tracks can record audio or MIDI data to disk, and then replay it with processing. They also allow the audio or MIDI data to be edited in a variety of different ways.</p>
 <p>In a typical pop production, one might use a track each for the kick drum, another for the snare, more perhaps for the drum overheads and others for bass, guitars and vocals.</p>
 <p>Ardour can record to any number of tracks at one time, and then play those tracks back. On playback, a track's recordings may be processed by any number of plugins, panned, and its level altered to achieve a suitable mix.</p>
-<p>A track's type is really only related to the type of data that it stores on disk. It is possible, for example, to have a MIDI track with a synthesizer plugin which converts MIDI to audio. Even though the track remains ‘MIDI’, in the sense that its on-disk recordings are MIDI, its output may be audio-only.</p>
+<p>A track's type is really only related to the type of data that it stores on disk. It is possible, for example, to have a MIDI track with a synthesizer plugin which converts MIDI to audio. Even though the track remains &lsquo;MIDI&rsquo;, in the sense that its on-disk recordings are MIDI, its output may be audio-only.</p>
 <p>More details can be found at <a href="/working-with-tracks">Working With Tracks</a>.</p>
 
 <h3 id="busses">Busses</h3>
 <p>Busses are another common concept in both DAWs and hardware mixers. They are similar in many ways to tracks; they process audio or MIDI, and can run processing plugins. The only difference is that their input is obtained from other tracks or busses, rather than from disk.</p>
-<p>One might typically use a bus to collect together the outputs of related tracks. Consider, for example, a 3-track recording of a drum-kit; given kick, snare and overhead tracks, it may be helpful to connect the output of each to a bus called ‘drums’, so that the drum-kit's level can be set as a unit, and processing (such as equalisation or compression) can be applied to the mix of all tracks.</p>
+<p>One might typically use a bus to collect together the outputs of related tracks. Consider, for example, a 3-track recording of a drum-kit; given kick, snare and overhead tracks, it may be helpful to connect the output of each to a bus called &lsquo;drums&rsquo;, so that the drum-kit's level can be set as a unit, and processing (such as equalisation or compression) can be applied to the mix of all tracks.</p>
 
 <h3>Regions</h3>
 <p>A track may contain many segments of audio or MIDI. Ardour contains these segments in things called regions, which are self-contained snippets of audio or MIDI data. Any recording pass, for example, generates a region on each track that is enabled for recording. Regions can be subjected to many editing operations; they may be moved around, split, trimmed, copied, and so on. </p>
@@ -40,7 +40,7 @@ title: Understanding Basic Concepts and Terminology
 <dt>LADSPA</dt>
 <dd>the first major plugin standard for Linux. Many LADSPA plugins are availble, mostly free and open-source.</dd>
 <dt>LV2</dt>
-<dd> the successor to LADSPA. Lots of plugins have been ‘ported’ from LADSPA to LV2, and also many new plugins written.</dd>
+<dd> the successor to LADSPA. Lots of plugins have been &lsquo;ported&rsquo; from LADSPA to LV2, and also many new plugins written.</dd>
 <dt>VST</dt>
 <dd>Ardour supports VST plugins that have been compiled for Linux.</dd>
 <dt> AudioUnit (AU)</dt>
