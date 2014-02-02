@@ -165,6 +165,10 @@ module Manual
       position ? [current, position, level + 1] : [current]
     end
 
+    def sanitize_NMTOKEN(s)
+      'ID'+s.gsub(/[^0-9A-z:_.-]/, '_')
+    end
+    
     def render(context)
 
       @source = '_manual' #context.registers[:site].source
@@ -201,7 +205,7 @@ module Manual
 
               erb = ::ERB.new <<-HTML
                   <dt class="<%= css_classes %>">
-                      <a name="<%= entry[:url] %>" href="<%= entry[:url] %>"><%= entry[:menu_title] %></a>
+                      <a id="<%= sanitize_NMTOKEN(entry[:url]) %>" href="<%= entry[:url] %>"><%= entry[:menu_title] %></a>
                   </dt>
                   <dd class="<%= css_classes %>">
                       <% if entry[:children].any? %>
@@ -221,7 +225,7 @@ module Manual
 
                 erb = ::ERB.new <<-HTML
                     <dt class="<%= css_classes %>">
-                        <a name="<%= entry[:url] %>" href="<%= entry[:url] %>"><%= entry[:menu_title] %></a>
+                        <a id="<%= sanitize_NMTOKEN(entry[:url]) %>" href="<%= entry[:url] %>"><%= entry[:menu_title] %></a>
                     </dt>
                     <dd class="<%= css_classes %>">
                     </dd>
