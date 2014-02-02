@@ -271,6 +271,32 @@
     white-space:nowrap;
 }
 
+#content img {
+    margin: 1em 0 1em 0;
+
+}
+#content td {
+    padding: 0 1em 0 1em;
+}
+
+#content .small {
+    width:150px;
+}
+
+#content .right {
+    margin: 0 0 1em 1em;
+    float:right;
+}
+
+#content .left {
+    margin-left:0 1em 1em 0;
+    float:left;
+}
+
+#content .well.notabene {
+    border-color: #990000;
+    background-color: #ffeeee;
+}
 
 .mod1:before {
     content: "Ctrl-";
