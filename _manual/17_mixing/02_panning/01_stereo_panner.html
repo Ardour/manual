@@ -4,14 +4,16 @@ title: Stereo Panner
 ---                        
 
 <p>
-  The default stereo panner distributes 2 inputs to 2 outputs. Its
-  behaviour is controlled by two parameters, width and position. The
-  default settings for the stereo panner are width=100%, 
-  position=center (L=50%, R=50%). This panner assumes that the signals
-  you wish to distribute are  either uncorrelated (that means totally 
-  independent), or they contain a stereo image which is 
-  mono-compatible, such as a co-incident microphone recording, or a 
-  stereo image that has been created with pan pots.<sup><a href="#caveat">*</a></sup>
+  The default stereo panner distributes two inputs to two outputs. Its
+  behaviour is controlled by two parameters, <em>width</em> and
+  <em>position</em>. The
+  default settings for the stereo panner are <em>width=100%</em> and  
+  <em>position=center</em>. 
+  This stereo panner assumes that the signals
+  you wish to distribute are either uncorrelated (i.e. totally 
+  independent), or that they contain a stereo image which is 
+  <em>mono-compatible</em>, such as a co-incident microphone recording, or a 
+  sound stage that has been created with pan pots.<sup><a href="#caveat">*</a></sup>
 </p>
 <div class="well">
 <p>
@@ -26,7 +28,7 @@ title: Stereo Panner
 <img src="/images/stereo-panner-annotated.png" alt=""/>
 
 <p>
-  The panner user interface consists of 3 elements, divided between
+  The panner user interface consists of three elements, divided between
   the top and bottom half. Click and/or drag in the top half to
   control position; click and/or drag in the bottom half to control
   width (see below for details).
@@ -42,7 +44,7 @@ title: Stereo Panner
   In the bottom half are two signal indicators, one marked "L" and the
   other "R". The distance between these two shows the width of the
   stereo image. If the width is reduced to zero, there will only be a
-  single signal indicator marked "M" (for mono), and whose color will
+  single signal indicator marked "M" (for mono), whose color will
   change to indicate the special state.
 </p>
 <p>
@@ -66,7 +68,7 @@ title: Stereo Panner
     left and right speakers</td></tr>
 
 <tr><td>-1</td><td>L=100% R=0%</td><td>signal image is entirely
-    at the left speaker </td></tr>
+    at the left speaker</td></tr>
 
 <tr><td>1</td><td>L=0% R=100%</td><td>signal image is entirely
     at the right speaker</td></tr>
@@ -192,23 +194,25 @@ title: Stereo Panner
 <dd>move position 1&deg; / 5&deg;to the right</dd>
 </dl>
 
-<h2><a name="caveat"></a>Panning caveats</h2>
+<h2><a name="caveat"></a>Stereo panning caveats</h2>
 
 <div class="well">
-Note that the stereo panner will introduce unwanted side effects on
+The stereo panner will introduce unwanted side effects on
 material that includes a time difference between the channels, such
-as AB, ORTF or NOS microphone recordings, or delay-panned mixes.<br />   
-With such signals, when you reduce the with, you are summing two signals
-with different delays, which will introduce comb filtering.
+as A/B, ORTF or NOS microphone recordings, or delay-panned mixes.<br />   
+When you reduce the with, you are effectively summing two highly
+correlated signals with a delay, which will cause comb filtering.
 </div>
 <p>  
-Let's take a look at what happens when you record a source at 45° to the
-right side with an ORTF array and then manipulate the width.
+Let's take a closer look at what happens when you record a source at 45° to the
+right side with an ORTF stereo microphone array and then manipulate the width.
 </p>
 <p>
 For testing, we apply a pink noise signal to both inputs of an Ardour stereo
 bus with the stereo panner, and feed the bus output to a two-channel analyser. 
-Since pink noise contains equal energy per octave, the readout is a straight line:
+Since pink noise contains equal energy per octave, the expected readout is a
+straight line, which would indicate that our signal chain does not color the
+sound:
 </p>
 <img src="/images/stereo-panner-with-ORTF-fullwidth.png" />
 <p>
@@ -219,10 +223,11 @@ analyser.
 </p>
 <p> 
 Recall that an ORTF microphone pair consists of two cardioids spaced 17 cm
-apart, with an opening angle of 110°.<br />
-For a source at 45° to the right, the time difference between the capsules 
-is 350 usecs or approximately 15 samples at 44.1 kHz. The level difference 
-due to the directivity of the microphones is about 7.5dB.
+apart, with an opening angle of 110°.
+For a far source at 45° to the right, the time difference between the capsules 
+is 350 &mu;s or approximately 15 samples at 44.1 kHz. The level difference 
+due to the directivity of the microphones is about 7.5 dB (indicated by the 
+distance between the blue and red lines in the analyser).
 </p>
 <p>
 Now for the interesting part: if we reduce the width of the signal to 50%,
@@ -231,17 +236,18 @@ happens to the frequency response of the left and right outputs:
 </p>
 <img src="/images/stereo-panner-with-ORTF-halfwidth.png" />
 <p>
-You may argue that all spaced microphone recordings will get comb filters
-later, when the two channels recombine in the air between the speakers. But
-perceptually, this is a world of difference, since our hearing system is
-very good at eliminating comb filters in the real world, if their component
-signals are spatially separated. But once you combine two delayed signals
-inside your signal chain, this spatial separation is lost. As usual, you
+You may argue that all spaced microphone recordings will undergo comb 
+filtering later, when the two channels recombine in the air between the speakers.
+Perceptually however, there is a huge of difference: our hearing system is
+very good at eliminating comb filters in the real world, where their component
+signals are spatially separated. But once you combine them
+inside your signal chain, this spatial separation is lost and the brain will
+no longer be able to sort out the timbral mess. As usual, you
 get to keep the pieces.
 </p>
 <div class="well">
 Depending on your material and on how much you need to manipulate the width,
-the comb filter may be acceptable. Then again, it may not. Listen
+some degree of comb filtering may be acceptable. Then again, it may not. Listen
 carefully for artefacts if you manipulate unknown stereo signals &mdash; many
 orchestra sample libraries for example do contain time-delay components.
 </div>
