@@ -31,7 +31,8 @@ and then add
 }
 to apps.css.
 If you add a new class with semantic meaning, document it below, under
-"Custom classes".
+"Custom classes", and be sure to explain it to the reader at
+_manual/01_welcome-to-ardour/02_about-ardour-documentation.html.
 
 
 2. Format and Validation
@@ -115,6 +116,7 @@ definition when the user hovers over the word.
 On each page, use only for the first occurrence of every abbreviation. Avoid
 a redundant explanation in the text - the expansion can easily be extracted 
 via CSS for printing.
+Use only in the text body, not in headings.
 
 <em>
 is used to emphasize a word. Commonly rendered as italics.
@@ -200,8 +202,12 @@ descriptive 'alt="A short textual description of the image content"'
 element.
 
 
-5. Typography
-=============
+5. Other conventions
+====================
+
+
+5.1 Typography
+--------------
 
 * Avoid any typographical quotation marks to highlight terms or express any
   kind of subtle inflection, use semantic markup instead.
@@ -211,5 +217,27 @@ element.
   the long em-dash.
 * For ranges of values, use the en-dash: Monday &ndash; Friday, 0 &ndash;
   11.
+* Use a non-breaking space ("&nbsp;") between a number and its unit.
 
+
+5.2 Language
+------------
+
+* The Ardour manual is written in Americal English spelling.
+* Use SI units with standard abbreviations. Give imperial units only as
+  additional information, if at all.
+
+
+5.3 Headline Capitalization
+---------------------------
+
+Capitalization follows
+https://developer.gnome.org/hig-book/3.6/design-text-labels.html.en#layout-capitalization
+:
+
+* Capitalize all words in the headline, with the following exceptions:
+    Articles: a, an, the.
+    Conjunctions: and, but, for, not, so, yet ...
+    Prepositions of three or fewer letters: at, for, by, in, to ...
+* Keep headlines short and concise.
 
