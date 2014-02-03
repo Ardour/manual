@@ -42,6 +42,10 @@ be valid XML, with all tags closed properly. The reason for this extra
 complication is that XML can be more easily checked and automatically
 refactored than plain HTML, which eases maintenance.
 
+Watch out for the ampersand "&" and angle brackets "<" and ">". They will
+render your XHTML invalid, and must be replaced by their named entities
+"&amp;", "&lt;", and "&gt;".
+
 
 3. Custom classes
 =================
@@ -57,8 +61,19 @@ If you need to apply a class to several block-level elements such as
 paragraphs or lists, enclose them in a <div>..</div>. Wherever possible,
 create semantic classes rather than visual ones.
 
-.left: make an element float left in the surrounding paragraph.
-.right: make an element float right in the surrounding paragraph.
+.left: 
+make an element float left in the surrounding paragraph.
+
+.right: 
+make an element float right in the surrounding paragraph.
+
+.note: 
+use for important notes that should be visually distinct from the
+normal text flow, or asides. Currently rendered in a gray box.
+
+.warning:
+use for potentially dangerous situations involving data loss, malfunction,
+or sound quality issues. Currently rendered in a red box.
 
 
 4. Element use
