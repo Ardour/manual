@@ -258,17 +258,68 @@
     padding: 5px;
 }
 
-#content kbd {
+kbd {
     -moz-background-clip:border;
     -moz-background-inline-policy:continuous;
     -moz-background-origin:padding;
     background:#EEEEEE none repeat scroll 0 0;
     border-color:#CCCCCC #AAAAAA #888888 #BBBBBB;
     border-style:solid;
-    border-width:1px 1px 2px 2px;
+    border-width:2px 2px 4px 4px;
     color:#000000;
-    padding:2px 1px;
+    padding:1px 2px;
     white-space:nowrap;
+}
+
+kbd.mouse {
+    -moz-border-radius:10px;
+    border-radius:10px;
+    border-width:3px;
+}
+
+kbd.menu,kbd.option,kbd.optoff {
+    border:none;
+    background-color:transparent;
+    font-weight:bold;
+    font-size:80%;
+    font-stretch:extra-condensed;
+    white-space:normal;
+}
+
+kbd.option:after,kbd.optoff:after {
+    content:'x';
+    font-family:mono;
+    font-weight:lighter;
+    text-align:center;
+    border:solid 1px black;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    margin-left:1ex;
+}
+kbd.optoff:after {
+    content:'    ';
+}
+
+
+kbd.fader, kbd.knob, kbd.button {
+    border-color:#ccccff #aaaadd #8888bb #bbbbee;
+    background-color:#ddddff;
+    color:#000044;
+}
+
+kbd.fader {
+    border-width:2px 2px 4px 4px
+}
+
+kbd.knob {
+    -moz-border-radius:12px;
+    border-radius:12px;	
+    border-width: 1px 1px 9px 9px;
+}
+
+kbd.button {
+    -moz-border-radius:8px;
+    border-radius:8px;
 }
 
 #content td {
@@ -295,7 +346,7 @@
 }
 
 #content .left {
-    margin-left:0 1em 1em 0;
+    margin:0 1em 1em 0;
     float:left;
 }
 
@@ -322,60 +373,62 @@
     background-color: #ffeeee;
 }
 
+
+
 .mod1:before {
-    content: "Ctrl-";
+    content: "Ctrl ";
 }
 
 .mod2:before {
-    content: "Alt-";
+    content: "Alt ";
 }
 
 .mod3:before {
-    content: "Shift-";
+    content: "Shift ";
 }
 
 .mod4:before {
-    content: "Win-";
+    content: "Win ";
 }
 
 .mod12:before {
-    content: "Ctrl-Alt-";
+    content: "Ctrl Alt ";
 }
 
 .mod13:before {
-    content: "Ctrl-Shift-";
+    content: "Ctrl Shift";
 }
 
 .mod14:before {
-    content: "Ctrl-Win-";
+    content: "Ctrl Win ";
 }
 
 .mac .mod1:before {
-    content: "Cmd-";
+    content: "Cmd ";
 }
 
 .mac .mod2:before {
-    content: "Ctrl-";
+    content: "Ctrl ";
 }
 
 .mac .mod3:before {
-    content: "Shift-";
+    content: "Shift ";
 }
 
 .mac .mod4:before {
-    content: "Opt-";
+    content: "Opt ";
 }
 
 .mac .mod12:before {
-    content: "Cmd-Ctrl-";
+    content: "Cmd Ctrl ";
 }
 
 .mac .mod13:before {
-    content: "Cmd-Shift-";
+    content: "Cmd Shift ";
 }
 
 .mac .mod14:before {
-    content: "Cmd-Opt-";
+    content: "Cmd Opt ";
 }
 
 
