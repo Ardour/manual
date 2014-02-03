@@ -131,7 +131,13 @@ module Manual
           "<li><a href='#{child[:url]}'>#{child[:title]}</a></li>"
         end.uniq
 
-        "<ul>#{entries.join}</ul>"
+        "<div class='chapter_content'>
+        <p>This chapter covers:</p>
+        <ul>
+          #{entries.join}
+        </ul>
+        </div>
+        "
       end
     end
   end
@@ -165,10 +171,6 @@ module Manual
       position ? [current, position, level + 1] : [current]
     end
 
-#    def sanitize_NMTOKEN(s)
-#      'ID'+s.gsub(/[^0-9A-z:_.-]/, '_')
-#    end
-    
     def render(context)
 
       @source = '_manual' #context.registers[:site].source
@@ -239,13 +241,15 @@ module Manual
       end
 
       "<dl>#{tree.join}</dl>
-      <script type='text/javascript'><!--
+      <script type='text/javascript'>
+      //<![CDATA[
         offset = document.getElementsByClassName('active')[0].offsetTop;
         height = document.getElementById('tree').clientHeight;
         if (offset > (height * .7)) {
           tree.scrollTop = offset - height * .3;
         }
-      --></script>"
+      //]]>
+      </script>"
 
     end
 
