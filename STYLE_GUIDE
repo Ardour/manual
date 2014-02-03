@@ -105,13 +105,16 @@ default choice is <p>, the plain paragraph.
 encloses a newly introduced term that is being explained. Use for the first
 occurrence of the main concept of every manual page, or the first occurrence
 of a new concept after a sub-heading if necessary.
+Keep in mind that <dfn> tags might be used to generate an index of keywords
+- don't pollute it too much.
 
 <abbr>
 is used to explain an abbreviation such as <abbr title="Linux Audio
 Developers Simple Plugin API">LADSPA</abbr>. Browsers will usually pop up the
-definition when the user hovers over the word, and it can easily be
-extracted via CSS for printing.
-Use only for the first occurrence of every new abbreviation.
+definition when the user hovers over the word.
+On each page, use only for the first occurrence of every abbreviation. Avoid
+a redundant explanation in the text - the expansion can easily be extracted 
+via CSS for printing.
 
 <em>
 is used to emphasize a word. Commonly rendered as italics.
@@ -176,6 +179,8 @@ class="mod1">N</kbd>. It will render as "Ctrl+N" for you, and as "Cmd+N" for
 your Mac-using friend. Nice, uh?
 
 For anything you want the user to type, use <kbd> as a block-level element.
+See above for other <kbd> classes to denote menu items, selections, mouse
+events and controller actions.
 
 <code>
 is only used for program code, or the content of configuration files etc. Do

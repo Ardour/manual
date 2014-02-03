@@ -5,97 +5,104 @@ title: About Ardour documentation
 
 <h2>Conventions Used In This Manual</h2>
 <p>
-This section covers some of the typographical and language conventions 
-used in this manual.
+  This section covers some of the typographical and language conventions 
+  used in this manual.
 </p>
 
 <h3>Keyboards and Modifiers</h3>
 <p>
-Keyboard bindings are shown like this: <kbd>s</kbd> or <kbd class="mod1">x</kbd>. 
-<kbd>Ctrl x</kbd> means "press the <kbd>Ctrl</kbd> key, keep it pressed and then also 
-press the <kbd>x</kbd> key. You may also see key combinations such as 
-<kbd class="mod12">e</kbd>, which mean that you should press the <kbd
-class="mod1">&nbsp;</kbd> key, then while keeping it pressed also press the 
-<kbd class="mod2">&nbsp;</kbd> key and then while
-keeping them both pressed, finally press the <kbd>e</kbd> key.</p>
+  <dfn>Keyboard bindings</dfn> are shown like this: <kbd>s</kbd> or
+  <kbd class="mod1">x</kbd>.
+</p>
 <p>
-Note that different platforms have different conventions for which modifier key
-(Control or Command) to use as the primary or most common modifier. When viewing
-this manual from a machine identifying itself as running OS X, you will see 
-<kbd>Cmd</kbd> where appropriate (for instance in the first example above).
-On other machines you will see <kbd>Ctrl</kbd> instead.
+  <kbd>Ctrl x</kbd> means "press the <kbd>Ctrl</kbd> key, keep it pressed
+  and then also press the <kbd>x</kbd> key. You may also see key combinations 
+  such as <kbd class="mod12">e</kbd>, which mean that you should hold down
+  the <kbd class="mod1">&nbsp;</kbd> key <em>and</em> the
+  <kbd class="mod2">&nbsp;</kbd> key, and then while keeping them both
+  down, press the <kbd>e</kbd> key.
+</p>
+<p>
+  Note that different platforms have different conventions for which
+  modifier key (Control or Command) to use as the primary or most common
+  modifier. When viewing this manual from a machine identifying itself as
+  running OS X, you will see  <kbd>Cmd</kbd> where appropriate (for instance
+  in the first example above). On other machines you will see <kbd>Ctrl</kbd>
+  instead.
 </p>
 
 <h3>Menu Items</h3>
 <p>
-Menu items are indicated like this:<br />
-<kbd class="menu">Top &gt; Next &gt; Deeper</kbd>. Each "&gt;"-separated item
-indicates one level of a nested (sub-)menu.
+  Menu items are indicated like this:<br />
+  <kbd class="menu">Top &gt; Next &gt; Deeper</kbd>.<br />
+  Each "&gt;"-separated item indicates one level of a nested (sub-)menu.
 </p>
 
 <h3>Preference/Dialog Options</h3>
 <p>
-Choices in various dialogs, notably the Preferences and Properties dialog, are 
-indicated like this:<br />
-<kbd class="option">Edit &gt; Preferences &gt; Audio &gt; Some Option</kbd>. 
-Each successive item indicates either a (sub-) menu or a tabbed dialog
-navigation. The final item is the one to choose or select.
+  Choices in various dialogs, notably the Preferences and Properties dialog, are 
+  indicated like this:<br />
+  <kbd class="option">Edit &gt; Preferences &gt; Audio &gt; Some
+  Option</kbd>.<br />
+  Each successive item indicates either a (sub-) menu or a tabbed dialog
+  navigation. The final item is the one to choose or select.
 </p>
 <p>
-If you are requested to deselect an option, you will see something like
-this:<br />
-<kbd class="optoff">Edit &gt; Preferences &gt; Audio &gt; Some other
-Option</kbd>.
+  If you are requested to deselect an option, you will see something like
+  this:<br />
+  <kbd class="optoff">Edit &gt; Preferences &gt; Audio &gt; Some other
+  Option</kbd>.<br />
 </p>
 
 
 <h3>Notes</h3>
 <p class="note">
-Important notes about things that might not otherwise be obvious are shown in this
-format.
+  Important notes about things that might not otherwise be obvious are shown in
+  this format.
 </p>
 
 <h3>Warnings</h3>
 <p class="warning">
-Hairy issues that might cause things to go wrong, lose data, or impair sound
-quality is displayed in this way.
+  Hairy issues that might cause things to go wrong, lose data, or impair sound
+  quality is displayed in this way.
 </p>
 
 
 <h3>Mouse Buttons</h3>
 <p>
-We refer to <a href="/setting-up-your-system/the-mouse">mouse buttons</a> as 
-<kbd class="mouse">Left</kbd>, <kbd class="mouse">Middle</kbd> and
-<kbd class="mouse">Right</kbd>. Ardour can use additional buttons, but they have
-no default behaviour in the program.
+  We refer to <a href="/setting-up-your-system/the-mouse">mouse buttons</a> as 
+  <kbd class="mouse">Left</kbd>, <kbd class="mouse">Middle</kbd> and
+  <kbd class="mouse">Right</kbd>. Ardour can use additional buttons, but they have
+  no default behaviour in the program.
 </p>
 
 <h4>Mouse click modifiers</h4>
 <p>
-Many editing functions are performed by clicking the mouse while holding a
-modifier key, for example <kbd class="mouse mod1">Left</kbd>.
-
+  Many editing functions are performed by clicking the mouse while holding a
+  modifier key, for example <kbd class="mouse mod1">Left</kbd>.
 </p>
+
 <h4>"Context-click"</h4>
-<p>Many times the term <kbd class="mouse">context-click</kbd> is used to indicate 
-that you should (typically) right-click on a particular element of the graphical 
-user interface. Although right-click is the common, default way to do this, there 
-are other ways to accomplish the same thing - this term refers to any of them, 
-and the result is always that a menu specific to the item you clicked on will be
-displayed.
+<p>
+  Many times the term <kbd class="mouse">context-click</kbd> is used to indicate
+  that you should (typically) right-click on a particular element of the graphical 
+  user interface. Although right-click is the common, default way to do this, there 
+  are other ways to accomplish the same thing - this term refers to any of them, 
+  and the result is always that a menu specific to the item you clicked on will be
+  displayed.
 </p>
 
 <h3>"The Pointer"</h3>
 <p>
-When the manual refers to the "pointer", it means the on-screen representation 
-of the mouse position or the location of a touch action if you are using a touch
-interface.
+  When the manual refers to the "pointer", it means the on-screen representation 
+  of the mouse position or the location of a touch action if you are using a touch
+  interface.
 </p>
 
 <h3>Other user input</h3>
 <p>
-Ardour supports hardware controllers, such as banks of <kbd
-class="fader">faders</kbd>, <kbd class="knob">knobs</kbd>, or <kbd
-class="button">buttons</kbd>.
+  Ardour supports hardware controllers, such as banks of
+  <kbd class="fader">faders</kbd>, <kbd class="knob">knobs</kbd>, or
+  <kbd class="button">buttons</kbd>.
 </p>
 

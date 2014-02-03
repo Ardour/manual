@@ -13,7 +13,8 @@ title: Understanding Basic Concepts and Terminology
 <p>
   An <dfn>Ardour session</dfn> is a container for an entire project. A
   session may contain an arbitrary number of <dfn>tracks</dfn> and
-  <dfn>busses</dfn> consisting of audio and MIDI data, along with
+  <dfn>busses</dfn> consisting of audio and <abbr title="Musical Instrument
+  Digital Interface">MIDI</abbr> data, along with
   information on processing those tracks, a mix of levels, and everything
   else related to the project. A session might typically contain a song, or
   perhaps an entire album or a complete live recording.
@@ -26,10 +27,11 @@ title: Understanding Basic Concepts and Terminology
   other details.
 </p>
 <p>
-  Ardour's session file is kept in XML format, which is advantageous as it
-  is somewhat human-readable, and human-editable in a crisis. Sound files
-  are stored in one of a number of optional formats, and MIDI files as SMF
-  (standard MIDI format).
+  Ardour's session file is kept in 
+  <abbr title="eXtensible Markup Language">XML</abbr> format, which is
+  advantageous as it is somewhat human-readable, and human-editable in a
+  crisis. Sound files are stored in one of a number of optional formats, and
+  MIDI files as <abbr title="Standard MIDI File">SMF</abbr>.
 </p>
 <p>
   It is also possible for Ardour sessions to reference sound and MIDI files
@@ -127,15 +129,15 @@ title: Understanding Basic Concepts and Terminology
   the following plugin standards:
 </p>
 <dl class="wide-table">
-  <dt>LADSPA</dt>
+  <dt><abbr title="Linux Audio Developers' Simple Plugin API">LADSPA</abbr></dt>
   <dd>the first major plugin standard for Linux. Many LADSPA plugins are
   available, mostly free and open-source.</dd>
-  <dt>LV2</dt>
+  <dt><abbr title="LADSPA Version 2">LV2</abbr></dt>
   <dd>the successor to LADSPA. Lots of plugins have been ported from
   LADSPA to LV2, and also many new plugins written.</dd>
-  <dt>VST</dt>
+  <dt><abbr title="Virtual Studio Technology">VST</abbr></dt>
   <dd>Ardour supports VST plugins that have been compiled for Linux.</dd>
-  <dt>AudioUnit (AU)</dt>
+  <dt><abbr title="Audio Units">AU</abbr></dt>
   <dd>Mac OS X versions of Ardour support AudioUnit plugins.</dd>
 </dl>
 <p>
