@@ -165,9 +165,9 @@ module Manual
       position ? [current, position, level + 1] : [current]
     end
 
-    def sanitize_NMTOKEN(s)
-      'ID'+s.gsub(/[^0-9A-z:_.-]/, '_')
-    end
+#    def sanitize_NMTOKEN(s)
+#      'ID'+s.gsub(/[^0-9A-z:_.-]/, '_')
+#    end
     
     def render(context)
 
@@ -181,14 +181,14 @@ module Manual
       current_a = current.split('/').reject(&:empty?)
 
       tree = Manual.traverse_data(@@data_tree) do |entry|
-
+      
           url = entry[:url]
 
           url_a = url.split('/').reject(&:empty?)
 
           depth = url_a.length
           is_current, position, level = *process_hierarchy(current_a, url_a)
-
+          
           # this massively speeds up build time by not including the whole menu tree for each page
           next if depth > 1 && current_a[0] != url_a[0]
 
@@ -205,7 +205,7 @@ module Manual
 
               erb = ::ERB.new <<-HTML
                   <dt class="<%= css_classes %>">
-                      <a id="<%= sanitize_NMTOKEN(entry[:url]) %>" href="<%= entry[:url] %>"><%= entry[:menu_title] %></a>
+                      <a href="<%= entry[:url] %>"><%= entry[:menu_title] %></a>
                   </dt>
                   <dd class="<%= css_classes %>">
                       <% if entry[:children].any? %>
@@ -225,7 +225,7 @@ module Manual
 
                 erb = ::ERB.new <<-HTML
                     <dt class="<%= css_classes %>">
-                        <a id="<%= sanitize_NMTOKEN(entry[:url]) %>" href="<%= entry[:url] %>"><%= entry[:menu_title] %></a>
+                        <a href="<%= entry[:url] %>"><%= entry[:menu_title] %></a>
                     </dt>
                     <dd class="<%= css_classes %>">
                     </dd>
@@ -234,9 +234,18 @@ module Manual
                 erb.result(binding)
              end
           end
+          
+         
       end
 
-      "<dl>#{tree.join}</dl>"
+      "<dl>#{tree.join}</dl>
+      <script type='text/javascript'><!--
+        offset = document.getElementsByClassName('active')[0].offsetTop;
+        height = document.getElementById('tree').clientHeight;
+        if (offset > (height * .7)) {
+          tree.scrollTop = offset - height * .3;
+        }
+      --></script>"
 
     end
 
