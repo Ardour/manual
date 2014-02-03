@@ -279,6 +279,11 @@
     width:150px;
 }
 
+#subtopics ul {
+    font-size:20px;
+    font-weight:bold;
+}
+
 #content dfn {
     font-weight: bold;
     font-style: normal;

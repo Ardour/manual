@@ -131,8 +131,8 @@ module Manual
           "<li><a href='#{child[:url]}'>#{child[:title]}</a></li>"
         end.uniq
 
-        "<div class='chapter_content'>
-        <p>This chapter covers:</p>
+        "<div id='subtopics'>
+        <h2>This chapter covers the following topics:</h2>
         <ul>
           #{entries.join}
         </ul>
