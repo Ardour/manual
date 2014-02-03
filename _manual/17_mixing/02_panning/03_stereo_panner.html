@@ -4,29 +4,28 @@ title: Stereo Panner
 ---                        
 
 <p>
-  The default stereo panner distributes two inputs to two outputs. Its
-  behaviour is controlled by two parameters, <strong>width</strong> and
-  <strong>position</strong>. The
-  default settings for the stereo panner are <em>width=100%</em> and  
-  <em>position=center</em>. 
+  The default <dfn>stereo panner</dfn> distributes two inputs to two outputs. Its
+  behaviour is controlled by two parameters, <dfn>width</dfn> and
+  <dfn>position</dfn>. The
+  default settings for the stereo panner are <samp>width=100%</samp> and  
+  <samp>position=center</samp>. 
   This stereo panner assumes that the signals
   you wish to distribute are either uncorrelated (i.e. totally 
   independent), or that they contain a stereo image which is 
   <em>mono-compatible</em>, such as a co-incident microphone recording, or a 
   sound stage that has been created with pan pots.<sup><a href="#caveat">*</a></sup>
 </p>
-<div class="well">
+<p class="note">
   With the default values it is not possible to alter the position,
   since the width is already spread entirely across both outputs. To
   alter the position, you must first reduce the width.
-</div>
+</p>
 
 <h2>Stereo Panner User Interface</h2>
 
 <img src="/images/stereo-panner-annotated.png" alt=""/>
-
 <p>
-  The panner user interface consists of three elements, divided between
+  The <dfn>panner user interface</dfn> consists of three elements, divided between
   the top and bottom half. Click and/or drag in the top half to
   control position; click and/or drag in the bottom half to control
   width (see below for details).
@@ -56,8 +55,8 @@ title: Stereo Panner
 
 <p>
   Although the implementation of the panner uses the "position"
-  parameter, when the user interface displays it numerically, it shows a pair of numbers that
-  will be familiar to most audio engineers. 
+  parameter, when the user interface displays it numerically, it shows 
+  a pair of numbers that will be familiar to most audio engineers. 
 </p>
 
 <table>
@@ -194,13 +193,13 @@ title: Stereo Panner
 
 <h2><a name="caveat"></a>Stereo panning caveats</h2>
 
-<div class="well">
+<p class="warning">
 The stereo panner will introduce unwanted side effects on
 material that includes a time difference between the channels, such
 as A/B, ORTF or NOS microphone recordings, or delay-panned mixes.<br />   
 When you reduce the with, you are effectively summing two highly
-correlated signals with a delay, which will cause comb filtering.
-</div>
+correlated signals with a delay, which will cause <dfn>comb filtering</dfn>.
+</p>
 <p>  
 Let's take a closer look at what happens when you record a source at 45° to the
 right side with an ORTF stereo microphone array and then manipulate the width.
@@ -243,10 +242,10 @@ inside your signal chain, this spatial separation is lost and the brain will
 no longer be able to sort out the timbral mess. As usual, you
 get to keep the pieces.
 </p>
-<div class="well">
+<p class="note">
 Depending on your material and on how much you need to manipulate the width,
 some degree of comb filtering may be acceptable. Then again, it may not. Listen
 carefully for artefacts if you manipulate unknown stereo signals &mdash; many
 orchestra sample libraries for example do contain time-delay components.
-</div>
+</p>
 

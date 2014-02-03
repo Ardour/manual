@@ -3,13 +3,13 @@ layout: default
 title: VBAP Panner
 ---                        
 
-<div class="well notabene">
+<p class="warning">
   Ardour's VBAP panner is currently in development, and its semantics may
   change in the near future, possibly affecting your mixes. Please do not
   rely on it for important production work while the dust settles.
-</div>
+</p>
 <p>
-  <strong>VBAP</strong> is short for <em>Vector-base Amplitude Panning</em>, 
+  <dfn>VBAP</dfn> is short for <em>Vector-base Amplitude Panning</em>, 
   a versatile and
   straightforward method to pan a source around on an arbitrary number
   of speakers on a horizontal polygon or a 3D surface, even if the speaker
@@ -39,21 +39,21 @@ title: VBAP Panner
   above.
 </p>
 <p>
-  A horizontal VBAP panner has one parameter, the <strong>azimuth
-  angle</strong>. A 3D panner offers an additional <strong>elevation
-  angle</strong> control.
+  A horizontal VBAP panner has one parameter, the <dfn>azimuth
+  angle</dfn>. A 3D panner offers an additional <dfn>elevation
+  angle</dfn> control.
 </p>
-<div class="well">
+<p class="note">
   More elaborate implementations of VBAP also include a
-  <strong>spread</strong> parameter, which  will distribute the signal over a 
+  <dfn>spread</dfn> parameter, which  will distribute the signal over a 
   greater number of speakers in order to maintain constant (but no longer 
   maximal) sharpness, regardless of position. Ardour's VBAP panner does not 
   currently include this feature.
-</div>
+</p>
 
 <h2>Speaker layout</h2>
 <p>
-  Each VBAP panner is specific to its <strong>speaker layout</strong>
+  Each VBAP panner is specific to its <dfn>speaker layout</dfn>
   &mdash; the panner has
   to "know" about the precise location of all the speakers. A complete VBAP
   implementation must therefore include the possibility to define this
