@@ -1,0 +1,192 @@
+*Style guide for the Ardour manual*
+
+
+
+1. Rationale
+============
+
+The Ardour manual should be consistent across different media, and it should
+be easily updatable when Ardour's behaviour changes. 
+The markup should be semantic - looks are determined in the CSS, and only
+there. If you feel you must compromise the markup in order to obtain a
+certain look: don't do it. Accept the look.
+Alternatively, edit the CSS, but be careful not to make matters worse
+elsewhere.
+
+
+1.1 visual markup
+-----------------
+
+<b>,<i>,<u>,<font> or any other purely visual elements are not used in 
+the Ardour manual.
+What you really mean is an <em>phasis or a <strong> emphasis.
+If you feel that some special terms should always be green and underlined, the
+approach of choice is this:
+<span class="my_important_keyword">foobar</span>
+and then add
+.my_important_keyword {
+	text-decoration: underline;
+        color: #004400;
+        background-color: #eeffee;
+}
+to apps.css.
+If you add a new class with semantic meaning, document it below, under
+"Custom classes".
+
+
+2. Format and Validation
+========================
+
+The Ardour manual has been converted to valid XHTML 1.0. That means it must
+be valid XML, with all tags closed properly. The reason for this extra
+complication is that XML can be more easily checked and automatically
+refactored than plain HTML, which eases maintenance.
+
+
+3. Custom classes
+=================
+
+We use the class attribute for some aspects of styling (such as to float an
+image left or right in a text paragraph), and also for more fine-grained
+semantic markup than core XHTML allows.
+
+Any XHTML element can include a class attribute. If you need to add a class
+attribute to a word or a few words which don't have an element of their own,
+use <span class="my_new_category">foo bar</span>.
+If you need to apply a class to several block-level elements such as
+paragraphs or lists, enclose them in a <div>..</div>. Wherever possible,
+create semantic classes rather than visual ones.
+
+.left: make an element float left in the surrounding paragraph.
+.right: make an element float right in the surrounding paragraph.
+
+
+4. Element use
+==============
+
+
+4.1 Main structural elements
+----------------------------
+
+<h1>..<h6>
+A <h1/> heading is added by the Ruby framework, so it should not be used in
+the manual page itself. If you feel you need another <h1>, start a new
+subpage.
+Heading levels must not be skipped. Any sub-heading must be exactly one
+level below its predecessor. Do not abuse headings to style a head line.
+
+<p>
+Every snippet of text should be enclosed in a block level element. The
+default choice is <p>, the plain paragraph.
+
+
+4.1 Inline markups
+------------------
+
+<dfn>
+encloses a newly introduced term that is being explained. Use for the first
+occurrence of the main concept of every manual page, or the first occurrence
+of a new concept after a sub-heading if necessary.
+
+<abbr>
+is used to explain an abbreviation such as <abbr title="Linux Audio
+Developers Simple Plugin API">LADSPA</abbr>. Browsers will usually pop up the
+definition when the user hovers over the word, and it can easily be
+extracted via CSS for printing.
+Use only for the first occurrence of every new abbreviation.
+
+<em>
+is used to emphasize a word. Commonly rendered as italics.
+Use only if its a truly ad-hoc, one-off situation. For anything else,
+consider adding a new semantic markup with <span class="foo">.
+
+<strong>
+is used to strongly emphasize a word. Commonly rendered in bold.
+See above for usage.
+
+<br />
+A line-break can sometimes be used to structure a paragraph, or to split a
+longish heading. Never use spurious <br/>s at the end of paragraphs or to
+control the spacing of sections. If you're unhappy with those, fix the CSS
+(which fixes the entire manual in one go!)
+
+
+4.2 Lists
+---------
+
+<ul>,<ol>
+Use the unordered list for information snippets that do not have an implied
+order. The ordered list should always be used when a sequence of actions is
+described. Within the lists, each item must be enclosed in <li> tags.
+Lists cannot be included in <p>aragraphs. Close the paragraph first.
+
+<dl>
+Definition lists are for technical terms <dt> and their definition <dd>. Do
+not abuse them for anything else.
+
+
+4.3 Quotations
+--------------
+
+<blockquote>
+is used when an entire paragraph is quoted. Must contain a
+cite="http://mysource.net/foo.pdf" attribute. Do not abuse to indent a
+paragraph!
+
+<cite>,<q>
+For inline citations, the <cite>W3C</cite> recommends to <q
+cite="http://www.w3.org/TR/xhtml1/dtds.html">use the cite and q
+elements</q>.
+
+
+4.4 Keyboard/Controller  interaction
+------------------------------------
+
+<kbd>
+Any keys or key combinations, mouse buttons, or controllers  should be marked
+with this element. 
+E.g.:
+"Press <kbd>F</kbd> to fit all tracks to the height of the Editor window."
+"Move <kbd>Fader 1</kbd> on your MIDI controller to bind it.
+"
+Since modifier keys are not cross-platform and Ardour makes a point of 
+abstracting them, do not hard-code "Alt", "Cmd" and friends, use 
+	class="modN" 
+instead.
+So if you want the user to press Ctrl-N on Linux, that's actually <kbd
+class="mod1">N</kbd>. It will render as "Ctrl+N" for you, and as "Cmd+N" for
+your Mac-using friend. Nice, uh?
+
+For anything you want the user to type, use <kbd> as a block-level element.
+
+<code>
+is only used for program code, or the content of configuration files etc. Do
+not abuse to style keys or user input, use <kbd> instead.
+
+<samp>
+is only used for the textual output of any code, never for anything the user
+types or presses.
+
+
+4.5 Images
+----------
+
+<img>
+The image tag must contain a 'src="/images/yourimage.png"' element and a
+descriptive 'alt="A short textual description of the image content"'
+element.
+
+
+5. Typography
+=============
+
+* Avoid any typographical quotation marks to highlight terms or express any
+  kind of subtle inflection, use semantic markup instead.
+* The hyphen is used to for compound words such as this well-advised example.
+* Do not hyphenate words at line breaks.
+* For breaks in thought &mdash; such as this splendid example &mdash; use
+  the long em-dash.
+* For ranges of values, use the en-dash: Monday &ndash; Friday, 0 &ndash;
+  11.
+
+
