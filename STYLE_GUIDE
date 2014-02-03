@@ -75,6 +75,9 @@ normal text flow, or asides. Currently rendered in a gray box.
 use for potentially dangerous situations involving data loss, malfunction,
 or sound quality issues. Currently rendered in a red box.
 
+Check _manual/01_welcome-to-ardour/02_about-ardour-documentation.html, it
+serves as a style and markup guide.
+
 
 4. Element use
 ==============
