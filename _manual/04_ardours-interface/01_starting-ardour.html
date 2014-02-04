@@ -2,21 +2,40 @@
 layout: default
 title: Starting Ardour
 ---                        
-
-
   
-  
-<p>There are several ways of starting Ardour, which may vary depending on which platform you are using it on.</p>
+<p>
+  There are several ways of <dfn>starting Ardour</dfn>, which may vary
+  depending on which platform you are using it.
+</p>
 <ul>
-<li>double-click the Ardour icon in your platfom's file manager (e.g. Nautilus on Linux, Finder on OS X)</li>
-<li>double click on an Ardour session file in your platform's file manager</li>
-<li>on Linux, you can also start Ardour <a href="/ardours-interface/starting-ardour/starting-ardour-from-the-command-line">on the command line</a>
-</li>
+  <li>double-click the Ardour icon in your platform's file manager (e.g. 
+  Nautilus on Linux, Finder on OS X)</li>
+  <li>double click on an Ardour session file in your platform's file manager</li>
+  <li>on Linux, you can also start Ardour <a 
+  href="/ardours-interface/starting-ardour/starting-ardour-from-the-command-line">on 
+  the command line</a></li>
 </ul>
-<p>When Ardour is run for the very first time, a special dialog is displayed that will ask you several questions about your setup. You will not be asked these questions again, but you can always modify your choices via the Preferences dialog.</p>
-<p>In general, it is sensible to start JACK before you run Ardour. This is not necessary, but will provide you with more control and options over JACK's operation. </p>
-<p>If you open Ardour without specifying an existing session it will display the "New Session" dialog. If JACK is not already running, there will be an extra "Audio Engine" tab in that dialog to configure JACK, which Ardour will start automatically.</p>
-<p>If you did specify an existing session but JACK is not already running, the "New Session" dialog will contain just the Audio Engine tab. </p>
+<p>
+  When Ardour is run for the very first time, a special dialog is displayed 
+  that will ask you several questions about your setup. You will not be asked
+  these questions again, but you can always modify your choices via the
+  <kbd class="menu">Edit &gt; Preferences</kbd> dialog.
+</p>
+<p>
+  In general, it is sensible to start JACK before you run Ardour. This is not
+  necessary, but will provide you with more control and options over JACK's
+  operation.
+</p>
+<p>
+  If you open Ardour without specifying an existing session it will display 
+  the <kbd class="menu">Session &gt New...</kbd> dialog. If JACK is not already
+  running, there will be an extra <kbd class="menu">Audio Engine</kbd> tab in
+  that dialog to configure JACK, which Ardour will then start automatically.
+</p>
+<p>
+  If you did specify an existing session but JACK is not already running, the
+  <kbd class="menu">New Session</kbd> dialog will contain just the Audio Engine tab. 
+</p>
   
 
 {% children %}

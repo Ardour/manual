@@ -269,6 +269,7 @@ kbd {
     color:#000000;
     padding:1px 2px;
     white-space:nowrap;
+    text-transform:capitalize;
 }
 
 kbd.input,kbd.lincmd,kbd.maccmd,kbd.wincmd {
@@ -280,6 +281,7 @@ kbd.lincmd,kbd.maccmd,kbd.wincmd {
     display:block;
     width:100%;
     margin-bottom:1ex;
+    text-transform:none;
 }
 
 kbd.lincmd:before {
@@ -300,14 +302,21 @@ kbd.wincmd:before {
 kbd.mouse {
     -moz-border-radius:10px;
     border-radius:10px;
-    border-width:3px;
 }
+
+/*
+.mouse:after {
+    position:relative;
+    top:-1em;
+    left:-1em;
+    content:url('/images/mouse-tail.png');
+}
+*/
 
 kbd.menu,kbd.option,kbd.optoff {
     border:none;
     background-color:transparent;
     font-weight:bold;
-    font-size:80%;
     font-stretch:extra-condensed;
     white-space:normal;
 }
@@ -355,8 +364,8 @@ samp {
     font-style:italic;
     color:#333333;
     background-color:transparent;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 1ex;
+    margin-right: 1ex;
 }
 
 samp:before {

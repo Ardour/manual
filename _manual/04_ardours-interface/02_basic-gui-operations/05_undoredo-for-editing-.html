@@ -3,10 +3,25 @@ layout: default
 title: Undo/Redo for Editing 
 ---                        
 
-
-  
-  <h2>Undo/Redo for Editing</h2>
-<p>It is very common to make changes while editing that you did not intend to, or that you later decide were the wrong choice. All changes to the arrangement of session components (regions, control points) along the timeline can be undone (and then redone). The default keybinding for undo is Ctrl/Cmd-z and for redo is Ctrl/Cmd-r (these match the conventions of most other applications that provide undo/redo.</p>
-<p>Changes are also saved to the session history file, so that undo/redo is possible even if you close the session and reopen it (even if you quit Ardour in between).</p>
-<p>The maximum number of changes that can be undone can be altered in the Editing tab of the Preferences dialog. The maximum number of changes stored in the history file is a separate parameter, and can also be set in the same place.</p>
+<p>
+  While editing, it happens that you apply an unintended change, or make
+  a choice one that you later decide was wrong. All changes to the
+  arrangement of session components (regions, control points) along the 
+  timeline can be <dfn>undone</dfn> (and <dfn>redone</dfn> if necessary). 
+</p>
+<p>
+  The default keybindings are <kbd class="mod1">Z</kbd> for Undo and
+  <kbd class="mod1">R</kbd> for Redo. These match the conventions of most
+  other applications that provide undo/redo.
+</p>
+<p>
+  Changes are also saved to the <dfn>session history</dfn> file, so that
+  undo/redo is possible even if you close the session and reopen it later,
+  even if you quit Ardour in between.</p>
+<p>
+  The maximum number of changes that can be undone can be configured under
+  <kbd class="menu">Edit &gt; Preferences &gt; Misc &gt; Undo</kbd>. 
+  The maximum number of changes stored in the history file is a separate
+  parameter, and can also be set in the same place.
+</p>
   

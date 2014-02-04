@@ -76,6 +76,10 @@ normal text flow, or asides. Currently rendered in a gray box.
 use for potentially dangerous situations involving data loss, malfunction,
 or sound quality issues. Currently rendered in a red box.
 
+.mac, .lin, .win: 
+use as additional classes to mark a section as relevant for these operating
+systems only.
+
 Check _manual/01_welcome-to-ardour/02_about-ardour-documentation.html, it
 serves as a style and markup guide.
 
@@ -184,6 +188,9 @@ For anything you want the user to type, use <kbd> as a block-level element.
 See above for other <kbd> classes to denote menu items, selections, mouse
 events and controller actions.
 
+Keys and mouse key names should always be capitalized. We do not need to
+distringuish between "x" and "X", because the latter would be "Shift-X".
+In case you forget, the stylesheet takes care of this.
 <code>
 is only used for program code, or the content of configuration files etc. Do
 not abuse to style keys or user input, use <kbd> instead.
