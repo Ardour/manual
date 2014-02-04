@@ -6,13 +6,13 @@ title: Stereo Panner
 <p>
   The default <dfn>stereo panner</dfn> distributes two inputs to two outputs. Its
   behaviour is controlled by two parameters, <dfn>width</dfn> and
-  <dfn>position</dfn>. The
-  default settings for the stereo panner are <samp>width=100%</samp> and  
-  <samp>position=center</samp>. 
-  This stereo panner assumes that the signals
+  <dfn>position</dfn>. By default, the panner is centered at full width.
+</p>
+<p>
+  The stereo panner assumes that the signals
   you wish to distribute are either uncorrelated (i.e. totally 
   independent), or that they contain a stereo image which is 
-  <em>mono-compatible</em>, such as a co-incident microphone recording, or a 
+  <dfn>mono-compatible</dfn>, such as a co-incident microphone recording, or a 
   sound stage that has been created with pan pots.<sup><a href="#caveat">*</a></sup>
 </p>
 <p class="note">
@@ -105,47 +105,47 @@ title: Stereo Panner
   To change the position smoothly, press the right button and drag
   within the top half of the panner, then release. The position will
   be limited by the current width setting. <em>Note: you do not need
-  to grab the position indicator in order to drag</em>
+  to grab the position indicator in order to drag.</em>
 </p>
 <p>
   To change the width smoothly, press the right button and drag
   within the lower half of the panner, then release. The width will be
-  limited by the current position setting.<em>Note: you do not need to
-  grab the L/R indicators in order to drag</em>
+  limited by the current position setting. <em>Note: you do not need to
+  grab the L/R indicators in order to drag.</em>
 </p>
 
 <dl class="faq">
 
 <dt>Reset to defaults</dt>
-<dd>Click <kbd class="mod3">right button</kbd></dd>
+<dd>Click <kbd class="mod3 mouse">right</kbd></dd>
 
-<dt>Change to a "hard left"</dt>
-<dd>Double click <kbd class="mod2">right button</kbd> in the upper left half
+<dt>Change to hard left</dt>
+<dd>Double click <kbd class="mod2 mouse">right</kbd> in the upper left half
   of the panner</dd>
 
-<dt>Change to a "hard right"</dt>
-<dd>Double click <kbd class="mod2">right button</kbd> in the upper right half
+<dt>Change to a hard right</dt>
+<dd>Double click <kbd class="mod2 mouse">right</kbd> in the upper right half
   of the panner</dd>
 
 <dt>Move position as far left as possible, given width</dt>
-<dd>Double click <kbd>right button</kbd> in the upper left half of the
+<dd>Double click <kbd class="mouse">right</kbd> in the upper left half of the
   panner</dd>
 
 <dt>Move position as far right as possible, given width</dt>
-<dd>Double click <kbd>right button</kbd> in the upper right half of the
+<dd>Double click <kbd class="mouse">right</kbd> in the upper right half of the
   panner</dd>
 
 <dt>Set the position to center</dt>
-<dd>Click <kbd>right button</kbd> in the upper middle of the panner</dd>
+<dd>Click <kbd class="mouse">right</kbd> in the upper middle of the panner</dd>
 
 <dt>Reset to maximum possible width</dt>
-<dd>Double click <kbd>right button</kbd> on the lower left side</dd>
+<dd>Double click <kbd class="mouse">right</kbd> on the lower left side</dd>
 
 <dt>Invert (flip channel assignments)</dt>
-<dd>Double click <kbd>right button</kbd> on the lower right side</dd>
+<dd>Double click <kbd class="mouse">right</kbd> on the lower right side</dd>
 
 <dt>Set width to 0&deg;</dt>
-<dd>Double click <kbd>right button</kbd> in the lower middle</dd>
+<dd>Double click <kbd class="mouse">right</kbd> in the lower middle</dd>
 </dl>
 
 <h4>Keyboard bindings</h4>
@@ -178,17 +178,14 @@ title: Stereo Panner
 </p>
 
 <dl>
-<dt>left / <kbd class="mod1">left</kbd></dt>
-<dd>increase width by 1&deg; / 5&deg;</dd>
-
-<dt>right / <kbd class="mod1">right</kbd></dt>
-<dd>decrease width by 1&deg; / 5&deg;</dd>
-
-<dt>up / <kbd class="mod1">up</kbd></dt>
-<dd>move position 1&deg; / 5&deg; to the left</dd>
-
-<dt>down / <kbd class="mod1">down</kbd></dt>
-<dd>move position 1&deg; / 5&deg;to the right</dd>
+  <dt><kbd class="mouse">&lArr;</kbd> / <kbd class="mod1 mouse">&lArr;</kbd></dt>
+  <dd>increase width by 1&deg; / 5&deg;</dd>
+  <dt><kbd class="mouse">&rArr;</kbd> / <kbd class="mod1 mouse">&rArr;</kbd></dt>
+  <dd>decrease width by 1&deg; / 5&deg;</dd>
+  <dt><kbd class="mouse">&uArr;</kbd> / <kbd class="mod1 mouse">&uArr;</kbd></dt>
+  <dd>move position 1&deg; / 5&deg; to the left</dd>
+  <dt><kbd class="mouse">&dArr;</kbd> / <kbd class="mod1 mouse">&dArr;</kbd></dt>
+  <dd>move position 1&deg; / 5&deg;to the right</dd>
 </dl>
 
 <h2><a name="caveat"></a>Stereo panning caveats</h2>
@@ -205,7 +202,7 @@ Let's take a closer look at what happens when you record a source at 45° to the
 right side with an ORTF stereo microphone array and then manipulate the width.
 </p>
 <p>
-For testing, we apply a pink noise signal to both inputs of an Ardour stereo
+For testing, we apply a <dfn>pink noise</dfn> signal to both inputs of an Ardour stereo
 bus with the stereo panner, and feed the bus output to a two-channel analyser. 
 Since pink noise contains equal energy per octave, the expected readout is a
 straight line, which would indicate that our signal chain does not color the
@@ -219,7 +216,7 @@ control LV2 to set the level difference and time delay. Ignore the Trim/Gain
 analyser.
 </p>
 <p> 
-Recall that an ORTF microphone pair consists of two cardioids spaced 17 cm
+Recall that an <dfn>ORTF</dfn> microphone pair consists of two cardioids spaced 17 cm
 apart, with an opening angle of 110°.
 For a far source at 45° to the right, the time difference between the capsules 
 is 350 &mu;s or approximately 15 samples at 44.1 kHz. The level difference 
@@ -248,4 +245,5 @@ some degree of comb filtering may be acceptable. Then again, it may not. Listen
 carefully for artefacts if you manipulate unknown stereo signals &mdash; many
 orchestra sample libraries for example do contain time-delay components.
 </p>
+
 
