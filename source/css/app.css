@@ -272,29 +272,31 @@ kbd {
     text-transform:capitalize;
 }
 
-kbd.input,kbd.lincmd,kbd.maccmd,kbd.wincmd {
+kbd.input,kbd.cmd {
     font-family:mono;
     border-width:0;
+    text-transform:none;
+
 }
 
-kbd.lincmd,kbd.maccmd,kbd.wincmd {
+kbd.cmd {
     display:block;
     width:100%;
     margin-bottom:1ex;
     text-transform:none;
 }
 
-kbd.lincmd:before {
+kbd.cmd.lin:before {
     content: 'user@linux:~ ';
     color:#999999;
 }
 
-kbd.maccmd:before {
+kbd.cmd.mac:before {
     content: 'MacBook:~/Desktop User\$ ';
     color:#999999;
 }
 
-kbd.wincmd:before {
+kbd.cmd.win:before {
     content: 'C:\\Users\\myAccount> ';
     color:#999999;
 }

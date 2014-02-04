@@ -191,6 +191,18 @@ events and controller actions.
 Keys and mouse key names should always be capitalized. We do not need to
 distringuish between "x" and "X", because the latter would be "Shift-X".
 In case you forget, the stylesheet takes care of this.
+
+CSS Classes used with <kbd> are:
+.modN
+.mouse: mouse buttons
+.cmd: a command line
+.lin, .win, .mac: add nice prompts to that command line
+.input: inline text to be entered by the user
+.menu: path to an Ardour menu or other GUI item
+.option: path to an option, with (X) at the end.
+.optoff: path to an option, with ( ) at the end.
+.button, .fader, .knob: external controllers (OSC or MIDI).
+
 <code>
 is only used for program code, or the content of configuration files etc. Do
 not abuse to style keys or user input, use <kbd> instead.
