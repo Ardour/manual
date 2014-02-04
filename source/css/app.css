@@ -324,7 +324,6 @@ kbd.menu,kbd.option,kbd.optoff {
 }
 
 kbd.option:after,kbd.optoff:after {
-    content:'x';
     font-family:mono;
     font-weight:lighter;
     text-align:center;
@@ -332,7 +331,10 @@ kbd.option:after,kbd.optoff:after {
     -moz-border-radius:10px;
     border-radius:10px;
     margin-left:0.3em;
-    margin-right:0.5em;
+}
+kbd.option:after {
+    content:'X';
+
 }
 kbd.optoff:after {
     content:'    ';

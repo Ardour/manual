@@ -102,6 +102,11 @@ level below its predecessor. Do not abuse headings to style a head line.
 Every snippet of text should be enclosed in a block level element. The
 default choice is <p>, the plain paragraph.
 
+<a>
+Cross-reference links in the manual are reasonably stable, since they are
+independent of the ordering number (which gets removed from the URL) and the
+pretty page title (the URL is created from the file name). So unless a file
+is renamed or moved to another sub-directory, links should be ok.
 
 4.1 Inline markups
 ------------------
@@ -248,8 +253,8 @@ paragraph.
   additional information, if at all.
 
 
-5.3 Headline Capitalization
----------------------------
+5.3 Chapter Headline Capitalization
+------------------------------------
 
 Capitalization follows
 https://developer.gnome.org/hig-book/3.6/design-text-labels.html.en#layout-capitalization
@@ -260,4 +265,7 @@ https://developer.gnome.org/hig-book/3.6/design-text-labels.html.en#layout-capit
     Conjunctions: and, but, for, not, so, yet ...
     Prepositions of three or fewer letters: at, for, by, in, to ...
 * Keep headlines short and concise.
+* secondary headlines in articles are not capitalized
+* Do not capitalize concepts in the text body, with the possible exceptions
+  of _the_ Editor and _the_ Mixer.
 

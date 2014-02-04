@@ -2,21 +2,67 @@
 layout: default
 title: Ranges &amp; Marks List
 ---                        
-
-
   
-  
-<p>The <code>Ranges &amp; Marks</code> List is visible on a tab in the <code>Editor Lists</code> area. If the editor list area isn't visible it can be enabled by checking the box in the main pull down menus <code>View &gt; Show Editor List</code>. The <code>Ranges &amp; Marks</code> list can be used as a single point of control for all range and location markers (including the punch and loop ranges), or as a supplement to other methods of working with them.</p>
+<p>
+  The <dfn>Ranges &amp; Marks List</dfn> is a tab in the <dfn>Editor
+  Lists</dfn> area on the right of the Editor window. If the editor 
+  list area isn't visible it can be enabled by checking 
+  <kbd class="option">View &gt; Show Editor List</kbd>. 
+  The Ranges &amp; Marks list can be used as a single point 
+  of control for all range and location markers (including the punch and 
+  loop ranges), or as a supplement to other methods of working with them.
+</p>
 
-<h3>Loop/Punch Ranges</h3>
-<p>The first section <code>Loop/Punch Ranges</code> shows the current loop and punch range settings; there are three clocks, the first is the start of the range, the second is the end of the range and the last is the length of the range. The start and end points have a ‘Use PH’ button beside them, which can be clicked to set the corresponding position clock to the current position of the playhead in the editor timeline. Last in the row are 3 checkboxes. The first checkbox is <code>Hide</code>, which hides the marker in the editor. Even though it is now hidden it is possible to still locate to the marker. The next checkbox is <code>Lock</code>, this will lock the marker in the editor so it can't be moved until it is unlocked. The last checkbox is <code>Glue</code>, this fixes the marker position relative to the current tempo and respects changes in tempo.</p>
 
-<h3>Markers (Including CD Index)</h3>
-<p>The next section is <code>Markers (Including CD Index)</code> which is a list of the session's markers. For each marker there is a name dialog, that can be edited by clicking on it, a clock that represents the location of the marker, a <code>Use PH</code> button that moves the marker to the current playhead location, and four checkboxes. The first checkbox is <code>CD</code>, which sets the marker for Redbook TOC exporting. The <code>Hide</code>, <code>Lock</code>, and <code>Glue</code> buttons all function the same as in the above section.</p>
+<h2>Common elements</h2>
+<p>
+  Each section has a set of <dfn>editable <a
+  href="/ardours-interface/using-ardour-clock-displays/">clock widgets</a></dfn> 
+  which display
+  the location of a marker, or the start, end, and duration times of a range,
+  respectively.<br />
+  The <kbd class="menu">Use PH</kbd> buttons allow you to set 
+  the corresponding clock to the current playhead position.
+  A <kbd class="mouse">Middle</kbd> click on any of the clocks will move 
+  the playhead to that location. Both functions are also available from the
+  clock context menus.<br />
+  Right clicking on any of the clocks brings up a context menu that allows 
+  changing of the display between Timecode, Bars:Beats, Minutes:Seconds,
+  and Samples.<br />
+</p>
+<p>
+ The <kbd class="menu">&mdash;</kbd> (subtract) button in front of each
+ user-defined range or marker in the list allows that particular item to
+ be removed. The name fields of custom ranges and markers can be edited. 
+</p>    
+<p>
+  The <kbd class="option">Hide</kbd> checkboxes make markers and ranges invisible 
+  on the respective ruler to reduce visual clutter; the markers remain
+  active however, and can be used normally.<br />
+  Selecting <kbd class="option">Lock</kbd> prevents the respective marker 
+  from being moved until unlocked.
+  Where applicable, <kbd class="option">Glue</kbd> fixes the marker position
+  relative to the current musical position expressed in bars and beats, rather 
+  than the absolute time. This will make the respective marker follow
+  changes in the tempo map.
+</p>
+<p>
+  At the bottom of the list are buttons to add new markers or ranges.
+</p>
+ <h2>List sections</h2>
 
-<h3>Ranges (Including CD Track Ranges)</h3>
-<p>The next section is the <code>Ranges (Including CD Track Ranges)</code>. Just like the <code>Loop/Punch Ranges</code> section there are three clocks that serve the same purpose. The checkboxes are the same arrangement and function as the <code>Markers (Including CD Index)</code> however without the <code>Glue</code> checkbox</p>
-
-<h3>General</h3>
-<p>At the bottom of the list are buttons to add new markers or ranges.</p>
-<p>The subtract button (<code>-</code>) beside each item in the list allows that particular marker to be removed. A middle click over any of the clocks will locate the playhead at that location in the editor. Right clicking on any of the clocks brings up a context menu that allows changing of the display between, <code>Timecode</code>, <code>Bars:Beats</code>, <code>Minutes:Seconds</code> and <code>Samples</code>. In addition to the clock displays there is an option in the context menu to select <code>Set From Playhead</code>, that sets the markers location to the current location of the playhead in the editor window, and <code>Locate to This Time</code>, that moves the playhead to the location of the position listed in the clock.</p>
+<dl>
+  <dt>Loop/Punch Ranges</dt>
+  <dd>This list shows the current <dfn>loop</dfn> and <dfn>punch</dfn> range 
+  settings. Since these are built-in ranges, you cannot rename or remove them.</dd>
+  <dt>Markers (Including CD Index)</dt>
+  <dd>This section lists the session's <dfn>markers</dfn>. By ticking <kbd
+  class="option">CD</kbd>, you instruct Ardour to create a <dfn>CD track
+  index</dfn> from this marker, which will be included in the TOC or CUE file when you
+  export.</dd>
+  <dt>Ranges (Including CD Track Ranges)</dt>
+  <dd>This is the list of <dfn>ranges</dfn> (including <dfn>CD track
+  ranges</dfn>). Ticking <kbd class="option">CD</kbd> will convert
+  the range to a <dfn>CD track</dfn>, which will again be included in
+  exported TOC or CUE files. This is relevant for Disk-At-Once recordings
+  that may contain audio data between tracks.</dd>

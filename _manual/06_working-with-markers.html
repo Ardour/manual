@@ -2,19 +2,30 @@
 layout: default
 title: Working With Markers
 ---                        
-
-
   
-  
-<p>It is very useful to be able to tag different locations in a session for use when editing and mixing. Ardour supports both <code>locations</code>, which define specific single positions in time and <code>ranges</code> which define a start and end position in time. </p>
-<p>In addition to the standard location markers there are also 3 kinds of special markers:</p>
-<dl class="narrower-table">
-<dt>CD markers</dt>
-<dd>locations that are restricted to legal CD track boundaries, and be used to add track marks/info to compact disc (CD) images.</dd>
-<dt>Loop range</dt>
-<dd>a range used to define transport loop start and end points.</dd>
-<dt>Punch range</dt>
-<dd>a range used to define start and/or end points for punch recording</dd>
-</dl>
+<p>
+  It is very useful to be able to tag different locations in a session for
+  later use when editing and mixing. Ardour supports both
+  <dfn>locations</dfn>, which define specific positions in time, 
+  and <dfn>ranges</dfn> which define a start and end position in time. 
+</p>
+<p>
+  In addition to the standard location markers, there are three kinds of 
+  special markers:
+</p>
+<ul>
+  <li>
+    <dfn>CD markers</dfn> are locations that are restricted to legal 
+    <dfn>CD sector boundaries</dfn>. They can be used to add track index 
+    markers to compact disc images.
+  </li>
+  <li>
+    The <dfn>Loop range</dfn> defines the start end end points for Looping.
+  </li>
+  <li>
+    The <dfn>punch range</dfn> defines the in and out points for punch
+    recording.
+  </li>
+</ul>
 
 {% children %}
