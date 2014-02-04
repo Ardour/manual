@@ -219,7 +219,8 @@ types or presses.
 The image tag must contain a 'src="/images/yourimage.png"' element and a
 descriptive 'alt="A short textual description of the image content"'
 element.
-
+Images are usually placed as block-level elements, i.e. outside of a
+paragraph.
 
 5. Other conventions
 ====================
