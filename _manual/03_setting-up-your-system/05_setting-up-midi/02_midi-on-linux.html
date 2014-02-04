@@ -2,32 +2,43 @@
 layout: default
 title: MIDI on Linux
 ---                        
-
-
   
-  <h2>Ensure that a2jmidid is running</h2>
-<p><code>a2jmidid</code> is an application that "bridges" between the system MIDI ports and JACK.</p>
-<p>First you should be sure that there is no ALSA sequencer support enabled in jack. To do that open qjackctl's <em>Setup</em> window.</p>
-<p>In the <em>Settings</em> tab set the <em>MIDI Driver</em> drop down to the <em>none</em> option.</p>
-<p>Then go to the <em>Misc</em> tab and uncheck the <em>Enable ALSA Sequencer support</em> option.</p>
-<p>Now it's time to restart your jack server before going on.</p>
-<h4>Checking for a2jmidid availability</h4>
-<p>First thing is checking if <em>a2jmidid</em> is already installed in your system. To do it first start your jack server and then call</p>
-<pre>a2jmidid -e</pre>
-<p>from the command. If <em>a2jmidid</em> is there go on with <strong>Checking surface control MIDI ports</strong>. Otherwise install the newest <em>a2jmidid</em> available and try again.</p>
-<h4>Checking surface control MIDI ports</h4>
-<p>After starting <em>a2jmidid</em> your control surface MIDI ports should appear in qjackctl's <em>Connections</em> window on the <em>MIDI</em> tab under <em>a2j</em>. If it does go on to the next step: <strong>Automatically calling a2jmidid when starting jack</strong>. If it doesn't you have to troubleshoot why it didn't. <em>(How to troubleshoot a2jmidid?)</em></p>
-<h4>Automatically calling a2jmidid when starting jack</h4>
-<p>It's troublesome to have to manually start <em>a2jmidid</em> by hand each time you start jack. Here is one way to do it automatically. This step isn't mandatory, it's just a convenience. If you are not interested you can go on to the next step <strong>Enabling Ardour's mackie control ports in qjackctl</strong>.</p>
-<p>Create a script that calls jack if you aren't using one yet. In it change the line that calls jack to have an ampersand at it's end like that:</p>
-<pre>
-/usr/bin/qjackctl &amp;
-</pre>
-<p>In this case I call qjackctl that starts jack so I include the ampersand in qjackctl's call. If you call jack directly, put the ampersand at the end of it's call line.</p>
-<p>Now include the following lines after the line that calls jack:</p>
-<pre>
-/usr/bin/sleep 5
-/bin/bash -c "/usr/bin/a2jmidid -e" &amp;
-</pre>
-<p>All you have to do now is use your new script to call jack.</p>
-  
+<h2>a2jmidid</h2>
+<p>
+  <dfn>a2jmidid</dfn> is an application that bridges between the system
+  <abbr title="Musical Instrument Digital Interface">MIDI</abbr> ports and
+  <abbt title="JACK Audio Connection Kit">JACK</abbr>.
+</p>
+<p>
+  First you should make sure that there is no ALSA sequencer support enabled
+  in JACK. To do that open QJackCtl's <kbd class="menu">Setup</kbd> window.
+</p>
+<p>
+  Set <kbd class="menu">Settings &gt MIDI Driver</kbd> to <kbd
+  class="input">none</kbd>.
+  Then uncheck the <kbd class="optoff">Misc &gt; Enable ALSA Sequencer
+  support</kbd> option.<br />
+  Now it's time to restart your jack server before going on.
+</p>
+
+<h3>Check for a2jmidid availability</h3>
+<p>
+  First, check whether a2jmidid is already installed in your system. After
+  starting your JACK server, go to the command line and type
+</p>
+<kbd class="lincmd">a2jmidid -e</kbd>
+<p>
+  If a2jmidid does not exist, install it with the software manager of your
+  Linux distribution and try again.
+</p>
+
+<h3>Check surface control MIDI ports</h3>
+<p>
+  After starting a2jmidid, your control surface MIDI ports should appear in
+  qjackctl under <kbd class="menu">Connections &gt; MIDI &gt; a2j</kbd>.
+</p>
+<p>
+  You can now add <kbd>a2jmidid -e</kbd> as an "after start-up" script in the <kbd
+  class="menu">Setup &gt; Options</kbd> tab of QJackCtl, so that it is
+  started automatically whenever you start JACK.
+</p>

@@ -3,35 +3,62 @@ layout: default
 title: Setting Up MIDI
 ---                        
 
- <h2>What Can Ardour Do With MIDI?</h2>
-<p>MIDI is a way of both describing musical data and controlling musical hardware\software. MIDI doesn't actually create any audio but rather describes the audio in order to control hardware/software. Ardour can import MIDI data, record MIDI data and allow MIDI data to be edited in a variety of ways. Also, MIDI can be used to control various things withing Ardour. This allows for the most flexible work flow with regards to MIDI. What Ardour doesn't have is any built in synthesis to turn the MIDI data into audio. Rather, this is handled through the use of plug-ins and external hardware/software. While this makes MIDI a powerful tool it can also  be a stumbling block for first time users who expect MIDI input to result in audio output by default. Please see the section on working with plug-ins for more information on turning MIDI data into audio output with Ardour.</p>
+<h2>What Can Ardour Do With MIDI?</h2>
+<p>
+  <dfn><abbr title="Musical Instrument Digital Interface">MIDI</abbr></dfn>
+  is a way to describe music data and to control music hardware and 
+  software. Ardour can import and record MIDI data, and perform a 
+  variety of editing operations on it. Furthermore, MIDI can be used to
+  control various functions of Ardour.
+</p>
+<p class="note">
+  Ardour does not include a <dfn>synthesis engine</dfn> to produce audio 
+  from MIDI data, but relies on plugins or external hard- and software 
+  for the task. This can be a stumbling block for first time users who 
+  expect MIDI input to result in audio output by default.<br />
+  Please see the section on working with plug-ins for more information on
+  turning MIDI data into audio output.</p>
 
- <h2>MIDI Handling Frameworks</h2>
-<p>Below is a list of various MIDI Frameworks for getting MIDI data into and out of Ardour in order to work with MIDI aware software/hardware.</p>
-<h4>CoreMIDI</h4>
+<h2>MIDI Handling Frameworks</h2>
+<p>
+  Ardour supports various ways of sending and receiving MIDI data:
+</p>
 
-<p> CoreMIDI is the standard MIDI framework to comunicate with MIDI
-hardware on OSX systems. It provides drivers and libraries needed by
-MIDI clients. These ports do not show up in qjackctl</p>
+<h3>CoreMIDI</h3>
+<p>
+  <dfn>CoreMIDI</dfn> is the standard MIDI framework on OSX systems. 
+  It provides drivers for MIDI hardware and libraries needed by MIDI
+  software clients. 
+</p>
 
 <h4>ALSA MIDI</h4>
+<p>
+  <dfn><abbr title="Advanced Linux Sound API">ALSA</abbr> MIDI</dfn>
+  is the standard MIDI framework on Linux systems. It provides drivers 
+  for MIDI hardware and libraries needed by MIDI software clients.
+</p>
+<p>
+  The <dfn>QJackCtl</dfn> control software displays ALSA MIDI ports 
+  under its "ALSA" tab (it does not currently display CoreMIDI ports).
+</p>
 
-<p> ALSA MIDI is the standard MIDI framework to comunicate with MIDI
-hardware on Linux systems. It provides drivers and libraries needed by
-MIDI clients. These ports show up under the "ALSA" tab in qjackctl</p>
+<h4>JACK MIDI</h4>
 
-<h4> JACK MIDI</h4>
-
-<p> JACK MIDI is a framework used to comunicate between JACK MIDI
-software clients. It provides zero jitter and a fixed latency of 1
-"period" (the same latency that exists for audio). These ports show up
-under the "MIDI" tab in qjackctl.
+<p> 
+  <dfn><abbr title="JACK Audio Connection Kit">JACK</abbr> MIDI</dfn> 
+  is a framework used to comunicate between JACK MIDI software clients. 
+  It provides zero jitter and a fixed latency of one <dfn>period</dfn>,
+  the same latency as for JACK audio.
+</p>
+<p>
+  JACK MIDI ports show up under the <kbd class="menu">MIDI</kbd> tab in
+  QJackCtl.
 </p>
     
 <p>
-Various ways of "bridging" between the native MIDI framework
-(e.g. CoreMIDI or ALSA) and JACK MIDI, as described in the sections
-below.
+  There are several ways of <dfn>bridging</dfn> between the native MIDI frameworks
+  (e.g. CoreMIDI or ALSA) and JACK MIDI, as described in the sections
+  below.
 </p>
 
 {% children %}

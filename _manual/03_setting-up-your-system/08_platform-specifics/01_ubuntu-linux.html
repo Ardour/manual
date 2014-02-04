@@ -4,7 +4,7 @@ title: Ubuntu Linux
 ---                        
 
 <p>
-  Ubuntu Linux is the most popular variety of Linux in use on desktop
+  <dfn>Ubuntu Linux</dfn> is the most popular variety of Linux in use on desktop
   and laptop systems. It has the backing of a for-profit corporation
   (Canonical Inc.), a defined philosophy and a huge and
   worldwide user base. As a result, it is a common platform for people
@@ -13,7 +13,6 @@ title: Ubuntu Linux
 </p>
 
 <h2>High Level Recommendations for Ubuntu Users</h2>
-
 <p>
   Currently, installing pro audio applications on vanilla Ubuntu requires 
   some configuration, in order for the user to gain realtime privilege 
@@ -27,6 +26,7 @@ title: Ubuntu Linux
 </p>
 
 <h2>Installing Ardour</h2>
+<p>
   There may be unintended differences, and even bugs in Ubuntu native 
   packages, as a result of a different building method. For this reason,
   Ardour developers highly recommend you to install the official
@@ -34,14 +34,13 @@ title: Ubuntu Linux
   href="http://ardour.org/download">ardour.org</a>, as Ubuntu native
   packages are not supported in official Ardour forums or other
   support channels.
+</p>
 
 <h2>Problems with the interaction between PulseAudio and JACK</h2>
 
-<dl>
-<dt>Background Info</dt>
-<dd>
+<h3>Background Info</h3>
 <p>
-  Like many distributions, Ubuntu has decide to use PulseAudio as the
+  Like many distributions, Ubuntu has decided to use <dfn>PulseAudio</dfn> as the
   default audio system. PulseAudio is a rich and capable system that
   provides excellent services for typical users of Linux on the
   desktop. However, it is not capable of the type of performance that
@@ -68,74 +67,70 @@ title: Ubuntu Linux
   another message, and PulseAudio can once again use the soundcard
   directly.
 </p>
-</dd>
-<dt>What is the problem?</dt>
-<dd>
+<h3>What is the problem?</h3>
 <p>
   The specific issues known at this time for all flavors of Ubuntu
   12.04 and 12.10 are:
 </p>
   <ul>
     <li>a bug in PulseAudio that causes it not to give up the
-      soundcard when JACK asks (<a href="https://bugs.launchpad.net/ubuntu/+source/pulseaudio/+bug/1163638">LP: #1163638</a>
-      (fixed in Ubuntu 13.04).</li>
+      soundcard when JACK asks
+      (<a href="https://bugs.launchpad.net/ubuntu/+source/pulseaudio/+bug/1163638">LP:
+      #1163638</a>,
+      fixed in Ubuntu 13.04).</li>
   </ul>
-</dd>
-<dt>Symptoms</dt>
-<dd>
+
+<h3>Symptoms</h3>
 <p>
-  <ul>
-    <li>Cannot start JACK (though see the next section for other
-      causes of this)</li>
-  </ul>
+    <samp>Cannot start JACK</samp> (though see the next section for other
+      causes of this)
 </p>
-</dd>
-<dt>How to fix</dt>
-<dd>
+
+<h3>How to fix</h3>
 <p>
   These bugs do not affect the upcoming 13.04 release, and earlier 
   releases (12.04 and 12.10) are in the process of being fixed.
 </p>
-</dd>
-</dl>
 
 <h2>Problems with JACK configuration</h2>
 
-<dl>
-  <dt>What is the problem?</dt>
-  <dd>
+<h3>What is the problem?</h3>
     <p>
       To function as intended, JACK needs to run with access to two
-      operating system facilities called "realtime scheduling" and "memory
-      locking". This means that you, the user who starts JACK, must be
+      operating system facilities called <dfn>realtime scheduling</dfn> and 
+      <dfn>memory locking</dfn>. This means that you, the user who starts JACK, must be
       allowed access to these facilities. By default, Ubuntu does create a
-      user group that has this permission but ... it does not put new
+      user group that has this permission but &mdash; it does not put new
       users into this group by default. Read more about why <a href="https://wiki.ubuntu.com/Audio/TheAudioGroup">here</a>.
       Consequently, you will not have permission to run JACK in the way you should.
     </p>
-  </dd>
-  <dt>Symptoms</dt>
-  <dd>
+<h3>Symptoms</h3>
     <p>
-      A message like "Cannot lock down memory" in the output from JACK as
-      it starts up. This output may be "hidden" in the Messages window of
+      A message like <samp>Cannot lock down memory</samp> in the output from JACK as
+      it starts up. This output may be hidden in the Messages window of
       QJackctrl (aka JACK Control), so you should check there.
     </p>
-  </dd>
-  <dt>How to fix</dt>
-  <dd>
+    
+<h3>How to fix</h3>
     <p>
       Make sure the file /etc/security/limits.d/audio.conf exists. If it is
       named /etc/security/limits.d/audio.conf.disabled, rename it to the former.
-      Run the command <code>sudo usermod -a -G
-        audio <em>YOUR-LOGIN-NAME</em></code>. Then logout and login again.
-      On Ubuntu Studio the user is a member of audio group by default, but not
-      on other official flavors.
+      Run the command
     </p>
-  </dd>
-</dl>
-  <h2>Reporting Issues</h2>
-<p>Given the difficulties in supporting Ubuntu and the limited time/resources of the Ardour team, the <code>Ubuntu Studio Project</code> has requested that issues and bug reports related to Ubuntu, Ubuntu Studio and other derivitives be directed to them.</p>
+    <kbd class="lincmd">sudo usermod -a -G audio
+    <em>YOUR-LOGIN-NAME</em></kbd> 
+    <p>
+      Then log out and log in again. On Ubuntu Studio the user is a member of audio
+      group by default, but not on other official flavors.
+    </p>
+
+<h2>Reporting Issues</h2>
+<p>
+  Given the difficulties in supporting Ubuntu and the limited time/resources
+  of the Ardour team, the <dfn>Ubuntu Studio Project</dfn> has requested that
+  issues and bug reports related to Ubuntu, Ubuntu Studio and other
+  derivitives be directed to them.
+</p>
 <h3>Contact Information for Ubuntu Studio</h3>
 <p><a href="http://ubuntustudio.org" target="_blank">The Ubuntu Studio Homepage</a></p>
 <p><a href="http://ubuntuforums.org/forumdisplay.php?f=335" target="_blank">The Ubuntu Studio Forums.</a></p>

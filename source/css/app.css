@@ -271,6 +271,32 @@ kbd {
     white-space:nowrap;
 }
 
+kbd.input,kbd.lincmd,kbd.maccmd,kbd.wincmd {
+    font-family:mono;
+    border-width:0;
+}
+
+kbd.lincmd,kbd.maccmd,kbd.wincmd {
+    display:block;
+    width:100%;
+    margin-bottom:1ex;
+}
+
+kbd.lincmd:before {
+    content: 'user@linux:~ ';
+    color:#999999;
+}
+
+kbd.maccmd:before {
+    content: 'MacBook:~/Desktop User\$ ';
+    color:#999999;
+}
+
+kbd.wincmd:before {
+    content: 'C:\\Users\\myAccount> ';
+    color:#999999;
+}
+
 kbd.mouse {
     -moz-border-radius:10px;
     border-radius:10px;
@@ -308,7 +334,7 @@ kbd.fader, kbd.knob, kbd.button {
 }
 
 kbd.fader {
-    border-width:2px 2px 4px 4px
+    border-width: 1px 1px 9px 9px;
 }
 
 kbd.knob {
@@ -320,6 +346,24 @@ kbd.knob {
 kbd.button {
     -moz-border-radius:8px;
     border-radius:8px;
+    border-width: 1px 1px 3px 3px;
+}
+
+samp {
+    font-family:mono;
+    font-style:italic;
+    color:#333333;
+    background-color:transparent;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+samp:before {
+    content:"\BB";
+}
+
+samp:after {
+    content:"\AB";
 }
 
 #content td {
