@@ -25,7 +25,8 @@ title: Using More Than One Audio Device
   clock</dfn> (something counting off the time between audio samples). 
   This means that trying to use multiple independent soundcards is
   problematic, because each soundcard has its own sample clock, running 
-  independently from the others. Over time, these different clocks drift 
+  independently from the others. Over time, these different clocks
+  <dfn>drift</dfn> 
   out of sync with each other, which causes glitches in the audio. You 
   cannot stop this drift, although in some cases the effects may be
   insignificant enough that some people might not care about them.
@@ -49,17 +50,17 @@ title: Using More Than One Audio Device
 </p>
 <div class="note">
 <p>
-  If you are using a <strong>single</strong> typical 3rd party
+  If you are using a <em>single</em> typical 3rd party
   audio interface (such as those from Apogee, RME, Presonus, and many
-  others), <strong>OR</strong> you are using JackPilot or a similar
+  others), <em>or</em> you are using JackPilot or a similar
   application to start JACK, you do not need to worry about this.<br />
-  You will need to set up an aggregate device <em>only</em> if either 
+  You will need to set up an aggregate device only if either 
   of the following conditions are true:
 </p>
 <ul>
   <li>You want to use two entirely separate
-    devices <strong>AND</strong> want to start JACK using Ardour.</li>
-  <li>You want to use your builtin audio device <strong>AND</strong>
+    devices <em>and</em> want to start JACK using Ardour.</li>
+  <li>You want to use your <dfn>builtin audio device</dfn> <em>and</em>
     want to start JACK using Ardour.</li>
   <li>You want to use more than two entirely separate devices</li>
 </ul>
@@ -70,7 +71,7 @@ title: Using More Than One Audio Device
   Output" into one device.
 </p>
 <p>
-  The precise instructions for creating an "aggregate device" on OS X
+  The precise instructions for creating an aggregate device on OS X
   have varied from one released to another.
 </p>
 <dl class="wide-label">

@@ -320,7 +320,8 @@ kbd.option:after,kbd.optoff:after {
     border:solid 1px black;
     -moz-border-radius:10px;
     border-radius:10px;
-    margin-left:1ex;
+    margin-left:0.3em;
+    margin-right:0.5em;
 }
 kbd.optoff:after {
     content:'    ';
