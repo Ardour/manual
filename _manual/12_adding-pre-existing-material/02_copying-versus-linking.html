@@ -1,20 +1,53 @@
 ---
 layout: default
-title: Importing versus Embedding
+title: Copying versus Linking
 ---                        
 
-
-  
-  
-<p>Importing and embedding are two different methods of using existing audio files on your computer (or network file system) within a session. They differ in one key aspect:</p>
-<h3>Importing</h3>
-<p>An existing media file is copied to the session's audio folder, and if necessary is converted into the session's native format. </p>
-<p>For audio files, you can control the choice of this format (eg. WAVE or Broadcast WAVE). Audio files will also be converted to the session sample rate if necessary, which can take several minutes for larger files.</p>
-<p>MIDI files will already be in SMF format, and are simply copied into the session's MIDI folder.</p>
-<h3>Embedding</h3>
-<p>An existing media file is used as a the source for a region, but is not copied or modified in any way.</p>
-<p>You can choose to import or embed the files in your session selecting or de-selecting the "Copy file to session" option in the Import dialog window.</p>
-<p><img src="/files/reference/images/225-ARDOUR_1_2_1.png" /> the file will be imported in the audio/MIDI folder of your session</p>
-<p><img src="/files/reference/images/226-ARDOUR_1_2_1.png" /> the file won't be copied.</p>
-<p>If it doesn't work you can uncheck  <code>Preferences &gt; Misc &gt; Session Management &gt; Always copy imported files</code>.</p>
+<p>
+  <dfn>Copying</dfn> and <dfn>linking</dfn> are two different methods of 
+  using existing audio files on your computer (or network file system) 
+  within a session. They differ in one key aspect:</p>
+<h2>Copying</h2>
+<p>
+  An existing media file is copied to the session's audio folder, and 
+  if necessary is converted into the session's native format.<br />
+  For audio files, you can control the choice of this format (eg. WAVE 
+  or Broadcast WAVE). Audio files will also be converted to the session 
+  sample rate if necessary (which can take several minutes for larger 
+  files).
+</p>
+<p>
+  MIDI files will already be in SMF format, and are simply copied into 
+  the session's MIDI folder.
+</p>
+<h2>Linking</h2>
+<p>
+  A link to an existing media file somewhere on the disk is used as a the
+  source for a region, but the data is<strong>not copied or modified</strong> 
+  in any way.
+</p>
+<p class="warning">
+  While linking is handy to conserve disk space, it means that your session
+  is <dfn>no longer self-contained</dfn>. If the external file moves, it
+  will become unavailable, and any changes to it from elsewhere will affect
+  the session. A backup of the session directory will miss linked files.
+</p>
+<p>
+  You can choose to copy or link files into your session with the 
+  <kbd class="option">Copy file to session</kbd> option in the Import 
+  dialog window.
+</p>
+<p>
+  <img class="left" src="/files/reference/images/225-ARDOUR_1_2_1.png" />
+  &larr; This file will be imported in the audio/MIDI folder of your session.
+</p>
+<p>
+  <img class="left" src="/files/reference/images/226-ARDOUR_1_2_1.png" />
+  &larr; This file won't be copied.
+</p>
+<p class="note">
+  There is a global preference <kbd class="menu">Edit &gt; Preferences &gt; Misc &gt; 
+  Session Management &gt; Always copy imported files</kbd>. If it is
+  enabled, you will not be able to link a file.
+</p>
   

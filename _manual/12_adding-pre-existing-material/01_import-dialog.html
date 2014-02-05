@@ -3,12 +3,78 @@ layout: default
 title: Import Dialog
 ---                        
 
+<p>
+  Many sessions will require the use of <dfn>existing material</dfn>, 
+  whether it consists of audio and/or MIDI data. Using existing samples, 
+  loops and riffs from files stored on your system can be the basis for 
+  a new session, or a way to deepen and improve one that is already 
+  underway. 
+</p>
+<p>
+  You can import audio and MIDI data into your session with the 
+  <dfn>Add Existing Media</dfn> dialog.
+</p>
+<img src="/files/reference/images/209-ARDOUR_1_2_1.png" />
 
-  
-  
-<p><img src="/files/reference/images/209-ARDOUR_1_2_1.png" /></p>
-<h3>The Soundfile Information Box</h3>
-<h3>Previewing Files Before Import</h3>
-<h3>Importing Files as Tracks or Regions</h3>
-<h3>Importing versus Embedding</h3>
-  
+<h2>The Soundfile Information Box</h2>
+<p>
+  This box will display information about the currently selected file:
+</p>
+<ul>
+  <li>number of channels,</li>
+  <li>sample rate,</li>
+  <li>file format,</li>
+  <li>length,</li>
+  <li>embedded timestamp (applies to some professional formats such as
+  Broadcast WAVE), and</li>
+  <li>tags (attached metadata to help categorize files in a library).</li>
+</ul>
+<p>
+  If the sample rate differs from the current session rate, it is displayed
+  in red, which indicates that the file must be resampled before importing,
+  which is controlled by the <kbd class="menu">Conversion quality</kbd>
+  option described below.
+</p>
+
+<h2>Auditioner</h2>
+<p>
+  Files can be auditioned before importing. The slider under the play and
+  stop buttons allows you to scrub around, a fader on the right side allows
+  you to control the playback volume.
+</p>
+
+<h2>Importing options</h2>
+<p>
+  You can import files into new, automatically created tracks, to the region
+  list (from where you can manually drag them into a track), or as new 
+  <a href="/working-with-tracks/track-types/">Tape tracks</a> with the
+  <kbd class="menu">Add new files as...</kbd> option.  
+</p>
+<p>
+  New files will be inserted at either the file timestamp (if available,
+  zero by default), at the <a href="/missing">edit point</a>, at the
+  playhead, or at the start of the session, as specified in <kbd
+  class="menu">Insert at...</kbd>.
+</p>
+<p>
+  The Channel <kbd class="menu">mapping</kbd> is either "one track/region per
+  file", or "one track/region per channel". The latter splits multichannel
+  source files into mono regions.<br />
+  If you have selected multiple files and are importing them into a track,
+  you can also choose whether to sequence all files into a single track in
+  the order of selection, or to create as many tracks as there are files to
+  import.
+</p>
+<p>
+  The <kbd class="menu">Conversion quality</kbd> drop-down controls the
+  quality of the resampling process, if the sampling rate of the source file
+  differs from the session rate. 
+</p>
+<p>
+  Finally, and most importantly, you can decide whether to <kbd
+  class="option">Copy files to session</kbd>, or to link them. Please read
+  <a href="/adding-pre-existing-material/copying-versus-linking/">Copying
+  versus Linking</a> for details.
+</p>
+
+{% children %}
