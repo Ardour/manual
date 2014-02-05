@@ -270,3 +270,11 @@ https://developer.gnome.org/hig-book/3.6/design-text-labels.html.en#layout-capit
 * Do not capitalize concepts in the text body, with the possible exceptions
   of _the_ Editor and _the_ Mixer.
 
+
+5.4 Janitorial tasks/review
+---------------------------
+
+If you encounter something that is unclear or patent nonsense, but you are
+not bold or knowledgeable to fix it, express your doubts with an <p
+class="fixme">editorial note</p>, so that readers will be warned and fellow
+editors know where there's work to do.
