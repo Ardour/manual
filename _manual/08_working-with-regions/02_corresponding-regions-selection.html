@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Equivalent Region Selection
+title: Corresponding Regions Selection
 ---                        
   
 <p>
   <a href="/working-with-tracks/track-and-bus-groups/">Track Groups</a> have
   a property titled <kbd class="option">Select</kbd> which, if enabled, cause 
   Ardour to propagate a region selection in one track of a group to the
-  <dfn>equivalent regions</dfn> of the other tracks in that group.
+  <dfn>corresponding regions</dfn> of the other tracks in that group.
  </p>
 <p>
   For example, let's assume you have used multiple microphones to record a 
@@ -18,9 +18,9 @@ title: Equivalent Region Selection
   subsequent edit operation will affect all the drum tracks together. 
 </p>
 
-<h2>How Ardour Decides Which Regions are "Equivalent"</h2>
+<h2>How Ardour Decides Which Regions are "Corresponding"</h2>
 <p>
-  Regions in different tracks are considered to be equivalent for the purposes 
+  Regions in different tracks are considered to be corresponding for the purposes 
   of sharing <dfn>selection</dfn> if they satisfy <em>all</em> the following criteria:
 </p>
 <ol>
@@ -29,17 +29,18 @@ title: Equivalent Region Selection
   <li>each region has the <dfn>same length</dfn>.</li>
 </ol>
 
-<h2>Overlap Equivalence</h2>
+<h2>Overlap Correspondence</h2>
 <p>
   Sometimes, the rules outlined above are too strict to get Ardour to do what you 
   want. Regions may have been trimmed to slightly different lengths, or positioned 
   slightly differently, and this will cause Ardour to not select regions in other 
   grouped tracks.</p>
 <p>
-  In this case, enable 
-  <kbd class="option">Edit &gt; Preferences &gt; Editor &gt; Use overlap equivalency for
-  regions</kbd>. With this option enabled, regions in different tracks will be 
-  considered equivalent for the purposes of selection if they
+  In this case, change  
+  <kbd class="menu">Edit &gt; Preferences &gt; Editor &gt; Regions in
+  active edit groups are edited together:</kbd> to <kbd
+  class="menu">whenever they overlap in time</kbd>. With this option enabled, r
+  egions in different tracks will be considered equivalent for the purposes of selection if they
   <dfn>overlap</dfn>. This is much more flexible and will cover almost all of the 
   cases that the fixed rules above might make cumbersome.
 </p>
