@@ -2,879 +2,508 @@
 layout: default
 title: Controlling Ardour with OSC
 ---                        
-
-
   
-  
-<p>Open Sound Control (<abbr title="Open Sound Control">OSC</abbr>) lets synthesizers and other devices communicate with Ardour. OSC devices can send commands relating to playback (such as play or stop), performance (such as volume, play, stop, and almost any other function (such as Edit, or Undo).</p>
-<p>Ardour is probably one of the most OSC-controllable audio applications around, but as with all OSC-controllable apps, you can't do much without knowing what messages can be sent. This document describes the various categories of messages that Ardour understands. It is subject to change, particular the "Actions" part below, since this relates to the GTK GUI for Ardour rather than the backend.</p>
-
-<h2>Connect to Ardour via OSC</h2>
 <p>
-OSC support is not enabled by default, but can be turned on via <code>Edit &gt; Preferences &gt; Control Surfaces</code>. Once enabled, Ardour will listen on port 3819 by default. This port number can be changed by editing $ARDOUR_CONFIG and adding this line within the &lt;Config&gt; section:</p>
-<pre>
-  &lt;Option name="osc-port" value="YourChoiceHere"/&gt;
-</pre>
-
-<h2>Transport Control</h2>
-<dl class="wide-table">
-<dt>/ardour/transport_stop</dt>
-<dt>/ardour/transport_play</dt>
-<dt>/ardour/set_transport_speed [transport_speed]</dt>
-<dd>where [transport_speed] is a float rangin from -8 to 8.</dd>
-<dt>/ardour/ffwd</dt>
-<dt>/ardour/rewind</dt>
-<dt>/ardour/goto_start</dt>
-<dt>/ardour/goto_end</dt>
-<dt>/ardour/add_marker</dt>
-<dd>(adds marker to the current transport position)
-</dd>
-<dt>/ardour/next_marker</dt>
-<dt>/ardour/prev_marker</dt>
-<dt>/ardour/locate [sample_pos] [with_roll]</dt>
-<dd>where [sample_pos] is the target position and [with_roll] is a bool/integer (whether you want transport to be kept rolling or not).
-</dd>
-<dt>/ardour/loop_toggle</dt>
-</dl>
-
-<h2>Editing-related</h2>
-<dl class="wide-table">
-<dt> /ardour/undo</dt>
-<dt> /ardour/redo</dt>
-<dt> /ardour/save_state</dt>
-<dd>(this is regular Session _&gt; Save operatio)</dd>
-</dl>
-
-<h2>Recording control</h2>
-<dl class="wide-table">
-<dt> /ardour/toggle_punch_in</dt>
-<dt> /ardour/toggle_punch_out</dt>
-<dt> /ardour/rec_enable_toggle</dt>
-<dt> /ardour/toggle_all_rec_enables</dt>
-<dd>(toggles all tracks recording state). !currently toggles on but not off for 2.0 branch.</dd>
-</dl>
-
-<h2>Track specific operations</h2>
-<p>
-For each of the following, [remote_id] is the remote_id or the track
+  <abbr title="Open Sound Control"><dfn>OSC</dfn></abbr> lets synthesizers 
+  and other devices communicate with Ardour. OSC devices can send commands 
+  relating to playback (such as play or stop), performance (such as volume, 
+  play, stop, and almost any other function (such as Edit, or Undo).
 </p>
-<dl class="wide-table">
-<dt> /ardour/routes/mute [remote_id] [mute_st]
-</dt>
-<dd>where [mute_st] is a bool/int representing the desired mute state of the track
-</dd>
-<dt> /ardour/routes/solo [remote_id] [solo_st]
-</dt>
-<dd>where [solo_st] is a bool/int representing the desired solo state of the track
-</dd>
-<dt> /ardour/routes/recenable [remote_id] [rec_st]
-</dt>
-<dd>where [rec_st] is a bool/int representing the desired rec state of the track
-</dd>
-<dt> /ardour/routes/gainabs [remote_id] [gain_abs]
-</dt>
-<dd>where [gain_abs] is a float ranging from 0 to 2 (0 being -infinite, 1 being 0dB and 2 being +6dB).
-</dd>
-<dt> /ardour/routes/gaindB [remote_id] [gain_db]
-</dt>
-<dd>where [gain_db] is a float ranging from -400 to 6 representing the desired gain of the track in dB.
+<p>
+  Ardour is probably one of the most OSC-controllable audio applications 
+  around, but as with all OSC-controllable apps, you can't do much without 
+  knowing what </dfn>messages</dfn> can be sent. This document describes the 
+  various categories of messages that Ardour understands. It is subject to 
+  change, particularly the "Actions" part below, since this relates to the 
+  GTK GUI for Ardour rather than the backend.
+</p>
+
+<h2>Connecting to Ardour via OSC</h2>
+<p>
+  OSC support is not enabled by default, but can be turned on via 
+  <kbd class="menu">Edit &gt; Preferences &gt; Control Surfaces</kbd>. 
+  Once enabled, Ardour will listen on port <code>3819</code> by default. 
+  This port number can be changed by editing <code>$ARDOUR_CONFIG</code> 
+  and adding this line within the <code>&lt;Config&gt;</code> section:
+</p>
+<kbd class="input">&lt;Option name="osc-port" value="<em>Your choice
+here</em>"/&gt;</kbd>
+
+<h2>List of OSC messages</h2>
+
+<h3>Transport Control</h3>
+<dl class="bindings">
+  <dt><kbd class="osc">/ardour/transport_stop</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/ardour/transport_play</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/ardour/set_transport_speed <em>s</em></kbd></dt>
+  <dd>where <em>s</em> is a float ranging from -8.0f to 8.0f</dd>
+  <dt><kbd class="osc">/ardour/ffwd</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/ardour/rewind</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/ardour/goto_start</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/ardour/goto_end</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/ardour/add_marker</kbd></dt>
+  <dd>(adds marker to the current transport position)</dd>
+  <dt><kbd class="osc">/ardour/next_marker</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/ardour/prev_marker</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/ardour/locate <em>spos</em> <em>roll</em></kbd></dt>
+  <dd>where <em>spos</em> is the target position in samples and
+  <em>roll</em> is a bool/integer defining whether you want transport 
+  to be kept rolling or not</dd>
+  <dt><kbd class="osc">/ardour/loop_toggle</kbd></dt>
+  <dd></dd>
+</dl>
+
+<h3>Editing-related</h3>
+<dl class="bindings">
+  <dt><kbd class="osc">/ardour/undo</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/ardour/redo</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/ardour/save_state</kbd></dt>
+  <dd>(this is the regular <kbd class="menu">Session &gt; Save</kbd>
+  operation)</dd>
+</dl>
+
+<h3>Recording control</h3>
+<dl class="bindings">
+  <dt><kbd class="osc">/ardour/toggle_punch_in</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/ardour/toggle_punch_out</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/ardour/rec_enable_toggle</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/ardour/toggle_all_rec_enables</kbd></dt>
+  <dd>(toggles all tracks' recording state)</dd>
+</dl>
+
+<h3>Track specific operations</h3>
+<p>
+  For each of the following, <em>rid</em> is the remote ID or the track
+</p>
+<dl class="bindings">
+  <dt><kbd class="osc">/ardour/routes/mute <em>rid</em> <em>mute_st</em></kbd></dt>
+  <dd>where <em>mute_st</em> is a bool/int representing the desired mute state of the track</dd>
+  <dt><kbd class="osc">/ardour/routes/solo <em>rid</em> <em>solo_st</em></kbd></dt>
+  <dd>where <em>solo_st</em> is a bool/int representing the desired solo state of the track</dd>
+  <dt><kbd class="osc">/ardour/routes/recenable <em>rid</em> <em>rec_st</em></kbd></dt>
+  <dd>where <em>rec_st</em> is a bool/int representing the desired rec state of the track</dd>
+  <dt><kbd class="osc">/ardour/routes/gainabs <em>rid</em> <em>gain_abs</em></kbd></dt>
+  <dd>where <em>gain_abs</em> is a float ranging from 0 to 2 (0 being -infinite, 1 being 0dB and 2 being +6dB).</dd>
+  <dt><kbd class="osc">/ardour/routes/gaindB <em>rid</em>  <em>gain_db</em></kbd></dt>
+<dd>where <em>gain_db</em> is a float ranging from -400 to 6 representing the desired gain of the track in dB.
 </dd>
 </dl>
 
-<h2>Menu actions</h2>
+<h3>Menu actions</h3>
 <p>
-Every single menu item in Ardour's GUI is accessible via OSC. There is
-a single common syntax to trigger the action as if it was selected
-with the mouse (or keyboard):</p>
-<pre>
-/ardour/access_action [action_name]
-</pre>
-<p>The list below shows all available values of [action-name] as of
-mid-March 2010 for Ardour 2.X. You can get the current list at any
-time by running Ardour with the -b flag.</p>
-<ul>
-<li> Common/About
-</li>
-<li> Common/goto-editor
-</li>
-<li> Common/Quit
-</li>
-<li> Common/Save
-</li>
-<li> Common/toggle-editor-mixer-on-top
-</li>
-<li> Common/ToggleBigClock
-</li>
-<li> Common/ToggleColorManager
-</li>
-<li> Common/ToggleInspector
-</li>
-<li> Common/ToggleKeyEditor
-</li>
-<li> Common/ToggleLocations
-</li>
-<li> Common/ToggleMaximalEditor
-</li>
-<li> Common/ToggleOptionsEditor
-</li>
-<li> Editor/add-location-from-playhead
-</li>
-<li> Editor/addExistingAudioFiles
-</li>
-<li> Editor/align-regions-end
-</li>
-<li> Editor/align-regions-start
-</li>
-<li> Editor/align-regions-start-relative
-</li>
-<li> Editor/align-regions-sync
-</li>
-<li> Editor/align-regions-sync-relative
-</li>
-<li> Editor/audition-at-mouse
-</li>
-<li> Editor/Autoconnect
-</li>
-<li> Editor/boost-region-gain
-</li>
-<li> Editor/brush-at-mouse
-</li>
-<li> Editor/center-edit-cursor
-</li>
-<li> Editor/center-playhead
-</li>
-<li> Editor/crop
-</li>
-<li> Editor/Crossfades
-</li>
-<li> Editor/CrossfadesFull
-</li>
-<li> Editor/CrossfadesShort
-</li>
-<li> Editor/cut-region-gain
-</li>
-<li> Editor/cycle-edit-point
-</li>
-<li> Editor/cycle-edit-point-with-marker
-</li>
-<li> Editor/cycle-snap-choice
-</li>
-<li> Editor/cycle-snap-mode
-</li>
-<li> Editor/duplicate-region
-</li>
-<li> Editor/Edit
-</li>
-<li> Editor/edit-cursor-to-next-region-sync
-</li>
-<li> Editor/edit-cursor-to-previous-region-start
-</li>
-<li> Editor/edit-cursor-to-previous-region-sync
-</li>
-<li> Editor/edit-cursor-to-range-end
-</li>
-<li> Editor/edit-cursor-to-range-start
-</li>
-<li> Editor/edit-to-playhead
-</li>
-<li> Editor/EditCursorMovementOptions
-</li>
-<li> Editor/editor-copy
-</li>
-<li> Editor/editor-cut
-</li>
-<li> Editor/editor-delete
-</li>
-<li> Editor/editor-paste
-</li>
-<li> Editor/EditSelectRangeOptions
-</li>
-<li> Editor/EditSelectRegionOptions
-</li>
-<li> Editor/export-region
-</li>
-<li> Editor/extend-range-to-end-of-region
-</li>
-<li> Editor/extend-range-to-start-of-region
-</li>
-<li> Editor/finish-add-range
-</li>
-<li> Editor/finish-range
-</li>
-<li> Editor/fit-tracks
-</li>
-<li> Editor/goto-mark-1
-</li>
-<li> Editor/goto-mark-2
-</li>
-<li> Editor/goto-mark-3
-</li>
-<li> Editor/goto-mark-4
-</li>
-<li> Editor/goto-mark-5
-</li>
-<li> Editor/goto-mark-6
-</li>
-<li> Editor/goto-mark-7
-</li>
-<li> Editor/goto-mark-8
-</li>
-<li> Editor/goto-mark-9
-</li>
-<li> Editor/goto-visual-state-1
-</li>
-<li> Editor/goto-visual-state-2
-</li>
-<li> Editor/goto-visual-state-3
-</li>
-<li> Editor/goto-visual-state-4
-</li>
-<li> Editor/goto-visual-state-5
-</li>
-<li> Editor/goto-visual-state-6
-</li>
-<li> Editor/goto-visual-state-7
-</li>
-<li> Editor/goto-visual-state-8
-</li>
-<li> Editor/goto-visual-state-9
-</li>
-<li> Editor/goto-visual-state-10
-</li>
-<li> Editor/goto-visual-state-11
-</li>
-<li> Editor/goto-visual-state-12
-</li>
-<li> Editor/insert-region
-</li>
-<li> Editor/insert-time
-</li>
-<li> Editor/invert-selection
-</li>
-<li> Editor/jump-backward-to-mark
-</li>
-<li> Editor/jump-forward-to-mark
-</li>
-<li> Editor/LayerAddHigher
-</li>
-<li> Editor/Layering
-</li>
-<li> Editor/LayerLaterHigher
-</li>
-<li> Editor/LayerMoveAddHigher
-</li>
-<li> Editor/MeterFalloff
-</li>
-<li> Editor/MeterHold
-</li>
-<li> Editor/Monitoring
-</li>
-<li> Editor/move-selected-tracks-down
-</li>
-<li> Editor/move-selected-tracks-up
-</li>
-<li> Editor/multi-duplicate-region
-</li>
-<li> Editor/mute-unmute-region
-</li>
-<li> Editor/naturalize-region
-</li>
-<li> Editor/normalize-region
-</li>
-<li> Editor/nudge-backward
-</li>
-<li> Editor/nudge-forward
-</li>
-<li> Editor/nudge-next-backward
-</li>
-<li> Editor/nudge-next-forward
-</li>
-<li> Editor/nudge-playhead-backward
-</li>
-<li> Editor/nudge-playhead-forward
-</li>
-<li> Editor/pitch-[Shift]-region
-</li>
-<li> Editor/pitch-shift-region
-</li>
-<li> Editor/play-edit-range
-</li>
-<li> Editor/play-from-edit-point-and-return
-</li>
-<li> Editor/play-selected-regions
-</li>
-<li> Editor/playhead-backward-to-grid
-</li>
-<li> Editor/playhead-forward-to-grid
-</li>
-<li> Editor/playhead-to-edit
-</li>
-<li> Editor/playhead-to-next-region-boundary
-</li>
-<li> Editor/playhead-to-next-region-boundary-noselection
-</li>
-<li> Editor/playhead-to-next-region-sync
-</li>
-<li> Editor/playhead-to-next-region-sync
-</li>
-<li> Editor/playhead-to-previous-region-boundary
-</li>
-<li> Editor/playhead-to-previous-region-boundary-noselection
-</li>
-<li> Editor/playhead-to-previous-region-sync
-</li>
-<li> Editor/playhead-to-range-end
-</li>
-<li> Editor/playhead-to-range-start
-</li>
-<li> Editor/PullupMinus1
-</li>
-<li> Editor/PullupMinus4
-</li>
-<li> Editor/PullupMinus4Minus1
-</li>
-<li> Editor/PullupMinus4Plus1
-</li>
-<li> Editor/PullupNone
-</li>
-<li> Editor/PullupPlus1
-</li>
-<li> Editor/PullupPlus4
-</li>
-<li> Editor/PullupPlus4Minus1
-</li>
-<li> Editor/PullupPlus4Plus1
-</li>
-<li> Editor/redo
-</li>
-<li> Editor/RegionEditOps
-</li>
-<li> Editor/remove-last-capture
-</li>
-<li> Editor/reverse-region
-</li>
-<li> Editor/save-visual-state-1
-</li>
-<li> Editor/save-visual-state-2
-</li>
-<li> Editor/save-visual-state-3
-</li>
-<li> Editor/save-visual-state-4
-</li>
-<li> Editor/save-visual-state-5
-</li>
-<li> Editor/save-visual-state-6
-</li>
-<li> Editor/save-visual-state-7
-</li>
-<li> Editor/save-visual-state-8
-</li>
-<li> Editor/save-visual-state-9
-</li>
-<li> Editor/save-visual-state-10
-</li>
-<li> Editor/save-visual-state-11
-</li>
-<li> Editor/save-visual-state-12
-</li>
-<li> Editor/scroll-tracks-down
-</li>
-<li> Editor/scroll-tracks-up
-</li>
-<li> Editor/select-all
-</li>
-<li> Editor/select-all-after-edit-cursor
-</li>
-<li> Editor/select-all-after-playhead
-</li>
-<li> Editor/select-all-before-edit-cursor
-</li>
-<li> Editor/select-all-before-playhead
-</li>
-<li> Editor/select-all-between-cursors
-</li>
-<li> Editor/select-all-in-loop-range
-</li>
-<li> Editor/select-all-in-punch-range
-</li>
-<li> Editor/select-all-within-cursors
-</li>
-<li> Editor/select-next-route
-</li>
-<li> Editor/select-prev-route
-</li>
-<li> Editor/select-range-between-cursors
-</li>
-<li> Editor/selected-marker-to-next-region-boundary
-</li>
-<li> Editor/selected-marker-to-previous-region-boundary
-</li>
-<li> Editor/separate
-</li>
-<li> Editor/set-edit-point
-</li>
-<li> Editor/set-fade-in-length
-</li>
-<li> Editor/set-fade-out-length
-</li>
-<li> Editor/set-loop-from-edit-range
-</li>
-<li> Editor/set-loop-from-region
-</li>
-<li> Editor/set-playhead
-</li>
-<li> Editor/set-punch-from-edit-range
-</li>
-<li> Editor/set-punch-from-region
-</li>
-<li> Editor/set-region-sync-position
-</li>
-<li> Editor/set-tempo-from-edit-range
-</li>
-<li> Editor/set-tempo-from-region
-</li>
-<li> Editor/show-editor-mixer
-</li>
-<li> Editor/Smpte24
-</li>
-<li> Editor/Smpte25
-</li>
-<li> Editor/Smpte30
-</li>
-<li> Editor/Smpte30drop
-</li>
-<li> Editor/Smpte60
-</li>
-<li> Editor/Smpte2997
-</li>
-<li> Editor/Smpte5994
-</li>
-<li> Editor/Smpte2997drop
-</li>
-<li> Editor/Smpte23976
-</li>
-<li> Editor/Smpte24976
-</li>
-<li> Editor/snap-magnetic
-</li>
-<li> Editor/snap-normal
-</li>
-<li> Editor/SnapMode
-</li>
-<li> Editor/SnapTo
-</li>
-<li> Editor/Solo
-</li>
-<li> Editor/split-region
-</li>
-<li> Editor/start-range
-</li>
-<li> Editor/step-tracks-down
-</li>
-<li> Editor/step-tracks-up
-</li>
-<li> Editor/Subframes
-</li>
-<li> Editor/Subframes100
-</li>
-<li> Editor/Subframes80
-</li>
-<li> Editor/tab-to-transient-backwards
-</li>
-<li> Editor/tab-to-transient-forwards
-</li>
-<li> Editor/temporal-zoom-in
-</li>
-<li> Editor/temporal-zoom-out
-</li>
-<li> Editor/Timecode
-</li>
-<li> Editor/toggle-auto-xfades
-</li>
-<li> Editor/toggle-edit-mode
-</li>
-<li> Editor/toggle-fade-out-active
-</li>
-<li> Editor/toggle-fade-out-active
-</li>
-<li> Editor/toggle-follow-playhead
-</li>
-<li> Editor/toggle-internal-edit
-</li>
-<li> Editor/toggle-rhythm-ferret
-</li>
-<li> Editor/toggle-xfades-active
-</li>
-<li> Editor/toggle-xfades-visible
-</li>
-<li> Editor/toggle-zoom
-</li>
-<li> Editor/ToggleGeneric MIDISurface
-</li>
-<li> Editor/ToggleGeneric MIDISurfaceFeedback
-</li>
-<li> Editor/ToggleGeneric MIDISurfaceSubMenu
-</li>
-<li> Editor/ToggleMeasureVisibility
-</li>
-<li> Editor/ToggleWaveformsWhileRecording
-</li>
-<li> Editor/ToggleWaveformVisibility
-</li>
-<li> Editor/track-record-enable-toggle
-</li>
-<li> Editor/trim-back
-</li>
-<li> Editor/trim-from-start
-</li>
-<li> Editor/trim-front
-</li>
-<li> Editor/trim-to-end
-</li>
-<li> Editor/undo
-</li>
-<li> Editor/View
-</li>
-<li> Editor/zoom-to-region
-</li>
-<li> Editor/zoom-to-region-both-axes
-</li>
-<li> Editor/zoom-to-session
-</li>
-<li> Editor/ZoomFocus
-</li>
-<li> JACK/JACK
-</li>
-<li> JACK/JACKDisconnect
-</li>
-<li> JACK/JACKReconnect
-</li>
-<li> JACK/JACKLatency32
-</li>
-<li> JACK/JACKLatency64
-</li>
-<li> JACK/JACKLatency128
-</li>
-<li> JACK/JACKLatency256
-</li>
-<li> JACK/JACKLatency512
-</li>
-<li> JACK/JACKLatency1024
-</li>
-<li> JACK/JACKLatency2048
-</li>
-<li> JACK/JACKLatency4096
-</li>
-<li> JACK/JACKLatency8192
-</li>
-<li> Main/AddTrackBus
-</li>
-<li> Main/AudioFileFormat
-</li>
-<li> Main/AudioFileFormatData
-</li>
-<li> Main/AudioFileFormatHeader
-</li>
-<li> Main/CleanupUnused
-</li>
-<li> Main/FlushWastebasket
-</li>
-<li> Main/Close
-</li>
-<li> Main/ControlSurfaces
-</li>
-<li> Main/Export
-</li>
-<li> Main/ExportRangeMarkers
-</li>
-<li> Main/ExportSelection
-</li>
-<li> Main/ExportSession
-</li>
-<li> Main/Help
-</li>
-<li> Main/KeyMouse Actions
-</li>
-<li> Main/Metering
-</li>
-<li> Main/MeteringFallOffRate
-</li>
-<li> Main/MeteringHoldTime
-</li>
-<li> Main/New
-</li>
-<li> Main/Open
-</li>
-<li> Main/Options
-</li>
-<li> Main/Recent
-</li>
-<li> Main/SaveTemplate
-</li>
-<li> Main/Session
-</li>
-<li> Main/Snapshot
-</li>
-<li> Main/TransportOptions
-</li>
-<li> Main/Windows
-</li>
-<li> MouseMode/set-mouse-mode-gain
-</li>
-<li> MouseMode/set-mouse-mode-object
-</li>
-<li> MouseMode/set-mouse-mode-range
-</li>
-<li> MouseMode/set-mouse-mode-timefx
-</li>
-<li> MouseMode/set-mouse-mode-zoom
-</li>
-<li> options/DoNotRunPluginsWhileRecording
-</li>
-<li> options/FileDataFormat24bit
-</li>
-<li> options/FileDataFormatFloat
-</li>
-<li> options/FileHeaderFormatBWF
-</li>
-<li> options/FileHeaderFormatCAF
-</li>
-<li> options/FileHeaderFormatWAVE
-</li>
-<li> options/FileHeaderFormatWAVE64
-</li>
-<li> options/GainReduceFastTransport
-</li>
-<li> options/InputAutoConnectManual
-</li>
-<li> options/InputAutoConnectPhysical
-</li>
-<li> options/LatchedRecordEnable
-</li>
-<li> options/LatchedSolo
-</li>
-<li> options/MeterFalloffFast
-</li>
-<li> options/MeterFalloffFaster
-</li>
-<li> options/MeterFalloffFastest
-</li>
-<li> options/MeterFalloffMedium
-</li>
-<li> options/MeterFalloffOff
-</li>
-<li> options/MeterFalloffSlow
-</li>
-<li> options/MeterFalloffSlowest
-</li>
-<li> options/MeterHoldLong
-</li>
-<li> options/MeterHoldMedium
-</li>
-<li> options/MeterHoldOff
-</li>
-<li> options/MeterHoldShort
-</li>
-<li> options/OutputAutoConnectManual
-</li>
-<li> options/OutputAutoConnectMaster
-</li>
-<li> options/OutputAutoConnectPhysical
-</li>
-<li> options/RegionEquivalentsOverlap
-</li>
-<li> options/SendMMC
-</li>
-<li> options/SendMTC
-</li>
-<li> options/ShowSoloMutes
-</li>
-<li> options/SoloInPlace
-</li>
-<li> options/SoloViaBus
-</li>
-<li> options/StopPluginsWithTransport
-</li>
-<li> options/StopRecordingOnXrun
-</li>
-<li> options/StopTransportAtEndOfSession
-</li>
-<li> options/UseExternalMonitoring
-</li>
-<li> options/UseHardwareMonitoring
-</li>
-<li> options/UseMMC
-</li>
-<li> options/UseSoftwareMonitoring
-</li>
-<li> options/VerifyRemoveLastCapture
-</li>
-<li> redirectmenu/activate
-</li>
-<li> redirectmenu/activate_all
-</li>
-<li> redirectmenu/clear
-</li>
-<li> redirectmenu/copy
-</li>
-<li> redirectmenu/cut
-</li>
-<li> redirectmenu/deactivate
-</li>
-<li> redirectmenu/deactivate_all
-</li>
-<li> redirectmenu/deselectall
-</li>
-<li> redirectmenu/edit
-</li>
-<li> redirectmenu/newinsert
-</li>
-<li> redirectmenu/newplugin
-</li>
-<li> redirectmenu/newsend
-</li>
-<li> redirectmenu/paste
-</li>
-<li> redirectmenu/rename
-</li>
-<li> redirectmenu/selectall
-</li>
-<li> RegionList/RegionListSort
-</li>
-<li> RegionList/RegionListSort
-</li>
-<li> RegionList/rlAudition
-</li>
-<li> RegionList/rlHide
-</li>
-<li> RegionList/rlRemove
-</li>
-<li> RegionList/rlShowAll
-</li>
-<li> RegionList/rlShowAuto
-</li>
-<li> RegionList/SortAscending
-</li>
-<li> RegionList/SortByRegionEndinFile
-</li>
-<li> RegionList/SortByRegionLength
-</li>
-<li> RegionList/SortByRegionName
-</li>
-<li> RegionList/SortByRegionPosition
-</li>
-<li> RegionList/SortByRegionStartinFile
-</li>
-<li> RegionList/SortByRegionTimestamp
-</li>
-<li> RegionList/SortBySourceFileCreationDate
-</li>
-<li> RegionList/SortBySourceFileLength
-</li>
-<li> RegionList/SortBySourceFileName
-</li>
-<li> RegionList/SortBySourceFilesystem
-</li>
-<li> RegionList/SortDescending
-</li>
-<li> ShuttleActions/SetShuttleUnitsPercentage
-</li>
-<li> ShuttleActions/SetShuttleUnitsSemitones
-</li>
-<li> Snap/snap-to-asixteenthbeat
-</li>
-<li> Snap/snap-to-bar
-</li>
-<li> Snap/snap-to-beat
-</li>
-<li> Snap/snap-to-cd-frame
-</li>
-<li> Snap/snap-to-edit-cursor
-</li>
-<li> Snap/snap-to-eighths
-</li>
-<li> Snap/snap-to-frame
-</li>
-<li> Snap/snap-to-mark
-</li>
-<li> Snap/snap-to-minutes
-</li>
-<li> Snap/snap-to-quarters
-</li>
-<li> Snap/snap-to-region-boundary
-</li>
-<li> Snap/snap-to-region-end
-</li>
-<li> Snap/snap-to-region-start
-</li>
-<li> Snap/snap-to-region-sync
-</li>
-<li> Snap/snap-to-seconds
-</li>
-<li> Snap/snap-to-smpte-frame
-</li>
-<li> Snap/snap-to-smpte-minutes
-</li>
-<li> Snap/snap-to-smpte-seconds
-</li>
-<li> Snap/snap-to-thirds
-</li>
-<li> Snap/snap-to-thirtyseconds
-</li>
-<li> Transport/focus-on-clock
-</li>
-<li> Transport/Forward
-</li>
-<li> Transport/GotoEnd
-</li>
-<li> Transport/GotoStart
-</li>
-<li> Transport/GotoZero
-</li>
-<li> Transport/Loop
-</li>
-<li> Transport/PlaySelection
-</li>
-<li> Transport/Record
-</li>
-<li> Transport/record-roll
-</li>
-<li> Transport/Rewind
-</li>
-<li> Transport/ToggleAutoInput
-</li>
-<li> Transport/ToggleAutoPlay
-</li>
-<li> Transport/ToggleAutoReturn
-</li>
-<li> Transport/ToggleClick
-</li>
-<li> Transport/TogglePunchIn
-</li>
-<li> Transport/TogglePunchOut
-</li>
-<li> Transport/ToggleRoll
-</li>
-<li> Transport/ToggleRollForgetCapture
-</li>
-<li> Transport/ToggleRollMaybe
-</li>
-<li> Transport/ToggleTimeMaster
-</li>
-<li> Transport/ToggleVideoSync
-</li>
-<li> Transport/TransitionToReverse
-</li>
-<li> Transport/TransitionToRoll
-</li>
-<li> Zoom/zoom-focus-center
-</li>
-<li> Zoom/zoom-focus-edit
-</li>
-<li> Zoom/zoom-focus-left
-</li>
-<li> Zoom/zoom-focus-playhead
-</li>
-<li> Zoom/zoom-focus-right
-</li>
-</ul>
+  Every single menu item in Ardour's GUI is accessible via OSC. There is
+  a single common syntax to trigger the action as if it was selected
+  with the mouse (or keyboard):</p>
+<kbd class="osc">/ardour/access_action <em>action_name</em></kbd>
+<p>
+  The list below shows all available values of <em>action-name</em> as of
+  mid-March 2010 for Ardour 2.X. You can get the current list at any
+  time by running Ardour with the -b flag.
+  </p>
+<dl class="bindings">
+  <dt><kbd class="osc">Common/About</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/goto-editor</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/Quit</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/Save</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/toggle-editor-mixer-on-top</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/ToggleBigClock</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/ToggleColorManager</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/ToggleInspector</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/ToggleKeyEditor</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/ToggleLocations</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/ToggleMaximalEditor</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/ToggleOptionsEditor</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/add-location-from-playhead</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/addExistingAudioFiles</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/align-regions-end</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/align-regions-start</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/align-regions-start-relative</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/align-regions-sync</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/align-regions-sync-relative</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/audition-at-mouse</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Autoconnect</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/boost-region-gain</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/brush-at-mouse</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/center-edit-cursor</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/center-playhead</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/crop</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Crossfades</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/CrossfadesFull</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/CrossfadesShort</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/cut-region-gain</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/cycle-edit-point</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/cycle-edit-point-with-marker</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/cycle-snap-choice</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/cycle-snap-mode</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/duplicate-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Edit</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/edit-cursor-to-next-region-sync</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/edit-cursor-to-previous-region-start</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/edit-cursor-to-previous-region-sync</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/edit-cursor-to-range-end</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/edit-cursor-to-range-start</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/edit-to-playhead</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/EditCursorMovementOptions</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/editor-copy</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/editor-cut</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/editor-delete</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/editor-paste</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/EditSelectRangeOptions</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/EditSelectRegionOptions</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/export-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/extend-range-to-end-of-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/extend-range-to-start-of-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/finish-add-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/finish-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/fit-tracks</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-mark-1</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-mark-2</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-mark-3</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-mark-4</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-mark-5</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-mark-6</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-mark-7</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-mark-8</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-mark-9</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-visual-state-1</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-visual-state-2</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-visual-state-3</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-visual-state-4</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-visual-state-5</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-visual-state-6</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-visual-state-7</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-visual-state-8</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-visual-state-9</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-visual-state-10</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-visual-state-11</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/goto-visual-state-12</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/insert-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/insert-time</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/invert-selection</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/jump-backward-to-mark</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/jump-forward-to-mark</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/LayerAddHigher</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Layering</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/LayerLaterHigher</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/LayerMoveAddHigher</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/MeterFalloff</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/MeterHold</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Monitoring</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/move-selected-tracks-down</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/move-selected-tracks-up</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/multi-duplicate-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/mute-unmute-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/naturalize-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/normalize-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/nudge-backward</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/nudge-forward</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/nudge-next-backward</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/nudge-next-forward</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/nudge-playhead-backward</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/nudge-playhead-forward</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/pitch-[Shift]-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/pitch-shift-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/play-edit-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/play-from-edit-point-and-return</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/play-selected-regions</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/playhead-backward-to-grid</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/playhead-forward-to-grid</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/playhead-to-edit</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/playhead-to-next-region-boundary</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/playhead-to-next-region-boundary-noselection</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/playhead-to-next-region-sync</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/playhead-to-next-region-sync</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/playhead-to-previous-region-boundary</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/playhead-to-previous-region-boundary-noselection</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/playhead-to-previous-region-sync</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/playhead-to-range-end</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/playhead-to-range-start</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/PullupMinus1</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/PullupMinus4</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/PullupMinus4Minus1</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/PullupMinus4Plus1</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/PullupNone</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/PullupPlus1</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/PullupPlus4</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/PullupPlus4Minus1</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/PullupPlus4Plus1</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/redo</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/RegionEditOps</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/remove-last-capture</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/reverse-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/save-visual-state-1</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/save-visual-state-2</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/save-visual-state-3</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/save-visual-state-4</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/save-visual-state-5</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/save-visual-state-6</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/save-visual-state-7</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/save-visual-state-8</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/save-visual-state-9</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/save-visual-state-10</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/save-visual-state-11</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/save-visual-state-12</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/scroll-tracks-down</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/scroll-tracks-up</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-all</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-all-after-edit-cursor</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-all-after-playhead</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-all-before-edit-cursor</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-all-before-playhead</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-all-between-cursors</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-all-in-loop-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-all-in-punch-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-all-within-cursors</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-next-route</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-prev-route</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-range-between-cursors</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/selected-marker-to-next-region-boundary</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/selected-marker-to-previous-region-boundary</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/separate</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-edit-point</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-fade-in-length</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-fade-out-length</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-loop-from-edit-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-loop-from-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-playhead</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-punch-from-edit-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-punch-from-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-region-sync-position</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-tempo-from-edit-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-tempo-from-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/show-editor-mixer</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Smpte24</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Smpte25</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Smpte30</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Smpte30drop</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Smpte60</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Smpte2997</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Smpte5994</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Smpte2997drop</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Smpte23976</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Smpte24976</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/snap-magnetic</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/snap-normal</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/SnapMode</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/SnapTo</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Solo</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/split-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/start-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/step-tracks-down</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/step-tracks-up</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Subframes</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Subframes100</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Subframes80</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/tab-to-transient-backwards</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/tab-to-transient-forwards</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/temporal-zoom-in</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/temporal-zoom-out</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/Timecode</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/toggle-auto-xfades</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/toggle-edit-mode</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/toggle-fade-out-active</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/toggle-fade-out-active</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/toggle-follow-playhead</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/toggle-internal-edit</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/toggle-rhythm-ferret</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/toggle-xfades-active</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/toggle-xfades-visible</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/toggle-zoom</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/ToggleGeneric MIDISurface</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/ToggleGeneric MIDISurfaceFeedback</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/ToggleGeneric MIDISurfaceSubMenu</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/ToggleMeasureVisibility</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/ToggleWaveformsWhileRecording</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/ToggleWaveformVisibility</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/track-record-enable-toggle</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/trim-back</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/trim-from-start</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/trim-front</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/trim-to-end</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/undo</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/View</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/zoom-to-region</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/zoom-to-region-both-axes</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/zoom-to-session</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/ZoomFocus</kbd></dt><dd></dd>
+  <dt><kbd class="osc">JACK/JACK</kbd></dt><dd></dd>
+  <dt><kbd class="osc">JACK/JACKDisconnect</kbd></dt><dd></dd>
+  <dt><kbd class="osc">JACK/JACKReconnect</kbd></dt><dd></dd>
+  <dt><kbd class="osc">JACK/JACKLatency32</kbd></dt><dd></dd>
+  <dt><kbd class="osc">JACK/JACKLatency64</kbd></dt><dd></dd>
+  <dt><kbd class="osc">JACK/JACKLatency128</kbd></dt><dd></dd>
+  <dt><kbd class="osc">JACK/JACKLatency256</kbd></dt><dd></dd>
+  <dt><kbd class="osc">JACK/JACKLatency512</kbd></dt><dd></dd>
+  <dt><kbd class="osc">JACK/JACKLatency1024</kbd></dt><dd></dd>
+  <dt><kbd class="osc">JACK/JACKLatency2048</kbd></dt><dd></dd>
+  <dt><kbd class="osc">JACK/JACKLatency4096</kbd></dt><dd></dd>
+  <dt><kbd class="osc">JACK/JACKLatency8192</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/AddTrackBus</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/AudioFileFormat</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/AudioFileFormatData</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/AudioFileFormatHeader</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/CleanupUnused</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/FlushWastebasket</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/Close</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/ControlSurfaces</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/Export</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/ExportRangeMarkers</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/ExportSelection</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/ExportSession</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/Help</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/KeyMouse Actions</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/Metering</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/MeteringFallOffRate</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/MeteringHoldTime</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/New</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/Open</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/Options</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/Recent</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/SaveTemplate</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/Session</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/Snapshot</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/TransportOptions</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/Windows</kbd></dt><dd></dd>
+  <dt><kbd class="osc">MouseMode/set-mouse-mode-gain</kbd></dt><dd></dd>
+  <dt><kbd class="osc">MouseMode/set-mouse-mode-object</kbd></dt><dd></dd>
+  <dt><kbd class="osc">MouseMode/set-mouse-mode-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">MouseMode/set-mouse-mode-timefx</kbd></dt><dd></dd>
+  <dt><kbd class="osc">MouseMode/set-mouse-mode-zoom</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/DoNotRunPluginsWhileRecording</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/FileDataFormat24bit</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/FileDataFormatFloat</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/FileHeaderFormatBWF</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/FileHeaderFormatCAF</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/FileHeaderFormatWAVE</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/FileHeaderFormatWAVE64</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/GainReduceFastTransport</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/InputAutoConnectManual</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/InputAutoConnectPhysical</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/LatchedRecordEnable</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/LatchedSolo</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/MeterFalloffFast</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/MeterFalloffFaster</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/MeterFalloffFastest</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/MeterFalloffMedium</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/MeterFalloffOff</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/MeterFalloffSlow</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/MeterFalloffSlowest</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/MeterHoldLong</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/MeterHoldMedium</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/MeterHoldOff</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/MeterHoldShort</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/OutputAutoConnectManual</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/OutputAutoConnectMaster</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/OutputAutoConnectPhysical</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/RegionEquivalentsOverlap</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/SendMMC</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/SendMTC</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/ShowSoloMutes</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/SoloInPlace</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/SoloViaBus</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/StopPluginsWithTransport</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/StopRecordingOnXrun</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/StopTransportAtEndOfSession</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/UseExternalMonitoring</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/UseHardwareMonitoring</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/UseMMC</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/UseSoftwareMonitoring</kbd></dt><dd></dd>
+  <dt><kbd class="osc">options/VerifyRemoveLastCapture</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/activate</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/activate_all</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/clear</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/copy</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/cut</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/deactivate</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/deactivate_all</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/deselectall</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/edit</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/newinsert</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/newplugin</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/newsend</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/paste</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/rename</kbd></dt><dd></dd>
+  <dt><kbd class="osc">redirectmenu/selectall</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/RegionListSort</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/RegionListSort</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/rlAudition</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/rlHide</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/rlRemove</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/rlShowAll</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/rlShowAuto</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/SortAscending</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/SortByRegionEndinFile</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/SortByRegionLength</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/SortByRegionName</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/SortByRegionPosition</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/SortByRegionStartinFile</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/SortByRegionTimestamp</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/SortBySourceFileCreationDate</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/SortBySourceFileLength</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/SortBySourceFileName</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/SortBySourceFilesystem</kbd></dt><dd></dd>
+  <dt><kbd class="osc">RegionList/SortDescending</kbd></dt><dd></dd>
+  <dt><kbd class="osc">ShuttleActions/SetShuttleUnitsPercentage</kbd></dt><dd></dd>
+  <dt><kbd class="osc">ShuttleActions/SetShuttleUnitsSemitones</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-asixteenthbeat</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-bar</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-beat</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-cd-frame</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-edit-cursor</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-eighths</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-frame</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-mark</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-minutes</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-quarters</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-region-boundary</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-region-end</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-region-start</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-region-sync</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-seconds</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-smpte-frame</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-smpte-minutes</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-smpte-seconds</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-thirds</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Snap/snap-to-thirtyseconds</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/focus-on-clock</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/Forward</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/GotoEnd</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/GotoStart</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/GotoZero</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/Loop</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/PlaySelection</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/Record</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/record-roll</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/Rewind</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/ToggleAutoInput</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/ToggleAutoPlay</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/ToggleAutoReturn</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/ToggleClick</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/TogglePunchIn</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/TogglePunchOut</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/ToggleRoll</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/ToggleRollForgetCapture</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/ToggleRollMaybe</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/ToggleTimeMaster</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/ToggleVideoSync</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/TransitionToReverse</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/TransitionToRoll</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Zoom/zoom-focus-center</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Zoom/zoom-focus-edit</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Zoom/zoom-focus-left</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Zoom/zoom-focus-playhead</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Zoom/zoom-focus-right</kbd></dt><dd></dd>
+</dl>

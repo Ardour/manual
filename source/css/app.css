@@ -279,7 +279,7 @@ kbd {
     text-transform:capitalize;
 }
 
-kbd.input,kbd.cmd {
+kbd.input,kbd.cmd,kbd.osc {
     font-family:mono;
     border-width:0;
     text-transform:none;
@@ -340,6 +340,8 @@ kbd.option:after,kbd.optoff:after {
 kbd.option:after {
     content:'X';
 
+}
+kbd.osc {
 }
 kbd.optoff:after {
     content:'    ';

@@ -7,9 +7,7 @@ title: MIDI Learn
 <p>
 There are no "best" ways to map an arbitrary MIDI controller for
 controlling Ardour. There may be very legitimate reasons for different
-users to prefer quite different mappings. So, Ardour does not come
-with any pre-defined mapping - we believe that users know what is best
-for them.
+users to prefer quite different mappings. 
 </p>
 <p>
 On every platform that Ardour runs on, there are excellent
@@ -26,22 +24,24 @@ QJackctl, aconnect, Patchage, and more.
 <h2>Basics</h2>
 
 <ol>
-  <li>    Enable Generic MIDI control: Options -> Control Surfaces -> Generic MIDI</li>
-  <li>Connect Ardour's MIDI port named "control" to whatever hardware or software you want (using a MIDI patchbay app)</li>
-  <li>Ctrl-middleclick on whatever on-screen fader, plugin parameter control, button etc. that you want to control</li>
+  <li>Enable Generic MIDI control: <kbd class="menu">Edit &gt; Preferences
+  &gt; Control Surfaces &gt; Generic MIDI</li>
+  <li>Connect Ardour's MIDI port named <samp>control</samp> to whatever 
+  hardware or software you want (using a MIDI patchbay app)</li>
+  <li><kbd class="mod1 mouse">Middle</kbd>-click on whatever on-screen 
+  fader, plugin parameter control, button etc. you want to control</li>
   <li>A small window appears that says "Operate Controller now"</li>
   <li>Move the hardware knob or fader, or press the note/key.</li>
   <li>The binding is complete. Moving the hardware should control the Ardour fader etc. </li>
 </ol>
 
 <h2>Avoiding work in the future</h2>
-
 <p>
 If you want the bindings you set up to be used automatically in every
-session, the simplest thing to do is to use Session -> Save
-Template. Then, when creating new sessions, select that template and
+session, the simplest thing to do is to use <kbd class="menu">Session &gt; Save
+Template</kbd>. Then, when creating new sessions, select that template and
 all the bindings will be automatically set up for you. You can also
 save a specific track/bus configuration as a template, and use that
 when adding new tracks or busses. Click on the track name at the top
-of a mixer strip and select "Save as Template".
+of a mixer strip and select <kbd class="menu">Save as Template</kbd>.
 </p>
