@@ -2,20 +2,32 @@
 layout: default
 title: Track Ordering and Remote Control IDs
 ---                        
-
-
   
-  <p>Every track and bus in Ardour is assigned a remote control ID. When various protocols such as <a href="/using-control-surfaces/">Mackie Control or OSC</a> are used to control Ardour, these remote control IDs are used to identify which track(s) or buss(es) are the intended target of the commands. </p>
-<p>By default, remote ID's will be assigned to tracks and busses in the order that they are created, starting from 1. The master bus and monitor section have their own unique IDs (318 and 319).</p>
-<p>Ardour provides 3 methods to control remote control IDs, which can be chosen via <code>Edit &gt; Preferences &gt; User Interaction</code>:</p>
+<p>
+  Every track and bus in Ardour is assigned a <dfn>remote control ID</dfn>. 
+  When a <a href="/using-control-surfaces/">control surface</a> or any other
+  remote control is used to control Ardour, these IDs are used to identify 
+  which track(s) or buss(es) are the intended target of incoming commands.
+</p>
+<p>
+  By default, remote IDs will be assigned to tracks and busses in the order 
+  that they are created, starting from 1. The master bus and monitor section 
+  have their own unique IDs (318 and 319).
+</p>
+<p>
+  Ardour provides two methods to control remote control IDs, which can be 
+  chosen via <kbd class="menu">Edit &gt; Preferences &gt; Control Surfaces
+  &gt; Control surface remote ID</kbd>:
+</p>
 <dl class="wide-table">
-<dt>Follow order of editor</dt>
-<dd>When enabled, remote control IDs will be reset to match the editor window order, so that the leftmost track/bus has RID 1. Manual assignment of RIDs is not possible.</dd>
-<dt>Follow order of mixer</dt>
-<dd>When enabled, remote control IDs will be reset to match the mixer window order, so that the leftmost track/bus has RID 1. Manual assignment of RIDs is not possible.</dd>
-<dt>Assigned by user</dt>
-<dd>When enabled, the remote control ID is completely independent of the ordering in either window, and RID's may be changed manually by the user.
-</dd>
+  <dt>follows order of mixer</dt>
+  <dd>This will reset the remote control IDs to match the mixer and editor 
+  track order order, starting with rcID 1. Manual assignment of rcIDs is 
+  not possible.</dd>
+  <dt>assigned by user</dt>
+  <dd>When enabled, the remote control ID is completely independent of the 
+  ordering in either window, and may be changed manually by the user via the
+  <kbd class="menu"><em>trackname</em> &gt; Remote Control ID...</kbd>
+  dialog in each mixer strip.
+  </dd>
 </dl>
-<p>  </p>
-<!-- remove if more text is added below --><!-- remove if more text is added below -->  

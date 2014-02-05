@@ -3,33 +3,49 @@ layout: default
 title: Adding Tracks and Busses
 ---                        
 
-
-  
-  <h2>Adding and removing tracks</h2>
+<img class="right" src="/ardour/manual/html/screenshots/add-track-or-bus.png" alt="the add-track dialog" />
 <p>A track or bus can be added to a session in various ways:</p>
 <ul>
-<li>Choose Add Track or Bus… from the Track menu.
-</li>
-<li>Right-click in an empty part of the track controls area.
-</li>
-<li>Click the plus (+) button underneath the list of tracks in the mixer.
-</li>
+  <li>Choose <kbd class="menu">Track &gt; Add Track or Bus</kbd>.</li>
+  <li><kbd class="mouse">Right</kbd>-click in an empty part of the track controls area.</li>
+  <li>Click the <kbd class="menu">Plus (+)</kbd> button underneath the list of tracks in the mixer.</li>
 </ul>
-<p>Any of these actions will open the Add Track or Bus dialog. Note that any new tracks from this dialog will appear after the last currently selected track (if any).</p>
-<p><img src="/ardour/manual/html/screenshots/add-track-or-bus.png" alt="the add-track dialog"
-/></p>
-<p>From here, you can select firstly the number of tracks or busses to add, and the type; audio track, MIDI track or bus. There are also some options, which vary depending on the type of thing you are creating.</p>
-<p>These options are:</p>
-<dl class="wide-table">
-<dt>Configuration (for audio tracks and busses)</dt>
-<dd>this is the number of inputs the track is set up with. You can always change these counts later.</dd>
-<dt>Track mode (for audio tracks)</dt>
-<dd>this can be ‘normal’, ‘non-layered’ or ‘tape’. See <a href="/working-with-tracks/track-types/#trackmodes">Track Modes</a> on the Track Types page for details.</dd>
-<dt>Group</dt>
-<dd>tracks and busses can be assigned groups so that a selected range of operations are applied to all members of a group at the same time (selecting record enable, or editing, for example). This option lets you assign to an existing group, or create a new group.</dd>
-<dt>Instrument (for MIDI tracks)</dt>
-<dd>this is a short-cut to assign an instrument plugin to the new MIDI track. You can achieve the same effect by creating a MIDI track with no plugins and adding it yourself; this option just saves you a step.</dd>
+<p>
+  Any of these actions will open the Add Track or Bus dialog. Note that any 
+  new tracks from this dialog will appear after the last currently selected 
+  track, or at the end if no track is selected.
+</p>
+<dl>
+  <dt>Add</dt>
+  <dd>Here you can select the number of tracks or busses you wish to create, and
+  their <a href="/working-with-tracks/track-types/">types</a>.</dd>
+  <dt>Configuration</dt>
+  <dd>This menu lets you choose from a number of <dfn><a href="/missing">route
+  templates</a></dfn>, which determine the number of input ports and optionally
+  contain plugins and other mixer strip configuration.</dd>
+  <dt>Track mode</dt>
+  <dd>This option is only available for audio tracks. See <a href="/working-with-tracks/track-types/#trackmodes">Track Modes</a> for details.</dd>
+  <dt>Instrument</dt>
+  <dd>This option is only available for MIDI tracks and lets you select a
+  default instrument from the list of available plugins.</dd>
+  <dt>Group</dt>
+  <dd>Tracks and busses can be assigned groups so that a selected range of 
+  operations are applied to all members of a group at the same time (selecting 
+  record enable, or editing, for example). This option lets you assign to an 
+  existing group, or create a new group.</dd>
 </dl>
-<p>New tracks appear in both the editor and mixer windows. The editor window shows the timeline, with any recorded data, and the mixer shows just the processing elements of the track (its plugins, fader and so on).</p>
-<p>Tracks and busses can be removed by selecting them, right-clicking and choosing ‘Remove’ from the menu. A warning dialog will pop up, as track removal cannot be undone; use this option with care! </p>
+<p>
+  New tracks appear in both the editor and mixer windows. The editor window 
+  shows the timeline, with any recorded data, and the mixer shows just the 
+  processing elements of the track (its plugins, fader and so on).
+</p>
+
+<h2>Removing Tracks and Busses</h2>
+<p>
+  To <dfn>remove</dfn> tracks and busses, select them, <kbd
+  class="mouse">right</kbd>-click and choose <kbd
+  class="menu">Remove</kbd> 
+  from the menu. A warning dialog will pop up, as track removal cannot be undone; 
+  use this option with care!
+</p>
 

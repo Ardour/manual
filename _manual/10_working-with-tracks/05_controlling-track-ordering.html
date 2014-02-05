@@ -3,48 +3,23 @@ layout: default
 title: Controlling Track Ordering
 ---                        
 
-
-  
-  <p>Ardour does not impose any particular ordering of tracks and busses in either the editor or mixer windows. The default arrangement is as follows:</p>
-
-<h2>Editor Default Arrangement</h2>
-<ul>
-<li>Master bus on top</li>
-<li>Tracks and busses in their initial order, from top to bottom.</li>
-<li>Even if you use a Monitor section, it is never visible in the editor window.
-</li>
-</ul>
-
-<h2>Mixer Default Arrangement</h2>
-<ul>
-<li>Tracks in their initial order, from left to right
-</li>
-<li>Master bus on the right, in its own pane so that it is always visible no matter how other mixer strips are scrolled.
-</li>
-<li>If a Monitor section is used, that is at the right edge of the mixer window (it can be torn off, too)
-</li>
-</ul>
-
-<h2>Synchronized Editor and Mixer Window Ordering</h2>
-<p>The ordering within the editor and mixer windows is synchronized: if you reorder in one window, the ordering in the other window will change.</p>
-
-<h2>Reordering Specific Tracks... </h2>
-<h3>... in the Editor Window, via the Keyboard</h3>
-<p>Select the tracks you want to move. Then use <code>Track &gt; Move Selected Tracks Up</code> (<kbd class="mod1">↑</kbd>) or <code>Track &gt; Move Selected Tracks Down</code> (<kbd class="mod1">↓</kbd>) to move the selected track(s) up or down in the editor window.</p>
-
-<h3>... in the Editor Window, via Drag-n-Drop</h3>
-<p>Make the <a href="/ardours-interface/introducing-the-editor-window/editor-lists/">Editor Lists</a> visible. Select the <code>Tracks &amp; Busses</code> tab. In the Tracks &amp; Busses side panel, you can freely drag-and-drop tracks and busses into any order you prefer.</p>
-
-<h3>... in the Mixer Window, via Drag-n-Drop</h3>
-<p>Within the "Strips" pane (Mixer window, top left), you can freely drag-and-drop tracks and busses into any order you prefer.</p>
-
-<h2>"Collecting" Group Members</h2>
-<p>Tracks and Busses that are members of a group can be reordered so that they display contiguously within the Editor and Mixer windows. Context-click on the group tab and choose "Collect". </p>
-
-<h3>... via Adding New Tracks</h3>
-<p>When adding new tracks, the current selection determines their initial order. If one or several tracks are selected, new tracks will be placed after the rightmost (in the mixer) or bottom-most (in the editor) selected track. If no tracks are selected, new tracks will be last in the track order.</p>
-<h3>Note</h3>
-<blockquote><p>Because new tracks are automatically selected, you can quickly reorder them in the editor window via the keyboard (see above).</p></blockquote>
-
+<p>
+  Ardour does not impose any particular ordering of tracks and busses in 
+  either the editor or mixer windows. The default arrangements are as follows:
+</p>
+<p>
+  In the <dfn>Editor</dfn>, the Master bus will always be on top unless
+  hidden. Tracks and busses will appear in their initial order, from top to
+  bottom. The monitor section (if used) will never be visible in the editor
+  window.
+</p>
+<p>
+  In the <dfn>Mixer</dfn>, the tracks and busses will be displayed in their
+  initial order, from left to right. The Master bus is always on the far
+  right and occupies its own pane, so that it is always visible no matter
+  how you scroll the other mixer strips. If a Monitor section is used, 
+  it shows up at the right edge of the mixer window, from where it can be
+  torn off into a separate window.
+</p>
 
 {% children %}

@@ -3,41 +3,123 @@ layout: default
 title: Track Types
 ---                        
 
+<p>
+  Ardour offers three <dfn>track types</dfn> depending on the type of 
+  data they contain, and differentiates between three <dfn>track modes</dfn>,
+  depending on their recording behaviour.
+</p>
 
-  
-  <h2>Data Type</h2>
-<p>An Ardour track can be either ‘audio’ or ‘MIDI’. The only real difference between the two is the type of data that the track will record and play back. Either type of track can pass either type of data. Hence, for example, one might have a MIDI track that contains an instrument plugin; such a track would record and play back MIDI data from disk but would produce audio, since the instrument plugin would turn MIDI data into audio data.</p>
-<p>Nevertheless, when adding tracks to a session, you typically have an idea of what you need to use the new tracks for, and Ardour offers you three choices:</p>
+<h2>Track types</h2>
+<p>
+  An Ardour track can be of type <dfn>audio</dfn> or <dfn>MIDI</dfn>,
+  depending on the <dfn>data</dfn> that the track will primarily record 
+  and play back. <em>However, either type of track can pass either 
+  type of data.</em> Hence, for example, one might have a MIDI track that
+  contains an instrument plugin; such a track would record and play back 
+  MIDI data from disk but would produce audio, since the instrument plugin 
+  would turn MIDI data into audio data.
+</p>
+<p>
+  Nevertheless, when adding tracks to a session, you typically have an idea 
+  of what you need to use the new tracks for, and Ardour offers you three 
+  choices:
+</p>
 <dl class="narrower-table">
-<dt>Audio Tracks</dt>
-<dd>an Audio Track is created with a user-specified number of inputs. The number of outputs is defined by the master bus channel count (for details see "<a href="#channelconfiguration">Channel Configuration</a>" below). This is the type of bus to use when planning to work with existing or newly recorded audio.</dd>
-<dt>MIDI Tracks</dt>
-<dd>A MIDI track is created with a single MIDI input, and a single MIDI output. This is the type of track to use when planning to record and play back MIDI. There are several methods to enable playback of a MIDI track: by adding an instrument plugin to the track, by connecting the track to a software synthesizer, or connecting it to external MIDI hardware. If you add an instrument plugin, MIDI track outputs audio (instead of MIDI data) and delivers the signal other parts of Ardour.</dd>
-<dt>Audio/MIDI Tracks</dt>
-<dd>There are a few notable plugins that can usefully accept both audio and MIDI data (Reaktor is one, and various "auto-tune" like plugins are another).  It can be tricky to configure this type of track manually, so Ardour allows you to select this track type specifically for use when working with such plugins. It is <strong>not</strong> generally the right choice when working normal MIDI tracks, and a dialog will warn you of this.</dd>
+  <dt>Audio</dt>
+  <dd>An <dfn>Audio Track</dfn> is created with a user-specified number of 
+  inputs. The number of outputs is defined by the master bus channel count 
+  (for details see <a href="#channelconfiguration">Channel Configuration</a> 
+  below). This is the type of track to use when planning to work with 
+  existing or newly recorded audio.</dd>
+  <dt>MIDI</dt>
+  <dd>A <dfn>MIDI track</dfn> is created with a single MIDI input, and a 
+  single MIDI output. This is the type of track to use when planning to 
+  record and play back MIDI. There are several methods to enable playback 
+  of a MIDI track: add an instrument plugin to the track, connect the 
+  track to a software synthesizer, or connect it to external MIDI hardware. 
+  <p class="note">
+    If you add an instrument plugin, the MIDI track outputs audio instead
+    of MIDI data.
+  </p></dd>
+  <dt>Audio/MIDI</dt>
+  <dd>There are a few notable plugins that can usefully accept both <dfn>Audio 
+  and MIDI</dfn> data (Reaktor is one, and various "auto-tune" like plugins 
+  are another).  It can be tricky to configure this type of track manually, 
+  so Ardour allows you to select this type specifically for use with such 
+  plugins. It is <em>not</em> generally the right choice when working normal 
+  MIDI tracks, and a dialog will warn you of this.</dd>
 </dl>
 
 <h2 id="trackmodes">Track Modes</h2>
-<p>Audio tracks in Ardour can have a "mode" which affects how they behave when recording. </p>
+<p>
+  Audio tracks in Ardour have a <dfn>mode</dfn> which affects how they behave 
+  when recording:
+</p>
 <dl class="narrower-table">
-<dt>Normal</dt>
-<dd>Tracks using this mode will record non-destructively - new data is written to new files, and when overdubbing, new regions will be layered on top of existing ones (with or without crossfades. This is the recommended mode for most workflows.
-</dd>
-<dt>Non-Layered</dt>
-<dd>Tracks using this mode will record non-destructively - new data is written to new files, but when overdubbing if new regions overlap existing regions, the existing regions are trimmed so that there are no overlaps. This can be a very useful way of working with spoken word material, especially in combination with push/pull trimming.
-</dd>
-<dt>Tape</dt>
-<dd>Tracks using this mode do <strong>destructive</strong> recording: all data is recorded to a single file and if you overdub a section of existing data, the existing data is destroyed (irrevocably - there is no undo). Fixed crossfades are added at every punch in and out point. This mode can be useful for certain kinds of dubbing workflows, but it not suggested for normal use.</dd>
+  <dt>Normal</dt>
+  <dd>Tracks in <dfn>normal mode</dfn> will record non-destructively &mdash; 
+  new data is written to new files, and when overdubbing, new regions will be 
+  layered on top of existing ones. This is the recommended mode for most workflows.
+  </dd>
+  <dt>Non-Layered</dt>
+  <dd>Tracks using <dfn>non-layered mode</dfn> will record non-destructively
+  &mdash; new data is written to new files, but when overdubbing, the existing 
+  regions are trimmed so that there are no overlaps. This does not affect
+  the previously recorded audio data, and trimmed regions can be expanded
+  again at will. Non-layered mode can be very useful for spoken word material, 
+  especially in combination with <a href="/missing">push/pull trimming</a>.
+  </dd>
+  <dt>Tape</dt>
+  <dd><dfn>Tape-mode</dfn> tracks do <strong>destructive</strong> recording: 
+  all data is recorded to a single file and if you overdub a section of existing 
+  data, the existing data is destroyed irrevocably &mdash; there is no undo. 
+  Fixed crossfades are added at every punch in and out point. This mode can be 
+  useful for certain kinds of re-recording workflows, but it not suggested for normal 
+  use.</dd>
 </dl>
-<p>The screenshot below shows a subtle difference between results of an overdub in normal mode (upper track) and non-layered mode (lower track). Both tracks were created using identical audio data. The upper track shows an overdub (the middle shorter region) in normal mode. In normal mode Ardour created a new region which if you look carefully has been layered on top of the the existing (longer) region. The lower track is in non-layered mode, and rather than overlay the overdub region, it split the existing region and inserted the new overdub region in between. </p>
-<p><img src="/files/a3/a3_nonlayered_example.png" alt="normal and non-layered overdubbing comparision"
-/></p>
+<img class="right" src="/files/a3/a3_nonlayered_example.png" alt="normal and non-layered overdubbing comparision"
+/>
+<p>
+  The screenshot on the right shows the subtle difference between an overdub 
+  in <dfn>normal mode</dfn> (upper track) and one in <dfn>non-layered mode</dfn> 
+  (lower track). Both tracks were created using identical audio data. <br />
+  The upper track shows a new region which has been <dfn>layered on
+  top</dfn> of the the existing (longer) region. You can see this if you look 
+  carefully at the region name strips.<br />
+  The lower track has split the existing region in two, trimmed each new
+  region to create space for the new overdub, and inserted the overdub region 
+  in between. 
+</p>
 
 <h2 id="channelconfiguration">Channel Configuration</h2>
-<p>Ardour tracks can have any number of inputs and any number of outputs, and the number of either can be changed at any time (subject to restrictions caused by any plugins in a track). However it is useful to not have to configure this sort of thing for the most common cases, and so the <a href="/working-with-tracks/adding-tracks">Add Tracks</a> dialog allows you to select "Mono", "Stereo" and few other typical configurations.</p>
-<h3>What does Mono or Stereo actually mean?</h3>
-<p>Given that tracks have a certain number of inputs and a certain number of outputs and that these numbers may not necessarily be the same, it is not immediately clear what terms like "Mono" or "Stereo" mean. Most people know that mono refer to "one channel" and stereo refers "two channels", but there is some ambiguity. One input channel? Two output channels? </p>
-<p>If you are using Ardour's default mode of automatically connecting track (and bus) inputs and outputs, then the designation "Mono" or "Stereo" <em>refers to the <strong>input</strong> of the track</em>. A Mono track will have a single input and a Stereo track will have two inputs. </p>
-<p>The number of outputs for each will be determined by the number of inputs of the <strong>master <a href="/introducing-ardour/understanding-basic-concepts-and-terminology/#busses">bus</a></strong>, to which the track outputs will be connected. For example, if you have a two-channel master bus then a Mono track has only one input but two outputs connected to the master bus; a Stereo track has two inputs and two outputs connected to the master.</p>
-<p>However, if you choose not to have Ardour make connections automatically, then tracks will be left disconnected by default. In this scenario, a Mono track has 1 input and 1 output, and a stereo track has 2 inputs and 2 outputs. It is up to you to connect them as you wish. This is not a particularly useful way to work unless you are doing something fairly unusual with signal routing and processing. It is almost always preferable to leave Ardour to make connections automatically, even if you later change them manually.</p>
+<p>
+  Ardour tracks can have any number of inputs and any number of outputs, and the 
+  number of either can be changed at any time (subject to restrictions caused by 
+  any plugins in a track). However it is useful to not have to configure this sort 
+  of thing for the most common cases, and so the 
+  <a href="/working-with-tracks/adding-tracks">Add Tracks</a> dialog allows you to 
+  select "Mono", "Stereo" and few other typical multichannel presets<br />
+  The name of the preset describes the number of <dfn>input channels</dfn>
+  of the track or bus.
+</p>
+<p>
+  If you have configured Ardour to automatically connect new tracks and
+  busses for you, the number of outputs will be determined by the number of
+  inputs of the <dfn>master <a
+  href="/introducing-ardour/understanding-basic-concepts-and-terminology/#busses">bus</a></dfn>,
+  to which the track outputs will be connected.<br />
+  For example, if you have a two-channel master bus, then a Mono track has one 
+  input and two outputs; a Stereo track has two inputs and two outputs.
+</p>
+<p class="note">
+  If you you set <kbd class="menu">Edit &gt; Preferences &gt; Audio
+  &gt; Connection of Tracks and Busses</kbd> to <kbd
+  class="menu">manual</kbd>, then tracks will be left disconnected by default
+  and there will be as many outputs as there are inputs. It is up to you to connect 
+  them as you wish. This is not a particularly useful way to work unless you are doing 
+  something fairly unusual with signal routing and processing. It is almost always 
+  preferable to leave Ardour to make connections automatically, even if you later 
+  change some of them manually.
+</p>
+  
   
