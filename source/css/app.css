@@ -139,10 +139,17 @@
 
 #content dl
 {
-    float: left;
-    width: 100%;
+    float:none;
+    clear:both;
+    width:100%;
     margin: 1em 0;
     padding: 0;
+}
+
+#content dl:after {
+    content:' ';
+    display:block;
+    clear:both;
 }
     
 #content dt
