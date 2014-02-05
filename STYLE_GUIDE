@@ -278,3 +278,19 @@ If you encounter something that is unclear or patent nonsense, but you are
 not bold or knowledgeable to fix it, express your doubts with an <p
 class="fixme">editorial note</p>, so that readers will be warned and fellow
 editors know where there's work to do.
+
+5.5 Writing style suggestions
+-----------------------------
+
+* "Click OK" and similar explanations of the utterly obvious should be
+avoided. Keep the writing concise and to the point. Explain as much as
+possible, with as few words as possible.
+* Do not fear repetitions, this is not artistic prose. Repeat important 
+keywords, rather than burden the user with synonyms made up on the spot.
+* Do not create headings for different ways of doing the same thing (<h>Via
+the context menu</h>,...<h>Via hotkeys</h>). Headings separate new
+concepts. To not add gratuitous sub-headings if there is very little 
+content per heading and you do not expect the article to grow.
+* If pages grow long, consider splitting them into sub-chapters at their
+headings.
+* Nobody needs "the next paragraph is about the following" paragraphs.
