@@ -3,43 +3,12 @@ layout: default
 title: Monitoring
 ---                        
 
+<p>
+  When recording, it is important that performers hear themselves, and to 
+  hear any pre-recorded tracks they are performing with.
+  Audio recorders typically let you <dfn>monitor</dfn> (i.e. listen to) 
+  the input signal of all tracks that are armed for recording, and playing 
+  back the unarmed tracks.
+</p>
 
-  
-  <h2>Introduction</h2>
-<p>When recording, it is important to hear yourself, and to hear any pre-recorded tracks that you are performing with.</p>
-<p>Audio recorders typically have the ability to "monitor" (i.e. listen to) the tracks that are armed for recording, while playing back the tracks that aren't.  In the days of analog tape recording, this was performed with relays and other analog audio switching devices.  Digital recorders have the same feature, but may impart some <a href="/synchronization/latency-and-latency-compensation/">latency</a> (delay) between the time you make a noise and the time that you hear it come back from the recorder.</p>
-<p>The latency of <strong>any</strong> conversion from analog to digital and back to analog is about 1.5-2 milliseconds. Some musicians claim that even the basic <abbr title="Analog to Digital to Analog">A/D/A</abbr> conversion time is objectionable. However even acoustic instruments such as the piano can have approximately 3<abbr title="milliseconds">ms</abbr> of latency, due to the time it takes sound to travel from the instrument to the musician's ears. Latency below 5ms should be suitable for a professional recording setup. Because 2ms are already used in the A/D/A process, you must use extremely low "buffer sizes" in your workstation <abbr title="Input/Output">I/O</abbr> setup to keep the overall latency below 5ms.  Not all <a href="/setting-up-your-system/the-right-computer-system-for-digital-audio">computer audio systems</a> are able to work reliably at such low buffer sizes.</p>
-<p>For this reason it is sometimes best to use an external device to monitor yourself while recording to digital medium.  Many professional studios use a mixing console for this feature.  Many computer I/O devices have an "monitoring" function built-in (although this is typically only for 1 or 2 channels).  In either case, the monitoring hardware may be digital or analog.  And in the digital case you will still have the A-D-A conversion latency of 1-2ms.</p>
-
-<h2>Different Ways of Monitoring</h2>
-<p>There are three basic ways to approach monitoring: </p>
-
-<h3>External Monitoring</h3>
-<p>With this approach, Ardour plays no role in monitoring at all. Perhaps the recording set-up has an external mixer which can be used to set up monitor mixes, or perhaps the sound-card being used has some ‘listen to the input’-style feature. This approach often has the advantage of zero or near-zero latency. On the other hand it requires external hardware, and the monitoring settings are not saved with the session.</p>
-<p><img src="/ardour/manual/html/diagrams/external-monitoring.png" /></p>
-
-<h3>JACK-Based Hardware Monitoring</h3>
-<p>Some sound cards have the ability to mix signals from their inputs to their outputs with zero- or low-latency. Furthermore, on some cards these features can be controlled by <a href="/signal-routing/role-of-jack/">JACK</a>. This is a nice arrangement, if the sound card supports it, as it combines the convenience of having the monitoring controlled by Ardour with the low latency operation of doing it externally. </p>
-<p><img src="/ardour/manual/html/diagrams/jack-monitoring.png" /></p>
-
-<h3>Software Monitoring</h3>
-<p>With this approach all monitoring is performed by Ardour; it makes track inputs available at track outputs, under the influence of various controls. This approach will almost always have more routing flexibility than JACK-based monitoring. The disadvantage is that there will be a latency between the input and the output. The size of the latency depends largely on the JACK buffer size that is being used. </p>
-<p><img src="/ardour/manual/html/diagrams/ardour-monitoring.png" /></p>
-
-<h2>Set up Monitoring</h2>
-<p>There are three main settings which affect how monitoring is performed. The first is <code>Edit &gt; Preferences &gt; Audio &gt; Record monitoring handled by</code>. There are two or three options here, depending on the capabilities of your hardware: </p>
-<p> The other two settings are more complex. One is ‘Tape machine mode’, in the same dialog, and the other is ‘Monitoring automatically follows transport state (‘auto-input’)’ setting in Session Properties.</p>
-<p>Monitoring is also somewhat dependent on the state of the track's record-enable button, the session record-enable button, and whether or not the transport is rolling. </p>
-
-<h2>Software or Hardware Monitoring Modes</h2>
-<p>If Ardour is set to ‘external monitoring’, the explanation of Ardour's monitoring behaviour is simple: it does not do any. In the other two modes, things are more complex. </p>
-
-<h2>Monitoring in Non-Tape-Machine Mode</h2>
-<p>This section describes what happens when Ardour is not set to tape-machine mode.</p>
-<p>Consider first the case where a track is record-enabled. In this situation, Ardour always monitors the live input unless the session is not record-enabled, auto-input is enabled, and the transport is rolling.</p>
-<p>When a track is not record-enabled, the track will play back its contents from disc unless the transport is stopped and auto-input is enabled. In this case, the track monitors its live input. </p>
-
-<h2>Monitoring in Tape-Machine Mode</h2>
-<p>In tape-machine mode, things are slightly simpler; when a track is record-enabled, its behaviour is the same as in non-tape-machine mode: it always monitors the live input unless the session is not record-enabled, auto-input is enabled, and the transport is rolling.</p>
-<p>When a track is not record-enabled, however, the track will always just play back its contents from disk; the live input will never be monitored. </p>
-  
+{% children %}

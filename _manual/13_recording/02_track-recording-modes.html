@@ -2,23 +2,15 @@
 layout: default
 title: Track Recording Modes
 ---                        
-
-
   
-  <p>"Recording mode" is a per-track property (audio tracks only) that affects the way that recording new material on top of existing material ("overdubbing") operates <em>in that track</em>. Ardour offers 3 different recording modes:</p>
-<dl class="wide-table">
-<dt>Normal</dt>
-<dd>overdubs write to new files, new regions are layered on top of existing regions (with or without crossfades)</dd>
-<dt>Tape mode</dt>
-<dd>overdubs destructively write to an existing file, single region per track (fixed crossfades at every punch)</dd>
-<dt>Non-Layered mode</dt>
-<dd>overdubs write to new audio files, new regions are created but if they overlap with existing regions, the existing regions are trimmed so that there no overlaps</dd>
-</dl>
-<p>To change the recording mode of a track, right click on its track header to get the context menu:</p>
-<p><img src="/files/a3/a3_nonlayered_mode_menu.png" alt="track header context menu" /></p>
-<p>Below is a screenshot that shows the subtly different results of an overdub in normal and non-layered mode. Both tracks were created using identical audio data. </p>
-<p>The upper track is in normal mode, and the overdub (the middle shorter region, selected) has created a new region which if you look carefully has been layered on top of the the existing (longer) region. </p>
-<p>The lower track is in non-layered mode, and rather than overlay the overdub region, it split the existing region and inserted the new one in between.</p>
-<p><img src="/files/a3/a3_nonlayered_example.png" alt="different results from normal and non-layered recording" /></p>
-<p>Non-layered mode is extremely useful when combined with <a href="/editing-and-arranging/changing-region-lengths/pushpull-trimming">push/pull trimming</a>.</p>
-  
+<p>
+  The <dfn>Recording mode</dfn> is a per-track property (applies to audio 
+  tracks only) that affects the way that recording new material on top of 
+  existing material ("overdubbing") operates <em>in that track</em>. 
+</p>
+<p>
+  See <a href="/working-with-tracks/track-types/#trackmodes">Track modes</a>
+  for a detailed explanation.
+</p>
+
+{% children %}
