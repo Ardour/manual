@@ -3,26 +3,60 @@ layout: default
 title: Processor Box
 ---                        
 
-
-  
-  <p>A ‘processor’ is a thing which treats the signal in some way. Ardour provides several builtin processors, such as the "fader" processor which controls the gain (volume) of a track or bus. Processors can also be plugins used for effects or as instruments, as well as sends/inserts which are used to change <a href="/signal-routing">signal routing</a>. The arrangement of processors is arbitrary, and there is no limit to how many there can be.</p>
-<p>The main box in the top half of a mixer strip shows the processor list. Processors are shown as coloured rectangles, with a small ‘LED’ beside them; this indicates whether or not the plugin is enabled, and can be clicked to enable or disable a processor. The colour of the processor depends on its location in the sequence; processors that occur before the fader are coloured in red, and those after are coloured green (in the default theme).</p>
-<p>The processor box will always contain a blue processor called ‘Fader’. This indicates where in the processor chain the main volume fader is located — this is the fader shown in the lower half of the strip.</p>
-<h2>To Reorder (Move) Processors</h2>
-<p>Processors can be re-ordered using drag-and-drop. Dragging a processor allows it to be moved around within the chain, or copied to another processor list on another track or bus.</p>
-<h2>To Enable/Disable a Processor</h2>
-<p>To the left of the name of each processor is a small LED symbol; if this is lit-up, the processor is active. Clicking on it will deactivate the processor. It will still pass audio or MIDI signals, but they will not be affected.</p>
+<p>
+  In Ardour terminology, a <dfn>processor</dfn> is anything which treats the
+  signal in some way and gets plugged into a mixer strip. 
+  Ardour provides several builtin processors such as the fader or panners.
+  Processors can also be <dfn>plugins</dfn> used for effects or as instruments, as well 
+  as sends or inserts which are affect <a href="/signal-routing">signal
+  routing</a>.<br />
+  The arrangement of processors is arbitrary, and there is no limit to how 
+  many there can be.
+</p>
+<p>
+  The main box in the top half of a mixer strip shows the <dfn>processor
+  box</dfn>. 
+  Processors are shown as coloured rectangles, with a small "LED" beside 
+  them that lights up when the processor is enabled. The colour of the 
+  processor depends on its location in the sequence; processors that are <dfn>pre-fader</dfn> are 
+  coloured in red, and <dfn>post-fader</dfn> processors are coloured green 
+  (in the default theme).</p>
+<p>
+  The processor box will always contain a blue <dfn>Fader</dfn> processor. 
+  This indicates where in the processor chain the main channel fader is 
+  located &mdash; this is the fader shown in the lower half of the strip.
+</p>
 <h2>Adding Processors</h2>
-<p>Finally, processors can be added to or removed from the chain. Right-clicking the processor list does three things:</p>
+<p>
+  Processors can be added to the chain by 
+  <kbd class="mouse">Right</kbd>-clicking in the processor list, This does three things:
+</p>
 <ul>
-<li>    A gap is opened up to indicate the location of the click. The gap shows where any new processors will be inserted.
-</li>
-<li>    The processor under the click is selected.
-</li>
-<li>    A menu is presented giving options of what to do.
-</li>
+  <li>A gap is opened up to indicate the location of the click. The gap 
+  shows where any new processors will be inserted.</li>
+  <li>The processor under the click is selected.</li>
+  <li>An options  menu is presented.</li>
 </ul>
-<p>From the menu, some new processors can be inserted.</p>
+<p>
+  From the menu, new processors can be inserted.
+</p>
+
+<h2>To Reorder (Move) Processors</h2>
+<p>
+  Processors can be re-ordered using drag-and-drop. Dragging a processor 
+  allows it to be moved around within the chain, or copied to another 
+  processor list on another track or bus.
+</p>
+
+<h2>To Enable/Disable a Processor</h2>
+<p>
+  To the left of the name of each processor is a small LED symbol; if this 
+  is lit-up, the processor is active. Clicking on it will deactivate the
+  processor and effectively bypass it.</p>
+  
 <h2>Removing Processors</h2>
-<p>Context-click on the processor you want to remove. </p>
+<p>
+  Context-click on the processor you want to remove, and select <kbd
+  class="menu">Delete</kbd>, or <kbd class="mod3 mouse">Right</kbd>-click on it. 
+</p>
   

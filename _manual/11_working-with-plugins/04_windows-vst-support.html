@@ -3,23 +3,24 @@ layout: default
 title: Windows VST Support
 ---                        
 
-
-  
-
-<p>Thanks to the combined work of Torben Hohn, Kjetil Mattheusen, Paul
-Davis and a few other developers, it is possible to use Windows VST
-plugins (that is, plugins in VST format built and distributed for the
-Windows platforms) on Ardour running on Linux. (Note: there is no VST
-support of any kind on OS X).</p>
+<p>
+  Thanks to the combined work of Torben Hohn, Kjetil Mattheusen, Paul
+  Davis and a few other developers, it is possible to use Windows 
+  <dfn><abbr title="Virtual Studio Technology">VST</abbr>
+  plugins</dfn> (that is, plugins in VST format built and distributed 
+  for the Windows platforms) on Ardour running on Linux. (Note: there 
+  is no VST support of any kind on OS X).
+</p>
 
 <p>However, doing so has three substantial downsides:</p>
 <ul>
-<li>It requires a special build of Ardour that is fundamentally very different from normal builds.
-</li>
-<li>Support is reliant on <a href="http://winehq.org/">Wine</a>, a Windows "emulator".
-</li>
-<li>As usual with plugins, crashes in the plugin will crash Ardour. And crashes in Windows VST plugins are more likely when used in this way.
-</li>
+  <li>It requires a special build of Ardour that is fundamentally 
+  very different from normal builds.</li>
+  <li>Support depends on <a href="http://winehq.org/">Wine</a>,
+  a Windows "emulator".</li>
+  <li>As usual with plugins, a crashing plugin will take Ardour down 
+  with it. And crashes in Windows VST plugins are more likely when 
+  used in this way.</li>
 </ul>
 
 <p>The dependence on Wine makes it almost impossible for the Ardour
@@ -50,7 +51,7 @@ from <a href="http://www.linuxdsp.co.uk/">LinuxDSP</a>
 and <a href="http://www.loomer.co.uk/">Loomer</a>.
 </p>
 
-<h3>A Plea To Plugin Manufacturers</h3>
+<h2>A Plea To Plugin Manufacturers</h2>
 <p>
   Please consider porting your plugins so that users can enjoy them on
   Linux too. Several other commercial plugin developers have already
