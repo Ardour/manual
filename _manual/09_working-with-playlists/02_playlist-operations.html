@@ -3,38 +3,113 @@ layout: default
 title: Playlist Operations
 ---                        
 
-
-  
-  
-<p>In the track header (editor window, left pane) is a button labelled "p" (for "Playlist"). If you click on this button, Ardour displays the following menu:</p>
+<p>
+  In the track header (editor window, left pane) is a button labelled <kbd
+  class="menu">p</kbd> (for "Playlist"). If you click on this button, Ardour 
+  displays the following menu:
+</p>
 <dl class="wide-table">
-<dt> (Local Playlists)</dt>
-<dd>	Shows all of the playlists associated with this track, and indicates the currently selected playlist</dd>
-<dt>Rename</dt>
-<dd>Displays a dialog to rename the current playlist</dd>
-<dt>New</dt>
-<dd>Creates a new empty playlist; and the track switches to the new playlist</dd>
-<dt>New Copy</dt>
-<dd>Creates a new playlist that is a copy of the current playlist; and the track switches to the new playlist</dd>
-<dt>Clear Current</dt>
-<dd>Removes all regions from the current playlist</dd>
-<dt>Select From All</dt>
-<dd>Displays a playlist browser to manually choose which playlist this track should use. (You can even select playlists from other tracks here)</dd>
+  <dt>(Local Playlists)</dt>
+   <dd>Shows all of the playlists associated with this track, and indicates 
+   the currently selected playlist</dd>
+  <dt>Rename</dt>
+  <dd>Displays a dialog to rename the current playlist</dd>
+  <dt>New</dt>
+  <dd>Creates a new empty playlist, and the track switches to the new playlist</dd>
+  <dt>New Copy</dt>
+  <dd>Creates a new playlist that is a copy of the current playlist; the track switches to the new playlist</dd>
+  <dt>Clear Current</dt>
+  <dd>Removes all regions from the current playlist</dd>
+  <dt>Select From All</dt>
+  <dd>Displays a playlist browser to manually choose which playlist this track should use. (You can even select playlists from other tracks here)</dd>
 </dl>
 
-<h3>Renaming Playlists</h3>
-<p>Playlists are created with the name of the track of which they are associated, plus a version number. So, the first playlist for a track called "Cowbell" will be called "Cowbell.1". This name will be used to define the names of any regions added to the playlist by recording. You can change the name at any time, to anything you want. Ardour does not require that your playlist names are all unique, but it will make your life easier if they are. Suggested examples of user-assigned names for a playlist might include "Lead Guitar, 2nd take", "vocals (quiet)", and "downbeat cuica". Notice how these might be different from the associated track names, which for these examples might be "Lead Guitar", "Vocals" and "Cuica". The playlist name provides more information because it is about a specific version of the material that may (or may not) end up in the final version of the track.</p>
-<p>If you are going to rename your playlists, do so before recording new material to them.</p>
+<h2>Renaming Playlists</h2>
+<p>
+  Playlists are created with the name of the track of which they are 
+  associated, plus a version number. So, the first playlist for a track 
+  called "Cowbell" will be called <samp>Cowbell.1</samp>. This name will 
+  be used to define the names of any regions added to the playlist by 
+  recording. You can change the name at any time, to anything you want. 
+  Ardour does not require that your playlist names are all unique, but it 
+  will make your life easier if they are. Suggested examples of user-assigned 
+  names for a playlist might include <kbd class="input">Lead Guitar, 2nd
+  take</kbd>, <kbd class="input">vocals (quiet)</kbd>, 
+  and <kbd class="input">downbeat cuica</kbd>. Notice how these might be 
+  different from the associated track names, which for these examples might 
+  be <kbd class="input">Lead Guitar</kbd>, 
+  <kbd class="input">Vocals</kbd> and <kbd class="input">Cuica</kbd>. The 
+  playlist name provides more information because it is about a specific 
+  version of the material that may (or may not) end up in the final version 
+  of the track.
+</p>
+<p>
+  If you are going to rename your playlists, do so before recording new
+  material to them.
+</p>
+<p class="fixme">
+  It appears that recorded regions are not named after the playlist, but
+  after the track.
+</p>
 
-<h3>Sharing Playlists</h3>
-<p>It is entirely possible to share playlists between tracks. The only slightly unusual thing you may notice when sharing is that edits to the playlist made in one track will magically appear in the other. If you think about this for a moment, its an obvious consequence of sharing.  One application of this attribute is parallel processing, described below.</p>
-<p>You might not want this kind of behaviour, even though you still want two tracks to use the same (or substantially the same) playlist. To accomplish this, select the chosen playlist in the second track, and then use New Copy to generate an independent copy of it for that track. You can then edit this playlist without affecting the original.</p>
+<h2>Sharing Playlists</h2>
+<p>
+  It is entirely possible to <dfn>share playlists</dfn> between tracks. The only 
+  slightly unusual thing you may notice when sharing is that edits to the 
+  playlist made in one track will magically appear in the other. If you 
+  think about this for a moment, its an obvious consequence of sharing.  
+  One application of this attribute is parallel processing, described 
+  below.
+</p>
+<p>
+  You might not want this kind of behaviour, even though you still want 
+  two tracks to use the same (or substantially the same) playlist. To 
+  accomplish this, select the chosen playlist in the second track, and 
+  then use New Copy to generate an <dfn>independent copy</dfn> of it for 
+  that track. You can then edit this playlist without affecting the original.
+</p>
 
-<h3>Using Playlists for "Parallel Processing"</h3>
-<p>One of the uses of Playlists is to apply multiple effects to the same audio stream. For example, let's say you would like to apply two different effects to the same audio source. have a track and you'd like to apply a second set of effects, at the same time to the original track.  In this case you could make a new track, select the original track's Playlist, and then apply different effects to the second track than the first (including panning, inserts, and bussing changes).  Now, if you edit either of the track's playlists, the changes will appear in both tracks.</p>
+<h3>Using Playlists for Parallel Processing</h3>
+<p>
+  One of the uses of playlists is to apply multiple effects to the same 
+  audio stream. For example, let's say you would like to apply two 
+  different non-linear effects such as distortion or compression to the 
+  same audio source (for linear effects, you could just apply them one after
+  the other in the same track).<br />
+  Create a new track, apply the original track's playlist, and 
+  then apply effects to both tracks independently. 
+</p>
+<p class="note"> 
+  The same result could be achieved by feeding your track to multiple busses which
+  then contain the processing, but this increases the overall latency,
+  complicates routing and uses more space in the Mixer window.
+</p>
 
-<h3>Using Playlists for "Takes"</h3>
-<p>Using Playlists for takes is a good solution if you are going to need the ability to edit individual takes, and select between them, but you won't be "compositing" multiple takes together.  This might be the case if you were recording multiple languages of a given track, and you want to use the same "track" for each language so that they get the same processing.  Then you select each language before exporting the mix for each separate language.</p>
-<p>You use the Clear Current operation each time you want to start a new take. This is a non-destructive operation that removes all existing regions from the current playlist. Although you won't lose any information doing this, its probably not appropriate unless the last take was so awful that you want to discard it (although without the finality of Remove Last Capture ). Finally, and probably most useful, you can use the New operation in the playlist button menu to create a new empty playlist, ready for the next take. Later, you can Select your way back to previous or later takes as desired, either in this or some other track.</p>
-<p>If you want to record multiple takes and then "comp" between them, it is probably better to simply record each successive take on top of the others in "layers" and then edit them using the layer tools, explained later.</p>
+<h2>Using Playlists for "Takes"</h2>
+<p>
+  Using Playlists for <dfn>takes</dfn> is a good solution if you are going 
+  to need the ability to edit individual takes, and select between them, 
+  but you won't be compositing multiple takes together. 
+</p>
+<p>
+  Each time you start a new take, create a new playlist with 
+  <kbd class="menu">p &gt; New</kbd> 
+  Later, you can Select your way back to previous or later takes as 
+  desired.
+</p>
+<p>
+  If you want to record multiple takes and then "comp" between them, it
+  is probably better to simply record each successive take on top of the 
+  others in "layers" and then edit them using the layer tools, explained 
+  later.
+</p>
   
+<h2>Using Playlists for Multi-Language Productions</h2>
+<p>  
+  The same approach as for takes is useful when you are recording or 
+  editing content in multiple versions, such as dubbed movie dialog in
+  several languages, and you want all versions on the same track, to 
+  get the same processing. <br />
+  Select the appropriate language before exporting the session.
+</p>
+

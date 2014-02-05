@@ -434,12 +434,13 @@ samp:after {
 #content .fixme {
     border-color: #999944;
     background-color: #f0f0e0;
+    font-weight:bold;
 }
 
 .fixme:before {
     content:'FIXME: ';
-    font-weight: bold;
     font-style: italic;
+    font-size:200%;
 }
 
 
