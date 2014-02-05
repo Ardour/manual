@@ -175,8 +175,9 @@ elements</q>.
 ------------------------------------
 
 <kbd>
-Any keys or key combinations, mouse buttons, or controllers  should be marked
-with this element. 
+Any keys or key combinations, mouse buttons or controllers, menu items or
+textual user input should be marked with this element. It is used here in
+the widest possible sense, qualified by classes.
 E.g.:
 "Press <kbd>F</kbd> to fit all tracks to the height of the Editor window."
 "Move <kbd>Fader 1</kbd> on your MIDI controller to bind it.
