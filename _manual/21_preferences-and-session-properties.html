@@ -3,15 +3,21 @@ layout: default
 title: Preferences and Session Properties
 ---                        
 
-
-  
-  <p>Ardour splits preferences into two categories:</p>
+<p>
+  Ardour splits its configuration options into two categories:
+</p>
 <ul>
-<li>Settings that should logically apply to all sessions, because they are based on user workflow or system configuration
-</li>
-<li>Settings that are per session, because they depend or reflect session content or design
-</li>
+  <li>
+    Global <dfn>preferences</dfn> control general workflow and system 
+    configuration, and should apply to all sessions. They are located in
+    <kbd class="menu">Edit &gt; Preferences</kbd> and stored in 
+    Ardour's <dfn>user configuration file</dfn> in your home directory. 
+  </li>
+  <li><dfn>Session properties</dfn> control aspects of the workflow or
+    configuration that pertain to the current session only. You can find them
+    in <kbd class="menu">Session &t; Properties</kbd>, and they will be stored
+    in the session file.
+  </li>
 </ul>
-<p>There are two separate (but similarly designed) dialogs, one under <code>Edit &gt; Preferences</code> for the first category of preferences and <code>Session &gt; Properties</code> for the second. Each window uses tabs to group a set of preferences</p>
 
 {% children %}
