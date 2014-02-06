@@ -460,60 +460,55 @@ samp:after {
 .mod1:before {
     content: "Ctrl ";
 }
-
 .mod2:before {
     content: "Alt ";
 }
-
 .mod3:before {
     content: "Shift ";
 }
-
 .mod4:before {
     content: "Win ";
 }
-
 .mod12:before {
     content: "Ctrl Alt ";
 }
-
 .mod13:before {
     content: "Ctrl Shift ";
 }
-
 .mod14:before {
     content: "Ctrl Win ";
+}
+.mod23:before {
+    content: "Alt Shift ";
+}
+.kp:before {
+    content: "Keypad ";
 }
 
 .mac .mod1:before {
     content: "Cmd ";
 }
-
 .mac .mod2:before {
     content: "Ctrl ";
 }
-
 .mac .mod3:before {
     content: "Shift ";
 }
-
 .mac .mod4:before {
     content: "Opt ";
 }
-
 .mac .mod12:before {
     content: "Cmd Ctrl ";
 }
-
 .mac .mod13:before {
     content: "Cmd Shift ";
 }
-
 .mac .mod14:before {
     content: "Cmd Opt ";
 }
-
-
+.mac .mod23:before {
+    content: "Ctrl Shift ";
+}
 
 #gs_tti0 {
 

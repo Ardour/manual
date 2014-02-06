@@ -114,14 +114,15 @@ is renamed or moved to another sub-directory, links should be ok.
 <dfn>
 encloses a newly introduced term that is being explained. Use for the first
 occurrence of the main concept of every manual page, or the first occurrence
-of a new concept after a sub-heading if necessary.
+of a new concept after a sub-heading if necessary. Renders in bold face.
 Keep in mind that <dfn> tags might be used to generate an index of keywords
 - don't pollute it too much.
 
 <abbr>
 is used to explain an abbreviation such as <abbr title="Linux Audio
 Developers Simple Plugin API">LADSPA</abbr>. Browsers will usually pop up the
-definition when the user hovers over the word.
+definition when the user hovers over the word. Renders as dotted underlined
+in most browsers.
 On each page, use only for the first occurrence of every abbreviation. Avoid
 a redundant explanation in the text - the expansion can easily be extracted 
 via CSS for printing.
@@ -179,7 +180,7 @@ Any keys or key combinations, mouse buttons or controllers, menu items or
 textual user input should be marked with this element. It is used here in
 the widest possible sense, qualified by classes.
 E.g.:
-"Press <kbd>F</kbd> to fit all tracks to the height of the Editor window."
+"Press <kbd>f</kbd> to fit all tracks to the height of the Editor window."
 "Move <kbd>Fader 1</kbd> on your MIDI controller to bind it.
 "
 Since modifier keys are not cross-platform and Ardour makes a point of 
@@ -187,16 +188,15 @@ abstracting them, do not hard-code "Alt", "Cmd" and friends, use
 	class="modN" 
 instead.
 So if you want the user to press Ctrl-N on Linux, that's actually <kbd
-class="mod1">N</kbd>. It will render as "Ctrl+N" for you, and as "Cmd+N" for
+class="mod1">N</kbd>. It will render as "Ctrl N" for you, and as "Cmd N" for
 your Mac-using friend. Nice, uh?
 
 For anything you want the user to type, use <kbd> as a block-level element.
 See above for other <kbd> classes to denote menu items, selections, mouse
 events and controller actions.
 
-Keys and mouse key names should always be capitalized. We do not need to
-distringuish between "x" and "X", because the latter would be "Shift-X".
-In case you forget, the stylesheet takes care of this.
+Keys and mouse key names should always be entered lowercase, even though the
+stylesheet might capitalize them.
 
 CSS Classes used with <kbd> are:
 .modN
@@ -226,7 +226,8 @@ The image tag must contain a 'src="/images/yourimage.png"' element and a
 descriptive 'alt="A short textual description of the image content"'
 element.
 Images are usually placed as block-level elements, i.e. outside of a
-paragraph.
+paragraph, unless they are no higher than one row and make sense in the text
+flow.
 
 5. Other conventions
 ====================
@@ -294,3 +295,12 @@ content per heading and you do not expect the article to grow.
 * If pages grow long, consider splitting them into sub-chapters at their
 headings.
 * Nobody needs "the next paragraph is about the following" paragraphs.
+
+5.6. Encoding
+-------------
+
+* Pages should be encoded in UTF-8, with Unix-style newlines if possible
+(although that's not critical). Avoid using verbatim special symbols, use
+HTML character entities instead, for example for cursor arrows: &rarr;
+&larr; &uarr; &darr;. Diacriticals on vowels and other special letters are
+probably ok by now, so don't bother with &eacute; and friends, just type é.
