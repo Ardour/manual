@@ -405,14 +405,16 @@ samp:after {
     font-style: normal;
 }
 
-#content .right {
+#content img.right {
     margin: 0 0 1em 1em;
     float:right;
+    clear:right;
 }
 
-#content .left {
+#content img.left {
     margin:0 1em 1em 0;
     float:left;
+    clear:left;
 }
 
 #content .note,.warning,.fixme {
