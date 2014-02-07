@@ -62,9 +62,13 @@ page_title: The Ardour Manual
 
     <script type="text/javascript">
 
-        if (navigator.userAgent.match(/Mac/)) {
+        // I'll go to hell for this
+        var isA = function(regex) { return navigator.userAgent.match(regex) };
+        var isAbout = function(regex) { return document.getElementsByTagName('h1')[1].textContent.match(regex) };
+
+        if ( (isA(/Mac/) || isAbout(/OS X/)) && (!isAbout(/Linux/)) ) {
             var e = document.getElementsByTagName('body')[0];
-            e.className += ' mac';
+            e.className += ' mac';  // class magic for Cmd vs. Ctrl keys.
         }
 
         var tree = document.getElementById('tree'),
