@@ -9,6 +9,7 @@ page_title: The Ardour Manual
       
     <head>
         <title>{{page.page_title}}</title>
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="{{page.bootstrap_path}}/css/bootstrap.min.css" rel="stylesheet" />
@@ -69,22 +70,6 @@ page_title: The Ardour Manual
         if ( (isA(/Mac/) || isAbout(/OS X/)) && (!isAbout(/Linux/)) ) {
             var e = document.getElementsByTagName('body')[0];
             e.className += ' mac';  // class magic for Cmd vs. Ctrl keys.
-        }
-
-        var tree = document.getElementById('tree'),
-            anchors = document.getElementsByTagName('a'),
-            name = '/' + document.location.pathname.split('/')[1] + '/',
-            offset;
-
-        for (var i = 0; i &lt; anchors.length; i++) { 
-            if (anchors[i].getAttribute('name') === name) { 
-                offset = anchors[i].offsetTop;
-                break;
-            } 
-        }
-
-        if (tree &amp;&amp; offset) {
-            tree.scrollTop = offset - 10;
         }
 
     </script>
