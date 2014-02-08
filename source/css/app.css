@@ -184,7 +184,7 @@
 {
     clear: left;
     float: left;
-    width: 30%;
+    width: 65%;
     margin: 0;
     padding: 0px;
     font-size: 100%;
@@ -195,7 +195,7 @@
 #content .bindings dd
 {
     float: left;
-    width: 65%;
+    width: 30%;
     margin: 0;
     padding: 0px;
     font-size: 110%;
