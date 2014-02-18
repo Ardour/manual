@@ -1,28 +1,45 @@
 ---
 layout: default
-title: Handle Overlapping Notes
+title: Handling Overlapping Notes
+menu-title: Overlapping Notes
 ---                        
-
-
   
-  
-<p>Every MIDI note consists of two messages, a NoteOn and a NoteOff message. Each one has a note number and a channel (also a velocity, but that isn't relevant here). The MIDI standard stresses that it is invalid to send a second NoteOn for the same note number on the same channel before a NoteOff for the first NoteOn. It is more or less impossible to do this with a physical MIDI controller such as a keyboard, but remarkably easy to trigger when editing in a DAW - simply overlapping two instances of the same note will do it.</p>
-<p>Ardour offers many options for how to deal with instances where you overlap two instances of the same note. Which one to use is a per-session property and can be modified from <code>Session &gt; Properties &gt; Misc &gt; MIDI Options</code></p>
+<p>
+  Every MIDI note consists of two messages, a NoteOn and a NoteOff. Each one 
+  has a note number and a channel (also a velocity, but that isn't relevant 
+  here). The MIDI standard stresses that it is invalid to send a second NoteOn 
+  for the same note number on the same channel before a NoteOff for the first 
+  NoteOn. It is more or less impossible to do this with a physical MIDI 
+  controller such as a keyboard, but remarkably easy to trigger when editing 
+  in a DAW - simply overlapping two instances of the same note will do it.
+</p>
+<p>
+  Ardour offers many options for how to deal with instances where you overlap 
+  two instances of the same note. Which one to use is a per-session property 
+  and can be modified from <kbd class="menu">Session &gt; Properties &gt; Misc &gt; MIDI
+  Options</kbd>.
+</p>
+
 <dl class="wide-table">
-<dt>never allow them</dt>
-<dd>Edits that would create note overlaps are not allowed</dd>
-<dt>don't do anything in particular</dt>
-<dd>Ardour leaves overlapping notes alone - the behaviour of a MIDI receiver (plugin or hardware) is undefined</dd>
-<dt>replace any overlapped existing note</dt>
-<dd>When one note is moved to overlap another, remove the one that wasn't being moved</dd>
-<dt>shorten the overlapped existing note</dt>
-<dd>When one note is moved to overlap another, shorten the one that wasn't moved so that there is no overlap</dd>
-<dt>shorten the overlapping new note</dt>
-<dd>When one note is moved to overlap another, shorten the one that was moved so that there is no overlap</dd>
-<dt>replace both overlapping notes with a single note</dt>
-<dd>When one note is moved to overlap another, merge them both to form one (longer) note</dd>
+  <dt>never allow them</dt>
+  <dd>Edits that would create note overlaps are not allowed</dd>
+  <dt>don't do anything in particular</dt>
+  <dd>Ardour leaves overlapping notes alone &mdash; the behaviour of a MIDI receiver (plugin or hardware) is undefined</dd>
+  <dt>replace any overlapped existing note</dt>
+  <dd>When one note is moved to overlap another, remove the one that wasn't being moved</dd>
+  <dt>shorten the overlapped existing note</dt>
+  <dd>When one note is moved to overlap another, shorten the one that wasn't moved so that there is no overlap</dd>
+  <dt>shorten the overlapping new note</dt>
+  <dd>When one note is moved to overlap another, shorten the one that was moved so that there is no overlap</dd>
+  <dt>replace both overlapping notes with a single note</dt>
+  <dd>When one note is moved to overlap another, merge them both to form one (longer) note</dd>
 </dl>
-<p>Changing the option in use will <strong>not</strong> retroactively make changes - it will only affect new note overlaps created while the option remains chosen.</p>
-<blockquote><p>Ardour does not check for note overlaps across tracks or even across regions. If you create these, it is your responsibility to deal with the consequences.
-</p></blockquote>
+<p>
+  Changing the option in use will not retroactively make changes &mdash; it will 
+  only affect new note overlaps created while the option remains chosen.
+</p>
+<p class="warning">
+  Ardour does not check for note overlaps across tracks or even across regions. 
+  If you create these, it is your responsibility to deal with the consequences.
+</p>
   

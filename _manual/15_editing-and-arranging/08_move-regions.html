@@ -3,19 +3,24 @@ layout: default
 title: Move Regions
 ---                        
 
-
-  
-<p>The following edit modes affect how regions are moved or copied:</p>
+<p>
+  Ardour has a global <dfn>edit mode</dfn> selector at the left of the
+  Editing toolbar, which affect how regions are moved or copied:</p>
 <dl>
-<dt>Slide</dt>
-<dd>Regions move freely. Ardour creates overlaps when necessary</dd>
-<dt>Lock</dt>
-<dd>No region motion is permitted</dd>
-<dt>Splice</dt>
-<dd>Regions moved freely, but Ardour closes gaps between regions after any movement has occured</dd>
+  <dt><kbd class="menu">Slide</kbd></dt>
+  <dd>Regions move freely. Ardour creates overlaps when necessary.</dd>
+  <dt><kbd class="menu">Lock</kbd></dt>
+  <dd>No region motion is permitted (except for "nudge").</dd>
+  <dt><kbd class="menu">Splice</kbd></dt>
+  <dd>Regions moved freely, but Ardour closes gaps between regions after any movement has occured</dd>
 </dl>
-<p>The edit mode is set via a combo selector at the left of the editing toolbar.</p>
-<p>If "Snap To Grid" is enabled, then regions can only move so that they align with locations determined by the current snap settings (beats, or seconds, or other region boundaries, etc). See <a href="/editing-and-arranging/snap-to-the-grid">Snap To the Grid</a> for details.</p>
+<p class="note">
+  If <kbd class="menu">Snap To Grid</kbd> is enabled, then regions can 
+  only move so that they align with locations determined by the current 
+  snap settings (beats, or seconds, or other region boundaries, etc). 
+  See <a href="/editing-and-arranging/snap-to-the-grid">Snap To the Grid</a> 
+  for details.
+</p>
   
 
 
