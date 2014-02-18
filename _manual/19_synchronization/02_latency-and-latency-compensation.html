@@ -1,152 +1,248 @@
 ---
 layout: default
 title: Latency and Latency-Compensation
-menu_title: About Latency
+menu_title: Latency
 ---
 
-<h2>Latency</h2>
-
 <p>
-When speaking about synchronization, it is also necessary to speak of latency.
-<a href="http://en.wikipedia.org/wiki/Latency_%28audio%29" title="http://en.wikipedia.org/wiki/Latency_%28audio%29">Latency</a> is a system's reaction time to a given stimulus. There are many factors that contribute to the total latency of a system.
-In order to achieve exact time synchronization all sources of latency need to be taken into account and compensated for.
-</p>
-<ul>
-<li><strong>Sound propagation through the air</strong>: since it is a mechanical perturbation in a fluid, sound travels at comparatively slow <a href="http://en.wikipedia.org/wiki/Speed_of_sound" title="http://en.wikipedia.org/wiki/Speed_of_sound">speed</a> of about 340 m/s. Some interesting consequences:
-<ul>
-<li>Your acoustic guitar or piano has a latency of about 1-2 ms, due to the propagation of the sound between your instrument and your ear .  </li>
-<li>At a large concert venue if you are far away from the stage the sound will travel faster through the path "singer → mic → nearest loudspeaker → your ear" than through the "singer → air → your ear" one, so you&#039;ll hear the real sound as an echo of the amplified one. </li>
-</ul>
-</li>
-<li><strong>Digital-to-Analog and Analog-to-Digital conversion</strong>: electric signals travel quite fast, so their propagation time is negligible in this context, but the conversions between the analog and digital domain take a comparatively long time to perform, so their contribution to the total latency may be considerable. Fast converters are, for instance, one of the factors that distinguishes a quality audio interface from a cheap one, along with other features like low noise, low distortion, etc.</li>
-<li><strong>Digital Signal Processing</strong>: digital processors tend to process audio in chunks, and the size of that chunk depends on the needs of the algorithm and performance/cost considerations. This is usually the main cause of latency when you use a computer and one you can try to predict and optimize.</li>
-<li><strong>Computer I/O Architecture</strong>: a computer is a general purpose processor, not a digital audio processor. This means our audio data has to jump a lot of fences in its path from the outside to the CPU and back, contending in the process with some other parts of the system vying for the same resources (CPU time, bus bandwidth, etc.) Thanks to the combined efforts of kernel, audio driver and jackd developers, you are in position to tune your system a bit more towards the digital audio processing task, but don&#039;t expect miracles. Remember you also use your computer to write documents, surf the net, save lemmings… Polyvalence comes at a cost.</li>
-</ul>
-
-<p><img src="/ardour/manual/html/diagrams/latency-chain.png"  title="Latency chain" alt="Latency chain" /></p>
-<p><em>Figure: Latency chain.</em> The numbers are an example for a typical PC. With professional gear and an optimized system the total roundtrip latency is usually lower. The important point is that latency is always additive and a sum of many independent factors.</p>
-
-<p>
-There is not much that can done about the first two other than using headphones or sitting near the loudspeaker and buying quality gear.
+  <a
+  href="http://en.wikipedia.org/wiki/Latency_%28audio%29"><dfn>Latency</dfn></a> 
+  is a system's reaction time to a given stimulus. There are many factors that 
+  contribute to the total latency of a system. In order to achieve exact time 
+  synchronization all sources of latency need to be taken into account and 
+  compensated for.
 </p>
 
-<p>
-Processing latency is usually divided into capture latency and playback latency:
-</p>
-<ul>
-<li><strong>Capture latency</strong>: the time necessary for the digitized audio to be available for digital processing. Usually it is one audio period.</li>
-</ul>
-<ul>
-<li><strong>Playback latency</strong>: the time necessary for the digitized audio to be processed and delivered out of the processing chain. At best it is one audio period.</li>
-</ul>
+<h2>Sources of Latency</h2>
 
+<h3>Sound propagation through the air</h3>
 <p>
-But this division is an implementation detail of no great interest. What really matters is the combination of both. It is called <strong>processing roundtrip latency</strong>: the time necessary for a certain audio event to be captured, processed and played back.
+  Since sound is a mechanical perturbation in a fluid, it travels at 
+  comparatively slow <a href="http://en.wikipedia.org/wiki/Speed_of_sound">speed</a> 
+  of about 340 m/s. As a consequence, your acoustic guitar or piano has a 
+  latency of about 1&ndash;2 ms, due to the propagation time of the sound 
+  between your instrument and your ear. 
+</p>
+<h3>Digital-to-Analog and Analog-to-Digital conversion</h3>
+<p>
+  Electric signals travel quite fast (on the order of the speed of light), 
+  so their propagation time is negligible in this context. But the conversions 
+  between the analog and digital domain take a comparatively long time to perform, 
+  so their contribution to the total latency may be considerable on
+  otherwise very low-latency systems. Conversion delay is usually below 1&nbsp;ms.
+</p>
+<h3>Digital Signal Processing</h3>
+<p>
+  Digital processors tend to process audio in chunks, and the size of that chunk 
+  depends on the needs of the algorithm and performance/cost considerations. 
+  This is usually the main cause of latency when you use a computer and one you 
+  can try to predict and optimize.
+</p>
+<h3>Computer I/O Architecture</h3>
+<p>
+  A computer is a general purpose processor, not a digital audio processor. 
+  This means our audio data has to jump a lot of fences in its path from the 
+  outside to the CPU and back, contending in the process with some other parts 
+  of the system vying for the same resources (CPU time, bus bandwidth, etc.) 
 </p>
 
-<p>
-It is important to note that <strong>processing latency in a jackd is a matter of choice</strong>: It can be lowered within the limits imposed only by the hardware (audio-device, CPU and bus-speed) and audio driver. Lower latencies increase the load on the computer-system because it needs to process the audio in smaller chunks which arrive much more frequently. The lower the latency, the more likely the system will fail to meet its processing deadline and the <em>dreaded</em> <strong>xrun</strong> (short for buffer over-run and buffer under-run) will make its appearance more often, leaving its merry trail of clicks, pops and crackles.
-</p>
+<h2>The Latency chain</h2>
 
+<img src="/ardour/manual/html/diagrams/latency-chain.png"  title="Latency chain" alt="Latency chain" />
 <p>
-The digital I/O latency is usually negligible for integrated or <abbr title="Periphal Component Interface">PCI</abbr> audio devices but for USB or FireWire interfaces the bus clocking and buffering can add some milliseconds.
-</p>
-
-<p>
-Low-latency is <strong>not</strong> always a feature you want to have. It comes with a couple of drawbacks: the most prominent is increased power-consumption because the CPU needs to process many small chunks of audio-data, it is constantly active and can not enter power-saving mode (think fan-noise). Furthermore, if more than one application (sound-processor) is involved in processing the sound, each of these needs to run for a short, well defined time for each audio-cycle which results in a much higher system-load and an increased chance of x-runs. Reliable low-latency (≤10ms) on GNU/Linux can usually only be achieved by running a <a href="https://rt.wiki.kernel.org/" title="https://rt.wiki.kernel.org/">realtime-kernel</a>.
-</p>
-
-<p>
-Yet there are a few situations where a low-latency is really important, because they require very quick response from the computer.
-</p>
-<ul>
-<li><strong>Playing virtual instruments</strong>: a large delay between the pressing of the keys and the sound the instrument produces will throw-off the timing of most instrumentalists (save church organists, whom we believe are awesome latency-compensation organic systems.)</li>
-<li><strong>Software audio monitoring</strong>: if a singer is hearing her own voice through two different paths, her head bones and headphones, large latencies can be disturbing.</li>
-<li><strong>Live-effects</strong>: This case is similar to playing virtual instruments: instead of virtual-instruments/sythensizers it is about real-instruments and and effects processing. Low latency is important when using the computer as effect-rack (e.g. guitar effects) - also precise synchronization may be important if you manually trigger sound effects like delays.</li>
-<li><strong>Live-mixing</strong>: Some sound engineers use a computer for mixing live performances. Basically that is a combination of the above: monitoring on stage, effect-processing and EQ. It is actually more tricky since one not only wants low latency (audio should not lag too much behind the performance) but exact low-latency (minimal jitter) for delay-lines between speaker in front and back.</li>
-</ul>
-
-<p>
-In many other cases - such as playback, recording, overdubbing, mixing, mastering, etc. latency is not important, It can be relatively large and easily be compensated for.
+  <em>Figure: Latency chain.</em> 
+  The numbers are an example for a typical PC. With professional gear and an 
+  optimized system the total roundtrip latency is usually lower. The important 
+  point is that latency is always additive and a sum of many independent factors.
 </p>
 
 <p>
-To explain that statement: During mixing or mastering you don&#039;t care if it takes 10ms or 100ms between the instant you press the <em>play button</em> and sound coming from the speaker. The same is true when recording with a count in.
+  Processing latency is usually divided into <dfn>capture latency</dfn> (the time 
+  it takes for the digitized audio to be available for digital processing, usually 
+  one audio period), and <dfn>playback latency</dfn> (the time it takes for
+  In practice, the combination of both matters. It is called <dfn>roundtrip 
+  latency</dfn>: the time necessary for a certain audio event to be captured, 
+  processed and played back.
+</p>
+<p class="note">
+  It is important to note that processing latency in a jackd is a matter of
+  choice. It can be lowered within the limits imposed by the hardware (audio 
+  device, CPU and bus speed) and audio driver. Lower latencies increase the 
+  load on the system because it needs to process the audio in smaller chunks 
+  which arrive much more frequently. The lower the latency, the more likely 
+  the system will fail to meet its processing deadline and the dreaded
+  <dfn>xrun</dfn> (short for buffer over- or under-run) will make its 
+  appearance more often, leaving its merry trail of clicks, pops and crackles.
 </p>
 
 <p>
-During tracking it is important that the sound that is currently being played back is internally aligned with the sound that is being recorded.
+  The digital I/O latency is usually negligible for integrated or 
+  <abbr title="Periphal Component Interface">PCI</abbr> audio devices, but 
+  for USB or FireWire interfaces the bus clocking and buffering can add some 
+  milliseconds.
 </p>
 
+
+<h2>Low Latency usecases</h2>
 <p>
-This is where latency-compensation comes into play. There are two possibilities to compensate for latency in a DAW: <em>read-ahead</em> the DAW starts playing a bit early (relative to the playhead), so that when the sound arrives at the speakers a short time later, it is exactly aligned with the material that is being recorded.
-And <em>write-behind</em>; since we know that play-back has latency, the incoming audio can be delayed by the same amount to line things up again.
+  Low latency is <strong>not</strong> always a feature you want to have. It 
+  comes with a couple of drawbacks: the most prominent is increased power 
+  consumption because the CPU needs to process many small chunks of audio data,
+  it is constantly active and can not enter power-saving mode (think fan-noise). 
+  Since each application that is part of the signal chain must run in every 
+  audio cycle, low-latency systems will undergo<dfn>context switches</dfn> 
+  between applications more often, which incur a significant overhead.  
+  This results in a much higher system load and an increased chance of xruns. 
 </p>
-
 <p>
-As you may see, the second approach is prone to various implementation issues regarding timecode and transport synchronization. Ardour uses read-ahead to compensate for latency. The time displayed in the Ardour clock corresponds to the audio-signal that you hear on the speakers (and is not where Ardour reads files from disk).
+  For a few applications, low latency is critical:
 </p>
-
+<h3>Playing virtual instruments</h3>
 <p>
-As a side note, this is also one of the reasons why many projects start at timecode <code>01:00:00:00</code>. When compensating for output-latency the DAW will need to read data from before the start of the session so that the audio arrives in time at the output when the timecode hits <code>01:00:00:00</code>. Ardour3 does handle the case of <code>00:00:00:00</code> properly but not all systems/software/hardware that you may inter-operate with may behave the same.
+  A large delay between the pressing of the keys and the sound the instrument 
+  produces will throw-off the timing of most instrumentalists (save church 
+  organists, whom we believe to be awesome latency-compensation organic systems.)
+</p>
+<h3>Software audio monitoring</h3>
+<p>
+  If a singer is hearing her own voice through two different paths, her head 
+  bones and headphones, even small latencies can be very disturbing and
+  manifest as a tinny, irritating sound.
+</p>
+<h3>Live effects</h3>
+<p>
+  Low latency is important when using the computer as an effect rack for
+  inline effects such as compression or EQ. For reverbs, slightly higher
+  latency might be tolerable, if the direct sound is not routed through the
+  computer. 
+</p>
+<h3>Live mixing</h3> 
+<p>
+  Some sound engineers use a computer for mixing live performances. 
+  Basically that is a combination of the above: monitoring on stage, 
+  effects processing and EQ. 
+</p>
+<p>
+  In many other cases, such as playback, recording, overdubbing, mixing, 
+  mastering, etc. latency is not important, since it can easily be 
+  compensated for.<br />
+  To explain that statement: During mixing or mastering you don&#039;t care 
+  if it takes 10ms or 100ms between the instant you press the play button
+  and sound coming from the speaker. The same is true when recording with a count in.
 </p>
 
+<h2>Latency compensation</h2>
+<p>
+  During tracking it is important that the sound that is currently being 
+  played back is internally aligned with the sound that is being recorded.
+</p>
+<p>
+  This is where latency-compensation comes into play. There are two ways to 
+  compensate for latency in a DAW, <dfn>read-ahead</dfn> and
+  <dfn>write-behind</dfn>. The DAW starts playing a bit early (relative to 
+  the playhead), so that when the sound arrives at the speakers a short time 
+  later, it is exactly aligned with the material that is being recorded.
+  Since we know that play-back has latency, the incoming audio can be delayed 
+  by the same amount to line things up again.
+</p>
+<p>
+  As you may see, the second approach is prone to various implementation 
+  issues regarding timecode and transport synchronization. Ardour uses read-ahead 
+  to compensate for latency. The time displayed in the Ardour clock corresponds 
+  to the audio-signal that you hear on the speakers (and is not where Ardour 
+  reads files from disk).
+</p>
+<p>
+  As a side note, this is also one of the reasons why many projects start at 
+  timecode <samp>01:00:00:00</samp>. When compensating for output latency the 
+  DAW will need to read data from before the start of the session, so that the 
+  audio arrives in time at the output when the timecode hits <samp>01:00:00:00</samp>. 
+  Ardour3 does handle the case of <samp>00:00:00:00</samp> properly but not all 
+  systems/software/hardware that you may inter-operate with may behave the same.
+</p>
 
 <h2>Latency Compensation And Clock Sync</h2>
 
 <p>
-To achieve sample accurate timecode synchronization, the latency introduced by the audio-setup needs to be known and compensated for.
+  To achieve sample accurate timecode synchronization, the latency introduced 
+  by the audio setup needs to be known and compensated for.
 </p>
-
 <p>
-In order to compensate for Latency, JACK or JACK applications need to know exactly how long a certain signal needs to be read-ahead or delayed:
+  In order to compensate for latency, JACK or JACK applications need to know 
+  exactly how long a certain signal needs to be read-ahead or delayed:
 </p>
-
-<p><img src="/ardour/manual/html/diagrams/jack-latency-excerpt.png"  title="Jack Latency Compensation" alt="Jack Latency Compensation" /></p>
-<p><em>Figure: Jack Latency Compensation.</em>  This figure outlines the jack latency API. -- excerpt from http://jackaudio.org/files/jack-latency.png</p>
-
+<img src="/ardour/manual/html/diagrams/jack-latency-excerpt.png"  title="Jack Latency Compensation" alt="Jack Latency Compensation" />
 <p>
-In the figure above, clients A and B need to be able to answer the following two questions:
+  <em>Figure: Jack Latency Compensation.</em>  
+</p>
+<p>
+  In the figure above, clients A and B need to be able to answer the following 
+  two questions:
 </p>
 <ul>
-<li>how long has it been since the data read from port Ai or Bi arrived at the edge of the JACK graph (capture)?</li>
-<li>how long will it be until the data writen to port Ao or Bo arrives at the edge of the JACK graph (playback)?</li>
+  <li>
+    How long has it been since the data read from port Ai or Bi arrived at the
+    edge of the JACK graph (capture)?
+  </li>
+  <li>
+    How long will it be until the data writen to port Ao or Bo arrives at the
+    edge of the JACK graph (playback)?
+  </li>
 </ul>
 
 <p>
-JACK features an <abbr title="Application Programming Interface">API</abbr> that allows applications to determine the answers to above questions. However JACK can not know about the additional latency that is introduced by the computer architecture, operating system and soundcard. These values are indicated by <code>-I</code> and <code>-O</code> and vary from system to system but are constant on each. On a general purpose computer system the only way to accurately learn about the total (additional) latency is to measure it.
+  JACK features an <abbr title="Application Programming Interface">API</abbr> 
+  that allows applications to determine the answers to above questions. 
+  However JACK can not know about the additional latency that is introduced 
+  by the computer architecture, operating system and soundcard. These values 
+  can be specified by the JACK command line parameters <kbd class="input">-I</kbd> 
+  and <kbd class="input">-O</kbd> and vary from system 
+  to system but are constant on each. On a general purpose computer system 
+  the only way to accurately learn about the total (additional) latency is to 
+  measure it.
 </p>
 
 
 <h2>Calibrating JACK Latency</h2>
-
 <p>
-Linux DSP guru Fons Adriaensen wrote a tool called <code>jack_delay</code> to accurately measure the roundtrip latency of a closed loop audio chain, with sub-sample accuracy. JACK itself includes a variant of this tool called <code>jack_iodelay</code>.
+  Linux DSP guru Fons Adriaensen wrote a tool called <dfn>jack_delay</dfn> 
+  to accurately measure the roundtrip latency of a closed loop audio chain, 
+  with sub-sample accuracy. JACK itself includes a variant of this tool 
+  called <dfn>jack_iodelay</dfn>.
 </p>
-
 <p>
-Jack_iodelay allows you to measure the total latency of the system, subtracts the known latency of JACK itself and suggests parameters for jackd&#039;s audio-backend <code>-I</code> and <code>-O</code> options.
+  Jack_iodelay allows you to measure the total latency of the system, 
+  subtracts the known latency of JACK itself and suggests values for 
+  jackd's audio-backend parameters.
 </p>
-
 <p>
-jack_[io]delay works by emitting some rather annoying tones, capturing them again after a round trip through the whole chain, and measuring the difference in phase so it can estimate with great accuracy the time taken. This is not a theoretical estimation, jack_delay is a measuring tool that provides very accurate answers.
+  jack_[io]delay works by emitting some rather annoying tones, capturing 
+  them again after a round trip through the whole chain, and measuring the 
+  difference in phase so it can estimate with great accuracy the time taken. 
 </p>
-
 <p>
-You can close the loop in a number of ways:
+  You can close the loop in a number of ways:
 </p>
 <ul>
-<li>Putting a speaker close to a microphone. This is rarely done, as air propagation latency is well known so there is no need to measure it.</li>
-<li>Connecting the output of your audio interface to its input using a patch cable. This can be an analog or a digital loop, depending on the nature of the input/output you use. A digital loop won&#039;t factor in the <abbr title="Analog to Digital, Digital to Analog">AD/DA</abbr> converter latency.</li>
+  <li>
+    Putting a speaker close to a microphone. This is rarely done, as air 
+    propagation latency is well known so there is no need to measure it.
+  </li>
+  <li>
+    Connecting the output of your audio interface to its input using a 
+    patch cable. This can be an analog or a digital loop, depending on 
+    the nature of the input/output you use. A digital loop will not factor 
+    in the <abbr title="Analog to Digital, Digital to Analog">AD/DA</abbr> 
+    converter latency.
+  </li>
 </ul>
-
 <p>
-Once you have closed the loop you have to:
+  Once you have closed the loop you have to:
 </p>
 <ol>
-<li>Launch jackd with the configuration you want to test.</li>
-<li>Launch <code>jack_delay</code> on the commandline.</li>
-<li>Make the appropriate connections between your jack ports so the loop is closed.</li>
-<li>Adjust the playback and capture levels in your mixer.</li>
+  <li>Launch jackd with the configuration you want to test.</li>
+  <li>Launch <kbd class="input">jack_delay</kbd> on the commandline.</li>
+  <li>Make the appropriate connections between your jack ports so the loop is closed.</li>
+  <li>Adjust the playback and capture levels in your mixer.</li>
 </ol>
 
