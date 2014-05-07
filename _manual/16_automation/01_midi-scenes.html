@@ -1,0 +1,80 @@
+---
+layout: default
+title: MIDI Scene Automation
+---                        
+
+<p>
+Ardour is capable of being used to both record and deliver MIDI
+"scene" automation. These are MIDI messages typically used to switch
+presets or "scenes" on a variety of external equipment (or
+software), including lighting and other audio/video tools. A common
+use case is to automatically change presets between songs or to change
+lighting conditions based on a specific position on the timeline.
+</p>
+<p>
+Each change from one scene to another is represented by a marker in
+the "Marker" bar. 
+</p>
+<p>
+Technically, scene changes are delivered as a combination of bank and
+program change MIDI messages. MIDI allows for 16384 banks, each with
+128 programs.
+</p>
+
+<h2>Recording Scene Changes</h2>
+
+<p>
+Ardour has a dedicated MIDI port named "Scene In". Connect this port
+to whatever source(s) of MIDI scene (bank/program change) messages you
+wish to record.
+</p>
+<p>
+Whenever the global record enable button is engaged and Ardour's
+transport is rolling, a new marker will be created for each scene
+change message received via the "Scene In" port. 
+</p>
+<p>
+If 2 different scene changes are received within a certain time
+period, only the later one will be recorded as a new marker. The
+default threshold for this is 1 millisecond.
+</p>
+<p>
+If a scene change message is received while the playhead is close to
+an existing marker with an associated scene change, the recording
+process will alter the scene change in the existing marker rather than
+adding a new one. The default threshold for this "proximity" test is 1
+millisecond.
+</p>
+
+<h2>Manually Creating Scene Changes</h2>
+
+<p>
+This feature is not currently implemented.
+</p>
+
+<h2>Playing back Scene Changes</h2>
+
+<p>
+Ardour has a dedicated MIDI port named "Scene Out". Connect this port
+to wherever you wish to send MIDI scene (bank/program change) messages.
+</p>
+<p>
+When the global record enable button is
+<em>not</em> enabled, the relevant message(s) will be sent via the
+"Scene Out" port as the playhead rolls past each marker with a scene
+change associated with it.
+</p>
+
+<h2>Editing Scene Changes</h2>
+
+<p>
+This feature is not currently implemented.
+</p>
+
+<h2>Disabling Scene Changes</h2>
+
+<p>
+This feature is not currently implemented.
+</p>
+
+{% children %}
