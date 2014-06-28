@@ -2,6 +2,22 @@
 layout: default
 title: MIDI on Linux
 ---                        
+
+The right approach for using MIDI on Linux depends on which version of
+JACK you use. The world divides into:
+
+<dl>
+<dt>Systems using JACK 1, versions 0.124 or later</dt>
+<dd>On these systems, just start JACK with 
+ the <code>-X alsa_midi server</code> argument. To support legacy control
+ applications, you can also use the -X seq argument to the ALSA
+ backend of JACK and get the exact same results.</dd>
+<dl>All others</dl>
+<dd>Use a2jmidid to act as a bridge between ALSA MIDI and JACK. Do
+  not use the -X seq or -X raw arguments - the timing and performance
+  of these options is not acceptable.
+</dd>
+</ul>
   
 <h2>a2jmidid</h2>
 <p>
@@ -32,13 +48,21 @@ title: MIDI on Linux
   Linux distribution and try again.
 </p>
 
-<h3>Check surface control MIDI ports</h3>
+
+<h2>Check MIDI ports</h2>
 <p>
-  After starting a2jmidid, your control surface MIDI ports should appear in
+  If you have correctly configured JACK for MIDI, then your MIDI ports should appear in
   qjackctl under <kbd class="menu">Connections &gt; MIDI &gt; a2j</kbd>.
 </p>
+
+<h3>Making it automatic</h3>
 <p>
-  You can now add <kbd class="input">a2jmidid -e</kbd> as an "after start-up" script in the <kbd
-  class="menu">Setup &gt; Options</kbd> tab of QJackCtl, so that it is
-  started automatically whenever you start JACK.
+Once you've verified that the ports appear in JACK as expected, you
+can make this happen whenever you start JACK. If you use a newer
+version of JACK 1, just make sure the -X alsa_midi or -X seq options
+are enabled. For other versions of JACK,
+add <kbd class="input">a2jmidid -e</kbd> as an "after start-up" script
+in the <kbd class="menu">Setup &gt; Options</kbd> tab of QJackCtl, so
+that it is started automatically whenever you start JACK.
 </p>
+

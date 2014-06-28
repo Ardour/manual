@@ -21,44 +21,40 @@ title: Setting Up MIDI
 
 <h2>MIDI Handling Frameworks</h2>
 <p>
-  Ardour supports various ways of sending and receiving MIDI data:
+  MIDI input and output for Ardour are handled by the same "engine"
+  that handles audio input and output. Up to release 3.5, that means
+  that all MIDI I/O takes place via JACK. JACK itself uses the 
+  native MIDI systems of the operating system to receive and send
+  data which are:
 </p>
 
-<h3>CoreMIDI</h3>
+<h3>OS X : CoreMIDI</h3>
 <p>
   <dfn>CoreMIDI</dfn> is the standard MIDI framework on OSX systems. 
   It provides drivers for MIDI hardware and libraries needed by MIDI
   software clients. 
 </p>
 
-<h4>ALSA MIDI</h4>
+<h3>Linux : ALSA MIDI</h3>
 <p>
   <dfn><abbr title="Advanced Linux Sound API">ALSA</abbr> MIDI</dfn>
   is the standard MIDI framework on Linux systems. It provides drivers 
   for MIDI hardware and libraries needed by MIDI software clients.
 </p>
 <p>
-  The <dfn>QJackCtl</dfn> control software displays ALSA MIDI ports 
+  The <dfn>QJackCtl</dfn> control software displays ALSA MIDI ports
   under its "ALSA" tab (it does not currently display CoreMIDI ports).
+  By contrast, JACK MIDI ports show up under
+  the <kbd class="menu">MIDI</kbd> tab in QJackCtl.
 </p>
-
-<h4>JACK MIDI</h4>
-
-<p> 
-  <dfn><abbr title="JACK Audio Connection Kit">JACK</abbr> MIDI</dfn> 
-  is a framework used to comunicate between JACK MIDI software clients. 
-  It provides zero jitter and a fixed latency of one <dfn>period</dfn>,
-  the same latency as for JACK audio.
-</p>
+   
+<h2>JACK MIDI Configuration</h2>
 <p>
-  JACK MIDI ports show up under the <kbd class="menu">MIDI</kbd> tab in
-  QJackCtl.
-</p>
-    
-<p>
-  There are several ways of <dfn>bridging</dfn> between the native MIDI frameworks
-  (e.g. CoreMIDI or ALSA) and JACK MIDI, as described in the sections
-  below.
+By default, JACK will not automatically detect and use existing MIDI
+ports on your system. You must choose one of several ways
+of <dfn>bridging</dfn> between the native MIDI frameworks
+(e.g. CoreMIDI or ALSA) and JACK MIDI, as described in the sections
+below.
 </p>
 
 {% children %}
