@@ -49,18 +49,25 @@ JACK you use. The world divides into:
 </p>
 
 
-<h2>Check MIDI ports</h2>
+<h2>Check availaibility MIDI ports</h2>
 <p>
   If you have correctly configured JACK for MIDI, then your MIDI ports should appear in
-  qjackctl under <kbd class="menu">Connections &gt; MIDI &gt; a2j</kbd>.
+  qjackctl under <kbd class="menu">Connections &gt; MIDI </kbd>.
 </p>
 
 <h3>Making it automatic</h3>
 <p>
 Once you've verified that the ports appear in JACK as expected, you
-can make this happen whenever you start JACK. If you use a newer
-version of JACK 1, just make sure the -X alsa_midi or -X seq options
-are enabled. For other versions of JACK,
+can make this happen whenever you start JACK.
+</p>
+
+<p>If you use a newer version of JACK 1, just make sure the -X
+alsa_midi or -X seq options are enabled for whatever technique you use
+to start JACK.
+</p>
+
+<p>
+For other versions of JACK,
 add <kbd class="input">a2jmidid -e</kbd> as an "after start-up" script
 in the <kbd class="menu">Setup &gt; Options</kbd> tab of QJackCtl, so
 that it is started automatically whenever you start JACK.
