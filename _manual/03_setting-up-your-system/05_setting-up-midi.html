@@ -11,21 +11,14 @@ title: Setting Up MIDI
   variety of editing operations on it. Furthermore, MIDI can be used to
   control various functions of Ardour.
 </p>
-<p class="note">
-  Ardour does not include a <dfn>synthesis engine</dfn> to produce audio 
-  from MIDI data, but relies on plugins or external hard- and software 
-  for the task. This can be a stumbling block for first time users who 
-  expect MIDI input to result in audio output by default.<br />
-  Please see the section on working with plug-ins for more information on
-  turning MIDI data into audio output.</p>
 
 <h2>MIDI Handling Frameworks</h2>
 <p>
   MIDI input and output for Ardour are handled by the same "engine"
   that handles audio input and output. Up to release 3.5, that means
   that all MIDI I/O takes place via JACK. JACK itself uses the 
-  native MIDI systems of the operating system to receive and send
-  data which are:
+  native MIDI support of the operating system to receive and send
+  MIDI data. These are:
 </p>
 
 <h3>OS X : CoreMIDI</h3>
@@ -41,16 +34,17 @@ title: Setting Up MIDI
   is the standard MIDI framework on Linux systems. It provides drivers 
   for MIDI hardware and libraries needed by MIDI software clients.
 </p>
-<p>
-  The <dfn>QJackCtl</dfn> control software displays ALSA MIDI ports
-  under its "ALSA" tab (it does not currently display CoreMIDI ports).
-  By contrast, JACK MIDI ports show up under
+
+<p class="note">
+  NoteThe <dfn>QJackCtl</dfn> control software displays ALSA MIDI
+  ports under its "ALSA" tab (it does not currently display CoreMIDI
+  ports).  By contrast, JACK MIDI ports show up under
   the <kbd class="menu">MIDI</kbd> tab in QJackCtl.
 </p>
    
 <h2>JACK MIDI Configuration</h2>
 <p>
-By default, JACK will not automatically detect and use existing MIDI
+By default, JACK will <strong>not</strong> automatically detect and use existing MIDI
 ports on your system. You must choose one of several ways
 of <dfn>bridging</dfn> between the native MIDI frameworks
 (e.g. CoreMIDI or ALSA) and JACK MIDI, as described in the sections
