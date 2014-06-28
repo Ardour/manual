@@ -20,20 +20,19 @@ title: Setting Up MIDI
   that handles audio input and output. Up to release 3.5, that means
   that all MIDI I/O takes place via JACK. JACK itself uses the 
   native MIDI support of the operating system to receive and send
-  MIDI data. These are:
+  MIDI data. The native MIDI support  provides device drivers for MIDI
+  hardware and libraries needed by software applications that want to
+  work with MIDI.
 </p>
 
 <dl>
 <dt>OS X</dt>
 <dd>  <dfn>CoreMIDI</dfn> is the standard MIDI framework on OSX systems. 
-  It provides drivers for MIDI hardware and libraries needed by MIDI
-  software clients. 
 </dd>
 <dt>Linux</dt>
 <dd>
   <dfn><abbr title="Advanced Linux Sound API">ALSA</abbr> MIDI</dfn>
-  is the standard MIDI framework on Linux systems. It provides drivers 
-  for MIDI hardware and libraries needed by MIDI software clients.
+  is the standard MIDI framework on Linux systems.
 </dd>
 </dl>
 
