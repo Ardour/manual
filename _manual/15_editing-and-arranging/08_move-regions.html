@@ -11,9 +11,19 @@ title: Move Regions
   <dd>Regions move freely. Ardour creates overlaps when necessary.</dd>
   <dt><kbd class="menu">Lock</kbd></dt>
   <dd>No region motion is permitted (except for "nudge").</dd>
-  <dt><kbd class="menu">Splice</kbd></dt>
-  <dd>Regions moved freely, but Ardour closes gaps between regions after any movement has occured</dd>
+  <dt><kbd class="menu">Ripple</kbd></dt>
+  <dd>The effect of an edit is reflected in the regions to the "right" of the edit</dd>
 </dl>
+<h2>More details about Ripple</h2>
+<p>
+  Ripple Edit mode provides the following conveniences:
+  <ul>
+    <li> Deleting a range will move later regions to compensate for the deleted time </li>
+    <li> Deleting a region will move later regions to compensate for the deleted region's length </li>
+    <li> Moving a region will move later regions to compensate for the length of the move</li>
+    <li> Inserting a new region (via dragging or via Paste) will move later regions to the right to compensate</li>
+  </ul>
+</p>
 <p class="note">
   If <kbd class="menu">Snap To Grid</kbd> is enabled, then regions can 
   only move so that they align with locations determined by the current 
