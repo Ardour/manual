@@ -1,0 +1,74 @@
+---
+layout: default
+title: Export Dialog
+---                        
+
+<p>
+When you have finished mixing your session, you probably want to export it to a sound 
+file to burn to a CD, upload to the web, or whatever. <kbd class="menu">Session &gt; Export &gt; Export to Audio file(s)...</kbd>
+shows the Export Dialog to do this.
+     
+</p>
+<p>
+You can also export the outputs of multiple tracks &amp; busses all at once via 
+<kbd class="menu">Session &gt; Export &gt; Stem Export...</kbd>.
+</p>
+
+<h2>File Format</h2>
+<img src="/ardour/manual/html/screenshots/export-dialog-file-format.png" />
+<p>
+This tab contains controls for the format of the exported audio file.
+You can enable more than one format here, in which case each will be exported in turn.
+Ardour is supplied with a list of export formats, including:
+<ul>
+<li>CD (Red Book)</li>
+<li>DVD-A</li>
+<li>FLAC 24 bit </li>
+<li>FLAC 24 bit (tagged)</li>
+<li>Ogg_Vorbis</li>
+<li>Ogg_Vorbis (tagged)</li>
+<li>Ring Tone</li>
+</ul>
+You can edit these formats, or create your own, with the <a href="/exporting/edit-export-format-profile/">"Edit Export Format Profile"</a> dialog, which
+appears when you click the "Edit" or "New" button to the right of the drop-down list of formats.
+</p>
+
+<p>
+You can also create a 'Preset' consisting of one or more formats. Ardour provides some ready-made presets, too:
+
+<ul>
+<li>CD + DVD-A</li>
+<li>CD + FLAC</li>
+<li>CD + FLAC (tagged)</li>
+<li>CD + Ogg_Vorbis + FLAC (tagged)</li>
+<li>CD + Ogg_Vorbis</li>
+<li>CD + Ogg_Vorbis (tagged)</li>
+<li>CD only</li>
+<li>DVD-A only</li>
+<li>FLAC</li>
+<li>FLAC (tagged)</li>
+<li>Ogg_Vorbis + FLAC</li>
+<li>Ogg_Vorbis + FLAC (tagged)</li>
+<li>Ogg_Vorbis </li>
+<li>Ogg_Vorbis (tagged)</li>
+</ul>
+</p>
+
+<h2>Time Span</h2>
+<img src="/ardour/manual/html/screenshots/export-dialog-timespan.png" />
+<p>
+This tab allows you to select the range (or ranges) of the timeline to export. By default, "session" is
+enabled - this will export the whole session from the start marker to the end marker.
+</p>
+
+
+<h2>Channels</h2>
+<img src="/ardour/manual/html/screenshots/export-dialog-channels.png" />
+<p>
+Here you can choose which outputs (tracks or busses) should be sent to the exported file.
+</p>
+
+
+{% children %}
+
+
