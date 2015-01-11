@@ -40,4 +40,18 @@ title: Selection Techniques
   ranges and a <kbd class="mod3 mouse">left</kbd> click extends a range
   to cover a wider area.
 </p>
-  
+
+<h2>Selection Undo</h2>
+<p>
+  The set of objects (including time range) that are selected at any one 
+  time is known as the selection.
+  Each time you select or deselect an object, the new selection is stored in an
+  undo/redo stack.
+  This stack is cleared each time the content of the timeline changes.
+  If you have built up a complex selection and then accidentally cleared it,
+  choosing <kbd class="menu">Edit &gt; Undo Selection Change</kbd> will restore your
+  previous selection.
+  If you then decide that you had in fact made the correct change, choosing
+  <kbd class="menu">Edit &gt; Redo Selection Change</kbd> will take you back
+  to where you were before you chose <kbd class="menu">Edit &gt; Undo Selection Change</kbd>.
+</p>
