@@ -55,7 +55,7 @@ So, for example:
 
 ### Normal content
 
-This is anything else, css files, images, fixed pages, layouts. This content lives in the othe subdirectories of `source`.
+This is anything else, css files, images, fixed pages, layouts. This content lives in the other subdirectories of `source`.
 
 If you added `source/images/horse.png` is would be available at the url `/images/horse.png` after publishing it.
 
