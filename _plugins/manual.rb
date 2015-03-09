@@ -1,262 +1,100 @@
-require 'erb'
-require 'fileutils'
-require 'tmpdir'
-require 'pp'
+require 'find'
 
 module Manual
-
-  DIRECTORY_ENTRIES = {}
-
-  def self.traverse_data(entries, directory_sort = false, paths = [], key_paths = [], &block)
-
-    entries.map do |entry|
-
-      entry = entry.dup
-
-      if entry[:type] == 'directory'
-        entry[:children] = traverse_data(entry[:children], directory_sort, paths + [entry[:name]], key_paths + [entry[:key]], &block)
-      end
-      block_given? ? block.call(entry) : entry
-    end
+  
+  def Manual.make_permalink (s)
+    ('/' + s).gsub(/\/\d+[-_]/, '/').sub(/\.html$/, '/')
   end
 
-  def self.traverse(path, directory_sort = false, paths = [], key_paths = [], &block)
+  def Manual.child_url?(a, b)
+    a.start_with?(b) && b.count('/') + 1 == a.count('/')
+  end
 
-      entries = Dir.glob(File.join(path,'*')).sort
-
-      entries.sort_by! { |e| File.directory?(e) ? 1 : 0  } if directory_sort
-
-      entries.map do |entry|
-          is_dir = File.directory?(entry)
-
-          data = extract_data(is_dir ? "#{entry}.html" : entry)
-
-          short_title = data['menu_title'] || data['title']
-
-          name = entry[/[^\/]+$/] # filename
-          key = name.sub(/^[0-9]+(\-|_)/,'').sub(/\.[^\.]+$/,'') # slug
-          my_paths = paths + [name]
-          my_key_paths = key_paths + [key]
-          url = '/' + my_key_paths.join('/') + '/'
-
-          without_extension = entry.sub(/\.[^\/\/]+$/,'')
-
-          h = {
-              name: name,
-              title: data['title'] || key,
-              menu_title: short_title || key,
-              key: key,
-              filename: entry,
-              type: is_dir ? 'directory' : 'file',
-              url: url
-          }
-
-          if is_dir
-              h.update \
-                  children: traverse(entry, directory_sort, my_paths, my_key_paths, &block)
-          else
-              h.update extension: File.extname(name), has_dir: File.directory?(without_extension)
-          end
-
-          if is_dir
-            DIRECTORY_ENTRIES[url] = h
-          end
-
-          block_given? ? block.call(h) : h
-      end.compact
-    end
-
-    def self.extract_data(filename)
-      if File.exists?(filename) and !File.directory?(filename) and first3 = File.open(filename) { |fd| fd.read(3) } and first3 == '---'
-        blah = filename.sub(/^_manual\//,'')
-        page = Jekyll::Page.new(@site, '_manual', File.dirname(blah), File.basename(blah))
-        page.data
-      else
-        {}
-      end
-    end
-
-  class ManualPage < Jekyll::Page
-    def initialize(*args)
-      super
-    end
+  def Manual.find_children (url, site)
+    site.pages.select{ |p| child_url?(p.url, url) }.sort_by{ |p| p.basename }
   end
 
   class ManualGenerator < Jekyll::Generator
-
-    safe true
-    
     def generate(site)
-      source = site.config['source']
-      destination = site.config['destination']
+      source = Pathname.new (site.config['source'])
 
-      manual_dir = '_manual'
+      Dir.chdir (source) do
 
-      # now we need to turn our raw input files into something for jekyll to process
-      # everything is in a directory with it's name and all content is in index.html files
-      # the tmpdir gets removed at the end of this block automatically
+        manual_dir = Pathname.new('_manual/.')
 
-      Dir.mktmpdir do |tmpdir|
+        manual_dir.find do |path|
+          if path.file? 
+            plink = Manual.make_permalink(path.relative_path_from(manual_dir).to_s)
+         
+            page = Jekyll::Page.new(site, '', path.dirname.to_s, path.basename.to_s)
+            page.data['permalink'] = plink
 
-        Manual.traverse manual_dir, true do |entry|
-          output_filename = File.join(tmpdir, entry[:url], "index#{entry[:extension]}")
-
-          FileUtils.mkdir_p File.dirname(output_filename)
-          
-          next unless entry[:type] == 'file'
-
-          File.open(output_filename, 'w+') do |f| 
-            f << File.read(entry[:filename])
+            site.pages << page
           end
-
-          relative_filename = File.join(entry[:url], "index#{entry[:extension]}")
-
-          site.pages << Jekyll::Page.new(site, tmpdir, File.dirname(relative_filename), File.basename(relative_filename))
         end
-
       end
     end
-
   end
 
-  class ManualChildPageTag < Liquid::Tag
+  class Tag_tree < Liquid::Tag
+    def join(children_html)
+      children_html.empty? ? "" : "<dl>\n" + children_html.join + "</dl>\n"
+    end
+
     def render(context)
-      current = context['page.url'].sub(/[^\/]+$/,'')
+      current_url = context['page.url']
+      site = context.registers[:site]
 
-      if entry = DIRECTORY_ENTRIES[current]
+      format_entry = lambda do |page|
+        url = page.url
+        title = page.data['title']
+        css = ""
+        children_html = ""
+        
+        children = Manual.find_children(url, site)
+  
+        if url == current_url
+          css = ' class="active"'
+        end
+        if current_url.start_with?(url) || Manual.child_url?(current_url, url)
+          children_html = join(children.map(&format_entry))
+        end
 
-        path = File.join(entry[:filename], '*')
+        %{
+          <dt#{css}>
+            <a href='#{url}'>#{title}</a>
+          </dt>
+          <dd#{css}>
+            #{children_html}
+          </dd>
+        }
+      end
 
-        entries = entry[:children].map do |child|
-          "<li><a href='#{child[:url]}'>#{child[:title]}</a></li>"
-        end.uniq
+      join(Manual.find_children('/', site).map(&format_entry))
+    end
+  end
 
-        "<div id='subtopics'>
+  class Tag_children < Liquid::Tag
+    def render(context)
+      page = context.registers[:page]       # for some reason this is not a Jekyll::Page object
+      site = context.registers[:site]
+      children = Manual.find_children(page['url'], site)
+      entries = children.map do |child|
+        url, title = child.url, child.data['title']
+        "<li><a href='#{url}'>#{title}</a></li>"
+      end
+
+      "<div id='subtopics'>
         <h2>This chapter covers the following topics:</h2>
         <ul>
           #{entries.join}
         </ul>
         </div>
-        "
-      end
+      "
     end
-  end
-
-  # generates a big <dl> list of the manual page stucture
-
-  class ManualTOCTag < Liquid::Tag
-
-    def process_hierarchy(items_a, items_b)
-      current = true
-      position = nil
-      level = -1
-
-      [items_a.length,items_b.length].max.times do |i|
-        a = items_a[i]
-        b = items_b[i]
-
-        current = false if a != b
-
-        # start incrementing this when we don't have either a or b
-        level += 1 if !a || !b
-
-        if a && b
-          return [false] if a != b
-        elsif a
-          position = :parent
-        elsif b
-          position = :child
-        end
-      end
-      position ? [current, position, level + 1] : [current]
-    end
-
-    def render(context)
-
-      @source = '_manual' #context.registers[:site].source
-
-      @@data_tree ||= Manual.traverse(@source)
-
-      @site = context.registers[:site]
-      current = context['page.url'].sub(/[^\/]+$/,'')
-
-      current_a = current.split('/').reject(&:empty?)
-
-      tree = Manual.traverse_data(@@data_tree) do |entry|
-      
-          url = entry[:url]
-
-          url_a = url.split('/').reject(&:empty?)
-
-          depth = url_a.length
-          is_current, position, level = *process_hierarchy(current_a, url_a)
-          
-          # this massively speeds up build time by not including the whole menu tree for each page
-          next if depth > 1 && current_a[0] != url_a[0]
-
-          css_classes = []
-          css_classes << 'active' if is_current
-          css_classes << position.to_s if position
-          css_classes << "#{position}-#{level}" if position && level
-          css_classes << 'other' unless is_current || position || level
-
-          css_classes << "level-#{depth}"
-          css_classes = css_classes.join(' ')
-
-          if entry[:type] == 'directory'
-
-              erb = ::ERB.new <<-HTML
-                  <dt class="<%= css_classes %>">
-                      <a href="<%= entry[:url] %>"><%= entry[:menu_title] %></a>
-                  </dt>
-                  <dd class="<%= css_classes %>">
-                      <% if entry[:children].any? %>
-                        <dl>
-                            <%= entry[:children].join %> 
-                        </dl>
-                      <% end %>
-                  </dd>
-              HTML
-
-              erb.result(binding)
-          else
-
-              directory_filename = entry[:filename].sub(/\.[^\/\.]+$/,'')
-
-              unless entry[:has_dir]
-
-                erb = ::ERB.new <<-HTML
-                    <dt class="<%= css_classes %>">
-                        <a href="<%= entry[:url] %>"><%= entry[:menu_title] %></a>
-                    </dt>
-                    <dd class="<%= css_classes %>">
-                    </dd>
-                HTML
-
-                erb.result(binding)
-             end
-          end
-          
-         
-      end
-
-      "<dl>#{tree.join}</dl>
-      <script type='text/javascript'>
-      //<![CDATA[
-        offset = document.getElementsByClassName('active')[0].offsetTop;
-        height = document.getElementById('tree').clientHeight;
-        if (offset > (height * .7)) {
-          tree.scrollTop = offset - height * .3;
-        }
-      //]]>
-      </script>"
-
-    end
-
-
   end
 
 end
 
-Liquid::Template.register_tag('tree', Manual::ManualTOCTag) 
-Liquid::Template.register_tag('children', Manual::ManualChildPageTag) 
+Liquid::Template.register_tag('tree', Manual::Tag_tree) 
+Liquid::Template.register_tag('children', Manual::Tag_children) 
