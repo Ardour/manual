@@ -88,6 +88,7 @@ These are almost normal html, but extended with [Liquid templates](http://liquid
 
 - `{% tree %}` is what shows the manual structure in the left column
 - `{% children %}` shows the immediate list of children for a page
+- `{% prevnext %}` shows a pager with links to previous and next page
 
 
 ## More Advanced Stuff
@@ -105,7 +106,7 @@ It should then be available at [localhost:4000](http://localhost:4000)
     
 ### manual.rb plugin
 
-Much of the functionality comes from `_plugins/manual.rb`, which includes three Jekyll plugins, one Generator and two Tags. This enables the format of the directory tree in `source/_manual` to be converted into Jekyll pages, and the directory tree to be understood, child page lists to be constructed, clean URLs, and the correct ordering of pages maintained.
+Much of the functionality comes from `_plugins/manual.rb`, which includes three Jekyll plugins, one Generator and three Tags. This enables the format of the directory tree in `source/_manual` to be converted into Jekyll pages, and the directory tree to be understood, child page lists to be constructed, clean URLs, and the correct ordering of pages maintained.
 
 ### Clean URLs
 

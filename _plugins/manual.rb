@@ -28,6 +28,7 @@ module Manual
          
             page = Jekyll::Page.new(site, '', path.dirname.to_s, path.basename.to_s)
             page.data['permalink'] = plink
+            page.data['orig_path'] = path.to_s
 
             site.pages << page
           end
@@ -94,7 +95,28 @@ module Manual
     end
   end
 
+  class Tag_prevnext < Liquid::Tag
+    def render(context)
+      current_url = context['page.url']
+      site = context.registers[:site]
+
+      pages = site.pages.select{ |p| p.data.has_key?('orig_path') }.sort_by{ |p| p.data['orig_path'] }
+      
+      ind = pages.index { |p| p.url == current_url }
+      return '' if !ind
+
+      lnk = lambda do |p, cls, txt| 
+        "<li><a title='%s' href='#{p.url}' class='#{cls}'>#{txt}</a></li>" % p.data['title']
+      end
+      prev_link = ind > 0 ? lnk.call(pages[ind-1], "previous", " &lt; Previous ") : ""
+      next_link = ind < pages.length-1 ? lnk.call(pages[ind+1], "next", " Next &gt; ") : ""
+
+      "<ul class='pager'>#{prev_link}#{next_link}</ul>"
+    end
+  end
+
 end
 
 Liquid::Template.register_tag('tree', Manual::Tag_tree) 
 Liquid::Template.register_tag('children', Manual::Tag_children) 
+Liquid::Template.register_tag('prevnext', Manual::Tag_prevnext) 
