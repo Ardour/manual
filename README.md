@@ -22,7 +22,7 @@ There are 2 different types of content:
 
 This is content that ends up as part of the tree on the left.
 
-The _raw_ content is in `_manual/` directory and has a naming convention as follows:
+The _raw_ content is in the `source/_manual/` directory and has a naming convention as follows:
 
     # content for a page at http://manual.ardour.org/<slug>/
 
@@ -55,7 +55,7 @@ So, for example:
 
 ### Normal content
 
-This is anything else, css files, images, fixed pages, layouts. This content lives in the `source` directory.
+This is anything else, css files, images, fixed pages, layouts. This content lives in the other subdirectories of `source`.
 
 If you added `source/images/horse.png` is would be available at the url `/images/horse.png` after publishing it.
 
@@ -88,6 +88,7 @@ These are almost normal html, but extended with [Liquid templates](http://liquid
 
 - `{% tree %}` is what shows the manual structure in the left column
 - `{% children %}` shows the immediate list of children for a page
+- `{% prevnext %}` shows a pager with links to previous and next page
 
 
 ## More Advanced Stuff
@@ -99,15 +100,13 @@ notes just in case you decide to anyway.
 
 This will generate the final html and start a local webserver.
 
-    jekyll --server
+    jekyll server
     
 It should then be available at [localhost:4000](http://localhost:4000)
     
 ### manual.rb plugin
 
-Much of the functionality comes from `_plugins/manual.rb` - it takes the _manual format_ (contained in `_manual/`) and mushes it around a bit into a tmp directory before letting jekyll do it's normal thing. It's all hooked into the jekyll command so no special actions are required.
-
-This is to enable the directory tree to be understood, child page lists to be constructed, clean URLs, and the correct ordering of pages maintained.
+Much of the functionality comes from `_plugins/manual.rb`, which includes three Jekyll plugins, one Generator and three Tags. This enables the format of the directory tree in `source/_manual` to be converted into Jekyll pages, and the directory tree to be understood, child page lists to be constructed, clean URLs, and the correct ordering of pages maintained.
 
 ### Clean URLs
 
