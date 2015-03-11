@@ -141,7 +141,7 @@ class Page
     def process()
         path = out_path
         path.dirname.mkpath
-        path.write(render)
+        path.open('w') { |f| f.write(render) }
     end
 end
 
@@ -226,6 +226,8 @@ Liquid::Template.register_tag('tree', Tag_tree)
 Liquid::Template.register_tag('children', Tag_children)
 Liquid::Template.register_tag('prevnext', Tag_prevnext)
 
-Liquid::Template.error_mode = :strict
+if defined? Liquid::Template.error_mode
+    Liquid::Template.error_mode = :strict
+end
 
 Site.new.run
