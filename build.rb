@@ -2,33 +2,39 @@ require 'pathname'
 require 'fileutils'
 require 'yaml'
 require 'liquid'
+require 'optparse'
 
-def split_frontmatter(txt)
-    re = /\A---[ \t\r]*\n(?<frontmatter>.*?)^---[ \t\r]*\n(?<content>.*)\z/m
-    match = re.match txt 
-    match ? [match['frontmatter'], match['content']] : nil
-end
+CONFIG = {
+    pages_dir: '_manual',
+    layouts_dir: '_layouts',
+    static_dir: 'source',
+    output_dir: '_site'         # will get wiped!
+}
 
 def child_url?(a, b)
     a.start_with?(b) && b.count('/') + 1 == a.count('/')
 end
 
 class Site
-    attr_reader :pages
+    attr_reader :pages, :layouts
 
     def initialize()
         @pages = []
-        @config = {
-            'pages_dir' => '_manual',
-            'layouts_dir' => '_layouts',
-            'static_dir' => 'source',
-            'output_dir' => '_site'
-        }
         @layouts = {}
     end
     
+    def build()
+        print "Building... "
+
+        read_layouts()
+        read_pages()
+        copy_static()
+        process_pages()
+
+        puts "done."
+    end
+
     def read_layouts()
-        layouts_dir = Pathname(@config['layouts_dir'])
         Pathname.glob(layouts_dir + Pathname('*.html')) do |path|
             next if !path.file?
             layout = Layout.new(self, path)
@@ -37,12 +43,7 @@ class Site
         end
     end
     
-    def find_layout(name)
-        @layouts[name]
-    end
-    
     def read_pages()
-        pages_dir = Pathname.new(@config['pages_dir'])
         pages_dir.find do |path|
             if path.file? && path.extname == '.html'
                 page = Page.new(self, path)
@@ -52,33 +53,25 @@ class Site
         end
     end
 
-    def find_children(url)
-        @pages.select{ |p| child_url?(p.url, url) }.sort_by{ |p| p.path.basename }
-    end
-    
     def process_pages()
         @pages.each {|page| page.process}
     end
     
     def copy_static()
-        # http://ruby-doc.org/stdlib-2.2.1/libdoc/fileutils/rdoc/index.html
+        `rsync -a --delete --exclude='*~' #{static_dir}/. #{output_dir}`
     end
     
-    def pages_dir()
-        Pathname(@config['pages_dir'])
+    def find_children(url)
+        sorted_pages.select { |p| child_url?(p.url, url) }
     end
     
-    def output_dir()
-        Pathname(@config['output_dir'])
-    end
+    def toplevel() @toplevel_memo ||= find_children('/') end
+    def sorted_pages() @sorted_pages_memo ||= @pages.sort_by{ |p| p.sort_url } end
 
-    def run()
-        #read_config()
-        read_layouts()
-        read_pages()
-        copy_static()
-        process_pages()
-    end
+    def pages_dir() @pages_dir_memo ||= Pathname(CONFIG[:pages_dir]) end
+    def layouts_dir() @layouts_dir_memo ||= Pathname(CONFIG[:layouts_dir]) end
+    def static_dir() @static_dir_memo ||= Pathname(CONFIG[:static_dir]) end
+    def output_dir() @output_dir_memo ||= Pathname(CONFIG[:output_dir]) end
 end
 
 class Page
@@ -108,27 +101,32 @@ class Page
     end
 
     def title()
-        if !@page_context
-            puts 'nil page context: ' + @path.to_s
-        end
         @page_context['title'] || ""
+    end
+
+    def menu_title()
+        @page_context['menu_title'] || title
     end
 
     def read()
         content = @path.read
-        split = split_frontmatter content
-        split || abort("Not a Jekyll-formatted file: #{@path}") 
-        frontmatter, @content = split
+        frontmatter, @content = split_frontmatter(content) || abort("File not well-formatted: #{@path}") 
         @page_context = YAML.load(frontmatter)
         @template = Liquid::Template.parse(@content)
     end        
+
+    def split_frontmatter(txt)
+        @split_regex ||= /\A---[ \t\r]*\n(?<frontmatter>.*?)^---[ \t\r]*\n(?<content>.*)\z/m
+        match = @split_regex.match txt 
+        match ? [match['frontmatter'], match['content']] : nil
+    end
     
     def find_layout()
-        @site.find_layout(@page_context['layout'] || 'default')
+        @site.layouts[@page_context['layout'] || 'default']
     end
 
     def children()
-        @site.find_children(@url)
+        @children ||= @site.find_children(@url)
     end
     
     def render()
@@ -141,7 +139,7 @@ class Page
     def process()
         path = out_path
         path.dirname.mkpath
-        path.write(render)
+        path.open('w') { |f| f.write(render) }
     end
 end
 
@@ -175,7 +173,7 @@ class Tag_tree < Liquid::Tag
             
             %{
           <dt#{css}>
-            <a href='#{page.url}'>#{page.title}</a>
+            <a href='#{page.url}'>#{page.menu_title}</a>
           </dt>
           <dd#{css}>
             #{children_html}
@@ -183,7 +181,7 @@ class Tag_tree < Liquid::Tag
         }
         end
 
-        join(site.find_children('/').map(&format_entry))
+        join(site.toplevel.map(&format_entry))
     end
 end
 
@@ -204,28 +202,66 @@ end
 
 class Tag_prevnext < Liquid::Tag
     def render(context)
-        site = context.registers[:site]
         current = context.registers[:page]
+        pages = context.registers[:site].sorted_pages
         
-        pages = site.pages.sort_by{ |p| p.sort_url }
+        index = pages.index { |page| page == current }
+        return '' if !index
         
-        ind = pages.index { |page| page == current }
-        return '' if !ind
-        
-        lnk = lambda do |p, cls, txt| 
+        link = lambda do |p, cls, txt| 
             "<li><a title='#{p.title}' href='#{p.url}' class='#{cls}'>#{txt}</a></li>"
         end
-        prev_link = ind > 0 ? lnk.call(pages[ind-1], "previous", " &lt; Previous ") : ""
-        next_link = ind < pages.length-1 ? lnk.call(pages[ind+1], "next", " Next &gt; ") : ""
+        prev_link = index > 0 ? link.call(pages[index-1], "previous", " &lt; Previous ") : ""
+        next_link = index < pages.length-1 ? link.call(pages[index+1], "next", " Next &gt; ") : ""
         
         "<ul class='pager'>#{prev_link}#{next_link}</ul>"
     end
 end
 
-Liquid::Template.register_tag('tree', Tag_tree)
-Liquid::Template.register_tag('children', Tag_children)
-Liquid::Template.register_tag('prevnext', Tag_prevnext)
+class Server
+    def start_watcher()
+	require 'listen'
 
-Liquid::Template.error_mode = :strict
+        listener = Listen.to(CONFIG[:pages_dir], wait_for_delay: 1.0, only: /.html$/) do |modified, added, removed|
+            Site.new.build
+        end
+        listener.start
+        listener
+    end
 
-Site.new.run
+    def run(options)
+        require 'webrick'
+	listener = options[:watch] && start_watcher
+	    
+        puts "Serving at http://localhost:8000/ ..."
+        server = WEBrick::HTTPServer.new :Port => 8000, :DocumentRoot => CONFIG[:output_dir]
+	trap 'INT' do 
+            server.shutdown 
+        end
+     	server.start
+        listener.stop if listener
+    end  
+end
+
+def main
+    Liquid::Template.register_tag('tree', Tag_tree)
+    Liquid::Template.register_tag('children', Tag_children)
+    Liquid::Template.register_tag('prevnext', Tag_prevnext)
+
+    if defined? Liquid::Template.error_mode
+        Liquid::Template.error_mode = :strict
+    end
+
+    options = {}
+    OptionParser.new do |opts| 
+        opts.on("--watch", "Watch for changes") { options[:watch] = true }
+    end.parse!
+
+    Site.new.build
+
+    if ARGV == ['serve']
+        Server.new.run(options)
+    end
+end
+
+main
