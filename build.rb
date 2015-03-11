@@ -229,7 +229,6 @@ class Server
         listener
     end
 
-<<<<<<< HEAD
     def run(options)
         require 'webrick'
 	listener = options[:watch] && start_watcher
