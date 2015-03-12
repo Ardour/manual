@@ -1,14 +1,20 @@
+#!/usr/bin/env ruby
+
 require 'pathname'
-require 'fileutils'
 require 'yaml'
-require 'liquid'
 require 'optparse'
+
+begin require 'liquid'
+rescue LoadError
+    puts "Please install the 'liquid' Ruby gem (available in Debian/Ubuntu as 'ruby-liquid')"
+    exit 1
+end
 
 CONFIG = {
     pages_dir: '_manual',
     layouts_dir: '_layouts',
     static_dir: 'source',
-    output_dir: '_site'         # will get wiped!
+    output_dir: '_site'
 }
 
 def child_url?(a, b)
@@ -58,7 +64,9 @@ class Site
     end
     
     def copy_static()
-        `rsync -a --delete --exclude='*~' #{static_dir}/. #{output_dir}`
+        unless system("rsync -a --delete --exclude='*~' #{static_dir}/. #{output_dir}")
+            puts "Couldn't copy static files, is rsync installed?"
+        end
     end
     
     def find_children(url)
@@ -218,7 +226,12 @@ end
 
 class Server
     def start_watcher()
-	require 'listen'
+        begin require 'listen'
+        rescue LoadError
+            puts "To use the --watch function, please install the 'listen' Ruby gem"
+            puts "(available in Debian/Ubuntu as 'ruby-listen')"
+            return nil
+        end
 
         listener = Listen.to(CONFIG[:pages_dir], wait_for_delay: 1.0, only: /.html$/) do |modified, added, removed|
             Site.new.build
@@ -252,6 +265,11 @@ def main
 
     options = {}
     OptionParser.new do |opts| 
+	opts.banner = %{Usage: build.rb <command> [options]
+
+Use 'build.rb' to build the manual.  Use 'build.rb serve' to also
+start a web server.  Options:
+}
         opts.on("--watch", "Watch for changes") { options[:watch] = true }
     end.parse!
 
