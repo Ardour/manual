@@ -97,7 +97,7 @@ class Page
         s = a.join('/')
 
         @out_path = @site.output_dir + Pathname(s) + Pathname("index.html")
-        @url = "/#s/"
+        @url = "/#{s}/"
         @sort_url = @path.to_s.sub(/\.html$/, '')
     end
 
