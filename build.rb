@@ -81,18 +81,16 @@ class Page
         @site = site
         @path = path
 
-        canon = canonical
-        @out_path = @site.output_dir + canon + Pathname("index.html")
-        @url = '/' + canon + '/'
-        @sort_url = @path.to_s.sub(/\.html$/, '')
-    end
+	relative_path = @path.relative_path_from(@site.pages_dir);
+	a = relative_path.each_filename.map do |x|
+            x.sub(/^[0-9]*[-_]/, '')
+        end
+	a[-1].sub!(/\.html$/, '')
+        s = a.join('/')
 
-    def canonical()
-        remove_numbers = lambda {|x| x.sub(/^[0-9]*[-_]/, '') }
-        path = @path.relative_path_from(@site.pages_dir)
-        a = path.each_filename.map(&remove_numbers)
-        a[-1] = a[-1].sub(/\.html$/, '')
-        a.join('/')
+        @out_path = @site.output_dir + Pathname(s) + Pathname("index.html")
+        @url = "/#s/"
+        @sort_url = @path.to_s.sub(/\.html$/, '')
     end
 
     def related_to?(p)
