@@ -243,9 +243,10 @@ class Server
     def run(options)
         require 'webrick'
 	listener = options[:watch] && start_watcher
+        port = options[:port] || 8000
 	    
-        puts "Serving at http://localhost:8000/ ..."
-        server = WEBrick::HTTPServer.new :Port => 8000, :DocumentRoot => CONFIG[:output_dir]
+        puts "Serving at http://localhost:#{port}/ ..."
+        server = WEBrick::HTTPServer.new :Port => port, :DocumentRoot => CONFIG[:output_dir]
 	trap 'INT' do 
             server.shutdown 
         end
@@ -268,14 +269,15 @@ def main
 	opts.banner = %{Usage: build.rb <command> [options]
 
 Use 'build.rb' to build the manual.  Use 'build.rb serve' to also
-start a web server.  Options:
+start a web server; setting any web server options implies "serve".
 }
-        opts.on("--watch", "Watch for changes") { options[:watch] = true }
+        opts.on("-w", "--watch", "Watch for changes") { options[:watch] = true }
+        opts.on("-p", "--port N", Integer, "Specify port for web server") { |p| options[:port] = p }
     end.parse!
 
     Site.new.build
 
-    if ARGV == ['serve']
+    if options[:watch] || options[:port] || (ARGV.length > 0 && "serve".start_with?(ARGV[0]))
         Server.new.run(options)
     end
 end
