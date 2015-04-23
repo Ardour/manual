@@ -517,7 +517,18 @@ samp:after {
 
 }
 
-
+@media (max-width: 800px) {
+  #tree {
+    position: relative;
+    height: 250px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  #content {
+    padding-left: 20px;
+    margin-top: 0px;
+  }
+}
 
 
 
