@@ -1,0 +1,28 @@
+---
+layout: default
+title: Filenames Tab
+menu_title: Filenames Tab
+---                        
+
+<img src="/files/a4/a4_session_properties_filenames.png" alt="session properties filenames tab"/>
+
+<p>
+  This tab is used to change how Ardour names recorded regions. 
+  If <dfn>Prefix track number</dfn> is selected a unique number will appear on each track 
+  in the <dfn>Editor</dfn> window and will prefix the region name. If the track number 
+  is 2 and the region would have been Gtr-1.1 with track number prefix turned on the region 
+  will be named 2_Gtr-1.1 instead.  See XX for base of the region name.
+</p>
+
+<p>
+  If <dfn>Prefix take name</dfn> is selected and the <dfn>Take name</dfn> has Take1 the region
+  will have the name Take1_Gtr-1.1 instead.  If both boxes are checked the name will be
+  Take1_2_Gtr-1.1 instead.      
+</p>
+
+<p>
+  When <dfn>Prefix take name</dfn> is enabled, the first time a track is recorded it will
+  have the specified take name.  When recording is stopped, any trailing number on the 
+  end of the take name will incremented by 1. If the track name specified doen't have
+  a number on the end, the number 1 will be suffixed.
+</p>
