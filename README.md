@@ -99,7 +99,7 @@ notes just in case you decide to anyway.
 
 This will generate the final html and start a local webserver.
 
-    jekyll --server
+    jekyll serve
     
 It should then be available at [localhost:4000](http://localhost:4000)
     
