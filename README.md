@@ -4,13 +4,13 @@
 
 This is the project that generates the static ardour manual website available at [manual.ardour.org](http://manual.ardour.org).
 
-The site is built using ruby (I use 1.9[.3]) and [Jekyll](https://github.com/mojombo/jekyll) (a ruby gem). You should be able to just install ruby and then `gem install jekyll` to get it up and running.
+The site is built using ruby (I use 1.9[.3]).
 
 ### Get the code
 
-    git clone <repo-url>
+    git clone <repo-url> ardour-manual
     cd ardour-manual
-    
+
 ## Structure of the content
 
 There are 2 different types of content:
@@ -30,7 +30,7 @@ The _raw_ content is in `_manual/` directory and has a naming convention as foll
        ^          ^     ^
        |          |     |
        |          |   extension is removed later
-       |          |        
+       |          |
        |     ends up as part of URL
        |
      only used for ordering
@@ -79,9 +79,9 @@ All files to be processed should also have a special header at the top too:
     ---
 
     <p>My Actual Content</p>
-    
+
 The `title` field will end up as an `h1` in the right panel. The `menu_title` is what is used in the menu tree on the left (if not preset it will default to using `title`).
-    
+
 ### `.html` files
 
 These are almost normal html, but extended with [Liquid templates](http://liquidmarkup.org/). There are a couple of special tags created for this project.
@@ -97,15 +97,42 @@ notes just in case you decide to anyway.
 
 ### Run it locally
 
-This will generate the final html and start a local webserver.
+You may want the manual available on a machine that doesn't have constant
+internet access.
 
-    jekyll serve
-    
-It should then be available at [localhost:4000](http://localhost:4000)
-    
+  * Download and build manual
+
+    git clone <repo-url> ardour-manual
+    cd ardour-manual
+    cp -r source _site
+    ruby ./build.rb
+    chmod -R a+rx _site
+
+    open ardour-manual/_site/index.html in your favorite web browser
+
+
+If this page doesn't open and function correctly, follow these optional steps to
+serve up the page with nginx.
+
+  * Install [nginx](http://wiki.nginx.org/Install)
+
+  * Configure nginx server block
+
+    server {
+        listen 80;
+        server_name localhost;
+
+        root /path_to_your_ardour-manual_folder;
+        index index.html;
+    }
+
+  * Restart nginx server
+
+The manual will now be available at http://localhost
+
 ### manual.rb plugin
 
-Much of the functionality comes from `_plugins/manual.rb` - it takes the _manual format_ (contained in `_manual/`) and mushes it around a bit into a tmp directory before letting jekyll do it's normal thing. It's all hooked into the jekyll command so no special actions are required.
+Much of the functionality comes from `_plugins/manual.rb` - it takes the _manual format_ (contained in `_manual/`) and mushes it around a bit into a tmp directory.
 
 This is to enable the directory tree to be understood, child page lists to be constructed, clean URLs, and the correct ordering of pages maintained.
 
@@ -115,8 +142,8 @@ To allow the clean URLs (no `.html` extension) _and_ to support simple hosting (
 
 E.g. `02_main/05_more/02_blah.html` after all processing is complete would end up in `_site/main/more/blah/index.html`.
 
-The page format contained in the `_manual/` directory is different to the final rendered output (see special `_manual` content above) to make it simple to create content (you don't need to think about the `index.html` files). 
+The page format contained in the `_manual/` directory is different to the final rendered output (see special `_manual` content above) to make it simple to create content (you don't need to think about the `index.html` files).
 
 
 
-    
+
