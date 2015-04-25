@@ -102,34 +102,30 @@ internet access.
 
 1. Install ruby
 2. Download and build manual
-
-```
-git clone <repo-url> ardour-manual
-cd ardour-manual
-cp -r source _site
-ruby ./build.rb
-chmod -R a+rx _site
-```
-
+  ```
+  git clone <repo-url> ardour-manual
+  cd ardour-manual
+  cp -r source _site
+  ruby ./build.rb
+  chmod -R a+rx _site
+  ```
 3. open `ardour-manual/_site/index.html` in your favorite web browser
 
-
-If this page doesn't open and function correctly, follow these optional steps to
-serve up the page with nginx.
+  If this page doesn't open and function correctly, follow these optional steps to serve up the page with nginx.
 
 4. Install [nginx](http://wiki.nginx.org/Install)
-
 5. Configure nginx server block
-```
-server {
-    listen 80;
-    server_name localhost;
+  ```
+  server {
+      listen 80;
+      server_name localhost;
 
-    root /path_to_your_ardour-manual_folder;
-    index index.html;
-}
-```
+      root /path_to_your_ardour-manual_folder;
+      index index.html;
+  }
+  ```
 6. Restart nginx server
+
     service nginx restart
 
 7. The manual will now be available at http://localhost
