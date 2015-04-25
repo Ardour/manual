@@ -100,7 +100,7 @@ notes just in case you decide to anyway.
 You may want the manual available on a machine that doesn't have constant
 internet access.
 
-  * Download and build manual
+* Download and build manual
 
 ```
 git clone <repo-url> ardour-manual
@@ -110,27 +110,27 @@ ruby ./build.rb
 chmod -R a+rx _site
 ```
 
-open ardour-manual/_site/index.html in your favorite web browser
+* open ardour-manual/_site/index.html in your favorite web browser
 
 
 If this page doesn't open and function correctly, follow these optional steps to
 serve up the page with nginx.
 
-  * Install [nginx](http://wiki.nginx.org/Install)
+* Install [nginx](http://wiki.nginx.org/Install)
 
-  * Configure nginx server block
+* Configure nginx server block
+```
+server {
+    listen 80;
+    server_name localhost;
 
-    server {
-        listen 80;
-        server_name localhost;
+    root /path_to_your_ardour-manual_folder;
+    index index.html;
+}
 
-        root /path_to_your_ardour-manual_folder;
-        index index.html;
-    }
+* Restart nginx server
 
-  * Restart nginx server
-
-The manual will now be available at http://localhost
+* The manual will now be available at http://localhost
 
 ### manual.rb plugin
 
