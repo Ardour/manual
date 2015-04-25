@@ -110,7 +110,7 @@ ruby ./build.rb
 chmod -R a+rx _site
 ```
 
-* open ardour-manual/_site/index.html in your favorite web browser
+* open `ardour-manual/_site/index.html` in your favorite web browser
 
 
 If this page doesn't open and function correctly, follow these optional steps to
@@ -127,7 +127,7 @@ server {
     root /path_to_your_ardour-manual_folder;
     index index.html;
 }
-
+```
 * Restart nginx server
 
 * The manual will now be available at http://localhost
