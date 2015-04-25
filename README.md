@@ -102,11 +102,11 @@ internet access.
 
   * Download and build manual
 
-    git clone <repo-url> ardour-manual
-    cd ardour-manual
-    cp -r source _site
-    ruby ./build.rb
-    chmod -R a+rx _site
+      git clone <repo-url> ardour-manual
+      cd ardour-manual
+      cp -r source _site
+      ruby ./build.rb
+      chmod -R a+rx _site
 
     open ardour-manual/_site/index.html in your favorite web browser
 
