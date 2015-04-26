@@ -4,7 +4,7 @@
 
 This is the project that generates the static ardour manual website available at [manual.ardour.org](http://manual.ardour.org).
 
-The site is built using ruby (I use 1.9[.3]).
+The site is built using ruby (I use 1.9[.3]) and [liquid](http://liquidmarkup.org/), a ruby gem.
 
 ### Get the code
 
@@ -98,7 +98,7 @@ notes just in case you decide to anyway.
 ### Run it locally
 
 You may want the manual available on a machine that doesn't have constant
-internet access.
+internet access. You will need `git`, `ruby`, and the ruby gem `liquid` installed.
 
 1. Download code and build manual
 
