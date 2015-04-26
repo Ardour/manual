@@ -115,14 +115,14 @@ internet access. You will need `git`, `ruby`, and the ruby gem `liquid` installe
   If this page doesn't open and function correctly, follow these optional steps to serve up the page with nginx.
 
 3. Install [nginx](http://wiki.nginx.org/Install)
-4. Configure nginx server block
+4. Configure nginx server block in `/etc/nginx/sites-available/default`
 
   ```
   server {
       listen 80;
       server_name localhost;
 
-      root /path_to_your_ardour-manual_folder;
+      root ...path_to_.../ardour-manual/_site;
       index index.html;
   }
   ```
