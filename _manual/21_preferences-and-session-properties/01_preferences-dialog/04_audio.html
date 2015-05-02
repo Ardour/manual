@@ -86,17 +86,27 @@ audio tab"/>
 
   <li>
     <p>
-    <strong>Denormals</strong>
+    <strong>Denormals</strong> are a specific type of very small numbers that
+    can cause issues with CPU consumption when using some plugins in some
+    circumstances.
+    </p>
+    <p>
+      Ardour provides two methods of handling the issue. Try different
+      combinations of these settings to to find the setting that minimizes CPU
+      consumption.
     </p>
     <ul>
       <li>
 	<p>
-	  <strong>Use DC bias to protect against denormals</strong>
+	  <strong>Use DC bias to protect against denormals</strong> adds a small
+	  constant value to numbers to move the numbers away from zero.
 	</p>
       </li>
       <li>
 	<p>
-	  <strong>Processor handling</strong>
+	  <strong>Processor handling</strong>, if the computer's hardware
+	  supports it, offers two methods that can be used individually or
+	  combined. Flush to zero and denormals are zero.
 	</p>
       </li>
     </ul>
