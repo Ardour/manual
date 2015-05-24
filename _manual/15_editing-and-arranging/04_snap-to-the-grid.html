@@ -11,30 +11,58 @@ menu_title: Snap to Grid
   various objects to snap to this grid, and how you want the snapping to 
   behave. You can modify the grid units to fit your needs.
 </p>
+<h2>About Snapping</h2>
+<p>There are two ways to think about aligning material to a grid.
+  The first and most obvious one is where an object\'s position is clamped
+  to grid lines. In Ardour, this is called <defn>absolute snap</defn>
+  and is commonly used when working with sampled material where audio
+  begins exactly at the beginning of a file, note or region.</br>
+  The second, <defn>relative snap</defn>, is used when an object's position
+  relative to the grid is important. In music, this allows you to
+  move objects around without changing the "feel" (or timing) of a performance.</br>
+  Relative snap is the default method of snapping in Ardour.</br>
+  While dragging objects you may switch from relative to absolute snap by
+  pressing the absolute snap modifier key(s).</br>
+  You may also disable snap entirely by using the snap modifier.
+  The absolute snap and snap modifiers (along with other modifier keys) may be set in
+  <kbd class="menu">Edit &gt; Preferences &gt; User Interaction</kbd></br>
+  For common use patterns, it is recommended that you assign a unique key for
+  one snap modifier and two keys for the other in such a way that they share an otherwise unused key.
+  For example, you may choose the snap modifier to be the <kbd class="mod2"> key and the
+  absolute snap modifier to be <kbd class="mod2">&nbsp; and </kbd>, <kbd class="mod4">&nbsp;</kbd>.
+</p>.
 
 <h2>Snap Modes</h2>
-<p>Ardour supports three different types of snapping to the grid:</p>
+<p>Using the above types, Ardour supports three different modes of snapping to the grid:</p>
 <dl class="wide-table">
   <dt><kbd class="menu">No Grid</kbd></dt>
-  <dd>disables the grid. All objects move freely in this mode.</dd>
+  <dd>disables the grid. All objects move freely in this mode.
+  In this mode, you may activate the grid by pressing the snap modifier (for relative snap).
+  or switch to absolute snap by pressing the absolute snap modifier.</dd>
   <dt><kbd class="menu">Grid</kbd></dt> 
-  <dd>activates normal snapping. All positions of objects are restricted 
-  to points of the grid. (See <a href="#gridunits">Grid Units</a> below 
+  <dd>activates normal snapping. All positions of objects maintain their
+  offset relative to the grid. (See <a href="#gridunits">Grid Units</a> below
   to change these points). If you try to move an object in "Grid"-mode, it 
   does not change its position until you move the mouse far enough for the 
-  object to reach the next grid point. New objects will always be created at 
-  grid points, too.
+  object to reach the same relative position on the next grid line.</br>
+  Sometimes you may wish to place an object exactly on a grid line.
+  In order to do this, use the "snap to absolute" modifier.
+  When holding down this modifier during a drag, the dragged object will jump
+  to the grid lines rather than maintaining its original distance from the line.</br>
+  New objects will always be created at grid points.</br>
+  Holding down the snap modifier will disable the current grid setting and allow you to move the object freely.</br>
   </dd>
   <dt><kbd class="menu">Magnetic</kbd></dt>
   <dd>is a less strict type of snapping. Objects can still be moved to any 
-  position, but positions close to grid points will snap to the grid point. 
-  In order to move an object very close to a grid point, it may be necessary 
-  to zoom in to prevent snapping to that point.</dd>
+  position, but positions close to the relative or absolute grid points will snap.
+  In order to move an object very close to a snap point, it may be necessary
+  to zoom in to prevent snapping to that point, or to use the snap modifier to disable snap completely.</br>
+  As with Grid mode, both the snap modifier and absolute snap modifiers function in this mode.</dd>
 </dl>
 
 <h2>Syncing Regions to the Grid</h2>
 <p>
-  By default, a region's beginning will snap to points along the timeline, 
+  By default, a region's beginning will be used as the reference for both types of snapping,
   but you can change this behaviour by setting a <dfn>sync point</dfn> in
   the region. Select the region(s) and press <kbd>V</kbd>. This will set 
   the sync point to your edit point.</p>
@@ -46,7 +74,7 @@ menu_title: Snap to Grid
 </p>
 <dl class="wide-table">
   <dt><kbd class="menu">CD Frames</kbd></dt>
-  <dd>A CD Frame is 1/75th of a second. Snapping to CD Frames can be used to avoid issues with CD track
+  <dd>A CD Frame is 1/75th of a second. Snapping to CD Frames (using absolute snap) can be used to avoid issues with CD track
   lengths.</dd>
   <dt><kbd class="menu">Timecode Frames/Seconds/Minutes</kbd></dt>
   <dd>The duration of a frame depends on the timecode settings for the
