@@ -18,12 +18,12 @@ menu_title: Snap to Grid
   and is commonly used when working with sampled material where audio
   begins exactly at the beginning of a file, note or region.</br>
   The second, <dfn>relative snap</dfn>, is used when an object's position
-  relative to the grid is important. In music, this allows you to
+  relative to the grid lines is important. In music, this allows you to
   move objects around without changing the "feel" (or timing) of a performance.</br>
   Relative snap is the default method of snapping in Ardour.</br>
   While dragging objects you may switch from relative to absolute snap by
   pressing the absolute snap modifier key(s).</br>
-  You may also disable snap entirely by using the snap modifier.
+  You may also disable snap entirely by using the snap modifier (see below).
   The absolute snap and snap modifiers (along with other modifier keys) may be set in
   <kbd class="menu">Edit &gt; Preferences &gt; User Interaction</kbd></br>
   For common use patterns, it is recommended that you assign a unique key for
@@ -33,22 +33,22 @@ menu_title: Snap to Grid
 </p>.
 
 <h2>Snap Modes</h2>
-<p>Using the above types, Ardour supports three different modes of snapping to the grid:</p>
+<p>Using the above modifications, Ardour supports three different modes of snapping to the grid:</p>
 <dl class="wide-table">
   <dt><kbd class="menu">No Grid</kbd></dt>
-  <dd>disables the grid. All objects move freely in this mode.
-  In this mode, you may activate the grid by pressing the snap modifier (for relative snap).
-  or switch to absolute snap by pressing the absolute snap modifier.</dd>
+  <dd>disables the grid. All objects move freely in this mode.</br>
+  In <kbd class="menu">No Grid</kbd> mode, you may temporarily activate the grid by pressing the
+  snap modifier (for relative snap) or switch to absolute snap by pressing the absolute snap modifier.</dd>
   <dt><kbd class="menu">Grid</kbd></dt> 
   <dd>activates normal snapping. All positions of objects maintain their
   offset relative to the grid. (See <a href="#gridunits">Grid Units</a> below
-  to change these points). If you try to move an object in "Grid"-mode, it 
+  to change the grid). If you try to move an object in "Grid"-mode, it 
   does not change its position until you move the mouse far enough for the 
-  object to reach the same relative position on the next grid line.</br>
+  object to reach the same position relative to the next grid line.</br>
   Sometimes you may wish to place an object exactly on a grid line.
   In order to do this, use the "snap to absolute" modifier.
   When holding down this modifier during a drag, the dragged object will jump
-  to the grid lines rather than maintaining its original distance from the line.</br>
+  to the line rather than maintaining its original distance from the line.</br>
   New objects will always be created at grid points.</br>
   Holding down the snap modifier will disable the current grid setting and allow you to move the object freely.</br>
   </dd>
@@ -57,7 +57,8 @@ menu_title: Snap to Grid
   position, but positions close to the relative or absolute grid points will snap.
   In order to move an object very close to a snap point, it may be necessary
   to zoom in to prevent snapping to that point, or to use the snap modifier to disable snap completely.</br>
-  As with Grid mode, both the snap modifier and absolute snap modifiers function in this mode.</dd>
+  As with Grid mode, the snap modifier will disable snap completely while the
+  absolute snap modifier will move the "notch" of Magnetic snap to the grid lines.</dd>
 </dl>
 
 <h2>Syncing Regions to the Grid</h2>
@@ -88,15 +89,15 @@ menu_title: Snap to Grid
   <dt><kbd class="menu">Bars</kbd></dt>
   <dd>Set the grid to whole bars. The duration of a grid unit will depend on the tempo and meter in effect at that point in the timeline.</dd>
   <dt><kbd class="menu">Markers</kbd></dt>
-  <dd>Snap positions to the nearest marker.</dd>
+  <dd>The grid lines are the markers.</dd>
   <dt><kbd class="menu">Region Starts</kbd></dt>
-  <dd>Snap positions to the nearest region start (see below).</dd>
+  <dd>The grid lines are constructed from region start points (see below).</dd>
   <dt><kbd class="menu">Region Ends</kbd></dt>
-  <dd>Snap positions to the nearest region end.</dd>
+  <dd>The grid lines are constructed from region end points (see below).</dd>
   <dt><kbd class="menu">Region Syncs</kbd></dt> 
-  <dd>Snap positions to the nearest region sync point.</dd>
+  <dd>The grid lines are constructed from region sync points.</dd>
   <dt><kbd class="menu">Region Bounds</kbd></dt>
-  <dd>Snap positions to the nearest region start or end.</dd>
+  <dd>The grid lines are constructed from region start or end points.</dd>
 </dl>
 
 <p>
