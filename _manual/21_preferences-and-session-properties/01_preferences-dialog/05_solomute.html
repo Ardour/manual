@@ -5,7 +5,9 @@ menu_title: Solo/Mute Tab
 ---
 
 <p>
-  This tab contains settings that affect the use of solo, muting, and panning.
+  This tab contains settings that affect the use of
+  <a href="/mixing/muting-and-soloing/">solo, muting</a>, and
+  <a href="/mixing/panning/">panning</a>.
 </p>
 
 <img src="/files/a4/a4_preferences_solomute.png" alt="preferences
@@ -19,70 +21,59 @@ solo/mute tab"/>
     <ul>
       <li>
 	<p>
-	  <strong>Solo-in-place mute cut</strong>
+	  <strong>Solo-in-place mute cut</strong> sets the attenuation of the
+	  the other tracks when another track is soloed in place. This setting
+	  is also available from the <strong>Mixer</strong> monitor section.
 	</p>
       </li>
       <li>
 	<p>
-	  <strong>Solo controls are Listen controls</strong>
+	  <strong>Solo controls are Listen controls</strong> when enabled the
+	  soloed track is soloed only on the monitor bus, the master fader mix
+	  is not affected by the solo. This option can also be set by enabling
+	  pre-fader listen or after-fader listen in the <strong>Mixer</strong>
+	  monitor section.
 	</p>
       </li>
       <li>
 	<p>
-	  <strong>Listen Position:</strong>
+	  <strong>Listen Position:</strong> determines what is listened to when
+	  the solo controls are used as listen controls. The options are
+	  after-fader or pre-fader.
 	</p>
       </li>
       <li>
 	<p>
-	  <strong>PFL signals come from:</strong>
+	  <strong>PFL signals come from:</strong> determines whether the
+	  pre-fader listen position is before or after the pre-fader processors.
 	</p>
       </li>
       <li>
 	<p>
-	  <strong>AFL signals come from:</strong>
+	  <strong>AFL signals come from:</strong> determines whether the
+	  after-fader listen position is before or after the after-fader
+	  processors.
 	</p>
       </li>
       <li>
 	<p>
-	  <strong>Exclusive solo</strong>
+	  <strong>Exclusive solo</strong> when enabled will only solo that last
+	  track selected for solo. Previously soloed tracks will be un-soloed.
+	  This setting is also available from the <strong>Mixer</strong> monitor
+	  section.
 	</p>
       </li>
       <li>
 	<p>
-	  <strong>Show solo muting</strong>
+	  <strong>Show solo muting</strong> when enabled outlines the mute
+	  button on tracks and busses when another track is soloed.
 	</p>
       </li>
       <li>
 	<p>
-	  <strong>Soloing overrides muting</strong>
-	</p>
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <p>
-      <strong>Default track/bus muting options</strong>
-    </p>
-    <ul>
-      <li>
-	<p>
-	  <strong>Mute affects pre-fader sends</strong>
-	</p>
-      </li>
-      <li>
-	<p>
-	  <strong>Mute affects post-fader sends</strong>
-	</p>
-      </li>
-      <li>
-	<p>
-	  <strong>Mute affects control outputs</strong>
-	</p>
-      </li>
-      <li>
-	<p>
-	  <strong>Mute affects main outputs</strong>
+	  <strong>Soloing overrides muting</strong> when enabled allows a track
+	  to be heard when it is soloed while muted. This setting is also
+	  available from the <strong>Mixer</strong> monitor section.
 	</p>
       </li>
     </ul>
@@ -90,12 +81,53 @@ solo/mute tab"/>
 
   <li>
     <p>
-      <strong>Send Routing</strong>
+      <strong>Default track/bus muting options</strong> sets the muting options
+      for a newly created tracks or bus. The mute options for an existing track
+      or bus are changed by the right-click context menu on a mute button.
     </p>
     <ul>
       <li>
 	<p>
-	  <strong>Link panners of Aux and External Sends with main panner by default</strong>
+	  <strong>Mute affects pre-fader sends</strong> when enabled pre-fader
+	  sends will be muted by default.
+	</p>
+      </li>
+      <li>
+	<p>
+	  <strong>Mute affects post-fader sends</strong> when enabled post-fader
+	  sends will be muted by default.
+	</p>
+      </li>
+      <li>
+	<p>
+	  <strong>Mute affects control outputs</strong> when enabled control
+	  outputs are muted by default.
+	</p>
+      </li>
+      <li>
+	<p>
+	  <strong>Mute affects main outputs</strong> when enabled main outputs
+	  are muted by default.
+	</p>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <p>
+      <strong>Send Routing</strong> affects
+      <a href="/signal-routing/aux-sends/">aux and external sends</a>.
+    </p>
+    <ul>
+      <li>
+	<p>
+	  <strong>Link panners of Aux and External Sends with main panner by
+	    default</strong> When enabled, sends follow the channel panner.
+	</p>
+	<p>
+	  When disabled, sends can panned independently of the channel panner
+	  and fader. Double clicking the send in the processor box toggles
+	  the main panner and fader between the aux send and the channel.
 	</p>
       </li>
     </ul>
