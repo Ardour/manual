@@ -1,5 +1,5 @@
 #tree {
-  background-color: #eee;
+  background-color: #212A30;
   height: 100%;
   overflow: scroll;
   position: fixed;
@@ -75,7 +75,7 @@
 #tree a {
     display: inline !important;
     font-weight: normal; 
-    color: #666;
+    color: #E4E4E4;
     border-bottom: 1px solid transparent;
     padding-bottom: 2px;
 }
@@ -87,8 +87,8 @@
 
 #tree .active > a {
     display: inline;
-    color: #000;
-    border-bottom: 1px solid #555;
+    color: #da0808;
+    border-bottom: 1px solid #FFF;
 
 }
 
