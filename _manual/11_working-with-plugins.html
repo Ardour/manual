@@ -35,12 +35,16 @@ Ardour supports a variety of different plugin standards:
   <dt><abbr title="Audio Unit">AU</abbr></dt>
   <dd>OS X only, full featured, audio and MIDI, plugins can provide their own GUI</dd>
 
-  <dt>Linux <abbr title="Virtual Studio Technology">VST</abbr></dt>
-  <dd>Plugins using Steinberg's VST plugin standard but compiled specifically for Linux</dd>
+  <dt><abbr title="Virtual Studio Technology">VST</abbr></dt>
+  <dd>Plugins using Steinberg's VST plugin standard but compiled
+  specifically for the same platform as Ardour is running on
+  (i.e. Linux VST for Ardour users on Linux, Windows VST for Ardour
+  users on Windows). (Note: Ardour does not support VST plugins on OS
+  X, just like Apple's Logic DAW). </dd>
 
-  <dt>Windows VST</dt>
-  <dd>Plugins using Steinberg's VST plugin standard but compiled for
-  Windows. <em>Support for this plugin format is not available in
+  <dt>Windows VST Plugins on Linux</dt>
+  <dd>Plugins using Steinberg's VST plugin standard and compiled for
+  Windows, but being used on Linux. <em>Support for this plugin format is not available in
   regular builds of
   Ardour. <a href="/working-with-plugins/windows-vst-support">Read
   more...</a></em>
