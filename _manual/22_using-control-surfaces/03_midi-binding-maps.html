@@ -115,6 +115,14 @@ bindings"&gt;
   <code>pgm</code>  (to create a binding for a Program Change message).
 </p>
 <p>
+  <code>enc-r</code>, <code>enc-l</code>, <code>enc-2</code> and
+  <code>enc-b</code> may be used for surfaces that have encoders that send
+  offsets rather than values. These accept Continuous Controller messages
+  but treat them as offsets. These are good for banked controls as they are
+  always at the right spot to start adjusting. See the link at the bottom of
+  the page for a longer explanation.
+</p>
+<p>
   You can also bind sysex messages:
 </p>
 <code>
@@ -359,3 +367,4 @@ bindings"&gt;
   (the channel range may change at some point).
 </p>
   
+{% children %}
