@@ -1,0 +1,36 @@
+---
+layout: default
+title: Working With Extenders
+menu_title: Working With Extenders
+---                        
+
+<p>
+  Extenders will require a custom file as there are no combinations listed
+  at this time. The best way is to start with the mc.device file and copy it
+  to a new name such as xt+mc.device and then edit that file. It is best to
+  name the file with the order the devices are expected to be used in as
+  the position of the master device is specified in this file.
+</p>
+<p>
+  The two lines of interest are:
+<p>
+<pre>
+ &gt;Extenders value="0"/&gt;
+ &gt;MasterPosition value="0"/&gt;
+</pre>
+<p>
+  Add these two lines if they are not present. The <code>Extenders</code>
+  value is the number of extenders used and should not include the master in
+  that number. That is, it should be the total number of units minus 1. The
+  <code>MasterPosition</code> value is the position from left to right where
+  the master unit (with the master fader) is, starting at 0. So if there are
+  three surfaces, <code>MasterPosition</code> with value 0 would be master
+  on the left, <code>MasterPosition</code> with value 1 would be master in
+  the middle and <code>MasterPosition</code> with value 2 would be master on
+  the right.
+</p>
+<p>
+  If the <code>MasterPosition</code> value does not properly match the
+  physcal position and MIDI port, the master fader and global controls will
+  not work. The master unit will act like an extender.
+</p>

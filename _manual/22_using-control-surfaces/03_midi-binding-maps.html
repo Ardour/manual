@@ -115,6 +115,14 @@ bindings"&gt;
   <code>pgm</code>  (to create a binding for a Program Change message).
 </p>
 <p>
+  <code>enc-r</code>, <code>enc-l</code>, <code>enc-2</code> and
+  <code>enc-b</code> may be used for surfaces that have encoders that send
+  offsets rather than values. These accept Continuous Controller messages
+  but treat them as offsets. These are good for banked controls as they are
+  always at the right spot to start adjusting. See the link at the bottom of
+  the page for a longer explanation.
+</p>
+<p>
   You can also bind sysex messages:
 </p>
 <code>
@@ -136,6 +144,17 @@ bindings"&gt;
   hexadecimal values, that make up the message you want to bind. Using this is 
   slightly less efficient than the other variants shown above, but is useful for 
   some oddly designed control devices.
+</p>
+
+<p class="note">
+  It is not possible at this time to use multi-event MIDI strings such as
+  two event CC messages, RPN or NRPN.
+</p>
+
+<p class="note">
+  The <code>sysex=</code> and <code>msg=</code> bindings will only work with
+  <code>function=</code> or <code>action=</code> control addresses. They
+  will <em>not</em> work with the <code>uri=</code> control addresses.
 </p>
 
 <h4>Control address</h4>
@@ -348,3 +367,4 @@ bindings"&gt;
   (the channel range may change at some point).
 </p>
   
+{% children %}
