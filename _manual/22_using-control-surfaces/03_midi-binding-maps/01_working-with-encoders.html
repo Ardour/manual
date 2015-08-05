@@ -7,12 +7,12 @@ menu_title: Working With Encoders
 <p>
   Encoders are showing up more frequently on controllers. However, they use
   the same MIDI events as Continuous Controllers and they have no standard
-  way of working. Ardour has implemented 4 of the more common ways of
-  sending encoder information.
+  way of sending that information as MIDI events. Ardour has implemented 4 of
+  the more common ways of sending encoder information.
 </p>
 <p>
   Encoders that send the same continuous values as a pot would are not
-  discussed here as they work the same.
+  discussed here as they are already supported by <code>ctl</code>.
 </p>
 <P>
   Encoders as this page talks about them send direction and offset that the
@@ -23,27 +23,28 @@ menu_title: Working With Encoders
 </p>
 <ul>
 <li>
-  enc-r - On the bcr/bcf2000 this is called "Relative Signed Bit". The most
+  enc-r:  On the bcr/bcf2000 this is called "Relative Signed Bit". The most
   significant bit sets positive and the lower 6 signifcant bits are the
   offset.
 </li>
 <li>
-  enc-l - The bcr2000 calls this "Relative Signed Bit 2". The most
+  enc-l: The bcr2000 calls this "Relative Signed Bit 2". The most
   significant bit sets negative and the lower 6 signifcant bits are the
   offset. If you are using one of these two and the values are right but
   reversed, use the other. This one is the one the Mackie Control Protocol
   uses.
 </li>
 <li>
-  enc-2 - The bcr2000 calls this one "Relative 2s Complement". Positive
+  enc-2: The bcr2000 calls this one "Relative 2s Complement". Positive
   offsets are sent as normal from 1 to 64 and negative offsets are sent as
   2s complement negative numbers.
 </li>
 <li>
-  enc-b - The bcr2000 calls this one "Relative Binary Offset". Positive
+  enc-b: The bcr2000 calls this one "Relative Binary Offset". Positive
   offsets are sent as offset plus 64 and negative offsets are sent as 64
   minus offset.
 </li>
+</ul>
 <p>
   If the wrong one is chosen, either the positive or negative side will act
   incorrectly. It is not really possible to auto detect which one the
