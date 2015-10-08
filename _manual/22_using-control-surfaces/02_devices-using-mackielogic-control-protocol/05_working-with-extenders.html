@@ -25,19 +25,18 @@ menu_title: Working With Extenders
 </p>
 <p>
   When an <code>Extenders</code> value of greater than 0 is used, extra midi
-  ports will appear for the extenders to be connected to. <code>mackie
-  control</code> will remain always the leftmost controller. The MIDI ports
-  for any extra controlers will be named <code>mackie control #2</code> and
-  up. The numbers will go from left to right.
+  ports will appear for the extenders to be connected to. The MIDI ports
+  for the controllers will be named <code>mackie control #1</code>,
+  <code>mackie control #2</code> and up. The numbers will go from left to
+  right. That is, from lowest number channel to highest.
 </p>
 <p>
-  The <code>MasterPosition</code> value is the number of positions from
-  left to where the master unit (with the master fader) is. So if there are
-  three surfaces, <code>&lt;MasterPosition value="1"/&gt;</code> will expect
-  the master on the left, <code>&lt;MasterPosition value="2"/&gt;</code>
-  would be master in the middle and <code>&lt;MasterPosition
-  value="3"/&gt;</code> would be master on the right. So the position
-  matches the port name.
+  The <code>MasterPosition</code> value is the port number the master unit
+  (with the master fader) is connected to. So if there are three surfaces,
+  <code>&lt;MasterPosition value="1"/&gt;</code> will expect the master on
+  the left, <code>&lt;MasterPosition value="2"/&gt;</code> would be master
+  in the middle and <code>&lt;MasterPosition value="3"/&gt;</code> would be
+  master on the right. So the position matches the port name.
 </p>
 <p class="note">
   The default value of <code>&lt;MasterPosition value="0"/&gt;</code> has
