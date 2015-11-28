@@ -1,50 +1,50 @@
 ---
 layout: default
 title: Select Regions
----                        
+---
 
 <p>
-  Many editing operations in Ardour require you to first <dfn>select one or more 
-  regions</dfn> that you want to change in some way. You can select a single region, 
-  or multiple regions, including regions in different tracks. When you select 
+  Many editing operations in Ardour require you to first <dfn>select one or more
+  regions</dfn> that you want to change in some way. You can select a single region,
+  or multiple regions, including regions in different tracks. When you select
   a region, it will appear in a darker color than unselected regions.
 </p>
 <p>
   Note that if a track is a member of a group that is active and has the
-  <kbd class="option">Select</kbd> property enabled, then Ardour will attempt to 
-  match whatever selections you make in one track across every other track of the 
-  group. See 
+  <kbd class="option">Select</kbd> property enabled, then Ardour will attempt to
+  match whatever selections you make in one track across every other track of the
+  group. See
   <a href="/working-with-regions/corresponding-regions-selection/">Corresponding
-  Regions Selection</a> for more information on precisely how selections will be 
+  Regions Selection</a> for more information on precisely how selections will be
   propagated to other tracks.
 </p>
 
 <h2>Region Selection and Track Selection</h2>
 <p>
-  Please read 
-  <a href="/working-with-tracks/selecting-tracks/region-and-track-selection">Region &amp; Track Selection</a> 
+  Please read
+  <a href="/working-with-tracks/selecting-tracks/">Region &amp; Track Selection</a>
   for more information on how selecting regions and selecting tracks interact.
 </p>
 
 <h2>Select a Region</h2>
 <p>
-  Confirm that you are using the 
-  <a href="/ardours-interface/introducing-the-editor-window/the-editing-toolbar/#object">Object tool</a>, 
-  then click on a region to select it. If 
-  <a href="/ardours-interface/introducing-the-editor-window/the-editing-toolbar/#smartmode">smart mode</a> 
+  Confirm that you are using the
+  <a href="/ardours-interface/introducing-the-editor-window/the-editing-toolbar/#object">Object tool</a>,
+  then click on a region to select it. If
+  <a href="/ardours-interface/introducing-the-editor-window/the-editing-toolbar/#smartmode">smart mode</a>
   is enabled, click in the lower half of the region.
 </p>
 
 <h2>Deselect a Region</h2>
 <p>
-  Confirm you are using the 
-  <a href="/ardours-interface/introducing-the-editor-window/the-editing-toolbar/#object">Object tool</a>, 
-  then <kbd class="mouse mod1">Left</kbd>-click the region. If 
-  <a href="/ardours-interface/introducing-the-editor-window/the-editing-toolbar/#smartmode">smart mode</a> 
-  is enabled, click in the lower half of the region. 
+  Confirm you are using the
+  <a href="/ardours-interface/introducing-the-editor-window/the-editing-toolbar/#object">Object tool</a>,
+  then <kbd class="mouse mod1">Left</kbd>-click the region. If
+  <a href="/ardours-interface/introducing-the-editor-window/the-editing-toolbar/#smartmode">smart mode</a>
+  is enabled, click in the lower half of the region.
 </p>
 <p>
-  Note that a <kbd class="mouse mod1">left</kbd> click simply toggles the 
+  Note that a <kbd class="mouse mod1">left</kbd> click simply toggles the
   selected status of an object, so it can be used to select unselected regions
   too.
 </p>
@@ -54,25 +54,25 @@ title: Select Regions
 <ul>
   <li><kbd class="mouse mod1">Left</kbd>-click each region, or</li>
   <li>
-    drag a rubberband box from an empty point in a track before the first 
-    region you wish to select to a point within or after the last region 
-    you wish to select (you can <kbd class="mouse mod1">left</kbd>-drag to do this 
+    drag a rubberband box from an empty point in a track before the first
+    region you wish to select to a point within or after the last region
+    you wish to select (you can <kbd class="mouse mod1">left</kbd>-drag to do this
     multiple times), or,
   </li>
   <li>
-    if the regions are all adjacent to one another, click the first region 
-    you wish to select, then <kbd class="mouse mod3">Left</kbd>-click the last 
+    if the regions are all adjacent to one another, click the first region
+    you wish to select, then <kbd class="mouse mod3">Left</kbd>-click the last
     region you wish to select.
   </li>
 </ul>
 
 <h2>Select All Regions in a Track</h2>
 <p>
-  Context-click the track, and in the context menu, navigate to 
+  Context-click the track, and in the context menu, navigate to
   <kbd class="menu">Select &gt; Select All In Track</menu>.
 </p>
 <p>
-  See the <a href="/working-with-tracks/the-track-context-menu">Track Context Menu</a> 
+  See the <a href="/working-with-tracks/track-context-menu/">Track Context Menu</a>
   for more information on other per-track selection operations that are available.
 </p>
 
@@ -84,9 +84,8 @@ title: Select Regions
 
 <h2>Select a Region From the Region List</h2>
 <p>
-  Click the name of the region in the 
-  <a href="/ardours-interface/introducing-the-editor-window/editor-lists/region-list/">Region List</a>. 
-  Note that this will do nothing for whole-file regions, since they do not exist 
+  Click the name of the region in the
+  <a href="/ardours-interface/introducing-the-editor-window/editor-lists/region-list/">Region List</a>.
+  Note that this will do nothing for whole-file regions, since they do not exist
   anywhere in a playlist or track.
 </p>
-
