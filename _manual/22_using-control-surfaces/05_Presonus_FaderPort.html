@@ -1,0 +1,83 @@
+---
+layout: default
+title: Using the Presonus Faderport
+menu_title: Presonus Faderport
+---                        
+
+<p>
+  Since version 4.5, Ardour has had full support for the Presonus
+  Faderport. This is a compact control surface featuring a single
+  motorized fader, a single knob (encoder) and 24 buttons with fixed
+  labels.
+</p>
+
+<h2>Connecting the Faderport</h2>
+<p>
+  The Faderport comes with a single USB socket on the back. Connect a
+  suitable USB cable from there to a USB port on your computer. As of
+  the end of 2015, you should avoid USB3 ports - these cause erratic
+  behaviour with the device. This issue might get fixed by Presonus in
+  the future.
+</p>
+<p>
+  The Faderport will be automatically recognized by your operating
+  system, and will appear in any of the lists of possible MIDI ports
+  in both Ardour and other similar software.
+</p>
+  
+<h2>Using the Faderport</h2>
+<p>
+  The Faderport's controls can be divided into three groups:
+  <ol>
+    <li>Global controls such as the transport buttons</li>
+    
+    <li>Controls which change the settings for particular track or
+      bus</li>
+    
+    <li>Controls which alter which track or bus is modified by the
+      per-track/bus controls.</li>
+  </ol>
+</p>
+
+<h3>Transport Buttons</h3>
+<p>
+  The transport buttons all work as you would expect.
+  <dl>
+    <dt>Rewind</dt>
+    <dd>Starts the transport moving backwards. Successive presses
+      speed up the "rewind" behaviour.
+      <br>
+      If pressed while also holding the Stop button, the playhead will
+      return to the zero position on the timeline.
+    </dd>
+    <dt>Fast Forward</dt>
+    <dd>Starts the transport moving faster than normal. Successive presses
+      speed up the "fast forward" behaviour.
+    </dd>
+    <dt>Stop</dt>
+    <dd>
+      Stops the transport. Also used in combination with the Rewind
+      button to "return to zero".
+    </dd>
+    <dt>Play</dt>
+    <dd>
+      Starts the transport. If pressed while the transport is
+      already rolling at normal speed, causes the playhead to jump to
+      the start of the last "roll" and continue rolling ("Poor man's
+      looping").
+    </dd>
+    <dt>Record Enable</dt>
+    <dd>Toggles the global record enable setting
+    </dd>
+  </dl>
+</p>
+
+<h3>Other Global Controls</h3>
+<p>
+  <dl>
+    <dt>Mix</dt>
+    <dd></dd>
+  </dl>
+</p>
+  
+    
