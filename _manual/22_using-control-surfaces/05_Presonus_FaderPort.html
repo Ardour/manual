@@ -113,21 +113,82 @@ menu_title: Presonus Faderport
 
 <h3>Other Global Controls</h3>
 <p>
+  The Mix, Proj, Trns buttons have no "obvious" functionality
+  that they correspond to in Ardour. We have therefore allowed users
+  to choose from a carefully curated set of possible actions that seem
+  related to the button labels in some clear way. This can be done via
+  the Faderport configuration dialog accessed via <code>Preferences
+  &gt; Control Surfaces</code>. Each button has 3 possible actions
+  associated with it:
+  <ul>
+    <li>Plain Press: action to be taken when the button is pressed on
+      its own.</li>
+    <li>Shift-Press: action to be taken when the button is pressed in
+      conjunction with the Shift button.</li>
+    <li>Long Press: action to be taken when the button is pressed on
+      its own and held down for more than 0.5 seconds.</li>
+  </ul>
+  Click on the relevant drop-down selector to pick an action as you
+  prefer.
+</p>
+<p>
+  The User button also has no obvious mapping to specific Ardour
+  functionality, so we allow users to choose from <em>any</em>
+  possible GUI action. The menu for selecting the action is somewhat
+  confusing and it can be hard to find what you're looking
+  for. However, all possible actions are there, so keep looking!
+<p>
   <dl>
     <dt>Mix</dt>
-    <dd></dd>
+    <dd>
+      <p>
+	Possible actions include:
+	<ul>
+	  <li></li>
+	</ul>
+      </p>
+    </dd>
     <dt>Proj</dt>
-    <dd></dd>
+    <dd> 
+      <p>
+	Possible actions include:
+	<ul>
+	  <li></li>
+	</ul>
+      </p>
+   </dd>
     <dt>Trns</dt>
-    <dd></dd>
+    <dd>
+      <p>
+	Possible actions include:
+	<ul>
+	  <li></li>
+	</ul>
+      </p>
+    </dd>
     <dt>Undo/Redo</dt>
-    <dd></dd>
+    <dd>
+      Undo Causes the last operation carried out in the editor to be
+      undone. When pressed in conjuction with the Shift button, it
+      causes the most recent undone operation to be re-done. 
+    </dd>
     <dt>Punch</dt>
-    <dd></dd>
+    <dd>
+      Toggles punch recording. If there is no punch range set for the
+      session, this will do nothing.
+    </dd>
     <dt>User</dt>
-    <dd></dd>
+    <dd>
+      See above. Any and all GUI-initiated actions can be driven with
+      this button.
+    </dd>
     <dt>Loop</dt>
-    <dd></dd>
+    <dd>
+      Toggles loop playback. If the Ardour  preference "Loop-is-mode" is
+      enabled, this does nothing to the current transport state. If
+      that preference is disabled, then engaging loop playback will
+      also start the transport.
+    </dd>
   </dl>
 </p>
   
@@ -135,37 +196,130 @@ menu_title: Presonus Faderport
 <p>
   <dl>
     <dt>Mute</dt>
-    <dd></dd>
+    <dd>
+      This toggles the mute setting of the currently controlled
+      track/bus. The button will be lit if the track/bus is muted.
+    </dd>
     <dt>Solo</dt>
-    <dd></dd>
+    <dd>
+      This toggles the solo (or listen) setting of the currently
+      controlled track/bus. The button will be lit if the track/bus is
+      soloed (or set to listen mode).
+    </dd>
     <dt>Rec</dt>
-    <dd></dd>
+    <dd>
+      This toggles the record-enabled setting of the currently
+      controlled track/bus. The button will be lit if the track is
+      record-enabled. This button will do nothing if the Faderport is
+      controlling a bus.
+    </dd>
     <dt>Fader</dt>
-    <dd></dd>
+    <dd>
+      The fader controls the gain applied to the currently controlled
+      track/bus. If the Faderport is powered, changing the gain in
+      Ardour's GUI or via another control surface, or via automation,
+      will result in the fader moving under its own control. 
+    </dd>
     <dt>Knob/Dial/Encoder</dt>
-    <dd></dd>
+    <dd>
+      <p>
+	The knob controls 1 or 2 pan settings for the current
+	controlled track/bus. When used alone, turning the knob controls
+	the "azimuth" or "direction" (between left and right) for the
+	panner in the track/bus (if any). This is all you need when
+	controlling tracks/busses with 1 input and 2 outputs.
+      </p>
+      <p>
+	If controlling a 2 input/2 output track/bus, Ardour's panner
+	has two controls: azimuth (direction) and width. The width
+	must be reduced to less than 100% before the azimuth can be
+	changed. Pressing the "Shift" button while turning the knob
+	will alter the width setting.
+      </p>
+      <p>
+	The knob can also be turned while the "User" button is held,
+	in order to modify the input gain for the currently controlled
+	track.
+      </p>
+    </dd>
     <dt>Read</dt>
-    <dd></dd>
+    <dd>
+      Enables playback/use of fader automation data by the controlled track/bus.
+    </dd>
     <dt>Write</dt>
-    <dd></dd>
+    <dd>
+      Puts the fader for the controlled track/bus into automation
+      write mode. While the transport is rolling, all fader changes
+      will be recorded to the fader automation lane for the relevant track/bus.
+    </dd>
     <dt>Touch</dt>
-    <dd></dd>
+    <dd>
+      Puts the fader for the controlled track/bus into automation
+      touch mode. While the transport is rolling, touching the fader
+      will initiate recording all fader changes until the fader is
+      released. When the fader is not being touched, existing
+      automation data will be played/used to control the gain level.
+    </dd>
     <dt>Off</dt>
-    <dd></dd>
+    <dd>
+      This disables all automation modes for the currently controlled
+      track/bus. Existing automation data will be left unmodified by
+      any fader changes, and will not be used for controlling gain.
+    </dd>
   </dl>
 </p>
 
 <h3>Track Selection Controls</h3>
 <p>
+  You can manually change the track/bus controlled by the Faderport by
+  changing the selected track in Ardour's editor window. If you select
+  more than 1 track, the Faderport will control the first selected
+  track and <em>only</em> that track/bus.
+</p>
+<p>
   <dl>
     <dt>Left (arrow)</dt>
     <dd>
+      This causes the Ardour GUI to select the previous track/bus
+      (using the current visual order in the editor window), which
+      will in turn cause the Faderport to control that track. If there
+      is no previous track/bus, the selected track/bus is left
+      unchanged, and the Faderport continues to control it.
     </dd>
     <dt>Right (arrow)</dt>
     <dd>
+      This causes the Ardour GUI to select the next track/bus
+      (using the current visual order in the editor window), which
+      will in turn cause the Faderport to control that track. If there
+      is no next track/bus, the selected track/bus is left
+      unchanged, and the Faderport continues to control it.
     </dd>
     <dt>Output</dt>
     <dd>
+      <p>
+	Pressing the Output button causes the Faderport to control
+	the fader, pan, mute and solo settings of the Master bus. If
+	your session does not contain a Master bus, it does nothing.
+	This is a toggle button - pressing it again returns Faderport
+	to controlling whichever track/bus was selected before the
+	first press of the Output button.
+      </p>
+      <p>
+	If your session uses Ardour's monitor section, you can use
+	Shift-Output to assign it to the Faderport in the same way
+	that Output assigns the Master bus. This is also a toggle
+	setting, so the second Shift-Output will return the Faderport
+	to controlling whichever track/bus was selected before.
+      </p>
+      <p>
+	If you press Shift-Output after a single press to Output
+	(i.e. control the Monitor Section while currently controlling
+	the Master bus) or vice versa (i.e. control the Master bus
+	while currently controlling the Monitor Section), the press
+	will be ignored. This avoids getting into a tricky situation
+	where it is no longer apparent what is being controlled and
+	what will happen if you try to change it.
+      </p>
     </dd>
     <dt>Bank</dt>
     <dd>
