@@ -1,20 +1,20 @@
 ---
 layout: default
 title: New/Open Session Dialog
----                        
+---
 
 <p>
   The initial <dfn>Session</dfn> dialog consists of several consecutive pages:
-</p>  
+</p>
 
 <h2>Open Session Page</h2>
 <p>
-  On this page, you can open an <dfn>existing session</dfn>.  You can also 
-  open any <a href="/working-with-sessions/snapshots/">snapshot</a> of a 
-  particular session by clicking on the arrow next to the session name to 
-  display all snapshots, and then selecting one.  If your session is 
+  On this page, you can open an <dfn>existing session</dfn>.  You can also
+  open any <a href="/working-with-sessions/snapshots/">snapshot</a> of a
+  particular session by clicking on the arrow next to the session name to
+  display all snapshots, and then selecting one.  If your session is
   not displayed in the Recent Sessions list, the <kbd class="menu">Other
-  Sessions</kbd> button will bring up a file selection dialog to navigate 
+  Sessions</kbd> button will bring up a file selection dialog to navigate
   your hard drive.<br />
   Alternatively, you can opt to create a <kbd class="menu">New
   Session</kbd>.
@@ -22,24 +22,24 @@ title: New/Open Session Dialog
 
 <h2>New Session page</h2>
 <p>
-  Here you can type in the name of a session, select a folder to save in, and 
+  Here you can type in the name of a session, select a folder to save in, and
   optionally use an existing <a href="/working-with-sessions/session-templates/">template</a>.
 </p>
 <p>
-  Under <dfn>Advanced Options</dfn>, you can select whether you wish to create 
+  Under <dfn>Advanced Options</dfn>, you can select whether you wish to create
   a Master Bus, or a Control Bus, and how many channels you wish either to have.
-  You can also decide whether you want Ardour to automatically connect all inputs 
-  to the physical ports of your hardware. Ardour will do so 
+  You can also decide whether you want Ardour to automatically connect all inputs
+  to the physical ports of your hardware. Ardour will do so
   sequentially and in round-robin fashion, connecting the first track's
   input to the first input of your hardware and so on. When Ardour has used
   all available hardware inputs, it will begin again with the first physical
-  input. 
+  input.
   You can limit the number of channels on your physical hardware that Ardour
-  uses. 
+  uses.
 </p>
 <p>
-  By default Ardour will connect all tracks and busses to the Master Bus if 
-  there is one. However you can also tell it to automatically connect each 
+  By default Ardour will connect all tracks and busses to the Master Bus if
+  there is one. However you can also tell it to automatically connect each
   output to the physical outputs of your interface or sound card, and limit
   the number of physical outputs used, as above.
 </p>
@@ -78,7 +78,7 @@ Setup Dialog"/>
   <p class="warning">
     If you are using an Intel Mac running OS X and the builtin audio
     interface, you must
-    first <a href="setting-up-your-system/using_more_than_one_audio_device/">merge
+    first <a href="/setting-up-your-system/using_more_than_one_audio_device/">merge
     its separate input and output devices into a single "aggregate
     device"</a> before Ardour will be able to use it.
    </p>

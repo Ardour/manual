@@ -1,31 +1,31 @@
 ---
 layout: default
 title: External Sends
----                        
+---
 
 <p>
-  Like a normal aux send, an <dfn>external send</dfn> taps the signal at a 
-  specific within a channel strip, but delivers it to an external application 
-  or piece of hardware rather than an Ardour bus. By itself, an external 
-  send has no effect whatsoever on the audio signals within Ardour &mdash; 
-  it is a one-way signal routing that leaves all existing signal processing 
+  Like a normal aux send, an <dfn>external send</dfn> taps the signal at a
+  specific within a channel strip, but delivers it to an external application
+  or piece of hardware rather than an Ardour bus. By itself, an external
+  send has no effect whatsoever on the audio signals within Ardour &mdash;
+  it is a one-way signal routing that leaves all existing signal processing
   just as it was.
 </p>
 <p>
-  Most people will not have much use for this, but it can be useful if you 
-  want to experiment with external applications or hardware signal processing 
+  Most people will not have much use for this, but it can be useful if you
+  want to experiment with external applications or hardware signal processing
   applications.
 </p>
 
 <h2>Adding an External Send</h2>
 <p>
-  Context-click on the 
-  <a href="/working-with-plugins/the-processor-box">processor box</a> in a 
-  channel strip (at the desired location, pre or post fader) and choose 
-  <kbd class="menu">Add new External Send</kbd>. A dialog will appear 
-  containing the standard Ardour 
-  <a href="/signal-routing/the-patchbay"><dfn>patchbay</dfn></a> to allow 
-  you to connect the send to the desired destination. 
+  Context-click on the
+  <a href="/working-with-plugins/processor-box/">processor box</a> in a
+  channel strip (at the desired location, pre or post fader) and choose
+  <kbd class="menu">Add new External Send</kbd>. A dialog will appear
+  containing the standard Ardour
+  <a href="/signal-routing/Patchbay/"><dfn>patchbay</dfn></a> to allow
+  you to connect the send to the desired destination.
 </p>
 
 <h2>Removing an External Send</h2>
@@ -34,28 +34,27 @@ title: External Sends
 <li><kbd class="mouse mod3">Right</kbd>-click the send in the processor box.</li>
 <li>Position the pointer over the send and press the <kbd>Del</kbd> key.</li>
 <li>Position the pointer over the send and press <kbd class="mod1">x</kbd>.</li>
-<li>Context-click the send and choose either <kbd class="menu">Cut</kbd> or 
+<li>Context-click the send and choose either <kbd class="menu">Cut</kbd> or
   <kbd class="menu">Delete</kbd>.</li>
 </ul>
 
 <h2>Altering Send Levels</h2>
 <p>
-  Just below the send in the processor box is a small fader that can be used 
-  like all other faders in Ardour to control the gain applied to the signal 
-  delivered by the send. Drag it to alter the level, Shift-click to restore 
-  to unity (0dB) gain. 
+  Just below the send in the processor box is a small fader that can be used
+  like all other faders in Ardour to control the gain applied to the signal
+  delivered by the send. Drag it to alter the level, Shift-click to restore
+  to unity (0dB) gain.
 </p>
 
 <h2>Disabling Sends</h2>
 <p>
-  Click the small "LED" in the send display within the processor box to turn 
-  it on and off. When turned off, silence will be delivered to the send. When 
+  Click the small "LED" in the send display within the processor box to turn
+  it on and off. When turned off, silence will be delivered to the send. When
   turned on, the signal within the channel strip will be delivered.
 </p>
 <h2>Editing Send Routing</h2>
 <p>
-  Double-clicking or Edit-clicking on the send in the processor box will 
-  redisplay the patchbay dialog that allows you full control over the routing 
+  Double-clicking or Edit-clicking on the send in the processor box will
+  redisplay the patchbay dialog that allows you full control over the routing
   of the send.
 </p>
-  
