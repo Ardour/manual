@@ -15,8 +15,8 @@ menu_title: Mackie/Logic Control Devices
 
 <h2>Enabling Mackie Control in Ardour</h2>
 <p>
-  Navigate to <kbd class="menu">Edit &gt; Preferences &gt; Control Surfaces</kbd>. Double-click on <kbd class="menu">Mackie Control</kbd>
-  to see the setup dialog:
+  Navigate to <kbd class="menu">Edit &gt; Preferences &gt; Control Surfaces</kbd>.
+  Double-click on <kbd class="menu">Mackie Control</kbd> to see the setup dialog:
 </p>
 <img src="" alt="Mackie Control Setup Dialog" />
 <p>
@@ -57,5 +57,11 @@ menu_title: Mackie/Logic Control Devices
   Most interfaces will require some configuration to send and respond to 
   MCP.
 </p> 
+
+<p class="note">
+  When setting up the control surface, do <em>not</em> use "Pro Tools"
+  mode. Pro Tools is the only DAW that still requires HUI. The rest of
+  world uses Mackie Control Protocol. Ardour does not support HUI.
+</p>
   
 {% children %}
