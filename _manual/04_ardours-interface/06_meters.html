@@ -77,6 +77,7 @@ title: Metering in Ardour
     Katz, scale aligned to -20&nbsp;dBFS, rise/fall times and color schema
     according to spec.</li>
     <li><dfn>K14</dfn>: Same as K20 with scale aligned to -14&nbsp;dBFS.</li>
+    <li><dfn>K12</dfn>: Same as K20 with scale aligned to -12&nbsp;dBFS (since 3.5.143).</li>
     <li><dfn>Peak + RMS</dfn>: standard RMS, customizable via
     <kbd class="menu">Edit &gt; Preferences &gt; GUI &gt; Metering</kbd></li>
   </ul>
@@ -152,8 +153,7 @@ title: Metering in Ardour
 <p>
   <kbd class="mouse">Left</kbd> on the peak-indicator button resets the
   <dfn>peak-hold indicator</dfn> of a single channel.<br />
-  <kbd class="mod1 mouse">Left</kbd> resets a whole <dfn>group</dfn>, and<br
-  />
+  <kbd class="mod1 mouse">Left</kbd> resets a whole <dfn>group</dfn>, and<br/>
   <kbd class="mod13 mouse">Left</kbd> resets all meters.
 </p>
 
@@ -171,8 +171,8 @@ alt="Bar-graph meters in Ardour" />
 
 <p>
   Due to layout concerns and consistent look&amp;feel all meters available in 
-  Ardour3 itself are bar-graph type meters. Corresponding needle-style meters
+  Ardour itself are bar-graph type meters. Corresponding needle-style meters
   &mdash;  which take up more visual screen space &mdash; are available as 
-  LV2 plugins (on the right).
+	LV2 plugins (see image on the right):
+	<a href="https://github.com/x42/meters.lv2/">meters.lv2</a>.
 </p>
-
