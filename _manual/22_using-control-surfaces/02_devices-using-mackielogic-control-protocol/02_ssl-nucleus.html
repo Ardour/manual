@@ -28,8 +28,6 @@ title: SSL Nucleus
   (compared with some other Mackie Control devices).
 </p>
 
-
-
 <h2>Connecting the Nucleus</h2>
 
 <p>
@@ -96,6 +94,39 @@ title: SSL Nucleus
   If this does not work, then make sure your network cables are
   properly connected, and that you are <strong>not</strong> running
   other ipMIDI software on the computer.
+</p>
+
+<h3>Connecting via 3rd party ipMIDI support</h3>
+
+<p class="alert alert-info">
+  This is usable only on computers with 3rd party ipMIDI
+  driver software installed and configured for (at least) 2 ports.
+</p>
+
+<p>
+  Open <code>Preferences > Control Surfaces</code>. Ensure that the
+  Mackie protocol is enabled, then double-click on it to open the
+  Mackie Control setup dialog.
+</p>
+<p>
+  Ensure that the device selected is "SSL Nucleus (via platform MIDI)". The dialog should
+  show four combo/dropdown selectors, labelled (respectively):
+  <ul>
+    <li>Main Surface receives via</li>
+    <li>Main Surface sends via</li>
+    <li>1st extender receives via</li>
+    <li>1st extender sends via</li>
+  </ul>
+  You should choose "ipMIDI port 1", "ipMIDI port 1", "ipMIDI port 2"
+  and "ipMIDI port 2" for each of the 4 combo/dropdown selectors. 
+</p>
+<p>
+  Communication should be automatically established with the Nucleus.
+</p>
+<p>
+  If this does not work, then make sure your network cables are
+  properly connected, and that you are running the approprate ipMIDI
+  driver and have configured it for 2 (or more) ports.
 </p>
 
 <h2><a name="design">Nucleus Design Discussion</a></h2>
