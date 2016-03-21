@@ -333,7 +333,7 @@ for t in Session:get_tracks():iter() do print(t:name()) end
 for r in Session:get_routes():iter() do print(r:name()) end
 
 
-Session:tempo_map():add_tempo(ARDOUR.Tempo(100,4), ARDOUR.BBT_TIME(4,1,0))
+Session:tempo_map():add_tempo(ARDOUR.Tempo(100,4), Timecode.BBT_TIME(4,1,0))
 
 
 Editor:set_zoom_focus(Editing.ZoomFocusRight)
@@ -341,18 +341,19 @@ print(Editing.ZoomFocusRight);
 Editor:set_zoom_focus(1)
 
 
-files = ARDOUR.StringVector();
+files = C.StringVector();
 files:push_back("/home/rgareus/data/coding/ltc-tools/smpte.wav")
 pos = -1
 Editor:do_import(files, Editing.ImportDistinctFiles, Editing.ImportAsTrack, ARDOUR.SrcQuality.SrcBest, pos, ARDOUR.PluginInfo())
 
 #or in one line:
-Editor:do_import(ARDOUR.StringVector():add({"/path/to/file.wav"}), Editing.ImportDistinctFiles, Editing.ImportAsTrack, ARDOUR.SrcQuality.SrcBest, -1, ARDOUR.PluginInfo())
+Editor:do_import(C.StringVector():add({"/path/to/file.wav"}), Editing.ImportDistinctFiles, Editing.ImportAsTrack, ARDOUR.SrcQuality.SrcBest, -1, ARDOUR.PluginInfo())
 
 # called when a new session is loaded:
 function new_session (name) print("NEW SESSION:", name) end
 
 
+# read/set/describe a plugin parameter
 route = Session:route_by_remote_id(1)
 processor = route:nth_plugin(0)
 plugininsert = processor:to_insert()
@@ -366,10 +367,16 @@ _, t = plugin:get_parameter_descriptor(2, x) -- port #2
 paramdesc = t[2]
 print (paramdesc.lower)
 
-ctrl = ARDOUR.EvoralParameter(ARDOUR.AutomationType.PluginAutomation, 0, 2)
+ctrl = Evoral.Parameter(ARDOUR.AutomationType.PluginAutomation, 0, 2)
 ac = plugininsert:automation_control(ctrl, false)
 print (ac:get_value ())
 ac:set_value(1.0, PBD.GroupControlDisposition.NoGroup)
+
+# the same using a convenience wrapper:
+route = Session:route_by_remote_id(1)
+proc = t:nth_plugin (i)
+ARDOUR.LuaAPI.set_processor_param (proc, 2, 1.0)
+
 </code></pre>
 </div>
 
