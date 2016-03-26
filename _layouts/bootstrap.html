@@ -16,6 +16,9 @@ page_title: The Ardour Manual
         <link href="{{page.bootstrap_path}}/css/bootstrap-responsive.min.css" rel="stylesheet" />
 
         <link href="/css/app.css" rel="stylesheet" />
+        {% if page.style %}
+        <link href="/css/{{page.style}}.css" rel="stylesheet" />
+        {% endif %}
 
         <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
     </head>
