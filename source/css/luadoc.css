@@ -1,4 +1,7 @@
 div.luafooter              { text-align:center; font-size:80%; color: #888; margin: 2em 0; }
+#luaref dt {float:initial; width: initial; margin:initial; padding: initial; line-height:1.3em;}
+#luaref dd {float:initial; width: initial; margin: 0 0 0 2em; padding: initial; line-height:1.3em;}
+
 #luaref h2                 { margin:2em 0 0 0; padding:0em; border-bottom: 1px solid black; }
 #luaref h3.cls             { margin:2em 0 0 0; padding: 0 0 0 1em; border: 1px dashed #6666ee; }
 #luaref h3.cls abbr        { text-decoration:none; cursor:default; }
