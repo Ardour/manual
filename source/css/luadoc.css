@@ -1,6 +1,6 @@
 div.luafooter              { text-align:center; font-size:80%; color: #888; margin: 2em 0; }
-#luaref dt {float:initial; width: initial; margin:initial; padding: initial; line-height:1.3em;}
-#luaref dd {float:initial; width: initial; margin: 0 0 0 2em; padding: initial; line-height:1.3em;}
+#luaref dt { float:initial; width: initial; margin:initial; padding: initial; line-height:1.3em;}
+#luaref dd { float:initial; width: initial; margin: 0 0 0 2em; padding: initial; line-height:1.3em;}
 
 #luaref h2                 { margin:2em 0 0 0; padding:0em; border-bottom: 1px solid black; }
 #luaref h3.cls             { margin:2em 0 0 0; padding: 0 0 0 1em; border: 1px dashed #6666ee; }
@@ -25,19 +25,20 @@ div.luafooter              { text-align:center; font-size:80%; color: #888; marg
 #luaref div.classdox p     { margin: .5em 0 .5em .6em; }
 #luaref div.classdox       { padding: .1em 1em; }
 #luaref div.classdox p     { margin: .5em 0 .5em .6em; }
-#luaref div.result-discussion      { font-size: 120%; }
-#luaref span.word-returns          { font-style: italic; }
+#luaref div.result-discussion      { font-size: 110%; }
+#luaref span.word-returns          { font-weight: bold; font-style: italic; }
 #luaref table.classmembers         { width: 100%; }
 #luaref table.classmembers th      { text-align:left; border-bottom:1px solid black; padding-top:1em; }
-#luaref table.classmembers td.def  { text-align:right; padding-right:.5em;  white-space: nowrap; }
-#luaref table.classmembers td.decl { text-align:left; padding-left:.5em; white-space: nowrap; }
-#luaref table.classmembers td.doc  { text-align:left; padding-left:.6em; line-height: 1.2em; font-size:80%; }
-#luaref table.classmembers td.doc div.dox {background-color:#eee; padding: .1em 1em; }
+#luaref table.classmembers td.def  { text-align:right; padding-right:.5em;  white-space: nowrap; font-family:mono; }
+#luaref table.classmembers td.decl { text-align:left; padding-left:.5em; white-space: nowrap; font-family:mono;}
+#luaref table.classmembers td.doc  { text-align:left; padding-left:.6em; line-height: 1.2em; font-size:85%; }
+#luaref table.classmembers td.doc div.dox { background-color:#eee; padding: .1em 1em; }
 #luaref table.classmembers td.doc p { margin: .5em 0; }
-#luaref table.classmembers td.doc p.para-brief { font-size:120%; }
-#luaref table.classmembers td.doc p.para-returns { font-size:120%; }
-#luaref table.classmembers td.doc dl { font-size:120%; line-height: 1.3em; }
-#luaref table.classmembers td.doc dt { font-style: italic; }
+#luaref table.classmembers td.doc p.para-brief { font-size:110%; }
+#luaref table.classmembers td.doc p.para-returns {font-size:inherit; }
+#luaref table.classmembers td.doc dl { font-size:110%; line-height: 1.2em; margin: 1em 0 0 0;}
+#luaref table.classmembers td.doc dt { font-weight: bold; font-size:inherit; }
+#luaref table.classmembers td.doc dd { font-size: inherit; }
 #luaref table.classmembers td.fill { width: 99%; }
 #luaref table.classmembers span.em { font-style: italic; }
 #luaref span.functionname abbr     { text-decoration:none; cursor:default; }
