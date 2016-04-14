@@ -33,8 +33,7 @@ div.luafooter              { text-align:center; font-size:80%; color: #888; marg
 #luaref table.classmembers td.decl { text-align:left; padding-left:.5em; white-space: nowrap; font-family:mono;}
 #luaref table.classmembers td.doc  { text-align:left; padding-left:.6em; line-height: 1.2em; font-size:85%; }
 #luaref table.classmembers td.doc div.dox { background-color:#eee; padding: .1em 1em; }
-#luaref table.classmembers td.doc p { margin: .5em 0; }
-#luaref table.classmembers td.doc p.para-brief { font-size:110%; }
+#luaref table.classmembers td.doc p { margin: .5em 0; font-size:110%; }
 #luaref table.classmembers td.doc p.para-returns {font-size:inherit; }
 #luaref table.classmembers td.doc dl { font-size:110%; line-height: 1.2em; margin: 1em 0 0 0;}
 #luaref table.classmembers td.doc dt { font-weight: bold; font-size:inherit; }
