@@ -417,6 +417,10 @@ samp:after {
     clear:left;
 }
 
+#content p.center {
+	text-align:center;
+}
+
 #content .note,.warning,.fixme {
     min-height: 20px;
     padding: 19px;

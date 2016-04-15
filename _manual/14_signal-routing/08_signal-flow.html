@@ -1,0 +1,61 @@
+---
+layout: default
+title: Track/Bus Signal Flow
+---
+<h2>Overview</h2>
+<p>
+In each individual Track or Bus the signal flow is top to bottom. Consider the following diagram:
+</p>
+
+<p class="center"><img width="360px" src="/images/track_signal_routing.png" alt="track signal routing" /></p>
+
+<p>
+Trim, Fader and Panner are provided by Ardour.  The Processor-Box can hold 3rd Party Plugins or host-provided redirects (insert, aux-send,..).
+</p>
+
+<p>
+An important aspect is that the signal flow is multi-channel and not fixed throughout the track. For example, a Track can have a mono input, a mono to stereo plugin (e.g. reverb) flowing into a surround panner with 6 outputs. The design of Ardour is that width of the signal flow is defined by the passage through plugins in the processor box, followed by panning.
+The number of inputs to the panner is defined by the number outputs of the last plugin in the chain. The number of panner outputs is equal to the track's outputs ports, which can be added and remove dynamically. This schema called <em>Flexible I/O</em>. It's very powerful and a distinct feature of Ardour.
+</p>
+
+<p class="note">
+The golden rule of processor signal flow:<br/>The number of outputs of one link of the process chain defines the number inputs of the next, until the panner.
+</p>
+
+<p>
+Due to this rule there is one very common case that is hard to achieve: Keep a mono track mono.  With <em>Flexible I/O</em>, if a stereo plugin is added on a mono track, the signal flow after that plugin becomes stereo.
+</p>
+
+<h2>Strict I/O</h2>
+<p>Strict I/O enforces a simple rule: Plugins have the same number of inputs as they have outputs. By induction the track will have as many output-ports as there are input ports.</p>
+<ol>
+	<li>Adding a Plugin will not modify the signal-flow. The number of plugin outputs is forced to the number of inputs present at the point of insertion.
+		If a plugin-pin is missing, it is ignored. If Plugin-pin is unconnected, it is fed with silence. Unconnected plugin outputs are ignored).</li>
+	<li>Strict I/O enforces the number of output ports.  The number of inputs to the panner (outputs of last plugin) defines the number of track outputs (after panner).
+		Required ports are automatically added, excess ports are removed. The user cannot manually add/remove output ports.</li>
+</ol>
+
+<p>
+Strict I/O is set when creating the track and can later be en/disabled dynamically in the context menu of every mixer strip.
+</p>
+
+<p class="center"><img src="/images/strict_io_routing.png" alt="strict i/o routing" /></p>
+
+<p>There are two exceptions to the above rule 1.</p>
+<ul>
+<li>Midi Synths. When adding a synth at a point where there is a Midi port only, the synthesizer plugin will add audio-output ports,
+	which trickle down the processor chain to all follow up plugins as inputs and in turn force their outputs to match.</li>
+<li>Side chain inputs are not affected by strict i/o</li>
+</ul>
+
+<h2>Customizing the Signal Flow</h2>
+<p>
+The signal flow though the mixer can be customized at every processor node via "Pin Configuration" in the context menu of every processor.
+User customization override all automatic (flexible/strict i/o mode) inferred output port settings for the given processor.
+Non-customized plugins downstream will follow suit depending on the selected route mode. e.g. adding an additional output to a plugin on a track set to strict-i/o will trickle down the process chain until the output and result in the addition of an output port.  This is useful for example in case of a mono to stereo reverb.
+</p>
+
+<p>
+One can also bypass plugin instances with a 'trhu' connection. This connection is latency compensated. One example is separate Left/Right channel Equalization using two mono plugins on a stereo track:
+</p>
+<p class="center"><img src="/images/left_right_eq.png" alt="separate left/right Eq" /></p>
