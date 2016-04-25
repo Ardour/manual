@@ -5,7 +5,7 @@ title: Class Reference
 ---
 
 <p class="warning">
-This documention is far from complete may be inaccurate and subject to change.
+This documentation is far from complete may be inaccurate and subject to change.
 </p>
 
 
@@ -162,7 +162,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <h3 id="ARDOUR:AudioBackend" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:AudioBackend</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; ARDOUR::AudioBackend &gt;, boost::weak_ptr&lt; ARDOUR::AudioBackend &gt;</p>
 <div class="clear"></div>
-<div class="classdox"><p class="para-brief"> PortEngine is an abstract base class that defines the functionality required by Ardour.</p><p> A Port is basically an endpoint for a datastream (which can either be continuous, like audio, or event-based, like MIDI). Ports have buffers associated with them into which data can be written (if they are output ports) and from which data can be read (if they input ports). Ports can be connected together so that data written to an output port can be read from an input port. These connections can be 1:1, 1:N OR N:1.</p><p> Ports may be associated with software only, or with hardware.  Hardware related ports are often referred to as physical, and correspond to some relevant physical entity on a hardware device, such as an audio jack or a MIDI connector. Physical ports may be potentially asked to monitor their inputs, though some implementations may not support this.</p><p> Most physical ports will also be considered &quot;terminal&quot;, which means that data delivered there or read from there will go to or comes from a system outside of the PortEngine implementation&#39;s control (e.g. the analog domain for audio, or external MIDI devices for MIDI). Non-physical ports can also be considered &quot;terminal&quot;. For example, the output port of a software synthesizer is a terminal port, because the data contained in its buffer does not and cannot be considered to come from any other port - it is synthesized by its owner.</p><p> Ports also have latency associated with them. Each port has a playback latency and a capture latency:</p><p> <b>capture latency</b>: how long since the data read from the buffer of a                  port arrived at at a terminal port.  The data will have                  come from the &quot;outside world&quot; if the terminal port is also                  physical, or will have been synthesized by the entity that                  owns the terminal port.</p><p> <b>playback latency</b>: how long until the data written to the buffer of                   port will reach a terminal port.</p><p> For more detailed questions about the PortEngine API, consult the JACK API documentation, on which this entire object is based.</p></div>
+<div class="classdox"><p class="para-brief"> AudioBackend is an high-level abstraction for interacting with the operating system&#39;s audio and midi I&#47;O.</p></div>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::AudioBackend::*)() const">buffer_size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -603,11 +603,11 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">ARDOUR.DataType</span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:DataType">DataType</a></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">audio</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
-<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> convenience contructor for DataType::AUDIO </p><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  DataType::AUDIO</p></div></div></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> convenience constructor for DataType::AUDIO with managed lifetime </p><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  DataType::AUDIO</p></div></div></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:DataType">DataType</a></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">midi</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
-<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> convenience contructor for DataType::MIDI </p><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  DataType::MIDI</p></div></div></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> convenience constructor for DataType::MIDI with managed lifetime </p><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  DataType::MIDI</p></div></div></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:DataType">DataType</a></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">null</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
-<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> convenience contructor for DataType::NIL </p><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  DataType::NIL</p></div></div></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> convenience constructor for DataType::NIL with managed lifetime </p><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  DataType::NIL</p></div></div></td></tr>
  <tr><td class="def"><span class="em">char*</span></td><td class="decl"><span class="functionname"><abbr title="char const* (ARDOUR::DataType::*)() const">to_string</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Inverse of the from-string constructor </p></div></td></tr>
  </table>
@@ -787,7 +787,6 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><th colspan="3">Constructor</th></tr>
  <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">ARDOUR.InterThreadInfo</span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><th colspan="3">Data Members</th></tr>
- <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">cancel</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">done</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">float</span></td><td class="decl"><span class="functionname">progress</span></td><td class="fill"></td></tr>
  </table>
@@ -1490,6 +1489,11 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><th colspan="3">Constructor</th></tr>
  <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">ARDOUR.Route.ProcessorStreams</span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
+<h3 id="ARDOUR:RouteGroup" class="cls opaque"><abbr title="Opaque Object">&empty;</abbr>&nbsp;ARDOUR:RouteGroup</h3>
+<p class="cdecl"><em>C&#8225;</em>: ARDOUR::RouteGroup</p>
+<div class="clear"></div>
+<div class="classdox"><p class="para-brief"> A group identifier for routes.</p><p> RouteGroups permit to define properties which are shared among all Routes that use the given identifier.</p><p> A route can at most be in one group.</p></div>
+<p class="classinfo">This class object is only used indirectly as return-value and function-parameter. It provides no methods by itself.</p>
 <h3 id="ARDOUR:RouteList" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:RouteList</h3>
 <p class="cdecl"><em>C&#8225;</em>: std::list&lt;boost::shared_ptr&lt;ARDOUR::Route&gt; &gt;</p>
 <div class="clear"></div>
@@ -1549,7 +1553,15 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)()">goto_start</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Session::*)() const">last_transport_start</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Locations">Locations</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Locations* (ARDOUR::Session::*)()">locations</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:Route">Route</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Route&gt; (ARDOUR::Session::*)() const">master_out</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:Route">Route</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Route&gt; (ARDOUR::Session::*)() const">monitor_out</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Session::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:RouteList">RouteList</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;boost::shared_ptr&lt;ARDOUR::Route&gt; &gt; (ARDOUR::Session::*)(int, int, ARDOUR::RouteGroup*, unsigned int, std::string)">new_audio_route</abbr></span><span class="functionargs"> (<span class="em">int</span>, <span class="em">int</span>, <a class="" href="#ARDOUR:RouteGroup">RouteGroup</a>, <span class="em">unsigned int</span>, <span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Caller must not hold process lock.  </p><dl><dt class="param-name-index-4">name_template</dt><dd class="param-descr-index-4"> string to use for the start of the name, or &quot;&quot; to use &quot;Bus&quot;.</dd></dl></div></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AudioTrackList">AudioTrackList</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;boost::shared_ptr&lt;ARDOUR::AudioTrack&gt; &gt; (ARDOUR::Session::*)(int, int, ARDOUR::TrackMode, ARDOUR::RouteGroup*, unsigned int, std::string)">new_audio_track</abbr></span><span class="functionargs"> (<span class="em">int</span>, <span class="em">int</span>, <a class="" href="#ARDOUR.TrackMode">TrackMode</a>, <a class="" href="#ARDOUR:RouteGroup">RouteGroup</a>, <span class="em">unsigned int</span>, <span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Caller must not hold process lock  </p><dl><dt class="param-name-index-5">name_template</dt><dd class="param-descr-index-5"> string to use for the start of the name, or &quot;&quot; to use &quot;Audio&quot;.</dd></dl></div></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:RouteList">RouteList</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;boost::shared_ptr&lt;ARDOUR::Route&gt; &gt; (ARDOUR::Session::*)(ARDOUR::RouteGroup*, unsigned int, std::string, boost::shared_ptr&lt;ARDOUR::PluginInfo&gt;)">new_midi_route</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:RouteGroup">RouteGroup</a>, <span class="em">unsigned int</span>, <span class="em">std::string</span>, <a class="" href="#ARDOUR:PluginInfo">PluginInfo</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:MidiTrackList">MidiTrackList</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;boost::shared_ptr&lt;ARDOUR::MidiTrack&gt; &gt; (ARDOUR::Session::*)(ARDOUR::ChanCount const&amp;, ARDOUR::ChanCount const&amp;, boost::shared_ptr&lt;ARDOUR::PluginInfo&gt;, ARDOUR::TrackMode, ARDOUR::RouteGroup*, unsigned int, std::string)">new_midi_track</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:ChanCount">ChanCount</a>, <a class="" href="#ARDOUR:ChanCount">ChanCount</a>, <a class="" href="#ARDOUR:PluginInfo">PluginInfo</a>, <a class="" href="#ARDOUR.TrackMode">TrackMode</a>, <a class="" href="#ARDOUR:RouteGroup">RouteGroup</a>, <span class="em">unsigned int</span>, <span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:RouteList">RouteList</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;boost::shared_ptr&lt;ARDOUR::Route&gt; &gt; (ARDOUR::Session::*)(unsigned int, std::string const&amp;, std::string const&amp;, ARDOUR::PlaylistDisposition)">new_route_from_template</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">std::string</span>, <span class="em">std::string</span>, <a class="" href="#ARDOUR.PlaylistDisposition">PlaylistDisposition</a>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> create a new track or bus from a template (XML path) </p><dl><dt class="param-name-index-0">how_many</dt><dd class="param-descr-index-0"> how many tracks or busses to create </dd><dt class="param-name-index-1">template_path</dt><dd class="param-descr-index-1"> path to xml template file </dd><dt class="param-name-index-2">name</dt><dd class="param-descr-index-2"> name (prefix) of the route to create </dd><dt class="param-name-index-3">pd</dt><dd class="param-descr-index-3"> Playlist disposition </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  list of newly created routes</p></div></div></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Session::*)() const">nominal_frame_rate</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1993,7 +2005,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">table</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
 <h3 id="C:FloatArray" class="cls array"><abbr title="C Array">&ctdot;</abbr>&nbsp;C:FloatArray</h3>
-<p class="cdecl"><em>C&#8225;</em>: </p>
+<p class="cdecl"><em>C&#8225;</em>: float*</p>
 <div class="clear"></div>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
@@ -2003,7 +2015,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><em>void</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*)">set_table</abbr></span><span class="functionargs"> (<span class="em">LuaTable {float}</span>)</span></td><td class="fill"></td></tr>
  </table>
 <h3 id="C:IntArray" class="cls array"><abbr title="C Array">&ctdot;</abbr>&nbsp;C:IntArray</h3>
-<p class="cdecl"><em>C&#8225;</em>: </p>
+<p class="cdecl"><em>C&#8225;</em>: int*</p>
 <div class="clear"></div>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
@@ -2460,6 +2472,12 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li class="const">ARDOUR.RegionPoint.End</li>
 <li class="const">ARDOUR.RegionPoint.SyncPoint</li>
 </ul>
+<h3 id="ARDOUR.TrackMode" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.TrackMode</h3>
+<ul class="enum">
+<li class="const">ARDOUR.TrackMode.Normal</li>
+<li class="const">ARDOUR.TrackMode.NonLayered</li>
+<li class="const">ARDOUR.TrackMode.Destructive</li>
+</ul>
 <h3 id="ARDOUR.Session.RecordState" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.Session.RecordState</h3>
 <ul class="enum">
 <li class="const">ARDOUR.Session.RecordState.Disabled</li>
@@ -2711,6 +2729,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#ARDOUR:RegionListPtr">ARDOUR:RegionListPtr</a></li>
 <li><a class="" href="#ARDOUR:Route">ARDOUR:Route</a></li>
 <li><a class="" href="#ARDOUR:Route:ProcessorStreams">ARDOUR:Route:ProcessorStreams</a></li>
+<li><a class="" href="#ARDOUR:RouteGroup">ARDOUR:RouteGroup</a></li>
 <li><a class="" href="#ARDOUR:RouteList">ARDOUR:RouteList</a></li>
 <li><a class="" href="#ARDOUR:RouteListPtr">ARDOUR:RouteListPtr</a></li>
 <li><a class="" href="#ARDOUR:Session">ARDOUR:Session</a></li>
@@ -2759,6 +2778,6 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#PBD:XMLNode">PBD:XMLNode</a></li>
 <li><a class="" href="#Timecode:BBT_TIME">Timecode:BBT_TIME</a></li>
 </ul>
-<!-- 275 / 844 !-->
+<!-- 278 / 848 !-->
 </div>
-<div class="luafooter">Ardour 4.7-720-g5bbfd0d &nbsp;-&nbsp; Thu, 14 Apr 2016 03:41:02 +0200</div>
+<div class="luafooter">Ardour 4.7-853-g4f3f966 &nbsp;-&nbsp; Mon, 25 Apr 2016 13:49:00 +0200</div>
