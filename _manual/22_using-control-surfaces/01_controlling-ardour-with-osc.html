@@ -60,22 +60,44 @@ here</em>"/&gt;</kbd>
   to valuse set by Aurdour's GUI or automation, What kind of math the
   faders use and more.
 </p>
+<p>
+  Any time the <em>/set_surface</em> command is sent, the current bank
+  is recalculated and if feedback is turned on, the values of each
+  strip's controls are sent (or refreshed) as well.
+</p>
+<p>If /set_surface is not sent, the default values are used:
+  <ul>
+	  <li><em>Bank Size</em>: 0 - No banking (or infinite bank size).</li>
+	  <li><em>Strip Types</em>: All strip types except hidden.</li>
+	  <li><em>Feedback</em>: Off.</li>
+	  <li><em>Fader Mode</em>: ABS - Absolute gain.</li>
+  </ul>
+  These values give the same behaviour as prior versions of Ardour.
+</p>
 <dl class="bindings">
   <dt><kbd class="osc">/set_surface <em>bank_size</em> <em>strip_types</em>
   <em>feedback</em> <em>fadermode</em></kbd></dt>
-  <dd>where <em>bank_size</em> is an int ranging from 0 to about 65000 
-  (16bits) The value 0 means no banking (or infinite bank size). 
-  <em>strip_types</em> (when implemented) is a bitset that will
-  determine what kind of channels will be included in the bank.
-  <em>feedback</em> is a bitset that determines what things should send
-  feedback to the control surface. <em>fadermode</em> is a string that
-  tells Ardour what kind of math the control surface's faders use.</dd>
+  <dd>
+	  See below for an explaination of each parameter.
+  </dd>
 </dl>
-<p class="note">
-  <em>Strip Types</em> Coming soon... check for more info sometime.
+<h3>bank_size</h3>
+<p>
+  Bank Size is the number of channel strips the controller supports
+  without banking. Setting this to 0 turns banking off by setting the
+  bank size to infinite.
 </p>
-<p class="note">
-  <em>Feedback</em> This is an integer made up of bits. The easy way to
+<h3>strip_types</h3>
+<p>
+  Strip Types are coming soon... check for more info sometime. For now
+  just use 0 (or anything else) as this is ignored. I don't know the bit
+  order just yet, but it will work similar to feedback below. Strip Types
+  will determine What kind of strips will be included in a bank. This would
+  include: Audio, MIDI, busses, VCAs, Master, Monitor and hopefully
+  hidden or selected strips.
+</p>
+<h3>feedback</h3> 
+  <p>Feedback is an integer made up of bits. The easy way to
   deal with this is to think of feedback items being worth a number and
   then adding all those numbers together for a value to send.
   <ul>
@@ -94,11 +116,12 @@ here</em>"/&gt;</kbd>
 	<li>
 		16 - Enable master section feedback (not coded yet).
 	</li>
-	So using a value of 17 would turn on feedback for strip and master
-	controls, but leave meters, timecode and bar/beat feedback off.
   </ul>
+  So using a value of 17 would turn on feedback for strip and master
+  controls, but leave meters, timecode and bar/beat feedback off.
 </p>
-<p class="note">
+<h3>gainmode</h3>
+<p>
   Gainmode is a string that is one of:
   <ul>
 	  <li><em>ABS</em> Absolute Gain as a float value from 0.0 to 2.0
@@ -113,19 +136,6 @@ here</em>"/&gt;</kbd>
 	  0 to 1023 (1024 values) for controllers with no FPU. Sent as
 	  /strip/fader1024 RID value</li>
   </ul>
-<p>
-  Any time the <em>/set_surface</em> command is sent, the current bank
-  is recalculated and if feedback is turned on, the values of each
-  strip's controls are sent (or refreshed) as well.
-</p>
-<p>If /set_surface is not sent, the default values of:
-  <ul>
-	  <li><em>Bank Size</em>: 0 - No banking (or infinite bank size).</li>
-	  <li><em>Strip Types</em>: All strip types except hidden.</li>
-	  <li><em>Feedback</em>: Off.</li>
-	  <li><em>Fader Mode</em>: ABS - Absolute gain.</li>
-  </ul>
-  These values give the same behaviour as prior versions of Ardour.
 </p>
   
 <h2>List of OSC messages</h2>
@@ -133,23 +143,12 @@ here</em>"/&gt;</kbd>
 <h3>Master or Global messages</h3>
 
 <h4>Master and Monitor strip control</h4>
+<p>(coming soon)</p>
 <dl class="bindings">
-  <dt><kbd class="osc">/masterabs <em>abs</em></kbd></dt>
-  <dd>where <em>abs</em> is a float ranging from 0.0f to 2.0f</dd>
-  <dt><kbd class="osc">/masterdB <em>dB</em></kbd></dt>
-  <dd>where <em>dB</em> is a float ranging from -200f to 6f</dd>
-  <dt><kbd class="osc">/masterfader <em>fader</em></kbd></dt>
-  <dd>where <em>fader</em> is a float ranging from 0.0f to 1.0f</dd>
-  <dt><kbd class="osc">/master1024 <em>fader</em></kbd></dt>
-  <dd>where <em>fader</em> is an int ranging from 0 to 1023</dd>
-  <dt><kbd class="osc">/monitorabs <em>abs</em></kbd></dt>
-  <dd>where <em>abs</em> is a float ranging from 0.0f to 2.0f</dd>
-  <dt><kbd class="osc">/monitordB <em>dB</em></kbd></dt>
-  <dd>where <em>dB</em> is a float ranging from -200f to 6f</dd>
-  <dt><kbd class="osc">/monitorfader <em>fader</em></kbd></dt>
-  <dd>where <em>fader</em> is a float ranging from 0.0f to 1.0f</dd>
-  <dt><kbd class="osc">/monitor1024 <em>fader</em></kbd></dt>
-  <dd>where <em>fader</em> is an int ranging from 0 to 1023</dd>
+  <dt><kbd class="osc">/master/gain <em>value</em></kbd></dt>
+  <dd>where <em>value</em> is determined by gainmode. (see /set_surface)</dd>
+  <dt><kbd class="osc">/monitor/gain <em>value</em></kbd></dt>
+  <dd>where <em>value</em> is determined by gainmode. (see /set_surface)</dd>
 </dl>
 
 <h4>Transport Control</h4>
@@ -235,7 +234,7 @@ here</em>"/&gt;</kbd>
   <dd>where <em>gain_db</em> is a float ranging from -200 to 6 representing the desired gain of the track in dB.</dd>
   <dt><kbd class="osc">/strip/fader <em>rid</em>  <em>fader position</em></kbd></dt>
   <dd>where <em>fader position</em> is a float ranging from 0 to 1 representing the fader control position.</dd>
-  <dt><kbd class="osc">/strip/gaindB <em>rid</em>  <em>gain_db</em></kbd></dt>
+  <dt><kbd class="osc">/strip/fader1024 <em>rid</em>  <em>fader1024</em></kbd></dt>
   <dd>where <em>fader1024</em> is an int ranging from 0 to 1023 representing the fader control position.</dd>
   <dt><kbd class="osc">/strip/trimabs <em>rid</em> <em>trim_abs</em></kbd></dt>
   <dd>where <em>trim_abs</em> is a float ranging from 0.1 to 10 (-20dB to +20dB). (since 4.1)</dd>
