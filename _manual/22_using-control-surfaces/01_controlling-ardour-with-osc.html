@@ -145,10 +145,14 @@ here</em>"/&gt;</kbd>
 <h4>Master and Monitor strip control</h4>
 <p>(coming soon)</p>
 <dl class="bindings">
-  <dt><kbd class="osc">/master/gain <em>value</em></kbd></dt>
-  <dd>where <em>value</em> is determined by gainmode. (see /set_surface)</dd>
-  <dt><kbd class="osc">/monitor/gain <em>value</em></kbd></dt>
-  <dd>where <em>value</em> is determined by gainmode. (see /set_surface)</dd>
+  <dt><kbd class="osc">/master/gain <em>dB</em></kbd></dt>
+  <dd>where <em>dB</em> is a float ranging from -193 to +6 representing the desired gain of master in dB.</dd>
+  <dt><kbd class="osc">/master/fader  <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position.</dd>
+  <dt><kbd class="osc">/monitor/gain <em>dB</em></kbd></dt>
+  <dd>where <em>dB</em> is a float ranging from -200 to 6 representing the desired gain of monitor in dB.</dd>
+  <dt><kbd class="osc">/monitor/fader  <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position.</dd>
 </dl>
 
 <h4>Transport Control</h4>
