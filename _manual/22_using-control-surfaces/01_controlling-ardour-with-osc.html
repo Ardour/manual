@@ -70,9 +70,9 @@ here</em>"/&gt;</kbd>
 	  <li><em>Bank Size</em>: 0 - No banking (or infinite bank size).</li>
 	  <li><em>Strip Types</em>: All strip types except hidden.</li>
 	  <li><em>Feedback</em>: Off.</li>
-	  <li><em>Fader Mode</em>: ABS - Absolute gain.</li>
+	  <li><em>Fader Mode</em>: 0 - gain in dB</li>
   </ul>
-  These values give the same behaviour as prior versions of Ardour.
+  These values give the same behaviour as prior versions of Ardour. (or the closest possible)
 </p>
 <dl class="bindings">
   <dt><kbd class="osc">/set_surface <em>bank_size</em> <em>strip_types</em>
@@ -97,9 +97,10 @@ here</em>"/&gt;</kbd>
   hidden or selected strips.
 </p>
 <h3>feedback</h3> 
-  <p>Feedback is an integer made up of bits. The easy way to
+<p>Feedback is an integer made up of bits. The easy way to
   deal with this is to think of feedback items being worth a number and
   then adding all those numbers together for a value to send.
+</p>
   <ul>
 	<li>
 		1 - feedback values of controls in strips.
@@ -108,7 +109,7 @@ here</em>"/&gt;</kbd>
 		2 - Send meter values (not coded yet).
 	</li>
 	<li>
-		4 - Send timecode (not codeed yet).
+		4 - Send timecode (not coded yet).
 	</li>
 	<li>
 		8 - Send Bar and Beat (not coded yet).
@@ -117,24 +118,19 @@ here</em>"/&gt;</kbd>
 		16 - Enable master section feedback (not coded yet).
 	</li>
   </ul>
+<p>
   So using a value of 17 would turn on feedback for strip and master
   controls, but leave meters, timecode and bar/beat feedback off.
 </p>
 <h3>gainmode</h3>
 <p>
-  Gainmode is a string that is one of:
+  Gainmode is a an int that acts as a bool:
   <ul>
-	  <li><em>ABS</em> Absolute Gain as a float value from 0.0 to 2.0
-	  sent in the same manner as the OSC command. For example: 
-	  /strip/gainabs RID Value.</li>
-	  <li><em>DB</em> dB value as a float from -200 to +6. Sent as
-	  /strip/gaindB RID value.</li>
-	  <li><em>FADER</em> A positional fader based on the same math as
-	  Ardour's GUI. A float from 0.0 to 1.0.
-	  Sent as /strip/fader RID value</li>
-	  <li><em>INT1024</em> Also a positonal value, but an Integer from
-	  0 to 1023 (1024 values) for controllers with no FPU. Sent as
-	  /strip/fader1024 RID value</li>
+	  <li><em>0 (or false)</em> dB value as a float from -193 to +6. Sent as
+	  /strip/gain RID value. (-193 or below are the same as -inf)</li>
+	  <li><em>1 (or true)</em> A positional fader based on the same math as
+	  Ardour's GUI.  An Integer from 0 to 1023 (1024 values). Sent as
+	  /strip/fader RID value</li>
   </ul>
 </p>
   
@@ -232,14 +228,10 @@ here</em>"/&gt;</kbd>
   <dd>where <em>solo_st</em> is a bool/int representing the desired solo state of the track</dd>
   <dt><kbd class="osc">/strip/recenable <em>rid</em> <em>rec_st</em></kbd></dt>
   <dd>where <em>rec_st</em> is a bool/int representing the desired rec state of the track</dd>
-  <dt><kbd class="osc">/strip/gainabs <em>rid</em> <em>gain_abs</em></kbd></dt>
-  <dd>where <em>gain_abs</em> is a float ranging from 0 to 2 (0 being -infinite, 1 being 0dB and 2 being +6dB).</dd>
-  <dt><kbd class="osc">/strip/gaindB <em>rid</em>  <em>gain_db</em></kbd></dt>
-  <dd>where <em>gain_db</em> is a float ranging from -200 to 6 representing the desired gain of the track in dB.</dd>
-  <dt><kbd class="osc">/strip/fader <em>rid</em>  <em>fader position</em></kbd></dt>
-  <dd>where <em>fader position</em> is a float ranging from 0 to 1 representing the fader control position.</dd>
-  <dt><kbd class="osc">/strip/fader1024 <em>rid</em>  <em>fader1024</em></kbd></dt>
-  <dd>where <em>fader1024</em> is an int ranging from 0 to 1023 representing the fader control position.</dd>
+  <dt><kbd class="osc">/strip/gain <em>rid</em>  <em>gain</em></kbd></dt>
+  <dd>where <em>gain</em> is a float ranging from -193 to 6 representing the desired gain of the track in dB.</dd>
+  <dt><kbd class="osc">/strip/fader <em>rid</em>  <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position.</dd>
   <dt><kbd class="osc">/strip/trimabs <em>rid</em> <em>trim_abs</em></kbd></dt>
   <dd>where <em>trim_abs</em> is a float ranging from 0.1 to 10 (-20dB to +20dB). (since 4.1)</dd>
   <dt><kbd class="osc">/strip/trimdB <em>rid</em>  <em>trim_db</em></kbd></dt>
