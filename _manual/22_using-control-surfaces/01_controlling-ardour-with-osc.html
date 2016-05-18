@@ -48,7 +48,10 @@ here</em>"/&gt;</kbd>
   than one controller at a time. The two controllers can bank
   independantly and even use different math for faders. This could be
   used to allow talent to adjust their own monitor mix using a tablet
-  or phone that can run an OSC controller.
+  or phone that can run an OSC controller. For a full explanation of
+  how Ardour's feedback works please read <a
+  href="/using-control-surfaces/controlling-ardour-with-osc/feedback-in-osc/">
+  OSC feedback In Ardour.</a>
 </p>
 
 <h2>Control Surface Set Up</h2>
@@ -63,12 +66,13 @@ here</em>"/&gt;</kbd>
 <p>
   Any time the <em>/set_surface</em> command is sent, the current bank
   is recalculated and if feedback is turned on, the values of each
-  strip's controls are sent (or refreshed) as well.
+  strip's controls are sent (or refreshed) as well. This will also
+  refresh the Master feedback setup.
 </p>
 <p>If /set_surface is not sent, the default values are used:
   <ul>
 	  <li><em>Bank Size</em>: 0 - No banking (or infinite bank size).</li>
-	  <li><em>Strip Types</em>: All strip types except hidden.</li>
+	  <li><em>Strip Types</em>: All strip types except hidden and special.</li>
 	  <li><em>Feedback</em>: Off.</li>
 	  <li><em>Fader Mode</em>: 0 - gain in dB</li>
   </ul>
@@ -115,7 +119,7 @@ here</em>"/&gt;</kbd>
 		8 - Send Bar and Beat (not coded yet).
 	</li>
 	<li>
-		16 - Enable master section feedback (not coded yet).
+		16 - Enable master section feedback.
 	</li>
   </ul>
 <p>
@@ -207,35 +211,35 @@ here</em>"/&gt;</kbd>
 
 <h3>Track specific operations</h3>
 <p>
-  For each of the following, <em>rid</em> is the remote ID for the track
+  For each of the following, <em>ssid</em> is the Surface Strip ID for the track
 </p>
 <p class="note">
-  RID has a different meaning than in Ardour version 4.7 and before.
-  Effectively, banking is always being used and the RID is generated on
-  the fly. The RID is the possition of the strip within bank as an int
+  SSID has a different meaning than RID in Ardour version 4.7 and before.
+  Effectively, banking is always being used and the SSID is generated on
+  the fly. The SSID is the possition of the strip within bank as an int
   1 to bank size. There are no gaps as there have been in the past.
   Depending on the value of strip_types sent to Ardour, Master and
-  Monitor, may be included in the list of RIDs or not as the controller
-  sets.
+  Monitor, may be included in the list of SSIDs or not as set in
+  <em>/set_surface</em>.
 </p>
 <dl class="bindings">
   <dt><kbd class="osc">/bank_up</kbd></dt>
   <dd>Change bank to the next higher bank.</dd>
   <dt><kbd class="osc">/bank_down</kbd></dt>
   <dd>Change bank to the next lower bank.</dd>
-  <dt><kbd class="osc">/strip/mute <em>rid</em> <em>mute_st</em></kbd></dt>
+  <dt><kbd class="osc">/strip/mute <em>ssid</em> <em>mute_st</em></kbd></dt>
   <dd>where <em>mute_st</em> is a bool/int representing the desired mute state of the track</dd>
-  <dt><kbd class="osc">/strip/solo <em>rid</em> <em>solo_st</em></kbd></dt>
+  <dt><kbd class="osc">/strip/solo <em>ssid</em> <em>solo_st</em></kbd></dt>
   <dd>where <em>solo_st</em> is a bool/int representing the desired solo state of the track</dd>
-  <dt><kbd class="osc">/strip/recenable <em>rid</em> <em>rec_st</em></kbd></dt>
+  <dt><kbd class="osc">/strip/recenable <em>ssid</em> <em>rec_st</em></kbd></dt>
   <dd>where <em>rec_st</em> is a bool/int representing the desired rec state of the track</dd>
-  <dt><kbd class="osc">/strip/gain <em>rid</em>  <em>gain</em></kbd></dt>
+  <dt><kbd class="osc">/strip/gain <em>ssid</em>  <em>gain</em></kbd></dt>
   <dd>where <em>gain</em> is a float ranging from -193 to 6 representing the desired gain of the track in dB.</dd>
-  <dt><kbd class="osc">/strip/fader <em>rid</em>  <em>position</em></kbd></dt>
+  <dt><kbd class="osc">/strip/fader <em>ssid</em>  <em>position</em></kbd></dt>
   <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position.</dd>
-  <dt><kbd class="osc">/strip/trimabs <em>rid</em> <em>trim_abs</em></kbd></dt>
+  <dt><kbd class="osc">/strip/trimabs <em>ssid</em> <em>trim_abs</em></kbd></dt>
   <dd>where <em>trim_abs</em> is a float ranging from 0.1 to 10 (-20dB to +20dB). (since 4.1)</dd>
-  <dt><kbd class="osc">/strip/trimdB <em>rid</em>  <em>trim_db</em></kbd></dt>
+  <dt><kbd class="osc">/strip/trimdB <em>ssid</em>  <em>trim_db</em></kbd></dt>
   <dd>where <em>trim_db</em> is a float ranging from -20 to 20 representing the desired trim of the track in dB. (since 4.1)</dd>
 </dl>
 
@@ -821,3 +825,5 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Zoom/zoom-focus-playhead</kbd></dt><dd>Zoom Focus Playhead</dd>
   <dt><kbd class="osc">Zoom/zoom-focus-right</kbd></dt><dd>Zoom Focus Right</dd>
 </dl>
+
+{% children %}
