@@ -1,0 +1,128 @@
+---
+layout: default
+title: OSC Feedback With Ardour
+---                        
+  
+<p>
+  Feedback from the Ardour to the the control surface is very useful for
+  a number of things. Motor faders need to know where the the track
+  they have been attached to is at before they were assigned otherwise
+  they will jump to where the local fader is. Likewise, the buttons on
+  each strip need to know what there value is so they can light there LED
+  correctly. Transport controls should let you know if they are active
+  too. This is what feedback is all about.
+</p>
+<p>
+  Ardour does feedback by sending the same path back that is used to
+  control the same function. As such any controls that have feedback
+  have a parameter that is the value of the control or it's state
+  (on or off). In the case of OSC paths listed on the main OSC page
+  as having no parameter, if they have feedback, they will also work
+  with a 1 for button press and 0 for button release. This is because
+  many OSC controllers will only use exactly the same path for feedback
+  as for control. For example:
+</p>
+
+<dl class="bindings">
+  <dt><kbd class="osc">/transport_stop</kbd></dt>
+  <dd></dd>
+</dl>
+<p>can be used also in the form:</p>
+
+<dl class="bindings">
+  <dt><kbd class="osc">/transport_stop <em>press</em></kbd></dt>
+  <dd>where <em>press</em> is an int/bool indicating if the button is pressed or not.</dd>
+</dl>
+
+<p>
+  The feedback does not have the same meaning as the control message.
+  Rather, the feedback will be:
+</p>
+
+<dl class="bindings">
+  <dt><kbd class="osc">/transport_stop <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is an int/bool indicating if the transport is stopped or not.</dd>
+</dl>
+
+<h2>List of OSC feedback messages</h2>
+
+<h3>Transport Control</h3>
+<dl class="bindings">
+  <dt><kbd class="osc">/transport_stop <em>state</em></kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/transport_play <em>state</em></kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/ffwd <em>state</em></kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/rewind <em>state</em></kbd></dt>
+  <dd></dd>
+  <!--dt><kbd class="osc">/loop_toggle</kbd></dt>
+  <dd></dd-->
+</dl>
+
+
+<h3>Recording control</h3>
+<dl class="bindings">
+  <!--dt><kbd class="osc">/toggle_punch_in</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/toggle_punch_out</kbd></dt>
+  <dd></dd-->
+  <dt><kbd class="osc">/rec_enable_toggle <em>state</em></kbd></dt>
+  <dd></dd>
+</dl>
+
+<h3>Master and monitor strips</h3>
+<p>
+  Master and monitor strips are similar to track strips but do not use
+  the SSID. Rather they use their name as part of the path:
+</p>
+<dl class="bindings">
+  <dt><kbd class="osc">/master/gain <em>dB</em></kbd></dt>
+  <dd>where <em>dB</em> is a float ranging from -193 to +6 representing the actual gain of master in dB</dd>
+  <dt><kbd class="osc">/master/fader  <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position</dd>
+  <dt><kbd class="osc">/master/trimdB <em>dB</em></kbd></dt>
+  <dd>where <em>dB</em> is a float ranging from -20 to +20 representing the actual trim for master in dB</dd>
+  <dt><kbd class="osc">/master/pan_stereo_position <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the actual pan position for master</dd>
+  <dt><kbd class="osc">/master/mute  <em>yn</em></kbd></dt>
+  <dd>where <em>yn</em> is a bool/int representing the actual mute state of the Master strip</dd>
+  <dt><kbd class="osc">/monitor/gain <em>dB</em></kbd></dt>
+  <dd>where <em>dB</em> is a float ranging from -193 to 6 representing the actual gain of monitor in dB</dd>
+  <dt><kbd class="osc">/monitor/fader  <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position</dd>
+</dl>
+
+<h3>Track specific operations</h3>
+<p>
+  For each of the following, <em>ssid</em> is the surface strip ID for the track
+</p>
+<dl class="bindings">
+  <dt><kbd class="osc">/strip/name <em>ssid</em> <em>track_name</em></kbd></dt>
+  <dd>where <em>track_name</em> is a string representing the name of the track 
+  (note there is no coresponding command to set the track name)</dd>
+  <dt><kbd class="osc">/strip/mute <em>ssid</em> <em>mute_st</em></kbd></dt>
+  <dd>where <em>mute_st</em> is a bool/int representing the actual mute state of the track</dd>
+  <dt><kbd class="osc">/strip/solo <em>ssid</em> <em>solo_st</em></kbd></dt>
+  <dd>where <em>solo_st</em> is a bool/int representing the actual solo state of the track</dd>
+  <dt><kbd class="osc">/strip/recenable <em>ssid</em> <em>rec_st</em></kbd></dt>
+  <dd>where <em>rec_st</em> is a bool/int representing the actual rec state of the track</dd>
+  <dt><kbd class="osc">/strip/gain <em>ssid</em> <em>gain</em></kbd></dt>
+  <dd>where <em>gain</em> is a float ranging from -193 to 6 representing the actual gain of the track in dB.</dd>
+  <dt><kbd class="osc">/strip/fader <em>ssid</em>  <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the actual gain of the track in dB.</dd>
+  <dt><kbd class="osc">/strip/trimdB <em>ssid</em>  <em>trim_db</em></kbd></dt>
+  <dd>where <em>trim_db</em> is a float ranging from -20 to 20 representing the actual trim of the track in dB.</dd>
+  <dt><kbd class="osc">/strip/pan_stereo_position <em>ssid</em> <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the actual pan position of the track</dd>
+</dl>
+
+<h3>Menu actions</h3>
+<p>
+  Every single menu item in Ardour's GUI is accessible via OSC. However,
+  there is no provision for returning the state of anything set this way.
+  This is not a bad thing as most menu items either do not have an on/off
+  state or that state is quite visible. Binding that affect other parameters
+  that OSC does track will show on those OSC controls. Examples of this
+  might be track record enable for tracks 1 to 32, play or stop.
+</p>

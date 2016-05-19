@@ -142,20 +142,6 @@ here</em>"/&gt;</kbd>
 
 <h3>Master or Global messages</h3>
 
-<h4>Master and Monitor strip control</h4>
-<dl class="bindings">
-  <dt><kbd class="osc">/master/gain <em>dB</em></kbd></dt>
-  <dd>where <em>dB</em> is a float ranging from -193 to +6 representing the desired gain of master in dB</dd>
-  <dt><kbd class="osc">/master/fader  <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position</dd>
-  <dt><kbd class="osc">/master/mute  <em>yn</em></kbd></dt>
-  <dd>where <em>yn</em> is a bool/int representing the desired mute state of the track</dd>
-  <dt><kbd class="osc">/monitor/gain <em>dB</em></kbd></dt>
-  <dd>where <em>dB</em> is a float ranging from -193 to 6 representing the desired gain of monitor in dB</dd>
-  <dt><kbd class="osc">/monitor/fader  <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position</dd>
-</dl>
-
 <h4>Transport Control</h4>
 <dl class="bindings">
   <dt><kbd class="osc">/transport_stop</kbd></dt>
@@ -209,6 +195,24 @@ here</em>"/&gt;</kbd>
   <dd>(toggles all tracks' recording state)</dd>
 </dl>
 
+<h4>Master and Monitor strip control</h4>
+<dl class="bindings">
+  <dt><kbd class="osc">/master/gain <em>dB</em></kbd></dt>
+  <dd>where <em>dB</em> is a float ranging from -193 to +6 representing the desired gain of master in dB</dd>
+  <dt><kbd class="osc">/master/fader  <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position</dd>
+  <dt><kbd class="osc">/master/trimdB <em>dB</em></kbd></dt>
+  <dd>where <em>dB</em> is a float ranging from -20 to +20 representing the desired trim for master in dB</dd>
+  <dt><kbd class="osc">/master/pan_stereo_position <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan position for master</dd>
+  <dt><kbd class="osc">/master/mute  <em>yn</em></kbd></dt>
+  <dd>where <em>yn</em> is a bool/int representing the desired mute state of the track</dd>
+  <dt><kbd class="osc">/monitor/gain <em>dB</em></kbd></dt>
+  <dd>where <em>dB</em> is a float ranging from -193 to 6 representing the desired gain of monitor in dB</dd>
+  <dt><kbd class="osc">/monitor/fader  <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position</dd>
+</dl>
+
 <h3>Track specific operations</h3>
 <p>
   For each of the following, <em>ssid</em> is the Surface Strip ID for the track
@@ -240,7 +244,9 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">/strip/trimabs <em>ssid</em> <em>trim_abs</em></kbd></dt>
   <dd>where <em>trim_abs</em> is a float ranging from 0.1 to 10 (-20dB to +20dB). (since 4.1)</dd>
   <dt><kbd class="osc">/strip/trimdB <em>ssid</em>  <em>trim_db</em></kbd></dt>
-  <dd>where <em>trim_db</em> is a float ranging from -20 to 20 representing the desired trim of the track in dB. (since 4.1)</dd>
+  <dd>where <em>trim_db</em> is a float ranging from -20 to 20 representing the desired trim of the track in dB.</dd>
+  <dt><kbd class="osc">/strip/pan_stereo_position <em>ssid</em> <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan position of the track</dd>
 </dl>
 
 <h3>Menu actions</h3>
