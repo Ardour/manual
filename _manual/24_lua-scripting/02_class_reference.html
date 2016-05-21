@@ -566,18 +566,21 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> calculate peaks</p><dl><dt class="param-name-index-0">data</dt><dd class="param-descr-index-0"> data to analyze </dd><dt class="param-name-index-1">min</dt><dd class="param-descr-index-1"> result, minimum value found in range </dd><dt class="param-name-index-2">max</dt><dd class="param-descr-index-2"> result, max value found in range </dd><dt class="param-name-index-3">n_samples</dt><dd class="param-descr-index-3"> number of samples to analyze</dd></dl></div></td></tr>
  </table>
 <h3 id="ARDOUR:DSP:Biquad" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:DSP:Biquad</h3>
-<p class="cdecl"><em>C&#8225;</em>: ARDOUR::DSP::BiQuad</p>
+<p class="cdecl"><em>C&#8225;</em>: ARDOUR::DSP::Biquad</p>
 <div class="clear"></div>
 <div class="classdox"><p class="para-brief"> Biquad Filter </p></div>
 <table class="classmembers">
  <tr><th colspan="3">Constructor</th></tr>
  <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">ARDOUR.DSP.Biquad</span><span class="functionargs"> (<span class="em">double</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Instantiate Biquad Filter</p><dl><dt class="param-name-index-0">samplerate</dt><dd class="param-descr-index-0"> Samplerate</dd></dl></div></td></tr>
  <tr><th colspan="3">Methods</th></tr>
- <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::DSP::BiQuad::*)(ARDOUR::DSP::BiQuad::Type, double, double, double)">compute</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR.DSP.BiQuad.Type">Type</a>, <span class="em">double</span>, <span class="em">double</span>, <span class="em">double</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::DSP::Biquad::*)(ARDOUR::DSP::Biquad::Type, double, double, double)">compute</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR.DSP.Biquad.Type">Type</a>, <span class="em">double</span>, <span class="em">double</span>, <span class="em">double</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> setup filter, compute coefficients</p><dl><dt class="param-name-index-0">type</dt><dd class="param-descr-index-0"> filter type (LowPass, HighPass, etc) </dd><dt class="param-name-index-1">freq</dt><dd class="param-descr-index-1"> filter frequency </dd><dt class="param-name-index-2">Q</dt><dd class="param-descr-index-2"> filter quality </dd><dt class="param-name-index-3">gain</dt><dd class="param-descr-index-3"> filter gain</dd></dl></div></td></tr>
- <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::DSP::BiQuad::*)()">reset</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">float</span></td><td class="decl"><span class="functionname"><abbr title="float (ARDOUR::DSP::Biquad::*)(float) const">dB_at_freq</abbr></span><span class="functionargs"> (<span class="em">float</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> filter transfer function (filter response for spectrum visualization) </p><dl><dt class="param-name-index-0">freq</dt><dd class="param-descr-index-0"> frequency </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  gain at given frequency in dB (clamped to -120..+120)</p></div></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::DSP::Biquad::*)()">reset</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> reset filter state </p></div></td></tr>
- <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::DSP::BiQuad::*)(float*, unsigned int)">run</abbr></span><span class="functionargs"> (<a class="" href="#C:FloatArray">FloatArray</a>, <span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::DSP::Biquad::*)(float*, unsigned int)">run</abbr></span><span class="functionargs"> (<a class="" href="#C:FloatArray">FloatArray</a>, <span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> process audio data</p><dl><dt class="param-name-index-0">data</dt><dd class="param-descr-index-0"> pointer to audio-data </dd><dt class="param-name-index-1">n_samples</dt><dd class="param-descr-index-1"> number of samples to process</dd></dl></div></td></tr>
  </table>
 <h3 id="ARDOUR:DSP:DspShm" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:DSP:DspShm</h3>
@@ -2086,7 +2089,8 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><em>LuaMetaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*)">array</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*)">get_table</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="void (*)(float*)">sameinstance</abbr></span><span class="functionargs"> (<a class="" href="#C:FloatArray">FloatArray</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#C:FloatArray">FloatArray</a></td><td class="decl"><span class="functionname"><abbr title="float* (*)(unsigned int)">offset</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (*)(float*)">sameinstance</abbr></span><span class="functionargs"> (<a class="" href="#C:FloatArray">FloatArray</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>void</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*)">set_table</abbr></span><span class="functionargs"> (<span class="em">LuaTable {float}</span>)</span></td><td class="fill"></td></tr>
  </table>
 <h3 id="C:IntArray" class="cls array"><abbr title="C Array">&ctdot;</abbr>&nbsp;C:IntArray</h3>
@@ -2096,7 +2100,8 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><em>LuaMetaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*)">array</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*)">get_table</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="void (*)(int*)">sameinstance</abbr></span><span class="functionargs"> (<a class="" href="#C:IntArray">IntArray</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#C:IntArray">IntArray</a></td><td class="decl"><span class="functionname"><abbr title="int* (*)(unsigned int)">offset</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (*)(int*)">sameinstance</abbr></span><span class="functionargs"> (<a class="" href="#C:IntArray">IntArray</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>void</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*)">set_table</abbr></span><span class="functionargs"> (<span class="em">LuaTable {int}</span>)</span></td><td class="fill"></td></tr>
  </table>
 <h3 id="C:StringList" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;C:StringList</h3>
@@ -2755,17 +2760,17 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li class="const">Editing.ImportSerializeFiles</li>
 <li class="const">Editing.ImportDistinctChannels</li>
 </ul>
-<h3 id="ARDOUR.DSP.BiQuad.Type" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.DSP.BiQuad.Type</h3>
+<h3 id="ARDOUR.DSP.Biquad.Type" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.DSP.Biquad.Type</h3>
 <ul class="enum">
-<li class="const">ARDOUR.DSP.BiQuadType.LowPass</li>
-<li class="const">ARDOUR.DSP.BiQuadType.HighPass</li>
-<li class="const">ARDOUR.DSP.BiQuadType.BandPassSkirt</li>
-<li class="const">ARDOUR.DSP.BiQuadType.BandPass0dB</li>
-<li class="const">ARDOUR.DSP.BiQuadType.Notch</li>
-<li class="const">ARDOUR.DSP.BiQuadType.AllPass</li>
-<li class="const">ARDOUR.DSP.BiQuadType.Peaking</li>
-<li class="const">ARDOUR.DSP.BiQuadType.LowShelf</li>
-<li class="const">ARDOUR.DSP.BiQuadType.HighShelf</li>
+<li class="const">ARDOUR.DSP.BiquadType.LowPass</li>
+<li class="const">ARDOUR.DSP.BiquadType.HighPass</li>
+<li class="const">ARDOUR.DSP.BiquadType.BandPassSkirt</li>
+<li class="const">ARDOUR.DSP.BiquadType.BandPass0dB</li>
+<li class="const">ARDOUR.DSP.BiquadType.Notch</li>
+<li class="const">ARDOUR.DSP.BiquadType.AllPass</li>
+<li class="const">ARDOUR.DSP.BiquadType.Peaking</li>
+<li class="const">ARDOUR.DSP.BiquadType.LowShelf</li>
+<li class="const">ARDOUR.DSP.BiquadType.HighShelf</li>
 </ul>
 <h2 id="h_index" >Class Index</h2>
 <ul class="classindex">
@@ -2882,6 +2887,6 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#PBD:XMLNode">PBD:XMLNode</a></li>
 <li><a class="" href="#Timecode:BBT_TIME">Timecode:BBT_TIME</a></li>
 </ul>
-<!-- 281 / 907 !-->
+<!-- 283 / 908 !-->
 </div>
-<div class="luafooter">Ardour 4.7-1011-g1968f94 &nbsp;-&nbsp; Sun, 15 May 2016 13:59:13 +0200</div>
+<div class="luafooter">Ardour 4.7-1065-ge63c2c3 &nbsp;-&nbsp; Sat, 21 May 2016 16:17:54 +0200</div>
