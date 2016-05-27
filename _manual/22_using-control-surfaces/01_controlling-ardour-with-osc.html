@@ -93,39 +93,25 @@ here</em>"/&gt;</kbd>
 </p>
 <h3>strip_types</h3>
 <p>
-  Strip Types are coming soon... check for more info sometime. For now
-  just use 0 (or anything else) as this is ignored. I don't know the bit
-  order just yet, but it will work similar to feedback below. Strip Types
-  will determine What kind of strips will be included in a bank. This would
-  include: Audio, MIDI, busses, VCAs, Master, Monitor and hopefully
-  hidden or selected strips.
+  strip_types is an integer made up of bits. The easy way to
+  deal with this is to think of strip_types items being worth a number and
+  then adding all those numbers together for a value to send.
+  Strip Types will determine What kind of strips will be included in 
+  bank. This would include: Audio, MIDI, busses, VCAs, Master, Monitor
+  and hidden or selected strips.
 </p>
+<p>Please see: <a
+  href="/using-control-surfaces/controlling-ardour-with-osc/calculating-feedback-and-strip-types-values/">
+  Calculating Feedback and Strip-types Values.</a></p>
 <h3>feedback</h3> 
 <p>Feedback is an integer made up of bits. The easy way to
   deal with this is to think of feedback items being worth a number and
   then adding all those numbers together for a value to send.
 </p>
-  <ul>
-	<li>
-		1 - feedback values of controls in strips.
-	</li>
-	<li>
-		2 - Send meter values (not coded yet).
-	</li>
-	<li>
-		4 - Send timecode (not coded yet).
-	</li>
-	<li>
-		8 - Send Bar and Beat (not coded yet).
-	</li>
-	<li>
-		16 - Enable master section feedback.
-	</li>
-  </ul>
-<p>
-  So using a value of 17 would turn on feedback for strip and master
-  controls, but leave meters, timecode and bar/beat feedback off.
-</p>
+<p>Please see: <a
+  href="/using-control-surfaces/controlling-ardour-with-osc/calculating-feedback-and-strip-types-values/">
+  Calculating Feedback and Strip-types Values.</a></p>
+
 <h3>gainmode</h3>
 <p>
   Gainmode is a an int that acts as a bool:
@@ -144,15 +130,15 @@ here</em>"/&gt;</kbd>
 
 <h4>Transport Control</h4>
 <dl class="bindings">
-  <dt><kbd class="osc">/transport_stop</kbd></dt>
+  <dt><kbd class="osc">/transport_stop <em>optional</em></kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/transport_play</kbd></dt>
+  <dt><kbd class="osc">/transport_play <em>optional</em></kbd></dt>
   <dd></dd>
   <dt><kbd class="osc">/set_transport_speed <em>s</em></kbd></dt>
   <dd>where <em>s</em> is a float ranging from -8.0f to 8.0f</dd>
-  <dt><kbd class="osc">/ffwd</kbd></dt>
+  <dt><kbd class="osc">/ffwd <em>optional</em></kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/rewind</kbd></dt>
+  <dt><kbd class="osc">/rewind <em>optional</em></kbd></dt>
   <dd></dd>
   <dt><kbd class="osc">/goto_start</kbd></dt>
   <dd></dd>
@@ -168,7 +154,7 @@ here</em>"/&gt;</kbd>
   <dd>where <em>spos</em> is the target position in samples and
   <em>roll</em> is a bool/integer defining whether you want transport 
   to be kept rolling or not</dd>
-  <dt><kbd class="osc">/loop_toggle</kbd></dt>
+  <dt><kbd class="osc">/loop_toggle <em>optional</em></kbd></dt>
   <dd></dd>
 </dl>
 
@@ -189,7 +175,7 @@ here</em>"/&gt;</kbd>
   <dd></dd>
   <dt><kbd class="osc">/toggle_punch_out</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/rec_enable_toggle</kbd></dt>
+  <dt><kbd class="osc">/rec_enable_toggle <em>optional</em></kbd></dt>
   <dd></dd>
   <dt><kbd class="osc">/toggle_all_rec_enables</kbd></dt>
   <dd>(toggles all tracks' recording state)</dd>
@@ -226,15 +212,26 @@ here</em>"/&gt;</kbd>
   Monitor, may be included in the list of SSIDs or not as set in
   <em>/set_surface</em>.
 </p>
+<p class="note">
+  Some Surfaces (many Android applets) are not able to deal with more
+  than one parameter in a command. However, the two parameter commands
+  below can also be sent as /strip/command/ssid param. In this case the
+  param should be a float even if an int is required below.
+</p>
 <dl class="bindings">
-  <dt><kbd class="osc">/bank_up</kbd></dt>
+  <dt><kbd class="osc">/bank_up </kbd></dt>
   <dd>Change bank to the next higher bank.</dd>
-  <dt><kbd class="osc">/bank_down</kbd></dt>
+  <dt><kbd class="osc">/bank_down </kbd></dt>
   <dd>Change bank to the next lower bank.</dd>
   <dt><kbd class="osc">/strip/mute <em>ssid</em> <em>mute_st</em></kbd></dt>
   <dd>where <em>mute_st</em> is a bool/int representing the desired mute state of the track</dd>
   <dt><kbd class="osc">/strip/solo <em>ssid</em> <em>solo_st</em></kbd></dt>
   <dd>where <em>solo_st</em> is a bool/int representing the desired solo state of the track</dd>
+  <dt><kbd class="osc">/strip/monitor_input <em>ssid</em> <em>monitor_st</em></kbd></dt>
+  <dd>where <em>monitor_st</em> is a bool/int where 1 is forced input monitoring.</dd>
+  <dt><kbd class="osc">/strip/monitor_disk <em>ssid</em> <em>monitor_st</em></kbd></dt>
+  <dd>where <em>monitor_st</em> is a bool/int where 1 is forced disk monitoring. When input and disk are both off, 
+  Auto monitoring is enabled.</dd>
   <dt><kbd class="osc">/strip/recenable <em>ssid</em> <em>rec_st</em></kbd></dt>
   <dd>where <em>rec_st</em> is a bool/int representing the desired rec state of the track</dd>
   <dt><kbd class="osc">/strip/gain <em>ssid</em>  <em>gain</em></kbd></dt>

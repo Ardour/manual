@@ -56,8 +56,8 @@ title: OSC Feedback With Ardour
   <dd></dd>
   <dt><kbd class="osc">/rewind <em>state</em></kbd></dt>
   <dd></dd>
-  <!--dt><kbd class="osc">/loop_toggle</kbd></dt>
-  <dd></dd-->
+  <dt><kbd class="osc">/loop_toggle <em>state</em></kbd></dt>
+  <dd></dd>
 </dl>
 
 
@@ -68,7 +68,9 @@ title: OSC Feedback With Ardour
   <dt><kbd class="osc">/toggle_punch_out</kbd></dt>
   <dd></dd-->
   <dt><kbd class="osc">/rec_enable_toggle <em>state</em></kbd></dt>
-  <dd></dd>
+  <dd>Master record enabled.</dd>
+  <dt><kbd class="osc">/record_tally <em>state</em></kbd></dt>
+  <dd>Some record enable is true or "ready to record"</dd>
 </dl>
 
 <h3>Master and monitor strips</h3>
@@ -97,6 +99,16 @@ title: OSC Feedback With Ardour
 <p>
   For each of the following, <em>ssid</em> is the surface strip ID for the track
 </p>
+<p class="note">
+  Some Surfaces (many Android applets) are not able to deal with more
+  than one parameter in a command. However, the two parameter commands
+  below can also be sent as /strip/command/ssid param. Feedback can be
+  set to match this with the /set_surface/feedback <em>state</em>
+  command. See <a
+  href="/using-control-surfaces/controlling-ardour-with-osc/calculating-feedback-and-strip-types-values/">
+  Calculating Feedback and Strip-types Values.</a>
+</p>
+
 <dl class="bindings">
   <dt><kbd class="osc">/strip/name <em>ssid</em> <em>track_name</em></kbd></dt>
   <dd>where <em>track_name</em> is a string representing the name of the track 
@@ -105,6 +117,11 @@ title: OSC Feedback With Ardour
   <dd>where <em>mute_st</em> is a bool/int representing the actual mute state of the track</dd>
   <dt><kbd class="osc">/strip/solo <em>ssid</em> <em>solo_st</em></kbd></dt>
   <dd>where <em>solo_st</em> is a bool/int representing the actual solo state of the track</dd>
+  <dt><kbd class="osc">/strip/monitor_input <em>ssid</em> <em>monitor_st</em></kbd></dt>
+  <dd>where <em>monitor_st</em> is a bool/int. True/1 meaning the track is force to monitor input</dd>
+  <dt><kbd class="osc">/strip/monitor_disk <em>ssid</em> <em>monitor_st</em></kbd></dt>
+  <dd>where <em>monitor_st</em> is a bool/int. True/1 meaning the track is force to monitor disk,
+  where both disk and input are false/0, auto monitoring is used.</dd>
   <dt><kbd class="osc">/strip/recenable <em>ssid</em> <em>rec_st</em></kbd></dt>
   <dd>where <em>rec_st</em> is a bool/int representing the actual rec state of the track</dd>
   <dt><kbd class="osc">/strip/gain <em>ssid</em> <em>gain</em></kbd></dt>

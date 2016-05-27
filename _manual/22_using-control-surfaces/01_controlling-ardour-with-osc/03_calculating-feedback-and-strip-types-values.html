@@ -1,0 +1,101 @@
+---
+layout: default
+title: Calculating Feedback and Strip-types Values
+---                        
+
+<p><em>/set_surface</em> has two values the user needs to calculate before
+  use. In general these will not be calculated at run time, but
+  beforehand. There may be more than one button with different values
+  to turn various kinds of feedback on or off or to determine which
+  kinds of strips are currently viewed/controlled.
+</p>
+<p>Both ,<em>feedback</em> and <em>strip-types</em> use bitsets to keep
+  track what they are doing. Any number in a computer is made out of
+  bits that are on or off, but we represtent them as normal base 10
+  numbers. Any one bit turned on will add a unique value to the
+  number as a whole. So for each kind of feedback or strip type
+  to be used, that number should be added to the total.</p>
+<h3>strip_types</h3>
+<p>
+  strip_types is an integer made up of bits. The easy way to
+  deal with this is to think of strip_types items being worth a number and
+  then adding all those numbers together for a value to send.
+  Strip Types will determine What kind of strips will be included in 
+  bank. This would include: Audio, MIDI, busses, VCAs, Master, Monitor
+  and hidden or selected strips.
+</p>
+  <ul>
+	<li>
+		1	- AudioTracks.
+	</li>
+	<li>
+		2	- MidiTracks.
+	</li>
+	<li>
+		4	- AudioBusses.
+	</li>
+	<li>
+		8	- MidiBusses.
+	</li>
+	<li>
+		16	- VCAs.
+	</li>
+	<li>
+		2048	- Master.
+	</li>
+	<li>
+		4096	- Monitor.
+	</li>
+	<li>
+		16384	- Selected.
+	</li>
+	<li>
+		32768	- Hidden.
+	</li>
+  </ul>
+<p>
+  Some handy numbers to use might be: 15 (all tracks and busses), 31 
+  (add VCAs to that). Master or Monitor strips are generally not useful
+  on a surface that has dedicated controls for these strips as there are
+  /master* and /monitor* commands already. However, on a surface with
+  just a bank of fader strips, adding master or monitor would allow
+  access to them within the banks. Selected would be useful for working
+  on a group or a set of user selected strips. Hidden shows strips the
+  GUI has hidden.
+</p>
+
+<h3>feedback</h3> 
+<p>Feedback is an integer made up of bits. The easy way to
+  deal with this is to think of feedback items being worth a number and
+  then adding all those numbers together for a value to send.
+</p>
+  <ul>
+	<li>
+		1 - Button status for strips.
+	</li>
+	<li>
+		2 - Variable control values for strips.
+	</li>
+	<li>
+		4 - Send meter values (not coded yet).
+	</li>
+	<li>
+		8 - heartbeat to surface.
+	</li>
+	<li>
+		16 - Enable master section feedback.
+	</li>
+	<li>
+		32 - Send Bar and Beat (not coded yet).
+	</li>
+	<li>
+		64 - Send timecode (not coded yet).
+	</li>
+	<li>
+		128 - Send SSID as path extension.
+	</li>
+  </ul>
+<p>
+  So using a value of 19 would turn on feedback for strip and master
+  controls, but leave meters, timecode and bar/beat feedback off.
+</p>
