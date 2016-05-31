@@ -1,26 +1,14 @@
 ---
 layout: default
-title: Controlling Ardour with OSC
+title: Controlling Ardour with OSC (Ardour 4.7 and Prior)
 ---                        
-
+  
 <p>
   <abbr title="Open Sound Control"><dfn>OSC</dfn></abbr> lets synthesizers 
   and other devices communicate with Ardour. OSC devices can send commands 
   relating to playback (such as play or stop), performance (such as volume, 
   play, stop, and almost any other function (such as Edit, or Undo).
 </p>
-
-<p class="note">
-  <em>Note:</em> OSC control has changed dramatically since Ardour 4.7.
-  The Path structure has been completely redone, Banking has been introduced,
-  The controller is now able to tell Ardour what kind of feedback it can
-  work with (including bank size) and two new math styles have been added
-  to gain controls. If you are using an Ardour version of 4.7 or less,
-  please read <a
-  href="/using-control-surfaces/controlling-ardour-with-osc/osc-control-in-ardour-4.7-and-prior/">
-  Osc control in ardour 4.7 and prior.</a>
-</p>
-
 <p>
   Ardour is probably one of the most OSC-controllable audio applications 
   around, but as with all OSC-controllable apps, you can't do much without 
@@ -41,211 +29,80 @@ title: Controlling Ardour with OSC
 <kbd class="input">&lt;Option name="osc-port" value="<em>Your choice
 here</em>"/&gt;</kbd>
 
-<p>
-  Ardour sends any feedback to the port and address that sent any
-  feedback request. The port does not have to match Ardour's port. In
-  fact it is better not to. This means that Ardour can deal with more
-  than one controller at a time. The two controllers can bank
-  independantly and even use different math for faders. This could be
-  used to allow talent to adjust their own monitor mix using a tablet
-  or phone that can run an OSC controller. For a full explanation of
-  how Ardour's feedback works please read <a
-  href="/using-control-surfaces/controlling-ardour-with-osc/feedback-in-osc/">
-  OSC feedback In Ardour.</a>
-</p>
-
-<h2>Control Surface Set Up</h2>
-
-<p>
-  Control surface set up allows the controller to tell Ardour about it's
-  capabilities. The surface can tell Ardour how many control strips it
-  has for banking, if it is capable of setting it's faders or buttons
-  to valuse set by Aurdour's GUI or automation, What kind of math the
-  faders use and more.
-</p>
-<p>
-  Any time the <em>/set_surface</em> command is sent, the current bank
-  is recalculated and if feedback is turned on, the values of each
-  strip's controls are sent (or refreshed) as well. This will also
-  refresh the Master feedback setup.
-</p>
-<p>If /set_surface is not sent, the default values are used:
-  <ul>
-	  <li><em>Bank Size</em>: 0 - No banking (or infinite bank size).</li>
-	  <li><em>Strip Types</em>: All strip types except hidden and special.</li>
-	  <li><em>Feedback</em>: Off.</li>
-	  <li><em>Fader Mode</em>: 0 - gain in dB</li>
-  </ul>
-  These values give the same behaviour as prior versions of Ardour. (or the closest possible)
-</p>
-<dl class="bindings">
-  <dt><kbd class="osc">/set_surface <em>bank_size</em> <em>strip_types</em>
-  <em>feedback</em> <em>fadermode</em></kbd></dt>
-  <dd>
-	  See below for an explaination of each parameter.
-  </dd>
-</dl>
-<h3>bank_size</h3>
-<p>
-  Bank Size is the number of channel strips the controller supports
-  without banking. Setting this to 0 turns banking off by setting the
-  bank size to infinite.
-</p>
-<h3>strip_types</h3>
-<p>
-  strip_types is an integer made up of bits. The easy way to
-  deal with this is to think of strip_types items being worth a number and
-  then adding all those numbers together for a value to send.
-  Strip Types will determine What kind of strips will be included in 
-  bank. This would include: Audio, MIDI, busses, VCAs, Master, Monitor
-  and hidden or selected strips.
-</p>
-<p>Please see: <a
-  href="/using-control-surfaces/controlling-ardour-with-osc/calculating-feedback-and-strip-types-values/">
-  Calculating Feedback and Strip-types Values.</a></p>
-<h3>feedback</h3> 
-<p>Feedback is an integer made up of bits. The easy way to
-  deal with this is to think of feedback items being worth a number and
-  then adding all those numbers together for a value to send.
-</p>
-<p>Please see: <a
-  href="/using-control-surfaces/controlling-ardour-with-osc/calculating-feedback-and-strip-types-values/">
-  Calculating Feedback and Strip-types Values.</a></p>
-
-<h3>gainmode</h3>
-<p>
-  Gainmode is a an int that acts as a bool:
-  <ul>
-	  <li><em>0 (or false)</em> dB value as a float from -193 to +6. Sent as
-	  /strip/gain RID value. (-193 or below are the same as -inf)</li>
-	  <li><em>1 (or true)</em> A positional fader based on the same math as
-	  Ardour's GUI.  An Integer from 0 to 1023 (1024 values). Sent as
-	  /strip/fader RID value</li>
-  </ul>
-</p>
-  
 <h2>List of OSC messages</h2>
 
-<h3>Master or Global messages</h3>
-
-<h4>Transport Control</h4>
+<h3>Transport Control</h3>
 <dl class="bindings">
-  <dt><kbd class="osc">/transport_stop <em>optional</em></kbd></dt>
+  <dt><kbd class="osc">/ardour/transport_stop</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/transport_play <em>optional</em></kbd></dt>
+  <dt><kbd class="osc">/ardour/transport_play</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/set_transport_speed <em>s</em></kbd></dt>
+  <dt><kbd class="osc">/ardour/set_transport_speed <em>s</em></kbd></dt>
   <dd>where <em>s</em> is a float ranging from -8.0f to 8.0f</dd>
-  <dt><kbd class="osc">/ffwd <em>optional</em></kbd></dt>
+  <dt><kbd class="osc">/ardour/ffwd</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/rewind <em>optional</em></kbd></dt>
+  <dt><kbd class="osc">/ardour/rewind</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/goto_start</kbd></dt>
+  <dt><kbd class="osc">/ardour/goto_start</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/goto_end</kbd></dt>
+  <dt><kbd class="osc">/ardour/goto_end</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/add_marker</kbd></dt>
+  <dt><kbd class="osc">/ardour/add_marker</kbd></dt>
   <dd>(adds marker to the current transport position)</dd>
-  <dt><kbd class="osc">/next_marker</kbd></dt>
+  <dt><kbd class="osc">/ardour/next_marker</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/prev_marker</kbd></dt>
+  <dt><kbd class="osc">/ardour/prev_marker</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/locate <em>spos</em> <em>roll</em></kbd></dt>
+  <dt><kbd class="osc">/ardour/locate <em>spos</em> <em>roll</em></kbd></dt>
   <dd>where <em>spos</em> is the target position in samples and
   <em>roll</em> is a bool/integer defining whether you want transport 
   to be kept rolling or not</dd>
-  <dt><kbd class="osc">/loop_toggle <em>optional</em></kbd></dt>
+  <dt><kbd class="osc">/ardour/loop_toggle</kbd></dt>
   <dd></dd>
 </dl>
 
-<h4>Editing-related</h4>
+<h3>Editing-related</h3>
 <dl class="bindings">
-  <dt><kbd class="osc">/undo</kbd></dt>
+  <dt><kbd class="osc">/ardour/undo</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/redo</kbd></dt>
+  <dt><kbd class="osc">/ardour/redo</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/save_state</kbd></dt>
+  <dt><kbd class="osc">/ardour/save_state</kbd></dt>
   <dd>(this is the regular <kbd class="menu">Session &gt; Save</kbd>
   operation)</dd>
 </dl>
 
-<h4>Recording control</h4>
+<h3>Recording control</h3>
 <dl class="bindings">
-  <dt><kbd class="osc">/toggle_punch_in</kbd></dt>
+  <dt><kbd class="osc">/ardour/toggle_punch_in</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/toggle_punch_out</kbd></dt>
+  <dt><kbd class="osc">/ardour/toggle_punch_out</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/rec_enable_toggle <em>optional</em></kbd></dt>
+  <dt><kbd class="osc">/ardour/rec_enable_toggle</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/toggle_all_rec_enables</kbd></dt>
+  <dt><kbd class="osc">/ardour/toggle_all_rec_enables</kbd></dt>
   <dd>(toggles all tracks' recording state)</dd>
-</dl>
-
-<h4>Master and Monitor strip control</h4>
-<dl class="bindings">
-  <dt><kbd class="osc">/master/gain <em>dB</em></kbd></dt>
-  <dd>where <em>dB</em> is a float ranging from -193 to +6 representing the desired gain of master in dB</dd>
-  <dt><kbd class="osc">/master/fader  <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position</dd>
-  <dt><kbd class="osc">/master/trimdB <em>dB</em></kbd></dt>
-  <dd>where <em>dB</em> is a float ranging from -20 to +20 representing the desired trim for master in dB</dd>
-  <dt><kbd class="osc">/master/pan_stereo_position <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan position for master</dd>
-  <dt><kbd class="osc">/master/mute  <em>yn</em></kbd></dt>
-  <dd>where <em>yn</em> is a bool/int representing the desired mute state of the track</dd>
-  <dt><kbd class="osc">/monitor/gain <em>dB</em></kbd></dt>
-  <dd>where <em>dB</em> is a float ranging from -193 to 6 representing the desired gain of monitor in dB</dd>
-  <dt><kbd class="osc">/monitor/fader  <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position</dd>
 </dl>
 
 <h3>Track specific operations</h3>
 <p>
-  For each of the following, <em>ssid</em> is the Surface Strip ID for the track
-</p>
-<p class="note">
-  SSID has a different meaning than RID in Ardour version 4.7 and before.
-  Effectively, banking is always being used and the SSID is generated on
-  the fly. The SSID is the possition of the strip within bank as an int
-  1 to bank size. There are no gaps as there have been in the past.
-  Depending on the value of strip_types sent to Ardour, Master and
-  Monitor, may be included in the list of SSIDs or not as set in
-  <em>/set_surface</em>.
-</p>
-<p class="note">
-  Some Surfaces (many Android applets) are not able to deal with more
-  than one parameter in a command. However, the two parameter commands
-  below can also be sent as /strip/command/ssid param. In this case the
-  param should be a float even if an int is required below.
+  For each of the following, <em>rid</em> is the remote ID or the track
 </p>
 <dl class="bindings">
-  <dt><kbd class="osc">/bank_up </kbd></dt>
-  <dd>Change bank to the next higher bank.</dd>
-  <dt><kbd class="osc">/bank_down </kbd></dt>
-  <dd>Change bank to the next lower bank.</dd>
-  <dt><kbd class="osc">/strip/mute <em>ssid</em> <em>mute_st</em></kbd></dt>
+  <dt><kbd class="osc">/ardour/routes/mute <em>rid</em> <em>mute_st</em></kbd></dt>
   <dd>where <em>mute_st</em> is a bool/int representing the desired mute state of the track</dd>
-  <dt><kbd class="osc">/strip/solo <em>ssid</em> <em>solo_st</em></kbd></dt>
+  <dt><kbd class="osc">/ardour/routes/solo <em>rid</em> <em>solo_st</em></kbd></dt>
   <dd>where <em>solo_st</em> is a bool/int representing the desired solo state of the track</dd>
-  <dt><kbd class="osc">/strip/monitor_input <em>ssid</em> <em>monitor_st</em></kbd></dt>
-  <dd>where <em>monitor_st</em> is a bool/int where 1 is forced input monitoring.</dd>
-  <dt><kbd class="osc">/strip/monitor_disk <em>ssid</em> <em>monitor_st</em></kbd></dt>
-  <dd>where <em>monitor_st</em> is a bool/int where 1 is forced disk monitoring. When input and disk are both off, 
-  Auto monitoring is enabled.</dd>
-  <dt><kbd class="osc">/strip/recenable <em>ssid</em> <em>rec_st</em></kbd></dt>
+  <dt><kbd class="osc">/ardour/routes/recenable <em>rid</em> <em>rec_st</em></kbd></dt>
   <dd>where <em>rec_st</em> is a bool/int representing the desired rec state of the track</dd>
-  <dt><kbd class="osc">/strip/record_safe <em>ssid</em> <em>rec_st</em></kbd></dt>
-  <dd>where <em>rec_st</em> is a bool/int representing the desired record safe state of the track</dd>
-  <dt><kbd class="osc">/strip/gain <em>ssid</em>  <em>gain</em></kbd></dt>
-  <dd>where <em>gain</em> is a float ranging from -193 to 6 representing the desired gain of the track in dB.</dd>
-  <dt><kbd class="osc">/strip/fader <em>ssid</em>  <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position.</dd>
-  <dt><kbd class="osc">/strip/trimabs <em>ssid</em> <em>trim_abs</em></kbd></dt>
+  <dt><kbd class="osc">/ardour/routes/gainabs <em>rid</em> <em>gain_abs</em></kbd></dt>
+  <dd>where <em>gain_abs</em> is a float ranging from 0 to 2 (0 being -infinite, 1 being 0dB and 2 being +6dB).</dd>
+  <dt><kbd class="osc">/ardour/routes/gaindB <em>rid</em>  <em>gain_db</em></kbd></dt>
+  <dd>where <em>gain_db</em> is a float ranging from -400 to 6 representing the desired gain of the track in dB.</dd>
+  <dt><kbd class="osc">/ardour/routes/trimabs <em>rid</em> <em>trim_abs</em></kbd></dt>
   <dd>where <em>trim_abs</em> is a float ranging from 0.1 to 10 (-20dB to +20dB). (since 4.1)</dd>
-  <dt><kbd class="osc">/strip/trimdB <em>ssid</em>  <em>trim_db</em></kbd></dt>
-  <dd>where <em>trim_db</em> is a float ranging from -20 to 20 representing the desired trim of the track in dB.</dd>
-  <dt><kbd class="osc">/strip/pan_stereo_position <em>ssid</em> <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan position of the track</dd>
+  <dt><kbd class="osc">/ardour/routes/trimdB <em>rid</em>  <em>trim_db</em></kbd></dt>
+  <dd>where <em>trim_db</em> is a float ranging from -20 to 20 representing the desired trim of the track in dB. (since 4.1)</dd>
 </dl>
 
 <h3>Menu actions</h3>
@@ -253,7 +110,7 @@ here</em>"/&gt;</kbd>
   Every single menu item in Ardour's GUI is accessible via OSC. There is
   a single common syntax to trigger the action as if it was selected
   with the mouse (or keyboard):</p>
-<kbd class="osc">/access_action <em>action_name</em></kbd>
+<kbd class="osc">/ardour/access_action <em>action_name</em></kbd>
 <p>
   The list below shows all available values of <em>action-name</em> as of
   mid-February 2014 for Ardour 3.5. You can get the current list at any
@@ -830,5 +687,3 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Zoom/zoom-focus-playhead</kbd></dt><dd>Zoom Focus Playhead</dd>
   <dt><kbd class="osc">Zoom/zoom-focus-right</kbd></dt><dd>Zoom Focus Right</dd>
 </dl>
-
-{% children %}
