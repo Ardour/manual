@@ -77,7 +77,7 @@ title: Calculating Feedback and Strip-types Values
 		2 - Variable control values for strips.
 	</li>
 	<li>
-		4 - Send meter values (not coded yet).
+		4 - Send SSID as path extension.
 	</li>
 	<li>
 		8 - heartbeat to surface.
@@ -86,13 +86,21 @@ title: Calculating Feedback and Strip-types Values
 		16 - Enable master section feedback.
 	</li>
 	<li>
-		32 - Send Bar and Beat (not coded yet).
+		32 - Send Bar and Beat.
 	</li>
 	<li>
-		64 - Send timecode (not coded yet).
+		64 - Send timecode.
 	</li>
 	<li>
-		128 - Send SSID as path extension.
+		128 - Send meter as dB (-193 to +6) or 1024 depending on gainmode
+	</li>
+	<li>
+		256 - Send meter a 16 bit value where each bit is a level
+		and all bits of lower level are on. For use in a LED strip. This
+		will not work if the above option is turned on.
+	</li>
+	<li>
+		512 - Send signal present, true if level is higher than -20dB
 	</li>
   </ul>
 <p>

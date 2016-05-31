@@ -46,6 +46,38 @@ title: OSC Feedback With Ardour
 
 <h2>List of OSC feedback messages</h2>
 
+<h3>Feedback only</h3>
+<p>
+  These messages are feedback only. They are sent as status from Ardour
+  and some of them may be enabled separately from other feedback. See:
+  <a href="/using-control-surfaces/controlling-ardour-with-osc/calculating-feedback-and-strip-types-values/">
+  Calculating Feedback and Strip-types Values.</a>
+</p>
+<p class="note">
+  See strip section below for info about ssid and wrapping it into the
+  path.
+</p>
+<dl class="bindings">
+  <dt><kbd class="osc">/strip/name <em>ssid</em> <em>track_name</em></kbd></dt>
+  <dd>where <em>track_name</em> is a string representing the name of the track</dd>
+  <dt><kbd class="osc">/session_name <em>session_name</em></kbd></dt>
+  <dd>where <em>session_name</em> is a string representing the name of the session</dd>
+  <dt><kbd class="osc">/strip/meter <em>ssid</em> <em>meter</em></kbd></dt>
+  <dd>where <em>meter</em> is a value repesenting the current audio level.
+  (the exact math used is determined by the feedback bits set)</dd>
+  <dt><kbd class="osc">/strip/signal <em>ssid</em> <em>signal</em></kbd></dt>
+  <dd>where <em>signal</em> is a float indicating the instantainious
+  audio level is -40dB or higher.</dd>
+  <dt><kbd class="osc">/timecode <em>time</em></kbd></dt>
+  <dd>where <em>time</em> is a string with the current play head time.</dd>
+  <dt><kbd class="osc">/bar_beat <em>beat</em></kbd></dt>
+  <dd>where <em>beat</em> is a string with the current play head bar/beat.</dd>
+  <dt><kbd class="osc">/heartbeat <em>LED</em></kbd></dt>
+  <dd>where <em>LED</em> is a float that cycles 1/0 at 1 second intervals.</dd>
+  <dt><kbd class="osc">/record_tally <em>state</em></kbd></dt>
+  <dd>Some record enable is true or "ready to record"</dd>
+</dl>
+
 <h3>Transport Control</h3>
 <dl class="bindings">
   <dt><kbd class="osc">/transport_stop <em>state</em></kbd></dt>
@@ -60,7 +92,6 @@ title: OSC Feedback With Ardour
   <dd></dd>
 </dl>
 
-
 <h3>Recording control</h3>
 <dl class="bindings">
   <!--dt><kbd class="osc">/toggle_punch_in</kbd></dt>
@@ -69,8 +100,6 @@ title: OSC Feedback With Ardour
   <dd></dd-->
   <dt><kbd class="osc">/rec_enable_toggle <em>state</em></kbd></dt>
   <dd>Master record enabled.</dd>
-  <dt><kbd class="osc">/record_tally <em>state</em></kbd></dt>
-  <dd>Some record enable is true or "ready to record"</dd>
 </dl>
 
 <h3>Master and monitor strips</h3>
@@ -124,6 +153,8 @@ title: OSC Feedback With Ardour
   where both disk and input are false/0, auto monitoring is used.</dd>
   <dt><kbd class="osc">/strip/recenable <em>ssid</em> <em>rec_st</em></kbd></dt>
   <dd>where <em>rec_st</em> is a bool/int representing the actual rec state of the track</dd>
+  <dt><kbd class="osc">/strip/record_safe <em>ssid</em> <em>rec_st</em></kbd></dt>
+  <dd>where <em>rec_st</em> is a bool/int representing the actual record safe state of the track</dd>
   <dt><kbd class="osc">/strip/gain <em>ssid</em> <em>gain</em></kbd></dt>
   <dd>where <em>gain</em> is a float ranging from -193 to 6 representing the actual gain of the track in dB.</dd>
   <dt><kbd class="osc">/strip/fader <em>ssid</em>  <em>position</em></kbd></dt>
