@@ -43,17 +43,22 @@ Music locked tempo marks move their frame position as their neighbours are moved
 <br>
 <p>A tempo may be remped or constant.
 
-<ul><li>A constant tempo will keep the sesion tempo constant until the next tempo section, at which time it will jump instantly to the next tempo.
-These are mostly useful abrupt changes, and is the way in which traditional DAWs deal with tempo changes (abrupt jumps in tempo).</li>
-<img class="right" src="/images/constant-tempo.png" alt="A constant tempo displaying the tempo at the playhead in the audio clock">
-<li>A ramped tempo increases its tempo over time so that when the next tempo section has arrived, the sesion tempo is the same as the second one.
+  <ul>
+    <li>A constant tempo will keep the sesion tempo constant until the next tempo section, at which time it will jump instantly to the next tempo.
+      These are mostly useful abrupt changes, and is the way in which traditional DAWs deal with tempo changes (abrupt jumps in tempo).
+      <br>
+    <img class="left" src="/images/constant-tempo.png" alt="A constant tempo displaying the tempo at the playhead in the audio clock">
+  </li>
+
+    <li>A ramped tempo increases its tempo over time so that when the next tempo section has arrived, the sesion tempo is the same as the second one.
 This is useful for matching the session tempo to music which has been recorded without a metronome.
 Ramps may also be used as a compositional tool, but more on this later.
 Note that a ramp requires two points - a start and an end tempo. The first tempo in a new session is ramped, but appears to be constant as it has no tempo to ramp to. It is only when you add a new tempo and adjust one of them that you will hear a ramp.
-  The same applies to the last tempo in the session - it will always appear to be constant until a new last tempo is added and changed.
-  <img class="right" src="/images/ramped-tempo.png" alt="A ramped tempo displaying the tempo at the playhead in the audio clock">
-</li>
-</ul>
+      The same applies to the last tempo in the session - it will always appear to be constant until a new last tempo is added and changed.
+      <br>
+      <img class="left" src="/images/ramped-tempo.png" alt="A ramped tempo displaying the tempo at the playhead in the audio clock">
+  </li>
+  </ul>
 </p>
 <br>
 <p>To add a new tempo, use the primary modifier and click on the tempo line at the desired position.
