@@ -597,6 +597,8 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::DSP::Biquad::*)(ARDOUR::DSP::Biquad::Type, double, double, double)">compute</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR.DSP.Biquad.Type">Type</a>, <span class="em">double</span>, <span class="em">double</span>, <span class="em">double</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> setup filter, compute coefficients</p><dl><dt class="param-name-index-0">type</dt><dd class="param-descr-index-0"> filter type (LowPass, HighPass, etc) </dd><dt class="param-name-index-1">freq</dt><dd class="param-descr-index-1"> filter frequency </dd><dt class="param-name-index-2">Q</dt><dd class="param-descr-index-2"> filter quality </dd><dt class="param-name-index-3">gain</dt><dd class="param-descr-index-3"> filter gain</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::DSP::Biquad::*)(double, double, double, double, double)">configure</abbr></span><span class="functionargs"> (<span class="em">double</span>, <span class="em">double</span>, <span class="em">double</span>, <span class="em">double</span>, <span class="em">double</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> setup filter, set coefficients directly </p></div></td></tr>
  <tr><td class="def"><span class="em">float</span></td><td class="decl"><span class="functionname"><abbr title="float (ARDOUR::DSP::Biquad::*)(float) const">dB_at_freq</abbr></span><span class="functionargs"> (<span class="em">float</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> filter transfer function (filter response for spectrum visualization) </p><dl><dt class="param-name-index-0">freq</dt><dd class="param-descr-index-0"> frequency </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  gain at given frequency in dB (clamped to -120..+120)</p></div></div></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::DSP::Biquad::*)()">reset</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -622,6 +624,20 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> access memory as float array</p><dl><dt class="param-name-index-0">off</dt><dd class="param-descr-index-0"> offset in shared memory region </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  float[]</p></div></div></td></tr>
  <tr><td class="def"><a class="" href="#C:IntArray">IntArray</a></td><td class="decl"><span class="functionname"><abbr title="int* (ARDOUR::DSP::DspShm::*)(unsigned long)">to_int</abbr></span><span class="functionargs"> (<span class="em">unsigned long</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> access memory as integer array</p><dl><dt class="param-name-index-0">off</dt><dd class="param-descr-index-0"> offset in shared memory region </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  int_32_t[]</p></div></div></td></tr>
+ </table>
+<h3 id="ARDOUR:DSP:FFTSpectrum" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:DSP:FFTSpectrum</h3>
+<p class="cdecl"><em>C&#8225;</em>: ARDOUR::DSP::FFTSpectrum</p>
+<div class="clear"></div>
+<table class="classmembers">
+ <tr><th colspan="3">Constructor</th></tr>
+ <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">ARDOUR.DSP.FFTSpectrum</span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">double</span>)</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::DSP::FFTSpectrum::*)()">execute</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> process current data in buffer </p></div></td></tr>
+ <tr><td class="def"><span class="em">float</span></td><td class="decl"><span class="functionname"><abbr title="float (ARDOUR::DSP::FFTSpectrum::*)(unsigned int) const">freq_at_bin</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">float</span></td><td class="decl"><span class="functionname"><abbr title="float (ARDOUR::DSP::FFTSpectrum::*)(unsigned int, float) const">power_at_bin</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">float</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> query </p><dl><dt class="param-name-index-0">b</dt><dd class="param-descr-index-0"> the frequency bin 0 .. window_size &#47; 2 </dd><dt class="param-name-index-1">norm</dt><dd class="param-descr-index-1"> gain factor (set equal to  for 1&#47;f normalization) </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  signal power at given bin (in dBFS)</p></div></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::DSP::FFTSpectrum::*)(float const*, unsigned int, unsigned int)">set_data_hann</abbr></span><span class="functionargs"> (<a class="" href="#C:FloatArray">FloatArray</a>, <span class="em">unsigned int</span>, <span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  </table>
 <h3 id="ARDOUR:DSP:LowPass" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:DSP:LowPass</h3>
 <p class="cdecl"><em>C&#8225;</em>: ARDOUR::DSP::LowPass</p>
@@ -918,6 +934,8 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <div class="clear"></div>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">LuaTable</span></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">hsla_to_rgba</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> A convenience function for colorspace HSL to RGB conversion. All ranges are 0..1</p><p> Example: </p><pre> local r, g, b, a = ARDOUR.LuaAPI.hsla_to_rgba (hue, saturation, luminosity, alpha)</pre><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  4 parameters: red, green, blue, alpha (in range 0..1)</p></div></div></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Processor">Processor</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Processor&gt; (*)(ARDOUR::Session*, std::string const&amp;)">new_luaproc</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Session">Session</a>, <span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> create a new Lua Processor (Plugin)</p><dl><dt class="param-name-index-0">s</dt><dd class="param-descr-index-0"> Session Handle </dd><dt class="param-name-index-1">p</dt><dd class="param-descr-index-1"> Identifier or Name of the Processor </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  Processor object (may be nil)</p></div></div></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Processor">Processor</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Processor&gt; (*)(ARDOUR::Session*, std::string const&amp;, ARDOUR::PluginType, std::string const&amp;)">new_plugin</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Session">Session</a>, <span class="em">std::string</span>, <a class="" href="#ARDOUR.PluginType">PluginType</a>, <span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
@@ -1295,6 +1313,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Playlist::*)(boost::shared_ptr&lt;ARDOUR::Region&gt;)">raise_region</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Region">Region</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Playlist::*)(boost::shared_ptr&lt;ARDOUR::Region&gt;)">raise_region_to_top</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Region">Region</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Region">Region</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Region&gt; (ARDOUR::Playlist::*)(PBD::ID const&amp;) const">region_by_id</abbr></span><span class="functionargs"> (<a class="" href="#PBD:ID">ID</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:RegionListPtr">RegionListPtr</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;std::list&lt;boost::shared_ptr&lt;ARDOUR::Region&gt; &gt; &gt; (ARDOUR::Playlist::*)()">region_list</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:RegionListPtr">RegionListPtr</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;std::list&lt;boost::shared_ptr&lt;ARDOUR::Region&gt; &gt; &gt; (ARDOUR::Playlist::*)(long)">regions_at</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:RegionListPtr">RegionListPtr</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;std::list&lt;boost::shared_ptr&lt;ARDOUR::Region&gt; &gt; &gt; (ARDOUR::Playlist::*)(long, long)">regions_touched</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">long</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><dl><dt class="param-name-index-0">start</dt><dd class="param-descr-index-0"> Range start.  </dd><dt class="param-name-index-1">end</dt><dd class="param-descr-index-1"> Range end.  </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  regions which have some part within this range.</p></div></div></td></tr>
@@ -2736,6 +2755,59 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Cairo::Context::*)()">unset_dash</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> This function disables a dash pattern that was set with set_dash()</p></div></td></tr>
  </table>
+<h3 id="Cairo:ImageSurface" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;Cairo:ImageSurface</h3>
+<p class="cdecl"><em>C&#8225;</em>: LuaCairo::ImageSurface</p>
+<div class="clear"></div>
+<div class="classdox"><p class="para-brief"> wrap RefPtr&lt; Cairo::ImageSurface &gt;</p><p> Image surfaces provide the ability to render to memory buffers either allocated by cairo or by the calling code. The supported image formats are those defined in Cairo::Format.</p></div>
+<table class="classmembers">
+ <tr><th colspan="3">Constructor</th></tr>
+ <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">Cairo.ImageSurface</span><span class="functionargs"> (<a class="" href="#Cairo.Format">Format</a>, <span class="em">int</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><a class="" href="#Cairo:Context">Context</a></td><td class="decl"><span class="functionname"><abbr title="Cairo::Context* (LuaCairo::ImageSurface::*)()">context</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Returns a context object to perform operations on the surface</p></div></td></tr>
+ <tr><td class="def"><span class="em">unsigned char*</span></td><td class="decl"><span class="functionname"><abbr title="unsigned char* (LuaCairo::ImageSurface::*)()">get_data</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Get a pointer to the data of the image surface, for direct inspection or modification.</p><p> Return value: a pointer to the image data of this surface or NULL if  is not an image surface.</p></div></td></tr>
+ <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (LuaCairo::ImageSurface::*)() const">get_height</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Gets the height of the ImageSurface in pixels </p></div></td></tr>
+ <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (LuaCairo::ImageSurface::*)() const">get_stride</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Returns the stride of the image surface in bytes (or 0 if surface is not an image surface). The stride is the distance in bytes from the beginning of one row of the image data to the beginning of the next row.</p></div></td></tr>
+ <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (LuaCairo::ImageSurface::*)() const">get_width</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Gets the width of the ImageSurface in pixels </p></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (LuaCairo::ImageSurface::*)(Cairo::Context*, int, int)">set_as_source</abbr></span><span class="functionargs"> (<a class="" href="#Cairo:Context">Context</a>, <span class="em">int</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ </table>
+<h3 id="Cairo:PangoLayout" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;Cairo:PangoLayout</h3>
+<p class="cdecl"><em>C&#8225;</em>: LuaCairo::PangoLayout</p>
+<div class="clear"></div>
+<table class="classmembers">
+ <tr><th colspan="3">Constructor</th></tr>
+ <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">Cairo.PangoLayout</span><span class="functionargs"> (<a class="" href="#Cairo:Context">Context</a>, <span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (LuaCairo::PangoLayout::*)() const">get_character_count</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Returns the number of Unicode characters in the the text of <em>layout.</em></p><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  The number of Unicode characters in the text of <em>layout.</em>		 </p></div></div></td></tr>
+ <tr><td class="def"><a class="" href="#Pango.EllipsizeMode">EllipsizeMode</a></td><td class="decl"><span class="functionname"><abbr title="Pango::EllipsizeMode (LuaCairo::PangoLayout::*)() const">get_ellipsize</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Gets the type of ellipsization being performed for <em>layout.</em> See set_ellipsize()</p><p> Use is_ellipsized() to query whether any paragraphs were actually ellipsized.</p><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  The current ellipsization mode for <em>layout.</em></p></div></div></td></tr>
+ <tr><td class="def"><em>...</em></td><td class="decl"><span class="functionname"><abbr title="int (LuaCairo::PangoLayout::*)(lua_State*)">get_pixel_size</abbr></span><span class="functionargs"> (<span class="em">--lua--</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Determines the logical width and height of a Pango::Layout in device units.</p></div></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (LuaCairo::PangoLayout::*)() const">get_text</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Gets the text in the layout. The returned text should not be freed or modified.</p><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  The text in the <em>layout.</em>		 </p></div></div></td></tr>
+ <tr><td class="def"><a class="" href="#Pango.WrapMode">WrapMode</a></td><td class="decl"><span class="functionname"><abbr title="Pango::WrapMode (LuaCairo::PangoLayout::*)() const">get_wrap</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Gets the wrap mode for the layout.</p><p> Use is_wrapped() to query whether any paragraphs were actually wrapped.</p><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  Active wrap mode.</p></div></div></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (LuaCairo::PangoLayout::*)() const">is_ellipsized</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Queries whether the layout had to ellipsize any paragraphs.</p><p> This returns <tt>true</tt> if the ellipsization mode for <em>layout</em> is not Pango::ELLIPSIZE_NONE, a positive width is set on <em>layout,</em> and there are paragraphs exceeding that width that have to be ellipsized.</p><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  <tt>true</tt> if any paragraphs had to be ellipsized, <tt>false</tt> otherwise.</p></div></div></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (LuaCairo::PangoLayout::*)() const">is_wrapped</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Queries whether the layout had to wrap any paragraphs.</p><p> This returns <tt>true</tt> if a positive width is set on <em>layout,</em> ellipsization mode of <em>layout</em> is set to Pango::ELLIPSIZE_NONE, and there are paragraphs exceeding the layout width that have to be wrapped.</p><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  <tt>true</tt> if any paragraphs had to be wrapped, <tt>false</tt> otherwise.</p></div></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (LuaCairo::PangoLayout::*)(Pango::EllipsizeMode)">set_ellipsize</abbr></span><span class="functionargs"> (<a class="" href="#Pango.EllipsizeMode">EllipsizeMode</a>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Sets the type of ellipsization being performed for <em>layout.</em> Depending on the ellipsization mode <em>ellipsize</em> text is removed from the start, middle, or end of text so they fit within the width and height of layout set with set_width() and set_height().</p><p> If the layout contains characters such as newlines that force it to be layed out in multiple paragraphs, then whether each paragraph is ellipsized separately or the entire layout is ellipsized as a whole depends on the set height of the layout. See set_height() for details.</p><dl><dt class="param-name-index-0">ellipsize</dt><dd class="param-descr-index-0"> The new ellipsization mode for <em>layout.</em>		 </dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (LuaCairo::PangoLayout::*)(std::string const&amp;)">set_markup</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Sets the layout text and attribute list from marked-up text (see markup format). Replaces the current text and attribute list. </p><dl><dt class="param-name-index-0">markup</dt><dd class="param-descr-index-0"> Some marked-up text.</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (LuaCairo::PangoLayout::*)(std::string const&amp;)">set_text</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Set the text of the layout. </p><dl><dt class="param-name-index-0">text</dt><dd class="param-descr-index-0"> The text for the layout.</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (LuaCairo::PangoLayout::*)(int)">set_width</abbr></span><span class="functionargs"> (<span class="em">int</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Sets the width to which the lines of the Pango::Layout should wrap or ellipsized.  The default value is -1: no width set.</p><dl><dt class="param-name-index-0">width</dt><dd class="param-descr-index-0"> The desired width in Pango units, or -1 to indicate that no wrapping or ellipsization should be performed.</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (LuaCairo::PangoLayout::*)(Pango::WrapMode)">set_wrap</abbr></span><span class="functionargs"> (<a class="" href="#Pango.WrapMode">WrapMode</a>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Sets the wrap mode; the wrap mode only has effect if a width is set on the layout with set_width(). To turn off wrapping, set the width to -1.</p><dl><dt class="param-name-index-0">wrap</dt><dd class="param-descr-index-0"> The wrap mode.</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (LuaCairo::PangoLayout::*)(Cairo::Context*)">show_in_cairo_context</abbr></span><span class="functionargs"> (<a class="" href="#Cairo:Context">Context</a>)</span></td><td class="fill"></td></tr>
+ </table>
 <h3 id="Evoral:Beats" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;Evoral:Beats</h3>
 <p class="cdecl"><em>C&#8225;</em>: Evoral::Beats</p>
 <div class="clear"></div>
@@ -3068,8 +3140,6 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li class="const">ARDOUR.PresentationInfo.Flag.Selected</li>
 <li class="const">ARDOUR.PresentationInfo.Flag.Hidden</li>
 <li class="const">ARDOUR.PresentationInfo.Flag.GroupOrderSet</li>
-<li class="const">ARDOUR.PresentationInfo.Flag.GroupMask</li>
-<li class="const">ARDOUR.PresentationInfo.Flag.SpecialMask</li>
 <li class="const">ARDOUR.PresentationInfo.Flag.StatusMask</li>
 </ul>
 <h3 id="ARDOUR.AutoStyle" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.AutoStyle</h3>
@@ -3174,6 +3244,24 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li class="const">Cairo.Operator.Over</li>
 <li class="const">Cairo.Operator.Add</li>
 </ul>
+<h3 id="Cairo.Format" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;Cairo.Format</h3>
+<ul class="enum">
+<li class="const">Cairo.Format.ARGB32</li>
+<li class="const">Cairo.Format.RGB24</li>
+</ul>
+<h3 id="Pango.EllipsizeMode" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;Pango.EllipsizeMode</h3>
+<ul class="enum">
+<li class="const">Cairo.EllipsizeMode.None</li>
+<li class="const">Cairo.EllipsizeMode.Start</li>
+<li class="const">Cairo.EllipsizeMode.Middle</li>
+<li class="const">Cairo.EllipsizeMode.End</li>
+</ul>
+<h3 id="Pango.WrapMode" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;Pango.WrapMode</h3>
+<ul class="enum">
+<li class="const">Cairo.WrapMode.Word</li>
+<li class="const">Cairo.WrapMode.Char</li>
+<li class="const">Cairo.WrapMode.WordChar</li>
+</ul>
 <h3 id="LuaSignal.LuaSignal" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;LuaSignal.LuaSignal</h3>
 <ul class="enum">
 <li class="const">LuaSignal.ConfigChanged</li>
@@ -3188,7 +3276,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li class="const">LuaSignal.StartTimeChanged</li>
 <li class="const">LuaSignal.EndTimeChanged</li>
 <li class="const">LuaSignal.Exported</li>
-<li class="const">LuaSignal.PresentationInfoChange</li>
+<li class="const">LuaSignal.Change</li>
 <li class="const">LuaSignal.SessionConfigChanged</li>
 <li class="const">LuaSignal.TransportStateChange</li>
 <li class="const">LuaSignal.DirtyChanged</li>
@@ -3358,6 +3446,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#ARDOUR:DSP">ARDOUR.DSP</a></li>
 <li><a class="" href="#ARDOUR:DSP:Biquad">ARDOUR:DSP:Biquad</a></li>
 <li><a class="" href="#ARDOUR:DSP:DspShm">ARDOUR:DSP:DspShm</a></li>
+<li><a class="" href="#ARDOUR:DSP:FFTSpectrum">ARDOUR:DSP:FFTSpectrum</a></li>
 <li><a class="" href="#ARDOUR:DSP:LowPass">ARDOUR:DSP:LowPass</a></li>
 <li><a class="" href="#ARDOUR:DataType">ARDOUR:DataType</a></li>
 <li><a class="" href="#ARDOUR:Delivery">ARDOUR:Delivery</a></li>
@@ -3441,6 +3530,8 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#C:StringList">C:StringList</a></li>
 <li><a class="" href="#C:StringVector">C:StringVector</a></li>
 <li><a class="" href="#Cairo:Context">Cairo:Context</a></li>
+<li><a class="" href="#Cairo:ImageSurface">Cairo:ImageSurface</a></li>
+<li><a class="" href="#Cairo:PangoLayout">Cairo:PangoLayout</a></li>
 <li><a class="" href="#Evoral:Beats">Evoral:Beats</a></li>
 <li><a class="" href="#Evoral:Control">Evoral:Control</a></li>
 <li><a class="" href="#Evoral:ControlList">Evoral:ControlList</a></li>
@@ -3463,6 +3554,6 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#PBD:XMLNode">PBD:XMLNode</a></li>
 <li><a class="" href="#Timecode:BBT_TIME">Timecode:BBT_TIME</a></li>
 </ul>
-<!-- 312 / 1160 !-->
+<!-- 334 / 1170 !-->
 </div>
-<div class="luafooter">Ardour 5.0-pre0-25-g46ae5aa &nbsp;-&nbsp; Wed, 01 Jun 2016 16:01:28 +0200</div>
+<div class="luafooter">Ardour 5.0-pre0-406-g3267b48 &nbsp;-&nbsp; Mon, 04 Jul 2016 00:40:28 +0200</div>
