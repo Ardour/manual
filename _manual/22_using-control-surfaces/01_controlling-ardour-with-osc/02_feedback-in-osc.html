@@ -43,7 +43,15 @@ title: OSC Feedback With Ardour
   <dt><kbd class="osc">/transport_stop <em>state</em></kbd></dt>
   <dd>where <em>state</em> is an int/bool indicating if the transport is stopped or not.</dd>
 </dl>
-
+<p>
+  With feedback turned on, OSC control commands that try to change a
+  control that does not exist will get feedback that resets that control
+  to off. For example, sending a /strip/recenable to a buss will not work
+  and Ardour will try to turn the controller LED off in that case. Also
+  note that Pan operation may be limited by pan width in some cases.
+  That is with pan width at 100% (or -100%) there is no pan position
+  movement available.
+</p>
 <h2>List of OSC feedback messages</h2>
 
 <h3>Feedback only</h3>
@@ -55,7 +63,7 @@ title: OSC Feedback With Ardour
 </p>
 <p class="note">
   See strip section below for info about ssid and wrapping it into the
-  path.
+  path. Also /master and /monitor support what the /strip does.
 </p>
 <dl class="bindings">
   <dt><kbd class="osc">/strip/name <em>ssid</em> <em>track_name</em></kbd></dt>
@@ -66,30 +74,36 @@ title: OSC Feedback With Ardour
   <dd>where <em>meter</em> is a value repesenting the current audio level.
   (the exact math used is determined by the feedback bits set)</dd>
   <dt><kbd class="osc">/strip/signal <em>ssid</em> <em>signal</em></kbd></dt>
-  <dd>where <em>signal</em> is a float indicating the instantainious
+  <dd>where <em>signal</em> is a float indicating the instantaneous
   audio level is -40dB or higher.</dd>
-  <dt><kbd class="osc">/timecode <em>time</em></kbd></dt>
-  <dd>where <em>time</em> is a string with the current play head time.</dd>
-  <dt><kbd class="osc">/bar_beat <em>beat</em></kbd></dt>
+  <dt><kbd class="osc">/position/smpte <em>time</em></kbd></dt>
+  <dd>where <em>time</em> is a string with the current play head time. Seconds as per smpte.</dd>
+  <dt><kbd class="osc">/position/bbt <em>beat</em></kbd></dt>
   <dd>where <em>beat</em> is a string with the current play head bar/beat.</dd>
+  <dt><kbd class="osc">/position/time <em>time</em></kbd></dt>
+  <dd>where <em>time</em> is a string with the current play head time. Seconds are in milliseconds</dd>
+  <dt><kbd class="osc">/position/samples <em>samples</em></kbd></dt>
+  <dd>where <em>samples</em> is a string with the current play head position in samples.</dd>
   <dt><kbd class="osc">/heartbeat <em>LED</em></kbd></dt>
   <dd>where <em>LED</em> is a float that cycles 1/0 at 1 second intervals.</dd>
   <dt><kbd class="osc">/record_tally <em>state</em></kbd></dt>
-  <dd>Some record enable is true or "ready to record"</dd>
+  <dd>Some record enable is true or "ready to record". For a "Recording" sign at studio door.</dd>
 </dl>
 
 <h3>Transport Control</h3>
 <dl class="bindings">
   <dt><kbd class="osc">/transport_stop <em>state</em></kbd></dt>
-  <dd></dd>
+  <dd><em>state</em> is true when transport is stopped</dd>
   <dt><kbd class="osc">/transport_play <em>state</em></kbd></dt>
-  <dd></dd>
+  <dd><em>state</em> is true when transport speed is 1.0</dd>
   <dt><kbd class="osc">/ffwd <em>state</em></kbd></dt>
-  <dd></dd>
+  <dd><em>state</em> is true when transport is moving forward but not at speed 1.0</dd>
   <dt><kbd class="osc">/rewind <em>state</em></kbd></dt>
-  <dd></dd>
+  <dd><em>state</em> is true when transport speed is less than 0.0</dd>
   <dt><kbd class="osc">/loop_toggle <em>state</em></kbd></dt>
-  <dd></dd>
+  <dd><em>state</em> is true when loop mode is true</dd>
+  <dt><kbd class="osc">/cancel_all_solos <em>state</em></kbd></dt>
+  <dd>Where <em>state</em> true indicates there are active solos that can be canceled.</dd>
 </dl>
 
 <h3>Recording control</h3>
@@ -139,6 +153,10 @@ title: OSC Feedback With Ardour
 </p>
 
 <dl class="bindings">
+  <dt><kbd class="osc">/bank_up <em>LED</em></kbd></dt>
+  <dd>where <em>LED</em> is a bool that indicates another bank_up operation is possible.</dd>
+  <dt><kbd class="osc">/bank_down <em>LED</em></kbd></dt>
+  <dd>where <em>LED</em> is a bool that indicates another bank_down operation is possible.</dd>
   <dt><kbd class="osc">/strip/name <em>ssid</em> <em>track_name</em></kbd></dt>
   <dd>where <em>track_name</em> is a string representing the name of the track 
   (note there is no coresponding command to set the track name)</dd>
@@ -164,7 +182,37 @@ title: OSC Feedback With Ardour
   <dt><kbd class="osc">/strip/pan_stereo_position <em>ssid</em> <em>position</em></kbd></dt>
   <dd>where <em>position</em> is a float ranging from 0 to 1 representing the actual pan position of the track</dd>
 </dl>
-
+<h3>Selection Operations</h3>
+<p>
+  Selection feedback is the same as for strips, only the path changes
+  from <em>/strip</em> to <em>/select</em> and there is no <em>ssid</em>.
+  there are some extra feedback and commands that will be listed here.
+</p>
+<dl class="bindings">
+  <dt><kbd class="osc">/select/n_inputs <em>number</em></kbd></dt>
+  <dd>where <em>number</em> number of inputs for this strip</dd>
+  <dt><kbd class="osc">/select/n_outputs <em>number</em></kbd></dt>
+  <dd>where <em>number</em> number of outputs for this strip</dd>
+  <dt><kbd class="osc">/select/comment <em>text</em></kbd></dt>
+  <dd>where <em>text</em> is the strip comment</dd>
+  <dt><kbd class="osc">/select/solo_iso <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is a bool/int representing the Actual solo isolate state of the track</dd>
+  <dt><kbd class="osc">/select/solo_safe <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is a bool/int representing the actual solo safe/lock state of the track</dd>
+  <dt><kbd class="osc">/select/polarity <em>invert</em></kbd></dt>
+  <dd>where <em>invert</em> is a bool/int representing the actual polarity of the track</dd>
+  <dt><kbd class="osc">/select/pan_stereo_width <em>width</em></kbd></dt>
+  <dd>where <em>width</em> is a float ranging from -1 to 1 representing the actual pan width of the track</dd>
+  <dt><kbd class="osc">/select/send_gain", <em>sendid</em> <em>send_gain</em></kbd></dt>
+  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em>is a float
+  ranging from -193 to +6 representing the actual gain in dB for the send</dd>
+  <dt><kbd class="osc">/select/send_fader", <em>sendid</em> <em>send_gain</em></kbd></dt>
+  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em>is a float
+  ranging from 0 to 1023 representing the actual position for the send as a fader</dd>
+  <dt><kbd class="osc">/select/send_name <em>sendid</em> <em>send_name</em></kbd></dt>
+  <dd>where <em>send_name</em> is a string representing the name of the buss
+  this send goes to.</dd>
+</dl>
 <h3>Menu actions</h3>
 <p>
   Every single menu item in Ardour's GUI is accessible via OSC. However,

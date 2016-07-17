@@ -46,7 +46,7 @@ here</em>"/&gt;</kbd>
   feedback request. The port does not have to match Ardour's port. In
   fact it is better not to. This means that Ardour can deal with more
   than one controller at a time. The two controllers can bank
-  independantly and even use different math for faders. This could be
+  independently and even use different math for faders. This could be
   used to allow talent to adjust their own monitor mix using a tablet
   or phone that can run an OSC controller. For a full explanation of
   how Ardour's feedback works please read <a
@@ -60,7 +60,7 @@ here</em>"/&gt;</kbd>
   Control surface set up allows the controller to tell Ardour about it's
   capabilities. The surface can tell Ardour how many control strips it
   has for banking, if it is capable of setting it's faders or buttons
-  to valuse set by Aurdour's GUI or automation, What kind of math the
+  to values set by Ardour's GUI or automation, What kind of math the
   faders use and more.
 </p>
 <p>
@@ -73,16 +73,18 @@ here</em>"/&gt;</kbd>
   <ul>
 	  <li><em>Bank Size</em>: 0 - No banking (or infinite bank size).</li>
 	  <li><em>Strip Types</em>: All strip types except hidden and special.</li>
-	  <li><em>Feedback</em>: Off.</li>
-	  <li><em>Fader Mode</em>: 0 - gain in dB</li>
+	  <li><em>Feedback</em>: 0 - All off.</li>
+	  <li><em>Fader Mode</em>: 0 - gain in dB (not relevant with feedback off)</li>
   </ul>
+</p>
+<p>
   These values give the same behaviour as prior versions of Ardour. (or the closest possible)
 </p>
 <dl class="bindings">
   <dt><kbd class="osc">/set_surface <em>bank_size</em> <em>strip_types</em>
   <em>feedback</em> <em>fadermode</em></kbd></dt>
   <dd>
-	  See below for an explaination of each parameter.
+	  See below for an explanation of each parameter.
   </dd>
 </dl>
 <h3>bank_size</h3>
@@ -91,18 +93,39 @@ here</em>"/&gt;</kbd>
   without banking. Setting this to 0 turns banking off by setting the
   bank size to infinite.
 </p>
+<p class="note">
+	Bank size can also be set with <em>/set_surface/bank_size size.</em>
+</p>
 <h3>strip_types</h3>
 <p>
   strip_types is an integer made up of bits. The easy way to
   deal with this is to think of strip_types items being worth a number and
   then adding all those numbers together for a value to send.
-  Strip Types will determine What kind of strips will be included in 
-  bank. This would include: Audio, MIDI, busses, VCAs, Master, Monitor
+  Strip Types will determine what kind of strips will be included in
+  bank. This would include: Audio, MIDI, buses, VCAs, Master, Monitor
   and hidden or selected strips.
+</p>
+<p>
+  Aside from setting the track types for the main mix assignments, using
+  /set_surface/strip_types with more than one surface button will allow
+  switching between modes for example: inputs only, buses only,
+  selected only, hidden only, by having the buttons send values of: 3,
+  12, 256, 512. A full mix button might have a value 31.
+</p>
+<p>
+  While Master and Monitor are listed as possibilities, most surfaces
+  will not use them. Using /master and /monitor makes more sense.
+  However, in the case where there are no master or monitor fader strips
+  on the surface, it may be necessary to include them in the banked
+  strips.
 </p>
 <p>Please see: <a
   href="/using-control-surfaces/controlling-ardour-with-osc/calculating-feedback-and-strip-types-values/">
-  Calculating Feedback and Strip-types Values.</a></p>
+  Calculating Feedback and Strip-types Values.</a>
+</p>
+<p class="note">
+	Strip types can also be set with <em>/set_surface/strip_types types.</em>
+</p>
 <h3>feedback</h3> 
 <p>Feedback is an integer made up of bits. The easy way to
   deal with this is to think of feedback items being worth a number and
@@ -111,6 +134,9 @@ here</em>"/&gt;</kbd>
 <p>Please see: <a
   href="/using-control-surfaces/controlling-ardour-with-osc/calculating-feedback-and-strip-types-values/">
   Calculating Feedback and Strip-types Values.</a></p>
+<p class="note">
+	Feedback can also be set with <em>/set_surface/feedback feedback.</em>
+</p>
 
 <h3>gainmode</h3>
 <p>
@@ -123,29 +149,57 @@ here</em>"/&gt;</kbd>
 	  /strip/fader RID value</li>
   </ul>
 </p>
+<p>
+  Gainmode applies only to feedback values. The controller can choose
+  which gain math to use by choosing to use the /*/gain or /*/fader path
+  to send to Ardour. This makes sure a controller that doesn't set up
+  Ardour's OSC can still use either math. The gainmode for feedback also
+  determines the path Ardour uses for feedback so that the feedback
+  messages match the control messages.
+</p>
+<p class="note">
+	Gain mode can also be set with <em>/set_surface/gainmode gainmode.</em>
+</p>
   
 <h2>List of OSC messages</h2>
-
+<p class="note">
+	Parameter types show how the value will be used. However, they may
+	be sent as a different type if needed, see: <a
+	href="/using-control-surfaces/controlling-ardour-with-osc/parameter-types-in-osc/">
+	Parameter Types in OSC.</a>
+</p>
 <h3>Master or Global messages</h3>
 
 <h4>Transport Control</h4>
 <dl class="bindings">
-  <dt><kbd class="osc">/transport_stop <em>optional</em></kbd></dt>
+  <dt><kbd class="osc">/transport_stop</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/transport_play <em>optional</em></kbd></dt>
+  <dt><kbd class="osc">/transport_play</kbd></dt>
   <dd></dd>
+  <dt><kbd class="osc">/toggle_roll</kbd></dt>
+  <dd>Toggles between play and stop</dd>
   <dt><kbd class="osc">/set_transport_speed <em>s</em></kbd></dt>
   <dd>where <em>s</em> is a float ranging from -8.0f to 8.0f</dd>
-  <dt><kbd class="osc">/ffwd <em>optional</em></kbd></dt>
+  <dt><kbd class="osc">/ffwd</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/rewind <em>optional</em></kbd></dt>
+  <dt><kbd class="osc">/rewind</kbd></dt>
   <dd></dd>
   <dt><kbd class="osc">/goto_start</kbd></dt>
   <dd></dd>
   <dt><kbd class="osc">/goto_end</kbd></dt>
   <dd></dd>
+  <dt><kbd class="osc">/jump_bars <em>bars</em></kbd></dt>
+  <dd>Where <em>bars</em> is a float (+/-) of the number of bars to jump</dd>
+  <dt><kbd class="osc">/jump_seconds <em>seconds</em></kbd></dt>
+  <dd>Where <em>seconds</em> is a float (+/-) of the number of seconds to jump</dd>
   <dt><kbd class="osc">/add_marker</kbd></dt>
   <dd>(adds marker to the current transport position)</dd>
+  <dt><kbd class="osc">/remove_marker</kbd></dt>
+  <dd>Removes marker at the current transport position (if there is one)</dd>
+  <dt><kbd class="osc">/mark_in</kbd></dt>
+  <dd>Marks the begining of a range at the current transport position</dd>
+  <dt><kbd class="osc">/mark_out</kbd></dt>
+  <dd>Marks the end of a range at the current transport position</dd>
   <dt><kbd class="osc">/next_marker</kbd></dt>
   <dd></dd>
   <dt><kbd class="osc">/prev_marker</kbd></dt>
@@ -154,8 +208,31 @@ here</em>"/&gt;</kbd>
   <dd>where <em>spos</em> is the target position in samples and
   <em>roll</em> is a bool/integer defining whether you want transport 
   to be kept rolling or not</dd>
-  <dt><kbd class="osc">/loop_toggle <em>optional</em></kbd></dt>
+  <dt><kbd class="osc">/loop_toggle</kbd></dt>
   <dd></dd>
+  <dt><kbd class="osc">/loop_location <em>start</em> <em>end</em></kbd></dt>
+  <dd><em>start</em> is the beginning of a loop and <em>end</em> is the
+  end of a loop both are integer frame positions.</dd>
+  <dt><kbd class="osc">/set_loop_range</kbd></dt>
+  <dd>Uses edit range as loop range</dd>
+  <dt><kbd class="osc">/set_session_range</kbd></dt>
+  <dd>Uses edit range as session range</dd>
+  <dt><kbd class="osc">/toggle_click</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/midi_panic</kbd></dt>
+  <dd>Ardour will send an all notes off to all midi tracks</dd>
+  <dt><kbd class="osc">/cancel_all_solos</kbd></dt>
+  <dd>Cancel All Solos/PFLs/AFLs</dd>
+</dl>
+
+<h4>Transport Information</h4>
+<dl>
+  <dt><kbd class="osc">/transport_frame</kbd></dt>
+  <dd>Ardour sends /transport_frame <em>current_frame</em></dd>
+  <dt><kbd class="osc">/transport_speed</kbd></dt>
+  <dd>Ardour sends /transport_speed <em>speed</em></dd>
+  <dt><kbd class="osc">/record_enabled</kbd></dt>
+  <dd>Ardour sends /record_enabled <em>recordenable_status</em></dd>
 </dl>
 
 <h4>Editing-related</h4>
@@ -167,6 +244,28 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">/save_state</kbd></dt>
   <dd>(this is the regular <kbd class="menu">Session &gt; Save</kbd>
   operation)</dd>
+  <dt><kbd class="osc">/quick_snapshot_switch</kbd></dt>
+  <dd>Take a snapshot and switch to new version</dd>
+  <dt><kbd class="osc">/quick_snapshot_stay</kbd></dt>
+  <dd>Take a snapshot and keep working on this version</dd>
+  <dt><kbd class="osc">/fit_*_track(s)</kbd></dt>
+  <dd>Were <em>*</em> is one of 1, 2, 4, 8, 16, 32 or all. Fits this
+  many tracks in editor window. (add s for more than 1)</dd>
+  <dt><kbd class="osc">/zoom_*</kbd></dt>
+  <dd>Zoom editor to include <em>*</em> where <em>*</em> is 100_ms, 1_sec,
+  10_sec, 1_min, 5_min, 10_min or to_session</dd>
+  <dt><kbd class="osc">/temporal_zoom_in</kbd></dt>
+  <dd>Zoom editor in to show less time</dd>
+  <dt><kbd class="osc">/temporal_zoom_out</kbd></dt>
+  <dd>Zoom editor out to show more time</dd>
+  <dt><kbd class="osc">/scroll_up_1_track</kbd></dt>
+  <dd>Scroll the editor pane up 1 track</dd>
+  <dt><kbd class="osc">/scroll_up_1_page</kbd></dt>
+  <dd>Scroll the editor pane up 1 page</dd>
+  <dt><kbd class="osc">/scroll_dn_1_track</kbd></dt>
+  <dd>Scroll the editor pane down 1 track</dd>
+  <dt><kbd class="osc">/scroll_dn_1_page</kbd></dt>
+  <dd>Scroll the editor pane down 1 page</dd>
 </dl>
 
 <h4>Recording control</h4>
@@ -175,28 +274,32 @@ here</em>"/&gt;</kbd>
   <dd></dd>
   <dt><kbd class="osc">/toggle_punch_out</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/rec_enable_toggle <em>optional</em></kbd></dt>
+  <dt><kbd class="osc">/set_punch_range</kbd></dt>
+  <dd>Uses edit range as punch range</dd>
+  <dt><kbd class="osc">/rec_enable_toggle</kbd></dt>
   <dd></dd>
-  <dt><kbd class="osc">/toggle_all_rec_enables</kbd></dt>
-  <dd>(toggles all tracks' recording state)</dd>
+  <!--dt><kbd class="osc">/toggle_all_rec_enables</kbd></dt>
+  <dd>(toggles all tracks' recording state)</dd-->
+  <dt><kbd class="osc">/stop_forget</kbd></dt>
+  <dd>Stop transport and delete/forget last take</dd>
 </dl>
 
 <h4>Master and Monitor strip control</h4>
 <dl class="bindings">
   <dt><kbd class="osc">/master/gain <em>dB</em></kbd></dt>
-  <dd>where <em>dB</em> is a float ranging from -193 to +6 representing the desired gain of master in dB</dd>
+  <dd>See gain in strips</dd>
   <dt><kbd class="osc">/master/fader  <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position</dd>
+  <dd>See fader in strips</dd>
   <dt><kbd class="osc">/master/trimdB <em>dB</em></kbd></dt>
-  <dd>where <em>dB</em> is a float ranging from -20 to +20 representing the desired trim for master in dB</dd>
+  <dd>see trimdb in strips</dd>
   <dt><kbd class="osc">/master/pan_stereo_position <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan position for master</dd>
+  <dd>See pan_stereo_position in strips</dd>
   <dt><kbd class="osc">/master/mute  <em>yn</em></kbd></dt>
-  <dd>where <em>yn</em> is a bool/int representing the desired mute state of the track</dd>
+  <dd>See mute in strips</dd>
   <dt><kbd class="osc">/monitor/gain <em>dB</em></kbd></dt>
-  <dd>where <em>dB</em> is a float ranging from -193 to 6 representing the desired gain of monitor in dB</dd>
+  <dd>See gain in strips</dd>
   <dt><kbd class="osc">/monitor/fader  <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position</dd>
+  <dd>See fader in strips</dd>
 </dl>
 
 <h3>Track specific operations</h3>
@@ -206,7 +309,7 @@ here</em>"/&gt;</kbd>
 <p class="note">
   SSID has a different meaning than RID in Ardour version 4.7 and before.
   Effectively, banking is always being used and the SSID is generated on
-  the fly. The SSID is the possition of the strip within bank as an int
+  the fly. The SSID is the position of the strip within bank as an int
   1 to bank size. There are no gaps as there have been in the past.
   Depending on the value of strip_types sent to Ardour, Master and
   Monitor, may be included in the list of SSIDs or not as set in
@@ -227,6 +330,10 @@ here</em>"/&gt;</kbd>
   <dd>where <em>mute_st</em> is a bool/int representing the desired mute state of the track</dd>
   <dt><kbd class="osc">/strip/solo <em>ssid</em> <em>solo_st</em></kbd></dt>
   <dd>where <em>solo_st</em> is a bool/int representing the desired solo state of the track</dd>
+  <dt><kbd class="osc">/strip/solo_iso <em>ssid</em> <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is a bool/int representing the desired solo isolate state of the track</dd>
+  <dt><kbd class="osc">/strip/solo_safe <em>ssid</em> <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is a bool/int representing the desired solo safe/lock state of the track</dd>
   <dt><kbd class="osc">/strip/monitor_input <em>ssid</em> <em>monitor_st</em></kbd></dt>
   <dd>where <em>monitor_st</em> is a bool/int where 1 is forced input monitoring.</dd>
   <dt><kbd class="osc">/strip/monitor_disk <em>ssid</em> <em>monitor_st</em></kbd></dt>
@@ -236,16 +343,116 @@ here</em>"/&gt;</kbd>
   <dd>where <em>rec_st</em> is a bool/int representing the desired rec state of the track</dd>
   <dt><kbd class="osc">/strip/record_safe <em>ssid</em> <em>rec_st</em></kbd></dt>
   <dd>where <em>rec_st</em> is a bool/int representing the desired record safe state of the track</dd>
+  <dt><kbd class="osc">/strip/polarity <em>ssid</em> <em>invert</em></kbd></dt>
+  <dd>where <em>invert</em> is a bool/int representing the desired polarity of the track</dd>
   <dt><kbd class="osc">/strip/gain <em>ssid</em>  <em>gain</em></kbd></dt>
   <dd>where <em>gain</em> is a float ranging from -193 to 6 representing the desired gain of the track in dB.</dd>
   <dt><kbd class="osc">/strip/fader <em>ssid</em>  <em>position</em></kbd></dt>
   <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position.</dd>
-  <dt><kbd class="osc">/strip/trimabs <em>ssid</em> <em>trim_abs</em></kbd></dt>
-  <dd>where <em>trim_abs</em> is a float ranging from 0.1 to 10 (-20dB to +20dB). (since 4.1)</dd>
   <dt><kbd class="osc">/strip/trimdB <em>ssid</em>  <em>trim_db</em></kbd></dt>
   <dd>where <em>trim_db</em> is a float ranging from -20 to 20 representing the desired trim of the track in dB.</dd>
   <dt><kbd class="osc">/strip/pan_stereo_position <em>ssid</em> <em>position</em></kbd></dt>
   <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan position of the track</dd>
+  <dt><kbd class="osc">/strip/pan_stereo_width <em>ssid</em> <em>width</em></kbd></dt>
+  <dd>where <em>width</em> is a float ranging from 0 to 1 representing the desired pan width of the track</dd>
+  <dt><kbd class="osc">/strip/plugin/parameter <em>ssid</em> <em>piid</em> <em>param</em> <em>value</em></kbd></dt>
+  <dd>where <em>piid</em> = nth Plugin, <em>param</em> = nth param, <em>value</em>
+  is a float ranging from 0 to 1 representing the desired parameter value</dd>
+  <dt><kbd class="osc">/strip/send/gainabs", <em>ssid</em> <em>sendid</em> <em>send_gain</em></kbd></dt>
+  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
+  ranging from 0 to 1 representing the desired gain for the send (note this will likey be replaced by a positional control)</dd>
+  <dt><kbd class="osc">/strip/send/gain", <em>ssid</em> <em>sendid</em> <em>send_gain</em></kbd></dt>
+  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
+  ranging from -193 to +6 representing the desired gain in dB for the send</dd>
+  <dt><kbd class="osc">/strip/send/fader", <em>ssid</em> <em>sendid</em> <em>send_gain</em></kbd></dt>
+  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
+  ranging from 0 to 1023 representing the desired position for the send as a fader</dd>
+</dl>
+<h3>Selected Strip Operations</h3>
+<p>
+  New for Ardour 5, A whole set of operations that work on the selected
+  or expanded strip.
+</p>
+<p class="note">
+  Selected strip operations are complex enough for their own page.
+  Please read: <a
+  href="/using-control-surfaces/controlling-ardour-with-osc/selection-considerations-in-osc/">
+  Selection Considerations in OSC.</a> This is most important if more
+  than one OSC surface is being used with Ardour.
+</p>
+<p>
+  There are two kinds of selection in OSC. GUI selection and local
+  expansion. By default expansion follows selection.
+  <ul>
+	<li>
+		GUI selection: Use <em>/strip/select</em> to set.  Selecting
+		a strip in the GUI will set OSC surface select and the surface
+		will set GUI selection as well.
+	</li>
+	<li>
+		Local expansion: Use <em>/strip/expand</em> to expand a strip
+		without changing overall selection. When /strip/expand is set
+		to 0 or false, the select channel will go back to using the
+		strip selected by the GUI. While expand is turned on,
+		selecting a strip on the GUI does not
+		select the OSC strip. Sending a /strip/select message will
+		override the expand as if it had been set to false.
+		Good for more than one OSC controller at a time.
+	</li>
+  </ul>
+</p>
+
+<dl class="bindings">
+  <dt><kbd class="osc">/strip/select <em>ssid</em> <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> = 1 for select. Sets both GUI select and strip
+  to expanded mode. (0 is ignored)</dd>
+  <dt><kbd class="osc">/strip/expand <em>ssid</em> <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> = 1 for expanded mode. Sets only local strip to
+  Expanded. Setting to 0 resets the expansion to follow selection.</dd>
+  <dt><kbd class="osc">/select/expand <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> = 1 for expanded mode, 0 for Select mode.</dd>
+  <dt><kbd class="osc">/select/recenable <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> is 1 for enabled and 0 for disabled</dd>
+  <dt><kbd class="osc">/select/record_safe <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> is 1 for safe and 0 for unlocked</dd>
+  <dt><kbd class="osc">/select/mute <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> is 1 for enabled and 0 for disabled</dd>
+  <dt><kbd class="osc">/select/solo <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> is 1 for enabled and 0 for disabled</dd>
+  <dt><kbd class="osc">/select/solo_iso <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is a bool/int representing the desired solo isolate state of the track</dd>
+  <dt><kbd class="osc">/select/solo_safe <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is a bool/int representing the desired solo safe/lock state of the track</dd>
+  <dt><kbd class="osc">/select/monitor_input <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> is 1 for monitor from input and 0 for auto</dd>
+  <dt><kbd class="osc">/select/monitor_disk <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> is 1 for monitor from disk and 0 for auto</dd>
+  <dt><kbd class="osc">/select/polarity <em>invert</em></kbd></dt>
+  <dd>where <em>invert</em> is a bool/int representing the desired polarity of the track</dd>
+  <dt><kbd class="osc">/select/gain <em>gain</em></kbd></dt>
+  <dd>Where <em>gain</em> is a float ranging from -193 to 6 representing the desired gain of the track in dB.</dd>
+  <dt><kbd class="osc">/select/fader <em>position</em></kbd></dt>
+  <dd>Where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position.</dd>
+  <dt><kbd class="osc">/select/trimdB <em>trim_db</em></kbd></dt>
+  <dd>where <em>trim_db</em> is a float ranging from -20 to 20 representing the desired trim of the track in dB.</dd>
+  <dt><kbd class="osc">/select/pan_stereo_position <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan position of the track</dd>
+  <dt><kbd class="osc">/select/pan_stereo_width <em>width</em></kbd></dt>
+  <dd>where <em>width</em> is a float ranging from 0 to 1 representing the desired pan width of the track</dd>
+  <dt><kbd class="osc">/select/pan_elevation_position <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan elevation of the track</dd>
+  <dt><kbd class="osc">/select/pan_frontback_position <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired front to back position of the track</dd>
+  <dt><kbd class="osc">/select/pan_lfe_control <em>value</em></kbd></dt>
+  <dd>where <em>value</em> is a float ranging from 0 to 1 representing the desired LFE control value for the track</dd>
+  <dt><kbd class="osc">/select/send_gain", <em>sendid</em> <em>send_gain</em></kbd></dt>
+  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
+  ranging from -193 to +6 representing the desired gain in dB for the send</dd>
+  <dt><kbd class="osc">/select/send_fader", <em>sendid</em> <em>send_gain</em></kbd></dt>
+  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
+  ranging from 0 to 1023 representing the desired position for the send as a fader</dd>
+  <dt><kbd class="osc">/select/send_enable", <em>sendid</em> <em>state</em></kbd></dt>
+  <dd>where <em>sendid</em> = nth_send, <em>state</em> is 1 for enabled and 0 for disabled</dd>
 </dl>
 
 <h3>Menu actions</h3>
@@ -256,22 +463,42 @@ here</em>"/&gt;</kbd>
 <kbd class="osc">/access_action <em>action_name</em></kbd>
 <p>
   The list below shows all available values of <em>action-name</em> as of
-  mid-February 2014 for Ardour 3.5. You can get the current list at any
+  June 2016 for Ardour 5.0.pre0.1. You can get the current list at any
   time by running Ardour with the -b flag.
   </p>
 <dl class="bindings">
 	<dt><strong>Action Name</strong></dt><dd><strong>Menu Name</strong></dd>
-  <dt><kbd class="osc">Common/Chat</kbd></dt><dd>Chat</dd>
-  <dt><kbd class="osc">Common/KeepTearoffs</kbd></dt><dd>Show Toolbars</dd>
-  <dt><kbd class="osc">Common/Manual</kbd></dt><dd>Manual</dd>
+  <!-- ProcessorMenu - ok -->
+  <dt><kbd class="osc">ProcessorMenu/ab_plugins</kbd></dt><dd>A/B Plugins</dd>
+  <dt><kbd class="osc">ProcessorMenu/activate_all</kbd></dt><dd>Activate All</dd>
+  <dt><kbd class="osc">ProcessorMenu/clear</kbd></dt><dd>Clear (all)</dd>
+  <dt><kbd class="osc">ProcessorMenu/clear_post</kbd></dt><dd>Clear (post-fader)</dd>
+  <dt><kbd class="osc">ProcessorMenu/clear_pre</kbd></dt><dd>Clear (pre-fader)</dd>
+  <dt><kbd class="osc">ProcessorMenu/controls</kbd></dt><dd>Controls</dd>
+  <dt><kbd class="osc">ProcessorMenu/copy</kbd></dt><dd>Copy</dd>
+  <dt><kbd class="osc">ProcessorMenu/cut</kbd></dt><dd>Cut</dd>
+  <dt><kbd class="osc">ProcessorMenu/deactivate_all</kbd></dt><dd>Deactivate All</dd>
+  <dt><kbd class="osc">ProcessorMenu/delete</kbd></dt><dd>Delete</dd>
+  <dt><kbd class="osc">ProcessorMenu/deselectall</kbd></dt><dd>Deselect All</dd>
+  <dt><kbd class="osc">ProcessorMenu/edit-generic</kbd></dt><dd>Edit with generic controls...</dd>
+  <dt><kbd class="osc">ProcessorMenu/edit</kbd></dt><dd>Edit...</dd>
+  <dt><kbd class="osc">ProcessorMenu/newaux</kbd></dt><dd>New Aux Send ...</dd>
+  <dt><kbd class="osc">ProcessorMenu/newinsert</kbd></dt><dd>New Insert</dd>
+  <dt><kbd class="osc">ProcessorMenu/newplugin</kbd></dt><dd>New Plugin</dd>
+  <dt><kbd class="osc">ProcessorMenu/newsend</kbd></dt><dd>New External Send ...</dd>
+  <dt><kbd class="osc">ProcessorMenu/paste</kbd></dt><dd>Paste</dd>
+  <dt><kbd class="osc">ProcessorMenu/rename</kbd></dt><dd>Rename</dd>
+  <dt><kbd class="osc">ProcessorMenu/selectall</kbd></dt><dd>Select All</dd>
+  <dt><kbd class="osc">ProcessorMenu/send_options</kbd></dt><dd>Send Options</dd>
+  <!-- Common - updated -->
+  <dt><kbd class="osc">Common/Hide</kbd></dt><dd></dd>
   <dt><kbd class="osc">Common/NewMIDITracer</kbd></dt><dd>MIDI Tracer</dd>
   <dt><kbd class="osc">Common/Quit</kbd></dt><dd>Quit</dd>
-  <dt><kbd class="osc">Common/Reference</kbd></dt><dd>Reference</dd>
   <dt><kbd class="osc">Common/Save</kbd></dt><dd>Save</dd>
-  <dt><kbd class="osc">Common/toggle-editor-mixer</kbd></dt><dd>Toggle Editor+Mixer</dd>
-  <dt><kbd class="osc">Common/ToggleMaximalEditor</kbd></dt><dd>Maximise Editor Space</dd>
-  <dt><kbd class="osc">Common/toggle-meterbridge</kbd></dt><dd>Meterbridge</dd>
-  <dt><kbd class="osc">Common/toggle-mixer</kbd></dt><dd>Mixer</dd>
+  <dt><kbd class="osc">Common/ToggleMaximalEditor</kbd></dt><dd>Maximize Editor Space</dd>
+  <dt><kbd class="osc">Common/ToggleMaximalMixer</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/ToggleMixerList</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/ToggleMonitorSection</kbd></dt><dd></dd>
   <dt><kbd class="osc">Common/ToggleRecordEnableTrack10</kbd></dt><dd>Toggle Record Enable Track 10</dd>
   <dt><kbd class="osc">Common/ToggleRecordEnableTrack11</kbd></dt><dd>Toggle Record Enable Track 11</dd>
   <dt><kbd class="osc">Common/ToggleRecordEnableTrack12</kbd></dt><dd>Toggle Record Enable Track 12</dd>
@@ -304,9 +531,197 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Common/ToggleRecordEnableTrack7</kbd></dt><dd>Toggle Record Enable Track 7</dd>
   <dt><kbd class="osc">Common/ToggleRecordEnableTrack8</kbd></dt><dd>Toggle Record Enable Track 8</dd>
   <dt><kbd class="osc">Common/ToggleRecordEnableTrack9</kbd></dt><dd>Toggle Record Enable Track 9</dd>
-  <dt><kbd class="osc">Editor/addExistingAudioFiles</kbd></dt><dd>Import</dd>
-  <dt><kbd class="osc">Editor/addExternalAudioToRegionList</kbd></dt><dd>Import to Region List...</dd>
+  <dt><kbd class="osc">Common/attach-editor</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/attach-mixer</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/attach-preferences</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/change-editor-visibility</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/change-mixer-visibility</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/change-preferences-visibility</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/Chat</kbd></dt><dd>Chat</dd>
+  <dt><kbd class="osc">Common/cheat-sheet</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/detach-editor</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/detach-mixer</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/detach-preferences</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/forums</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/hide-editor</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/hide-mixer</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/hide-preferences</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/howto-report</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/key-change-editor-visibility</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/key-change-mixer-visibility</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/key-change-preferences-visibility</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/Manual</kbd></dt><dd>Manual</dd>
+  <dt><kbd class="osc">Common/menu-show-preferences</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/next-tab</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/previous-tab</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/Reference</kbd></dt><dd>Reference</dd>
+  <dt><kbd class="osc">Common/show-editor</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/show-mixer</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/show-preferences</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/toggle-editor-mixer</kbd></dt><dd>Toggle Editor+Mixer</dd>
+  <dt><kbd class="osc">Common/toggle-luawindow</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/toggle-meterbridge</kbd></dt><dd>Meterbridge</dd>
+  <dt><kbd class="osc">Common/tracker</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/website</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Common/website-dev</kbd></dt><dd></dd>
+  <!-- MIDI - updated-->
+  <dt><kbd class="osc">MIDI/panic</kbd></dt><dd>Panic</dd>
+  <!-- Main - updated -->
+  <dt><kbd class="osc">Main/AddLuaScript</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/AddTrackBus</kbd></dt><dd>Add Track or Bus...</dd>
+  <dt><kbd class="osc">Main/CleanupPeakFiles</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/CleanupUnused</kbd></dt><dd>Clean-up Unused Sources...</dd>
+  <dt><kbd class="osc">Main/Close</kbd></dt><dd>Close</dd>
+  <dt><kbd class="osc">Main/CloseVideo</kbd></dt><dd>Remove Video</dd>
+  <dt><kbd class="osc">Main/EditMetadata</kbd></dt><dd>Edit Metadata...</dd>
+  <dt><kbd class="osc">Main/Escape</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/ExportAudio</kbd></dt><dd>Export To Audio File(s)...</dd>
+  <dt><kbd class="osc">Main/Export</kbd></dt><dd>Export</dd>
+  <dt><kbd class="osc">Main/ExportVideo</kbd></dt><dd>Export To Video File</dd>
+  <dt><kbd class="osc">Main/FlushWastebasket</kbd></dt><dd>Flush Wastebasket</dd>
+  <dt><kbd class="osc">Main/ImportMetadata</kbd></dt><dd>Import Metadata...</dd>
+  <dt><kbd class="osc">Main/Metadata</kbd></dt><dd>Metadata</dd>
+  <dt><kbd class="osc">Main/New</kbd></dt><dd>New...</dd>
+  <dt><kbd class="osc">Main/Open</kbd></dt><dd>Open...</dd>
+  <dt><kbd class="osc">Main/OpenVideo</kbd></dt><dd>Open Video</dd>
+  <dt><kbd class="osc">Main/QuickSnapshotStay</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/QuickSnapshotSwitch</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/Recent</kbd></dt><dd>Recent...</dd>
+  <dt><kbd class="osc">Main/RemoveLuaScript</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/Rename</kbd></dt><dd>Rename...</dd>
+  <dt><kbd class="osc">Main/SaveAs</kbd></dt><dd>Save As...</dd>
+  <dt><kbd class="osc">Main/SaveTemplate</kbd></dt><dd>Save Template...</dd>
+  <dt><kbd class="osc">Main/Scripting</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/SnapshotStay</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/SnapshotSwitch</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/StemExport</kbd></dt><dd>Stem export...</dd>
+  <dt><kbd class="osc">Main/cancel-solo</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main/duplicate-routes</kbd></dt><dd></dd>
+  <!-- Main_menu - updated -->
+  <dt><kbd class="osc">Main_menu/AudioFileFormatData</kbd></dt><dd>Sample Format</dd>
+  <dt><kbd class="osc">Main_menu/AudioFileFormatHeader</kbd></dt><dd>File Type</dd>
+  <dt><kbd class="osc">Main_menu/AudioFileFormat</kbd></dt><dd>Audio File Format</dd>
+  <dt><kbd class="osc">Main_menu/Cleanup</kbd></dt><dd>Clean-up</dd>
+  <dt><kbd class="osc">Main_menu/ControlSurfaces</kbd></dt><dd>Control Surfaces</dd>
+  <dt><kbd class="osc">Main_menu/Denormals</kbd></dt><dd>Denormal Handling</dd>
+  <dt><kbd class="osc">Main_menu/Help</kbd></dt><dd>Help</dd>
+  <dt><kbd class="osc">Main_menu/KeyMouseActions</kbd></dt><dd>Misc. Shortcuts</dd>
+  <dt><kbd class="osc">Main_menu/MeteringFallOffRate</kbd></dt><dd>Fall Off Rate</dd>
+  <dt><kbd class="osc">Main_menu/MeteringHoldTime</kbd></dt><dd>Hold Time</dd>
+  <dt><kbd class="osc">Main_menu/Metering</kbd></dt><dd>Metering</dd>
+  <dt><kbd class="osc">Main_menu/MixerMenu</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main_menu/Plugins</kbd></dt><dd>Plugins</dd>
+  <dt><kbd class="osc">Main_menu/PrefsMenu</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Main_menu/Session</kbd></dt><dd>Session</dd>
+  <dt><kbd class="osc">Main_menu/Sync</kbd></dt><dd>Sync</dd>
+  <dt><kbd class="osc">Main_menu/TransportOptions</kbd></dt><dd>Options</dd>
+  <dt><kbd class="osc">Main_menu/WindowMenu</kbd></dt><dd>Window</dd>
+  <!-- Options -->
+  <dt><kbd class="osc">options/SendMidiClock</kbd></dt><dd>Send MIDI Clock</dd>
+  <dt><kbd class="osc">options/SendMIDIfeedback</kbd></dt><dd>Send MIDI Feedback</dd>
+  <dt><kbd class="osc">options/SendMMC</kbd></dt><dd>Send MMC</dd>
+  <dt><kbd class="osc">options/SendMTC</kbd></dt><dd>Send MTC</dd>
+  <dt><kbd class="osc">options/UseMMC</kbd></dt><dd>Use MMC</dd>
+  <!-- Transport -->
+  <dt><kbd class="osc">Transport/ForwardFast</kbd></dt><dd>Forward (Fast)</dd>
+  <dt><kbd class="osc">Transport/Forward</kbd></dt><dd>Forward</dd>
+  <dt><kbd class="osc">Transport/ForwardSlow</kbd></dt><dd>Forward (Slow)</dd>
+  <dt><kbd class="osc">Transport/GotoEnd</kbd></dt><dd>Goto End</dd>
+  <dt><kbd class="osc">Transport/GotoStart</kbd></dt><dd>Goto Start</dd>
+  <dt><kbd class="osc">Transport/GotoWallClock</kbd></dt><dd>Goto Wall Clock</dd>
+  <dt><kbd class="osc">Transport/GotoZero</kbd></dt><dd>Goto Zero</dd>
+  <dt><kbd class="osc">Transport/Loop</kbd></dt><dd>Play Loop Range</dd>
+  <dt><kbd class="osc">Transport/PlayPreroll</kbd></dt><dd>Play Selection w/Preroll</dd>
+  <dt><kbd class="osc">Transport/PlaySelection</kbd></dt><dd>Play Selected Range</dd>
+  <dt><kbd class="osc">Transport/Record</kbd></dt><dd>Enable Record</dd>
+  <dt><kbd class="osc">Transport/RewindFast</kbd></dt><dd>Rewind (Fast)</dd>
+  <dt><kbd class="osc">Transport/Rewind</kbd></dt><dd>Rewind</dd>
+  <dt><kbd class="osc">Transport/RewindSlow</kbd></dt><dd>Rewind (Slow)</dd>
+  <dt><kbd class="osc">Transport/Roll</kbd></dt><dd>Roll</dd>
+  <dt><kbd class="osc">Transport/Stop</kbd></dt><dd>Stop</dd>
+  <dt><kbd class="osc">Transport/ToggleAutoInput</kbd></dt><dd>Auto Input</dd>
+  <dt><kbd class="osc">Transport/ToggleAutoPlay</kbd></dt><dd>Auto Play</dd>
+  <dt><kbd class="osc">Transport/ToggleAutoReturn</kbd></dt><dd>Auto Return</dd>
+  <dt><kbd class="osc">Transport/ToggleClick</kbd></dt><dd>Click</dd>
+  <dt><kbd class="osc">Transport/ToggleExternalSync</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/ToggleFollowEdits</kbd></dt><dd>Follow Edits</dd>
+  <dt><kbd class="osc">Transport/TogglePunchIn</kbd></dt><dd>Punch In</dd>
+  <dt><kbd class="osc">Transport/TogglePunch</kbd></dt><dd>Punch In/Out</dd>
+  <dt><kbd class="osc">Transport/TogglePunchOut</kbd></dt><dd>Punch Out</dd>
+  <dt><kbd class="osc">Transport/ToggleRollForgetCapture</kbd></dt><dd>Stop and Forget Capture</dd>
+  <dt><kbd class="osc">Transport/ToggleRoll</kbd></dt><dd>Start/Stop</dd>
+  <dt><kbd class="osc">Transport/ToggleRollMaybe</kbd></dt><dd>Start/Continue/Stop</dd>
+  <dt><kbd class="osc">Transport/ToggleTimeMaster</kbd></dt><dd>Time Master</dd>
+  <dt><kbd class="osc">Transport/ToggleVideoSync</kbd></dt><dd>Sync Startup to Video</dd>
+  <dt><kbd class="osc">Transport/TransitionToReverse</kbd></dt><dd>Transition To Reverse</dd>
+  <dt><kbd class="osc">Transport/TransitionToRoll</kbd></dt><dd>Transition To Roll</dd>
+  <dt><kbd class="osc">Transport/Transport</kbd></dt><dd>Transport</dd>
+  <dt><kbd class="osc">Transport/alternate-GotoStart</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/alternate-ToggleRoll</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/alternate-numpad-decimal</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/alternate-record-roll</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/focus-on-clock</kbd></dt><dd>Focus On Clock</dd>
+  <dt><kbd class="osc">Transport/numpad-0</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/numpad-1</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/numpad-2</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/numpad-3</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/numpad-4</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/numpad-5</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/numpad-6</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/numpad-7</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/numpad-8</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/numpad-9</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/numpad-decimal</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Transport/primary-clock-bbt</kbd></dt><dd>Bars & Beats</dd>
+  <dt><kbd class="osc">Transport/primary-clock-minsec</kbd></dt><dd>Minutes & Seconds</dd>
+  <dt><kbd class="osc">Transport/primary-clock-samples</kbd></dt><dd>Samples</dd>
+  <dt><kbd class="osc">Transport/primary-clock-timecode</kbd></dt><dd>Timecode</dd>
+  <dt><kbd class="osc">Transport/record-roll</kbd></dt><dd>Start Recording</dd>
+  <dt><kbd class="osc">Transport/secondary-clock-bbt</kbd></dt><dd>Bars & Beats</dd>
+  <dt><kbd class="osc">Transport/secondary-clock-minsec</kbd></dt><dd>Minutes & Seconds</dd>
+  <dt><kbd class="osc">Transport/secondary-clock-samples</kbd></dt><dd>Samples</dd>
+  <dt><kbd class="osc">Transport/secondary-clock-timecode</kbd></dt><dd>Timecode</dd>
+  <!-- WIndow -->
+  <dt><kbd class="osc">Window/toggle-about</kbd></dt><dd>About</dd>
+  <dt><kbd class="osc">Window/toggle-add-routes</kbd></dt><dd>Add Tracks/Busses</dd>
+  <dt><kbd class="osc">Window/toggle-add-video</kbd></dt><dd>Add Tracks/Busses</dd>
+  <dt><kbd class="osc">Window/toggle-audio-connection-manager</kbd></dt><dd>Audio Connections</dd>
+  <dt><kbd class="osc">Window/toggle-audio-midi-setup</kbd></dt><dd>Audio/MIDI Setup</dd>
+  <dt><kbd class="osc">Window/toggle-big-clock</kbd></dt><dd>Big Clock</dd>
+  <dt><kbd class="osc">Window/toggle-bundle-manager</kbd></dt><dd>Bundle Manager</dd>
+  <dt><kbd class="osc">Window/toggle-inspector</kbd></dt><dd>Tracks and Busses</dd>
+  <dt><kbd class="osc">Window/toggle-key-editor</kbd></dt><dd>Key Bindings</dd>
+  <dt><kbd class="osc">Window/toggle-locations</kbd></dt><dd>Locations</dd>
+  <dt><kbd class="osc">Window/toggle-midi-connection-manager</kbd></dt><dd>MIDI Connections</dd>
+  <dt><kbd class="osc">Window/toggle-script-manager</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Window/toggle-session-options-editor</kbd></dt><dd>Properties</dd>
+  <dt><kbd class="osc">Window/toggle-speaker-config</kbd></dt><dd>Speaker Configuration</dd>
+  <dt><kbd class="osc">Window/toggle-video-export</kbd></dt><dd></dd>
+  <!-- Editor -->
+  <dt><kbd class="osc">Editor/SnapMode</kbd></dt><dd>Snap Mode</dd>
+  <dt><kbd class="osc">Editor/SnapTo</kbd></dt><dd>Snap to</dd>
+  <dt><kbd class="osc">Editor/ToggleGroupTabs</kbd></dt><dd>Show Group Tabs</dd>
+  <dt><kbd class="osc">Editor/ToggleJadeo</kbd></dt><dd>Video Monitor</dd>
+  <dt><kbd class="osc">Editor/ToggleMeasureVisibility</kbd></dt><dd>Show Measures</dd>
+  <dt><kbd class="osc">Editor/ToggleSummary</kbd></dt><dd>Show Summary</dd>
   <dt><kbd class="osc">Editor/add-location-from-playhead</kbd></dt><dd>Add Mark from Playhead</dd>
+  <dt><kbd class="osc">Editor/addExistingAudioFiles</kbd></dt><dd>Import</dd>
+  <dt><kbd class="osc">Editor/addExistingPTFiles</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/addExternalAudioToRegionList</kbd></dt><dd>Import to Region List...</dd>
+  <dt><kbd class="osc">Editor/alt-finish-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/alt-start-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/alternate-add-location-from-playhead</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/alternate-alternate-redo</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/alternate-editor-delete</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/alternate-jump-backward-to-mark</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/alternate-jump-forward-to-mark</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/alternate-redo</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/alternate-remove-location-from-playhead</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/alternate-select-all-after-edit-cursor</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/alternate-select-all-before-edit-cursor</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/alternate-tab-to-transient-backwards</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/alternate-tab-to-transient-forwards</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/bring-into-session</kbd></dt><dd></dd>
   <dt><kbd class="osc">Editor/center-edit-cursor</kbd></dt><dd>Center Edit Point</dd>
   <dt><kbd class="osc">Editor/center-playhead</kbd></dt><dd>Center Playhead</dd>
   <dt><kbd class="osc">Editor/crop</kbd></dt><dd>Crop</dd>
@@ -327,20 +742,28 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Editor/edit-cursor-to-previous-region-sync</kbd></dt><dd>To Previous Region Sync</dd>
   <dt><kbd class="osc">Editor/edit-cursor-to-range-end</kbd></dt><dd>To Range End</dd>
   <dt><kbd class="osc">Editor/edit-cursor-to-range-start</kbd></dt><dd>To Range Start</dd>
+  <dt><kbd class="osc">Editor/edit-to-playhead</kbd></dt><dd>Active Mark to Playhead</dd>
   <dt><kbd class="osc">Editor/editor-copy</kbd></dt><dd>Copy</dd>
   <dt><kbd class="osc">Editor/editor-crop</kbd></dt><dd>Crop</dd>
   <dt><kbd class="osc">Editor/editor-cut</kbd></dt><dd>Cut</dd>
   <dt><kbd class="osc">Editor/editor-delete</kbd></dt><dd>Delete</dd>
+  <dt><kbd class="osc">Editor/editor-fade-range</kbd></dt><dd></dd>
   <dt><kbd class="osc">Editor/editor-paste</kbd></dt><dd>Paste</dd>
   <dt><kbd class="osc">Editor/editor-separate</kbd></dt><dd>Separate</dd>
-  <dt><kbd class="osc">Editor/edit-to-playhead</kbd></dt><dd>Active Mark to Playhead</dd>
-  <dt><kbd class="osc">Editor/escape</kbd></dt><dd>Break drag or deselect all</dd>
   <dt><kbd class="osc">Editor/expand-tracks</kbd></dt><dd>Expand Track Height</dd>
   <dt><kbd class="osc">Editor/export-audio</kbd></dt><dd>Export Audio</dd>
   <dt><kbd class="osc">Editor/export-range</kbd></dt><dd>Export Range</dd>
-  <dt><kbd class="osc">Editor/finish-add-range</kbd></dt><dd>Finish Add Range</dd>
+  <dt><kbd class="osc">Editor/finish-loop-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/finish-punch-range</kbd></dt><dd></dd>
   <dt><kbd class="osc">Editor/finish-range</kbd></dt><dd>Finish Range</dd>
-  <dt><kbd class="osc">Editor/fit-tracks</kbd></dt><dd>Fit Selected Tracks</dd>
+  <dt><kbd class="osc">Editor/fit-selection</kbd></dt><dd>Fit Selected Tracks</dd>
+  <dt><kbd class="osc">Editor/fit_16_tracks</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/fit_1_track</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/fit_2_tracks</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/fit_32_tracks</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/fit_4_tracks</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/fit_8_tracks</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/fit_all_tracks</kbd></dt><dd></dd>
   <dt><kbd class="osc">Editor/goto-mark-1</kbd></dt><dd>Locate to Mark 1</dd>
   <dt><kbd class="osc">Editor/goto-mark-2</kbd></dt><dd>Locate to Mark 2</dd>
   <dt><kbd class="osc">Editor/goto-mark-3</kbd></dt><dd>Locate to Mark 3</dd>
@@ -367,7 +790,161 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Editor/invert-selection</kbd></dt><dd>Invert Selection</dd>
   <dt><kbd class="osc">Editor/jump-backward-to-mark</kbd></dt><dd>Jump to Previous Mark</dd>
   <dt><kbd class="osc">Editor/jump-forward-to-mark</kbd></dt><dd>Jump to Next Mark</dd>
+  <dt><kbd class="osc">Editor/lock</kbd></dt><dd></dd>
   <dt><kbd class="osc">Editor/main-menu-play-selected-regions</kbd></dt><dd>Play Selected Regions</dd>
+  <dt><kbd class="osc">Editor/move-range-end-to-next-region-boundary</kbd></dt><dd>Move Range End to Next Region Boundary</dd>
+  <dt><kbd class="osc">Editor/move-range-end-to-previous-region-boundary</kbd></dt><dd>Move Range End to Previous Region Boundary</dd>
+  <dt><kbd class="osc">Editor/move-range-start-to-next-region-boundary</kbd></dt><dd>Move Range Start to Next Region Boundary</dd>
+  <dt><kbd class="osc">Editor/move-range-start-to-previous-region-boundary</kbd></dt><dd>Move Range Start to Previous Region Boundary</dd>
+  <dt><kbd class="osc">Editor/move-selected-tracks-down</kbd></dt><dd>Move Selected Tracks Down</dd>
+  <dt><kbd class="osc">Editor/move-selected-tracks-up</kbd></dt><dd>Move Selected Tracks Up</dd>
+  <dt><kbd class="osc">Editor/next-snap-choice</kbd></dt><dd>Next Snap Choice</dd>
+  <dt><kbd class="osc">Editor/next-snap-choice-music-only</kbd></dt><dd>Next Musical Snap Choice</dd>
+  <dt><kbd class="osc">Editor/nudge-next-backward</kbd></dt><dd>Nudge Next Earlier</dd>
+  <dt><kbd class="osc">Editor/nudge-next-forward</kbd></dt><dd>Nudge Next Later</dd>
+  <dt><kbd class="osc">Editor/nudge-playhead-backward</kbd></dt><dd>Nudge Playhead Backward</dd>
+  <dt><kbd class="osc">Editor/nudge-playhead-forward</kbd></dt><dd>Nudge Playhead Forward</dd>
+  <dt><kbd class="osc">Editor/play-edit-range</kbd></dt><dd>Play Edit Range</dd>
+  <dt><kbd class="osc">Editor/play-from-edit-point-and-return</kbd></dt><dd>Play from Edit Point and Return</dd>
+  <dt><kbd class="osc">Editor/play-from-edit-point</kbd></dt><dd>Play From Edit Point</dd>
+  <dt><kbd class="osc">Editor/playhead-backward-to-grid</kbd></dt><dd>Playhead To Previous Grid</dd>
+  <dt><kbd class="osc">Editor/playhead-forward-to-grid</kbd></dt><dd>Playhead To Next Grid</dd>
+  <dt><kbd class="osc">Editor/playhead-to-edit</kbd></dt><dd>Playhead to Active Mark</dd>
+  <dt><kbd class="osc">Editor/playhead-to-next-region-boundary</kbd></dt><dd>Playhead to Next Region Boundary</dd>
+  <dt><kbd class="osc">Editor/playhead-to-next-region-boundary-noselection</kbd></dt><dd>Playhead to Next Region Boundary (No Track Selection)</dd>
+  <dt><kbd class="osc">Editor/playhead-to-next-region-end</kbd></dt><dd>Playhead to Next Region End</dd>
+  <dt><kbd class="osc">Editor/playhead-to-next-region-start</kbd></dt><dd>Playhead to Next Region Start</dd>
+  <dt><kbd class="osc">Editor/playhead-to-next-region-sync</kbd></dt><dd>Playhead to Next Region Sync</dd>
+  <dt><kbd class="osc">Editor/playhead-to-previous-region-boundary</kbd></dt><dd>Playhead to Previous Region Boundary</dd>
+  <dt><kbd class="osc">Editor/playhead-to-previous-region-boundary-noselection</kbd></dt><dd>Playhead to Previous Region Boundary (No Track Selection)</dd>
+  <dt><kbd class="osc">Editor/playhead-to-previous-region-end</kbd></dt><dd>Playhead to Previous Region End</dd>
+  <dt><kbd class="osc">Editor/playhead-to-previous-region-start</kbd></dt><dd>Playhead to Previous Region Start</dd>
+  <dt><kbd class="osc">Editor/playhead-to-previous-region-sync</kbd></dt><dd>Playhead to Previous Region Sync</dd>
+  <dt><kbd class="osc">Editor/playhead-to-range-end</kbd></dt><dd>Playhead to Range End</dd>
+  <dt><kbd class="osc">Editor/playhead-to-range-start</kbd></dt><dd>Playhead to Range Start</dd>
+  <dt><kbd class="osc">Editor/prev-snap-choice</kbd></dt><dd>Previous Snap Choice</dd>
+  <dt><kbd class="osc">Editor/prev-snap-choice-music-only</kbd></dt><dd>Previous Musical Snap Choice</dd>
+  <dt><kbd class="osc">Editor/redo</kbd></dt><dd>Redo</dd>
+  <dt><kbd class="osc">Editor/redo-last-selection-op</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/remove-last-capture</kbd></dt><dd>Remove Last Capture</dd>
+  <dt><kbd class="osc">Editor/remove-location-from-playhead</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/remove-time</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/remove-track</kbd></dt><dd>Remove</dd>
+  <dt><kbd class="osc">Editor/save-visual-state-10</kbd></dt><dd>Save View 10</dd>
+  <dt><kbd class="osc">Editor/save-visual-state-11</kbd></dt><dd>Save View 11</dd>
+  <dt><kbd class="osc">Editor/save-visual-state-12</kbd></dt><dd>Save View 12</dd>
+  <dt><kbd class="osc">Editor/save-visual-state-1</kbd></dt><dd>Save View 1</dd>
+  <dt><kbd class="osc">Editor/save-visual-state-2</kbd></dt><dd>Save View 2</dd>
+  <dt><kbd class="osc">Editor/save-visual-state-3</kbd></dt><dd>Save View 3</dd>
+  <dt><kbd class="osc">Editor/save-visual-state-4</kbd></dt><dd>Save View 4</dd>
+  <dt><kbd class="osc">Editor/save-visual-state-5</kbd></dt><dd>Save View 5</dd>
+  <dt><kbd class="osc">Editor/save-visual-state-6</kbd></dt><dd>Save View 6</dd>
+  <dt><kbd class="osc">Editor/save-visual-state-7</kbd></dt><dd>Save View 7</dd>
+  <dt><kbd class="osc">Editor/save-visual-state-8</kbd></dt><dd>Save View 8</dd>
+  <dt><kbd class="osc">Editor/save-visual-state-9</kbd></dt><dd>Save View 9</dd>
+  <dt><kbd class="osc">Editor/script-action-1</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/script-action-2</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/script-action-3</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/script-action-4</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/script-action-5</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/script-action-6</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/script-action-7</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/script-action-8</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/script-action-9</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/scroll-backward</kbd></dt><dd>Scroll Backward</dd>
+  <dt><kbd class="osc">Editor/scroll-forward</kbd></dt><dd>Scroll Forward</dd>
+  <dt><kbd class="osc">Editor/scroll-playhead-backward</kbd></dt><dd>Playhead Backward</dd>
+  <dt><kbd class="osc">Editor/scroll-playhead-forward</kbd></dt><dd>Playhead Forward</dd>
+  <dt><kbd class="osc">Editor/scroll-tracks-down</kbd></dt><dd>Scroll Tracks Down</dd>
+  <dt><kbd class="osc">Editor/scroll-tracks-up</kbd></dt><dd>Scroll Tracks Up</dd>
+  <dt><kbd class="osc">Editor/select-all-after-edit-cursor</kbd></dt><dd>Select All After Edit Point</dd>
+  <dt><kbd class="osc">Editor/select-all-before-edit-cursor</kbd></dt><dd>Select All Before Edit Point</dd>
+  <dt><kbd class="osc">Editor/select-all-between-cursors</kbd></dt><dd>Select All Overlapping Edit Range</dd>
+  <dt><kbd class="osc">Editor/select-all-in-loop-range</kbd></dt><dd>Select All in Loop Range</dd>
+  <dt><kbd class="osc">Editor/select-all-in-punch-range</kbd></dt><dd>Select All in Punch Range</dd>
+  <dt><kbd class="osc">Editor/select-all-objects => Ctrl+A</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-all-tracks => Ctrl+T</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-all-within-cursors</kbd></dt><dd>Select All Inside Edit Range</dd>
+  <dt><kbd class="osc">Editor/select-from-regions</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-loop-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-next-route</kbd></dt><dd>Select Next Track or Bus</dd>
+  <dt><kbd class="osc">Editor/select-prev-route</kbd></dt><dd>Select Previous Track or Bus</dd>
+  <dt><kbd class="osc">Editor/select-punch-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/select-range-between-cursors</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/selected-marker-to-next-region-boundary</kbd></dt><dd>To Next Region Boundary</dd>
+  <dt><kbd class="osc">Editor/selected-marker-to-next-region-boundary-noselection</kbd></dt><dd>To Next Region Boundary (No Track Selection)</dd>
+  <dt><kbd class="osc">Editor/selected-marker-to-previous-region-boundary</kbd></dt><dd>To Previous Region Boundary</dd>
+  <dt><kbd class="osc">Editor/selected-marker-to-previous-region-boundary-noselection</kbd></dt><dd>To Previous Region Boundary (No Track Selection)</dd>
+  <dt><kbd class="osc">Editor/select-range-between-cursors</kbd></dt><dd>Select Edit Range</dd>
+  <dt><kbd class="osc">Editor/separate-from-loop</kbd></dt><dd>Separate Using Loop Range</dd>
+  <dt><kbd class="osc">Editor/separate-from-punch</kbd></dt><dd>Separate Using Punch Range</dd>
+  <dt><kbd class="osc">Editor/set-edit-lock</kbd></dt><dd>Lock</dd>
+  <dt><kbd class="osc">Editor/set-edit-point</kbd></dt><dd>Active Marker to Mouse</dd>
+  <dt><kbd class="osc">Editor/set-edit-ripple</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-edit-slide</kbd></dt><dd>Slide</dd>
+  <dt><kbd class="osc">Editor/set-loop-from-edit-range</kbd></dt><dd>Set Loop from Edit Range</dd>
+  <dt><kbd class="osc">Editor/set-playhead</kbd></dt><dd>Playhead to Mouse</dd>
+  <dt><kbd class="osc">Editor/set-punch-from-edit-range</kbd></dt><dd>Set Punch from Edit Range</dd>
+  <dt><kbd class="osc">Editor/set-session-end-from-playhead</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-session-from-edit-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-session-start-from-playhead</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/set-tempo-from-edit-range</kbd></dt><dd>Set Tempo from Edit Range = Bar</dd>
+  <dt><kbd class="osc">Editor/show-editor-list</kbd></dt><dd>Show Editor List</dd>
+  <dt><kbd class="osc">Editor/show-editor-mixer</kbd></dt><dd>Show Editor Mixer</dd>
+  <dt><kbd class="osc">Editor/show-marker-lines</kbd></dt><dd>Show Marker Lines</dd>
+  <dt><kbd class="osc">Editor/shrink-tracks</kbd></dt><dd>Shrink Track Height</dd>
+  <dt><kbd class="osc">Editor/snap-magnetic</kbd></dt><dd>Magnetic</dd>
+  <dt><kbd class="osc">Editor/snap-normal</kbd></dt><dd>Grid</dd>
+  <dt><kbd class="osc">Editor/snap-off</kbd></dt><dd>No Grid</dd>
+  <dt><kbd class="osc">Editor/sound-midi-notes</kbd></dt><dd>Sound Selected MIDI Notes</dd>
+  <dt><kbd class="osc">Editor/start-loop-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/start-punch-range</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/start-range</kbd></dt><dd>Start Range</dd>
+  <dt><kbd class="osc">Editor/start-range-from-playhead</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/step-mouse-mode</kbd></dt><dd>Step Mouse Mode</dd>
+  <dt><kbd class="osc">Editor/step-tracks-down</kbd></dt><dd>Step Tracks Down</dd>
+  <dt><kbd class="osc">Editor/step-tracks-up</kbd></dt><dd>Step Tracks Up</dd>
+  <dt><kbd class="osc">Editor/tab-to-transient-backwards</kbd></dt><dd>Move Earlier to Transient</dd>
+  <dt><kbd class="osc">Editor/tab-to-transient-forwards</kbd></dt><dd>Move Later to Transient</dd>
+  <dt><kbd class="osc">Editor/temporal-zoom-in</kbd></dt><dd>Zoom In</dd>
+  <dt><kbd class="osc">Editor/temporal-zoom-out</kbd></dt><dd>Zoom Out</dd>
+  <dt><kbd class="osc">Editor/toggle-edit-mode</kbd></dt><dd>Toggle Edit Mode</dd>
+  <dt><kbd class="osc">Editor/toggle-follow-playhead</kbd></dt><dd>Follow Playhead</dd>
+  <dt><kbd class="osc">Editor/toggle-log-window</kbd></dt><dd>Log</dd>
+  <dt><kbd class="osc">Editor/toggle-midi-input-active</kbd></dt><dd>Toggle MIDI Input Active for Editor-Selected Tracks/Busses</dd>
+  <dt><kbd class="osc">Editor/toggle-skip-playback</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/toggle-stationary-playhead</kbd></dt><dd>Stationary Playhead</dd>
+  <dt><kbd class="osc">Editor/toggle-track-active</kbd></dt><dd>Toggle Active</dd>
+  <dt><kbd class="osc">Editor/toggle-vmon-frame</kbd></dt><dd>Frame number</dd>
+  <dt><kbd class="osc">Editor/toggle-vmon-fullscreen</kbd></dt><dd>Fullscreen</dd>
+  <dt><kbd class="osc">Editor/toggle-vmon-letterbox</kbd></dt><dd>Letterbox</dd>
+  <dt><kbd class="osc">Editor/toggle-vmon-ontop</kbd></dt><dd>Always on Top</dd>
+  <dt><kbd class="osc">Editor/toggle-vmon-osdbg</kbd></dt><dd>Timecode Background</dd>
+  <dt><kbd class="osc">Editor/toggle-vmon-timecode</kbd></dt><dd>Timecode</dd>
+  <dt><kbd class="osc">Editor/toggle-zoom</kbd></dt><dd>Toggle Zoom State</dd>
+  <dt><kbd class="osc">Editor/track-height-large</kbd></dt><dd>Large</dd>
+  <dt><kbd class="osc">Editor/track-height-larger</kbd></dt><dd>Larger</dd>
+  <dt><kbd class="osc">Editor/track-height-largest</kbd></dt><dd>Largest</dd>
+  <dt><kbd class="osc">Editor/track-height-normal</kbd></dt><dd>Normal</dd>
+  <dt><kbd class="osc">Editor/track-height-small</kbd></dt><dd>Small</dd>
+  <dt><kbd class="osc">Editor/track-mute-toggle</kbd></dt><dd>Toggle Mute</dd>
+  <dt><kbd class="osc">Editor/track-record-enable-toggle</kbd></dt><dd>Toggle Record Enable</dd>
+  <dt><kbd class="osc">Editor/track-solo-isolate-toggle</kbd></dt><dd>Toggle Solo Isolate</dd>
+  <dt><kbd class="osc">Editor/track-solo-toggle</kbd></dt><dd>Toggle Solo</dd>
+  <dt><kbd class="osc">Editor/undo</kbd></dt><dd>Undo</dd>
+  <dt><kbd class="osc">Editor/undo-last-selection-op</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/zoom-to-selection</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/zoom-to-session</kbd></dt><dd>Zoom to Session</dd>
+  <dt><kbd class="osc">Editor/zoom-vmon-100</kbd></dt><dd>Original Size</dd>
+  <dt><kbd class="osc">Editor/zoom_100_ms</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/zoom_10_min</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/zoom_10_ms</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/zoom_10_sec</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/zoom_1_min</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/zoom_1_sec</kbd></dt><dd></dd>
+  <dt><kbd class="osc">Editor/zoom_5_min</kbd></dt><dd></dd>
+  <!-- EditorMenu -  updated -->
+  <dt><kbd class="osc">EditorMenu/ActionScripts</kbd></dt><dd></dd>
   <dt><kbd class="osc">EditorMenu/AlignMenu</kbd></dt><dd>Align</dd>
   <dt><kbd class="osc">EditorMenu/Autoconnect</kbd></dt><dd>Autoconnect</dd>
   <dt><kbd class="osc">EditorMenu/Crossfades</kbd></dt><dd>Crossfades</dd>
@@ -380,10 +957,10 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">EditorMenu/LatchMenu</kbd></dt><dd>Latch</dd>
   <dt><kbd class="osc">EditorMenu/Link</kbd></dt><dd>Link</dd>
   <dt><kbd class="osc">EditorMenu/LocateToMarker</kbd></dt><dd>Locate to Markers</dd>
+  <dt><kbd class="osc">EditorMenu/MIDI</kbd></dt><dd>MIDI Options</dd>
   <dt><kbd class="osc">EditorMenu/MarkerMenu</kbd></dt><dd>Markers</dd>
   <dt><kbd class="osc">EditorMenu/MeterFalloff</kbd></dt><dd>Meter falloff</dd>
   <dt><kbd class="osc">EditorMenu/MeterHold</kbd></dt><dd>Meter hold</dd>
-  <dt><kbd class="osc">EditorMenu/MIDI</kbd></dt><dd>MIDI Options</dd>
   <dt><kbd class="osc">EditorMenu/MiscOptions</kbd></dt><dd>Misc Options</dd>
   <dt><kbd class="osc">EditorMenu/Monitoring</kbd></dt><dd>Monitoring</dd>
   <dt><kbd class="osc">EditorMenu/MoveActiveMarkMenu</kbd></dt><dd>Active Mark</dd>
@@ -425,205 +1002,16 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">EditorMenu/ZoomFocus</kbd></dt><dd>Zoom Focus</dd>
   <dt><kbd class="osc">EditorMenu/ZoomFocusMenu</kbd></dt><dd>Zoom Focus</dd>
   <dt><kbd class="osc">EditorMenu/ZoomMenu</kbd></dt><dd>Zoom</dd>
-  <dt><kbd class="osc">Editor/move-range-end-to-next-region-boundary</kbd></dt><dd>Move Range End to Next Region Boundary</dd>
-  <dt><kbd class="osc">Editor/move-range-end-to-previous-region-boundary</kbd></dt><dd>Move Range End to Previous Region Boundary</dd>
-  <dt><kbd class="osc">Editor/move-range-start-to-next-region-boundary</kbd></dt><dd>Move Range Start to Next Region Boundary</dd>
-  <dt><kbd class="osc">Editor/move-range-start-to-previous-region-boundary</kbd></dt><dd>Move Range Start to Previous Region Boundary</dd>
-  <dt><kbd class="osc">Editor/move-selected-tracks-down</kbd></dt><dd>Move Selected Tracks Down</dd>
-  <dt><kbd class="osc">Editor/move-selected-tracks-up</kbd></dt><dd>Move Selected Tracks Up</dd>
-  <dt><kbd class="osc">Editor/next-snap-choice</kbd></dt><dd>Next Snap Choice</dd>
-  <dt><kbd class="osc">Editor/next-snap-choice-music-only</kbd></dt><dd>Next Musical Snap Choice</dd>
-  <dt><kbd class="osc">Editor/nudge-next-backward</kbd></dt><dd>Nudge Next Earlier</dd>
-  <dt><kbd class="osc">Editor/nudge-next-forward</kbd></dt><dd>Nudge Next Later</dd>
-  <dt><kbd class="osc">Editor/nudge-playhead-backward</kbd></dt><dd>Nudge Playhead Backward</dd>
-  <dt><kbd class="osc">Editor/nudge-playhead-forward</kbd></dt><dd>Nudge Playhead Forward</dd>
-  <dt><kbd class="osc">Editor/play-edit-range</kbd></dt><dd>Play Edit Range</dd>
-  <dt><kbd class="osc">Editor/play-from-edit-point-and-return</kbd></dt><dd>Play from Edit Point and Return</dd>
-  <dt><kbd class="osc">Editor/play-from-edit-point</kbd></dt><dd>Play From Edit Point</dd>
-  <dt><kbd class="osc">Editor/playhead-backward-to-grid</kbd></dt><dd>Playhead To Previous Grid</dd>
-  <dt><kbd class="osc">Editor/playhead-forward-to-grid</kbd></dt><dd>Playhead To Next Grid</dd>
-  <dt><kbd class="osc">Editor/playhead-to-edit</kbd></dt><dd>Playhead to Active Mark</dd>
-  <dt><kbd class="osc">Editor/playhead-to-next-region-boundary</kbd></dt><dd>Playhead to Next Region Boundary</dd>
-  <dt><kbd class="osc">Editor/playhead-to-next-region-boundary-noselection</kbd></dt><dd>Playhead to Next Region Boundary (No Track Selection)</dd>
-  <dt><kbd class="osc">Editor/playhead-to-next-region-end</kbd></dt><dd>Playhead to Next Region End</dd>
-  <dt><kbd class="osc">Editor/playhead-to-next-region-start</kbd></dt><dd>Playhead to Next Region Start</dd>
-  <dt><kbd class="osc">Editor/playhead-to-next-region-sync</kbd></dt><dd>Playhead to Next Region Sync</dd>
-  <dt><kbd class="osc">Editor/playhead-to-previous-region-boundary</kbd></dt><dd>Playhead to Previous Region Boundary</dd>
-  <dt><kbd class="osc">Editor/playhead-to-previous-region-boundary-noselection</kbd></dt><dd>Playhead to Previous Region Boundary (No Track Selection)</dd>
-  <dt><kbd class="osc">Editor/playhead-to-previous-region-end</kbd></dt><dd>Playhead to Previous Region End</dd>
-  <dt><kbd class="osc">Editor/playhead-to-previous-region-start</kbd></dt><dd>Playhead to Previous Region Start</dd>
-  <dt><kbd class="osc">Editor/playhead-to-previous-region-sync</kbd></dt><dd>Playhead to Previous Region Sync</dd>
-  <dt><kbd class="osc">Editor/playhead-to-range-end</kbd></dt><dd>Playhead to Range End</dd>
-  <dt><kbd class="osc">Editor/playhead-to-range-start</kbd></dt><dd>Playhead to Range Start</dd>
-  <dt><kbd class="osc">Editor/prev-snap-choice</kbd></dt><dd>Previous Snap Choice</dd>
-  <dt><kbd class="osc">Editor/prev-snap-choice-music-only</kbd></dt><dd>Previous Musical Snap Choice</dd>
-  <dt><kbd class="osc">Editor/redo</kbd></dt><dd>Redo</dd>
-  <dt><kbd class="osc">Editor/remove-last-capture</kbd></dt><dd>Remove Last Capture</dd>
-  <dt><kbd class="osc">Editor/remove-track</kbd></dt><dd>Remove</dd>
-  <dt><kbd class="osc">Editor/save-visual-state-10</kbd></dt><dd>Save View 10</dd>
-  <dt><kbd class="osc">Editor/save-visual-state-11</kbd></dt><dd>Save View 11</dd>
-  <dt><kbd class="osc">Editor/save-visual-state-12</kbd></dt><dd>Save View 12</dd>
-  <dt><kbd class="osc">Editor/save-visual-state-1</kbd></dt><dd>Save View 1</dd>
-  <dt><kbd class="osc">Editor/save-visual-state-2</kbd></dt><dd>Save View 2</dd>
-  <dt><kbd class="osc">Editor/save-visual-state-3</kbd></dt><dd>Save View 3</dd>
-  <dt><kbd class="osc">Editor/save-visual-state-4</kbd></dt><dd>Save View 4</dd>
-  <dt><kbd class="osc">Editor/save-visual-state-5</kbd></dt><dd>Save View 5</dd>
-  <dt><kbd class="osc">Editor/save-visual-state-6</kbd></dt><dd>Save View 6</dd>
-  <dt><kbd class="osc">Editor/save-visual-state-7</kbd></dt><dd>Save View 7</dd>
-  <dt><kbd class="osc">Editor/save-visual-state-8</kbd></dt><dd>Save View 8</dd>
-  <dt><kbd class="osc">Editor/save-visual-state-9</kbd></dt><dd>Save View 9</dd>
-  <dt><kbd class="osc">Editor/scroll-backward</kbd></dt><dd>Scroll Backward</dd>
-  <dt><kbd class="osc">Editor/scroll-forward</kbd></dt><dd>Scroll Forward</dd>
-  <dt><kbd class="osc">Editor/scroll-playhead-backward</kbd></dt><dd>Playhead Backward</dd>
-  <dt><kbd class="osc">Editor/scroll-playhead-forward</kbd></dt><dd>Playhead Forward</dd>
-  <dt><kbd class="osc">Editor/scroll-tracks-down</kbd></dt><dd>Scroll Tracks Down</dd>
-  <dt><kbd class="osc">Editor/scroll-tracks-up</kbd></dt><dd>Scroll Tracks Up</dd>
-  <dt><kbd class="osc">Editor/select-all-after-edit-cursor</kbd></dt><dd>Select All After Edit Point</dd>
-  <dt><kbd class="osc">Editor/select-all-before-edit-cursor</kbd></dt><dd>Select All Before Edit Point</dd>
-  <dt><kbd class="osc">Editor/select-all-between-cursors</kbd></dt><dd>Select All Overlapping Edit Range</dd>
-  <dt><kbd class="osc">Editor/select-all-in-loop-range</kbd></dt><dd>Select All in Loop Range</dd>
-  <dt><kbd class="osc">Editor/select-all-in-punch-range</kbd></dt><dd>Select All in Punch Range</dd>
-  <dt><kbd class="osc">Editor/select-all</kbd></dt><dd>Select All</dd>
-  <dt><kbd class="osc">Editor/select-all-within-cursors</kbd></dt><dd>Select All Inside Edit Range</dd>
-  <dt><kbd class="osc">Editor/selected-marker-to-next-region-boundary</kbd></dt><dd>To Next Region Boundary</dd>
-  <dt><kbd class="osc">Editor/selected-marker-to-next-region-boundary-noselection</kbd></dt><dd>To Next Region Boundary (No Track Selection)</dd>
-  <dt><kbd class="osc">Editor/selected-marker-to-previous-region-boundary</kbd></dt><dd>To Previous Region Boundary</dd>
-  <dt><kbd class="osc">Editor/selected-marker-to-previous-region-boundary-noselection</kbd></dt><dd>To Previous Region Boundary (No Track Selection)</dd>
-  <dt><kbd class="osc">Editor/select-next-route</kbd></dt><dd>Select Next Track or Bus</dd>
-  <dt><kbd class="osc">Editor/select-prev-route</kbd></dt><dd>Select Previous Track or Bus</dd>
-  <dt><kbd class="osc">Editor/select-range-between-cursors</kbd></dt><dd>Select Edit Range</dd>
-  <dt><kbd class="osc">Editor/separate-from-loop</kbd></dt><dd>Separate Using Loop Range</dd>
-  <dt><kbd class="osc">Editor/separate-from-punch</kbd></dt><dd>Separate Using Punch Range</dd>
-  <dt><kbd class="osc">Editor/set-edit-lock</kbd></dt><dd>Lock</dd>
-  <dt><kbd class="osc">Editor/set-edit-point</kbd></dt><dd>Active Marker to Mouse</dd>
-  <dt><kbd class="osc">Editor/set-edit-slide</kbd></dt><dd>Slide</dd>
-  <dt><kbd class="osc">Editor/set-edit-splice</kbd></dt><dd>Splice</dd>
-  <dt><kbd class="osc">Editor/set-loop-from-edit-range</kbd></dt><dd>Set Loop from Edit Range</dd>
-  <dt><kbd class="osc">Editor/set-playhead</kbd></dt><dd>Playhead to Mouse</dd>
-  <dt><kbd class="osc">Editor/set-punch-from-edit-range</kbd></dt><dd>Set Punch from Edit Range</dd>
-  <dt><kbd class="osc">Editor/set-tempo-from-edit-range</kbd></dt><dd>Set Tempo from Edit Range = Bar</dd>
-  <dt><kbd class="osc">Editor/show-editor-list</kbd></dt><dd>Show Editor List</dd>
-  <dt><kbd class="osc">Editor/show-editor-mixer</kbd></dt><dd>Show Editor Mixer</dd>
-  <dt><kbd class="osc">Editor/show-marker-lines</kbd></dt><dd>Show Marker Lines</dd>
-  <dt><kbd class="osc">Editor/shrink-tracks</kbd></dt><dd>Shrink Track Height</dd>
-  <dt><kbd class="osc">Editor/snap-magnetic</kbd></dt><dd>Magnetic</dd>
-  <dt><kbd class="osc">Editor/SnapMode</kbd></dt><dd>Snap Mode</dd>
-  <dt><kbd class="osc">Editor/snap-normal</kbd></dt><dd>Grid</dd>
-  <dt><kbd class="osc">Editor/snap-off</kbd></dt><dd>No Grid</dd>
-  <dt><kbd class="osc">Editor/SnapTo</kbd></dt><dd>Snap to</dd>
-  <dt><kbd class="osc">Editor/sound-midi-notes</kbd></dt><dd>Sound Selected MIDI Notes</dd>
-  <dt><kbd class="osc">Editor/start-range</kbd></dt><dd>Start Range</dd>
-  <dt><kbd class="osc">Editor/step-mouse-mode</kbd></dt><dd>Step Mouse Mode</dd>
-  <dt><kbd class="osc">Editor/step-tracks-down</kbd></dt><dd>Step Tracks Down</dd>
-  <dt><kbd class="osc">Editor/step-tracks-up</kbd></dt><dd>Step Tracks Up</dd>
-  <dt><kbd class="osc">Editor/tab-to-transient-backwards</kbd></dt><dd>Move Earlier to Transient</dd>
-  <dt><kbd class="osc">Editor/tab-to-transient-forwards</kbd></dt><dd>Move Later to Transient</dd>
-  <dt><kbd class="osc">Editor/temporal-zoom-in</kbd></dt><dd>Zoom In</dd>
-  <dt><kbd class="osc">Editor/temporal-zoom-out</kbd></dt><dd>Zoom Out</dd>
-  <dt><kbd class="osc">Editor/toggle-edit-mode</kbd></dt><dd>Toggle Edit Mode</dd>
-  <dt><kbd class="osc">Editor/toggle-follow-playhead</kbd></dt><dd>Follow Playhead</dd>
-  <dt><kbd class="osc">Editor/ToggleGroupTabs</kbd></dt><dd>Show Group Tabs</dd>
-  <dt><kbd class="osc">Editor/ToggleJadeo</kbd></dt><dd>Video Monitor</dd>
-  <dt><kbd class="osc">Editor/ToggleLogoVisibility</kbd></dt><dd>Show Logo</dd>
-  <dt><kbd class="osc">Editor/toggle-log-window</kbd></dt><dd>Log</dd>
-  <dt><kbd class="osc">Editor/ToggleMeasureVisibility</kbd></dt><dd>Show Measures</dd>
-  <dt><kbd class="osc">Editor/toggle-midi-input-active</kbd></dt><dd>Toggle MIDI Input Active for Editor-Selected Tracks/Busses</dd>
-  <dt><kbd class="osc">Editor/toggle-stationary-playhead</kbd></dt><dd>Stationary Playhead</dd>
-  <dt><kbd class="osc">Editor/ToggleSummary</kbd></dt><dd>Show Summary</dd>
-  <dt><kbd class="osc">Editor/toggle-track-active</kbd></dt><dd>Toggle Active</dd>
-  <dt><kbd class="osc">Editor/toggle-vmon-frame</kbd></dt><dd>Frame number</dd>
-  <dt><kbd class="osc">Editor/toggle-vmon-fullscreen</kbd></dt><dd>Fullscreen</dd>
-  <dt><kbd class="osc">Editor/toggle-vmon-letterbox</kbd></dt><dd>Letterbox</dd>
-  <dt><kbd class="osc">Editor/toggle-vmon-ontop</kbd></dt><dd>Always on Top</dd>
-  <dt><kbd class="osc">Editor/toggle-vmon-osdbg</kbd></dt><dd>Timecode Background</dd>
-  <dt><kbd class="osc">Editor/toggle-vmon-timecode</kbd></dt><dd>Timecode</dd>
-  <dt><kbd class="osc">Editor/toggle-zoom</kbd></dt><dd>Toggle Zoom State</dd>
-  <dt><kbd class="osc">Editor/track-height-large</kbd></dt><dd>Large</dd>
-  <dt><kbd class="osc">Editor/track-height-larger</kbd></dt><dd>Larger</dd>
-  <dt><kbd class="osc">Editor/track-height-largest</kbd></dt><dd>Largest</dd>
-  <dt><kbd class="osc">Editor/track-height-normal</kbd></dt><dd>Normal</dd>
-  <dt><kbd class="osc">Editor/track-height-small</kbd></dt><dd>Small</dd>
-  <dt><kbd class="osc">Editor/track-mute-toggle</kbd></dt><dd>Toggle Mute</dd>
-  <dt><kbd class="osc">Editor/track-record-enable-toggle</kbd></dt><dd>Toggle Record Enable</dd>
-  <dt><kbd class="osc">Editor/track-solo-isolate-toggle</kbd></dt><dd>Toggle Solo Isolate</dd>
-  <dt><kbd class="osc">Editor/track-solo-toggle</kbd></dt><dd>Toggle Solo</dd>
-  <dt><kbd class="osc">Editor/undo</kbd></dt><dd>Undo</dd>
-  <dt><kbd class="osc">Editor/zoom-to-region-both-axes</kbd></dt><dd>Zoom to Region (Width and Height)</dd>
-  <dt><kbd class="osc">Editor/zoom-to-region</kbd></dt><dd>Zoom to Region</dd>
-  <dt><kbd class="osc">Editor/zoom-to-session</kbd></dt><dd>Zoom to Session</dd>
-  <dt><kbd class="osc">Editor/zoom-vmon-100</kbd></dt><dd>Original Size</dd>
-  <dt><kbd class="osc">Main/AddTrackBus</kbd></dt><dd>Add Track or Bus...</dd>
-  <dt><kbd class="osc">Main/CleanupUnused</kbd></dt><dd>Clean-up Unused Sources...</dd>
-  <dt><kbd class="osc">Main/Close</kbd></dt><dd>Close</dd>
-  <dt><kbd class="osc">Main/CloseVideo</kbd></dt><dd>Remove Video</dd>
-  <dt><kbd class="osc">Main/EditMetadata</kbd></dt><dd>Edit Metadata...</dd>
-  <dt><kbd class="osc">Main/ExportAudio</kbd></dt><dd>Export To Audio File(s)...</dd>
-  <dt><kbd class="osc">Main/Export</kbd></dt><dd>Export</dd>
-  <dt><kbd class="osc">Main/ExportVideo</kbd></dt><dd>Export To Video File</dd>
-  <dt><kbd class="osc">Main/FlushWastebasket</kbd></dt><dd>Flush Wastebasket</dd>
-  <dt><kbd class="osc">Main/ImportMetadata</kbd></dt><dd>Import Metadata...</dd>
-  <dt><kbd class="osc">Main_menu/AudioFileFormatData</kbd></dt><dd>Sample Format</dd>
-  <dt><kbd class="osc">Main_menu/AudioFileFormatHeader</kbd></dt><dd>File Type</dd>
-  <dt><kbd class="osc">Main_menu/AudioFileFormat</kbd></dt><dd>Audio File Format</dd>
-  <dt><kbd class="osc">Main_menu/Cleanup</kbd></dt><dd>Clean-up</dd>
-  <dt><kbd class="osc">Main_menu/ControlSurfaces</kbd></dt><dd>Control Surfaces</dd>
-  <dt><kbd class="osc">Main_menu/Denormals</kbd></dt><dd>Denormal Handling</dd>
-  <dt><kbd class="osc">Main_menu/Help</kbd></dt><dd>Help</dd>
-  <dt><kbd class="osc">Main_menu/KeyMouseActions</kbd></dt><dd>Misc. Shortcuts</dd>
-  <dt><kbd class="osc">Main_menu/MeteringFallOffRate</kbd></dt><dd>Fall Off Rate</dd>
-  <dt><kbd class="osc">Main_menu/MeteringHoldTime</kbd></dt><dd>Hold Time</dd>
-  <dt><kbd class="osc">Main_menu/Metering</kbd></dt><dd>Metering</dd>
-  <dt><kbd class="osc">Main_menu/Plugins</kbd></dt><dd>Plugins</dd>
-  <dt><kbd class="osc">Main_menu/Session</kbd></dt><dd>Session</dd>
-  <dt><kbd class="osc">Main_menu/Sync</kbd></dt><dd>Sync</dd>
-  <dt><kbd class="osc">Main_menu/TransportOptions</kbd></dt><dd>Options</dd>
-  <dt><kbd class="osc">Main_menu/WindowMenu</kbd></dt><dd>Window</dd>
-  <dt><kbd class="osc">Main/Metadata</kbd></dt><dd>Metadata</dd>
-  <dt><kbd class="osc">Main/New</kbd></dt><dd>New...</dd>
-  <dt><kbd class="osc">Main/Open</kbd></dt><dd>Open...</dd>
-  <dt><kbd class="osc">Main/OpenVideo</kbd></dt><dd>Open Video</dd>
-  <dt><kbd class="osc">Main/Recent</kbd></dt><dd>Recent...</dd>
-  <dt><kbd class="osc">Main/Rename</kbd></dt><dd>Rename...</dd>
-  <dt><kbd class="osc">Main/SaveAs</kbd></dt><dd>Save As...</dd>
-  <dt><kbd class="osc">Main/SaveTemplate</kbd></dt><dd>Save Template...</dd>
-  <dt><kbd class="osc">Main/Snapshot</kbd></dt><dd>Snapshot...</dd>
-  <dt><kbd class="osc">Main/StemExport</kbd></dt><dd>Stem export...</dd>
-  <dt><kbd class="osc">MIDI/panic</kbd></dt><dd>Panic</dd>
+  <!-- mouseMode - updated-->
   <dt><kbd class="osc">MouseMode/set-mouse-mode-audition</kbd></dt><dd>Audition Tool</dd>
+  <dt><kbd class="osc">MouseMode/set-mouse-mode-content</kbd></dt><dd></dd>
+  <dt><kbd class="osc">MouseMode/set-mouse-mode-cut</kbd></dt><dd></dd>
   <dt><kbd class="osc">MouseMode/set-mouse-mode-draw</kbd></dt><dd>Note Drawing Tool</dd>
-  <dt><kbd class="osc">MouseMode/set-mouse-mode-gain</kbd></dt><dd>Gain Tool</dd>
   <dt><kbd class="osc">MouseMode/set-mouse-mode-object</kbd></dt><dd>Object Tool</dd>
   <dt><kbd class="osc">MouseMode/set-mouse-mode-object-range</kbd></dt><dd>Smart Object Mode</dd>
   <dt><kbd class="osc">MouseMode/set-mouse-mode-range</kbd></dt><dd>Range Tool</dd>
   <dt><kbd class="osc">MouseMode/set-mouse-mode-timefx</kbd></dt><dd>Time FX Tool</dd>
-  <dt><kbd class="osc">MouseMode/set-mouse-mode-zoom</kbd></dt><dd>Zoom Tool</dd>
-  <dt><kbd class="osc">MouseMode/toggle-internal-edit</kbd></dt><dd>Edit MIDI</dd>
-  <dt><kbd class="osc">options/SendMidiClock</kbd></dt><dd>Send MIDI Clock</dd>
-  <dt><kbd class="osc">options/SendMIDIfeedback</kbd></dt><dd>Send MIDI Feedback</dd>
-  <dt><kbd class="osc">options/SendMMC</kbd></dt><dd>Send MMC</dd>
-  <dt><kbd class="osc">options/SendMTC</kbd></dt><dd>Send MTC</dd>
-  <dt><kbd class="osc">options/UseMMC</kbd></dt><dd>Use MMC</dd>
-  <dt><kbd class="osc">ProcessorMenu/ab_plugins</kbd></dt><dd>A/B Plugins</dd>
-  <dt><kbd class="osc">ProcessorMenu/activate_all</kbd></dt><dd>Activate All</dd>
-  <dt><kbd class="osc">ProcessorMenu/clear</kbd></dt><dd>Clear (all)</dd>
-  <dt><kbd class="osc">ProcessorMenu/clear_post</kbd></dt><dd>Clear (post-fader)</dd>
-  <dt><kbd class="osc">ProcessorMenu/clear_pre</kbd></dt><dd>Clear (pre-fader)</dd>
-  <dt><kbd class="osc">ProcessorMenu/controls</kbd></dt><dd>Controls</dd>
-  <dt><kbd class="osc">ProcessorMenu/copy</kbd></dt><dd>Copy</dd>
-  <dt><kbd class="osc">ProcessorMenu/cut</kbd></dt><dd>Cut</dd>
-  <dt><kbd class="osc">ProcessorMenu/deactivate_all</kbd></dt><dd>Deactivate All</dd>
-  <dt><kbd class="osc">ProcessorMenu/delete</kbd></dt><dd>Delete</dd>
-  <dt><kbd class="osc">ProcessorMenu/deselectall</kbd></dt><dd>Deselect All</dd>
-  <dt><kbd class="osc">ProcessorMenu/edit-generic</kbd></dt><dd>Edit with generic controls...</dd>
-  <dt><kbd class="osc">ProcessorMenu/edit</kbd></dt><dd>Edit...</dd>
-  <dt><kbd class="osc">ProcessorMenu/newaux</kbd></dt><dd>New Aux Send ...</dd>
-  <dt><kbd class="osc">ProcessorMenu/newinsert</kbd></dt><dd>New Insert</dd>
-  <dt><kbd class="osc">ProcessorMenu/newplugin</kbd></dt><dd>New Plugin</dd>
-  <dt><kbd class="osc">ProcessorMenu/newsend</kbd></dt><dd>New External Send ...</dd>
-  <dt><kbd class="osc">ProcessorMenu/paste</kbd></dt><dd>Paste</dd>
-  <dt><kbd class="osc">ProcessorMenu/rename</kbd></dt><dd>Rename</dd>
-  <dt><kbd class="osc">ProcessorMenu/selectall</kbd></dt><dd>Select All</dd>
-  <dt><kbd class="osc">ProcessorMenu/send_options</kbd></dt><dd>Send Options</dd>
+  <!-- Region - updated-->
   <dt><kbd class="osc">Region/add-range-marker-from-region</kbd></dt><dd>Add Single Range Marker</dd>
   <dt><kbd class="osc">Region/add-range-markers-from-region</kbd></dt><dd>Add Range Marker Per Region</dd>
   <dt><kbd class="osc">Region/align-regions-end</kbd></dt><dd>Align End</dd>
@@ -632,7 +1020,10 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Region/align-regions-start-relative</kbd></dt><dd>Align Start Relative</dd>
   <dt><kbd class="osc">Region/align-regions-sync</kbd></dt><dd>Align Sync</dd>
   <dt><kbd class="osc">Region/align-regions-sync-relative</kbd></dt><dd>Align Sync Relative</dd>
-  <dt><kbd class="osc">Region/analyze-region</kbd></dt><dd>Spectral Analysis...</dd>
+  <dt><kbd class="osc">/Region/alternate-nudge-backward</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Region/alternate-nudge-forward</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Region/alternate-set-fade-in-length</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Region/alternate-set-fade-out-length</kbd></dt><dd></dd>
   <dt><kbd class="osc">Region/boost-region-gain</kbd></dt><dd>Boost Gain</dd>
   <dt><kbd class="osc">Region/bounce-regions-processed</kbd></dt><dd>Bounce (without processing)</dd>
   <dt><kbd class="osc">Region/bounce-regions-unprocessed</kbd></dt><dd>Bounce (with processing)</dd>
@@ -647,26 +1038,9 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Region/insert-patch-change-context</kbd></dt><dd>Insert Patch Change...</dd>
   <dt><kbd class="osc">Region/insert-patch-change</kbd></dt><dd>Insert Patch Change...</dd>
   <dt><kbd class="osc">Region/insert-region-from-region-list</kbd></dt><dd>Insert Region From Region List</dd>
-  <dt><kbd class="osc">RegionList/RegionListSort</kbd></dt><dd>Sort</dd>
-  <dt><kbd class="osc">RegionList/removeUnusedRegions</kbd></dt><dd>Remove Unused</dd>
-  <dt><kbd class="osc">RegionList/rlAudition</kbd></dt><dd>Audition</dd>
-  <dt><kbd class="osc">RegionList/rlHide</kbd></dt><dd>Hide</dd>
-  <dt><kbd class="osc">RegionList/rlShowAll</kbd></dt><dd>Show All</dd>
-  <dt><kbd class="osc">RegionList/rlShowAuto</kbd></dt><dd>Show Automatic Regions</dd>
-  <dt><kbd class="osc">RegionList/rlShow</kbd></dt><dd>Show</dd>
-  <dt><kbd class="osc">RegionList/SortAscending</kbd></dt><dd>Ascending</dd>
-  <dt><kbd class="osc">RegionList/SortByRegionEndinFile</kbd></dt><dd>By Region End in File</dd>
-  <dt><kbd class="osc">RegionList/SortByRegionLength</kbd></dt><dd>By Region Length</dd>
-  <dt><kbd class="osc">RegionList/SortByRegionName</kbd></dt><dd>By Region Name</dd>
-  <dt><kbd class="osc">RegionList/SortByRegionPosition</kbd></dt><dd>By Region Position</dd>
-  <dt><kbd class="osc">RegionList/SortByRegionStartinFile</kbd></dt><dd>By Region Start in File</dd>
-  <dt><kbd class="osc">RegionList/SortByRegionTimestamp</kbd></dt><dd>By Region Timestamp</dd>
-  <dt><kbd class="osc">RegionList/SortBySourceFileCreationDate</kbd></dt><dd>By Source File Creation Date</dd>
-  <dt><kbd class="osc">RegionList/SortBySourceFileLength</kbd></dt><dd>By Source File Length</dd>
-  <dt><kbd class="osc">RegionList/SortBySourceFileName</kbd></dt><dd>By Source File Name</dd>
-  <dt><kbd class="osc">RegionList/SortBySourceFilesystem</kbd></dt><dd>By Source Filesystem</dd>
-  <dt><kbd class="osc">RegionList/SortDescending</kbd></dt><dd>Descending</dd>
+  <dt><kbd class="osc">/Region/legatize-region</kbd></dt><dd></dd>
   <dt><kbd class="osc">Region/loop-region</kbd></dt><dd>Loop</dd>
+  <dt><kbd class="osc">Region/loudness-analyze-region</kbd></dt><dd></dd>
   <dt><kbd class="osc">Region/lower-region</kbd></dt><dd>Lower</dd>
   <dt><kbd class="osc">Region/lower-region-to-bottom</kbd></dt><dd>Lower to Bottom</dd>
   <dt><kbd class="osc">Region/multi-duplicate-region</kbd></dt><dd>Multi-Duplicate...</dd>
@@ -690,6 +1064,7 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Region/reset-region-scale-amplitude</kbd></dt><dd>Reset Gain</dd>
   <dt><kbd class="osc">Region/reverse-region</kbd></dt><dd>Reverse</dd>
   <dt><kbd class="osc">Region/separate-under-region</kbd></dt><dd>Separate Under</dd>
+  <dt><kbd class="osc">Region/sequence-regions</kbd></dt><dd></dd>
   <dt><kbd class="osc">Region/set-fade-in-length</kbd></dt><dd>Set Fade In Length</dd>
   <dt><kbd class="osc">Region/set-fade-out-length</kbd></dt><dd>Set Fade Out Length</dd>
   <dt><kbd class="osc">Region/set-loop-from-region</kbd></dt><dd>Set Loop Range</dd>
@@ -714,6 +1089,7 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Region/toggle-region-lock-style</kbd></dt><dd>Glue to Bars and Beats</dd>
   <dt><kbd class="osc">Region/toggle-region-mute</kbd></dt><dd>Mute</dd>
   <dt><kbd class="osc">Region/toggle-region-video-lock</kbd></dt><dd>Lock to Video</dd>
+  <dt><kbd class="osc">Region/transform-region</kbd></dt><dd></dd>
   <dt><kbd class="osc">Region/transpose-region</kbd></dt><dd>Transpose...</dd>
   <dt><kbd class="osc">Region/trim-back</kbd></dt><dd>Trim End at Edit Point</dd>
   <dt><kbd class="osc">Region/trim-front</kbd></dt><dd>Trim Start at Edit Point</dd>
@@ -722,6 +1098,27 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Region/trim-to-next-region</kbd></dt><dd>Trim to Next</dd>
   <dt><kbd class="osc">Region/trim-to-previous-region</kbd></dt><dd>Trim to Previous</dd>
   <dt><kbd class="osc">Region/uncombine-regions</kbd></dt><dd>Uncombine</dd>
+  <!-- RegionList ok -->
+  <dt><kbd class="osc">RegionList/RegionListSort</kbd></dt><dd>Sort</dd>
+  <dt><kbd class="osc">RegionList/SortAscending</kbd></dt><dd>Ascending</dd>
+  <dt><kbd class="osc">RegionList/SortByRegionEndinFile</kbd></dt><dd>By Region End in File</dd>
+  <dt><kbd class="osc">RegionList/SortByRegionLength</kbd></dt><dd>By Region Length</dd>
+  <dt><kbd class="osc">RegionList/SortByRegionName</kbd></dt><dd>By Region Name</dd>
+  <dt><kbd class="osc">RegionList/SortByRegionPosition</kbd></dt><dd>By Region Position</dd>
+  <dt><kbd class="osc">RegionList/SortByRegionStartinFile</kbd></dt><dd>By Region Start in File</dd>
+  <dt><kbd class="osc">RegionList/SortByRegionTimestamp</kbd></dt><dd>By Region Timestamp</dd>
+  <dt><kbd class="osc">RegionList/SortBySourceFileCreationDate</kbd></dt><dd>By Source File Creation Date</dd>
+  <dt><kbd class="osc">RegionList/SortBySourceFileLength</kbd></dt><dd>By Source File Length</dd>
+  <dt><kbd class="osc">RegionList/SortBySourceFileName</kbd></dt><dd>By Source File Name</dd>
+  <dt><kbd class="osc">RegionList/SortBySourceFilesystem</kbd></dt><dd>By Source Filesystem</dd>
+  <dt><kbd class="osc">RegionList/SortDescending</kbd></dt><dd>Descending</dd>
+  <dt><kbd class="osc">RegionList/removeUnusedRegions</kbd></dt><dd>Remove Unused</dd>
+  <dt><kbd class="osc">RegionList/rlAudition</kbd></dt><dd>Audition</dd>
+  <dt><kbd class="osc">RegionList/rlHide</kbd></dt><dd>Hide</dd>
+  <dt><kbd class="osc">RegionList/rlShow</kbd></dt><dd>Show</dd>
+  <dt><kbd class="osc">RegionList/rlShowAll</kbd></dt><dd>Show All</dd>
+  <dt><kbd class="osc">RegionList/rlShowAuto</kbd></dt><dd>Show Automatic Regions</dd>
+  <!-- Rulers - ok -->
   <dt><kbd class="osc">Rulers/toggle-bbt-ruler</kbd></dt><dd>Bars & Beats</dd>
   <dt><kbd class="osc">Rulers/toggle-cd-marker-ruler</kbd></dt><dd>CD Markers</dd>
   <dt><kbd class="osc">Rulers/toggle-loop-punch-ruler</kbd></dt><dd>Loop/Punch</dd>
@@ -733,8 +1130,10 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Rulers/toggle-tempo-ruler</kbd></dt><dd>Tempo</dd>
   <dt><kbd class="osc">Rulers/toggle-timecode-ruler</kbd></dt><dd>Timecode</dd>
   <dt><kbd class="osc">Rulers/toggle-video-ruler</kbd></dt><dd>Video</dd>
+  <!-- Shuttle Actions... these don't seem to be there any more
   <dt><kbd class="osc">ShuttleActions/SetShuttleUnitsPercentage</kbd></dt><dd>Percentage</dd>
-  <dt><kbd class="osc">ShuttleActions/SetShuttleUnitsSemitones</kbd></dt><dd>Semitones</dd>
+  <dt><kbd class="osc">ShuttleActions/SetShuttleUnitsSemitones</kbd></dt><dd>Semitones</dd-->
+  <!-- snap checked -->
   <dt><kbd class="osc">Snap/snap-to-asixteenthbeat</kbd></dt><dd>Snap to Sixteenths</dd>
   <dt><kbd class="osc">Snap/snap-to-bar</kbd></dt><dd>Snap to Bar</dd>
   <dt><kbd class="osc">Snap/snap-to-beat</kbd></dt><dd>Snap to Beat</dd>
@@ -765,70 +1164,31 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Snap/snap-to-twentieths</kbd></dt><dd>Snap to Twentieths</dd>
   <dt><kbd class="osc">Snap/snap-to-twentyeighths</kbd></dt><dd>Snap to Twenty Eighths</dd>
   <dt><kbd class="osc">Snap/snap-to-twentyfourths</kbd></dt><dd>Snap to Twenty Fourths</dd>
-  <dt><kbd class="osc">Transport/focus-on-clock</kbd></dt><dd>Focus On Clock</dd>
-  <dt><kbd class="osc">Transport/ForwardFast</kbd></dt><dd>Forward (Fast)</dd>
-  <dt><kbd class="osc">Transport/Forward</kbd></dt><dd>Forward</dd>
-  <dt><kbd class="osc">Transport/ForwardSlow</kbd></dt><dd>Forward (Slow)</dd>
-  <dt><kbd class="osc">Transport/GotoEnd</kbd></dt><dd>Goto End</dd>
-  <dt><kbd class="osc">Transport/GotoStart</kbd></dt><dd>Goto Start</dd>
-  <dt><kbd class="osc">Transport/GotoWallClock</kbd></dt><dd>Goto Wall Clock</dd>
-  <dt><kbd class="osc">Transport/GotoZero</kbd></dt><dd>Goto Zero</dd>
-  <dt><kbd class="osc">Transport/Loop</kbd></dt><dd>Play Loop Range</dd>
-  <dt><kbd class="osc">Transport/PlayPreroll</kbd></dt><dd>Play Selection w/Preroll</dd>
-  <dt><kbd class="osc">Transport/PlaySelection</kbd></dt><dd>Play Selected Range</dd>
-  <dt><kbd class="osc">Transport/primary-clock-bbt</kbd></dt><dd>Bars & Beats</dd>
-  <dt><kbd class="osc">Transport/primary-clock-minsec</kbd></dt><dd>Minutes & Seconds</dd>
-  <dt><kbd class="osc">Transport/primary-clock-samples</kbd></dt><dd>Samples</dd>
-  <dt><kbd class="osc">Transport/primary-clock-timecode</kbd></dt><dd>Timecode</dd>
-  <dt><kbd class="osc">Transport/Record</kbd></dt><dd>Enable Record</dd>
-  <dt><kbd class="osc">Transport/record-roll</kbd></dt><dd>Start Recording</dd>
-  <dt><kbd class="osc">Transport/RewindFast</kbd></dt><dd>Rewind (Fast)</dd>
-  <dt><kbd class="osc">Transport/Rewind</kbd></dt><dd>Rewind</dd>
-  <dt><kbd class="osc">Transport/RewindSlow</kbd></dt><dd>Rewind (Slow)</dd>
-  <dt><kbd class="osc">Transport/Roll</kbd></dt><dd>Roll</dd>
-  <dt><kbd class="osc">Transport/secondary-clock-bbt</kbd></dt><dd>Bars & Beats</dd>
-  <dt><kbd class="osc">Transport/secondary-clock-minsec</kbd></dt><dd>Minutes & Seconds</dd>
-  <dt><kbd class="osc">Transport/secondary-clock-samples</kbd></dt><dd>Samples</dd>
-  <dt><kbd class="osc">Transport/secondary-clock-timecode</kbd></dt><dd>Timecode</dd>
-  <dt><kbd class="osc">Transport/Stop</kbd></dt><dd>Stop</dd>
-  <dt><kbd class="osc">Transport/ToggleAutoInput</kbd></dt><dd>Auto Input</dd>
-  <dt><kbd class="osc">Transport/ToggleAutoPlay</kbd></dt><dd>Auto Play</dd>
-  <dt><kbd class="osc">Transport/ToggleAutoReturn</kbd></dt><dd>Auto Return</dd>
-  <dt><kbd class="osc">Transport/ToggleClick</kbd></dt><dd>Click</dd>
-  <dt><kbd class="osc">Transport/ToggleExternalSync</kbd></dt><dd></dd>
-  <dt><kbd class="osc">Transport/ToggleFollowEdits</kbd></dt><dd>Follow Edits</dd>
-  <dt><kbd class="osc">Transport/TogglePunchIn</kbd></dt><dd>Punch In</dd>
-  <dt><kbd class="osc">Transport/TogglePunch</kbd></dt><dd>Punch In/Out</dd>
-  <dt><kbd class="osc">Transport/TogglePunchOut</kbd></dt><dd>Punch Out</dd>
-  <dt><kbd class="osc">Transport/ToggleRollForgetCapture</kbd></dt><dd>Stop and Forget Capture</dd>
-  <dt><kbd class="osc">Transport/ToggleRoll</kbd></dt><dd>Start/Stop</dd>
-  <dt><kbd class="osc">Transport/ToggleRollMaybe</kbd></dt><dd>Start/Continue/Stop</dd>
-  <dt><kbd class="osc">Transport/ToggleTimeMaster</kbd></dt><dd>Time Master</dd>
-  <dt><kbd class="osc">Transport/ToggleVideoSync</kbd></dt><dd>Sync Startup to Video</dd>
-  <dt><kbd class="osc">Transport/TransitionToReverse</kbd></dt><dd>Transition To Reverse</dd>
-  <dt><kbd class="osc">Transport/TransitionToRoll</kbd></dt><dd>Transition To Roll</dd>
-  <dt><kbd class="osc">Transport/Transport</kbd></dt><dd>Transport</dd>
-  <dt><kbd class="osc">Window/toggle-about</kbd></dt><dd>About</dd>
-  <dt><kbd class="osc">Window/toggle-add-routes</kbd></dt><dd>Add Tracks/Busses</dd>
-  <dt><kbd class="osc">Window/toggle-add-video</kbd></dt><dd>Add Tracks/Busses</dd>
-  <dt><kbd class="osc">Window/toggle-audio-connection-manager</kbd></dt><dd>Audio Connections</dd>
-  <dt><kbd class="osc">Window/toggle-audio-midi-setup</kbd></dt><dd>Audio/MIDI Setup</dd>
-  <dt><kbd class="osc">Window/toggle-big-clock</kbd></dt><dd>Big Clock</dd>
-  <dt><kbd class="osc">Window/toggle-bundle-manager</kbd></dt><dd>Bundle Manager</dd>
-  <dt><kbd class="osc">Window/toggle-inspector</kbd></dt><dd>Tracks and Busses</dd>
-  <dt><kbd class="osc">Window/toggle-key-editor</kbd></dt><dd>Key Bindings</dd>
-  <dt><kbd class="osc">Window/toggle-locations</kbd></dt><dd>Locations</dd>
-  <dt><kbd class="osc">Window/toggle-midi-connection-manager</kbd></dt><dd>MIDI Connections</dd>
-  <dt><kbd class="osc">Window/toggle-rc-options-editor</kbd></dt><dd>Preferences</dd>
-  <dt><kbd class="osc">Window/toggle-session-options-editor</kbd></dt><dd>Properties</dd>
-  <dt><kbd class="osc">Window/toggle-speaker-config</kbd></dt><dd>Speaker Configuration</dd>
-  <dt><kbd class="osc">Window/toggle-theme-manager</kbd></dt><dd>Theme Manager</dd>
+  <!-- Zoom section ok -->
   <dt><kbd class="osc">Zoom/zoom-focus-center</kbd></dt><dd>Zoom Focus Center</dd>
   <dt><kbd class="osc">Zoom/zoom-focus-edit</kbd></dt><dd>Zoom Focus Edit Point</dd>
   <dt><kbd class="osc">Zoom/zoom-focus-left</kbd></dt><dd>Zoom Focus Left</dd>
   <dt><kbd class="osc">Zoom/zoom-focus-mouse</kbd></dt><dd>Zoom Focus Mouse</dd>
   <dt><kbd class="osc">Zoom/zoom-focus-playhead</kbd></dt><dd>Zoom Focus Playhead</dd>
   <dt><kbd class="osc">Zoom/zoom-focus-right</kbd></dt><dd>Zoom Focus Right</dd>
+  <!-- Mixer section totally new -->
+  <dt><kbd class="osc">/Mixer/ab-plugins</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/copy-processors</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/cut-processors</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/decrement-gain</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/delete-processors</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/increment-gain</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/mute</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/paste-processors</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/recenable</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/scroll-left</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/scroll-right</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/select-all-processors</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/select-none</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/solo</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/toggle-midi-input-active</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/toggle-processors</kbd></dt><dd></dd>
+  <dt><kbd class="osc">/Mixer/unity-gain</kbd></dt><dd></dd>
 </dl>
 
 {% children %}

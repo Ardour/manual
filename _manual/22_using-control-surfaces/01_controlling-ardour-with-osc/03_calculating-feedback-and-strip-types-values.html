@@ -11,7 +11,7 @@ title: Calculating Feedback and Strip-types Values
 </p>
 <p>Both ,<em>feedback</em> and <em>strip-types</em> use bitsets to keep
   track what they are doing. Any number in a computer is made out of
-  bits that are on or off, but we represtent them as normal base 10
+  bits that are on or off, but we represent them as normal base 10
   numbers. Any one bit turned on will add a unique value to the
   number as a whole. So for each kind of feedback or strip type
   to be used, that number should be added to the total.</p>
@@ -32,29 +32,36 @@ title: Calculating Feedback and Strip-types Values
 		2	- MidiTracks.
 	</li>
 	<li>
-		4	- AudioBusses.
+		4	- AudioBuses.
 	</li>
 	<li>
-		8	- MidiBusses.
+		8	- MidiBuses.
 	</li>
 	<li>
 		16	- VCAs.
 	</li>
 	<li>
-		2048	- Master.
+		32	- Master.
 	</li>
 	<li>
-		4096	- Monitor.
+		64	- Monitor.
 	</li>
 	<li>
-		16384	- Selected.
+		256	- Selected.
 	</li>
 	<li>
-		32768	- Hidden.
+		512	- Hidden.
 	</li>
   </ul>
+<p class="note">
+  Selected and Hidden bits are normally not needed as Ardour defaults to
+  showing Selected strips and not showing Hidden strips. The purpose of
+  these two flags is to allow showing only Selected strips or only
+  Hidden strips. Using Hidden with other flags will allow Hidden strips
+  to show inline with other strips.
+</p>
 <p>
-  Some handy numbers to use might be: 15 (all tracks and busses), 31 
+  Some handy numbers to use might be: 15 (all tracks and buses), 31
   (add VCAs to that). Master or Monitor strips are generally not useful
   on a surface that has dedicated controls for these strips as there are
   /master* and /monitor* commands already. However, on a surface with
@@ -100,7 +107,13 @@ title: Calculating Feedback and Strip-types Values
 		will not work if the above option is turned on.
 	</li>
 	<li>
-		512 - Send signal present, true if level is higher than -20dB
+		512 - Send signal present, true if level is higher than -40dB
+	</li>
+	<li>
+		1024 - Send position in samples
+	</li>
+	<li>
+		2048 - Send position in time, hours, minutes, seconds and milliseconds
 	</li>
   </ul>
 <p>
