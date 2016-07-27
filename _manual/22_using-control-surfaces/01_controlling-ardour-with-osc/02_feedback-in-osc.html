@@ -176,7 +176,7 @@ title: OSC Feedback With Ardour
   <dt><kbd class="osc">/strip/gain <em>ssid</em> <em>gain</em></kbd></dt>
   <dd>where <em>gain</em> is a float ranging from -193 to 6 representing the actual gain of the track in dB.</dd>
   <dt><kbd class="osc">/strip/fader <em>ssid</em>  <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the actual gain of the track in dB.</dd>
+  <dd>where <em>position</em> is an float ranging from 0 to 1 representing the actual fader position of the track.</dd>
   <dt><kbd class="osc">/strip/trimdB <em>ssid</em>  <em>trim_db</em></kbd></dt>
   <dd>where <em>trim_db</em> is a float ranging from -20 to 20 representing the actual trim of the track in dB.</dd>
   <dt><kbd class="osc">/strip/pan_stereo_position <em>ssid</em> <em>position</em></kbd></dt>
@@ -202,13 +202,13 @@ title: OSC Feedback With Ardour
   <dt><kbd class="osc">/select/polarity <em>invert</em></kbd></dt>
   <dd>where <em>invert</em> is a bool/int representing the actual polarity of the track</dd>
   <dt><kbd class="osc">/select/pan_stereo_width <em>width</em></kbd></dt>
-  <dd>where <em>width</em> is a float ranging from -1 to 1 representing the actual pan width of the track</dd>
+  <dd>where <em>width</em> is a float ranging from 0 to 1 representing the actual pan width of the track</dd>
   <dt><kbd class="osc">/select/send_gain", <em>sendid</em> <em>send_gain</em></kbd></dt>
   <dd>where <em>sendid</em> = nth_send, <em>send_gain</em>is a float
   ranging from -193 to +6 representing the actual gain in dB for the send</dd>
   <dt><kbd class="osc">/select/send_fader", <em>sendid</em> <em>send_gain</em></kbd></dt>
   <dd>where <em>sendid</em> = nth_send, <em>send_gain</em>is a float
-  ranging from 0 to 1023 representing the actual position for the send as a fader</dd>
+  ranging from 0 to 1 representing the actual position for the send as a fader</dd>
   <dt><kbd class="osc">/select/send_name <em>sendid</em> <em>send_name</em></kbd></dt>
   <dd>where <em>send_name</em> is a string representing the name of the buss
   this send goes to.</dd>
