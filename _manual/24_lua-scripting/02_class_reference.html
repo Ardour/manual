@@ -588,8 +588,8 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (*)(float*, float const*, unsigned int, float)">mix_buffers_with_gain</abbr></span><span class="functionargs"> (<a class="" href="#C:FloatArray">FloatArray</a>, <a class="" href="#C:FloatArray">FloatArray</a>, <span class="em">unsigned int</span>, <span class="em">float</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (*)(float*, float*, unsigned int)">mmult</abbr></span><span class="functionargs"> (<a class="" href="#C:FloatArray">FloatArray</a>, <a class="" href="#C:FloatArray">FloatArray</a>, <span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> matrix multiply multiply every sample of `data&#39; with the corresponding sample at `mult&#39;.</p><dl><dt class="param-name-index-0">data</dt><dd class="param-descr-index-0"> multiplicand </dd><dt class="param-name-index-1">mult</dt><dd class="param-descr-index-1"> multiplicand </dd><dt class="param-name-index-2">n_samples</dt><dd class="param-descr-index-2"> number of samples in data and mmult</dd></dl></div></td></tr>
- <tr><td class="def"><em>LuaTable</em>(...)</td><td class="decl"><span class="functionname"><abbr title="void (*)(float*, float&amp;, float&amp;, unsigned int)">peaks</abbr></span><span class="functionargs"> (<a class="" href="#C:FloatArray">FloatArray</a>, <span class="em">float&amp;</span>, <span class="em">float&amp;</span>, <span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
-<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> calculate peaks</p><dl><dt class="param-name-index-0">data</dt><dd class="param-descr-index-0"> data to analyze </dd><dt class="param-name-index-1">min</dt><dd class="param-descr-index-1"> result, minimum value found in range </dd><dt class="param-name-index-2">max</dt><dd class="param-descr-index-2"> result, max value found in range </dd><dt class="param-name-index-3">n_samples</dt><dd class="param-descr-index-3"> number of samples to analyze</dd></dl></div></td></tr>
+ <tr><td class="def"><em>LuaTable</em>(...)</td><td class="decl"><span class="functionname"><abbr title="void (*)(float const*, float&amp;, float&amp;, unsigned int)">peaks</abbr></span><span class="functionargs"> (<a class="" href="#C:FloatArray">FloatArray</a>, <span class="em">float&amp;</span>, <span class="em">float&amp;</span>, <span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (*)(ARDOUR::BufferSet*, ARDOUR::ChanMapping const&amp;, ARDOUR::ChanMapping const&amp;, unsigned int, long, ARDOUR::DataType const&amp;)">process_map</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:BufferSet">BufferSet</a>, <a class="" href="#ARDOUR:ChanMapping">ChanMapping</a>, <a class="" href="#ARDOUR:ChanMapping">ChanMapping</a>, <span class="em">unsigned int</span>, <span class="em">long</span>, <a class="" href="#ARDOUR:DataType">DataType</a>)</span></td><td class="fill"></td></tr>
  </table>
 <h3 id="ARDOUR:DSP:Biquad" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:DSP:Biquad</h3>
 <p class="cdecl"><em>C&#8225;</em>: ARDOUR::DSP::Biquad</p>
@@ -880,9 +880,18 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Location::*)() const">end</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR.Location.Flags">Flags</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Location::Flags (ARDOUR::Location::*)() const">flags</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Location::*)() const">is_auto_loop</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Location::*)() const">is_auto_punch</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Location::*)() const">is_cd_marker</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Location::*)() const">is_hidden</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Location::*)() const">is_mark</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Location::*)() const">is_range_marker</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Location::*)() const">is_session_range</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Location::*)() const">length</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Location::*)()">lock</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Location::*)() const">locked</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Location::*)(ARDOUR::Location::Flags) const">matches</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR.Location.Flags">Flags</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (ARDOUR::Location::*)(long)">move_to</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (ARDOUR::Location::*)(long, bool, bool)">set_end</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">bool</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Set end position.  </p><dl><dt class="param-name-index-1">force</dt><dd class="param-descr-index-1"> true to force setting, even if the given new end is before the current start.  </dd><dt class="param-name-index-2">allow_bbt_recompute</dt><dd class="param-descr-index-2"> True to recompute BBT end time from the new given end time.</dd><dt class="param-name-index-invalid">s</dt><dd class="param-descr-index-invalid"> New end.  </dd></dl></div></td></tr>
@@ -890,6 +899,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (ARDOUR::Location::*)(long, bool, bool)">set_start</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">bool</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Set start position.  </p><dl><dt class="param-name-index-0">s</dt><dd class="param-descr-index-0"> New start.  </dd><dt class="param-name-index-1">force</dt><dd class="param-descr-index-1"> true to force setting, even if the given new start is after the current end.  </dd><dt class="param-name-index-2">allow_bbt_recompute</dt><dd class="param-descr-index-2"> True to recompute BBT start time from the new given start time.</dd></dl></div></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Location::*)() const">start</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Location::*)()">unlock</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
 <h4 class="cls">Inherited from PBD:Stateful</h4>
 <table class="classmembers">
@@ -925,6 +935,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Locations::*)(long, bool)">first_mark_after</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Location">Location</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Location* (ARDOUR::Locations::*)(long, long) const">first_mark_at</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">long</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Locations::*)(long, bool)">first_mark_before</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:LocationList">LocationList</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;ARDOUR::Location* &gt; (ARDOUR::Locations::*)()">list</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>LuaTable</em>(...)</td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Locations::*)(long, long&amp;, long&amp;) const">marks_either_side</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">long&amp;</span>, <span class="em">long&amp;</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Look for the `marks&#39; (either locations which are marks, or start&#47;end points of range markers) either  side of a frame.  Note that if frame is exactly on a `mark&#39;, that mark will not be considered for returning  as before&#47;after.  </p><dl><dt class="param-name-index-0">frame</dt><dd class="param-descr-index-0"> Frame to look for.  </dd><dt class="param-name-index-1">before</dt><dd class="param-descr-index-1"> Filled in with the position of the last `mark&#39; before `frame&#39; (or max_framepos if none exists)  </dd><dt class="param-name-index-2">after</dt><dd class="param-descr-index-2"> Filled in with the position of the next `mark&#39; after `frame&#39; (or max_framepos if none exists)</dd></dl></div></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Location">Location</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Location* (ARDOUR::Locations::*)() const">session_range_location</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1031,11 +1042,16 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <div class="classdox"><p class="para-brief"> Buffer containing 8-bit unsigned char (MIDI) data. </p></div>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::MidiBuffer::*)(ARDOUR::MidiBuffer const*)">copy</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:MidiBuffer">MidiBuffer</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::MidiBuffer::*)() const">empty</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::MidiBuffer::*)(long, unsigned long, unsigned char const*)">push_back</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">unsigned long</span>, <span class="em">unsigned char*</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::MidiBuffer::*)(Evoral::MIDIEvent&lt;long&gt; const&amp;)">push_event</abbr></span><span class="functionargs"> (<a class="" href="#Evoral:MidiEvent">MidiEvent</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::MidiBuffer::*)(unsigned long)">resize</abbr></span><span class="functionargs"> (<span class="em">unsigned long</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Reallocate the buffer used internally to handle at least <em>size_t</em> units of data.</p><p> The buffer is not silent after this operation. the <em>capacity</em> argument passed to the constructor must have been non-zero.</p></div></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="void (*)(ARDOUR::MidiBuffer)">sameinstance</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:MidiBuffer">MidiBuffer</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::MidiBuffer::*)(long, long)">silence</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">long</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Clear (eg zero, or empty) buffer </p></div></td></tr>
+ <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (ARDOUR::MidiBuffer::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>...</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">table</abbr></span><span class="functionargs"> (<span class="em">--lua--</span>)</span></td><td class="fill"></td></tr>
  </table>
 <h3 id="ARDOUR:MidiPort" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:MidiPort</h3>
@@ -1244,6 +1260,8 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <table class="classmembers">
  <tr><th colspan="3">Constructor</th></tr>
  <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">ARDOUR.ParameterDescriptor</span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (*)(unsigned char)">midi_note_name</abbr></span><span class="functionargs"> (<span class="em">unsigned char</span>)</span></td><td class="fill"></td></tr>
  <tr><th colspan="3">Data Members</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname">label</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">logarithmic</span></td><td class="fill"></td></tr>
@@ -2404,6 +2422,12 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (std::list&lt;boost::weak_ptr&lt;ARDOUR::Source&gt; &gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">table</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
+<h3 id="ArdourUI" class="cls freeclass"><abbr title="Namespace">&Nopf;</abbr>&nbsp;ArdourUI</h3>
+<div class="clear"></div>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (*)(std::string const&amp;)">http_get</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
+ </table>
 <h3 id="ArdourUI:ArdourMarker" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ArdourUI:ArdourMarker</h3>
 <p class="cdecl"><em>C&#8225;</em>: ArdourMarker</p>
 <div class="clear"></div>
@@ -2888,6 +2912,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::Event&lt;long&gt;::*)()">clear</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::Event&lt;long&gt;::*)(unsigned int, unsigned char*, bool)">set_buffer</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">unsigned char*</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (Evoral::Event&lt;long&gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (Evoral::Event&lt;long&gt;::*)()">time</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
 <h3 id="Evoral:MidiEvent" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;Evoral:MidiEvent</h3>
 <p class="cdecl"><em>C&#8225;</em>: Evoral::MIDIEvent&lt;long&gt;</p>
@@ -2907,6 +2932,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::Event&lt;long&gt;::*)()">clear</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::Event&lt;long&gt;::*)(unsigned int, unsigned char*, bool)">set_buffer</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">unsigned char*</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (Evoral::Event&lt;long&gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (Evoral::Event&lt;long&gt;::*)()">time</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
 <h3 id="Evoral:Parameter" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;Evoral:Parameter</h3>
 <p class="cdecl"><em>C&#8225;</em>: Evoral::Parameter</p>
@@ -2944,21 +2970,28 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname">to</span></td><td class="fill"></td></tr>
  </table>
 <h3 id="LuaSignal:Set" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;LuaSignal:Set</h3>
-<p class="cdecl"><em>C&#8225;</em>: std::bitset&lt;46ul&gt;</p>
+<p class="cdecl"><em>C&#8225;</em>: std::bitset&lt;47ul&gt;</p>
 <div class="clear"></div>
 <table class="classmembers">
  <tr><th colspan="3">Constructor</th></tr>
  <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">LuaSignal.Set</span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><th colspan="3">Methods</th></tr>
- <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">add</abbr></span><span class="functionargs"> (<em>LuaTable</em> {<span class="em">46ul</span>})</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (std::bitset&lt;46ul&gt;::*)() const">any</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (std::bitset&lt;46ul&gt;::*)() const">count</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (std::bitset&lt;46ul&gt;::*)() const">none</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><a class="" href="#LuaSignal:Set">Set</a></td><td class="decl"><span class="functionname"><abbr title="std::bitset&lt;46ul&gt;&amp; (std::bitset&lt;46ul&gt;::*)()">reset</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><a class="" href="#LuaSignal:Set">Set</a></td><td class="decl"><span class="functionname"><abbr title="std::bitset&lt;46ul&gt;&amp; (std::bitset&lt;46ul&gt;::*)(unsigned long, bool)">set</abbr></span><span class="functionargs"> (<span class="em">unsigned long</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (std::bitset&lt;46ul&gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">add</abbr></span><span class="functionargs"> (<em>LuaTable</em> {<span class="em">47ul</span>})</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (std::bitset&lt;47ul&gt;::*)() const">any</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (std::bitset&lt;47ul&gt;::*)() const">count</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (std::bitset&lt;47ul&gt;::*)() const">none</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#LuaSignal:Set">Set</a></td><td class="decl"><span class="functionname"><abbr title="std::bitset&lt;47ul&gt;&amp; (std::bitset&lt;47ul&gt;::*)()">reset</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#LuaSignal:Set">Set</a></td><td class="decl"><span class="functionname"><abbr title="std::bitset&lt;47ul&gt;&amp; (std::bitset&lt;47ul&gt;::*)(unsigned long, bool)">set</abbr></span><span class="functionargs"> (<span class="em">unsigned long</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (std::bitset&lt;47ul&gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">table</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (std::bitset&lt;46ul&gt;::*)(unsigned long) const">test</abbr></span><span class="functionargs"> (<span class="em">unsigned long</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (std::bitset&lt;47ul&gt;::*)(unsigned long) const">test</abbr></span><span class="functionargs"> (<span class="em">unsigned long</span>)</span></td><td class="fill"></td></tr>
+ </table>
+<h3 id="PBD" class="cls freeclass"><abbr title="Namespace">&Nopf;</abbr>&nbsp;PBD</h3>
+<div class="clear"></div>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (*)(std::string const&amp;)">open_uri</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (*)(std::string const&amp;)">open_uri</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
  </table>
 <h3 id="PBD:Command" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;PBD:Command</h3>
 <p class="cdecl"><em>C&#8225;</em>: Command</p>
@@ -3378,6 +3411,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li class="const">LuaSignal.DiskOverrun</li>
 <li class="const">LuaSignal.DiskUnderrun</li>
 <li class="const">LuaSignal.RegionPropertyChanged</li>
+<li class="const">LuaSignal.LuaTimerDS</li>
 </ul>
 <h3 id="ArdourMarker.Type" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ArdourMarker.Type</h3>
 <ul class="enum">
@@ -3584,6 +3618,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#ARDOUR:WeakAudioSourceList">ARDOUR:WeakAudioSourceList</a></li>
 <li><a class="" href="#ARDOUR:WeakRouteList">ARDOUR:WeakRouteList</a></li>
 <li><a class="" href="#ARDOUR:WeakSourceList">ARDOUR:WeakSourceList</a></li>
+<li><a class="" href="#ArdourUI">ArdourUI</a></li>
 <li><a class="" href="#ArdourUI:ArdourMarker">ArdourUI:ArdourMarker</a></li>
 <li><a class="" href="#ArdourUI:ArdourMarkerList">ArdourUI:ArdourMarkerList</a></li>
 <li><a class="" href="#ArdourUI:Editor">ArdourUI:Editor</a></li>
@@ -3612,6 +3647,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#Evoral:ParameterDescriptor">Evoral:ParameterDescriptor</a></li>
 <li><a class="" href="#Evoral:Range">Evoral:Range</a></li>
 <li><a class="" href="#LuaSignal:Set">LuaSignal:Set</a></li>
+<li><a class="" href="#PBD">PBD</a></li>
 <li><a class="" href="#PBD:Command">PBD:Command</a></li>
 <li><a class="" href="#PBD:Controllable">PBD:Controllable</a></li>
 <li><a class="" href="#PBD:ID">PBD:ID</a></li>
@@ -3627,6 +3663,6 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#PBD:XMLNode">PBD:XMLNode</a></li>
 <li><a class="" href="#Timecode:BBT_TIME">Timecode:BBT_TIME</a></li>
 </ul>
-<!-- 331 / 1215 !-->
+<!-- 331 / 1237 !-->
 </div>
-<div class="luafooter">Ardour 5.0-pre0-573-g7745a37 &nbsp;-&nbsp; Sun, 10 Jul 2016 16:26:53 +0200</div>
+<div class="luafooter">Ardour 5.0-rc2 &nbsp;-&nbsp; Tue, 09 Aug 2016 16:23:39 +0200</div>
