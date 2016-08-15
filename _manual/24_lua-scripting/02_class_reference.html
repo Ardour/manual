@@ -407,8 +407,10 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Stripable::*)() const">is_selected</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MuteControl">MuteControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::MuteControl&gt; (ARDOUR::Stripable::*)() const">mute_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:PhaseControl">PhaseControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::PhaseControl&gt; (ARDOUR::Stripable::*)() const">phase_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:PresentationInfo">PresentationInfo</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::PresentationInfo* (ARDOUR::Stripable::*)()">presentation_info_ptr</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">rec_enable_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">rec_safe_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Stripable::*)(unsigned int, bool)">set_presentation_order</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloControl">SoloControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloControl&gt; (ARDOUR::Stripable::*)() const">solo_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloIsolateControl">SoloIsolateControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloIsolateControl&gt; (ARDOUR::Stripable::*)() const">solo_isolate_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloSafeControl">SoloSafeControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloSafeControl&gt; (ARDOUR::Stripable::*)() const">solo_safe_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1160,8 +1162,10 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Stripable::*)() const">is_selected</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MuteControl">MuteControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::MuteControl&gt; (ARDOUR::Stripable::*)() const">mute_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:PhaseControl">PhaseControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::PhaseControl&gt; (ARDOUR::Stripable::*)() const">phase_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:PresentationInfo">PresentationInfo</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::PresentationInfo* (ARDOUR::Stripable::*)()">presentation_info_ptr</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">rec_enable_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">rec_safe_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Stripable::*)(unsigned int, bool)">set_presentation_order</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloControl">SoloControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloControl&gt; (ARDOUR::Stripable::*)() const">solo_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloIsolateControl">SoloIsolateControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloIsolateControl&gt; (ARDOUR::Stripable::*)() const">solo_isolate_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloSafeControl">SoloSafeControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloSafeControl&gt; (ARDOUR::Stripable::*)() const">solo_safe_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1569,6 +1573,25 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> nth port of type <em>t,</em> or nth port if t = NIL </p><dl><dt class="param-name-index-0">t</dt><dd class="param-descr-index-0"> data type </dd><dt class="param-name-index-1">index</dt><dd class="param-descr-index-1"> port index</dd></dl></div></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::PortSet::*)(boost::shared_ptr&lt;ARDOUR::Port&gt;)">remove</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Port">Port</a>)</span></td><td class="fill"></td></tr>
  </table>
+<h3 id="ARDOUR:PresentationInfo" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:PresentationInfo</h3>
+<p class="cdecl"><em>C&#8225;</em>: ARDOUR::PresentationInfo</p>
+ <p class="classinfo">is-a: <a class="" href="#PBD:Stateful">PBD:Stateful</a></p>
+<div class="clear"></div>
+<div class="classdox"><p class="para-brief"> Base class for objects with saveable and undoable state </p></div>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::PresentationInfo::*)() const">color</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::PresentationInfo::*)() const">order</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::PresentationInfo::*)(unsigned int)">set_color</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ </table>
+<h4 class="cls">Inherited from PBD:Stateful</h4>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (PBD::Stateful::*)()">clear_changes</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Forget about any changes to this object&#39;s properties </p></div></td></tr>
+ <tr><td class="def"><a class="" href="#PBD:ID">ID</a></td><td class="decl"><span class="functionname"><abbr title="PBD::ID const&amp; (PBD::Stateful::*)() const">id</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:OwnedPropertyList">OwnedPropertyList</a></td><td class="decl"><span class="functionname"><abbr title="PBD::OwnedPropertyList const&amp; (PBD::Stateful::*)() const">properties</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+</table>
 <h3 id="ARDOUR:PresetRecord" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:PresetRecord</h3>
 <p class="cdecl"><em>C&#8225;</em>: ARDOUR::Plugin::PresetRecord</p>
 <div class="clear"></div>
@@ -1794,8 +1817,10 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Stripable::*)() const">is_selected</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MuteControl">MuteControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::MuteControl&gt; (ARDOUR::Stripable::*)() const">mute_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:PhaseControl">PhaseControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::PhaseControl&gt; (ARDOUR::Stripable::*)() const">phase_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:PresentationInfo">PresentationInfo</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::PresentationInfo* (ARDOUR::Stripable::*)()">presentation_info_ptr</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">rec_enable_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">rec_safe_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Stripable::*)(unsigned int, bool)">set_presentation_order</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloControl">SoloControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloControl&gt; (ARDOUR::Stripable::*)() const">solo_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloIsolateControl">SoloIsolateControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloIsolateControl&gt; (ARDOUR::Stripable::*)() const">solo_isolate_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloSafeControl">SoloSafeControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloSafeControl&gt; (ARDOUR::Stripable::*)() const">solo_safe_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1867,6 +1892,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> create an StatefulDiffCommand from the given object and add it to the stack.</p><p> This function must only be called after  begin_reversible_command. Failing to do so may lead to a crash.</p><dl><dt class="param-name-index-0">sfd</dt><dd class="param-descr-index-0"> the object to diff </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  the allocated StatefulDiffCommand (already added via add_command)</p></div></div></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)(std::string const&amp;)">begin_reversible_command</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> begin collecting undo information</p><p> This call must always be followed by either begin_reversible_command() or commit_reversible_command()</p><dl><dt class="param-name-index-0">cmd_name</dt><dd class="param-descr-index-0"> human readable name for the undo operation</dd></dl></div></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:SessionConfiguration">SessionConfiguration</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::SessionConfiguration* (ARDOUR::Session::*)()">cfg</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)(Command*)">commit_reversible_command</abbr></span><span class="functionargs"> (<a class="" href="#PBD:Command">Command</a>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> finalize an undo command and commit pending transactions</p><p> This must only be called after begin_reversible_command () </p><dl><dt class="param-name-index-0">cmd</dt><dd class="param-descr-index-0"> (additional) command to add</dd></dl></div></td></tr>
  <tr><td class="def"><a class="" href="#PBD:Controllable">Controllable</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;PBD::Controllable&gt; (ARDOUR::Session::*)(PBD::ID const&amp;)">controllable_by_id</abbr></span><span class="functionargs"> (<a class="" href="#PBD:ID">ID</a>)</span></td><td class="fill"></td></tr>
@@ -1927,6 +1953,167 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Session::*)() const">worst_playback_latency</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Session::*)() const">worst_track_latency</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
+<h3 id="ARDOUR:SessionConfiguration" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:SessionConfiguration</h3>
+<p class="cdecl"><em>C&#8225;</em>: ARDOUR::SessionConfiguration</p>
+ <p class="classinfo">is-a: <a class="" href="#PBD:Configuration">PBD:Configuration</a></p>
+<div class="clear"></div>
+<div class="classdox"><p class="para-brief"> Base class for objects with saveable and undoable state </p></div>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionConfiguration::*)() const">get_audio_search_path</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_auto_input</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_auto_play</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_auto_return</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::SessionConfiguration::*)() const">get_destructive_xfade_msecs</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_external_sync</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_glue_new_markers_to_bars_and_beats</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_glue_new_regions_to_bars_and_beats</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR.InsertMergePolicy">InsertMergePolicy</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::InsertMergePolicy (ARDOUR::SessionConfiguration::*)() const">get_insert_merge_policy</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_jack_time_master</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::SessionConfiguration::*)() const">get_meterbridge_label_height</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_midi_copy_is_fork</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionConfiguration::*)() const">get_midi_search_path</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR.SampleFormat">SampleFormat</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::SampleFormat (ARDOUR::SessionConfiguration::*)() const">get_native_file_data_format</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR.HeaderFormat">HeaderFormat</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::HeaderFormat (ARDOUR::SessionConfiguration::*)() const">get_native_file_header_format</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_punch_in</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_punch_out</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionConfiguration::*)() const">get_raid_path</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_realtime_export</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_show_busses_on_meterbridge</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_show_group_tabs</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_show_master_on_meterbridge</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_show_midi_on_meterbridge</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_show_monitor_on_meterbridge</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_show_mute_on_meterbridge</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_show_name_on_meterbridge</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_show_rec_on_meterbridge</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_show_region_fades</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_show_solo_on_meterbridge</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_show_summary</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionConfiguration::*)() const">get_slave_timecode_offset</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::SessionConfiguration::*)() const">get_subframes_per_frame</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionConfiguration::*)() const">get_take_name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#Timecode.TimecodeFormat">TimecodeFormat</a></td><td class="decl"><span class="functionname"><abbr title="Timecode::TimecodeFormat (ARDOUR::SessionConfiguration::*)() const">get_timecode_format</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionConfiguration::*)() const">get_timecode_generator_offset</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::SessionConfiguration::*)() const">get_timecode_offset</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_timecode_offset_negative</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_track_name_number</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_track_name_take</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_use_monitor_fades</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_use_region_fades</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_use_transport_fades</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_use_video_file_fps</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_use_video_sync</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">float</span></td><td class="decl"><span class="functionname"><abbr title="float (ARDOUR::SessionConfiguration::*)() const">get_video_pullup</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)() const">get_videotimeline_pullup</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::SessionConfiguration::*)() const">get_wave_amplitude_zoom</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned short</span></td><td class="decl"><span class="functionname"><abbr title="unsigned short (ARDOUR::SessionConfiguration::*)() const">get_wave_zoom_factor</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(std::string)">set_audio_search_path</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_auto_input</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_auto_play</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_auto_return</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(unsigned int)">set_destructive_xfade_msecs</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_external_sync</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_glue_new_markers_to_bars_and_beats</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_glue_new_regions_to_bars_and_beats</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(ARDOUR::InsertMergePolicy)">set_insert_merge_policy</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR.InsertMergePolicy">InsertMergePolicy</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_jack_time_master</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(unsigned int)">set_meterbridge_label_height</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_midi_copy_is_fork</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(std::string)">set_midi_search_path</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(ARDOUR::SampleFormat)">set_native_file_data_format</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR.SampleFormat">SampleFormat</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(ARDOUR::HeaderFormat)">set_native_file_header_format</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR.HeaderFormat">HeaderFormat</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_punch_in</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_punch_out</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(std::string)">set_raid_path</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_realtime_export</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_show_busses_on_meterbridge</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_show_group_tabs</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_show_master_on_meterbridge</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_show_midi_on_meterbridge</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_show_monitor_on_meterbridge</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_show_mute_on_meterbridge</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_show_name_on_meterbridge</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_show_rec_on_meterbridge</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_show_region_fades</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_show_solo_on_meterbridge</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_show_summary</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(std::string)">set_slave_timecode_offset</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(unsigned int)">set_subframes_per_frame</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(std::string)">set_take_name</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(Timecode::TimecodeFormat)">set_timecode_format</abbr></span><span class="functionargs"> (<a class="" href="#Timecode.TimecodeFormat">TimecodeFormat</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(std::string)">set_timecode_generator_offset</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(long)">set_timecode_offset</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_timecode_offset_negative</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_track_name_number</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_track_name_take</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_use_monitor_fades</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_use_region_fades</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_use_transport_fades</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_use_video_file_fps</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_use_video_sync</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(float)">set_video_pullup</abbr></span><span class="functionargs"> (<span class="em">float</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(bool)">set_videotimeline_pullup</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(double)">set_wave_amplitude_zoom</abbr></span><span class="functionargs"> (<span class="em">double</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::SessionConfiguration::*)(unsigned short)">set_wave_zoom_factor</abbr></span><span class="functionargs"> (<span class="em">unsigned short</span>)</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Properties</th></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname">audio_search_path</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">auto_input</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">auto_play</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">auto_return</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname">destructive_xfade_msecs</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">external_sync</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">glue_new_markers_to_bars_and_beats</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">glue_new_regions_to_bars_and_beats</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR.InsertMergePolicy">ARDOUR.InsertMergePolicy</a></td><td class="decl"><span class="functionname">insert_merge_policy</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">jack_time_master</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname">meterbridge_label_height</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">midi_copy_is_fork</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname">midi_search_path</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR.SampleFormat">ARDOUR.SampleFormat</a></td><td class="decl"><span class="functionname">native_file_data_format</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR.HeaderFormat">ARDOUR.HeaderFormat</a></td><td class="decl"><span class="functionname">native_file_header_format</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">punch_in</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">punch_out</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname">raid_path</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">realtime_export</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">show_busses_on_meterbridge</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">show_group_tabs</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">show_master_on_meterbridge</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">show_midi_on_meterbridge</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">show_monitor_on_meterbridge</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">show_mute_on_meterbridge</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">show_name_on_meterbridge</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">show_rec_on_meterbridge</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">show_region_fades</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">show_solo_on_meterbridge</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">show_summary</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname">slave_timecode_offset</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname">subframes_per_frame</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname">take_name</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#Timecode.TimecodeFormat">Timecode.TimecodeFormat</a></td><td class="decl"><span class="functionname">timecode_format</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname">timecode_generator_offset</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname">timecode_offset</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">timecode_offset_negative</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">track_name_number</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">track_name_take</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">use_monitor_fades</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">use_region_fades</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">use_transport_fades</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">use_video_file_fps</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">use_video_sync</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">float</span></td><td class="decl"><span class="functionname">video_pullup</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">videotimeline_pullup</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname">wave_amplitude_zoom</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned short</span></td><td class="decl"><span class="functionname">wave_zoom_factor</span></td><td class="fill"></td></tr>
+ </table>
+<h4 class="cls">Inherited from PBD:Stateful</h4>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (PBD::Stateful::*)()">clear_changes</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Forget about any changes to this object&#39;s properties </p></div></td></tr>
+ <tr><td class="def"><a class="" href="#PBD:ID">ID</a></td><td class="decl"><span class="functionname"><abbr title="PBD::ID const&amp; (PBD::Stateful::*)() const">id</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:OwnedPropertyList">OwnedPropertyList</a></td><td class="decl"><span class="functionname"><abbr title="PBD::OwnedPropertyList const&amp; (PBD::Stateful::*)() const">properties</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+</table>
 <h3 id="ARDOUR:SessionObject" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:SessionObject</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; ARDOUR::SessionObject &gt;, boost::weak_ptr&lt; ARDOUR::SessionObject &gt;</p>
 <div class="clear"></div>
@@ -2209,8 +2396,10 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="void (*)()">isnil</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MuteControl">MuteControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::MuteControl&gt; (ARDOUR::Stripable::*)() const">mute_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:PhaseControl">PhaseControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::PhaseControl&gt; (ARDOUR::Stripable::*)() const">phase_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:PresentationInfo">PresentationInfo</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::PresentationInfo* (ARDOUR::Stripable::*)()">presentation_info_ptr</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">rec_enable_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">rec_safe_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Stripable::*)(unsigned int, bool)">set_presentation_order</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloControl">SoloControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloControl&gt; (ARDOUR::Stripable::*)() const">solo_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloIsolateControl">SoloIsolateControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloIsolateControl&gt; (ARDOUR::Stripable::*)() const">solo_isolate_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloSafeControl">SoloSafeControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloSafeControl&gt; (ARDOUR::Stripable::*)() const">solo_safe_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -2334,8 +2523,10 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Stripable::*)() const">is_selected</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MuteControl">MuteControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::MuteControl&gt; (ARDOUR::Stripable::*)() const">mute_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:PhaseControl">PhaseControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::PhaseControl&gt; (ARDOUR::Stripable::*)() const">phase_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:PresentationInfo">PresentationInfo</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::PresentationInfo* (ARDOUR::Stripable::*)()">presentation_info_ptr</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">rec_enable_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">rec_safe_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Stripable::*)(unsigned int, bool)">set_presentation_order</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloControl">SoloControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloControl&gt; (ARDOUR::Stripable::*)() const">solo_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloIsolateControl">SoloIsolateControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloIsolateControl&gt; (ARDOUR::Stripable::*)() const">solo_isolate_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:SoloSafeControl">SoloSafeControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::SoloSafeControl&gt; (ARDOUR::Stripable::*)() const">solo_safe_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -3011,6 +3202,20 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#PBD:ID">ID</a></td><td class="decl"><span class="functionname"><abbr title="PBD::ID const&amp; (PBD::Stateful::*)() const">id</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:OwnedPropertyList">OwnedPropertyList</a></td><td class="decl"><span class="functionname"><abbr title="PBD::OwnedPropertyList const&amp; (PBD::Stateful::*)() const">properties</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
+<h3 id="PBD:Configuration" class="cls opaque"><abbr title="Opaque Object">&empty;</abbr>&nbsp;PBD:Configuration</h3>
+<p class="cdecl"><em>C&#8225;</em>: PBD::Configuration</p>
+ <p class="classinfo">is-a: <a class="" href="#PBD:Stateful">PBD:Stateful</a></p>
+<div class="clear"></div>
+<div class="classdox"><p class="para-brief"> Base class for objects with saveable and undoable state </p></div>
+<p class="classinfo">This class object is only used indirectly as return-value and function-parameter. It provides no methods by itself.</p>
+<h4 class="cls">Inherited from PBD:Stateful</h4>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (PBD::Stateful::*)()">clear_changes</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Forget about any changes to this object&#39;s properties </p></div></td></tr>
+ <tr><td class="def"><a class="" href="#PBD:ID">ID</a></td><td class="decl"><span class="functionname"><abbr title="PBD::ID const&amp; (PBD::Stateful::*)() const">id</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:OwnedPropertyList">OwnedPropertyList</a></td><td class="decl"><span class="functionname"><abbr title="PBD::OwnedPropertyList const&amp; (PBD::Stateful::*)() const">properties</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+</table>
 <h3 id="PBD:Controllable" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;PBD:Controllable</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; PBD::Controllable &gt;, boost::weak_ptr&lt; PBD::Controllable &gt;</p>
  <p class="classinfo">is-a: <a class="" href="#PBD:StatefulDestructiblePtr">PBD:StatefulDestructiblePtr</a></p>
@@ -3203,6 +3408,20 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li class="const">PBD.GroupControlDisposition.NoGroup</li>
 <li class="const">PBD.GroupControlDisposition.UseGroup</li>
 </ul>
+<h3 id="Timecode.TimecodeFormat" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;Timecode.TimecodeFormat</h3>
+<ul class="enum">
+<li class="const">Timecode.TimecodeFormat.TC23976</li>
+<li class="const">Timecode.TimecodeFormat.TC24</li>
+<li class="const">Timecode.TimecodeFormat.TC24976</li>
+<li class="const">Timecode.TimecodeFormat.TC25</li>
+<li class="const">Timecode.TimecodeFormat.TC2997</li>
+<li class="const">Timecode.TimecodeFormat.TC2997DF</li>
+<li class="const">Timecode.TimecodeFormat.TC2997000</li>
+<li class="const">Timecode.TimecodeFormat.TC2997000DF</li>
+<li class="const">Timecode.TimecodeFormat.TC30</li>
+<li class="const">Timecode.TimecodeFormat.TC5994</li>
+<li class="const">Timecode.TimecodeFormat.TC60</li>
+</ul>
 <h3 id="Evoral.ControlList.InterpolationStyle" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;Evoral.ControlList.InterpolationStyle</h3>
 <ul class="enum">
 <li class="const">Evoral.InterpolationStyle.Discrete</li>
@@ -3307,6 +3526,33 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li class="const">ARDOUR.TrackMode.Normal</li>
 <li class="const">ARDOUR.TrackMode.NonLayered</li>
 <li class="const">ARDOUR.TrackMode.Destructive</li>
+</ul>
+<h3 id="ARDOUR.SampleFormat" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.SampleFormat</h3>
+<ul class="enum">
+<li class="const">ARDOUR.SampleFormat.Float</li>
+<li class="const">ARDOUR.SampleFormat.Int24</li>
+<li class="const">ARDOUR.SampleFormat.Int16</li>
+</ul>
+<h3 id="ARDOUR.HeaderFormat" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.HeaderFormat</h3>
+<ul class="enum">
+<li class="const">ARDOUR.HeaderFormat.BWF</li>
+<li class="const">ARDOUR.HeaderFormat.WAVE</li>
+<li class="const">ARDOUR.HeaderFormat.WAVE64</li>
+<li class="const">ARDOUR.HeaderFormat.CAF</li>
+<li class="const">ARDOUR.HeaderFormat.AIFF</li>
+<li class="const">ARDOUR.HeaderFormat.iXML</li>
+<li class="const">ARDOUR.HeaderFormat.RF64</li>
+<li class="const">ARDOUR.HeaderFormat.RF64_WAV</li>
+<li class="const">ARDOUR.HeaderFormat.MBWF</li>
+</ul>
+<h3 id="ARDOUR.InsertMergePolicy" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.InsertMergePolicy</h3>
+<ul class="enum">
+<li class="const">ARDOUR.InsertMergePolicy.Reject</li>
+<li class="const">ARDOUR.InsertMergePolicy.Relax</li>
+<li class="const">ARDOUR.InsertMergePolicy.Replace</li>
+<li class="const">ARDOUR.InsertMergePolicy.TruncateExisting</li>
+<li class="const">ARDOUR.InsertMergePolicy.TruncateAddition</li>
+<li class="const">ARDOUR.InsertMergePolicy.Extend</li>
 </ul>
 <h3 id="ARDOUR.Session.RecordState" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.Session.RecordState</h3>
 <ul class="enum">
@@ -3585,6 +3831,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#ARDOUR:PortList">ARDOUR:PortList</a></li>
 <li><a class="" href="#ARDOUR:PortManager">ARDOUR:PortManager</a></li>
 <li><a class="" href="#ARDOUR:PortSet">ARDOUR:PortSet</a></li>
+<li><a class="" href="#ARDOUR:PresentationInfo">ARDOUR:PresentationInfo</a></li>
 <li><a class="" href="#ARDOUR:PresetRecord">ARDOUR:PresetRecord</a></li>
 <li><a class="" href="#ARDOUR:Processor">ARDOUR:Processor</a></li>
 <li><a class="" href="#ARDOUR:Properties:BoolProperty">ARDOUR:Properties:BoolProperty</a></li>
@@ -3602,6 +3849,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#ARDOUR:RouteList">ARDOUR:RouteList</a></li>
 <li><a class="" href="#ARDOUR:RouteListPtr">ARDOUR:RouteListPtr</a></li>
 <li><a class="" href="#ARDOUR:Session">ARDOUR:Session</a></li>
+<li><a class="" href="#ARDOUR:SessionConfiguration">ARDOUR:SessionConfiguration</a></li>
 <li><a class="" href="#ARDOUR:SessionObject">ARDOUR:SessionObject</a></li>
 <li><a class="" href="#ARDOUR:SideChain">ARDOUR:SideChain</a></li>
 <li><a class="" href="#ARDOUR:SlavableAutomationControl,">ARDOUR:SlavableAutomationControl,</a></li>
@@ -3649,6 +3897,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#LuaSignal:Set">LuaSignal:Set</a></li>
 <li><a class="" href="#PBD">PBD</a></li>
 <li><a class="" href="#PBD:Command">PBD:Command</a></li>
+<li><a class="" href="#PBD:Configuration">PBD:Configuration</a></li>
 <li><a class="" href="#PBD:Controllable">PBD:Controllable</a></li>
 <li><a class="" href="#PBD:ID">PBD:ID</a></li>
 <li><a class="" href="#PBD:IdVector">PBD:IdVector</a></li>
@@ -3663,6 +3912,6 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#PBD:XMLNode">PBD:XMLNode</a></li>
 <li><a class="" href="#Timecode:BBT_TIME">Timecode:BBT_TIME</a></li>
 </ul>
-<!-- 331 / 1237 !-->
+<!-- 337 / 1353 !-->
 </div>
-<div class="luafooter">Ardour 5.0-rc2 &nbsp;-&nbsp; Tue, 09 Aug 2016 16:23:39 +0200</div>
+<div class="luafooter">Ardour 5.0-37-g7b993ef &nbsp;-&nbsp; Tue, 16 Aug 2016 01:02:00 +0200</div>
