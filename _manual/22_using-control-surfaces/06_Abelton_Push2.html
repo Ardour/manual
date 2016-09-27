@@ -5,13 +5,14 @@ menu_title: Ableton Push 2
 ---                        
 
 <p>
-  Since version 5.0, Ardour has had full support for the Ableton
-  Push2. This is an expensive but well engineered control surface
-  primarily targetting the workflow found in Ableton's Live software
-  and other similar tools such as Bitwig. As of 5.0, Ardour does not
-  offer the same kind of workflow, so we have repurposed the Push 2 to
-  be used for mixing and editing, rather than the clip/scene oriented
-  approach in Live.
+  Since version 5.4, Ardour has had full support for the Ableton
+  Push2. This is an expensive but beautifully engineered control
+  surface primarily targetting the workflow found in Ableton's Live
+  software and other similar tools such as Bitwig. As of 5.4, Ardour
+  does not offer the same kind of workflow, so we have repurposed the
+  Push 2 to be used for mixing and editing and musical performance,,
+  without the clip/scene oriented approach in Live. This may change in
+  future versions of Ardour.
 </p>
 
 <h2>Connecting the Push 2</h2>
@@ -48,37 +49,135 @@ menu_title: Ableton Push 2
   future sessions.
 </p>
 
-<h2>Using the Push 2</h2>
+<h2>Basic Concepts</h2>
 <p>
-  Below we document the functionality accessible from each control on
-  the Push 2. The controls can be divided into several sections.
+  With the Push 2 support in Ardour 5.4, you can do the following
+  things:
   <dl>
-    <dt>Pads</dt>
-    <dd></dd>
-    <dt>Buttons</dt>
-    <dd></dd>
-    <dt>Encoders</dt>
-    <dd></dd>
-    <dt>Touch Strip</dt>
-    <dd></dd>
+    <dt>Perform using the 8 x 8 pad "grid"</dt>
+    <dd>The Push 2 has really lovely pressure-sensitive pads that can
+    also generate either aftertouch or note (polyphonic) pressure.</dd>
+    <dt>Global Mixing</dt>
+    <dd>See many tracks at once, and control numerous parameters for each.</dd>
+    <dt>Track/Bus Mixing</dt>
+    <dd>View a single track/bus, with even more parameters for the track.</dd>
+    <dt>Choose the mode/scale, root note and more for the pads</dt>
+    <dd>37 scales are available. Like Live, Ardour offers both
+    "in-key" and "chromatic" pad layouts.</dd>
   </dl>
 </p>
+
+<h2>Musical Performance</h2>
 <p>
-  Conceptually, Ardour dividers the controls into a set of 8 strips,
-  each consisting of an encoder (at the top), 2 buttons on either side
-  of the display, and 8 pads. All the other controls have independent
-  functions.
-<p>
-  Buttons who function is somewhat related to the label built into the
-  device will have the label illuminated.
+  Messages sent from the 8x8 pad grid and the "pitch bend bar" are
+  routed to a special MIDI port within Ardour called "Ableton Pads"
+  (no extra latency is incurred from this routing). Although you can
+  manually connect this port to whatever you wish, the normal
+  behaviour of Ardour's Push 2 support is to connect the pads to the
+  most recently selected MIDI track.
 </p>
 <p>
-  Buttons that Ardour uses for entirely different purposes than the
-  builtin label are left unilluminated, but still provide some
-  functionality. 
+  This means that to play a soft-synth/instrument plugin in a given
+  MIDI track with the Push 2, you just need to select that track.
 </p>
 <p>
-  The upper right encoder is used as a gain control (volume) for the
-  Master out or Monitor out busses.
+  If multiple MIDI tracks are selected at once, the first selected
+  track will be used. Note that messages originating from all other
+  controls on the Push 2 will <em>not</em> not be delivered to the
+  "Ableton Pads" port. This makes no difference in practice, because
+  the other controls do not send messages that are useful for musical
+  performance. 
 </p>
+
+<h2>Global Mix</h2>
+<p>
+  This is the default mode that Ardour will start the Push 2 in. In
+  this mode, the 8 knobs at the top of the device, the 8 buttons below
+  them, the video display and the 8 buttons below that are combined to
+  provide a global view of the session mix.
+
+  <!-- SCREENSHOT HERE -->
+
 </p>
+<p>
+  The upper buttons are labelled by text in the video display just
+  below them. Pressing one of the buttons changes the function of the
+  knobs, and the parameters that will shown for each track/bus in the
+  display. As of Ardour 5.4, the possible parameters are:
+  <dl>
+    <dt>Volumes</dt>
+    <dd>The display shows a knob and text displaying
+      the current gain setting for the track, and a meter that
+      corresponds precisely to the meter shown in the Ardour GUI for
+      that track. Changing the meter type (e.g. from Peak to K12) in the
+      GUI will also change it in the Push 2 display. The physical knob
+      will alter track/bus gain.
+    </dd>
+    <dt>Pans</dt>
+    <dd>The display shows a knob indicating the pan direction/azimuth
+    for the corresponding track/bus. Turning the physical knob will
+    pan the track left and right. If the track/bus has no panner
+    (i.e. it has only a single output), no knob is shown and the
+    physical knob will do nothing. </dd>
+    <dt>Pan Widths</dt>
+    <dd><p>For tracks with 2 outputs, the display will show a knob
+	indicating the pan width setting for the corresponding
+	track/bus. The physical knob can be turned to adjust the
+	width. 
+      </p>
+      <p>
+	Unlike many DAWs, Ardour's stereo panners have "width"
+	parameter that defaults to 100%. You cannot change the pan
+	direction/azimuth of a track with 100% width, but must first
+	reduce the width in order to pan it. Similarly, a track panned
+	anywhere other than dead center has limits on the maximum
+	width setting. If these concepts are not familiar to you,
+	please be aware than many DAWs use a "panner" that actually
+	implement "balance" and not "panning", hence the difference.
+      </p>
+    </dd>
+    <dt>A Sends</dt>
+    <dd>The display shows a knob indicating the gain level for the
+      first send in that track. If the track has no send, no knob will
+      be shown, and the physical knob for that track will do nothing.
+    </dd>
+    <dd>B Sends, C Sends, D Sends</dd>
+    <dt>Like "A Sends", but for the 2nd, 3rd and 4th sends of a
+      track/bus respectively.
+    </dt>
+  </dl>
+</p>
+
+<h2>Track Mix</h2>
+
+
+<h2>Specific Button/Knob Functions</h2>
+
+<p>
+  In addition to the layouts described above, many (but not all) of
+  the buttons and knobs around the edges of the Push 2 will carry out
+  various functions related to their (illuminated) label. As of Ardour
+  5.4, this includes:
+  <ul>
+    <li>Metronome (button and adjacent knob)</li>
+    <li>Undo/Redo</li>
+    <li>Duplicate</li>
+    <li>Delete</li>
+    <li>Double Loop</li>
+    <li>Quantize</li>
+    <li>Duplicate</li>
+    <li>Rec-Enable</li>
+    <li>Play</li>
+    <li>Add Track</li>
+    <li>Browse</li>
+    <li>Master</li>
+    <li>Cursor arrows</li>
+    <li>Repeat</li>
+    <li>Scale</li>
+    <li>Layout</li>
+    <li>Octave buttons</li>
+    <li>Page buttons</li>
+    <li>Master knob</li>
+  </ul>
+</p>
+
