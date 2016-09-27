@@ -10,7 +10,7 @@ menu_title: Ableton Push 2
   surface primarily targetting the workflow found in Ableton's Live
   software and other similar tools such as Bitwig. As of 5.4, Ardour
   does not offer the same kind of workflow, so we have repurposed the
-  Push 2 to be used for mixing and editing and musical performance,,
+  Push 2 to be used for mixing and editing and musical performance,
   without the clip/scene oriented approach in Live. This may change in
   future versions of Ardour.
 </p>
@@ -30,10 +30,7 @@ menu_title: Ableton Push 2
   To connect the Push 2 to Ardour, open the Preferences dialog, and
   then click on "Control Surfaces". Click on the "Enable" button
   in the line that says "Ableton Push 2" in order to activate Ardour's
-  Push 2 support. <!-- Then double click on the line that says
-  "Ableton Push 2". A new dialog will open, containing (among other things)
-  two dropdown selectors that will allow you to identify the MIDI
-  ports where your Push 2 is connected.-->
+  Push 2 support. 
 </p>
 <!--
 <p>
@@ -147,9 +144,75 @@ menu_title: Ableton Push 2
     </dd>
   </dl>
 </p>
+<p>
+  To change which tracks are shown while in global mix mode, use the
+  left and right arrow/cursor keys just below and to the right of the
+  display. Tracks and busses that are hidden in Ardour's GUI will also
+  be hidden from display on the Push 2.
+</p>
+<p>
+  To select a track/bus directly from the Push 2, press the
+  corresponding button below the display. The track name will be
+  highlighted, and the selection will change in Ardour's GUI as well
+  (and also any other control surfaces).
+</p>
+
+<h3>Soloing and Muting in Global Mix mode</h3>
+<p>
+  The Solo and Mute buttons to the left of the video display can be
+  used to solo and mute tracks while in Global Mix mode. The operation
+  will be applied to the <em>first</em> currently selected
+  track(s).
+</p>
+<p>
+  There are two indications that one or more tracks are soloed:
+  <ol>
+    <li>The solo button will blink red</li>
+    <li>Track names will be prefixed by "*" if they are soloed, and
+      "-" if they are muted due to soloing.</li>
+  </ol>
+</p>
+<p>
+  To cancel solo, either:
+  <ul>
+    <li>Select the soloed track(s) and press the solo button
+      again</li>
+    <li>Press and hold the solo button for more than 1 second</li>
+  </ul>
+</p>
 
 <h2>Track Mix</h2>
+<p>Track Mix mode allows you to focus on a single track in more detail
+  than is possible in Global Mix mode. To enter (or leave) Track Mix
+  mode, press the "Mix" button.
+</p>
 
+<p>
+  In Track Mix mode, various aspects of the state of the first
+  selected track/bus will be displayed on the Push 2. Above the
+  display, the first 4 knobs control track volume (gain), pan
+  directiom/azimuth, pan width, and where appropriate, track input
+  trim. 
+</p>
+<p>
+  Below the display, 7 buttons provide immediate control of mute,
+  solo, rec-enable, monitoring (input or disk or automatic), solo
+  isolate and solo safe state. When a a track is muted due to other
+  track(s) soloing, the mute button will flash (to differentiate from
+  its state when it is explicitly muted). 
+</p>
+<p>
+  The video display also shows meters for the track, which as in
+  Global Mix mode, precisely match the meter type shown in Ardour's
+  GUI. There are also two time displays showing the current playhead
+  position in both musical (beats|bars|ticks) format, and as
+  hours:minutes:seconds.
+</p>
+<p>
+  To change which track is visible in Track Mix mode, use the
+  left/right arrow/cursor keys just below and to the right of the
+  video display.
+</p>
 
 <h2>Specific Button/Knob Functions</h2>
 
@@ -158,26 +221,80 @@ menu_title: Ableton Push 2
   the buttons and knobs around the edges of the Push 2 will carry out
   various functions related to their (illuminated) label. As of Ardour
   5.4, this includes:
-  <ul>
-    <li>Metronome (button and adjacent knob)</li>
-    <li>Undo/Redo</li>
-    <li>Duplicate</li>
-    <li>Delete</li>
-    <li>Double Loop</li>
-    <li>Quantize</li>
-    <li>Duplicate</li>
-    <li>Rec-Enable</li>
-    <li>Play</li>
-    <li>Add Track</li>
-    <li>Browse</li>
-    <li>Master</li>
-    <li>Cursor arrows</li>
-    <li>Repeat</li>
-    <li>Scale</li>
-    <li>Layout</li>
-    <li>Octave buttons</li>
-    <li>Page buttons</li>
-    <li>Master knob</li>
-  </ul>
+  <dl>
+    <dt>Metronome (button and adjacent knob)</dt>
+    <dd>
+      Enables/disables the click (metronome). The knob directly above
+      it will control the volume (gain) of the click.
+    </dd>
+    <dt>Undo/Redo</dt>
+    <dd>
+      Undo or redo the previous editing operation. 
+    </dd>
+    <dt>Delete</dt>
+    <dd>
+      Deletes the currently selected region, or range, or
+      note. Equivalent to using Ctrl/Cmd-x on the keyboard.
+    </dd>
+    <dt>Quantize</dt>
+    <dd>
+      If a MIDI region is selected in Ardour, this will open the
+      quantize dialog.
+    </dd>
+    <dt>Duplicate</dt>
+    <dd>
+      Duplicates the current region or range selection.
+    </dd>
+    <dt>Rec-Enable</dt>
+    <dd>
+      Enables and disables Ardour's global record enable state.
+    </dd>
+    <dt>Play</dt>
+    <dd>
+      Starts and stops the transport.
+    </dd>
+    <dt>Add Track</dt>
+    <dd>
+      Opens Ardour's Add Track/Bus dialog.
+    </dd>
+    <dt>Browse</dt>
+    <dd>
+      Open's Ardour's import dialog to select and audition existing
+      audio and MIDI files.
+    </dd>
+    <dt>Master</dt>
+    <dd>
+      Pressing this button jumps directly to Track Mix mode, with the
+      master out bus displayed.
+    </dd>
+    <dt>Cursor arrows</dt>
+    <dd>
+      These are used by some modes to navigate within the display (e.g
+      Scale mode). In other modes, the up/down cursor arrows will
+      scroll the GUI display up and down, while the left/right cursor
+      arrows will generally scroll within the Push 2 display itself.
+    </dd>
+    <dt>Repeat</dt>
+    <dd>
+      Enables/disables loop playback. This will follow Ardour's "loop
+      is mode" preference, just like the loop button in the Ardour
+      GUI. 
+    </dd>
+    <dt>Octave buttons</dt>
+    <dd>
+      These shift the root note of the current pad scale up or down by
+      1 octave. 
+    </dd>
+    <dt>Page buttons</dt>
+    <dd>
+      These scroll Ardour's editor display left and right along the
+      timeline. 
+    </dd>
+    <dt>Master (top right) knob</dt>
+    <dd>
+      This knob controls the gain/volume of Ardour's main output. If
+      the session has a monitor saec
+    </dd>
+  </dl>
 </p>
 
