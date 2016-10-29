@@ -99,7 +99,7 @@ title: Calculating Feedback and Strip-types Values
 		64 - Send timecode.
 	</li>
 	<li>
-		128 - Send meter as dB (-193 to +6) or 1024 depending on gainmode
+		128 - Send meter as dB (-193 to +6) or 0 to 1 depending on gainmode
 	</li>
 	<li>
 		256 - Send meter a 16 bit value where each bit is a level
@@ -114,6 +114,9 @@ title: Calculating Feedback and Strip-types Values
 	</li>
 	<li>
 		2048 - Send position in time, hours, minutes, seconds and milliseconds
+	</li>
+ 	<li>
+		8192 - Turn on extra select channel feedback beyond what a /strip supports
 	</li>
   </ul>
 <p>

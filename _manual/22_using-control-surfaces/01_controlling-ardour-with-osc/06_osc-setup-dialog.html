@@ -1,0 +1,113 @@
+---
+layout: default
+title: Using the OSC Setup Dialog
+---                        
+
+<p>
+  Starting with Ardour 5.1 OSC has a graphic setup dialog. This dialog
+  can be accessed from Preferences->Control Surfaces. Select OSC and
+  click on the Show Protocol Settings.
+</p>
+<p>
+  The Ardour OSC dialog has three tabs. The main tab, the Strip Types
+  tab and the Feedback tab.
+</p>
+<p>
+  Many OSC devices get their IP from a DHCP making it difficult to set
+  an IP in Ardour's OSC settings. Therefore, most of the settings are
+  <em>default</em> settings. Values are set and the next OSC surface to
+  send a /set_surface* message to Ardour will use those settings. An OSC
+  surface that has previously sent a message to Ardour will retain the
+  settings it already had. The <em>Clear OSC Devices</em> will reset all
+  device settings. A <em>/refresh</em> message will both reset the
+  device settings as well as set that device to any new settings. The
+  Use of <em>/set_surface</em> will override all settings except
+  <em>Port Mode</em>.
+</p>
+<h2>Dialog settings</h2>
+<h3>OSC setup tab</h3>
+<h4>Connection:</h4>
+<p>
+  This field is informational only. It shows where Ardour will receive
+  OSC messages. The system Name and the Port are the most important parts.
+</p>
+<h4>Port Mode:</h4>
+<p>
+  This drop down allows the choice of Auto or Manual outbound port
+  setting. The default Auto port mode, will send OSC messages back to
+  the port messages from that surface are received from. This setting
+  allows two surfaces on the same IP to operate independently. However,
+  there are a number of OSC control surfaces that do not monitor the
+  same port they send from and in fact may change ports they send from
+  as well. Manual allows the outgoing port (the port the surface will
+  receive on, to be manually set. In Manual port mode only one control
+  surface per IP can work. Most phone or tablet OSC controllers like
+  touchOSC or Control need Manual port mode. More than one controller
+  can be used so long as each has it's own IP.
+</p>
+<h4>Manual Port:</h4>
+<p>
+  This is an Entry box for setting the outgoing port when in
+  Manual port mode.
+</p>
+<h4>Bank Size:</h4>
+<p>
+  This sets the default bank size for the next surface to send a
+  <em>/set_surface/*</em> OSC message. Bank size 0 (the default) sets
+  no banking and allows controlling all strips included in strip_types
+  at once.
+</p>
+<h4>Gain Mode:</h4>
+<p>
+  Sets the faders (and sends faders) feedback math to position where a
+  value between 0 and 1 represents the fader position of the same fader
+  in the mixer GUI or dB where the feedback from fader movement will be
+  returned as a dB value. When the Gain Mode is set to position, the
+  /*/name feedback for the channel will show dB values in text while the
+  fader is being adjusted and then return the the name text.
+</p>
+<h4>Debug:</h4>
+<p>
+  For debugging purposes this allows logging either good OSC messages
+  Ardour receives or invalid messages received or none.
+</p>
+<h4>Preset:</h4>
+<p>
+  Ardour now allows the use of preset settings. The default settings
+  used are the settings from the last session or the factory defaults
+  the first time OSC is enabled. As soon as any of these settings are
+  changed, the Preset will change to "User" and the new settings will be
+  save to the osc directory Ardour configuration directory as
+  <em>user.preset</em>. This preset file can be renamed for future use.
+  It is suggested to also change the name value inside to avoid confusion
+  in the preset listing. Ardour will ship with some of it's own presets
+  that go with some popular OSC control and map combinations.
+</p>
+<h4>Clear OSC Devices</h4>
+<p>
+  This button clears operating device profiles so that Ardour will reset
+  all devices settings to use the new defaults from changed settings. a
+  device may still override these new settings with the /set_surface set
+  of commands. The reason for setting defaults settings is that some OSC
+  controllers are not able to send more than one parameter at a time and
+  so having correct defaults allows one "Connect" button rather than 4.
+</p>
+<h3>Default Strip Types tab</h3>
+<p>
+  This allows selecting which of Ardour's mixer strips will be available
+  for control. The Factory default is all strips except master, monitor
+  and hidden strips. If it is desired to only see input tracks the
+  others can be deselected. It is also possible to change these settings
+  from the control surface. A set of buttons could select showing only
+  inputs or only buses. If a group is selected in the GUI then showing
+  only selected strips will show only that group. Showing hidden tracks
+  is handy for cases where a groups of tracks that grouped to a bus or
+  controlled by a VCA are hidden, but one of those tracks needs a tweak.
+</p>
+<h3>Default Feedback tab</h3>
+<p>
+  This allows setting up which controls provide feedback. The Factory
+  default is none. If the controller is unable to receive feedback, this
+  should be left blank. In the case of metering, Metering as a LED strip
+  only works if Metering as a Float is disabled.
+</p>
