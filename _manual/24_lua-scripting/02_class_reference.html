@@ -387,6 +387,93 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (std::list&lt;ARDOUR::AudioRange &gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">table</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
+<h3 id="ARDOUR:AudioRegion" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:AudioRegion</h3>
+<p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; ARDOUR::AudioRegion &gt;, boost::weak_ptr&lt; ARDOUR::AudioRegion &gt;</p>
+ <p class="classinfo">is-a: <a class="" href="#ARDOUR:Region">ARDOUR:Region</a></p>
+<div class="clear"></div>
+<div class="classdox"><p class="para-brief"> A named object associated with a Session. Objects derived from this class are    expected to be destroyed before the session calls drop_references().</p></div>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AudioSource">AudioSource</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AudioSource&gt; (ARDOUR::AudioRegion::*)(unsigned int) const">audio_source</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="void (*)()">isnil</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="void (*)(ARDOUR::AudioRegion)">sameinstance</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:AudioRegion">AudioRegion</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">float</span></td><td class="decl"><span class="functionname"><abbr title="float (ARDOUR::AudioRegion::*)() const">scale_amplitude</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::AudioRegion::*)(float)">set_scale_amplitude</abbr></span><span class="functionargs"> (<span class="em">float</span>)</span></td><td class="fill"></td></tr>
+ </table>
+<h4 class="cls">Inherited from ARDOUR:Region</h4>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">at_natural_position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">automatic</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">can_move</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">captured</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)()">clear_sync_position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)(long) const">covers</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">cut_end</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">cut_front</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:DataType">DataType</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::DataType const&amp; (ARDOUR::Region::*)() const">data_type</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">external</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">hidden</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">import</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">is_compound</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::Region::*)() const">layer</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Region::*)() const">length</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">locked</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)()">lower</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)()">lower_to_bottom</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#C:StringVector">StringVector</a></td><td class="decl"><span class="functionname"><abbr title="std::vector&lt;std::string &gt; (ARDOUR::Region::*)()">master_source_names</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:SourceList">SourceList</a></td><td class="decl"><span class="functionname"><abbr title="std::vector&lt;boost::shared_ptr&lt;ARDOUR::Source&gt; &gt; const&amp; (ARDOUR::Region::*)() const">master_sources</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">move_start</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)()">move_to_natural_position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">muted</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::Region::*)() const">n_channels</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long)">nudge_position</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">opaque</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Region::*)() const">position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> How the region parameters play together:</p><p> POSITION: first frame of the region along the timeline START:    first frame of the region within its source(s) LENGTH:   number of frames the region represents</p></div></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">position_locked</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::Region::*)() const">quarter_note</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)()">raise</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)()">raise_to_top</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(bool)">set_hidden</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long)">set_initial_position</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> A gui may need to create a region, then place it in an initial  position determined by the user.  When this takes place within one gui operation, we have to reset  _last_position to prevent an implied move.</p></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">set_length</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(bool)">set_locked</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(bool)">set_muted</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(bool)">set_opaque</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">set_position</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(bool)">set_position_locked</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long)">set_start</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long)">set_sync_position</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Set the region&#39;s sync point.  </p><dl><dt class="param-name-index-0">absolute_pos</dt><dd class="param-descr-index-0"> Session time.</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(bool)">set_video_locked</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">float</span></td><td class="decl"><span class="functionname"><abbr title="float (ARDOUR::Region::*)() const">shift</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:Source">Source</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Source&gt; (ARDOUR::Region::*)(unsigned int) const">source</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Region::*)() const">start</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">float</span></td><td class="decl"><span class="functionname"><abbr title="float (ARDOUR::Region::*)() const">stretch</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">sync_marked</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><em>LuaTable</em>(<span class="em">long</span>, ...)</td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Region::*)(int&amp;) const">sync_offset</abbr></span><span class="functionargs"> (<span class="em">int&amp;</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Region::*)() const">sync_position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  Sync position in session time </p></div></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">trim_end</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">trim_front</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, long, int)">trim_to</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">video_locked</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">whole_file</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Cast</th></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AudioRegion">AudioRegion</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::AudioRegion (ARDOUR::Region::*)()">to_audioregion</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:MidiRegion">MidiRegion</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MidiRegion (ARDOUR::Region::*)()">to_midiregion</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:Readable">Readable</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Readable (ARDOUR::Region::*)()">to_readable</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+</table>
+<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Cast</th></tr>
+ <tr><td class="def"><a class="" href="#PBD:Stateful">Stateful</a></td><td class="decl"><span class="functionname"><abbr title="PBD::Stateful (ARDOUR::SessionObject::*)()">to_stateful</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#PBD:StatefulDestructible">StatefulDestructible</a></td><td class="decl"><span class="functionname"><abbr title="PBD::StatefulDestructible (ARDOUR::SessionObject::*)()">to_statefuldestructible</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+</table>
 <h3 id="ARDOUR:AudioSource" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:AudioSource</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; ARDOUR::AudioSource &gt;, boost::weak_ptr&lt; ARDOUR::AudioSource &gt;</p>
  <p class="classinfo">is-a: <a class="" href="#ARDOUR:Source">ARDOUR:Source</a></p>
@@ -1517,7 +1604,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Region::*)() const">position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> How the region parameters play together:</p><p> POSITION: first frame of the region along the timeline START:    first frame of the region within its source(s) LENGTH:   number of frames the region represents</p></div></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">position_locked</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::Region::*)() const">pulse</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::Region::*)() const">quarter_note</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)()">raise</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)()">raise_to_top</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(bool)">set_hidden</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
@@ -1547,6 +1634,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">video_locked</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">whole_file</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><th colspan="3">Cast</th></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AudioRegion">AudioRegion</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::AudioRegion (ARDOUR::Region::*)()">to_audioregion</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MidiRegion">MidiRegion</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MidiRegion (ARDOUR::Region::*)()">to_midiregion</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Readable">Readable</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Readable (ARDOUR::Region::*)()">to_readable</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
@@ -2454,7 +2542,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Region::*)() const">position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> How the region parameters play together:</p><p> POSITION: first frame of the region along the timeline START:    first frame of the region within its source(s) LENGTH:   number of frames the region represents</p></div></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">position_locked</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::Region::*)() const">pulse</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::Region::*)() const">quarter_note</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)()">raise</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)()">raise_to_top</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="void (*)(ARDOUR::Region)">sameinstance</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Region">Region</a>)</span></td><td class="fill"></td></tr>
@@ -2485,6 +2573,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">video_locked</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">whole_file</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><th colspan="3">Cast</th></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AudioRegion">AudioRegion</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::AudioRegion (ARDOUR::Region::*)()">to_audioregion</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MidiRegion">MidiRegion</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MidiRegion (ARDOUR::Region::*)()">to_midiregion</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Readable">Readable</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Readable (ARDOUR::Region::*)()">to_readable</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
@@ -3305,12 +3394,15 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <table class="classmembers">
  <tr><th colspan="3">Constructor</th></tr>
  <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">ARDOUR.Tempo</span><span class="functionargs"> (<span class="em">double</span>, <span class="em">double</span>)</span></td><td class="fill"></td></tr>
-<tr><td></td><td class="doc" colspan="2"><div class="dox"><dl><dt class="param-name-index-0">bpm</dt><dd class="param-descr-index-0"> Beats Per Minute </dd><dt class="param-name-index-1">type</dt><dd class="param-descr-index-1"> Note Type (default `4&#39;: quarter note)</dd></dl></div></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><dl><dt class="param-name-index-0">npm</dt><dd class="param-descr-index-0"> Note Types per minute </dd><dt class="param-name-index-1">type</dt><dd class="param-descr-index-1"> Note Type (default `4&#39;: quarter note)</dd></dl></div></td></tr>
  <tr><th colspan="3">Methods</th></tr>
- <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::Tempo::*)() const">beats_per_minute</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::Tempo::*)(long) const">frames_per_beat</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
-<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> audio samples per beat </p><dl><dt class="param-name-index-0">sr</dt><dd class="param-descr-index-0"> samplerate</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::Tempo::*)(long) const">frames_per_note_type</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> audio samples per note type. if you want an instantaneous value for this, use TempoMap::frames_per_quarter_note_at() instead. </p><dl><dt class="param-name-index-0">sr</dt><dd class="param-descr-index-0"> samplerate</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::Tempo::*)(long) const">frames_per_quarter_note</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> audio samples per quarter note. if you want an instantaneous value for this, use TempoMap::frames_per_quarter_note_at() instead. </p><dl><dt class="param-name-index-0">sr</dt><dd class="param-descr-index-0"> samplerate</dd></dl></div></td></tr>
  <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::Tempo::*)() const">note_type</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::Tempo::*)() const">note_types_per_minute</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::Tempo::*)() const">quarter_notes_per_minute</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
 <h3 id="ARDOUR:TempoMap" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:TempoMap</h3>
 <p class="cdecl"><em>C&#8225;</em>: ARDOUR::TempoMap</p>
@@ -3318,9 +3410,10 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <div class="classdox"><p class="para-brief"> Tempo Map - mapping of timecode to musical time. convert audio-samples, sample-rate to Bar&#47;Beat&#47;Tick, Meter&#47;Tempo</p></div>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
- <tr><td class="def"><a class="" href="#ARDOUR:MeterSection">MeterSection</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MeterSection* (ARDOUR::TempoMap::*)(ARDOUR::Meter const&amp;, double const&amp;, Timecode::BBT_Time const&amp;, long const&amp;, ARDOUR::PositionLockStyle)">add_meter</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Meter">Meter</a>, <span class="em">double</span>, <a class="" href="#Timecode:BBT_TIME">BBT_TIME</a>, <span class="em">long</span>, <a class="" href="#ARDOUR.PositionLockStyle">PositionLockStyle</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:MeterSection">MeterSection</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MeterSection* (ARDOUR::TempoMap::*)(ARDOUR::Meter const&amp;, double const&amp;, Timecode::BBT_Time const&amp;, ARDOUR::PositionLockStyle)">add_meter</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Meter">Meter</a>, <span class="em">double</span>, <a class="" href="#Timecode:BBT_TIME">BBT_TIME</a>, <a class="" href="#ARDOUR.PositionLockStyle">PositionLockStyle</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:TempoSection">TempoSection</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::TempoSection* (ARDOUR::TempoMap::*)(ARDOUR::Tempo const&amp;, double const&amp;, long const&amp;, ARDOUR::TempoSection::Type, ARDOUR::PositionLockStyle)">add_tempo</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Tempo">Tempo</a>, <span class="em">double</span>, <span class="em">long</span>, <a class="" href="#ARDOUR.TempoSection.Type">Type</a>, <a class="" href="#ARDOUR.PositionLockStyle">PositionLockStyle</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#Timecode:BBT_TIME">BBT_TIME</a></td><td class="decl"><span class="functionname"><abbr title="Timecode::BBT_Time (ARDOUR::TempoMap::*)(long)">bbt_at_frame</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Returns the BBT time corresponding to the supplied frame position. </p><dl><dt class="param-name-index-0">frame</dt><dd class="param-descr-index-0"> the position in audio samples. </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  the BBT time at the frame position .</p></div></div></td></tr>
  <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::TempoMap::*)(long const&amp;, int)">exact_beat_at_frame</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::TempoMap::*)(long const&amp;, int)">exact_qn_at_frame</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MeterSection">MeterSection</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MeterSection const&amp; (ARDOUR::TempoMap::*)(double) const">meter_section_at_beat</abbr></span><span class="functionargs"> (<span class="em">double</span>)</span></td><td class="fill"></td></tr>
@@ -4863,6 +4956,18 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li class="const">ARDOUR.LocationFlags.IsSkip</li>
 <li class="const">ARDOUR.LocationFlags.IsSkipping</li>
 </ul>
+<h3 id="ARDOUR.DSP.Biquad.Type" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.DSP.Biquad.Type</h3>
+<ul class="enum">
+<li class="const">ARDOUR.DSP.BiquadType.LowPass</li>
+<li class="const">ARDOUR.DSP.BiquadType.HighPass</li>
+<li class="const">ARDOUR.DSP.BiquadType.BandPassSkirt</li>
+<li class="const">ARDOUR.DSP.BiquadType.BandPass0dB</li>
+<li class="const">ARDOUR.DSP.BiquadType.Notch</li>
+<li class="const">ARDOUR.DSP.BiquadType.AllPass</li>
+<li class="const">ARDOUR.DSP.BiquadType.Peaking</li>
+<li class="const">ARDOUR.DSP.BiquadType.LowShelf</li>
+<li class="const">ARDOUR.DSP.BiquadType.HighShelf</li>
+</ul>
 <h3 id="Cairo.LineCap" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;Cairo.LineCap</h3>
 <ul class="enum">
 <li class="const">Cairo.LineCap.Butt</li>
@@ -5050,18 +5155,6 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li class="const">Editing.ImportSerializeFiles</li>
 <li class="const">Editing.ImportDistinctChannels</li>
 </ul>
-<h3 id="ARDOUR.DSP.Biquad.Type" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.DSP.Biquad.Type</h3>
-<ul class="enum">
-<li class="const">ARDOUR.DSP.BiquadType.LowPass</li>
-<li class="const">ARDOUR.DSP.BiquadType.HighPass</li>
-<li class="const">ARDOUR.DSP.BiquadType.BandPassSkirt</li>
-<li class="const">ARDOUR.DSP.BiquadType.BandPass0dB</li>
-<li class="const">ARDOUR.DSP.BiquadType.Notch</li>
-<li class="const">ARDOUR.DSP.BiquadType.AllPass</li>
-<li class="const">ARDOUR.DSP.BiquadType.Peaking</li>
-<li class="const">ARDOUR.DSP.BiquadType.LowShelf</li>
-<li class="const">ARDOUR.DSP.BiquadType.HighShelf</li>
-</ul>
 <h2 id="h_index" >Class Index</h2>
 <ul class="classindex">
 <li><a class="" href="#ARDOUR:Amp">ARDOUR:Amp</a></li>
@@ -5073,6 +5166,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#ARDOUR:AudioPort">ARDOUR:AudioPort</a></li>
 <li><a class="" href="#ARDOUR:AudioRange">ARDOUR:AudioRange</a></li>
 <li><a class="" href="#ARDOUR:AudioRangeList">ARDOUR:AudioRangeList</a></li>
+<li><a class="" href="#ARDOUR:AudioRegion">ARDOUR:AudioRegion</a></li>
 <li><a class="" href="#ARDOUR:AudioSource">ARDOUR:AudioSource</a></li>
 <li><a class="" href="#ARDOUR:AudioTrack">ARDOUR:AudioTrack</a></li>
 <li><a class="" href="#ARDOUR:AudioTrackList">ARDOUR:AudioTrackList</a></li>
@@ -5236,6 +5330,6 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#Vamp:PluginBase:ParameterList">Vamp:PluginBase:ParameterList</a></li>
 <li><a class="" href="#Vamp:RealTime">Vamp:RealTime</a></li>
 </ul>
-<!-- 461 / 2055 !-->
+<!-- 468 / 2118 !-->
 </div>
-<div class="luafooter">Ardour 5.4-270-gd253d49 &nbsp;-&nbsp; Thu, 10 Nov 2016 02:00:45 +0100</div>
+<div class="luafooter">Ardour 5.4-399-gb2aaffa &nbsp;-&nbsp; Sat, 19 Nov 2016 22:56:15 +0100</div>
