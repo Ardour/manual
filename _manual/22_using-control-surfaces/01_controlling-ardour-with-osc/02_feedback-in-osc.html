@@ -7,10 +7,10 @@ title: OSC Feedback With Ardour
   Feedback from the Ardour to the the control surface is very useful for
   a number of things. Motor faders need to know where the the track
   they have been attached to is at before they were assigned otherwise
-  they will jump to where the local fader is. Likewise, the buttons on
-  each strip need to know what there value is so they can light there LED
-  correctly. Transport controls should let you know if they are active
-  too. This is what feedback is all about.
+  the DAW fader will jump to where the controller fader is. Likewise, 
+  the buttons on each strip need to know what their value is so they can
+  light their LED correctly. Transport controls should let you know if
+  they are active too. This is what feedback is all about.
 </p>
 <p>
   Ardour does feedback by sending the same path back that is used to
@@ -36,7 +36,9 @@ title: OSC Feedback With Ardour
 
 <p>
   The feedback does not have the same meaning as the control message.
-  Rather, the feedback will be:
+  Where the button release sent to Ardour will be ignored and has no
+  meaning. Both states have meaning in feedback to the controller.
+  The feedback will be:
 </p>
 
 <dl class="bindings">
@@ -51,6 +53,19 @@ title: OSC Feedback With Ardour
   note that Pan operation may be limited by pan width in some cases.
   That is with pan width at 100% (or -100%) there is no pan position
   movement available.
+</p>
+<p>
+  It may come as a surprise, but feedback often generates more network
+  traffic than control itself does. Some things are more obvious like
+  head position or meters. But even a simple button push like transport
+  start sends not only a signal to turn on the play LED, but also one to
+  turn off the stop LED, the Rewind LED, the Fast Forward LED and the
+  Loop LED. That is still minor, think instead of a surface refresh
+  such as happens when the surface is first connected and then most of
+  that happens every time the fader strips are banked. This is why
+  feedback is enabled in sections so that as little feedback as is
+  actually needed is sent. This is also a consideration if the surface
+  is connected via wifi.
 </p>
 <h2>List of OSC feedback messages</h2>
 
