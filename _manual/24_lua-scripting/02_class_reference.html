@@ -1390,7 +1390,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::MidiBuffer::*)(ARDOUR::MidiBuffer const*)">copy</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:MidiBuffer">MidiBuffer</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::MidiBuffer::*)() const">empty</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::MidiBuffer::*)(long, unsigned long, unsigned char const*)">push_back</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">unsigned long</span>, <span class="em">unsigned char*</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::MidiBuffer::*)(Evoral::MIDIEvent&lt;long&gt; const&amp;)">push_event</abbr></span><span class="functionargs"> (<a class="" href="#Evoral:MidiEvent">MidiEvent</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::MidiBuffer::*)(Evoral::Event&lt;long&gt; const&amp;)">push_event</abbr></span><span class="functionargs"> (<a class="" href="#Evoral:Event">Event</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::MidiBuffer::*)(unsigned long)">resize</abbr></span><span class="functionargs"> (<span class="em">unsigned long</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Reallocate the buffer used internally to handle at least <em>size_t</em> units of data.</p><p> The buffer is not silent after this operation. the <em>capacity</em> argument passed to the constructor must have been non-zero.</p></div></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="void (*)(ARDOUR::MidiBuffer)">sameinstance</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:MidiBuffer">MidiBuffer</a>)</span></td><td class="fill"></td></tr>
@@ -2735,11 +2735,59 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><th colspan="3">Constructor</th></tr>
  <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">ARDOUR.Route.ProcessorStreams</span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
-<h3 id="ARDOUR:RouteGroup" class="cls opaque"><abbr title="Opaque Object">&empty;</abbr>&nbsp;ARDOUR:RouteGroup</h3>
+<h3 id="ARDOUR:RouteGroup" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:RouteGroup</h3>
 <p class="cdecl"><em>C&#8225;</em>: ARDOUR::RouteGroup</p>
 <div class="clear"></div>
 <div class="classdox"><p class="para-brief"> A group identifier for routes.</p><p> RouteGroups permit to define properties which are shared among all Routes that use the given identifier.</p><p> A route can at most be in one group.</p></div>
-<p class="classinfo">This class object is only used indirectly as return-value and function-parameter. It provides no methods by itself.</p>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (ARDOUR::RouteGroup::*)(boost::shared_ptr&lt;ARDOUR::Route&gt;)">add</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Route">Route</a>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Add a route to a group.  Adding a route which is already in the group is allowed; nothing will happen.  </p><dl><dt class="param-name-index-0">r</dt><dd class="param-descr-index-0"> Route to add.</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)()">clear</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)()">destroy_subgroup</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RouteGroup::*)() const">empty</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (ARDOUR::RouteGroup::*)() const">group_master_number</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RouteGroup::*)() const">has_subgroup</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RouteGroup::*)() const">is_active</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RouteGroup::*)() const">is_color</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RouteGroup::*)() const">is_gain</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RouteGroup::*)() const">is_hidden</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RouteGroup::*)() const">is_monitoring</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RouteGroup::*)() const">is_mute</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RouteGroup::*)() const">is_recenable</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RouteGroup::*)() const">is_relative</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RouteGroup::*)() const">is_route_active</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RouteGroup::*)() const">is_select</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RouteGroup::*)() const">is_solo</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool, ARDOUR::Placement)">make_subgroup</abbr></span><span class="functionargs"> (<span class="em">bool</span>, <a class="" href="#ARDOUR.Placement">Placement</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (ARDOUR::RouteGroup::*)(boost::shared_ptr&lt;ARDOUR::Route&gt;)">remove</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Route">Route</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:RouteListPtr">RouteListPtr</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;std::list&lt;boost::shared_ptr&lt;ARDOUR::Route&gt; &gt; &gt; (ARDOUR::RouteGroup::*)()">route_list</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool, void*)">set_active</abbr></span><span class="functionargs"> (<span class="em">bool</span>, <span class="em">void*</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool)">set_color</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool)">set_gain</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool, void*)">set_hidden</abbr></span><span class="functionargs"> (<span class="em">bool</span>, <span class="em">void*</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool)">set_monitoring</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool)">set_mute</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool)">set_recenable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool, void*)">set_relative</abbr></span><span class="functionargs"> (<span class="em">bool</span>, <span class="em">void*</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool)">set_route_active</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool)">set_select</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool)">set_solo</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (ARDOUR::RouteGroup::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ </table>
+<h3 id="ARDOUR:RouteGroupList" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:RouteGroupList</h3>
+<p class="cdecl"><em>C&#8225;</em>: std::list&lt;ARDOUR::RouteGroup* &gt;</p>
+<div class="clear"></div>
+<table class="classmembers">
+ <tr><th colspan="3">Constructor</th></tr>
+ <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">ARDOUR.RouteGroupList</span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (std::list&lt;ARDOUR::RouteGroup* &gt;::*)() const">empty</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><em>LuaIter</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">iter</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (std::list&lt;ARDOUR::RouteGroup* &gt;::*)()">reverse</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (std::list&lt;ARDOUR::RouteGroup* &gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">table</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ </table>
 <h3 id="ARDOUR:RouteList" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:RouteList</h3>
 <p class="cdecl"><em>C&#8225;</em>: std::list&lt;boost::shared_ptr&lt;ARDOUR::Route&gt; &gt;</p>
 <div class="clear"></div>
@@ -2815,11 +2863,13 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:RouteList">RouteList</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;boost::shared_ptr&lt;ARDOUR::Route&gt; &gt; (ARDOUR::Session::*)(ARDOUR::RouteGroup*, unsigned int, std::string, boost::shared_ptr&lt;ARDOUR::PluginInfo&gt;, ARDOUR::Plugin::PresetRecord*, ARDOUR::PresentationInfo::Flag, unsigned int)">new_midi_route</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:RouteGroup">RouteGroup</a>, <span class="em">unsigned int</span>, <span class="em">std::string</span>, <a class="" href="#ARDOUR:PluginInfo">PluginInfo</a>, <a class="" href="#ARDOUR:PresetRecord">PresetRecord</a>, <a class="" href="#ARDOUR.PresentationInfo.Flag">Flag</a>, <span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MidiTrackList">MidiTrackList</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;boost::shared_ptr&lt;ARDOUR::MidiTrack&gt; &gt; (ARDOUR::Session::*)(ARDOUR::ChanCount const&amp;, ARDOUR::ChanCount const&amp;, boost::shared_ptr&lt;ARDOUR::PluginInfo&gt;, ARDOUR::Plugin::PresetRecord*, ARDOUR::RouteGroup*, unsigned int, std::string, unsigned int, ARDOUR::TrackMode)">new_midi_track</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:ChanCount">ChanCount</a>, <a class="" href="#ARDOUR:ChanCount">ChanCount</a>, <a class="" href="#ARDOUR:PluginInfo">PluginInfo</a>, <a class="" href="#ARDOUR:PresetRecord">PresetRecord</a>, <a class="" href="#ARDOUR:RouteGroup">RouteGroup</a>, <span class="em">unsigned int</span>, <span class="em">std::string</span>, <span class="em">unsigned int</span>, <a class="" href="#ARDOUR.TrackMode">TrackMode</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:RouteList">RouteList</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;boost::shared_ptr&lt;ARDOUR::Route&gt; &gt; (ARDOUR::Session::*)(unsigned int, unsigned int, std::string const&amp;, std::string const&amp;, ARDOUR::PlaylistDisposition)">new_route_from_template</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">unsigned int</span>, <span class="em">std::string</span>, <span class="em">std::string</span>, <a class="" href="#ARDOUR.PlaylistDisposition">PlaylistDisposition</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:RouteGroup">RouteGroup</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::RouteGroup* (ARDOUR::Session::*)(std::string const&amp;)">new_route_group</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Session::*)() const">nominal_frame_rate</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> &quot;native&quot; sample rate of session, regardless of current audioengine rate, pullup&#47;down etc </p></div></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Session::*)() const">path</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Processor">Processor</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Processor&gt; (ARDOUR::Session::*)(PBD::ID) const">processor_by_id</abbr></span><span class="functionargs"> (<a class="" href="#PBD:ID">ID</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR.Session.RecordState">RecordState</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Session::RecordState (ARDOUR::Session::*)() const">record_status</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)(ARDOUR::RouteGroup*)">remove_route_group</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:RouteGroup">RouteGroup</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)(long, bool)">request_locate</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)(bool, bool)">request_play_loop</abbr></span><span class="functionargs"> (<span class="em">bool</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)(bool, bool)">request_stop</abbr></span><span class="functionargs"> (<span class="em">bool</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
@@ -2827,6 +2877,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:Route">Route</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Route&gt; (ARDOUR::Session::*)(PBD::ID) const">route_by_id</abbr></span><span class="functionargs"> (<a class="" href="#PBD:ID">ID</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Route">Route</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Route&gt; (ARDOUR::Session::*)(std::string) const">route_by_name</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Route">Route</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Route&gt; (ARDOUR::Session::*)(unsigned int) const">route_by_selected_count</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:RouteGroupList">RouteGroupList</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;ARDOUR::RouteGroup* &gt; const&amp; (ARDOUR::Session::*)() const">route_groups</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (ARDOUR::Session::*)(std::string, bool, bool, bool)">save_state</abbr></span><span class="functionargs"> (<span class="em">std::string</span>, <span class="em">bool</span>, <span class="em">bool</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> save session </p><dl><dt class="param-name-index-0">snapshot_name</dt><dd class="param-descr-index-0"> name of the session (use an empty string for the current name) </dd><dt class="param-name-index-1">pending</dt><dd class="param-descr-index-1"> save a &#39;recovery&#39;, not full state (default: false) </dd><dt class="param-name-index-2">switch_to_snapshot</dt><dd class="param-descr-index-2"> switch to given snapshot after saving (default: false) </dd><dt class="param-name-index-3">template_only</dt><dd class="param-descr-index-3"> save a session template (default: false) </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  zero on success</p></div></div></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)()">scripts_changed</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -3414,8 +3465,8 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:TempoSection">TempoSection</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::TempoSection* (ARDOUR::TempoMap::*)(ARDOUR::Tempo const&amp;, double const&amp;, long const&amp;, ARDOUR::TempoSection::Type, ARDOUR::PositionLockStyle)">add_tempo</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Tempo">Tempo</a>, <span class="em">double</span>, <span class="em">long</span>, <a class="" href="#ARDOUR.TempoSection.Type">Type</a>, <a class="" href="#ARDOUR.PositionLockStyle">PositionLockStyle</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#Timecode:BBT_TIME">BBT_TIME</a></td><td class="decl"><span class="functionname"><abbr title="Timecode::BBT_Time (ARDOUR::TempoMap::*)(long)">bbt_at_frame</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Returns the BBT time corresponding to the supplied frame position. </p><dl><dt class="param-name-index-0">frame</dt><dd class="param-descr-index-0"> the position in audio samples. </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  the BBT time at the frame position .</p></div></div></td></tr>
- <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::TempoMap::*)(long const&amp;, int)">exact_beat_at_frame</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::TempoMap::*)(long const&amp;, int)">exact_qn_at_frame</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::TempoMap::*)(long const&amp;, int) const">exact_beat_at_frame</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::TempoMap::*)(long const&amp;, int) const">exact_qn_at_frame</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MeterSection">MeterSection</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MeterSection const&amp; (ARDOUR::TempoMap::*)(double) const">meter_section_at_beat</abbr></span><span class="functionargs"> (<span class="em">double</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MeterSection">MeterSection</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MeterSection const&amp; (ARDOUR::TempoMap::*)(long) const">meter_section_at_frame</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:TempoSection">TempoSection</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::TempoSection const&amp; (ARDOUR::TempoMap::*)(long) const">tempo_section_at_frame</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
@@ -4159,31 +4210,15 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">unsigned char*</span></td><td class="decl"><span class="functionname"><abbr title="unsigned char* (Evoral::Event&lt;long&gt;::*)()">buffer</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned char</span></td><td class="decl"><span class="functionname"><abbr title="unsigned char (Evoral::Event&lt;long&gt;::*)() const">channel</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::Event&lt;long&gt;::*)()">clear</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::Event&lt;long&gt;::*)(unsigned int, unsigned char*, bool)">set_buffer</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">unsigned char*</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::Event&lt;long&gt;::*)(unsigned char)">set_channel</abbr></span><span class="functionargs"> (<span class="em">unsigned char</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::Event&lt;long&gt;::*)(unsigned char)">set_type</abbr></span><span class="functionargs"> (<span class="em">unsigned char</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (Evoral::Event&lt;long&gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (Evoral::Event&lt;long&gt;::*)()">time</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned char</span></td><td class="decl"><span class="functionname"><abbr title="unsigned char (Evoral::Event&lt;long&gt;::*)() const">type</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
-<h3 id="Evoral:MidiEvent" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;Evoral:MidiEvent</h3>
-<p class="cdecl"><em>C&#8225;</em>: Evoral::MIDIEvent&lt;long&gt;</p>
- <p class="classinfo">is-a: <a class="" href="#Evoral:Event">Evoral:Event</a></p>
-<div class="clear"></div>
-<table class="classmembers">
- <tr><th colspan="3">Methods</th></tr>
- <tr><td class="def"><span class="em">unsigned char</span></td><td class="decl"><span class="functionname"><abbr title="unsigned char (Evoral::MIDIEvent&lt;long&gt;::*)() const">channel</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::MIDIEvent&lt;long&gt;::*)(unsigned char)">set_channel</abbr></span><span class="functionargs"> (<span class="em">unsigned char</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::MIDIEvent&lt;long&gt;::*)(unsigned char)">set_type</abbr></span><span class="functionargs"> (<span class="em">unsigned char</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">unsigned char</span></td><td class="decl"><span class="functionname"><abbr title="unsigned char (Evoral::MIDIEvent&lt;long&gt;::*)() const">type</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- </table>
-<h4 class="cls">Inherited from Evoral:Event</h4>
-<table class="classmembers">
- <tr><th colspan="3">Methods</th></tr>
- <tr><td class="def"><span class="em">unsigned char*</span></td><td class="decl"><span class="functionname"><abbr title="unsigned char* (Evoral::Event&lt;long&gt;::*)()">buffer</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::Event&lt;long&gt;::*)()">clear</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::Event&lt;long&gt;::*)(unsigned int, unsigned char*, bool)">set_buffer</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">unsigned char*</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (Evoral::Event&lt;long&gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (Evoral::Event&lt;long&gt;::*)()">time</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
-</table>
 <h3 id="Evoral:NotePtr" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;Evoral:NotePtr</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; Evoral::Note&lt;Evoral::Beats&gt; &gt;, boost::weak_ptr&lt; Evoral::Note&lt;Evoral::Beats&gt; &gt;</p>
 <div class="clear"></div>
@@ -4870,6 +4905,11 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li class="const">ARDOUR.MeterPoint.MeterOutput</li>
 <li class="const">ARDOUR.MeterPoint.MeterCustom</li>
 </ul>
+<h3 id="ARDOUR.Placement" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.Placement</h3>
+<ul class="enum">
+<li class="const">ARDOUR.Placement.PreFader</li>
+<li class="const">ARDOUR.Placement.PostFader</li>
+</ul>
 <h3 id="ARDOUR.NoteMode" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.NoteMode</h3>
 <ul class="enum">
 <li class="const">ARDOUR.NoteMode.Sustained</li>
@@ -5249,6 +5289,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#ARDOUR:Route">ARDOUR:Route</a></li>
 <li><a class="" href="#ARDOUR:Route:ProcessorStreams">ARDOUR:Route:ProcessorStreams</a></li>
 <li><a class="" href="#ARDOUR:RouteGroup">ARDOUR:RouteGroup</a></li>
+<li><a class="" href="#ARDOUR:RouteGroupList">ARDOUR:RouteGroupList</a></li>
 <li><a class="" href="#ARDOUR:RouteList">ARDOUR:RouteList</a></li>
 <li><a class="" href="#ARDOUR:RouteListPtr">ARDOUR:RouteListPtr</a></li>
 <li><a class="" href="#ARDOUR:Session">ARDOUR:Session</a></li>
@@ -5296,7 +5337,6 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#Evoral:ControlList">Evoral:ControlList</a></li>
 <li><a class="" href="#Evoral:ControlSet">Evoral:ControlSet</a></li>
 <li><a class="" href="#Evoral:Event">Evoral:Event</a></li>
-<li><a class="" href="#Evoral:MidiEvent">Evoral:MidiEvent</a></li>
 <li><a class="" href="#Evoral:NotePtr">Evoral:NotePtr</a></li>
 <li><a class="" href="#Evoral:Parameter">Evoral:Parameter</a></li>
 <li><a class="" href="#Evoral:ParameterDescriptor">Evoral:ParameterDescriptor</a></li>
@@ -5330,6 +5370,6 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#Vamp:PluginBase:ParameterList">Vamp:PluginBase:ParameterList</a></li>
 <li><a class="" href="#Vamp:RealTime">Vamp:RealTime</a></li>
 </ul>
-<!-- 468 / 2118 !-->
+<!-- 469 / 2153 !-->
 </div>
-<div class="luafooter">Ardour 5.4-399-gb2aaffa &nbsp;-&nbsp; Sat, 19 Nov 2016 22:56:15 +0100</div>
+<div class="luafooter">Ardour 5.5-27-ga2166a2 &nbsp;-&nbsp; Mon, 05 Dec 2016 23:50:06 +0100</div>
