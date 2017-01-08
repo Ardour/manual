@@ -17,12 +17,7 @@ title: Setting Up MIDI
 <h2>MIDI Handling Frameworks</h2>
 <p>
   MIDI input and output for Ardour are handled by the same "engine"
-  that handles audio input and output. Up to release 3.5, that means
-  that all MIDI I/O takes place via JACK. JACK itself uses the 
-  native MIDI support of the operating system to receive and send
-  MIDI data. The native MIDI support  provides device drivers for MIDI
-  hardware and libraries needed by software applications that want to
-  work with MIDI.
+  that handles audio input and output. 
 </p>
 
 <dl>
@@ -34,6 +29,12 @@ title: Setting Up MIDI
   <dfn><abbr title="Advanced Linux Sound API">ALSA</abbr> MIDI</dfn>
   is the standard MIDI framework on Linux systems.
 </dd>
+<dt>Windows</dt>
+<dd>
+  <dfn>There is no single standard MIDI framework on Windows,
+    but Ardour can work with ASIO and others.
+</dd>
+
 </dl>
 
 <p class="note">
