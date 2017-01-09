@@ -1,0 +1,119 @@
+---
+layout: default
+title: Busses and VCAs
+---                        
+
+<p>
+  In order to use the process of mixing, Ardour offers two tools traditionally found on hardware mixing consoles : <dfn>Busses</dfn> and <dfn><abbr title="Voltage-Controlled Amplifier">VCA</abbr></dfn>s.
+</p>
+
+<h2>Busses</h2>
+
+<p>
+  An Ardour bus can be considered a virtual track, as in a track that doesn't have a playlist (so, no regions).
+</p>
+
+<p>
+  Its use is to "group" some audio signals to be treated the same way. One simple use case is to group all the audio tracks containing the different drums of a drumkit. Routing all the drums tracks outputs to a bus allows, once the different levels amongst the drums have been set, to adjust the global level of the drumkit in the mix.
+</p>
+
+<p>
+  Bus usage goes way beyond this simple example though : busses, as tracks, can receive plugins for common audio treatment, and be routed themselves as needed. This makes for a very useful tool that is very commonly used both for musical purposes and computing ones : instead of using e.g. 10 discrete delay plugins on 10 different tracks, busses are often used as receivers of <a href="/signal-routing/aux-sends/">sends</a>, and only 1 delay plugin is used on this bus, reducing the processing power needed.
+</p>
+
+<p class="note">Note that the Master strip, which by default receives the output from all tracks, <em>is</em> a bus itself.</p>
+
+<h3>Audio Busses vs MIDI Busses</h3>
+
+<p>
+	Ardour supports 2 types of busses : Audio and MIDI. A MIDI bus differs from an audio bus just by its input (which is 1 midi input instead of <em>n</em> audio), the fact that you can put an instrument on it at creation time, whereas you can't easily add an instrument to an audio bus.
+</p>
+
+<p>
+  MIDI bus are provide a particularly efficient workflow for virtual drumkits where the arrangement uses different MIDI tracks. Moreover, busses with both Audio and MIDI inputs are well suited for vocoders and similar plugins.
+</p>
+
+<p>
+  Depending on the user's workflow and the way busses are used, 2 possibilities exists :
+</p>
+
+<h3>Connecting a track to a bus via outputs</h3>
+
+<img class="right" src="/images/connecting_bus_output.png" alt="Connecting a bus through a track's outputs">
+
+<p>
+	Connecting the output(s) of a track to the input(s) of the bus sends <em>all</em> the audio/MIDI to the bus. In the mixer strip, select (at the bottom) the OUTPUT button (often, by default, "Master"), and in the list, choose the input of a bus. Note that only the bus able to receive this output will show up, e.g. a mono bus wont be able to be connected to the output of a stereo track).
+</p>
+
+<p>
+	Obviously, doing so will (by default) disconnect the output from the Master's input, which means all the 	audio/MIDI will be routed to the bus. For more complex routing, the OUTPUT button allows to show the <kbd class="menu">Routing Grid</kbd> that allows to plug the output of the track to multiple outputs at once, be 	it busses, tracks, Master... The button will then reflect these multiple connections by showing a <em>*number*</em>, number being the number of connections made in the routing grid.
+</p>
+
+<h3>Connecting a track to a bus via Sends</h3>
+
+<img class="left" src="/images/connecting_bus_send.png" alt="Connecting a bus through a send">
+
+<p>
+	This allows not to interrupt the natural flow of the signal, i.e. the track will still output to what its connected to (e.g. Master). The signal is "tapped" at the point of insertion of the send, to be sent to the bus. Right click where in the signal flow you want the send to happen, and select <kdb class="menu">New Aux Send... &gt; name_of_the_bus</kbd>.
+</p>
+
+<p>By <kbd class="mouse">left-clicking</kbd> the send meter, it is possible to adjust the amount of signal sent to the bus. This is often the way tracks are connected to an effect bus, like a Delay bus.
+</p>
+
+<p class="note">Busses can be plugged to other busses, through outputs or sends. Both example workflows discussed previously, i.e. busses for grouping tracks and busses for effects, can both coexist, as e.g. a "grouping" drum bus can have a send to a reverb bus, and be connected to a compressor bus. 
+</p>
+ 
+
+<h2>VCAs</h2>
+
+<img class="left" src="/images/vcas.png" alt="VCAs strips">
+
+<p>
+   Although track/bus <a href="/working-with-tracks/track-and-bus-groups/">groups</a> offer a certain kind of grouped-control over gain, solo, mute and more, traditional mixing consoles have long had group master channels ("VCAs") which allows to combine both a single fader to control the group level while also allowing you to easily adjust the relative levels inside the group. For large projects, this can make mixing much easier to control.
+</p>
+
+<p> 
+  It allows to use either or both of the conventions for combining multiple masters:
+</p>
+
+<ul>
+  <li>Nest VCAs (VCA 2 controls VCA 1 etc.)</li>
+  <li>Chain VCAs (VCA 1 and VCA2 both control track or bus N)</li>
+</ul>
+
+<h3>Using a VCA strip</h3>
+
+<p>
+A VCA strip is made of (from top to bottom in the screenshot) :
+</p> 
+
+<ul>
+  <li><dfn>1</dfn>: number of the VCA</li>
+  <li><dfn>X</dfn>: allows to hide the VCA strip. Left clicking this button toggles the exclusive visibility of the tracks connected to this VCA</li>
+  <li><dfn>M</dfn>: mutes the VCA</li>
+  <li><dfn>S</dfn>: solos the VCA</li>
+  <li><dfn>A level meter</dfn>: allows to adjust the level of the VCA</li>
+  <li><dfn>~vca~</dfn>: a VCA button to optionally connect to another VCA</li>
+</ul>
+
+<p>Right-clicking the name button shows a context menus comprised of :</p>
+
+<ul>
+  <li><kbd class="menu">Rename</kbd>: Renames the VCA</li>
+  <li><kbd class="menu">Color...</kbd>: Changes the color of the VCA button in the tracks connected to this one</li>
+  <li><kbd class="menu">Drop All Slaves</kbd>: Deletes all connections to this VCA, i.e. no tracks are controlled by this VCA anymore</li>
+  <li><kbd class="menu">Remove</kbd>: Deletes this VCA</li>
+</ul>
+
+<h3>Connecting to a VCA strip</h3>
+
+<img class="left" src="/images/connecting_to_vca.png" alt="Connecting to VCA">
+
+<p>
+	Connecting a track/bus/VCA to a VCA is as simple as clicking the VCA button on any mixer strip and choosing the VCA to connect to. 
+</p>
+
+<p class="note">The VCA button only shows up in mixer strips when at least 1 VCA exists, i.e., you have to first create a VCA before connecting it.
+</p>
+  
+  
