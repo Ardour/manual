@@ -9,11 +9,32 @@ title: Controlling Playback
   You can also use markers to define locations or ranges within 
   the session and rapidly move around between them. 
 </p>
+
+<img src="/images/transport-bar.png" 
+alt="Ardour's transport bar" />
+
 <p class="note">
   If you synchronize Ardour with other devices then some or 
   all of these control methods may be unavailable &mdash; depending on 
   the synchronization protocol, Ardour may respond only to commands 
   sent from its master device(s).
 </p>
+
+<p>
+  The <dfn>Transport Bar</dfn> at the top of the window is made of :
+</p>
+
+<ul>
+  <li><a href="/controlling-playback/using-the-transport-bar/">the Transport Controls</a></li>
+  <li><a href="/ardours-interface/using-ardour-clock-displays/">the Clocks</a></li>
+  <li>3 status indicators:
+    <ul>
+      <li><dfn>Solo</dfn>: Blinks when 1 or more track(s) are being soloed, see <a href="/mixing/muting-and-soloing/">Muting and Soloing</a>. Clicking this button while active toggles the solo off on all tracks.</li>
+      <li><dfn>Audition</dfn>: Blinks when using the import dialog to audition material.</li>
+      <li><dfn>Feedback</dfn>: Blinks when Ardour detects a <dfn>feedback loop</dfn>, which happens when the output of an audio signal chain is plugged back to its input. This is probably not wanted and can be dangerous for the hardware and the listener.</li>
+    </ul></li>
+  <li>A global Meter, showing the level of the Master Output, see <a href="/ardours-interface/meters/">Metering in Ardour</a></li>
+  <li>the Mode Selector, allowing to switch between Editor and Mixer views, or edit the Preferences.</li>
+</ul>
 
 {% children %}
