@@ -3,7 +3,18 @@ layout: default
 title: Region List
 ---                        
 
-<p>The region list shows all the regions in the session. The left-hand column gives the region name, and there are a range of times given for information. At the right of the list are four columns of flags that can be altered:</p>
+<p>The region list shows all the regions in the session. The left-hand column gives the region name, and there are a range of times given for information:</p>
+<dl>
+	<dt>Position</dt><dd>position of the start of the region on the global timeline</dd>
+	<dt>End</dt><dd>position of the region on the global timeline</dd>
+	<dt>Length</dt><dd>duration of the region</dd>
+	<dt>Sync</dt><dd>position of the sync point, relative to the start of region (can be negative)</dd>
+	<dt>Fade In</dt><dd>duration of the fade in. Can't be less than 1 ms, to avoid clipping.</dd>
+	<dt>Fade Out</dt><dd>duration of the fade out (positive value, &ge; 1 ms).</dd>
+</dl>
+<p>The units used to display those times are those used for the clock, so changing the units on the clocks change the display of this values.
+
+<p>At the right of the list are four columns of flags that can be altered:</p>
 <dl>
 <dt>L</dt>
 <dd>whether the region position is locked, so that it cannot be moved.</dd>

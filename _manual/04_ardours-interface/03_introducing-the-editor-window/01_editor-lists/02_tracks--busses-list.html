@@ -5,7 +5,7 @@ title: Tracks &amp; Busses List
 
 
   
-  <p>This lists the tracks and busses that are present in the session. The list order reflects the order in the editor, and you can drag-and-drop track or bus names in the editor list to re-order them in the editor. The columns in the list can all be clicked to alter the track/bus state, and they represent the following:</p>
+  <p>This lists the tracks and busses that are present in the session. The list order reflects the order in the editor, and you can drag-and-drop track or bus names in the editor list to re-order them in the editor. The columns in the list represent the following:</p>
 <dl>
 <dt id="visible">V</dt>
 <dd>whether the track or bus is visible; they can be hidden, in which case they will still play, but just not be visible in the editor; this can be useful for keeping the display uncluttered.</dd>
@@ -15,6 +15,8 @@ title: Tracks &amp; Busses List
 <dd>for MIDI tracks, whether the MIDI input is enabled; this dictates whether MIDI data from the track's inputs ports will be passed through the track.</dd>
 <dt id="record">R</dt>
 <dd>whether the track is record-enabled.</dd>
+<dt id="record-safe">RS</dt>
+<dd>whether the track is record safe; a record safe track cannot be armed for recording, to protect against a mistake.</dd>
 <dt id="mute">M</dt>
 <dd>whether the track is muted.</dd>
 <dt id="solo">S</dt>
@@ -24,5 +26,7 @@ title: Tracks &amp; Busses List
 <dt id="solo-safe">SS</dt>
 <dd>solo safe state. </dd>
 </dl>
+
+<p class="note">Each icon in these columns can be clicked to toggle the track/bus state, which is a very fast way to set multiple tracks/busses state at once.</p>
 <p>As with the region list, hovering the mouse pointer over a column heading shows a tool-tip which can be handy to remember what the columns are for.</p>
   
