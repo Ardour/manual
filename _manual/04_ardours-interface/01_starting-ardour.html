@@ -22,19 +22,15 @@ title: Starting Ardour
   <kbd class="menu">Edit &gt; Preferences</kbd> dialog.
 </p>
 <p>
-  In general, it is sensible to start JACK before you run Ardour. This is not
-  necessary, but will provide you with more control and options over JACK's
-  operation.
+  If you want to use JACK, in general, it is sensible to start it <em>before</em> you run Ardour. This is not
+  necessary, but will provide you with more control and options over JACK's operation.
+  You can start JACK through its <abbr title="Command Line Interface">CLI</abbr>, or using a <abbr title="Graphical User Interface">GUI</abbr>
+  program, like <a href="https://qjackctl.sourceforge.io/">QjackCtl</a> or <a href="http://kxstudio.linuxaudio.org/Applications:Cadence">Cadence</a>.
 </p>
 <p>
   If you open Ardour without specifying an existing session it will display 
-  the <kbd class="menu">Session &gt; New...</kbd> dialog. If JACK is not already
-  running, there will be an extra <kbd class="menu">Audio Engine</kbd> tab in
-  that dialog to configure JACK, which Ardour will then start automatically.
-</p>
-<p>
-  If you did specify an existing session but JACK is not already running, the
-  <kbd class="menu">New Session</kbd> dialog will contain just the Audio Engine tab. 
+  the <kbd class="menu">Session &gt; New...</kbd> dialog and the <kbd class="menu">Audio/MIDI Setup</kbd> dialog.
+  See <a href="/working-with-sessions/new-session-dialog/">New/Open Session Dialog</a> for a description of those dialogs. 
 </p>
   
 
