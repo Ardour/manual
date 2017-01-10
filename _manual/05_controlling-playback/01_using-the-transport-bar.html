@@ -24,7 +24,7 @@ alt="The transport controls" />
   <li><dfn>Toggle Record</dfn>: Global switch button to activate/desactivate recording. While active, the button blinks red. The button doesn"t start the recording itself : if one or more tracks are marked as record-enabled, pressing the "Play from Playhead" starts the recording on this/these track(s). See <a href="/recording/">Recording</a>.</li>
 </ul>
 
-<p class="note">All this actions are binded to keyboard shortcuts, which allow for a speedier use, and a more focused work</p>  
+<p class="note">All this actions are bound to keyboard shortcuts, which allow for a speedier use, and a more focused work</p>  
 
 <p>Under these buttons is the <dfn>Shuttle Speed Control</dfn> that allows to scrub through the audio quickly.</p>
 
@@ -37,9 +37,15 @@ alt="The transport controls" />
 
 <p>The 3 vertical buttons on the right of the transport bar control the behviour of the playhead :</p>
 <ul>
-  <li><dfn>Internal/MTC</dfn> defines if the current timecode is handled by Ardour, or by an external Midi device (see <a href="/synchronization/timecode-generators-and-slaves/">Timecode Generators and Slaves</a>).</li>
-  <li><dfn>Follow Edits</dfn> is a toggle switch that defines if the playhead is moved when using the Grab Mode or the Range Mode tools, i.e. if any action on the canvas moves the playhead along.</li>
-  <li><dfn>Auto Return</dfn> is a toggle switch too. When active, pressing the Stop button returns the playhead to its previous position, and when inactive, pressing Stop keeps the playhead at its current location. Activating Auto Return can be usefull for earing back the same part of the audio before and after having tweaked it, without having to loop on it.</li>
+  <li>The positional sync button (which might show <dfn>Internal</dfn>,
+  or <dfn>MTC</dfn> or several other values) can be used to control
+  whether or not the current timecode is handled by Ardour, or by an
+  external positional synchronization source, such as MIDI Time Code (MTC),
+  Linear Time Code (LTC) or JACK. (see <a href="/synchronization/timecode-generators-and-slaves/">Timecode Generators and Slaves</a>).</li>
+  <li><dfn>Follow Edits</dfn> is a toggle that can be used to control
+  whether or not making a selection (range or object) will move the playhead to the
+  start of the selection.</li>
+  <li><dfn>Auto Return</dfn> is a toggle switch too. When active, pressing the Stop button returns the playhead to its previous position, and when inactive, pressing Stop keeps the playhead at its current location. Activating Auto Return can be useful for earing back the same part of the audio before and after having tweaked it, without having to loop on it.</li>
 </ul>
 
 
