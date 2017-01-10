@@ -322,7 +322,20 @@ kbd.mouse {
 }
 */
 
-kbd.menu,kbd.option,kbd.optoff {
+kbd.optoff, kbd.option {
+    border:none;
+    background-color:transparent;  
+}
+
+kbd.optoff:after {
+    content:url('/images/checkbox-unchecked.png');  
+}
+
+kbd.option:after {
+    content:url('/images/checkbox-checked.png');
+}
+
+kbd.menu {
     border:none;
     background-color:transparent;
     font-weight:bold;
@@ -330,22 +343,10 @@ kbd.menu,kbd.option,kbd.optoff {
     white-space:normal;
 }
 
-kbd.option:after,kbd.optoff:after {
-    font-family:mono;
-    font-weight:lighter;
-    text-align:center;
-    border:solid 1px black;
-    margin-left:0.3em;
-}
-kbd.option:after {
-    content:'X';
 
-}
 kbd.osc {
 }
-kbd.optoff:after {
-    content:'    ';
-}
+
 
 
 kbd.fader, kbd.knob, kbd.button {
