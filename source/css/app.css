@@ -192,8 +192,8 @@
 
 #content figure.left {
     margin: 0 1em 1em 0;
-    float:right;
-    clear:right;
+    float:left;
+    clear:left;
 }
 
 .multicol2 {
