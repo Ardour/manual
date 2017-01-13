@@ -1,0 +1,26 @@
+<p>
+  The <dfn>Editor</dfn> window includes the editor track <dfn>canvas</dfn>
+  where you can arrange audio and MIDI data along a timeline. This is the 
+  window you will be in while editing and arranging a project. The window
+  has a general "horizontal" sense to it: the timeline flows from left to 
+  right, the playhead showing the current position in the session moves
+  from left to right &mdash; the window really represents <dfn>time</dfn> 
+  in a fairly literal way.
+</p>
+
+<p>
+  The <dfn>Mixer</dfn> window on the other hand represents signal flow and
+  is the window you will probably be using most when mixing a session. It
+  includes <dfn>channel strips</dfn> for each track and bus in your session. 
+  It has a general "vertical" sense to it: signals flow from the top of each 
+  channel strip through the processing elements in the strip to reach the 
+  output listed at the bottom. 
+</p>
+<p>
+  It is possible to show a single channel strip in the editor window, and
+  some people find this enough to work on mixing without actually opening
+  the mixer window. Most of the time though, you will want both of these
+  windows at various stages of a session's lifetime &mdash; sometimes 
+  you'll be focused on editing, sometimes on mixing and possibly some of
+  the time on both.
+</p>
