@@ -32,6 +32,26 @@ title: Starting Ardour
   the <kbd class="menu">Session &gt; New...</kbd> dialog and the <kbd class="menu">Audio/MIDI Setup</kbd> dialog.
   See <a href="/working-with-sessions/new-session-dialog/">New/Open Session Dialog</a> for a description of those dialogs. 
 </p>
-  
+ 
+<h2>Starting Ardour From the Command Line (Linux)</h2>
 
-{% children %}
+<p>
+  Like (almost) any other program on Linux, Ardour can be started on the
+  command line. Type the following command in a terminal window:
+</p>
+<kbd class="cmd lin">Ardour5</kbd>
+<p>
+  To start Ardour with an existing session:
+</p>
+<kbd class="cmd lin">Ardour5 <em>/path/to/session</em></kbd>
+<p>
+  replacing /path/to/session with the actual path to your session. You can
+  specify either the session folder or any session file inside the folder,
+  including snapshots.
+</p>
+<p>
+  To start Ardour with a new, named session:
+</p>
+<kbd class="cmd lin">Ardour5 -N <em>/path/to/session</em></kbd>
+
+
