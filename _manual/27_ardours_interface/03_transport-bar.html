@@ -1,0 +1,52 @@
+---
+layout: default
+title: The Transport Bar
+menu_title: The Transport Bar
+---
+
+<p>
+  The <dfn>Transport Bar</dfn> groups all the actions regarding the control of
+playback and recording.
+</p>
+<img src="/images/transport.png"
+alt="The transport controls" />
+
+<p>This bar is made of (from left to right):</p>
+
+<ul>
+  <li><dfn>Midi Panic</dfn>: allows to immediately stop all midi output.</li>
+  <li><dfn>Enable/disable Audio Click</dfn>: Toggles (on/off) a click track (metronome) along the <a href="/tempo-meter/tempo-and-meter/">tempo</a>.</li>
+  <li><dfn>Go to Start of the Session</dfn>: Jumps back at the beginning of the session, as defined by the <a href="/working-with-markers/">start marker</a>.</li>
+  <li><dfn>Go to End of the Session</dfn>: Jumps forward to the end of the session, as defined by the <a href="/working-with-markers/">end marker</a>.</li>
+  <li><dfn>Play Loop Range</dfn>: Repeats the defined <a href="/controlling-playback/looping-the-transport/">loop</a> as defined by the <a href="/working-with-markers/loop-range/">Loop range</a>, until the "Stop playback" button is pressed. Clicking the "Play loop Range" button while already active switches to normal Play mode, which allows to exit the loop without stopping and restarting the playback.</li>
+  <li><dfn>Play Range/Selection</dfn>: If a range has been defined using the Range Mode button, plays the range, of if an audio or MIDI region is selected,plays this region. In both cases, the playback stops at the end of the range or selected region.</li>
+  <li><dfn>Play from playhead</dfn>: Starts the playback and optionnally record (more below).</li>
+  <li><dfn>Stop</dfn>: Whatever the playing mode (loop, range, ...)
+  stops all playback. Depending on other settings, some effects (like
+  chorus or reverb) might still be audible for a while.</li>
+  <li><dfn>Toggle Record</dfn>: Global switch button to activate/desactivate recording. While active, the button blinks red. The button doesn"t start the recording itself : if one or more tracks are marked as record-enabled, pressing the "Play from Playhead" starts the recording on this/these track(s). See <a href="/recording/">Recording</a>.</li>
+</ul>
+
+<p class="note">All this actions are bound to keyboard shortcuts, which allow for a speedier use, and a more focused work</p>
+
+<p>Under these buttons is the <dfn>Shuttle Speed Control</dfn> that allows to scrub through the audio quickly.</p>
+
+<p>The Shuttle Speed Control supports 2 operating modes, that can be chosen with right click > Mode :</p>
+<ul>
+  <li><dfn>Sprung mode</dfn> that allows for a temporary scrub : it only scubs while the mouse is left clicked on the control.</li>
+  <li><dfn>Wheel mode</dfn> that allows to set a playback speed until the "Stop" button is pressed, which stops the playback and resets its speed.
+</ul>
+<p>The mode is displayed on the right of the control. The current playback speed is shown by a green slider, that is square and centered when the playback speed is normal (1X) and becomes a circle when its changed. The further from the center the slider is set, the faster the playback will scrub in both directions, as displayed on the left of the control.<p>
+
+<p>The 3 vertical buttons on the right of the transport bar control the behviour of the playhead :</p>
+<ul>
+  <li>The positional sync button (which might show <dfn>Internal</dfn>,
+  or <dfn>MTC</dfn> or several other values) can be used to control
+  whether or not the transport position and start is controlled by Ardour, or by an
+  external positional synchronization source, such as MIDI Time Code (MTC),
+  Linear Time Code (LTC) or JACK. (see <a href="/synchronization/timecode-generators-and-slaves/">Timecode Generators and Slaves</a>).</li>
+  <li><dfn>Follow Edits</dfn> is a toggle that can be used to control
+  whether or not making a selection (range or object) will move the playhead to the
+  start of the selection.</li>
+  <li><dfn>Auto Return</dfn> is a toggle switch too. When active, pressing the Stop button returns the playhead to its previous position, and when inactive, pressing Stop keeps the playhead at its current location. Activating Auto Return can be useful for earing back the same part of the audio before and after having tweaked it, without having to loop on it.</li>
+</ul>

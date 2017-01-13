@@ -1,0 +1,180 @@
+---
+title: Ranges and Marks List
+---
+
+
+
+<p>
+
+  The <dfn>Ranges &amp; Marks List</dfn> is a tab in the <dfn>Editor
+
+  Lists</dfn> area on the right of the Editor window. If the editor
+
+  list area isn't visible it can be enabled by checking
+
+  <kbd class="option">View &gt; Show Editor List</kbd>.
+
+  The Ranges &amp; Marks list can be used as a single point
+
+  of control for all range and location markers (including the punch and
+
+  loop ranges), or as a supplement to other methods of working with them.
+
+</p>
+
+
+
+<h2>Common elements</h2>
+
+
+
+<p>
+
+  Each section has a set of <dfn>editable <a
+
+  href="/ardours-interface/transport-bar-and-times/times/">clock widgets</a></dfn>
+
+  which display
+
+  the location of a marker, or the start, end, and duration times of a range,
+
+  respectively.<br />
+
+  The <kbd class="menu">Use PH</kbd> buttons allow you to set
+
+  the corresponding clock to the current playhead position.
+
+  A <kbd class="mouse">Middle</kbd> click on any of the clocks will move
+
+  the playhead to that location. Both functions are also available from the
+
+  clock context menus.<br />
+
+  Right clicking on any of the clocks brings up a context menu that allows
+
+  changing of the display between Timecode, Bars:Beats, Minutes:Seconds,
+
+  and Samples.<br />
+
+</p>
+
+<p>
+
+ The <kbd class="menu">&mdash;</kbd> (subtract) button in front of each
+
+ user-defined range or marker in the list allows that particular item to
+
+ be removed. The name fields of custom ranges and markers can be edited.
+
+</p>
+
+<p>
+
+  The <kbd class="option">Hide</kbd> checkboxes make markers and ranges invisible
+
+  on the respective ruler to reduce visual clutter; the markers remain
+
+  active however, and can be used normally.<br />
+
+  Selecting <kbd class="option">Lock</kbd> prevents the respective marker
+
+  from being moved until unlocked.
+
+  Where applicable, <kbd class="option">Glue</kbd> fixes the marker position
+
+  relative to the current musical position expressed in bars and beats, rather
+
+  than the absolute time. This will make the respective marker follow
+
+  changes in the tempo map.
+
+</p>
+
+<p>
+
+  At the bottom of the list are buttons to add new markers or ranges.
+
+</p>
+
+ <h2>List sections</h2>
+
+
+
+<dl>
+
+  <dt>Loop/Punch Ranges</dt>
+
+  <dd>This list shows the current <dfn>loop</dfn> and <dfn>punch</dfn> range
+
+  settings. Since these are built-in ranges, you cannot rename or remove them.</dd>
+
+  <dt>Markers (Including CD Index)</dt>
+
+  <dd>This section lists the session's <dfn>markers</dfn>. By ticking <kbd
+
+  class="option">CD</kbd>, you instruct Ardour to create a <dfn>CD track
+
+  index</dfn> from this marker, which will be included in the TOC or CUE file when you
+
+  export.</dd>
+
+  <dt>Ranges (Including CD Track Ranges)</dt>
+
+  <dd>This is the list of <dfn>ranges</dfn> (including <dfn>CD track
+
+  ranges</dfn>). Ticking <kbd class="option">CD</kbd> will convert
+
+  the range to a <dfn>CD track</dfn>, which will again be included in
+
+  exported TOC or CUE files. This is relevant for Disk-At-Once recordings
+
+  that may contain audio data between tracks.</dd>
+
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
