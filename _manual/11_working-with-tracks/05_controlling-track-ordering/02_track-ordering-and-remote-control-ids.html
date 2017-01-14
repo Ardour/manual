@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Track Ordering and Remote Control IDs
----                        
+---
   
 <p>
   Every track and bus in Ardour is assigned a <dfn>remote control ID</dfn>. 
@@ -10,24 +10,8 @@ title: Track Ordering and Remote Control IDs
   which track(s) or buss(es) are the intended target of incoming commands.
 </p>
 <p>
-  By default, remote IDs will be assigned to tracks and busses in the order 
-  that they are created, starting from 1. The master bus and monitor section 
-  have their own unique IDs (318 and 319).
+  Remote IDs will be assigned to tracks and buses in the order that
+  they appear in the mixer window from left to right, starting from 1.
+  Manual assignment of remote IDs is not possible.
+  The master bus and monitor section can be accessed by name.
 </p>
-<p>
-  Ardour provides two methods to control remote control IDs, which can be 
-  chosen via <kbd class="menu">Edit &gt; Preferences &gt; Control Surfaces
-  &gt; Control surface remote ID</kbd>:
-</p>
-<dl class="wide-table">
-  <dt>follows order of mixer</dt>
-  <dd>This will reset the remote control IDs to match the mixer and editor 
-  track order order, starting with rcID 1. Manual assignment of rcIDs is 
-  not possible.</dd>
-  <dt>assigned by user</dt>
-  <dd>When enabled, the remote control ID is completely independent of the 
-  ordering in either window, and may be changed manually by the user via the
-  <kbd class="menu"><em>trackname</em> &gt; Remote Control ID...</kbd>
-  dialog in each mixer strip.
-  </dd>
-</dl>
