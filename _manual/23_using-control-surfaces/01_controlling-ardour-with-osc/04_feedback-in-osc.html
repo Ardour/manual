@@ -1,13 +1,13 @@
 ---
 layout: default
-title: OSC Feedback With Ardour
----                        
-  
+title: OSC&#58; Feedback
+---
+
 <p>
   Feedback from the Ardour to the the control surface is very useful for
   a number of things. Motor faders need to know where the the track
   they have been attached to is at before they were assigned otherwise
-  the DAW fader will jump to where the controller fader is. Likewise, 
+  the DAW fader will jump to where the controller fader is. Likewise,
   the buttons on each strip need to know what their value is so they can
   light their LED correctly. Transport controls should let you know if
   they are active too. This is what feedback is all about.
@@ -177,7 +177,7 @@ title: OSC Feedback With Ardour
   <dt><kbd class="osc">/bank_down <em>LED</em></kbd></dt>
   <dd>where <em>LED</em> is a bool that indicates another bank_down operation is possible.</dd>
   <dt><kbd class="osc">/strip/name <em>ssid</em> <em>track_name</em></kbd></dt>
-  <dd>where <em>track_name</em> is a string representing the name of the track 
+  <dd>where <em>track_name</em> is a string representing the name of the track
   (note there is no coresponding command to set the track name)</dd>
   <dt><kbd class="osc">/strip/mute <em>ssid</em> <em>mute_st</em></kbd></dt>
   <dd>where <em>mute_st</em> is a bool/int representing the actual mute state of the track</dd>

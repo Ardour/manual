@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Calculating Feedback and Strip-types Values
----                        
+title: OSC&#58; Feedback and Strip-types Values
+---
 
 <p><em>/set_surface</em> has two values the user needs to calculate before
   use. In general these will not be calculated at run time, but
@@ -20,7 +20,7 @@ title: Calculating Feedback and Strip-types Values
   strip_types is an integer made up of bits. The easy way to
   deal with this is to think of strip_types items being worth a number and
   then adding all those numbers together for a value to send.
-  Strip Types will determine What kind of strips will be included in 
+  Strip Types will determine What kind of strips will be included in
   bank. This would include: Audio, MIDI, busses, VCAs, Master, Monitor
   and hidden or selected strips.
 </p>
@@ -77,7 +77,7 @@ title: Calculating Feedback and Strip-types Values
   Audio Aux? say what? I am sure most people will have noticed that they
   can find no <em>Aux</em> strips in the Ardour mixer. There are none.
   There are buses that can be used a number of ways. From analog days,
-  in OSC a bus is something that gets used as a sub mix before ending up
+  in OSC, a bus is something that gets used as a sub mix before ending up
   going to Master. An auxiliary bus is used like a separate mixer and
   it's output goes outside the program or computer to be used as:
   a monitor mix, a back up recording, or what have you. In OSC where
@@ -89,7 +89,7 @@ title: Calculating Feedback and Strip-types Values
   to enable both buses and auxes if they would prefer.
 </p>
 
-<h3>feedback</h3> 
+<h3>feedback</h3>
 <p>Feedback is an integer made up of bits. The easy way to
   deal with this is to think of feedback items being worth a number and
   then adding all those numbers together for a value to send.

@@ -1,29 +1,35 @@
 ---
 layout: default
-title: Controlling Ardour with OSC (Ardour 4.7 and Prior)
----                        
-  
+title: OSC control for Ardour 4.7 and Prior
+---
+
+<p class="note">
+	This page is what was available before version 5.* was added. It has
+	not been updated to make sure all 4.7 functionality is acurately
+	represented. This page will vanish soon.
+</p>
+
 <p>
-  <abbr title="Open Sound Control"><dfn>OSC</dfn></abbr> lets synthesizers 
-  and other devices communicate with Ardour. OSC devices can send commands 
-  relating to playback (such as play or stop), performance (such as volume, 
+  <abbr title="Open Sound Control"><dfn>OSC</dfn></abbr> lets synthesizers
+  and other devices communicate with Ardour. OSC devices can send commands
+  relating to playback (such as play or stop), performance (such as volume,
   play, stop, and almost any other function (such as Edit, or Undo).
 </p>
 <p>
-  Ardour is probably one of the most OSC-controllable audio applications 
-  around, but as with all OSC-controllable apps, you can't do much without 
-  knowing what <dfn>messages</dfn> can be sent. This document describes the 
-  various categories of messages that Ardour understands. It is subject to 
-  change, particularly the "Actions" part below, since this relates to the 
+  Ardour is probably one of the most OSC-controllable audio applications
+  around, but as with all OSC-controllable apps, you can't do much without
+  knowing what <dfn>messages</dfn> can be sent. This document describes the
+  various categories of messages that Ardour understands. It is subject to
+  change, particularly the "Actions" part below, since this relates to the
   GTK GUI for Ardour rather than the backend.
 </p>
 
 <h2>Connecting to Ardour via OSC</h2>
 <p>
-  OSC support is not enabled by default, but can be turned on via 
-  <kbd class="menu">Edit &gt; Preferences &gt; Control Surfaces</kbd>. 
-  Once enabled, Ardour will listen on port <code>3819</code> by default. 
-  This port number can be changed by editing <code>$ARDOUR_CONFIG</code> 
+  OSC support is not enabled by default, but can be turned on via
+  <kbd class="menu">Edit &gt; Preferences &gt; Control Surfaces</kbd>.
+  Once enabled, Ardour will listen on port <code>3819</code> by default.
+  This port number can be changed by editing <code>$ARDOUR_CONFIG</code>
   and adding this line within the <code>&lt;Config&gt;</code> section:
 </p>
 <kbd class="input">&lt;Option name="osc-port" value="<em>Your choice
@@ -55,7 +61,7 @@ here</em>"/&gt;</kbd>
   <dd></dd>
   <dt><kbd class="osc">/ardour/locate <em>spos</em> <em>roll</em></kbd></dt>
   <dd>where <em>spos</em> is the target position in samples and
-  <em>roll</em> is a bool/integer defining whether you want transport 
+  <em>roll</em> is a bool/integer defining whether you want transport
   to be kept rolling or not</dd>
   <dt><kbd class="osc">/ardour/loop_toggle</kbd></dt>
   <dd></dd>
@@ -579,7 +585,7 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Region/trim-to-next-region</kbd></dt><dd>Trim to Next</dd>
   <dt><kbd class="osc">Region/trim-to-previous-region</kbd></dt><dd>Trim to Previous</dd>
   <dt><kbd class="osc">Region/uncombine-regions</kbd></dt><dd>Uncombine</dd>
-  <dt><kbd class="osc">Rulers/toggle-bbt-ruler</kbd></dt><dd>Bars & Beats</dd>
+  <dt><kbd class="osc">Rulers/toggle-bbt-ruler</kbd></dt><dd>Bars &amp; Beats</dd>
   <dt><kbd class="osc">Rulers/toggle-cd-marker-ruler</kbd></dt><dd>CD Markers</dd>
   <dt><kbd class="osc">Rulers/toggle-loop-punch-ruler</kbd></dt><dd>Loop/Punch</dd>
   <dt><kbd class="osc">Rulers/toggle-marker-ruler</kbd></dt><dd>Markers</dd>
@@ -633,8 +639,8 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Transport/Loop</kbd></dt><dd>Play Loop Range</dd>
   <dt><kbd class="osc">Transport/PlayPreroll</kbd></dt><dd>Play Selection w/Preroll</dd>
   <dt><kbd class="osc">Transport/PlaySelection</kbd></dt><dd>Play Selected Range</dd>
-  <dt><kbd class="osc">Transport/primary-clock-bbt</kbd></dt><dd>Bars & Beats</dd>
-  <dt><kbd class="osc">Transport/primary-clock-minsec</kbd></dt><dd>Minutes & Seconds</dd>
+  <dt><kbd class="osc">Transport/primary-clock-bbt</kbd></dt><dd>Bars &amp; Beats</dd>
+  <dt><kbd class="osc">Transport/primary-clock-minsec</kbd></dt><dd>Minutes &am Seconds</dd>
   <dt><kbd class="osc">Transport/primary-clock-samples</kbd></dt><dd>Samples</dd>
   <dt><kbd class="osc">Transport/primary-clock-timecode</kbd></dt><dd>Timecode</dd>
   <dt><kbd class="osc">Transport/Record</kbd></dt><dd>Enable Record</dd>
@@ -643,8 +649,8 @@ here</em>"/&gt;</kbd>
   <dt><kbd class="osc">Transport/Rewind</kbd></dt><dd>Rewind</dd>
   <dt><kbd class="osc">Transport/RewindSlow</kbd></dt><dd>Rewind (Slow)</dd>
   <dt><kbd class="osc">Transport/Roll</kbd></dt><dd>Roll</dd>
-  <dt><kbd class="osc">Transport/secondary-clock-bbt</kbd></dt><dd>Bars & Beats</dd>
-  <dt><kbd class="osc">Transport/secondary-clock-minsec</kbd></dt><dd>Minutes & Seconds</dd>
+  <dt><kbd class="osc">Transport/secondary-clock-bbt</kbd></dt><dd>Bars &amp; Beats</dd>
+  <dt><kbd class="osc">Transport/secondary-clock-minsec</kbd></dt><dd>Minutes &amp; Seconds</dd>
   <dt><kbd class="osc">Transport/secondary-clock-samples</kbd></dt><dd>Samples</dd>
   <dt><kbd class="osc">Transport/secondary-clock-timecode</kbd></dt><dd>Timecode</dd>
   <dt><kbd class="osc">Transport/Stop</kbd></dt><dd>Stop</dd>

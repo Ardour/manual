@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Selection/Feedback Expansion Considerations in OSC
+title: OSC&#58; Selection and Expansion Considerations
 ---
 
 <p>
@@ -38,6 +38,9 @@ title: Selection/Feedback Expansion Considerations in OSC
   selection is global and affects all controllers using GUI selection
   as well as the GUI.
 </p>
+<p class="note">
+	Both select and expansion use the /select set of commands.
+</p>
 <p>
   In general, in a one user situation where that one user may use either
   the OSC surface or the GUI, using GUI based selection makes the most
@@ -62,8 +65,8 @@ title: Selection/Feedback Expansion Considerations in OSC
   and commands locally without changing the GUI select. Another
   /strip/expand or a /strip/select will override that expand command
   and releasing the /strip/expand or /select/expand (setting it to 0 or
-  false) will set the /select set of commands/feedback back to whichever
-  strip the GUI has selected at that time. This could be used to switch
-  between the GUI select and the local expand to compare two strips
-  settings.
+  false) will set the /select set of commands and feedback back to
+  whichever strip the GUI has selected at that time. This could be used
+  to switch between the GUI select and the local expand to compare two
+  strips settings.
 </p>
