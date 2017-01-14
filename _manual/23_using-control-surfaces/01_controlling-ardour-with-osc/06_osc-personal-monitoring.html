@@ -1,0 +1,112 @@
+---
+layout: default
+title: OSC&#58; Personal Monitoring Control
+---
+
+<p>
+	Personal monitoring can allow a performer with a smart phone to set
+	their personal monitor mix for a floor wedge or inear monitoring.
+</p>
+<h3>Setup</h3>
+<p>
+	Some setup needs to be done in the GUI mixer window before this can
+	work.
+</p>
+	<ul>
+		<li>
+			Create a bus for each performer who will have personal
+			monitoring. A good practice is to name the bus with the
+			performers name.
+		</li>
+		<li>
+			Connect the output of that bus to one of the audio
+			interface's playback ports that is not otherwise used. OSC
+			will now include this bus in it's list of aux buses as it
+			no longer has it's output connected to the Master bus.
+		</li>
+		<li>
+			Add an aux send to each channel the performer needs to hear
+			in their personal mix. Many performers only need three or
+			four sources to be mixed. If the performer needs to hear a
+			a set of inputs that are combined into a bus, adding the
+			aux send to that bus may make more sense than adding ten
+			drum channels for example.
+		</li>
+		<li>
+			If the performer wishes to hear effects in their monitor,
+			an extra send from the send bus, placing the performers aux
+			send after the effect or a plugin can be added in line in
+			the aux bus itself.
+		</li>
+	</ul>
+<p>
+	This gives stage or studio monitoring for the performer.
+</p>
+
+<h3>The OSC commands and feedback for personal monitoring</h3>
+<p>
+	All of the personal monitoring commands and feedback start with a
+	<em>/cue</em>. It is expected that a surface used as a personal
+	monitor control will use only <em>/cue</em> commands.
+</p>
+<p class="note">
+	The send controls and feedback all have the send id (1 to n) in line
+	as part of the OSC path. So the path for the second send would be
+	<em>/cue/send/fader/2</em> to set the level. It is considered that
+	most surfaces used for this will only be able to handle one parameter.
+</p>
+<h4>Commands</h4>
+<dl class="bindings">
+  <dt><kbd class="osc">/cue/connect</kbd></dt>
+  <dd>Returns a list of aux buses.</dd>
+  <dt><kbd class="osc">/cue/aux <em>aux-number</em></kbd></dt>
+  <dd>where <em>aux-number</em> is an integer which is the aux bus
+  number this surface will use.</dd>
+  <dt><kbd class="osc">/cue/next_aux</kbd></dt>
+  <dd>Sets the the aux bus to one bus higher.</dd>
+  <dt><kbd class="osc">/cue/previous_aux</kbd></dt>
+  <dd>Sets the aux to one bus lower.</dd>
+  <dt><kbd class="osc">/cue/connect</kbd></dt>
+  <dd>Returns a list of aux buses.</dd>
+  <dt><kbd class="osc">/cue/fader <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float for the position of the fader
+  between 0.0 and 1.0.</dd>
+  <dt><kbd class="osc">/cue/mute <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is a float of 0.0 for mute off and 1.0 for mute on.</dd>
+  <dt><kbd class="osc">/cue/send/fader/<em>id</em> <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float for the position of the fader
+  between 0.0 and 1.0.</dd>
+  <dt><kbd class="osc">/cue/send/enable/<em>id</em> <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is a float of 0.0 for disable and 1.0 for enable.</dd>
+</dl>
+<h4>Feedback</h4>
+<dl class="bindings">
+  <dt><kbd class="osc">/cue/name <em>name</em></kbd></dt>
+  <dd>where <em>name</em> is a string that is the name of the currently
+  selected aux bus.</dd>
+  <dt><kbd class="osc">/cue/name/<em>id</em> <em>name</em></kbd></dt>
+  <dd>where <em>name</em> is a string that is the name of the aux bus
+  that <em>id</em> belongs to.</dd>
+  <dt><kbd class="osc">/cue/fader <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float from 0.0 to 1.0 that shows the
+  fader position for the selected aux bus.</dd>
+  <dt><kbd class="osc">/cue/mute <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is a float of 0.0 or 1.0 that shows the state
+  of the mute for the selected aux bus.</dd>
+  <dt><kbd class="osc">/cue/signal <em>activity</em></kbd></dt>
+  <dd>where <em>activity</em> is a float of 0.0 or 1.0 that shows audio
+  activity for the selected aux bus.</dd>
+  <dt><kbd class="osc">/cue/send/name/<em>id</em> <em>name</em></kbd></dt>
+  <dd>where <em>name</em> is a string that is the name of the channel
+  that send <em>id</em> belongs to.</dd>
+  <dt><kbd class="osc">/cue/send/fader/<em>id</em> <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float from 0.0 to 1.0 that is the position
+  for the fader for the send that <em>id</em> belongs to.</dd>
+  <dt><kbd class="osc">/cue/send/enable/<em>id</em> <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is a float of 0.0 or 1.0 that is the state
+  of the enable for the send that <em>id</em> belongs to.</dd>
+</dl>
+<p>
+	While a fader is being adjusted, the corresponding <em>/*/name</em>
+	text will give the level in db.
+</p>
