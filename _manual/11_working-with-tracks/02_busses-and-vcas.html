@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Busses and VCAs
----                        
+---
 
 <p>
   In order to ease the process of mixing, Ardour offers two tools traditionally found on hardware mixing consoles : <dfn>Busses</dfn> and <dfn><abbr title="Voltage-Controlled Amplifier">VCA</abbr></dfn>s.
@@ -60,11 +60,15 @@ title: Busses and VCAs
 <p>By <kbd class="mouse">left-clicking</kbd> the send meter, it is possible to adjust the amount of signal sent to the bus. This is often the way tracks are connected to an effect bus, like a Delay bus.
 </p>
 
-<p class="note">Busses can be plugged to other busses, through outputs or sends. Both example workflows discussed previously, i.e. busses for grouping tracks and busses for effects, can both coexist, as e.g. a "grouping" drum bus can have a send to a reverb bus, and be connected to a compressor bus. 
+<p class="note">Busses can be plugged to other busses, through outputs or sends. Both example workflows discussed previously, i.e. busses for grouping tracks and busses for effects, can both coexist, as e.g. a "grouping" drum bus can have a send to a reverb bus, and be connected to a compressor bus.
 </p>
- 
+
 
 <h2>VCAs</h2>
+
+<p class="fixme">
+    Reword this section to Control MAster, separate from Busses, Detail the fact a track can have multiple VCA attached
+</p>
 
 <img class="left" src="/images/vcas.png" alt="VCAs strips">
 
@@ -72,7 +76,7 @@ title: Busses and VCAs
    Although track/bus <a href="/working-with-tracks/track-and-bus-groups/">groups</a> offer a certain kind of grouped-control over gain, solo, mute and more, traditional mixing consoles have long had group master channels ("VCAs") which allows to combine both a single fader to control the group level while also allowing you to easily adjust the relative levels inside the group. For large projects, this can make mixing much easier to control.
 </p>
 
-<p> 
+<p>
   It allows to use either or both of the conventions for combining multiple masters:
 </p>
 
@@ -85,7 +89,7 @@ title: Busses and VCAs
 
 <p>
 A VCA strip is made of (from top to bottom in the screenshot) :
-</p> 
+</p>
 
 <ul>
   <li><dfn>1</dfn>: number of the VCA</li>
@@ -110,10 +114,8 @@ A VCA strip is made of (from top to bottom in the screenshot) :
 <img class="left" src="/images/connecting_to_vca.png" alt="Connecting to VCA">
 
 <p>
-	Connecting a track/bus/VCA to a VCA is as simple as clicking the VCA button on any mixer strip and choosing the VCA to connect to. 
+	Connecting a track/bus/VCA to a VCA is as simple as clicking the VCA button on any mixer strip and choosing the VCA to connect to.
 </p>
 
 <p class="note">The VCA button only shows up in mixer strips when at least 1 VCA exists, i.e., you have to first create a VCA before connecting it.
 </p>
-  
-  
