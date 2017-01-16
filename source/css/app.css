@@ -171,6 +171,15 @@
     font-weight: normal;
 }
 
+#content dt.sub1 {
+    padding-left: 2em;
+}
+
+#content dt.sub2 {
+    padding-left: 4em;
+}
+
+
 #content figure {
     display: table;
 }
