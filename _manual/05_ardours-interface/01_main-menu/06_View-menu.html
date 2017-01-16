@@ -2,101 +2,82 @@
 title: The View Menu
 ---
 
-<p class="fixme">Describe the items</p>
+<p>
+		The <dfn>View</dfn> menu sets how the session is seen, and what's visible or not.
+</p>
 
-View
-	[] Maximise Editor Space
-	[] Maximize Mixer Space
-	---
-	Primary Clock
-		Focus On Clock
-		Timecode
-		Bars & Beats
-		Minutes & Seconds
-		Samples
-	Secondary Clock
-		Timecode
-		Bars & Beats
-		Minutes & Seconds
-		Samples
-	---
-	Zoom
-		Zoom In
-		Zoom Out
-		Zoom to Session
-		Zoom to Selection
-		Fit Selection (Vertical)
-		Toggle Zoom State
-		Expand Track Height
-		Shrink Track Height
-	Zoom Focus
-		Zoom Focus Left
-		Zoom Focus Right
-		Zoom Focus Center
-		Zoom Focus Playhead
-		Zoom Focus Mouse
-		Zoom Focus Edit Point
-		Next Zoom Focus
-	Rulers
-		[] Min:Sec
-		[] Timecode
-		[] Samples
-		[] Bars & Beats
-		---
-		[] Meter
-		[] Tempo
-		[] Ranges
-		[] Loop/Punch
-		[] CD Markers
-		[] Markers
-		---
-		[] Video
-	Video Monitor
-		Original Size
-		[] Letterbox
-		---
-		[] Always on Top
-		[] Fullscreen
-		---
-		[] Timecode
-		[] Frame number
-		[] Timecode Background
-	Scroll
-		Scroll Tracks Down
-		Scroll Tracks Up
-		Scroll Forward
-		Scroll Backward
-	Views
-		Save View 1
-		Go to View 1
-		Save View 2
-		Go to View 2
-		Save View 3
-		Go to View 3
-		Save View 4
-		Go to View 4
-		Save View 5
-		Go to View 5
-		Save View 6
-		Go to View 6
-		Save View 7
-		Go to View 7
-		Save View 8
-		Go to View 8
-		Save View 9
-		Go to View 9
-		Save View 10
-		Go to View 10
-		Save View 11
-		Go to View 11
-		Save View 12
-		Go to View 12
-	---
-	[] Show Editor Mixer
-	[] Show Editor List
-	[] Toggle Mixer List
-	[] Toggle Monitor Section Visibility
-	[] Show Measure Lines
-	[] Show Summary
-	[] Show Group Tabs
-	[] Show Marker Lines
+<dl>
+	<dt>[] Maximise Editor Space</dt><dd>Puts the Editor window in full screen mode</dd>
+	<dt>[] Maximize Mixer Space</dt><dd>Puts the Mixer window in full screen mode</dd>
+
+	<dt>Primary Clock</dt>
+		<dt class="sub1">Focus On Clock</dt><dd>Sets the focus on the <a href="/ardours-interface/transport-bar-and-times/times/">main clock</a>, allowing to type in numbers directly to change the playhead position</dd>
+		<dt class="sub1">Timecode</dt><dd>Sets the main clock in timecode mode, so it displays time in the Hours:Minutes:Seconds:Frames format</dd>
+		<dt class="sub1">Bars &amp; Beats</dt><dd>Sets the main clock in musical time mode, so it displays time in the Bars:Beats:Ticks format</dd>
+		<dt class="sub1">Minutes &amp; Seconds</dt><dd>Sets the main clock in absolute time mode, so it displays time in the Hours:Minutes:Seconds.Milliseconds format</dd>
+		<dt class="sub1">Samples</dt><dd>Sets the main clock in samples time mode, so the time is displayed in samples from the absolute start</dd>
+	<dt>Secondary Clock</dt>
+		<dt class="sub1">Timecode</dt><dd>Same as for the main clock (see above)</dd>
+		<dt class="sub1">Bars &amp; Beats</dt><dd>Same as for the main clock</dd>
+		<dt class="sub1">Minutes &amp; Seconds</dt><dd>Same as for the main clock</dd>
+		<dt class="sub1">Samples</dt><dd>Same as for the main clock</dd>
+
+	<dt>Zoom</dt>
+		<dt class="sub1">Zoom In</dt><dd>Zooms in, focusing the <em>Zoom Focus</em> (see bellow)</dd>
+		<dt class="sub1">Zoom Out</dt><dd>Zooms out</dd>
+		<dt class="sub1">Zoom to Session</dt><dd>Adjust the zoom value so that all the session (as defined by its start and end markers) fit in the window</dd>
+		<dt class="sub1">Zoom to Selection</dt><dd>Adjust the zoom value so that all the selected regions fit in the window</dd>
+		<dt class="sub1">Fit Selection (Vertical)</dt><dd>Fits the selected track(s) in the window. If too many tracks are selected, they'll be reduced to their minimum height.</dd>
+		<dt class="sub1">Toggle Zoom State</dt><dd>Reverts to last zoom state (kind of "undo" for zoom, even if edits have been made inbetween)</dd>
+		<dt class="sub1">Expand Track Height</dt><dd>Increases the height of the selected tracks. If no track is selected, then all the tracks are expanded</dd>
+		<dt class="sub1">Shrink Track Height</dt><dd>Same as above, but reduces the height of the tracks</dd>
+	<dt>Zoom Focus</dt>
+		<dt class="sub1">Zoom Focus Left</dt><dd>Sets the screen's left side as the zoom target, i.e. when zooming in, the left side of the screen will stay at the same place in the timeline</dd>
+		<dt class="sub1">Zoom Focus Right</dt><dd>Same, with the right of the screen</dd>
+		<dt class="sub1">Zoom Focus Center</dt><dd>Same, with the center of the screen</dd>
+		<dt class="sub1">Zoom Focus Playhead</dt><dd>Sets the playhead as the focus point of the zoom, i.e. the point in time that will stay fixed</dd>
+		<dt class="sub1">Zoom Focus Mouse</dt><dd>Same as above, with the mouse pointer</dd>
+		<dt class="sub1">Zoom Focus Edit Point</dt><dd>Same as above, with the Edit Point</dd>
+		<dt class="sub1">Next Zoom Focus</dt><dd>Circles between the previous modes</dd>
+	<dt>Rulers</dt>
+		<dt class="sub1">[] Min:Sec</dt><dd>Showss (when checked) or hides a line in <a href="/ardours-interface/the-editor/the-ruler/">the Ruler</a> with the time formatted as Hours:Minutes:Seconds.Milliseconds</dd>
+		<dt class="sub1">[] Timecode</dt><dd>Same as above, with the time formatted as Hours:Minutes:Seconds:Frames</dd>
+		<dt class="sub1">[] Samples</dt><dd>Same as the above, with the time displayed in samples from the absolute start</dd>
+		<dt class="sub1">[] Bars &amp; Beats</dt><dd>Same as the above, with the time formatted as Bars:Beats:Ticks</dd>
+
+		<dt class="sub1">[] Meter</dt><dd>Shows / hides the Meter line in the ruler, where the signature can be adjusted along the playline</dd>
+		<dt class="sub1">[] Tempo</dt><dd>Shows / hides the Tempo line, where the BPM can be changed with markers</dd>
+		<dt class="sub1">[] Ranges</dt><dd>Shows / hides the Range line, where ranges can be defined</dd>
+		<dt class="sub1">[] Loop/Punch</dt><dd>Shows / hides the Loop/Punch line, where loops and Punches can be defined</dd>
+		<dt class="sub1">[] CD Markers</dt><dd>Shows / hides the Range line, where CD Markers can be defined</dd>
+		<dt class="sub1">[] Markers</dt><dd>Shows / hides the Markers line, where custom markers can be defined</dd>
+
+		<dt class="sub1">[] Video</dt><dd>Shows / hides the Video timeline, where frames of the video are shown for syncing purposes</dd>
+	<dt>Video Monitor</dt>
+		<dt class="sub1">Original Size</dt><dd>When the <a href="/video-timeline/">Video Monitor</a> is active, resets its size to the original size, i.e. 1 pixel in the video is 1 pixel on screen</dd>
+		<dt class="sub1">[] Letterbox</dt><dd>When checked, forces the ratio (width/height) to be the one of the original video. If unched, the video will be stretched to fit the window</dd>
+
+		<dt class="sub1">[] Always on Top</dt><dd>Stays above all other windows, enabling to work in Ardour without the video windows to be hidden in the background</dd>
+		<dt class="sub1">[] Fullscreen</dt><dd>Sets the Xjadeo window to be fullscreen. Can be usefull in a dual monitor setup</dd>
+
+		<dt class="sub1">[] Timecode</dt><dd>When checked, displays a Timecode over the video, in the Hours:Minutes:Seconds:Frames format</dd>
+		<dt class="sub1">[] Frame number</dt><dd>When checked, shows the absolute frame number inside the video, i.e. this image is the <em>n</em>th of the video</dd>
+		<dt class="sub1">[] Timecode Background</dt><dd>Adds a black background to the timecode for readability</dd>
+	<dt>Scroll</dt>
+		<dt class="sub1">Scroll Tracks Down</dt><dd>Scrolls the view toward the bottom of the session from one screen (vertically, so along tracks)</dd>
+		<dt class="sub1">Scroll Tracks Up</dt><dd>Same as above, towards the top</dd>
+		<dt class="sub1">Scroll Forward</dt><dd>Scrolls the view toward the right of the session from one screen (horizontally, so along time)</dd>
+		<dt class="sub1">Scroll Backward</dt><dd>Same as above, to the left</dd>
+	<dt>Views</dt>
+		<dt class="sub1">Save View <em>n</em></dt><dd>Saves the position on the timeline in the memory, horizontally and vertically (along time and tracks)</dd>
+		<dt class="sub1">Go to View <em>n</em></dt><dd>Loads and displays a saved position (see above)</dd>
+
+	<dt>[] Show Editor Mixer</dt><dd>When checked, the selected tracks' mixer strip is displayed on the left of the editor window, allowing for a quick access to e.g. efffects and routing</dd>
+	<dt>[] Show Editor List</dt><dd>In the Editor window, shows the <a href="/ardours-interface/the-editor/the-editor_s-lists/">Editor List</a>, giving access to a number of handy lists (regions, tracks, ...)</dd>
+	<dt>[] Toggle Mixer List</dt><dd>In the Mixer view, shows the Mixer list, giving access to some handy lists (<a href="/ardours-interface/the-mixer/favorite-plugins-window/">Favorite plugins</a>, <a href="/ardours-interface/the-mixer/the-strips-list/">The Strip list</a>,...)</dd>
+	<dt>[] Toggle Monitor Section Visibility</dt><dd>If the <kbd class="option">Use monitoring section on this session</kbd> has been checked in the <a href="/preferences-and-session-properties/session-properties-dialog/monitoring/">Session Properties window</a>, shows pr hide the Monitor Section in the Mixer</dd>
+	<dt>[] Show Measure Lines</dt><dd>If checked, in the Editor, shows a vertical white lines at each measure start</dd>
+	<dt>[] Show Summary</dt><dd>If checked, in the Editor, shows the <a href="/ardours-interface/the-editor/the-summary/">Summary</a>, allowing a faste navigation in the session</dd>
+	<dt>[] Show Group Tabs</dt><dd>If checked, makes the groups visible as tabs on the left in the Editor, and on the top in the mixer</dd>
+	<dt>[] Show Marker Lines</dt><dd>If checked, each marker is extended across all the tracks in the editor with a line of the same color</dd>
+</dl>
