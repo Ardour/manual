@@ -1,38 +1,38 @@
 ---
 layout: default
 title: Trimming Regions
----                        
+---
 
 <p>
-  Changing the <dfn>length</dfn> of a region is a very common editing 
-  operation, often known as <dfn>trimming</dfn>. There are several ways 
-  to accomplish this with Ardour, and some very useful specialized trimming 
+  Changing the <dfn>length</dfn> of a region is a very common editing
+  operation, often known as <dfn>trimming</dfn>. There are several ways
+  to accomplish this with Ardour, and some very useful specialized trimming
   operations.
 </p>
 
 <h2>Drag-Trimming With the Mouse</h2>
 <p>
-  In object mode, move the pointer near the beginning or end of the region. 
-  The cursor will change to indicate that trimming is possible, and you then 
-  <kbd class="mouse">Left</kbd>-drag the edge of the region. 
+  In object mode, move the pointer near the beginning or end of the region.
+  The cursor will change to indicate that trimming is possible, and you then
+  <kbd class="mouse">Left</kbd>-drag the edge of the region.
 </p>
 <p>
-  Trimming will obey <a href="/editing-and-arranging/snap-to-the-grid/">Snap settings</a>.
+  Trimming will obey <a href="/ardours-interface/the-editor/the-toolbar/the-grid-controls/">Snap settings</a>.
 </p>
 
 <h2>Click Trimming With the Mouse</h2>
 <p>
-  <kbd class="mouse">Left</kbd>-click in the colored bar at the bottom of a region. 
-  If you are nearer to the start of a region, this will trim the start time to the 
-  position of the pointer. If you are nearer to the end of a region, it will trim the 
+  <kbd class="mouse">Left</kbd>-click in the colored bar at the bottom of a region.
+  If you are nearer to the start of a region, this will trim the start time to the
+  position of the pointer. If you are nearer to the end of a region, it will trim the
   end time.
 </p>
 
 <h2>Keyboard Shortcuts for Trimming</h2>
 <p>
-  There are several commands for region trimming. Some use the 
-  <a href="/editing-and-arranging/edit-point/">edit point</a> to determine where 
-  to trim to. Some are not bound to any keys by default (but could be via the 
+  There are several commands for region trimming. Some use the
+  <a href="/ardours-interface/the-editor/the-toolbar/the-edit-point-control/">edit point</a> to determine where
+  to trim to. Some are not bound to any keys by default (but could be via the
   Keybindings Editor).
 </p>
 
@@ -45,14 +45,14 @@ title: Trimming Regions
 
 <h2 id="trimtonextprevious">Trim to Next/Previous Region</h2>
 <p>
-  Sometimes you just want to extend the start or end of region so that it reaches 
-  the end or start of an adjacent region. There is now an operation accessible 
+  Sometimes you just want to extend the start or end of region so that it reaches
+  the end or start of an adjacent region. There is now an operation accessible
   from the region context menu, under <kbd class="menu">Edit &gt;Trim &gt; Trim to
-  Next</kbd> or <kbd class="menu">Edit &gt; Trim &gt; Trim to Previous</kbd>. This 
-  will extend the selected regions so they directly adjoin their neighbours, unless 
-  their source files are not long enough, in which case they will be extended to the 
-  maximum possible. Trim to Next will extend the end of the selected regions to the 
-  start of the next region; Trim to Previous will extend the start of the selected 
+  Next</kbd> or <kbd class="menu">Edit &gt; Trim &gt; Trim to Previous</kbd>. This
+  will extend the selected regions so they directly adjoin their neighbours, unless
+  their source files are not long enough, in which case they will be extended to the
+  maximum possible. Trim to Next will extend the end of the selected regions to the
+  start of the next region; Trim to Previous will extend the start of the selected
   regions to the end of the previous region.
 </p>
 <dl class="wide-table">
@@ -66,7 +66,7 @@ title: Trimming Regions
 
 <h2>Other Possible Commands for Trimming</h2>
 <p>
-  These are not bound to any keys by default, but could be via the Keybindings 
+  These are not bound to any keys by default, but could be via the Keybindings
   Editor. They can also be sent via OSC or other control protocols.
 </p>
 <dl class="wide-table">
