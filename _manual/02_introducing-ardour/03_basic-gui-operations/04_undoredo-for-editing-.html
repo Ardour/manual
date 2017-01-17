@@ -1,0 +1,36 @@
+---
+layout: default
+title: Undo/Redo for Editing
+---
+
+<p>
+  While editing, it happens that you apply an unintended change, or make
+  a choice one that you later decide was wrong. All changes to the
+  arrangement of session components (regions, control points) along the
+  timeline can be <dfn>undone</dfn> (and <dfn>redone</dfn> if necessary).
+</p>
+<p>
+  The default keybindings are <kbd class="mod1">Z</kbd> for Undo and
+  <kbd class="mod1">R</kbd> for Redo. These match the conventions of most
+  other applications that provide undo/redo.
+</p>
+<p>
+  Changes are also saved to the <dfn>session history</dfn> file, so that
+  undo/redo is possible even if you close the session and reopen it later,
+  even if you quit Ardour in between.
+</p>
+<p>
+  The maximum number of changes that can be undone can be configured under
+  <kbd class="menu">Edit &gt; Preferences &gt; Misc &gt; Undo</kbd>.
+  The maximum number of changes stored in the history file is a separate
+  parameter, and can also be set in the same place.
+</p>
+
+<p class="note">
+  In addition to the normal undo (which works only on actions that change
+  the timeline), there is a <dfn>visual undo</dfn> which will revert any
+  command that affects the display of the editor window. Its shortcut is
+  <kbd class="mod3">Z</kbd>.
+  There is also an undo for selection. See
+  <a href="/introducing-ardour/basic-gui-operations/selection-techniques/">Selection Techniques</a> for more information.
+</p>
