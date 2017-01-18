@@ -1,0 +1,87 @@
+---
+title: Audio/MIDI Busses Mixer Strips
+---
+
+<img class="right" src="/images/bus-mixer-strip.png" alt="A bus mixer strip">
+
+<p>
+  An Ardour bus can be considered a virtual track, as in a track that doesn't have a playlist (so, no regions).
+  Its use is to "group" some audio signals to be treated the same way. One simple use case is to group all the audio tracks containing the different drums of a drumkit. Routing all the drums tracks outputs to a bus allows, once the different levels amongst the drums have been set, to adjust the global level of the drumkit in the mix.
+</p>
+<p>
+  Bus usage goes way beyond this simple example though : busses, as tracks, can receive plugins for common audio treatment, and be routed themselves as needed. This makes for a very useful tool that is very commonly used both for musical purposes and computing ones : instead of using e.g. 10 discrete delay plugins on 10 different tracks, busses are often used as receivers of <a href="/signal-routing/aux-sends/">sends</a>, and only 1 delay plugin is used on this bus, reducing the processing power needed.
+</p>
+
+<h2>Audio Busses vs MIDI Busses</h3>
+
+<p>
+	Ardour supports 2 types of busses : Audio and MIDI. A MIDI bus differs from an audio bus just by:
+<p>
+<ul>
+  <li>its input (which is midi, as shown by the red signal lines in the processor box) instead of <em>n</em> audio</li>
+  <li>the fact that you can put an instrument on it at creation time, whereas you can't easily add an instrument to an audio bus</li>
+  <li>as for tracks, the MIDI bus doesn't have a trim knob or invert phase button(s).</li>
+</ul>
+<p>
+  MIDI busses provide a particularly efficient workflow for virtual drumkits where the arrangement uses different MIDI tracks.
+  Moreover, busses with both Audio and MIDI inputs are well suited for vocoders and similar plugins,
+  where a MIDI signal controls an audio one.
+</p>
+<p class="note">
+  Adding any audio input to a MIDI bus transforms it into an audio bus.
+</p>
+
+<h2>Description</h2>
+<p>
+  Busses look and behave exactly like tracks, so they share nearly <a href="/ardours-interface/the-mixer/audio-midi-mixer-strips/">all of their controls</a>.
+  The differences are :
+</p>
+<ul>
+  <li>as the busses dont have a playlist (and cannot host any media), they can't be recorded on. The recording controls are not present</li>
+  <li>an <kbd class="menu">Aux</kbd> button replaces these controls.</li>
+</ul>
+<p>
+  Clicking the <kbd class="menu">Aux</kbd> button makes every track that sends a signal to this bus through <a href="/signal-routing/aux-sends/">Aux sends</a> blink in turquoise.
+  Right clicking this button brings up a menu:
+</p>
+<dl>
+  <dt>Assign all tracks (prefader)</dt><dd>Creates an Aux Send in every track, to this bus. The send is placed just before the fader</dd>
+  <dt>Assign all tracks and busses (prefader)</dt><dd>Creates an Aux Send in every track and every bus, to this bus. The send is placed just before the fader</dd>
+  <dt>Assign all tracks (postfader)</dt><dd>Same as above, but the send is placed just after the fader</dd>
+  <dt>Assign all tracks and busses (postfader)</dt><dd>Same as above, with tracks and busses</dd>
+  <dt>Assign selected tracks (prefader)</dt><dd>Same as for all tracks, but only applies to the selected tracks</dd>
+  <dt>Assign selected tracks and busses (prefader)</dt><dd>Same as for all tracks and busses, but only applies to the selected tracks and busses</dd>
+  <dt>Assign selected tracks (postfader)</dt><dd>Same as above, but the send is placed just after the fader</dd>
+  <dt>Assign selected tracks and busses (postfader)</dt><dd>Same as above, with tracks and busses</dd>
+  <dt>Set sends gain to -inf</dt><dd>For all the sends to this bus, put the send fader to &minus;&infin; so no signal is sent</dd>
+  <dt>Set sends gain to 0dB</dt><dd>For all the sends to this bus, put the send fader at the default position, 0dB (100&percnt; of th signal is sent)</dd>
+</dl>
+
+<h2>Connecting a track to a bus</h2>
+<p>
+  Depending on the user's workflow and the way busses are used, 2 possibilities exists :
+</p>
+
+<h3>Connecting a track to a bus via its outputs</h3>
+
+<img class="left" src="/images/connecting_bus_output.png" alt="Connecting a bus through a track's outputs">
+<p>
+	Connecting the output(s) of a track to the input(s) of the bus sends <em>all</em> the audio/MIDI to the bus. In the mixer strip, select (at the bottom) the OUTPUT button (often, by default, "Master"), and in the list, choose the input of a bus. Note that only the bus able to receive this output will show up, e.g. a mono bus wont be able to be connected to the output of a stereo track).
+</p>
+<p>
+	Obviously, doing so will (by default) disconnect the output from the Master's input, which means all the audio/MIDI will be routed to the bus. For more complex routing, the OUTPUT button allows to show the <kbd class="menu">Routing Grid</kbd> that allows to plug the output of the track to multiple outputs at once, be it busses, tracks, Master... The button will then reflect these multiple connections by showing a <em>*number*</em>, number being the number of connections made in the routing grid.
+</p>
+
+<h3>Connecting a track to a bus via Sends</h3>
+
+<img class="left" src="/images/connecting_bus_send.png" alt="Connecting a bus through a send">
+<p>
+	This allows not to interrupt the natural flow of the signal, i.e. the track will still output to what its connected to (e.g. Master). The signal is "tapped" at the point of insertion of the send, to be sent to the bus. Right click where in the signal flow you want the send to happen, and select <kdb class="menu">New Aux Send... &gt; name_of_the_bus</kbd>.
+</p>
+<p>
+  By <kbd class="mouse">left-clicking</kbd> the send meter, it is possible to adjust the amount of signal sent to the bus. This is often the way tracks are connected to an effect bus, like a Delay bus.
+</p>
+
+<p class="note">
+  Busses can be plugged to other busses, through outputs or sends. Both example workflows discussed previously, i.e. busses for grouping tracks and busses for effects, can both coexist, as e.g. a "grouping" drum bus can have a send to a reverb bus, and be connected to a compressor bus.
+</p>
