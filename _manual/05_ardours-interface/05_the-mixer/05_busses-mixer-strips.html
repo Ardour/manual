@@ -2,7 +2,7 @@
 title: Audio/MIDI Busses Mixer Strips
 ---
 
-<img class="left" src="/images/bus-mixer-strip.png" alt="A bus mixer strip">
+<img class="right" src="/images/bus-mixer-strip.png" alt="A bus mixer strip">
 
 <p>
   An Ardour bus can be considered a virtual track, as in a track that doesn't have a playlist (so, no regions).
@@ -15,16 +15,20 @@ title: Audio/MIDI Busses Mixer Strips
 <h2>Audio Busses vs MIDI Busses</h3>
 
 <p>
-	Ardour supports 2 types of busses : Audio and MIDI. A MIDI bus differs from an audio bus just by
+	Ardour supports 2 types of busses : Audio and MIDI. A MIDI bus differs from an audio bus just by:
 <p>
 <ul>
-  <li>its input (which is 1 midi input instead of <em>n</em> audio)</li>
-  <li>the fact that you can put an instrument on it at creation time, whereas you can't easily add an instrument to an audio bus.</li>
+  <li>its input (which is midi, as shown by the red signal lines in the processor box) instead of <em>n</em> audio</li>
+  <li>the fact that you can put an instrument on it at creation time, whereas you can't easily add an instrument to an audio bus</li>
+  <li>as for tracks, the MIDI bus doesn't have a trim knob or invert phase button(s).</li>
 </ul>
 <p>
   MIDI busses provide a particularly efficient workflow for virtual drumkits where the arrangement uses different MIDI tracks.
   Moreover, busses with both Audio and MIDI inputs are well suited for vocoders and similar plugins,
-  where a MIDI signal <em>and</em> an audio one are required.
+  where a MIDI signal controls an audio one.
+</p>
+<p class="note">
+  Adding any audio input to a MIDI bus transforms it into an audio bus.
 </p>
 
 <h2>Description</h2>
