@@ -600,3 +600,9 @@ samp:after {
 #chapter { padding-top: 1em; padding-left: 1em; }
 
 #subchapter { padding-left: 4em; }
+
+#content table.alternate{	border-collapse:collapse; }
+.alternate td{ padding:7px; border:#4e95f4 1px solid; }
+.alternate tr{ background: #b8d1f3; }
+.alternate tr:nth-child(odd){ background: #b8d1f3; }
+.alternate tr:nth-child(even){ background: #dae5f4; }
