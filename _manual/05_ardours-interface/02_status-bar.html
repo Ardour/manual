@@ -8,47 +8,32 @@ title: Status Bar
 
 <p>The status bar is an informative bar at the top of the window, showing:</p>
 
-<ul>
+<dl>
+	<dt>File:</dt><dd>the file format used in the session, including when recording</dd>
+	<dt>TC:</dt><dd>is the timecode, i.e. the number of frames per second used by the session (for videos)</dd>
+	<dt>Audio:</dt><dd>gives the sample rate used in the session, and the latency computed from the buffer size</dd>
+	<dt>Buffers:</dt><dd>decribe how much data is buffered, see below</dd>
+	<dt>DSP:</dt><dd>for Digital Sound Processing, shows how much of the CPU is used by Ardour and its plugins</dd>
+	<dt>PkBld:</dt><dd><em>(only shows up while creating peaks)</em> displays the number of peak files left to create</dd>
+	<dt>X:</dt><dd>shows the number of xruns since Ardour's launch, see below</dd>
+	<dt>Disk:</dt><dd>reports the remaining hard disk space as the time that can be recorded with the current session setting</dd>
+	<dt>Wall Clock</dt><dd>showing the system time (especially usefull in full screen mode)</dd>
+	<dt>Log button</dt><dd>that indicates if Ardour has encountered any warning or error.</dd>
+</dl>
 
-  <li><dfn>File:</dfn> the file format used in the session, including when recording</li>
-
-  <li><dfn>TC:</dfn> is the timecode, i.e. the number of frames per second used by the session (for videos)</li>
-
-  <li><dfn>Audio:</dfn> gives the sample rate used in the session, and the latency computed from the buffer size</li>
-
-  <li><dfn>Buffers:</dfn> decribe how much data is buffered, see below</li>
-
-  <li><dfn>DSP:</dfn> for Digital Sound Processing, shows how much of the CPU is used by Ardour and its plugins</li>
-
-  <li><dfn>X:</dfn> shows the number of xruns since Ardour's launch, see below</li>
-
-  <li><dfn>Disk:</dfn> reports the remaining hard disk space as the time that can be recorded with the current session setting</li>
-
-  <li><dfn>a Clock</dfn> showing the system time</li>
-
-  <li><dfn>a Log button</dfn> that indicates if Ardour has encountered any warning or error.</li>
-
-</ul>
-
-
-
-<p>The buffers are labelled as <kbd class="menu">p</kbd> for playback and <kbd class="menu">c</kbd> for capture. If the
-
-system is fast enough, these buffers should be 100% full at all times, showing the system has time to precompute
-
-all the data before delivering it to the audio system. A buffer constantly under 20% is a sign of an underpowered
-
-computer system or of too much processing.</p>
-
-
-
-<p>An Xrun (short for buffer over- or under-run) happens when the system has been forced to skip audio frames, e.g. if the latency
-
-asked is too short for the computing power of the machine. It usually results in clicks, pops and crackles if it happens while recording.</p>
-
-
-
-<p>The log button turns yellow when a warning is shows, and red when an error occurs. Clicking the log button gives acces to the log.</p>
-
-
-
+<p>
+  Right clicking anywhere on the Status Bar allows to choose which of this informations we want displayed, through a checkbox menu.
+</p>
+<p>
+  The buffers are labelled as <kbd class="menu">p</kbd> for playback and <kbd class="menu">c</kbd> for capture. If the
+  system is fast enough, these buffers should be 100% full at all times, showing the system has time to precompute
+  all the data before delivering it to the audio system. A buffer constantly under 20% is a sign of an underpowered
+  computer system or of too much processing.
+</p>
+<p>
+  An Xrun (short for buffer over- or under-run) happens when the system has been forced to skip audio frames, e.g. if the latency
+  asked is too short for the computing power of the machine. It usually results in clicks, pops and crackles if it happens while recording.
+</p>
+<p>
+  The log button turns yellow when a warning is shown, and red when an error occurs. Clicking the log button gives acces to the log.
+</p>
