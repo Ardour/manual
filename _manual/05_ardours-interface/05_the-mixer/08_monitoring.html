@@ -5,122 +5,115 @@ title: The Monitor section
 <img class="right" src="/images/monitoring-strip.png" alt="The Monitoring strip">
 
 <p>
-  The <dfn>Monitoring section</dfn> can be activated for the session by using the
+  The <dfn>Monitor section</dfn> is an optional feature that provides Control Room/Monitor Speaker outputs. It can be activated for the current session in the
   <a href="/preferences-and-session-properties/session-properties-dialog/monitoring/">
-  <kbd class="menu">Session &gt; Properties</kbd> window</a> and checking the
-  <kbd class="option">Use monitor section in this session</kbd> in the
-  <kbd class="menu">Monitoring</kbd> tab.
+  <kbd class="menu">Session &gt; Properties</kbd> window</a> by enabling the
+  <kbd class="option">Use monitor section in this session</kbd> option in the
+  <kbd class="menu">Monitoring</kbd> tab. By default the Monitor Section is fed with audio from the Master Buss, but depending on solo mode and other functions such as Auditioning, other audio sources may be temporarily heard instead.
 </p>
 <p>
-  The Monitoring section appears on the right of the Mixer, and comprises:
+  The Monitor section appears on the right hand side of the Mixer, and comprises:
 </p>
 <ol>
-  <li>A detach/attach button, to make it its own window or include it into the Mixer</li>
-  <li>Three status indicators for the current session state</li>
-  <li>Current solo behaviour</li>
-  <li>The Processors button and optional processor box</li>
-  <li>Three volume knobs controlling the playback</li>
-  <li>The channels On/Off switches controlling options on each channels independantly</li>
-  <li>Controls for solo/mute levels: Gain increase for solo, gain reduction non-soloed, gain reduction for dimming</li>
-  <li>The global monitoring gain knob</li>
-  <li>Output connection selector</li>
+  <li>Detach/attach control. This separates the Monitor section into its own floating window</li>
+  <li>Status indicators for important functions</li>
+  <li>Solo behaviour selection</li>
+  <li>Show, hide and status of the Monitor Sections inline processors</li>
+  <li>Level controls for solo functionality</li>
+  <li>Level control for Monitor Dim</li>
+  <li>Individual monitor path controls</li>
+  <li>Mute, Dim and Mono functions for the monitor outputs</li>
+  <li>Monitor level control</li>
+  <li>Monitor output routing</li>
 </ol>
 
-<p class="note">
-  Different settings in Ardour will result in different monitoring results. Refer to the
-  <a href="/appendix/monitor-modes/">Monitor Modes Appendix</a> to learn more.
-</p>
-
-<h2>The Status buttons</h2>
+<h2>Status Indicators</h2>
 
 <p>
-  The Status buttons, two of which appears in <a href="/ardours-interface/transport-bar-and-times/">the Transport Bar</a>, blink to inform the user if something special is happening:
+  The Status indicators, two of which also appear in <a href="/ardours-interface/transport-bar-and-times/">the Transport tool bar</a>, flash to indicate when that function is in operation:
 </p>
 <ul>
-  <li><dfn>Solo</dfn>: Blinks when one or more tracks are being soloed, see <a href="/mixing/muting-and-soloing/">Muting and Soloing</a>. Clicking this button disables any active explicit and implicit solo on all tracks and busses.</li>
-  <li><dfn>Audition</dfn>: Blinks when some audio is auditionned, e.g. by using the import dialog, or using the <kbd class="menu">Audition</kbd> context menu in the <a href="/ardours-interface/the-editor/the-editor_s-lists/region-list/">Regions List</a>. Clicking this button will stop the audition</li>
-  <li><dfn>Isolated</dfn>: Blinks when one or more tracks are being solo isolated, i.e. when tracks or busses are soloed the isolated ones will not mute. Clicking this button disables any active isolated solo(s).</li>
+  <li><dfn>Soloing</dfn>: This indicates when one or more tracks or busses are currently being soloed. See <a href="/mixing/muting-and-soloing/">Muting and Soloing</a>. Clicking on this indicator cancels all currently soloed channels or busses</li>
+  <li><dfn>Auditioning</dfn>: This indicates when an audio file is being listened to directly, e.g. when using the import dialogue, or using the <kbd class="menu">Audition</kbd> context menu in the <a href="/ardours-interface/the-editor/the-editor_s-lists/region-list/">Regions List</a>. Clicking this indicator cancels the current audition</li>
+  <li><dfn>Isolated</dfn>: This indicates when one or more tracks or busses are solo isolated. See <a href="/mixing/muting-and-soloing/">Muting and Soloing</a>. Clicking on this indicator cancels any current isolation.</li>
 </ul>
 
-<h2>The Current solo behavior switches</h2>
+<h2>Solo behaviour selection</h2>
 
 <p>
-  All the following buttons are switches, that can be ON or OFF (as shown by their yellow led):
+  The SiP, PFL and AFL controls inter-cancel with each other and select the desired Solo mode. Excl. Solo and Solo Mute then modify the modes behaviour. See <a href="/mixing/muting-and-soloing/">Muting and Soloing</a>. The current mode is indicated by the illuminated 'LED' on the button.
 </p>
 <dl>
-  <dt>SiP</dt><dd><em>Solo In Place</em> is the default solo mode of Ardour. It routes the tracks/busses through their actual audio path and through the master, so its panning and effects are audible</dd>
-  <dt>PFL</dt><dd><em>Pre Fader Listen</em> is a solo routed from the point just before the fader of the soloed tracks/busses, bypassing the fader, the post-fader effects, the panner and the master</dd>
-  <dt>AFL</dt><dd><em>After Fade Listen</em> is a solo routed from the point just before the panner of the tracks/busses, bypassing the panner and the master</dd>
-  <dt>Excl. Solo</dt><dd><em>Exclusive Solo</em> only one track or bus will ever be soloed at once; soloing track B while track A is currently soloed will un-solo track A before soloing track B</dd>
-  <dt>Solo &raquo; Mute</dt><dd>If a track is both soloed and muted, determines if Solo preempts mute. When activated, a muted and soloed track will be audible.</dd>
+  <dt>SiP</dt><dd>This selects <em>Solo In Place</em> as the current solo mode and cancells the previous mode.</dd>
+  <dt>PFL</dt><dd>This selects <em>Pre Fade Listen</em> as the current solo mode and cancells the previous mode.</dd>
+  <dt>AFL</dt><dd>This selects <em>After Fade Listen</em> as the current solo mode and cancells the previous mode.</dd>
+  <dt>Excl. Solo</dt><dd>This enables or disables the <em>Exclusive Solo</em> option.</dd>
+  <dt>Solo &raquo; Mute</dt><dd>This enables or disables the <em>Solo Mute</em> option.</dd>
 </dl>
 
 <p>
-  Changing the solo mode (SiP, PFL or AFL) will update the labels on the mixer strips' labels accordingly.
+  Note : Changing the solo mode (SiP, PFL or AFL) will update the labels on the mixer strips' solo controls accordingly.
 </p>
 
 <h2>The Processors button</h2>
 
 <p>
-  The <dfn>Processors</dfn> button makes the processor box visible for the monitoring section. This processor box works exactly as the one
-  present in the <a href="/ardours-interface/the-mixer/audio-midi-mixer-strips/">tracks</a> and
-  <a href="/ardours-interface/the-mixer/busses-mixer-strips/">busses</a> strips, and any effects can be added.
+  Clicking the <dfn>Processors</dfn> button show or hides the Monitor Sections processor box. This is used in the same way as processor boxes present in <a href="/ardours-interface/the-mixer/audio-midi-mixer-strips/">tracks</a> and
+  <a href="/ardours-interface/the-mixer/busses-mixer-strips/">busses</a>. It can be used to insert pugins, e.g. a room correction EQ or a specific metering type.
 </p>
 <p>
-  This only affects auditionning, so it won't be present in e.g. an audio export of the session.
-  It is in particular very usefull to put some meters, like <a href="https://github.com/x42/meters.lv2/">needle-style</a>
-  ones, or any mesurement ones, like a frequency analysis.
+  As this processing is local to the Monitor Section it is only applied to audio that is ultimately available at the monitor outputs.
 </p>
 
 
-<h2>The Volume Knobs</h2>
+<h2>Solo level controls</h2>
 
 <p>
-  These 3 buttons affect the volume of the monitoring. They are made of a knob, and a
-  dropdown menu showing some commonly used presets.
+  These controls set the level of the audio when a channel or bus solo is engaged. 
 </p>
 <dl>
-  <dt>Solo Boost</dt><dd>If some track(s)/bus(ses) are soloed, increases their volume by that amount</dd>
-  <dt>SiP Cut</dt><dd>When is Solo in Place mode, affects the volume of the rest of the audio (the non-soloed audio). The default is -&infinity; dB, i.e. the non soloed tracks are totally inaudible. It can be raised to make the other tracks audible, though dimmed ("<em>Solo in Front</em>").</dd>
-  <dt>Dim</dt><dd>When the monitoring is dimmed (see bellow the Dim buttons), determines how intense the dimming is, i.e. from how much the signal is diminished</dd>
+  <dt>Solo Boost</dt><dd>This is the level that will be added to the current main monitor level when a track or bus is soloed, providing a conveniant boost in level for the isolated signal. The rotary control has a range of 0dB to +10dB and can be set at any point between these two values. A drop down menu with pre-defined values is also provided for convenience.</dd>
+  <dt>SiP Cut</dt><dd>Only relevant to Solo in Place mode. This sets the level that all muted tracks or busses will be muted by. By default it is -&infinity; i.e. the non soloed tracks are totally inaudible. The level can be raised to make the other tracks audible, though dimmed. This is also sometimes referred to <em>Solo in Front</em>. The rotary control has a range of -inf to +0dB and can be set at any point between these two values. A drop down menu with pre-defined values is also provided for convenience.</dd>
 </dl>
 
-<h2>The Channels Switches</h2>
+<h2>Dim level control</h2>
 
 <p>
-  For each of the channels, (e.g. <kbd class="menu">L</kbd> and <kbd class="menu">R</kbd> for stereo), 4 switches are available:
+  The Dim level control sets the amount by which the monitoring will be reduced when a Dim button is engaged. The rotary control has a range of -20dB to 0dB and can be set at any point between these two values. A drop down menu with pre-defined values is also provided for convenience.
+</p>
+  
+<h2>Monitor path controls</h2>
+
+<p>
+  Each of the individual paths through the Monitor Section, (e.g. <kbd class="menu">L</kbd> and <kbd class="menu">R</kbd> for stereo), can be controlled individually. Four functions are available:
 </p>
 <dl>
-  <dt>Mute</dt><dd>Mutes the selected channel(s)</dd>
-  <dt>Dim</dt><dd>Reduces the selected channel(s)' volume, as per the <kbd class="menu">Dim</kbd> knob above</dd>
+  <dt>Mute</dt><dd>Mutes the selected path(s)</dd>
+  <dt>Dim</dt><dd>Reduces the selected path(s) level by the amount set with the Dim level control</dd>
   <dt>Solo</dt><dd>Soloes the selected channel(s)</dd>
-  <dt>Inv</dt><dd>Inverts the selected channel(s)' polarity</dd>
+  <dt>Inv</dt><dd>Inverts the selected channel(s) polarity</dd>
 </dl>
 
-<h2>The Global Monitoring Options buttons</h2>
+<h2>Global Monitor controls</h2>
 
 <p>
   Those buttons directly affect the output of the monitoring section:
 </p>
 <ul>
-  <li><dfn>Mono</dfn>: Reduces the monitoring signal to mono.</li>
-  <li><dfn>Dim</dfn>: Reduces the selected monitoring volume, as per the <kbd class="menu">Dim</kbd> knob above</li>
+  <li><dfn>Mono</dfn>: sums all of the paths to a single mono signal and applies it to all Monitor Section outputs.</li>
+  <li><dfn>Dim</dfn>: Reduces overall monitor level by the amount set with the Dim level control.</li>
   <li><dfn>Mute</dfn>: Mutes all monitoring.</li>
 </ul>
 
-<h2>The Global Monitoring Gain Knob</h2>
+<h2>Global Monitor level</h2>
 
 <p>
-  This knob is the gain knob for all the monitoring section. The dropdown menu below
-  presents the user with a choice of current presets for monitoring volumes.
+  This control sets the level for Monitor Section output. The rotary control has a range of -inf to +6dB and can be set at any point between these two values. A drop down menu with pre-defined values is also provided for convenience.
 </p>
 
-<h2>The Monitoring Output connection selector</h2>
+<h2>Monitoring Output routing</h2>
 
 <p>
-  As for all the strips in the mixer, the outputs of the monitoring, by default
-  connected to the system's outputs, can be plugged to any combination of tracks,
-  busses, or output the user wants, with the <a href="/signal-routing/Patchbay/">Routing Grid</a>.
-  It is particularly helpfull here, because the monitoring signal is often fed to
-  the control room speakers without interrupting the normal flow of the mix.
+  Clicking on this button shows a menu that allows quick and convenient routing of the Monitor Section's outputs to audio hardware outputs, e.g. to feed control room monitors.
+  It also has an option to open Ardours routing matrix, where more detailed connectivity is available if routing to something other than hardware is required.
 </p>
