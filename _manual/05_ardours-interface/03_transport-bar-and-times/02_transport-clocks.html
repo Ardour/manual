@@ -1,0 +1,84 @@
+---
+title: The Transport Clocks
+---
+
+<img src="/images/new_main_clocks.png" alt="An image of the transport clocks in Ardour" />
+
+<p>
+  <dfn>Clocks</dfn> in Ardour are used to display <dfn>time values</dfn> precisely.
+  In many cases, they are also one way to edit (change) time values, and in a few
+  cases, the only way. All clocks share the same basic appearance and functionality,
+  which is described below, but a few clocks serve particularly important roles.
+</p>
+<p>
+  In the transport bar of the editor window there are two clocks (unless you
+  are on a very small screen), that display the current position of the playhead
+  and additional information related to transport control and the timeline. These
+  are called the <dfn>transport clocks</dfn>; the left one is the primary
+  transport clock and the right one is the secondary transport clock.
+</p>
+<p>
+  All the clocks in Ardour share the same powerfull way of editing time. Refer to
+  <a href="/introducing-ardour/basic-gui-operations/editing-clocks/">Editing Clocks</a> to learn how.
+</p>
+<p>
+  Editing the time in the transport clocks will reposition the playhead in the same
+  way that various other editing operations will.
+</p>
+
+<h2>The Special Role of the Secondary Transport Clock</h2>
+
+<p>
+  On a few occasions Ardour needs to display time values to the user, but there
+  is no obvious way to specify what units to use. The most common case is the big
+  cursor that appears when dragging regions. For this and other similar cases,
+  Ardour will display time using the same units as the secondary clock.
+</p>
+
+<h2>Why are there two transport clocks?</h2>
+
+<p>
+  Having two transport clocks lets you see the playhead position in two different
+  time units without having to change any settings. For example, you can see the
+  playhead position in both timecode units and BBT time.
+</p>
+
+<h2>Special Modes for the Transport Clocks</h2>
+
+<p>
+  In addition to the time-unit modes, each of the two transport
+  clocks (if you work on a small screen, you may only have one) can be
+  independently set to display <dfn>Delta to Edit Point</dfn> in whatever time
+  units its current mode indicates. This setting means that the clock shows the
+  distance between the playhead and the current edit point, and it may show a
+  positive or negative value depending on the temporal order of these two points.
+  The clocks will use a different color when in this mode to avoid confusion.
+</p>
+
+<p>
+  To switch either (or both!) of the transport clocks into this mode, use
+  <kbd class="menu"> Edit &gt; Preferences &gt; Transport</kbd> and select
+  the relevant checkboxes.
+</p>
+
+<p>
+  Note that when in <samp>Delta to Edit Point</samp> mode, the transport clocks
+  cannot be edited.
+</p>
+
+
+<h2>The Big Clock</h2>
+
+<p>
+  To show the current playhead position in a big, resizable window, activate
+  <kbd class="menu">Window &gt; Big Clock</kbd>. The big clock is very useful
+  when you need to work away from the screen but still want to see the playhead
+  position clearly (such as when working with a remote control device across
+  a room). The big clock will change its visual appearance to indicate when active
+  recording is taking place. Below on the left is a screenshot showing a fairly
+  large big clock window filling a good part of the display, and on the right,
+  the same clock during active recording.
+</p>
+
+<a href="/images/bigclock.png"><img src="/images/bigclock.png" height="100" alt="an image of the big clock filling a screen"></a>
+<a href="/images/bigclock-recording.png"><img src="/images/bigclock-recording.png" height="100" alt="an image of the big clock while recording"></a>
