@@ -1,18 +1,18 @@
 ---
 layout: default
-title: MIDI Binding Maps
----                        
+title: Generic MIDI Binding Maps
+---
 
 <p>
-  Ardour 2.X supported 
-  <a href="/using-control-surfaces/midi-learn/"><dfn>MIDI learning</dfn></a> 
+  Ardour 2.X supported
+  <a href="/using-control-surfaces/generic-midi/midi-learn/"><dfn>MIDI learning</dfn></a>
   for more or less any control. This was a nice feature that quite a few other
   DAWs are providing by now, but it didn't allow Ardour to work "out of the
   box" with sensible defaults for existing commercial MIDI
   controllers. In Ardour 3 and later versions, we have augmented the
-  MIDI learn feature with the ability to load a <dfn>MIDI binding map</dfn> 
+  MIDI learn feature with the ability to load a <dfn>MIDI binding map</dfn>
   for a given controller, which can set up an arbitrary number of physical
-  controls with anything inside Ardour that can be controlled. 
+  controls with anything inside Ardour that can be controlled.
 </p>
 <p>
   Currently (August 2016), we have presets for the following devices/modes:
@@ -45,28 +45,27 @@ title: MIDI Binding Maps
   At this time, new binding maps need to be created with a text editor.
 <p>
   MIDI binding maps are accessible by double-clicking <kbd class="menu">Edit
-  &gt; Preferences &gt; Control Surfaces &gt; Generic MIDI</kbd>. Ardour will 
+  &gt; Preferences &gt; Control Surfaces &gt; Generic MIDI</kbd>. Ardour will
   retain your selection after you choose one.
 </p>
 
 <h2>Creating new MIDI maps</h2>
 <h3>The Basic Concept</h3>
 <p>
-  Since the beginning of time (well, sometime early in the 2.X series), 
-  Ardour has had the concept of identifying each track and bus with a 
-  <dfn>remote control ID</dfn>. This ID uniquely identifies a track or bus 
-  so that when messages arrive from elsewhere via MIDI or OSC , we can determine 
-   which track or bus they are intended to control. Ardour has a 
+  Since the beginning of time (well, sometime early in the 2.X series),
+  Ardour has had the concept of identifying each track and bus with a
+  <dfn>remote control ID</dfn>. This ID uniquely identifies a track or bus
+  so that when messages arrive from elsewhere via MIDI or OSC , we can determine
+   which track or bus they are intended to control. See
    <a
-  href="/working-with-tracks/controlling-track-ordering/track-ordering-and-remote-control-ids/">number 
-   of ways of assigning remote control IDs</a>, but they don't really matter 
-   very much when creating MIDI binding maps, so we won't discuss that here. 
-   You just need to know that there is a "first track" and its remote control 
+  href="/working-with-tracks/controlling-track-ordering/track-ordering-and-remote-control-ids/">
+   remote control IDs</a> for more information.
+   You just need to know that there is a "first track" and its remote control
    ID is 1, and so on.
 </p>
 <h3>Getting Started</h3>
 <p>
-  MIDI bindings are stored in files with the suffix ".map" attached to their 
+  MIDI bindings are stored in files with the suffix ".map" attached to their
   name. The minimal content looks like this:
 </p>
 <pre>
@@ -79,31 +78,31 @@ bindings"&gt;
   So, to start, create a file with that as the initial contents.
 </p>
 <p>
-  On OS X, Ardour loads midi maps from its binary-bundle folder in 
-  <code>Ardour-&lt;version&gt;/midi_maps/</code> and checks 
-  various other locations as well (defined by the ARDOUR_MIDIMAPS_PATH 
-  environment variable). On GNU/Linux the easiest is to save the file to 
+  On OS X, Ardour loads midi maps from its binary-bundle folder in
+  <code>Ardour-&lt;version&gt;/midi_maps/</code> and checks
+  various other locations as well (defined by the ARDOUR_MIDIMAPS_PATH
+  environment variable). On GNU/Linux the easiest is to save the file to
   <code>~/.config/ardour3/midi_maps/</code>.
 </p>
 
 <h3>Finding out what your MIDI control surface sends</h3>
 <p>
-  This is the most complex part of the job, but its still not very hard. 
-  You need to connect the control surface to an application that will show 
-  you the information that the device sends each time you modify a knob, 
-  slider, button etc. There are a variety of such applications (notably 
-  <code>gmidimon</code> and <code>kmidimon</code>, but you can actually use 
-  Ardour for this if you want. Start Ardour in a terminal window, connect 
-  MIDI ports up, and in the Preferences window, enable "Trace Input" on the 
-  relevant MIDI port. A full trace of the MIDI data received will show up in 
-  the terminal window. (Note: in Ardour3, you get a dedicated, custom dialog 
+  This is the most complex part of the job, but its still not very hard.
+  You need to connect the control surface to an application that will show
+  you the information that the device sends each time you modify a knob,
+  slider, button etc. There are a variety of such applications (notably
+  <code>gmidimon</code> and <code>kmidimon</code>, but you can actually use
+  Ardour for this if you want. Start Ardour in a terminal window, connect
+  MIDI ports up, and in the Preferences window, enable "Trace Input" on the
+  relevant MIDI port. A full trace of the MIDI data received will show up in
+  the terminal window. (Note: in Ardour3, you get a dedicated, custom dialog
   for this kind of tracing.)
 </p>
 <h3>Types of Bindings</h3>
 <p>
-  There are two basic kinds of bindings you can make between a MIDI message 
-  and something inside Ardour. The first is a binding to a specific parameter 
-  of a track or bus. The second is a binding to a function that will change 
+  There are two basic kinds of bindings you can make between a MIDI message
+  and something inside Ardour. The first is a binding to a specific parameter
+  of a track or bus. The second is a binding to a function that will change
   Ardour's state in some way.
 </p>
 <h4>Binding to Track/Bus controls</h4>
@@ -118,17 +117,17 @@ bindings"&gt;
 <h4>Message specifications</h4>
 <p>
   You can create a binding for either 3 types of channel messages, or for a
-  system exclusive ("sysex") message.  A channel message specification looks 
+  system exclusive ("sysex") message.  A channel message specification looks
   like this:
 </p>
 <code>
    &lt;Binding channel="1" ctl="13" ....
 </code>
 <p>
-  This defines a binding for a MIDI Continuous Controller message involving 
-  controller 13, arriving on channel 1. There are 16 MIDI channels, numbered 
-  1 to 16. Where the example above says <code>ctl</code>, you can alternatively 
-  use <code>note</code> (to create binding for a Note On message) or 
+  This defines a binding for a MIDI Continuous Controller message involving
+  controller 13, arriving on channel 1. There are 16 MIDI channels, numbered
+  1 to 16. Where the example above says <code>ctl</code>, you can alternatively
+  use <code>note</code> (to create binding for a Note On message) or
   <code>pgm</code>  (to create a binding for a Program Change message).
 </p>
 <p>
@@ -137,7 +136,7 @@ bindings"&gt;
   offsets rather than values. These accept Continuous Controller messages
   but treat them as offsets. These are good for banked controls as they are
   always at the right spot to start adjusting. (
-   <a href="/using-control-surfaces/midi-binding-maps/working-with-encoders/">
+   <a href="/using-control-surfaces/generic-midi/working-with-encoders/">
    Learn more about working with encoders
    </a>)
 </p>
@@ -149,7 +148,7 @@ bindings"&gt;
   &lt;Binding sysex="f0 7f 0 6 7 f7" ....
 </code>
 <p>
-  The string after the <code>sysex=</code> part is the sequence of MIDI bytes, 
+  The string after the <code>sysex=</code> part is the sequence of MIDI bytes,
   as hexadecimal values, that make up the sysex message.
 </p>
 <p>
@@ -159,9 +158,9 @@ bindings"&gt;
   &lt;Binding msg="80 60 40" ....
 </code>
 <p>
-  The string after the <code>msg=</code> part is the sequence of MIDI bytes, as 
-  hexadecimal values, that make up the message you want to bind. Using this is 
-  slightly less efficient than the other variants shown above, but is useful for 
+  The string after the <code>msg=</code> part is the sequence of MIDI bytes, as
+  hexadecimal values, that make up the message you want to bind. Using this is
+  slightly less efficient than the other variants shown above, but is useful for
   some oddly designed control devices.
 </p>
 
@@ -180,7 +179,7 @@ bindings"&gt;
 
 <h4>Control address</h4>
 <p>
-  A <dfn>control address</dfn> defines what the binding will actually control. 
+  A <dfn>control address</dfn> defines what the binding will actually control.
   There are quite a few different things that can be specified here:
 </p>
 <dl class="wide-table">
@@ -220,31 +219,31 @@ bindings"&gt;
 </dd>
 </dl>
 <p>
-  For send/insert/plugin controls, the address consists of a track/bus 
-  address (as just described) followed by a number identifying the plugin/send 
-  (starting from 1). For plugin parameters, there is an additional third 
+  For send/insert/plugin controls, the address consists of a track/bus
+  address (as just described) followed by a number identifying the plugin/send
+  (starting from 1). For plugin parameters, there is an additional third
   component: a number identifying the plugin parameter number (starting from
   1).
 </p>
 <p>
-  One additional feature: for solo and mute bindings, you can also add 
-  <code>momentary="yes"</code> after the control address. This is useful 
-  primarily for NoteOn bindings &mdash; when Ardour gets the NoteOn it 
-  will solo or mute the targetted track or bus, but then when a NoteOff 
+  One additional feature: for solo and mute bindings, you can also add
+  <code>momentary="yes"</code> after the control address. This is useful
+  primarily for NoteOn bindings &mdash; when Ardour gets the NoteOn it
+  will solo or mute the targetted track or bus, but then when a NoteOff
   arrives, it will un-solo or un-mute it.
 </p>
 
 <h4>Bindings to Ardour "functions"</h4>
 <p>
-  Rather than binding to a specific track/bus control, it may be useful to 
-  have a MIDI controller able to alter some part of Ardour's state. A 
+  Rather than binding to a specific track/bus control, it may be useful to
+  have a MIDI controller able to alter some part of Ardour's state. A
   binding definition that does this looks like this:
 </p>
 <code>
   &lt;Binding channel="1" note="13" function="transport-roll"/&gt;
 </code>
 <p>
-  In this case, a NoteOn message for note number 13 (on channel 1) will 
+  In this case, a NoteOn message for note number 13 (on channel 1) will
   start the transport rolling. The following function names are available:
 </p>
 <dl class="narrower-table">
@@ -303,54 +302,54 @@ bindings"&gt;
 <h4>Binding to Ardour "actions"</h4>
 <p>
   You can also bind a sysex or arbitrary message to any of the items
-  that occur in Ardour's main menu (and its submenus).  The best place 
-  to look for the (long) list of how to address each item is in your 
+  that occur in Ardour's main menu (and its submenus).  The best place
+  to look for the (long) list of how to address each item is in your
   keybindings file, which will contain lines that look like this:
 </p>
 <code>
 (gtk_accel_path "&lt;Actions&gt;/Editor/temporal-zoom-in" "equal")
 </code>
 <p>
-  To create a binding between an arbitrary MIDI message (we'll use a 
-  note-off on channel 1 of MIDI note 60 (hex) with release velocity 
+  To create a binding between an arbitrary MIDI message (we'll use a
+  note-off on channel 1 of MIDI note 60 (hex) with release velocity
   40 (hex)), the binding file would contain:
 </p>
 <code>
    &lt;Binding msg="80 60 40" action="Editor/temporal-zoom-in"/&gt;
 </code>
 <p>
-  The general rule, when taken an item from the keybindings file and 
-  using it in a MIDI binding is to simply strip the 
-  <code>&lt;Action&gt;</code> prefix of the second field in the 
+  The general rule, when taken an item from the keybindings file and
+  using it in a MIDI binding is to simply strip the
+  <code>&lt;Action&gt;</code> prefix of the second field in the
   keybinding definition.
 </p>
 
 <h3>Banks and Banking</h3>
 <p>
-  Because many modern control surfaces offer per-track/bus controls 
-  for far fewer tracks &amp; busses than many users want to control, 
-  Ardour offers the relatively common place concept of <dfn>banks</dfn>. Banks 
-  allow you to control any number of tracks and/or busses easily, 
-  regardless of how many faders/knobs etc. your control surface has.<br /> 
-  To use banking, the control addresses must be specified using the 
-  <dfn>bank relative</dfn> format mentioned above ("B1" to identify 
-  the first track of a bank of tracks, rather than "1" to identify 
+  Because many modern control surfaces offer per-track/bus controls
+  for far fewer tracks &amp; busses than many users want to control,
+  Ardour offers the relatively common place concept of <dfn>banks</dfn>. Banks
+  allow you to control any number of tracks and/or busses easily,
+  regardless of how many faders/knobs etc. your control surface has.<br />
+  To use banking, the control addresses must be specified using the
+  <dfn>bank relative</dfn> format mentioned above ("B1" to identify
+  the first track of a bank of tracks, rather than "1" to identify
   the first track).
 </p>
 <p>
-  One very important extra piece of information is required to use 
-  banking: an extra line near the start of the list of bindings 
-  that specifies how many tracks/busses to use per bank. If the 
-  device has 8 faders, then 8 would be a sensible value to use for 
+  One very important extra piece of information is required to use
+  banking: an extra line near the start of the list of bindings
+  that specifies how many tracks/busses to use per bank. If the
+  device has 8 faders, then 8 would be a sensible value to use for
   this. The line looks like this:</p>
 <code>
    &lt;DeviceInfo bank-size="8"/&gt;
 </code>
 <p>
   In addition, you probably want to ensure that you bind something
-  on the control surface to the <code>next-bank</code> and 
-  <code>prev-bank</code> functions, otherwise you and other users 
-  will have to use the mouse and the GUI to change banks, which 
+  on the control surface to the <code>next-bank</code> and
+  <code>prev-bank</code> functions, otherwise you and other users
+  will have to use the mouse and the GUI to change banks, which
   rather defeats the purpose of the bindings.
 </p>
 <h2>A Complete (though muddled) Example</h2>
@@ -383,9 +382,9 @@ bindings"&gt;
 &lt;/ArdourMIDIBindings&gt;
 </pre>
 <p>
-  Please note that channel, controller and note numbers are specified as 
-  decimal numbers in the ranges 1-16, 0-127 and 0-127 respectively 
+  Please note that channel, controller and note numbers are specified as
+  decimal numbers in the ranges 1-16, 0-127 and 0-127 respectively
   (the channel range may change at some point).
 </p>
-  
+
 {% children %}
