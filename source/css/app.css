@@ -606,3 +606,7 @@ samp:after {
 .alternate tr{ background: #b8d1f3; }
 .alternate tr:nth-child(odd){ background: #b8d1f3; }
 .alternate tr:nth-child(even){ background: #dae5f4; }
+
+.container { position:relative; border: none;}
+.hoverimg { position: absolute; border: none;  }
+.hoverimg:hover{ z-index:100; box-shadow: 0 0 5px 5px lightgreen; }
