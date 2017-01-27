@@ -3,6 +3,8 @@ layout: default
 title: Import Dialog
 ---
 
+<img class="right" src="/images/import-window.png" alt="The import window">
+
 <p>
   Many sessions will require the use of <dfn>existing material</dfn>,
   whether it consists of audio and/or MIDI data. Using existing samples,
@@ -11,10 +13,10 @@ title: Import Dialog
   underway.
 </p>
 <p>
-  You can import audio and MIDI data into your session with the
-  <dfn>Add Existing Media</dfn> dialog.
+  Importing audio and MIDI data into the session is done with the
+  <dfn>Add Existing Media</dfn> dialog, accessed by the <kbd class="menu">
+  Session &gt; Import</kbd> menu.
 </p>
-<img src="/images/209-ARDOUR_1_2_1.png" />
 
 <h2>The Soundfile Information Box</h2>
 <p>
@@ -32,7 +34,9 @@ title: Import Dialog
 <p>
   If the sample rate differs from the current session rate, it is displayed
   in red, which indicates that the file must be resampled before
-  importing.<br />
+  importing.
+</p>
+<p>
   Resampling is controlled by the <kbd class="menu">Conversion quality</kbd>
   option described below.
 </p>
@@ -41,41 +45,48 @@ title: Import Dialog
 <p>
   Files can be auditioned before importing. The slider under the play and
   stop buttons allows you to scrub around, a fader on the right side allows
-  you to control the playback volume.
+  to control the playback volume.
+</p>
+<p>
+  Auditionning MIDI files requires a MIDI instrument to be chosen in the <kbd class="menu">
+  Instrument</kbd> dropdown list.
 </p>
 
 <h2>Importing options</h2>
 <p>
-  You can import files into new, automatically created tracks, to the region
-  list (from where you can manually drag them into a track), or as new
-  <a href="/working-with-tracks/track-types/">Tape tracks</a> with the
-  <kbd class="menu">Add new files as...</kbd> option.
+  Through the <kbd class="menu">Add files...</kbd> option, imported files can be inserted in the session:
 </p>
+<dl>
+  <dt>as new tracks</dt><dd>automatically creates new tracks and import the files in it</dd>
+  <dt>to region list</dt><dd>adds the files to the <a href="/ardours-interface/editor-lists/region-list/">region list</a>, from where then can be manually dragged into a track</dd>
+  <dt>as new tape tracks</dt><dd>adds the files as <a href="/working-with-tracks/track-types/">Tape tracks.</a></dd>
+</dl>
 <p>
-  New files will be inserted at either the file timestamp (if available,
-  zero by default), at the <a href="/ardours-interface/the-edit-point-control/">edit point</a>, at the
-  playhead, or at the start of the session, as specified in <kbd
-  class="menu">Insert at...</kbd>.
+  The <kbd class="menu">Insert at</kbd> option chooses where in time the file will be imported, amongst:
 </p>
+</ul>
+  <li>the <dfn>file timestamp</dfn> (if available, zero by default)</li>
+  <li>at the <a href="/ardours-interface/the-edit-point-control/"><dfn>edit point</dfn></a></li>
+  <li>at the <dfn>playhead</dfn></li>
+  <li>at the <dfn>session start</dfn>.</li>
+</ul>
 <p>
-  The Channel <kbd class="menu">mapping</kbd> is either "one track/region per
-  file", or "one track/region per channel". The latter splits multichannel
-  source files into mono regions.<br />
-  If you have selected multiple files and are importing them into a track,
-  you can also choose whether to sequence all files into a single track in
-  the order of selection, or to create as many tracks as there are files to
-  import.
+  The Channel <kbd class="menu">Mapping</kbd> option is only available for
+  multi-channel files (i.e. all but mono ones). It is either
 </p>
+<dl>
+  <dt>one track/region per file</dt><dd>Creates a multi channel track for each imported file</dd>
+  <dt>one track/region per channel</dt><dd>Creates only mono channels, as many as there are channels in the imported files</dd>
+  <dt>sequence files</dt><dd>If multiple files are imported, they can be sequenced into a single track in the order of selection</dd>
+</dl>
 <p>
   The <kbd class="menu">Conversion quality</kbd> drop-down controls the
   quality of the resampling process, if the sampling rate of the source file
   differs from the session rate.
 </p>
 <p>
-  Finally, and most importantly, you can decide whether to <kbd
-  class="option">Copy files to session</kbd>, or to link them. Please read
+  Finally, and most importantly, the the files can be linked or copied to the session
+  with the <kbd class="option">Copy files to session</kbd> checkbox. Please read
   <a href="/adding-pre-existing-material/copying-versus-linking/">Copying
   versus Linking</a> for details.
 </p>
-
-{% children %}
