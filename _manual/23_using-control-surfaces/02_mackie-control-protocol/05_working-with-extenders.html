@@ -5,21 +5,35 @@ menu_title: Working With Extenders
 ---
 
 <p>
-  Extenders will require a custom file as there are no combinations listed
-  at this time. The best way is to start with the mc.device file and copy it
+  There are currently 5 devices preconfigured to work with extenders.
+  Two of them are for one master and one extender with the master on the
+  right side or master on the left side. There are three presets for a
+  master and two extenders with the master on the left, in the center
+  and on the right. While these files will work for many uses there may
+  be cases where a custom device profile makes more sense. 
+  The best way is to start with the *.device file that matches your 
+  master device and copy it
   to a new name such as xt+mc.device and then edit that file. It is best to
   name the file with the order the devices are expected to be used in as
   the position of the master device is specified in this file.
 </p>
 <p>
-  The two lines of interest are:
+  The three lines of interest are:
 <p>
 <pre>
+ &lt;Name value="Device name"/&gt;
  &lt;Extenders value="0"/&gt;
  &lt;MasterPosition value="0"/&gt;
 </pre>
 <p>
-  Add these two lines if they are not present. The <code>Extenders</code>
+  Add any lines that are not present.
+</p>
+<p>
+  The <code>Name</code> value should be a unique name so it is obvious
+  in the list of devices.
+</p>
+<p>
+  The <code>Extenders</code>
   value is the number of extenders used and should not include the master in
   that number.
 </p>
