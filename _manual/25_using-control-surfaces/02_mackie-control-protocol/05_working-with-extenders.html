@@ -11,9 +11,12 @@ menu_title: Working With Extenders
   master and two extenders with the master on the left, in the center
   and on the right. While these files will work for many uses there may
   be cases where a custom device profile makes more sense. 
-  The best way is to start with the *.device file that matches your 
-  master device and copy it
-  to a new name such as xt+mc.device and then edit that file. It is best to
+  The best way is to start with the *.device file in the <a
+  href="/appendix/files-and-directories/">
+  sytem config sub directory mcp</a> that matches your
+  master device and copy it to a new name such as xt+mc.device in the
+  <a href="/appendix/files-and-directories/">
+  user config sub directory mcp</a> and then edit that file. It is best to
   name the file with the order the devices are expected to be used in as
   the position of the master device is specified in this file.
 </p>
@@ -30,7 +33,7 @@ menu_title: Working With Extenders
 </p>
 <p>
   The <code>Name</code> value should be a unique name so it is obvious
-  in the list of devices.
+  in the list of devices (so change it).
 </p>
 <p>
   The <code>Extenders</code>
@@ -40,9 +43,17 @@ menu_title: Working With Extenders
 <p>
   When an <code>Extenders</code> value of greater than 0 is used, extra midi
   ports will appear for the extenders to be connected to. The MIDI ports
-  for the controllers will be named <code>mackie control #1</code>,
-  <code>mackie control #2</code> and up. The numbers will go from left to
-  right. That is, from lowest number channel to highest.
+  for the controllers will be named <code>mackie control in/out</code> for
+  the master, <code>mackie control in/out ext #*</code> where * is the
+  position of the extender from left to right. So for a master in the middle
+  with an extender on either side, the ports from left to right will be
+  mackie control in/out ext #1, mackie control in/out and mackie control in/out ext #3.
+</p>
+<p>
+  If using the MCP GUI to connect surfaces the top surface is the leftmost
+  and the bottom is the rightmost. At the time of writing the top is always
+  labeled as the main (master) surface even if the leftmost surface is an
+  extender.
 </p>
 <p>
   The <code>MasterPosition</code> value is the port number the master unit
@@ -50,7 +61,7 @@ menu_title: Working With Extenders
   <code>&lt;MasterPosition value="1"/&gt;</code> will expect the master on
   the left, <code>&lt;MasterPosition value="2"/&gt;</code> would be master
   in the middle and <code>&lt;MasterPosition value="3"/&gt;</code> would be
-  master on the right. So the position matches the port name.
+  master on the right.
 </p>
 <p class="note">
   The default value of <code>&lt;MasterPosition value="0"/&gt;</code> has
