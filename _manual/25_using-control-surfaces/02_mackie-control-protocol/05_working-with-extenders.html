@@ -51,17 +51,19 @@ menu_title: Working With Extenders
 </p>
 <p>
   If using the MCP GUI to connect surfaces the top surface is the leftmost
-  and the bottom is the rightmost. At the time of writing the top is always
-  labeled as the main (master) surface even if the leftmost surface is an
-  extender.
+  and the bottom is the rightmost. The GUI shows explicitly the position
+  of the main or master surface within the group of surfaces.
 </p>
+<p><img alt="the Mackie Control Device Dialog"
+     src="/images/mcp-extender-position.png"></p>
 <p>
-  The <code>MasterPosition</code> value is the port number the master unit
-  (with the master fader) is connected to. So if there are three surfaces,
-  <code>&lt;MasterPosition value="1"/&gt;</code> will expect the master on
-  the left, <code>&lt;MasterPosition value="2"/&gt;</code> would be master
-  in the middle and <code>&lt;MasterPosition value="3"/&gt;</code> would be
-  master on the right.
+  The <code>MasterPosition</code> value is the position the master unit
+  (with the master fader) is located at within the group of surfaces.
+  The surfaces are numbered from 1 at the left side and up. So if there
+  are three surfaces, <code>&lt;MasterPosition value="1"/&gt;</code> will
+  expect the master on the left, <code>&lt;MasterPosition value="2"/&gt;</code>
+  would be master in the middle and <code>&lt;MasterPosition value="3"/&gt;</code>
+  would be master on the right.
 </p>
 <p class="note">
   The default value of <code>&lt;MasterPosition value="0"/&gt;</code> has
@@ -69,6 +71,6 @@ menu_title: Working With Extenders
 </p>
 <p>
   If the <code>MasterPosition</code> value does not properly match the
-  physcal position and MIDI port, the master fader and global controls will
+  physical position and MIDI port, the master fader and global controls will
   not work. The master unit will act like an extender.
 </p>
