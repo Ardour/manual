@@ -3,14 +3,14 @@ layout: default
 title: Files and Directories Ardour Knows About
 ---
 
-<h2>Configuration Directories</h2>
+<h2>Configuration Directory</h2>
 <p>
   Ardour stores configuration files in two places. The system configuration
   directory and the user configuration directory. The system configuration
-  directory is used for stock configuration files and is used by all
-  users on any one system. The user configuration directory is used by
-  Ardour to store configuration changes made in the GUI as well as being
-  a place the user can add control surface device files, scripts etc.
+  directory is used for stock configuration files at install time.
+  The user configuration directory is used by Ardour to store
+  configuration changes made in the GUI as well as being a place the user
+  can add control surface device files, scripts etc.
 </p>
 
 <p>
@@ -19,34 +19,57 @@ title: Files and Directories Ardour Knows About
 </p>
 <h3>Linux</h3>
 <p>
-  Linux is the most variable of the platforms mainly due to Ardour obtained from
-  a distro package. If Ardour is obtained from ardour.org as a ready to install
-  and run bundle, the system configuration directory will always be in
-  /opt/Ardour-major.minor.sub/share/ That is it will match the name of the
-  file you downloaded. If Ardour is self built and installed with the
-  default install path (yes you can change this) then system configuration
-  will be in /usr/local/share/ardour*/ where * is the major number such as
-  /usr/local/share/ardour5/ for Ardour 5.6. If you have installed Ardour
-  as a package from your distro, then distro policy will dictate where
-  it is installed. /usr/share/ardour*/ is quite common and a good place to start
-  looking. However, the Ardour development team does not support these
-  distro builds nor keep track of where they may put things.
-</p>
-<p>
   The user configuration directory will be somewhere inside the user's
-  home directory. A normal place to find this is ~/.config/ardour*/ where
-  * is the major version. However this can be set by the system with the
-  $XDG_CONFIG_HOME environment variable to something else. If you can not
-  find ~/.config/ on your system try echo ${XDG_CONFIG_HOME} to see if your
-  distro is using something else.
+  home directory. The home directory on a linux system is normally
+  <code>/home/$USER/</code>, but should also be returned by <code>$HOME</code>
+  or <code>~</code>.
+  A normal place to find this is <code>$HOME/.config/ardour*/</code> where
+  <code>*</code> is the major version. However this can be set by the system with the
+  <code>$XDG_CONFIG_HOME</code> environment variable to something else. If you cannot
+  find <code>$HOME/.config/</code> on your system try <code>echo ${XDG_CONFIG_HOME}</code>
+  to see if your distro is using something else. In any case Ardour
+  appends the <code>ardour*</code>
+  directory to the result where <code>*</code> is the major version number.
+  For example, <code>ardour5</code> where the Ardour version is 5.6.
 </p>
-<h3>OSx or MacOS</h3>
+<p class="note">
+  In Linux, all path names are lower case and case matters.
+</p>
+
+<h3>macOS</h3>
+
 <p>
-  maybe someone who has a MAC can complete this section.
+  The user configuration directory on macOS is
+  <code>$HOME/Library/Preferences/Ardour*/</code> where <code>*</code>
+  is the major version number.
+  For example, <code>Ardour5</code> where the Ardour version is 5.6.
 </p>
 <h3>Windows</h3>
 <p>
-  This section also needs someone with real knowledge to complete it.
+  Windows users are not expected to hand edit configuration files at all.
+  It is expected configuration options are changed with some sort of GUI
+  tool. For the most part all of Ardour's configuration is taken care of
+  by the GUI in preferences. However, there are devices that may need a
+  custom file and that would be in the users configuration directory.
+</p>
+<p>
+  Ardour asks the system for this directory and then appends
+  <code>Ardour*</code>
+  to the path where <code>*</code> is the major version number.
+  For example, <code>Ardour5</code> where the Ardour version is 5.6.
+  The official path would look like:
+  <code>%localappdata%\Ardour5\</code> Windows expands
+  <code>%localappdata%</code> to
+  a real path.
+</p>
+<p>
+  An example of a configuration path in Window (from xp) would be:
+  <code>C:\Documents and Settings\&lt;User&gt;\Application Data\Local Settings\Ardour5\</code>
+  The user in the path would be the user's account name.
+</p>
+<p class="note">
+  The above is only an example and may not even be true for all installations
+  of Windows XP.
 </p>
 
 <h2>Plugins</h2>
@@ -58,48 +81,51 @@ title: Files and Directories Ardour Knows About
 <h3>Linux</h3>
 <p>
   In linux there are 3 kinds of plugins Ardour can use. LADSPA, LV2 (LADSPA version 2)
-  or lxvst (VSTs compiles as native linux binaries). While it is possible
+  or lxvst (VSTs compiled as native linux binaries). While it is possible
   with some strange magic to run <a href="/working-with-plugins/windows-vst-support/">Windows VSTs</a>
   on linux, their whereabouts would follow the Windows info below.
 </p>
 
 <h4>LADSPA</h4>
 <p>
-  LADSPA plugins should be found in  /usr/lib/ladspa/, /usr/local/lib/ladspa/
+  LADSPA plugins should be found in  <code>/usr/lib/ladspa/</code>,
+  <code>/usr/local/lib/ladspa/</code>
   or in a directory mentioned in your LADSPA_PATH environment variable.
   The most common mistake made by distro packagers, is to use a path
-  like /usr/lib/$ARCH/ladspa/ and find that Ardour will not find that by
+  like <code>/usr/lib/$ARCH/ladspa/</code> and find that Ardour will not find that by
   default. The user can either add a link from this actual directory to
   the standard directory or add this path to LADSPA_PATH.
 </p>
 
 <h4>LV2</h4>
 <p>
-  LADSPA plugins should be found in  /usr/lib/lv2/, /usr/local/lib/lv2/
+  LADSPA plugins should be found in  <code>/usr/lib/lv2/</code>,
+  <code>/usr/local/lib/lv2/</code>
   or in a directory mentioned in your LV2_PATH environment variable.
   The most common mistake made by distro packagers, is to use a path
-  like /usr/lib/$ARCH/lv2/ and find that Ardour will not find that by
+  like <code>/usr/lib/$ARCH/lv2/</code> and find that Ardour will not find that by
   default. The user can either add a link from this actual directory to
   the standard directory or add this path to LV2_PATH.
 </p>
 
 <h4>Linux VST or lxvst</h4>
 <p>
- They are typically installed in /usr/lib/lxvst, /usr/local/lib/lxvst or
+ They are typically installed in <code>/usr/lib/lxvst</code>,
+ <code>/usr/local/lib/lxvst</code> or
  a directory mentioned in your LXVST_PATH environment variable. However,
  this is not a standard and the VST plugin developer may install the plugin
  just about anywhere. Therefore Ardour allows the user to set extra VST
  paths in the preferences GUI under Plugins&gt;VST.
 </p>
 
-<h3>OSX or MacOS</h3>
+<h3>macOS</h3>
 <p>
   On the Mac, plugins are expected to be installed correctly Ardour uses
   the system tool to scan for AU style plugins and LV2s should be in the right
-  place. LV2 should be in $HOME/Library/Audio/Plug-Ins/LV2
-  /Library/Audio/Plug-Ins/LV2
-  /usr/local/lib/lv2
-  /usr/lib/lv2
+  place. LV2 should be in <code>$HOME/Library/Audio/Plug-Ins/LV2/</code>
+  <code>/Library/Audio/Plug-Ins/LV2/</code>
+  <code>/usr/local/lib/lv2/</code>
+  <code>/usr/lib/lv2/</code>
   If an AU or LV2 plugin does not show up on a Mac it is probably
   a development fault with the plugin and the plugin will not work with anything.
   Ardour in Ardour 5.6 has support for native VST plugins. That is VST
@@ -124,13 +150,8 @@ title: Files and Directories Ardour Knows About
 </p>
 <h4>LV2</h4>
 <p>
-  The LV2 standard for Windows is %APPDATA%/LV2 or %COMMONPROGRAMFILES%/LV2
-</p>
-
-<h4>LADSPA</h4>
-<p>
-  While there are LADSPA plugins for Windows, I have been unable to find
-  the standard path for them... perhaps someone knows?
+  The LV2 standard for Windows is <code>%APPDATA%/LV2/</code> or
+  <code>%COMMONPROGRAMFILES%/LV2/</code>
 </p>
 
 <h2>Project Directory</h2>
