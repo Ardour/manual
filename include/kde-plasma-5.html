@@ -1,0 +1,61 @@
+---
+title: KDE Plasma 5
+---
+
+<p>
+  Under <dfn>KDE Plasma 5</dfn>, plugin and various other windows will not stay
+  on top of any main window; therefore a workaround is required.
+</p>
+
+<h2>Workaround for ancillary windows not staying on top in KDE Plasma 5</h2>
+
+<p>
+  In order to force ancillary windows in Ardour to stay on top, the following
+  steps are necessary:
+</p>
+
+<ol>
+  <li>Launch the <kbd class="menu">System Settings</kbd> application.</li>
+  <li>Open <kbd class="menu">Workspace &gt; Window Managment</kbd>.</li>
+  <li>Select <kbd class="menu">Window Rules</kbd> in the left-hand sidebar. It
+  should default to the <kbd class="menu">Window matching</kbd> tab.</li>
+  <li>Click on the <kbd class="menu">New...</kbd> button.</li>
+  <li>On the line that says <kbd class="menu">Window class (application)</kbd>,
+  set the combo box to <kbd class="menu">Substring Match</kbd> and type <kbd
+  class="user">ardour</kbd> in the text entry field.</li>
+  <li>In the list box that is labeled <kbd class="menu">Window types:</kbd>,
+  click on the option <kbd class="menu">Dialog Window</kbd>, then press and
+  hold <kbd>Ctrl</kbd> while clicking on the second option <kbd
+  class="menu">Utility Window</kbd>.</li>
+  <li>Select the <kbd class="menu">Arrangement & Access</kbd> tab.</li>
+  <li>Check the box next to the <kbd class="menu">Keep above</kbd> option. On
+  the same line, select <kbd class="menu">Force</kbd> from the combo box, then
+  click on the <kbd class="menu">Yes</kbd> radio button for that line.</li>
+  <li>Click on the <kbd class="menu">OK</kbd> button to dismiss the dialog.
+  </li>
+</ol>
+
+<p>
+  At this point you can close the <kbd class="menu">System Settings</kbd>
+  application.
+</p>
+
+<h3>Background Info</h3>
+
+<p>
+  <a href="https://bugs.kde.org/show_bug.cgi?id=172615#c26">According to one of
+  the lead KDE developers</a>, they are not willing to follow the <abbr
+  title="Inter-Client Communication Conventions Manual">ICCCM</abbr> standard
+  for utility windows. Apparently they are alone in this understanding, as
+  plugin windows on Ardour under Linux work out of the box on every other <abbr
+  title="Window Manager">WM</abbr> out there.
+</p>
+
+<p>
+  Under KDE 4, there was a workaround in Ardour (<kbd class="menu">Preferences
+  &gt; Theme &gt; All floating windows are dialogs</kbd>) that would "trick"
+  KDE into forcing certain window types to be on top of their parent windows,
+  but this no longer works under KDE Plasma 5.
+</p>
+
+

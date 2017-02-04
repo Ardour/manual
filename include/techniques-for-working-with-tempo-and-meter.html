@@ -1,0 +1,88 @@
+---
+title: Techniques for Working with Tempo and Meter
+---
+
+<h3>Techniques </h3>
+
+<p>
+  As a general approach, the best way to control tempo ramps is to use them in pairs.
+</p>
+
+<p>
+  Lets imagine we want to match the click to a drum performance recorded in 'free time'.
+</p>
+
+<p>
+  The first thing we need to do is determine where the first beat is. Drag the first meter to that position.
+</p>
+
+<p>
+  Now the first click will be in time with the first beat. To get all the other beats to align, we listen to the drums and visually locate the position of bar 4. You may wish to place the playhead here.
+</p>
+
+<p>
+  We then locate bar 4 in the BBT ruler and while holding the constraint modifier, drag it to bar 4 in the drum performance.
+</p>
+
+<p>
+  We notice that the click now matches the first 4 bars, but after that it wanders off. You will see this reflected in the tempo lines.. they won't quite match the drum hits. We now locate the earliest position where the click doesn't match, and place a new tempo just before this. Two bars later, place another new tempo.
+</p>
+
+<p>
+  Now while dragging any beat <strong>after</strong> the second new tempo, watch the drum audio and tempo lines until they align.
+</p>
+
+<p class="note">
+  Notice what is happening here: the tempo previous to your mouse pointer is being changed so that the beat you grabbed aligns with the pointer. Notice that the tempo lines previous to the changed one also move. This is because the previous tempo is ramping <strong>to</strong> the tempo you are changing. Look further to the left. The tempo lines in the first four bars do not move.
+</p>
+
+<p>
+  Again, some time later the click will not align. I didn't say this was easy.
+</p>
+
+<p>
+  Repeat the same technique: add two new tempos and drag the BBT ruler <strong>after</strong> the newest tempo so that the beats align with the audio again.
+</p>
+
+<p>
+  In a general sense, adding tempo markers in pairs allows you to 'pin' your previous work while you move further to the right.
+</p>
+
+<h3>Another use case: matching accelerando</h3>
+
+<p>
+  Imagine you have some video and have located where your music cue begins. Move the first meter to that frame (you may snap to TC frames, but not music with an audio locked meter).
+</p>
+
+<p>
+  Find a starting tempo by listening to the click while you drag the meter's tempo vertically using the constraint modifier.
+</p>
+
+<p>
+  You have the playhead at point where the dude slams the phone down, and your idea was that 4|1|0 would be good for this, but you want an accelerando to that point.
+</p>
+
+<p>
+  Add a tempo at bar 4.
+</p>
+
+<p>
+  Holding down the constraint modifier, and with snap set to 'TC Frames', grab the BBT ruler just <strong>after</strong> 4|1|0. Drag the ruler so that 4|1|0 snaps to the 'phone' frame.
+</p>
+
+<p class="note">
+  Notice what happened: The second tempo was changed.<br />
+  You had set a musical position for the second tempo marker. It was not aligned with the frame you wanted, so you dragged the BBT ruler, making the second tempo provide enough pulses over the ramp for 4|1|0 to align with the desired frame.
+</p>
+
+<p>
+  If the ramp doesn't feel right, you may add more points within it and keep adjusting beat positions in a similar manner.
+</p>
+
+<h3>General</h3>
+
+<p>
+  Audio locked meters can be useful when composing, as they allow a continuous piece of music to be worked on in isolated segments, preventing the listening fatigue of a fixed form. Reassembly is left as an excercise for the reader.
+</p>
+
+
