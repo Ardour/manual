@@ -114,9 +114,9 @@ is renamed or moved to another sub-directory, links should be ok.
 <dfn>
 encloses a newly introduced term that is being explained. Use for the first
 occurrence of the main concept of every manual page, or the first occurrence
-of a new concept after a sub-heading if necessary. Renders in bold face.
-Keep in mind that <dfn> tags might be used to generate an index of keywords
-- don't pollute it too much.
+of a new concept after a sub-heading if necessary. Renders in bold face. Keep
+in mind that <dfn> tags might be used to generate an index of keywords--don't
+pollute it too much.
 
 <abbr>
 is used to explain an abbreviation such as <abbr title="Linux Audio
@@ -124,7 +124,7 @@ Developers Simple Plugin API">LADSPA</abbr>. Browsers will usually pop up the
 definition when the user hovers over the word. Renders as dotted underlined
 in most browsers.
 On each page, use only for the first occurrence of every abbreviation. Avoid
-a redundant explanation in the text - the expansion can easily be extracted 
+a redundant explanation in the text--the expansion can easily be extracted 
 via CSS for printing.
 Use only in the text body, not in headings.
 
@@ -138,6 +138,7 @@ is used to strongly emphasize a word. Commonly rendered in bold.
 See above for usage.
 
 <br />
+Most of the time, these should be avoided, and used very infrequently.
 A line-break can sometimes be used to structure a paragraph, or to split a
 longish heading. Never use spurious <br/>s at the end of paragraphs or to
 control the spacing of sections. If you're unhappy with those, fix the CSS
@@ -191,6 +192,9 @@ So if you want the user to press Ctrl-N on Linux, that's actually <kbd
 class="mod1">N</kbd>. It will render as "Ctrl N" for you, and as "Cmd N" for
 your Mac-using friend. Nice, uh?
 
+N.B.: If you want to have just the name of the modifier key by itself, use
+<kbd class="mod1>&zwnj;</kbd> (zero-width non-joiner).
+
 For anything you want the user to type, use <kbd> as a block-level element.
 See above for other <kbd> classes to denote menu items, selections, mouse
 events and controller actions.
@@ -227,7 +231,8 @@ descriptive 'alt="A short textual description of the image content"'
 element.
 Images are usually placed as block-level elements, i.e. outside of a
 paragraph, unless they are no higher than one row and make sense in the text
-flow.
+flow. Aside from this exception, they should *always* be wrapped inside of a
+<p></p> block.
 
 5. Other conventions
 ====================
@@ -240,21 +245,27 @@ flow.
   kind of subtle inflection, use semantic markup instead.
 * The hyphen is used to for compound words such as this well-advised example.
 * Do not hyphenate words at line breaks.
-* For breaks in thought &mdash; such as this splendid example &mdash; use
-  the long em-dash.
-* For ranges of values, use the en-dash: Monday &ndash; Friday, 0 &ndash;
-  11.
+* For breaks in thought&mdash;such as this splendid example&mdash;use
+  the long em-dash. Note that the em-dash is snugged up against the text on both
+  sides--this is the proper way to use them.
+* For ranges of values, use the en-dash: Monday&ndash;Friday, 0&ndash;11. Note
+  again, the en-dash is snugged up to its surrounding elements.
 * Use a non-breaking space ("&nbsp;") between a number and its unit.
+* Colons (":") always snug up to their text on the left: it is an error to add
+  space between text on the left and the colon.
 
 
 5.2 Language
 ------------
 
-* The Ardour manual is written in Americal English spelling.
+* The Ardour manual is written in American English spelling.
 * Use SI units with standard abbreviations. Give imperial units only as
   additional information, if at all.
-* Do not use contractions like "you'll", always write full forms.
-* Do not over-use "You", write about the program, not the user.
+* Do not use contractions like "it'll", always write full forms.
+* Do not over-use "You", write about the program, not the user. Avoid it if at 
+  all possible, it makes for tighter and better reading text.
+* Always write out numbers less than 11. E.g., "One or two ..." instead of
+  "1 or 2 ...".
 
 
 5.3 Chapter Headline Capitalization
@@ -297,6 +308,8 @@ content per heading and you do not expect the article to grow.
 * If pages grow long, consider splitting them into sub-chapters at their
 headings.
 * Nobody needs "the next paragraph is about the following" paragraphs.
+* When creating a <p class="note">NOTE</p>, *do not* put the word NOTE into
+  the note, the styling tells the user that it is a note.
 
 5.6. Encoding
 -------------
@@ -306,3 +319,4 @@ headings.
 HTML character entities instead, for example for cursor arrows: &rarr;
 &larr; &uarr; &darr;. Diacriticals on vowels and other special letters are
 probably ok by now, so don't bother with &eacute; and friends, just type é.
+
