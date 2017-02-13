@@ -114,6 +114,9 @@ for line in master:
 			if 'link' in header:
 				explode.write('link: ' + header['link'] + '\n')
 
+			if 'uri' in header:
+				explode.write('uri: ' + header['uri'] + '\n')
+
 			if 'style' in header:
 				explode.write('style: ' + header['style'] + '\n')
 

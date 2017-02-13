@@ -112,12 +112,18 @@ def GetFileStructure():
 			level = PartToLevel(hdr['part'])
 			hdr['level'] = level
 			fnames[level] = MakeFilename(hdr['title'])
-			fullName = ''
 
-			for i in range(level + 1):
-				fullName = fullName + fnames[i] + '/'
+			# Ickyness--user specified URIs
+			if 'uri' in hdr:
+				hdr['filename'] = hdr['uri']
+			else:
+				fullName = ''
 
-			hdr['filename'] = fullName.rstrip('/')
+				for i in range(level + 1):
+					fullName = fullName + fnames[i] + '/'
+
+				hdr['filename'] = fullName.rstrip('/')
+
 			fs.append(hdr)
 
 			if ('include' not in hdr) and (level > 0):
@@ -466,7 +472,10 @@ for header in fileStruct:
 	page = page.replace('{{ content }}', content + more)
 
 	# Create the directory for the index.html file to go into
-	os.mkdir(siteDir + header['filename'], 0o775)
+	# (we use makedirs, because we have to in order to accomadate the 'uri'
+	# keyword
+#	os.mkdir(siteDir + header['filename'], 0o775)
+	os.makedirs(siteDir + header['filename'], 0o775, exist_ok=True)
 
 	# Finally, write the file!
 	destFile = open(siteDir + header['filename'] + '/index.html', 'w')

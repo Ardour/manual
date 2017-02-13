@@ -94,6 +94,9 @@ for line in master:
 			if 'link' in header:
 				implode.write('link: ' + header['link'] + '\n')
 
+			if 'uri' in header:
+				implode.write('uri: ' + header['uri'] + '\n')
+
 			if 'style' in header:
 				implode.write('style: ' + header['style'] + '\n')
 
