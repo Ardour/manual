@@ -97,6 +97,5 @@ internet access. You will need `git`, and `python` installed.
 
 ### Helper scripts: `implode` and `explode`
 
-The `implode` and `explode` scripts exist in order to accomodate different working styles. `implode` takes all the files referenced by the `include` keywords in the headers in the Master Document and automagically puts them into the Master Document in their proper places. Note that any header that has an `exclude` keyword will remain in the `include/` directory. `explode` does the inverse of `implode`; it takes all the content in the Master Document and blows it into individual files in the `include/` directory. Filenames are automagically derived from the value of the `title` keyword.
-
+The `implode` and `explode` scripts exist in order to accomodate different working styles. `implode` takes all the files referenced by the `include` keywords in the headers in the Master Document and automagically puts them into the Master Document in their proper places. Note that any header that has an `exclude` keyword will remain in the `include/` directory. `explode` does the inverse of `implode`; it takes all the content in the Master Document and blows it into individual files in the `include/` directory.
 

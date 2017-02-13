@@ -466,10 +466,8 @@ for header in fileStruct:
 	page = page.replace('{% prevnext %}', prevnext)
 	page = page.replace('{{ content }}', content + more)
 
-	# Create the directory for the index.html file to go into
-	# (we use makedirs, because we have to in order to accomadate the 'uri'
-	# keyword
-#	os.mkdir(siteDir + header['filename'], 0o775)
+	# Create the directory for the index.html file to go into (we use makedirs,
+	# because we have to in order to accomodate the 'uri' keyword)
 	os.makedirs(siteDir + header['filename'], 0o775, exist_ok=True)
 
 	# Finally, write the file!
