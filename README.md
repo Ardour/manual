@@ -1,3 +1,4 @@
+
 # The Ardour Manual
 
 This is the project that generates the static ardour manual website available at [manual.ardour.org](http://manual.ardour.org). The site is built using python 3.
