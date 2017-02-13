@@ -1,0 +1,74 @@
+---
+title: Other Toolbar Items
+---
+
+<h2 id="monitor-options">The Monitor Options</h2>
+
+<img src="/images/input-mode-buttons.png" alt="The Monitor options">
+
+<p>
+  These buttons allow switching the monitoring mode globally, for all the tracks at once.
+  The monitoring mode allows to decide what the user wants to be listening to, between:
+</p>
+<ul>
+	<li><dfn>All In</dfn>: all the tracks play what's on their <em>In</em>puts.</li>
+	<li><dfn>All Disk</dfn>: all the tracks play the actual content of the playlist on <em>Disk</em>.</li>
+</ul>
+<p>
+  The <kbd class="menu">Auto Input</kbd> switch allows Ardour to auto-select what is played, which is:
+</p>
+<ul>
+	<li>When not playing: all tracks are on In (to listen to any connected source)</li>
+  <li>When playing, all tracks are on Disk (to play whatever was recoded on those tracks)</li>
+	<li>When recording, on rec-enabled tracks: In and on non rec-enabled ones: Disk</li>
+</ul>
+
+
+
+<h2 id="playhead_options">The Playhead Options</h2>
+
+<img src="/images/playhead-options.png" alt="The playhead options">
+
+<p>
+  Those 2 buttons control the behaviour of the playhead:
+</p>
+<ul>
+	<li><dfn>Follow Range</dfn> is a toggle that can be used to control whether or not making a range selection will move the playhead to the start of the range.</li>
+	<li><dfn>Auto Return</dfn> is a toggle switch too. When active, pressing the Stop button returns the playhead to its previous position, and when inactive, pressing Stop keeps the playhead at its current location. Activating Auto Return can be useful for hearing the same piece of audio before and after tweaking it, without having to set a loop range on it.</li>
+</ul>
+
+<h2 id="status_indicators">The Status indicators</h2>
+
+<img src="/images/status_buttons.png" alt="The Status buttons">
+
+<p>
+  The <dfn>Status</dfn> buttons show the current session state:
+</p>
+
+<dl>
+  <dt>Solo</dt><dd>Blinks when one or more tracks are being soloed, see <a href="/mixing/muting-and-soloing/">Muting and Soloing</a>. Clicking this button disables any active explicit and implicit solo on all tracks and busses. Clicking this button desactivates the solo on every track/bus.</dd>
+  <dt>Audition</dt><dd>Blinks when some audio is auditionned, e.g. by using the import dialog, or using the <kbd class="menu">Audition</kbd> context menu in the <a href="/ardours-interface/editor-lists/region-list/">Regions List</a>. Clicking this button stops the auditionning.</dd>
+  <dt>Feedback</dt><dd>Blinks when Ardour detects a <dfn>feedback loop</dfn>, which happens when the output of an audio signal chain is plugged back to its input. This is probably not wanted and can be dangerous for the hardware and the listener.</dd>
+</dl>
+
+<h2 id="mode_selector">The Mode Selector</h2>
+
+<img src="/images/mode-selector_scripts_meter.png" alt="The Status buttons">
+
+<p>
+  The Mode Selector allows switching between the Editor and Mixer windows.
+  If a window is detached, the corresponding button is lit in blue. Clicking the botton
+  switches the detached window visibility.
+</p>
+
+<p>
+  The global meter shows the levels of the master's output. Its the same meter that sits
+  in the <a href="/ardours-interface/the-master-bus-strip/">Master's Mixer strip</a>,
+  and also shows a peak indicator, that turns red when  any level exceeds 0dB. It can
+  be reset by a <kbd class="mouse">Left</kbd> click.
+</p>
+
+<p>
+  The buttons in between the Mode Selector and the global meter are script buttons,
+  which are user-definable buttons to attach any session <a href="/lua-scripting/">lua-script</a> to.
+</p>

@@ -2,12 +2,13 @@
 title: Transport Bar
 ---
 
+<h2>The transport controls</h2>
 
 <p>
   The <dfn>Transport Bar</dfn> groups all the actions regarding the control of playback and recording.
 </p>
 
-<p><img src="/images/transport.png" alt="The transport controls" /></p>
+<img src="/images/transport.png" alt="The transport controls">
 
 <p>
   This bar is made of (from left to right):
@@ -34,31 +35,27 @@ title: Transport Bar
 </p>
 
 <p>
-  Under these buttons is the <dfn>Shuttle Speed Control</dfn> that allows to scrub through the audio quickly.
+  Under these buttons is the <dfn>Shuttle Speed Control</dfn> that allows to scrub through the audio quickly. The slider decides the playback speed : the further from the center it is set, the faster the playback will scrub in both directions.
 </p>
-
 <p>
   The Shuttle Speed Control supports 2 operating modes, that can be chosen with right click > Mode:
 </p>
-
 <ul>
   <li><dfn>Sprung mode</dfn> that allows for a temporary scrub: it only scubs while the mouse is left clicked on the control.</li>
   <li><dfn>Wheel mode</dfn> that allows to set a playback speed until the "Stop" button is pressed, which stops the playback and resets its speed.</li>
 </ul>
 
 <p>
-  The mode is displayed on the right of the control. The current playback speed is shown by a green slider, that is square and centered when the playback speed is normal (1X) and becomes a circle when its changed. The further from the center the slider is set, the faster the playback will scrub in both directions, as displayed on the left of the control.
+  On the left of the slider is the positional sync button (which might show <dfn>Internal</dfn>,
+  or <dfn>MTC</dfn> or several other values), than can be used to control whether or not the
+  transport position and start is controlled by Ardour, or by an external positional
+  synchronization source, such as MIDI Time Code (MTC), Linear Time Code (LTC) or JACK
+  (see <a href="/synchronization/timecode-generators-and-slaves/">Timecode Generators and Slaves</a>).
+</p>
 <p>
-
-<p>
-  The 3 vertical buttons on the right of the transport bar control the behaviour of the playhead:
+  The current playback status (Stop, Play, or speed %) is shown on the right of the speed slider.
 </p>
 
-<ul>
-  <li>The positional sync button (which might show <dfn>Internal</dfn>, or <dfn>MTC</dfn> or several other values) can be used to control whether or not the transport position and start is controlled by Ardour, or by an external positional synchronization source, such as MIDI Time Code (MTC), Linear Time Code (LTC) or JACK. (see <a href="/synchronization/timecode-generators-and-slaves/">Timecode Generators and Slaves</a>).</li>
-	<li><dfn>Follow Edits</dfn> is a toggle that can be used to control whether or not making a selection (range or object) will move the playhead to the start of the selection.</li>
-	<li><dfn>Auto Return</dfn> is a toggle switch too. When active, pressing the Stop button returns the playhead to its previous position, and when inactive, pressing Stop keeps the playhead at its current location. Activating Auto Return can be useful for hearing the same piece of audio before and after tweaking it, without having to set a loop range on it.</li>
-</ul>
 
 <h2>Using Key Bindings</h2>
 <p>
@@ -76,4 +73,6 @@ title: Transport Bar
   <dt><kbd>0</kbd></dt><dd>Move playhead to start of the timeline</dd>
 </dl>
 
-Go to the <kdb class="menu">Transport</kbd> and <kdb class="menu">Transport &gt; Playhead</kbd> to find more.
+<p>
+  Go to the <kdb class="menu">Transport</kbd> and <kdb class="menu">Transport &gt; Playhead</kbd> to find more.
+</p>
