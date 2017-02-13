@@ -72,6 +72,7 @@ part: subchapter
 ---
 title: Ardour Concepts
 include: ardour-concepts.html
+uri: introducing-ardour
 part: chapter
 ---
 
@@ -788,6 +789,7 @@ part: part
 ---
 title: Sessions
 include: sessions.html
+uri: working-with-sessions
 part: chapter
 ---
 
@@ -920,6 +922,7 @@ part: subchapter
 ---
 title: Tracks
 include: tracks.html
+uri: working-with-tracks
 part: chapter
 ---
 
@@ -1056,6 +1059,7 @@ part: chapter
 
 ---
 title: Playback & Recording
+uri: recording
 part: part
 ---
 
@@ -1193,6 +1197,7 @@ part: subchapter
 
 ---
 title: Editing
+uri: editing-and-arranging
 part: part
 ---
 
@@ -1359,6 +1364,7 @@ part: subchapter
 ---
 title: Playlists
 include: playlists.html
+uri: working-with-playlists
 part: chapter
 ---
 
@@ -1778,12 +1784,14 @@ part: subchapter
 ---
 title: Automation
 include: automation.html
+uri: automation
 part: chapter
 ---
 
 ---
 title: Mixdown
 include: mixdown.html
+uri: exporting
 part: chapter
 ---
 
@@ -1843,6 +1851,7 @@ part: part
 ---
 title: Working with Synchronization
 include: working-with-synchronization.html
+uri: synchronization
 part: chapter
 ---
 
@@ -1919,6 +1928,7 @@ part: subchapter
 
 ---
 title: Control Surfaces
+uri: using-control-surfaces
 part: part
 ---
 

@@ -45,6 +45,7 @@ Here are the keywords you can put in, and a brief description of what they do:
 | include | Tells the build system that the content lives in an external file; these normally live in the `include/` directory. Note that the filename should **not** be prefixed with `include/` |
 | exclude | Tells the `implode` and `explode` scripts that file referred to by the `include` keyword should be ignored. Note that the value of this keyword is ignored |
 | style   | Sets an alternate CSS stylesheet; the name should match the one referred to (sans the `.css` suffix) in the `source/css` directory |
+| uri     | Sets an absolute URI where this page will go in the hierachy of the created website. It does *not* change the document structure |
 
 ### Normal content
 
