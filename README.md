@@ -1,7 +1,10 @@
 
 # The Ardour Manual
 
-This is the project that generates the static ardour manual website available at [manual.ardour.org](http://manual.ardour.org). The site is built using python 3.
+
+This is the project that generates the static ardour manual website available at [manual.ardour.org](http://manual.ardour.org).
+
+The site is built using ruby (I use 1.9[.3]) and [liquid](http://liquidmarkup.org/), a ruby gem.
 
 ### Get the code
 
@@ -12,45 +15,80 @@ This is the project that generates the static ardour manual website available at
 
 There are 2 different types of content:
 
-- a master document which describes the overall structure of the manual
-- normal content, which is described in the master document
+- special `_manual` content
+- normal content
 
-### The Master Document
+### Special `_manual` content
 
-This is a text file (master-doc.txt) which describes the structure of the manual. It does this
-through headers which tell the build script where the content lives, what its
-relationship to the overall structure is, as well as a few other things.
+This is content that ends up as part of the tree on the left.
 
-All headers have a similar structure, and have to have at least the following
-minimal structure:
+The _raw_ content is in `_manual/` directory and has a naming convention as follows:
 
-    ---
-    title: Some Wordy and Expressive Title
-    part: part
-    ---
+    # content for a page at http://manual.ardour.org/<slug>/
 
-Keywords that go into the header are of the form:
-
-	keyword: value
-
-Here are the keywords you can put in, and a brief description of what they do:
+    <ordering>_<slug>.<html|md|textile>
+       ^          ^     ^
+       |          |     |
+       |          |   extension is removed later
+       |          |
+       |     ends up as part of URL
+       |
+     only used for ordering
 
 
-| Keyword | Meaning  |
-| ------- | -------- |
-| title   | Sets the title for the content that follows |
-| menu_title | Sets the title for the content that follows which will appear in the menu link sidebar. If this is not specified, it defaults to the value of the `title` keyword |
-| part    | Sets the hierarchy for the content that follows. It must be one of the following (listed in order of lowering hierarchy): part, chapter, subchapter, section, subsection.  |
-| link    | Sets the unbreakable link to the content that follows. Links in the *content* should be prefixed with a double at-sign (@@) to tell the build system that the link is an internal one |
-| include | Tells the build system that the content lives in an external file; these normally live in the `include/` directory. Note that the filename should **not** be prefixed with `include/` |
-| exclude | Tells the `implode` and `explode` scripts that file referred to by the `include` keyword should be ignored. Note that the value of this keyword is ignored |
-| style   | Sets an alternate CSS stylesheet; the name should match the one referred to (sans the `.css` suffix) in the `source/css` directory |
+    # a folder for subcontent is like this
+
+    <ordering>_<slug>/
+
+    # more things can then go in here for http://manual.ardour.org/<slug>/<slug2>/
+
+    <ordering>_<slug>/<ordering2>_<slug2>.html
+
+So, for example:
+
+
+| this file                        | appears at url      |
+|--------------------------------------------------------|
+| _manual/01_main.html             | /main/              |
+| _manual/01_main/01_subpage.html  | /main/subpage/      |
+
 
 ### Normal content
 
-Manual content goes into the `include/` directory (or in the Master Document itself); and consists of normal HTML, sans the usual headers that is normally seen in regular HTML web pages. Any other content, such as css files, images, files and fixed pages goes into the `source/` directory.
+This is anything else, css files, images, fixed pages, layouts. This content lives in the `source` directory.
 
-Adding `source/images/horse.png` makes it available at the url `/images/horse.png` after publishing it; things work similarly for `source/files/` and `source/css/`.
+If you added `source/images/horse.png` is would be available at the url `/images/horse.png` after publishing it.
+
+Content processing is applied to normal content if it has the correct header as described below.
+
+
+## Content processing
+
+Three types of content can have special processing done.
+
+- `.html` liquid/HTML files
+- `.md` markdown files
+- `.textile` textile files
+
+All files to be processed should also have a special header at the top too:
+
+    ---
+    layout: default
+    title: Some Very Wordy and Expressive Title
+    menu_title: Some Title
+    ---
+
+    <p>My Actual Content</p>
+
+The `title` field will end up as an `h1` in the right panel. The `menu_title` is what is used in the menu tree on the left (if not preset it will default to using `title`).
+
+### `.html` files
+
+These are almost normal html, but extended with [Liquid templates](http://liquidmarkup.org/). There are a couple of special tags created for this project.
+
+- `{% tree %}` is what shows the manual structure in the left column
+- `{% children %}` shows the immediate list of children for a page
+
 
 ## More Advanced Stuff
 
@@ -60,20 +98,21 @@ notes just in case you decide to anyway.
 ### Run it locally
 
 You may want the manual available on a machine that doesn't have constant
-internet access. You will need `git`, and `python` installed.
+internet access. You will need `git`, `ruby`, and the ruby gem `liquid` installed.
 
 1. Download code and build manual
 
   ```
   git clone <repo-url> ardour-manual
   cd ardour-manual
-  ./build.py
+  cp -r source _site
+  ruby ./build.rb
+  chmod -R a+rx _site
   ```
 
-2. open `ardour-manual/website/index.html` in your favorite web browser
+2. open `ardour-manual/_site/index.html` in your favorite web browser
 
   If this page doesn't open and function correctly, follow these optional steps to serve up the page with nginx.
-  N.B.: Step 2 will *never* work; you *must* install nginx if you want to see it!
 
 3. Install [nginx](http://wiki.nginx.org/Install)
 4. Configure nginx server block in `/etc/nginx/sites-available/default`
@@ -83,7 +122,7 @@ internet access. You will need `git`, and `python` installed.
       listen 80;
       server_name localhost;
 
-      root ...path_to_.../ardour-manual/website;
+      root ...path_to_.../ardour-manual/_site;
       index index.html;
   }
   ```
@@ -94,8 +133,20 @@ internet access. You will need `git`, and `python` installed.
 
 6. The manual will now be available at http://localhost
 
-### Helper scripts: `implode` and `explode`
+### manual.rb plugin
 
-The `implode` and `explode` scripts exist in order to accomodate different working styles. `implode` takes all the files referenced by the `include` keywords in the headers in the Master Document and automagically puts them into the Master Document in their proper places. Note that any header that has an `exclude` keyword will remain in the `include/` directory. `explode` does the inverse of `implode`; it takes all the content in the Master Document and blows it into individual files in the `include/` directory. Filenames are automagically derived from the value of the `title` keyword.
+Much of the functionality comes from `_plugins/manual.rb` - it takes the _manual format_ (contained in `_manual/`) and mushes it around a bit into a tmp directory.
+
+This is to enable the directory tree to be understood, child page lists to be constructed, clean URLs, and the correct ordering of pages maintained.
+
+### Clean URLs
+
+To allow the clean URLs (no `.html` extension) _and_ to support simple hosting (no `.htaccess` or apache configuration required) each page ends up in it's own directory with an `index.html` page for the content.
+
+E.g. `02_main/05_more/02_blah.html` after all processing is complete would end up in `_site/main/more/blah/index.html`.
+
+The page format contained in the `_manual/` directory is different to the final rendered output (see special `_manual` content above) to make it simple to create content (you don't need to think about the `index.html` files).
+
+
 
 
