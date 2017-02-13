@@ -1,0 +1,511 @@
+
+<p>
+  <abbr title="Open Sound Control"><dfn>OSC</dfn></abbr> lets synthesizers
+  and other devices communicate with Ardour. OSC devices can send commands
+  relating to playback (such as play or stop), performance (such as volume,
+  play, stop, and almost any other function (such as Edit, or Undo).
+</p>
+
+<p class="note">
+  <em>Note:</em> OSC control has changed dramatically since Ardour 4.7.
+  The Path structure has been completely redone, Banking has been introduced,
+  The controller is now able to tell Ardour what kind of feedback it can
+  work with (including bank size) and two new math styles have been added
+  to gain controls. If you are using an Ardour version of 4.7 or less,
+  please read <a
+  href="/using-control-surfaces/controlling-ardour-with-osc/osc-control-in-ardour-4.7-and-prior/">
+  Osc control in ardour 4.7 and prior.</a>
+</p>
+
+<p>
+  Ardour is probably one of the most OSC-controllable audio applications
+  around, but as with all OSC-controllable apps, you can't do much without
+  knowing what <dfn>messages</dfn> can be sent. This document describes the
+  various categories of messages that Ardour understands. It is subject to
+  change, particularly the "Actions" part below, since this relates to the
+  GTK GUI for Ardour rather than the backend.
+</p>
+
+<h2>Connecting to Ardour via OSC</h2>
+<p>
+  OSC support is not enabled by default, but can be turned on via
+  <kbd class="menu">Edit &gt; Preferences &gt; Control Surfaces</kbd>.
+  Once enabled, Ardour will listen on port <code>3819</code> by default.
+  This port number can be changed by editing <code>$ARDOUR_CONFIG</code>
+  and adding this line within the <code>&lt;Config&gt;</code> section:
+</p>
+<kbd class="input">&lt;Option name="osc-port" value="<em>Your choice
+here</em>"/&gt;</kbd>
+
+<p>
+  Ardour sends any feedback to the port and address that sent any
+  feedback request. The port does not have to match Ardour's port. In
+  fact it is better not to. This means that Ardour can deal with more
+  than one controller at a time. The two controllers can bank
+  independently and even use different math for faders. This could be
+  used to allow talent to adjust their own monitor mix using a tablet
+  or phone that can run an OSC controller. For a full explanation of
+  how Ardour's feedback works please read <a
+  href="/using-control-surfaces/controlling-ardour-with-osc/feedback-in-osc/">
+  OSC feedback In Ardour.</a>
+</p>
+
+<h2>Control Surface Set Up</h2>
+
+<p>
+  Control surface set up allows the controller to tell Ardour about it's
+  capabilities. The surface can tell Ardour how many control strips it
+  has for banking, if it is capable of setting it's faders or buttons
+  to values set by Ardour's GUI or automation, What kind of math the
+  faders use and more.
+</p>
+<p>
+  Any time the <em>/set_surface</em> command is sent, the current bank
+  is recalculated and if feedback is turned on, the values of each
+  strip's controls are sent (or refreshed) as well. This will also
+  refresh the Master feedback setup.
+</p>
+<p class="note">
+  Surface Port Setting is available in the OSC GUI.
+</p>
+<p>
+  As of Ardour 5.1, There is now a GUI setup in response to those using
+  tablets with applications such as touchOSC or AndrOSC who need to be
+  able to set a port for Ardour to send to. It can also change the
+  default setting for set_surface. For more information about Ardour's
+  OSC configuration GUI please read <a
+  href="/using-control-surfaces/controlling-ardour-with-osc/osc-setup-dialog/">
+  Ardour's Setup Dialog.</a>
+</p>
+<p>If /set_surface is not sent, the default values are used:
+  <ul>
+	  <li><em>Bank Size</em>: 0 - No banking (or infinite bank size).</li>
+	  <li><em>Strip Types</em>: All strip types except hidden and special.</li>
+	  <li><em>Feedback</em>: 0 - All off.</li>
+	  <li><em>Fader Mode</em>: 0 - gain in dB (not relevant with feedback off)</li>
+  </ul>
+</p>
+<p>
+  These values give the same behaviour as prior versions of Ardour. (or the closest possible)
+</p>
+<dl class="bindings">
+  <dt><kbd class="osc">/set_surface <em>bank_size</em> <em>strip_types</em>
+  <em>feedback</em> <em>fadermode</em></kbd></dt>
+  <dd>
+	  See below for an explanation of each parameter.
+  </dd>
+</dl>
+<h3>bank_size</h3>
+<p>
+  Bank Size is the number of channel strips the controller supports
+  without banking. Setting this to 0 turns banking off by setting the
+  bank size to infinite.
+</p>
+<p class="note">
+	Bank size can also be set with <em>/set_surface/bank_size size.</em>
+</p>
+<h3>strip_types</h3>
+<p>
+  strip_types is an integer made up of bits. The easy way to
+  deal with this is to think of strip_types items being worth a number and
+  then adding all those numbers together for a value to send.
+  Strip Types will determine what kind of strips will be included in
+  bank. This would include: Audio, MIDI, buses, VCAs, Master, Monitor
+  and hidden or selected strips.
+</p>
+<p>
+  Aside from setting the track types for the main mix assignments, using
+  /set_surface/strip_types with more than one surface button will allow
+  switching between modes for example: inputs only, buses only,
+  selected only, hidden only, by having the buttons send values of: 3,
+  12, 256, 512. A full mix button might have a value 31.
+</p>
+<p>
+  While Master and Monitor are listed as possibilities, most surfaces
+  will not use them. Using /master and /monitor makes more sense.
+  However, in the case where there are no master or monitor fader strips
+  on the surface, it may be necessary to include them in the banked
+  strips.
+</p>
+<p>Please see: <a
+  href="/using-control-surfaces/controlling-ardour-with-osc/calculating-feedback-and-strip-types-values/">
+  Calculating Feedback and Strip-types Values.</a>
+</p>
+<p class="note">
+	Strip types can also be set with <em>/set_surface/strip_types types.</em>
+</p>
+<h3>feedback</h3>
+<p>Feedback is an integer made up of bits. The easy way to
+  deal with this is to think of feedback items being worth a number and
+  then adding all those numbers together for a value to send.
+</p>
+<p>Please see: <a
+  href="/using-control-surfaces/controlling-ardour-with-osc/calculating-feedback-and-strip-types-values/">
+  Calculating Feedback and Strip-types Values.</a></p>
+<p class="note">
+	Feedback can also be set with <em>/set_surface/feedback feedback.</em>
+</p>
+
+<h3>gainmode</h3>
+<p>
+  Gainmode is a an int that acts as a bool:
+  <ul>
+	  <li><em>0 (or false)</em> dB value as a float from -193 to +6. Sent as
+	  /strip/gain SSID value. (-193 or below are the same as -inf)</li>
+	  <li><em>1 (or true)</em> A positional fader based on the same math
+	  as Ardour's GUI.  An Float from 0 to 1. Sent as
+	  /strip/fader SSID value</li>
+  </ul>
+</p>
+<p>
+  Gainmode applies only to feedback values. The controller can choose
+  which gain math to use by choosing to use the /*/gain or /*/fader path
+  to send to Ardour. This makes sure a controller that doesn't set up
+  Ardour's OSC can still use either math. The gainmode for feedback also
+  determines the path Ardour uses for feedback so that the feedback
+  messages match the control messages.
+</p>
+<p class="note">
+	Gain mode can also be set with <em>/set_surface/gainmode gainmode.</em>
+</p>
+
+<h2>Querying Ardour for information</h2>
+<p>
+  The control Surface may wish to control the type a frequency of
+  updates it receives. It can do this with querying commands. See: <a
+  href="/using-control-surfaces/controlling-ardour-with-osc/querying-ardour-with-osc/">
+  Querying Ardour with OSC.</a>
+</p>
+
+<h2>List of OSC messages</h2>
+<p class="note">
+	Parameter types show how the value will be used. However, they may
+	be sent as a different type if needed, see: <a
+	href="/using-control-surfaces/controlling-ardour-with-osc/parameter-types-in-osc/">
+	Parameter Types in OSC.</a>
+</p>
+<h3>Master or Global messages</h3>
+
+<h4>Transport Control</h4>
+<dl class="bindings">
+  <dt><kbd class="osc">/transport_stop</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/transport_play</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/toggle_roll</kbd></dt>
+  <dd>Toggles between play and stop</dd>
+  <dt><kbd class="osc">/set_transport_speed <em>s</em></kbd></dt>
+  <dd>where <em>s</em> is a float ranging from -8.0f to 8.0f</dd>
+  <dt><kbd class="osc">/ffwd</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/rewind</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/goto_start</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/goto_end</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/jump_bars <em>bars</em></kbd></dt>
+  <dd>Where <em>bars</em> is a float (+/-) of the number of bars to jump</dd>
+  <dt><kbd class="osc">/jump_seconds <em>seconds</em></kbd></dt>
+  <dd>Where <em>seconds</em> is a float (+/-) of the number of seconds to jump</dd>
+  <dt><kbd class="osc">/add_marker</kbd></dt>
+  <dd>(adds marker to the current transport position)</dd>
+  <dt><kbd class="osc">/remove_marker</kbd></dt>
+  <dd>Removes marker at the current transport position (if there is one)</dd>
+  <dt><kbd class="osc">/mark_in</kbd></dt>
+  <dd>Marks the begining of a range at the current transport position</dd>
+  <dt><kbd class="osc">/mark_out</kbd></dt>
+  <dd>Marks the end of a range at the current transport position</dd>
+  <dt><kbd class="osc">/next_marker</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/prev_marker</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/locate <em>spos</em> <em>roll</em></kbd></dt>
+  <dd>where <em>spos</em> is the target position in samples and
+  <em>roll</em> is a bool/integer defining whether you want transport
+  to be kept rolling or not</dd>
+  <dt><kbd class="osc">/loop_toggle</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/loop_location <em>start</em> <em>end</em></kbd></dt>
+  <dd><em>start</em> is the beginning of a loop and <em>end</em> is the
+  end of a loop both are integer frame positions.</dd>
+  <dt><kbd class="osc">/set_loop_range</kbd></dt>
+  <dd>Uses edit range as loop range</dd>
+  <dt><kbd class="osc">/set_session_range</kbd></dt>
+  <dd>Uses edit range as session range</dd>
+  <dt><kbd class="osc">/toggle_click</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/midi_panic</kbd></dt>
+  <dd>Ardour will send an all notes off to all midi tracks</dd>
+  <dt><kbd class="osc">/cancel_all_solos</kbd></dt>
+  <dd>Cancel All Solos/PFLs/AFLs</dd>
+</dl>
+
+<h4>Transport Information</h4>
+<dl>
+  <dt><kbd class="osc">/transport_frame</kbd></dt>
+  <dd>Ardour sends /transport_frame <em>current_frame</em></dd>
+  <dt><kbd class="osc">/transport_speed</kbd></dt>
+  <dd>Ardour sends /transport_speed <em>speed</em></dd>
+  <dt><kbd class="osc">/record_enabled</kbd></dt>
+  <dd>Ardour sends /record_enabled <em>recordenable_status</em></dd>
+</dl>
+
+<h4>Editing-related</h4>
+<dl class="bindings">
+  <dt><kbd class="osc">/undo</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/redo</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/save_state</kbd></dt>
+  <dd>(this is the regular <kbd class="menu">Session &gt; Save</kbd>
+  operation)</dd>
+  <dt><kbd class="osc">/quick_snapshot_switch</kbd></dt>
+  <dd>Take a snapshot and switch to new version</dd>
+  <dt><kbd class="osc">/quick_snapshot_stay</kbd></dt>
+  <dd>Take a snapshot and keep working on this version</dd>
+  <dt><kbd class="osc">/fit_*_track(s)</kbd></dt>
+  <dd>Were <em>*</em> is one of 1, 2, 4, 8, 16, 32 or all. Fits this
+  many tracks in editor window. (add s for more than 1)</dd>
+  <dt><kbd class="osc">/zoom_*</kbd></dt>
+  <dd>Zoom editor to include <em>*</em> where <em>*</em> is 100_ms, 1_sec,
+  10_sec, 1_min, 5_min, 10_min or to_session</dd>
+  <dt><kbd class="osc">/temporal_zoom_in</kbd></dt>
+  <dd>Zoom editor in to show less time</dd>
+  <dt><kbd class="osc">/temporal_zoom_out</kbd></dt>
+  <dd>Zoom editor out to show more time</dd>
+  <dt><kbd class="osc">/scroll_up_1_track</kbd></dt>
+  <dd>Scroll the editor pane up 1 track</dd>
+  <dt><kbd class="osc">/scroll_up_1_page</kbd></dt>
+  <dd>Scroll the editor pane up 1 page</dd>
+  <dt><kbd class="osc">/scroll_dn_1_track</kbd></dt>
+  <dd>Scroll the editor pane down 1 track</dd>
+  <dt><kbd class="osc">/scroll_dn_1_page</kbd></dt>
+  <dd>Scroll the editor pane down 1 page</dd>
+</dl>
+
+<h4>Recording control</h4>
+<dl class="bindings">
+  <dt><kbd class="osc">/toggle_punch_in</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/toggle_punch_out</kbd></dt>
+  <dd></dd>
+  <dt><kbd class="osc">/set_punch_range</kbd></dt>
+  <dd>Uses edit range as punch range</dd>
+  <dt><kbd class="osc">/rec_enable_toggle</kbd></dt>
+  <dd></dd>
+  <!--dt><kbd class="osc">/toggle_all_rec_enables</kbd></dt>
+  <dd>(toggles all tracks' recording state)</dd-->
+  <dt><kbd class="osc">/stop_forget</kbd></dt>
+  <dd>Stop transport and delete/forget last take</dd>
+</dl>
+
+<h4>Master and Monitor strip control</h4>
+<dl class="bindings">
+  <dt><kbd class="osc">/master/gain <em>dB</em></kbd></dt>
+  <dd>See gain in strips</dd>
+  <dt><kbd class="osc">/master/fader  <em>position</em></kbd></dt>
+  <dd>See fader in strips</dd>
+  <dt><kbd class="osc">/master/trimdB <em>dB</em></kbd></dt>
+  <dd>see trimdb in strips</dd>
+  <dt><kbd class="osc">/master/pan_stereo_position <em>position</em></kbd></dt>
+  <dd>See pan_stereo_position in strips</dd>
+  <dt><kbd class="osc">/master/mute  <em>yn</em></kbd></dt>
+  <dd>See mute in strips</dd>
+  <dt><kbd class="osc">/monitor/gain <em>dB</em></kbd></dt>
+  <dd>See gain in strips</dd>
+  <dt><kbd class="osc">/monitor/fader  <em>position</em></kbd></dt>
+  <dd>See fader in strips</dd>
+</dl>
+
+<h3>Track specific operations</h3>
+<p>
+  For each of the following, <em>ssid</em> is the Surface Strip ID for the track
+</p>
+<p class="note">
+  SSID has a different meaning than RID in Ardour version 4.7 and before.
+  Effectively, banking is always being used and the SSID is generated on
+  the fly. The SSID is the position of the strip within bank as an int
+  1 to bank size. There are no gaps as there have been in the past.
+  Depending on the value of strip_types sent to Ardour, Master and
+  Monitor, may be included in the list of SSIDs or not as set in
+  <em>/set_surface</em>.
+</p>
+<p class="note">
+  Some Surfaces (many Android applets) are not able to deal with more
+  than one parameter in a command. However, the two parameter commands
+  below can also be sent as /strip/command/ssid param. In this case the
+  param should be a float even if an int is required below.
+</p>
+<dl class="bindings">
+  <dt><kbd class="osc">/bank_up </kbd></dt>
+  <dd>Change bank to the next higher bank.</dd>
+  <dt><kbd class="osc">/bank_down </kbd></dt>
+  <dd>Change bank to the next lower bank.</dd>
+  <dt><kbd class="osc">/strip/mute <em>ssid</em> <em>mute_st</em></kbd></dt>
+  <dd>where <em>mute_st</em> is a bool/int representing the desired mute state of the track</dd>
+  <dt><kbd class="osc">/strip/solo <em>ssid</em> <em>solo_st</em></kbd></dt>
+  <dd>where <em>solo_st</em> is a bool/int representing the desired solo state of the track</dd>
+  <dt><kbd class="osc">/strip/solo_iso <em>ssid</em> <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is a bool/int representing the desired solo isolate state of the track</dd>
+  <dt><kbd class="osc">/strip/solo_safe <em>ssid</em> <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is a bool/int representing the desired solo safe/lock state of the track</dd>
+  <dt><kbd class="osc">/strip/monitor_input <em>ssid</em> <em>monitor_st</em></kbd></dt>
+  <dd>where <em>monitor_st</em> is a bool/int where 1 is forced input monitoring.</dd>
+  <dt><kbd class="osc">/strip/monitor_disk <em>ssid</em> <em>monitor_st</em></kbd></dt>
+  <dd>where <em>monitor_st</em> is a bool/int where 1 is forced disk monitoring. When input and disk are both off,
+  Auto monitoring is enabled.</dd>
+  <dt><kbd class="osc">/strip/recenable <em>ssid</em> <em>rec_st</em></kbd></dt>
+  <dd>where <em>rec_st</em> is a bool/int representing the desired rec state of the track</dd>
+  <dt><kbd class="osc">/strip/record_safe <em>ssid</em> <em>rec_st</em></kbd></dt>
+  <dd>where <em>rec_st</em> is a bool/int representing the desired record safe state of the track</dd>
+  <dt><kbd class="osc">/strip/polarity <em>ssid</em> <em>invert</em></kbd></dt>
+  <dd>where <em>invert</em> is a bool/int representing the desired polarity of the track</dd>
+  <dt><kbd class="osc">/strip/gain <em>ssid</em>  <em>gain</em></kbd></dt>
+  <dd>where <em>gain</em> is a float ranging from -193 to 6 representing the desired gain of the track in dB.</dd>
+  <dt><kbd class="osc">/strip/fader <em>ssid</em>  <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the fader control position.</dd>
+  <dt><kbd class="osc">/strip/trimdB <em>ssid</em>  <em>trim_db</em></kbd></dt>
+  <dd>where <em>trim_db</em> is a float ranging from -20 to 20 representing the desired trim of the track in dB.</dd>
+  <dt><kbd class="osc">/strip/pan_stereo_position <em>ssid</em> <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan position of the track</dd>
+  <dt><kbd class="osc">/strip/pan_stereo_width <em>ssid</em> <em>width</em></kbd></dt>
+  <dd>where <em>width</em> is a float ranging from 0 to 1 representing the desired pan width of the track</dd>
+  <dt><kbd class="osc">/strip/send/gain <em>ssid</em> <em>sendid</em> <em>send_gain</em></kbd></dt>
+  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
+  ranging from -193 to +6 representing the desired gain in dB for the send</dd>
+  <dt><kbd class="osc">/strip/send/fader <em>ssid</em> <em>sendid</em> <em>send_gain</em></kbd></dt>
+  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
+  ranging from 0 to 1 representing the desired position for the send as a fader</dd>
+  <dt><kbd class="osc">/strip/send/enable <em>ssid</em> <em>sendid</em> <em>state</em></kbd></dt>
+  <dd>where <em>sendid</em> = nth_send, <em>state</em> is 1 for enabled and 0 for disabled</dd>
+  <dt><kbd class="osc">/strip/list </kbd></dt>
+  <dd>see: <a href="/using-control-surfaces/controlling-ardour-with-osc/querying-ardour-with-osc/">
+  Querying Ardour with OSC.</a></dd>
+  <dt><kbd class="osc">/strip/sends <em>ssid</em></kbd></dt>
+  <dd>see: <a href="/using-control-surfaces/controlling-ardour-with-osc/querying-ardour-with-osc/">
+  Querying Ardour with OSC.</a></dd>
+  <dt><kbd class="osc">/strip/receives <em>ssid</em></kbd></dt>
+  <dd>see: <a href="/using-control-surfaces/controlling-ardour-with-osc/querying-ardour-with-osc/">
+  Querying Ardour with OSC.</a></dd>
+  <dt><kbd class="osc">/strip/plugin/list <em>ssid</em></kbd></dt>
+  <dd>see: <a href="/using-control-surfaces/controlling-ardour-with-osc/querying-ardour-with-osc/">
+  Querying Ardour with OSC.</a></dd>
+  <dt><kbd class="osc">/strip/plugin/descriptor <em>ssid</em></kbd></dt>
+  <dd>see: <a href="/using-control-surfaces/controlling-ardour-with-osc/querying-ardour-with-osc/">
+  Querying Ardour with OSC.</a></dd>
+  <dt><kbd class="osc">/strip/plugin/reset <em>ssid</em> <em>piid</em> </kbd></dt>
+  <dd>where <em>piid</em> = nth Plugin, will reset all values to the plugin's original values</dd>
+  <dt><kbd class="osc">/strip/plugin/activate <em>ssid</em> <em>piid</em> </kbd></dt>
+  <dd>where <em>piid</em> = nth Plugin, will set the plugin's state to active</dd>
+  <dt><kbd class="osc">/strip/plugin/deactivate <em>ssid</em> <em>piid</em> </kbd></dt>
+  <dd>where <em>piid</em> = nth Plugin, will set the plugin's state to inactive</dd>
+  <dt><kbd class="osc">/strip/plugin/parameter <em>ssid</em> <em>piid</em> <em>param</em> <em>value</em></kbd></dt>
+  <dd>where <em>piid</em> = nth Plugin, <em>param</em> = nth param, <em>value</em>
+  is a float ranging from 0 to 1 representing the desired parameter value</dd>
+  <dt><kbd class="osc">/strip/name <em>ssid</em> <em>name</em></kbd></dt>
+  <dd>where <em>name</em> is a string for the desired name of the track</dd>
+</dl>
+<h3>Selected Strip Operations</h3>
+<p>
+  New for Ardour 5, A whole set of operations that work on the selected
+  or expanded strip.
+</p>
+<p class="note">
+  Selected strip operations are complex enough for their own page.
+  Please read: <a
+  href="/using-control-surfaces/controlling-ardour-with-osc/selection-considerations-in-osc/">
+  Selection Considerations in OSC.</a> This is most important if more
+  than one OSC surface is being used with Ardour.
+</p>
+<p>
+  There are two kinds of selection in OSC. GUI selection and local
+  expansion. By default expansion follows selection.
+  <ul>
+	<li>
+		GUI selection: Use <em>/strip/select</em> to set.  Selecting
+		a strip in the GUI will set OSC surface select and the surface
+		will set GUI selection as well.
+	</li>
+	<li>
+		Local expansion: Use <em>/strip/expand</em> to expand a strip
+		without changing overall selection. When /strip/expand is set
+		to 0 or false, the select channel will go back to using the
+		strip selected by the GUI. While expand is turned on,
+		selecting a strip on the GUI does not
+		select the OSC strip. Sending a /strip/select message will
+		override the expand as if it had been set to false.
+		Good for more than one OSC controller at a time.
+	</li>
+  </ul>
+</p>
+
+<dl class="bindings">
+  <dt><kbd class="osc">/strip/select <em>ssid</em> <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> = 1 for select. Sets both GUI select and strip
+  to expanded mode. (0 is ignored)</dd>
+  <dt><kbd class="osc">/strip/expand <em>ssid</em> <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> = 1 for expanded mode. Sets only local strip to
+  Expanded. Setting to 0 resets the expansion to follow selection.</dd>
+  <dt><kbd class="osc">/select/expand <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> = 1 for expanded mode, 0 for Select mode.</dd>
+  <dt><kbd class="osc">/select/recenable <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> is 1 for enabled and 0 for disabled</dd>
+  <dt><kbd class="osc">/select/record_safe <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> is 1 for safe and 0 for unlocked</dd>
+  <dt><kbd class="osc">/select/mute <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> is 1 for enabled and 0 for disabled</dd>
+  <dt><kbd class="osc">/select/solo <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> is 1 for enabled and 0 for disabled</dd>
+  <dt><kbd class="osc">/select/solo_iso <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is a bool/int representing the desired solo isolate state of the track</dd>
+  <dt><kbd class="osc">/select/solo_safe <em>state</em></kbd></dt>
+  <dd>where <em>state</em> is a bool/int representing the desired solo safe/lock state of the track</dd>
+  <dt><kbd class="osc">/select/monitor_input <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> is 1 for monitor from input and 0 for auto</dd>
+  <dt><kbd class="osc">/select/monitor_disk <em>y/n</em></kbd></dt>
+  <dd>Where <em>y/n</em> is 1 for monitor from disk and 0 for auto</dd>
+  <dt><kbd class="osc">/select/polarity <em>invert</em></kbd></dt>
+  <dd>where <em>invert</em> is a bool/int representing the desired polarity of the track</dd>
+  <dt><kbd class="osc">/select/gain <em>gain</em></kbd></dt>
+  <dd>Where <em>gain</em> is a float ranging from -193 to 6 representing the desired gain of the track in dB.</dd>
+  <dt><kbd class="osc">/select/fader <em>position</em></kbd></dt>
+  <dd>Where <em>position</em> is an float ranging from 0 to 1 representing the fader control position.</dd>
+  <dt><kbd class="osc">/select/trimdB <em>trim_db</em></kbd></dt>
+  <dd>where <em>trim_db</em> is a float ranging from -20 to 20 representing the desired trim of the track in dB.</dd>
+  <dt><kbd class="osc">/select/pan_stereo_position <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan position of the track</dd>
+  <dt><kbd class="osc">/select/pan_stereo_width <em>width</em></kbd></dt>
+  <dd>where <em>width</em> is a float ranging from 0 to 1 representing the desired pan width of the track</dd>
+  <dt><kbd class="osc">/select/pan_elevation_position <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan elevation of the track</dd>
+  <dt><kbd class="osc">/select/pan_frontback_position <em>position</em></kbd></dt>
+  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired front to back position of the track</dd>
+  <dt><kbd class="osc">/select/pan_lfe_control <em>value</em></kbd></dt>
+  <dd>where <em>value</em> is a float ranging from 0 to 1 representing the desired LFE control value for the track</dd>
+  <dt><kbd class="osc">/select/send_gain", <em>sendid</em> <em>send_gain</em></kbd></dt>
+  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
+  ranging from -193 to +6 representing the desired gain in dB for the send</dd>
+  <dt><kbd class="osc">/select/send_fader", <em>sendid</em> <em>send_gain</em></kbd></dt>
+  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
+  ranging from 0 to 1 representing the desired position for the send as a fader</dd>
+  <dt><kbd class="osc">/select/send_enable", <em>sendid</em> <em>state</em></kbd></dt>
+  <dd>where <em>sendid</em> = nth_send, <em>state</em> is 1 for enabled and 0 for disabled</dd>
+</dl>
+
+<h3>Menu actions</h3>
+<p>
+  Every single menu item in Ardour's GUI is accessible via OSC. There is
+  a single common syntax to trigger the action as if it was selected
+  with the mouse (or keyboard):</p>
+<kbd class="osc">/access_action <em>action_name</em></kbd>
+<p>
+  The <a
+  href="/appendix/menu-actions-list/">
+  list of actions</a> shows all available values of <em>action-name</em> as of
+  June 2016 for Ardour 5.0.pre0.1. You can get the current list at any
+  time by running Ardour with the -b flag.
+  </p>
+
+{% children %}
+

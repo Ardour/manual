@@ -1,0 +1,50 @@
+
+<h2>Working With Regions</h2>
+<p>
+  <dfn>Regions</dfn> are the basic elements of editing and composing in 
+  Ardour. In most cases, a region represents a single contiguous section 
+  of one or more media files. Regions are defined by a fixed set of attributes:
+</p>
+<ul>
+  <li>the audio or 
+  <abbr title="Musical Instrument Digital Interface">MIDI</abbr>
+  <dfn>source file(s)</dfn> they represent,</li>
+  <li>an <dfn>offset</dfn> (the "start point") in the audio or MIDI file(s), and</li>
+  <li>a <dfn>length</dfn>.</li>
+</ul>
+<p>
+  When placed into a playlist, they gain additional attributes:
+</p>
+<ul>
+  <li>a <dfn>position</dfn> along the timeline, and</li>
+  <li>a <dfn>layer</dfn>.</li>
+</ul>
+<p>
+  There are other attributes as well, but they do not <em>define</em> the 
+  region. Things you should know about regions:
+</p>
+
+<h3>Regions Are Cheap</h3>
+<p>
+  By themselves, regions consume very little of your computer's resources.
+  Each region requires a small amount of memory, and represents a rather 
+  small amount of CPU work if placed into an active track. So, don't worry 
+  about creating regions whenever you need to.
+</p>
+
+<h3>Regions Are Not Files</h3>
+<p>
+  Although a region can represent an entire audio file, they are never 
+  equivalent to an audio file. Most regions represent just parts of an audio 
+  file(s) on disk, and removing a region from a track has nothing to do with 
+  removing the audio file(s) from the disk (the <kbd
+  class="menu">Destroy</kbd> operation, one of Ardour's few destructive
+  operations, can affect this). Changing the length of a region has no effect 
+  on the audio file(s) on disk. Splitting and copying regions does not alter 
+  the audio file in anyway, nor does it create new audio files (only
+  <dfn>recording</dfn>, 
+  and the <kbd class="menu">Export</kbd>, <kbd class="menu">Bounce</kbd> and 
+  <kbd class="menu">Reverse</kbd> operations create new audio files).</p>
+
+{% children %}
+

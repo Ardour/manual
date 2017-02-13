@@ -1,0 +1,151 @@
+
+<p>
+  This section will help you get acquainted with the basic terminology and
+  concepts associated with Ardour. More detailed information on each aspect
+  of the program is provided in later chapters.
+</p>
+
+<h2>Sessions</h2>
+<p>
+  An <dfn>Ardour session</dfn> is a container for an entire project. A
+  session may contain an arbitrary number of <dfn>tracks</dfn> and
+  <dfn>busses</dfn> consisting of audio and <abbr title="Musical Instrument
+  Digital Interface">MIDI</abbr> data, along with
+  information on processing those tracks, a mix of levels, and everything
+  else related to the project. A session might typically contain a song, or
+  perhaps an entire album or a complete live recording.
+</p>
+<p>
+  Ardour sessions are held in directories; these directories contain one or 
+  more <dfn>session files</dfn>, some or all of the audio and MIDI data and
+  a number of other state files that Ardour requires. The session file
+  describes the structure of the session, and holds automation data and
+  other details.
+</p>
+<p>
+  Ardour's session file is kept in 
+  <abbr title="eXtensible Markup Language">XML</abbr> format, which is
+  advantageous as it is somewhat human-readable, and human-editable in a
+  crisis. Sound files are stored in one of a number of optional formats, and
+  MIDI files as <abbr title="Standard MIDI File">SMF</abbr>.
+</p>
+<p>
+  It is also possible for Ardour sessions to reference sound and MIDI files
+  outside the session directory, to conserve disk space and avoid
+  unnecessary copying if the data is available elsewhere on the disk.
+</p>
+<p>
+  Ardour has a single current session at all times; if Ardour is started
+  without specifying one, it will offer to load or create one.
+</p>
+<p>
+  More details can be found at 
+  <a href="/working-with-sessions/">Working With Sessions</a>.
+</p>
+
+<h2>Tracks</h2>
+<p> 
+  A <dfn>track</dfn> is a concept common to most
+  <abbr title="Digital Audio Workstation">DAWs</abbr>, and also used in
+  Ardour. Tracks can record audio or MIDI data to disk, and then replay
+  it with processing. They also allow the audio or MIDI data to be edited
+  in a variety of different ways.
+</p>
+<p>
+  In a typical pop production, one might use a track each for the kick
+  drum, another for the snare, more perhaps for the drum overheads and
+  others for bass, guitars and vocals.
+</p>
+<p>
+  Ardour can record to any number of tracks at one time, and then play
+  those tracks back. On playback, a track's recordings may be processed by
+  any number of plugins, panned, and its level altered to achieve a
+  suitable mix.
+</p>
+<p>
+  A track's type is really only related to the type of data that it stores
+  on disk. It is possible, for example, to have a MIDI track with a
+  synthesizer plugin which converts MIDI to audio. Even though the track
+  remains MIDI (in the sense that its on-disk recordings are MIDI), its
+  output may be audio-only.
+</p>
+<p>
+  More details can be found at
+  <a href="/working-with-tracks/">Working With Tracks</a>.
+</p>
+
+<h2 id="busses">Busses</h2>
+<p>
+  <dfn>Busses</dfn> are another common concept in both DAWs and hardware
+  mixers. They are similar in many ways to tracks; they process audio or
+  MIDI, and can run processing plugins. The only difference is that their
+  input is obtained from other tracks or busses, rather than from disk.
+</p>
+<p>
+  One might typically use a bus to collect together the outputs of related
+  tracks. Consider, for example, a 3-track recording of a drum-kit; given
+  kick, snare and overhead tracks, it may be helpful to connect the output
+  of each to a bus called "drums", so that the drum-kit's level can be set
+  as a unit, and processing (such as equalisation or compression) can be
+  applied to the mix of all tracks. Such buses are also called
+  <dfn>groups</dfn>.
+</p>
+
+<h2>Regions</h2>
+<p>
+  A track may contain many segments of audio or MIDI. Ardour contains
+  these segments in things called <dfn>regions</dfn>, which are 
+  self-contained snippets of audio or MIDI data. Any recording pass, for
+  example, generates a region on each track that is enabled for recording.
+  Regions can be subjected to many editing operations; they may be moved
+  around, split, trimmed, copied, and so on.
+</p>
+<p>
+  More details can be found at
+  <a href="/working-with-regions/">Working With Regions</a>.
+</p>
+
+<h2>Playlists</h2>
+<p>
+  The details of what exactly each track should play back is described by a
+  <dfn>playlist</dfn>. A playlist is simply a list of regions; each track
+  always has an active playlist, and can have other playlists which can be
+  switched in and out as required.
+</p>
+<p>
+  More details can be found at
+  <a href="/working-with-playlists/">Working With Playlists</a>.
+</p>
+
+<h2>Plugins</h2>
+<p>
+  Ardour allows you to process audio and MIDI using any number of 
+  <dfn>plugins</dfn>. These are external pieces of code, commonly seen as
+  VST plugins on Windows or AU plugins on Mac OS X. Ardour supports
+  the following plugin standards:
+</p>
+<dl class="wide-table">
+  <dt><abbr title="Linux Audio Developers' Simple Plugin API">LADSPA</abbr></dt>
+  <dd>the first major plugin standard for Linux. Many LADSPA plugins are
+  available, mostly free and open-source.</dd>
+  <dt><abbr title="LADSPA Version 2">LV2</abbr></dt>
+  <dd>the successor to LADSPA. Lots of plugins have been ported from
+  LADSPA to LV2, and also many new plugins written.</dd>
+  <dt><abbr title="Virtual Studio Technology">VST</abbr></dt>
+  <dd>Ardour supports VST plugins that have been compiled for Linux.</dd>
+  <dt><abbr title="Audio Units">AU</abbr></dt>
+  <dd>Mac OS X versions of Ardour support AudioUnit plugins.</dd>
+</dl>
+<p>
+  Ardour has some support for running Windows VST plugins on Linux, but
+  this is rather complicated, extremely difficult for the Ardour
+  developers to debug, and generally unreliable, as it requires to run a
+  large amount of Windows code in an emulated environment.<br />
+  If it is at all possible, you are strongly advised to use native
+  LADSPA, LV2 or Linux VST plugins on Linux, or AU on Mac OS X.
+</p>
+<p>
+  More details can be found at
+  <a href="/working-with-plugins/">Working With Plugins</a>.
+</p>
+

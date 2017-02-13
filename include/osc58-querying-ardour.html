@@ -1,0 +1,150 @@
+
+<p>
+  In order to make a custom controller that knows what strips Ardour
+  has, the controller needs to be able to query Ardour for that
+  information. These set of commands are for smarter control surfaces
+  That have the logic to figure out what to do with the information.
+  These are not of value for mapped controllers like touchOSC and
+  friends. The controller will need to send these queries to ardour
+  as often as it needs this information. It may well make sense to use
+  regular feedback for things that need to be updated often such as
+  position or metering.
+  Here are the commands used to query Ardour: (added in Ardour 5.5)
+</p>
+
+<dl class="bindings">
+  <dt><kbd class="osc">/strip/list</kbd></dt>
+  <dd>Ask for a list of strips</dd>
+  <dt><kbd class="osc">/strip/sends <em>ssid</em></kbd></dt>
+  <dd>Asks for a list of sends on the strip <em>ssid</em></dd>
+  <dt><kbd class="osc">/strip/receives <em>ssid</em></kbd></dt>
+  <dd>Asks for a list of tracks that have sends to the strip <em>ssid</em> points to</dd>
+  <dt><kbd class="osc">/strip/plugin/list <em>ssid</em></kbd></dt>
+  <dd>Asks for a list of plug-ins for strip <em>ssid.</em></dd>
+  <dt><kbd class="osc">/plugin/descriptor <em>ssid</em> <em>piid</em></kbd></dt>
+  <dd>Asks for a list of descriptors for plug-in <em>piid</em> on strip <em>ssid</em></dd>
+</dl>
+
+<h3>A list of strips</h3>
+
+<p>
+  <code>/strip/list</code> asks Ardour for a list of strips that the
+  current session has. Ardour replies with a message for each
+  strip with the following information:
+  <ul>
+    <li>Strip type</li>
+    <li>Strip name</li>
+    <li>Number of inputs</li>
+    <li>Number of outputs</li>
+    <li>Muted (bool)</li>
+    <li>Soloed (bool)</li>
+    <li>Ssid (strip number)</li>
+    <li>Record enabled (bool)</li>
+  </ul>
+  After all the strip messages have been sent, one final message is
+  sent with:
+  <ul>
+    <li>The text <code>end_route_list</code></li>
+    <li>The session frame rate</li>
+    <li>The last frame number of the session</li>
+  </ul>
+</p>
+<p class="note">A bus will not have a record enable and so a bus message
+  will have one less parameter than a track. It is the controllers
+  responsability to deal with this.
+</p>
+
+<h3>A list of sends</h3>
+<p>
+  <code>/strip/sends <em>ssid</em></code> asks Ardour for a list of
+  sends for strip number ssid. The reply is sent back to the
+  controller as one message with the following information:
+  <ul>
+    <li>Ssid that information is for</li>
+    <li>Each send's information:</li>
+    <ul>
+      <li>The send's target bus ssid</li>
+      <li>The send's target bus name</li>
+      <li>The send id for this strip</li>
+      <li>The send gain as a fader possition</li>
+      <li>The Send's enable state</li>
+    </ul>
+  </ul>
+</p>
+<p>
+  The controller can tell how many sends there are from the number of
+  parameters as each send has 5 parameters and there is one extra for
+  ssid.
+</p>
+
+<h3>A list if tracks that send audio to a bus</h3>
+<p>
+  <code>/strip/receives <em>ssid</em></code> will return a list of
+  tracks that have sends to the bus at the ssid. The reply will
+  contain the following information for each track conntected to this
+  bus:
+  <ul>
+    <li>The ssid of the track sending</li>
+    <li>The name of the sending track</li>
+    <li>The id of the send at that track</li>
+    <li>It's gain in fader possition</li>
+    <li>The send's enable state</li>
+  </ul>
+</p>
+
+<h3>A list of plug-ins for strip</h3>
+<p>
+  <code>/strip/plugin/list <em>ssid</em></code> will return a list of
+  plug-ins that strip ssid has. The reply will contain the following
+  information:
+  <ul>
+    <li>Ssid that information is for</li>
+    <li>Each plugin's information:</li>
+    <ul>
+      <li>The plug-in's id</li>
+      <li>The plug-in's name</li>
+    </ul>
+  </ul>
+</p>
+
+<h3>A list of a plug-in's parameters</h3>
+<p>
+  <code>/plugin/descriptor <em>ssid</em> <em>piid</em></code> will
+  return the plug-in parameters for ppid plug-in on the ssid strip. The
+  reply will contain the following information:
+  <ul>
+    <li>Ssid of the strip the plug-in is in</li>
+    <li>The plug-in id for the plug-in</li>
+    <li>The plug-in's name</li>
+    <li>Information about each parameter</li>
+    <ul>
+      <li>The parameter id</li>
+      <li>The parameter's name</li>
+      <li>A bitset of flags (see below)</li>
+      <li>Data type</li>
+      <li>Minimum value</li>
+      <li>Maximum value</li>
+      <li>The number of scale points</li>
+      <li>zero or more scale points of one value and one string each</li>
+      <li>The current parameter value</li>
+    </ul>
+  </ul>
+</p>
+<p>
+  The flag bitset above has been defined as (from lsb):
+  <ul>
+    <li>0 - enumeration</li>
+    <li>1 - integer step</li>
+    <li>2 - logarithmic</li>
+    <li>3 - max unbound</li>
+    <li>4 - min unbound</li>
+    <li>5 - sample rate dependent</li>
+    <li>6 - toggled</li>
+    <li>7 - controllable</li>
+  </ul>
+</p>
+<p>
+	While this seems complex, it is really not that bad. Minimum,
+	maximum and value will in most cases give you all you need.
+</p>
+

@@ -1,0 +1,35 @@
+
+<p>
+  <dfn>Subgrouping</dfn> (sometimes known as "Grouping" or "Audio Grouping")  
+  is a way to collect related signals together to apply some common
+  treatment, before sending them on to the main mix. One standard
+  application is to group several tracks belonging to the same instrument or
+  section (such as a drumkit or horn section), to be able to adjust their
+  volume with a single fader, after their inner balance has been set using
+  the track faders.
+</p>
+
+<p>
+  To create a subgroup from an existing Track/Bus group, context-click on 
+  the relevant <a href="/working-with-tracks/track-and-bus-groups/">group tab</a>, 
+  and choose <kbd class="menu">Add new subgroup bus</kbd>. A new bus will be 
+  created and every member of the track group will have its outputs disconnected 
+  from other destinations and then connected to the new bus inputs. The bus 
+  outputs will feed the master bus unless you have selected manual connections 
+  for the session. The bus will be named after the track group name.
+</p>
+<p>
+  Alternatively, you can create a group manually, by first adding a new bus,
+  then, for each track you want to feed the subgroup bus, disconnect its outputs
+  from the master and connect it to the inputs of the subgroup bus instead.
+  You can do this in the global audio patchbay or a track by track basis via the 
+  output button of each track's channel strip.
+</p>
+<p>
+  To remove a subgroup (bus), context-click on the track group tab, and select 
+  <kbd class="menu">Remove subgroup bus</kbd>. You can also simply delete the 
+  bus itself. Note that this operation will <strong>not</strong> restore signal 
+  routing to the way it was before the addition of the subgroup bus &mdash; tracks 
+  that had been subgrouped will be left with their main outputs disconncted.
+</p>  
+

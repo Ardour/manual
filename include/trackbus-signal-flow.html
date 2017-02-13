@@ -1,0 +1,113 @@
+<h2>Overview</h2>
+<p>
+In each individual Track or Bus the signal flow is top to bottom. Consider the following diagram:
+</p>
+
+<p class="center"><img width="360px" src="/images/track_signal_routing.png" alt="track signal routing" /></p>
+
+<p>
+Trim, Fader and Panner are provided by Ardour.  The Processor-Box can hold 3rd Party Plugins or host-provided redirects (insert, aux-send,..).
+</p>
+
+<p>
+An important aspect is that the signal flow is multi-channel and not fixed throughout the track. For example, a Track can have a mono input, a mono to stereo plugin (e.g. reverb) flowing into a surround panner with 6 outputs. The design of Ardour is that width of the signal flow is defined by the passage through plugins in the processor box, followed by panning.
+The number of inputs to the panner is defined by the number outputs of the last plugin in the chain. The number of panner outputs is equal to the track's outputs ports, which can be added and remove dynamically. This schema called <em>Flexible I/O</em>. It's very powerful and a distinct feature of Ardour.
+</p>
+
+<p class="note">
+The golden rule of processor signal flow:<br/>The number of outputs of one link of the process chain defines the number inputs of the next, until the panner.
+</p>
+
+<p>
+Due to this rule there is one very common case that is hard to achieve: Keep a mono track mono.  With <em>Flexible I/O</em>, if a stereo plugin is added on a mono track, the signal flow after that plugin becomes stereo.
+</p>
+
+<h2>Strict I/O</h2>
+<p>Strict I/O enforces a simple rule: Plugins have the same number of inputs as they have outputs. By induction the track will have as many output-ports as there are input ports.</p>
+<ol>
+	<li>Adding a Plugin will not modify the signal-flow. The number of plugin outputs is forced to the number of inputs present at the point of insertion.
+		If a plugin-pin is missing, it is ignored. If Plugin-pin is unconnected, it is fed with silence. Unconnected plugin outputs are ignored).</li>
+	<li>Strict I/O enforces the number of output ports.  The number of inputs to the panner (outputs of last plugin) defines the number of track outputs (after panner).
+		Required ports are automatically added, excess ports are removed. The user cannot manually add/remove output ports.</li>
+</ol>
+
+<p>
+Strict I/O is set when creating the track and can later be en/disabled dynamically in the context menu of every mixer strip.
+</p>
+
+<p class="center"><img src="/images/strict_io_routing.png" alt="strict i/o routing" /></p>
+
+<p>There are two exceptions to the above rule 1.</p>
+<ul>
+<li>Midi Synths. When adding a synth at a point where there is a Midi port only, the synthesizer plugin will add audio-output ports,
+	which trickle down the processor chain to all follow up plugins as inputs and in turn force their outputs to match.</li>
+<li>Side chain inputs are not affected by strict i/o</li>
+</ul>
+
+<h2>Customizing the Signal Flow : The Pin Connection window</h2>
+
+<p>
+The signal flow though the mixer can be customized at every processor node via "Pin Configuration" in the context menu of every processor.
+User customization override all automatic (flexible/strict i/o mode) inferred output port settings </p>
+<p>
+  The Pin Connection window is made of three vertical sections:
+</p>
+<ul>
+    <li>an I/O config column</li>
+    <li>an interactive diagram</li>
+    <li>a sidechain column.</li>
+</ul>
+<p>
+  By default, the I/O config is set to <em>Automatic</em>, i.e. the <kbd class="menu">Manual Config</kbd> led light is turned off.
+  In this mode, the diagram will display the standard input/outputs for this plugin, i.e. the number of ports (input/outputs) is
+	equal to the number of pins on the plugin, and a 1:1 connection is automatically created.
+</p>
+<p>
+  Adding new instances of the plugin allows to apply this plugin to more inputs or outputs. E.g., a mono effect can be applied
+  to each channel of a <em>n</em>-channels track by adding as many instances of the plugins as there are input channels (i.e. ports). This
+  happens automatically when adding e.g. a mono effect to a stereo track:
+</p>
+<ul>
+	<li>Ardour creates two instances of the plugin,</li>
+	<li>the plugin gets a (2x1) label in the processor box</li>
+	<li>its 2 input ports are each connected to 1 pin of an instance</li>
+	<li>each mono output pin of the plugin is connected to 1 output port.</li>
+</ul>
+</p>
+<p>
+  Output channels can also, in Manual Config mode, be added or removed, be them audio or MIDI.
+</p>
+
+<p class="note">
+  Notice that using the Pin Connection overrides the I/O config setting (Flexible vs Strict). A processor <em>can</em>,
+  even in Strict I/O mode, have a different number of outputs than inputs. Non-customized plugins downstream
+	will follow suit depending on the selected route mode. e.g. adding an additional output to a plugin on a
+	track set to strict-i/o will trickle down the process chain until the output and result in the addition of
+	an output port. This is useful for example in case of a mono to stereo reverb.
+</p>
+
+<p>
+  The diagram allows to plug together the I/O ports with the plugin pins and other I/O ports, provided they are compatible (MIDI vs audio), just by
+	dragging/dropping the end connectors on one another.
+  A dotted connector's line is a "<em>thru</em>" line, that is directly connecting an output to an input without connecting to a pin on
+	the plugin, hence without any audio modification. Those "thru" connections are latency compensated with regards to those being affected by the plugin,
+  in order to avoid phasing issues. One example is separate Left/Right channel Equalization using two mono plugins on a stereo track:
+</p>
+<img src="/images/left_right_eq.png" alt="Separate left/right Eq">
+
+<p>
+	The only way to add inputs to a processor is via <a href="/signal-routing/sidechaining/">Sidechaining</a> from another signal.
+	This is done by "tapping" the signal from another track/bus at any point.
+</p>
+<p>
+	Adding a sidechain signal in Ardour is as simple as enabling the <kbd class="menu">Sidechain</kbd> button,
+	and choosing an <kbd class="menu">Audio</kbd> or <kbd class="menu">MIDI</kbd> sidechain in the
+	<kbd class="menu">Add Sidechain Input</kbd> lower right hand section.
+	A new dropdown menu appears, that displays a list of the tracks/bus available to be sidechained, or
+	for a more complex setup (e.g. sidechaining from hardware directly), the <a href="/signal-routing/Patchbay/">Routing Grid</a>
+	(also accessible with a <kbd class="mouse">Right</kbd>-click on the dropdown menu).
+</p>
+<p>
+	The sidechain ports can then be connected, as other inputs, to a pin of the plugin, or an output port for a "thru".
+</p>
+

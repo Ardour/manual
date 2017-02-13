@@ -1,0 +1,109 @@
+
+<p>
+  This tab contains settings related to the use of MIDI inside Ardour.
+</p>
+
+<img src="/images/a4_preferences_midi.png" alt="preferences
+MIDI tab"/>
+
+<ul>
+  <li>
+    <p>
+      <strong>MIDI read-ahead time</strong>
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Send MIDI Clock</strong> when enabled Ardour will generate MIDI
+      clock on the <code>ardour:MIDI clock out</code> JACK port.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Send MIDI Time Code</strong> when enabled Ardour will generate MIDI
+      time code on the <code>ardour:MTC out</code> JACK port.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Percentage either side of normal transport speed to transmit MTC:</strong> MIDI time code generation will be disabled when the transport speed is
+      greater than normal sped plus this percentage or less than normal minus
+      this percentage.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Obey MIDI Machine Control commands</strong> when enabled Ardour
+      will respond to MIDI Machine Control commands received on the
+      <code>ardour:MMC in</code> JACK port.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Send MIDI Machine Control commands</strong> when enabled Ardour
+      will send MIDI Machine Control commands on the <code>ardour:MMC out</code>
+      JACK port.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Send MIDI control feedback</strong>
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Inbound MMC device ID:</strong> is the only device ID Ardour will
+      respond to when an MMC command is received on the
+      <code>ardour:MMC in</code> JACK port.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Outbound MMC device ID:</strong> is the MIDI device ID Ardour will
+      use when it sends MMC commands.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Initial program change:</strong> Ardour will send a MIDI program
+      change message on the <code>ardour:MMC out</code> JACK port when a session
+      is loaded and whenever this field is changed. A value of -1 is for don't
+      send any program change message.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Display first MIDI bank/program as 0</strong>
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Never display periodic MIDI messages</strong>
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Sound MIDI notes as they are selected</strong>
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>Midi Audition Synth</strong>
+    </p>
+  </li>
+
+</ul>
+

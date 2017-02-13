@@ -1,0 +1,61 @@
+
+<img class="right" src="/images/vca-numbered.png" alt="A Control Master mixer strip">
+
+<p>
+   Although track/bus <a href="/working-with-tracks/track-and-bus-groups/">groups</a> offer a certain
+   kind of grouped-control over gain, solo, mute and more, traditional mixing consoles have long had
+   group master channels ("<abbr title="Voltage-Controlled Amplifier">VCA</abbr>s") which allows to combine
+   both a single fader to control the group level while also allowing you to easily adjust the relative
+   levels inside the group. For large projects, this can make mixing much easier to control.
+</p>
+<p>
+  Ardour implements those VCAs as <dfn>Control Masters</dfn>, in a way that allows to use either or both
+  of the conventions used on different traditionnal consoles for combining multiple masters:
+</p>
+<ul>
+  <li>Nest VCAs (VCA 2 controls VCA 1 etc.)</li>
+  <li>Chain VCAs (VCA 1 and VCA 2 both control track or bus <em>N</em>)</li>
+</ul>
+
+<h2>Description of the Control Masters</h2>
+
+<p>
+A Control Master strip is made of (from top to bottom in the screenshot) :
+</p>
+
+<ol>
+  <li>Number of the Control Master</li>
+  <li><kbd class="menu">X</kbd> button: Allows to hide the VCA strip. Left clicking this button toggles the exclusive visibility of the tracks connected to this VCA</li>
+  <li>Name button</li>
+  <li><kbd class="menu">M</kbd>: mutes the VCA, <kbd class="menu">S</kbd>: solos the VCA</li>
+  <li>Level meter: allows to adjust the level of the VCA</li>
+  <li><kbd class="menu">~vca~</kbd>: a VCA button to optionally connect to another VCA</li>
+</ol>
+
+<p>Right-clicking the name button shows a context menus comprised of :</p>
+<dl>
+  <dt>Rename</dt><dd>Renames the VCA</dd>
+  <dt>Color...</dt><dd>Changes the color of the VCA button in the tracks connected to this one</dd>
+  <dt>Drop All Slaves</dt><dd>Deletes all connections to this VCA, i.e. no tracks are controlled by this VCA anymore</dd>
+  <dt>Remove</dt><dd>Deletes this VCA</dd>
+</dl>
+
+<h2>Connecting to a VCA strip</h2>
+
+<img class="left" src="/images/connecting_to_vca.png" alt="Connecting to VCA">
+
+<p>
+	Connecting a track/bus/VCA to a VCA is as simple as clicking the VCA button that appears on any mixer strip
+  under the main fader and choosing the VCA to connect to.
+</p>
+
+<p class="note">The VCA button only shows up in mixer strips when at least one Control Master exists, i.e., a
+  Control Master must be created <em>before</em> connecting tracks to it.</p>
+
+<p>
+  Clicking the VCA button shows all the Control Masters in the session, and any or all of this vca can be checked
+  to link them to the track, making this track controlled by multiple Control Masters. The track will then show
+  multiple VCA buttons. Disconnecting a Control MAste from a track is done by unchecking this Control Master in
+  the list that pops up, or clicking <kbd class="menu">Unassign All</kbd> to disconnect from all Control Masters at once.
+</p>
+

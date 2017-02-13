@@ -1,0 +1,257 @@
+
+<h2>Behringer BCF-2000 Faders Controller</h2> 
+<p>
+  <img alt="Digramatic Image of the BCF2000"
+     src="/images/BCF2000.png">
+</p>
+<p>
+  The Behringer BCF-2000 Fader Controller is a control surface with 8 motorized 
+  faders, 8 rotary encoders and 30 push buttons. The device is a class
+  compliant USB Midi Interface and also has standard Midi DIN IN/OUT/THRU  ports.
+  The device has included a Mackie/Logic Control Emulation Mode since firmware v1.06.
+  If you're devices firmware is older than v1.06 it will require an update before
+  Mackie Control Emulation will work as described here.
+</p>
+<p>
+  <img alt="Digramatic Image of the BCF2000 in Edit Global Mode"
+     src="/images/BCF2000-EG.png">
+</p>
+
+<p>
+  In order to put the controller into Mackie/Logic control mode turn on the 
+  unit while holding third button from the left in the top most row
+  of buttons (under the rotary encoder row). Hold the button down until <dfn>EG</dfn>
+  or edit global mode is displayed on the LCD screen of the unit. The global parameters
+  can then be edited using the 8 rotary encoders in the top row. 
+</p>
+  <ul>
+    <li><code>
+      Encoder #1 sets the operating mode and should be set to <dfn>U-1</dfn> or
+      USB mode 1 if using with a USB cable connection.
+    </li></code>
+    <li><code>
+      Encoder #3 sets the foot switch mode and should most likely be set to
+      <dfn>Auto</dfn> to detect how the foot switch is wired. 
+    </li></code>
+    <li><code>
+      Encoder #5 sets the device id, if you are using only 1 device the id
+      should be set to <dfn>ID 1</dfn>. If you are using multiple BCF/BCR2000 each
+      device is required to be set up sequentially and one at a time.
+    </li></code>
+    <li><code>      
+      Encoder #7 controls the MIDI <dfn>Dead Time</dfn> or the amount of milliseconds
+      after a move has been made that the device ignores further changes, this 
+      should be set to <dfn>100</dfn>.
+    </li></code>
+    <li><code>
+      Encoder #8 controls the MIDI message <dfn>Send Interval</dfn> in milliseconds
+      and should be set to <dfn>10</dfn>
+    </li></code>
+  </ul>
+<p>
+  To exit the <dfn>EG</dfn> mode press the <dfn>Exit</dfn> button. The device is now
+  ready to use with Ardour.
+</p>
+
+<h3>Modes of Operation</h3>
+<p>
+  <img alt="Digramatic Image of the BCF2000 Control Modes"
+     src="/images/BCF2000-Modes.png">
+</p>
+<p>
+  The four buttons arranged in a rectangle and located under the Behringer logo 
+  are the mode selection buttons in Logic Control Emulation Mode,
+  currently Ardour has implemented support for two of these modes.
+</p>
+<p>
+The surface can be broken into 8 groups of controls.
+</p>
+
+<ol>
+  <li>The rotary encoders at the top of the device</li>
+  <li>The first row of buttons under the encoders</li>
+  <li>The second row of buttons under the encoders</li>
+  <li>The row of motorized faders<li>
+  <li>
+    The group of 4 buttons at the top right that will be
+    referred to here as the <dfn>Shift Group</dfn>
+  </li>
+  <li>
+    The group of 4 buttons under the <dfn>Shift Group</dfn>
+    referred to here as the <dfn>Mode Group</dfn>
+  </li>
+  <li>
+    The group of 2 buttons under the <dfn>Mode Group</dfn>
+    referred to here as the <dfn>Select Group</dfn>
+  </li>
+  <li>
+    The group of 4 buttons under the <dfn>Select Group</dfn>
+    referred to here as the <dfn>Transport Group</dfn>
+  </li>
+</ol>
+
+<h3>Mixer Pan Mode</h3>
+<p>
+  <img alt="Digramatic Image of the BCF2000 Control Modes"
+     src="/images/BCF2000-Pan.png">
+</p>
+<p>
+  This is the standard work mode that organizes the control surface to emulate
+  a standard mixer layout where controls for each track/bus are arranged vertically.
+  The order of the faders is either controlled by the order of the tracks in the
+  mixer or can be set manually by the user.
+</p>
+<dl>
+  <dt>Encoders</dt>
+  <dd>Mixer Pans. The red LEDs show the amount of pan left or right</dd>
+  <dt>First Row of Buttons</dt>
+  <dd>Mixer Mutes. The button led lights if the track is currently muted</dd>
+  <dt>Second Row of Buttons</dt>
+  <dd>Select Active Track/Bus. Currently selected track/bus is indicated by the button led</dd>
+  <dt>Faders</dt>
+  <dd>Mixer Gains</dd>
+  <dt>Shift Group</dt>
+  <dd>
+    The top and bottom left buttons are the simply shifts to change the function of other buttons
+  </dd>
+  <dd>
+    The top right is the <dfn>Fine Control</dfn> button that allows the increment values sent by
+    by rotary encoders and faders to be a small value for more precise editing. This button
+    can also act as a shift button.
+  </dd>
+  <dd>
+    The bottom right is the <dfn>Global Shift</dfn> button that allows you to change back to the
+    standard Mixer Pan view from other views and modes. This button can also act as a shift button.
+  </dd>
+  <dt>Mode Group</dt>
+  <dd>The top two buttons functions are not currently implemented in Ardour.</dd>
+  <dd>The bottom left button sets the device to <dfn>Pan</dfn> mode and should currently be lit</dd>
+  <dd>
+    The bottom right button sets the device to <dfn>Send</dfn> mode but will only allow the switch
+    if the currently selected track/bus has a send or sends to control.
+  </dd>
+  <dt>Select Group</dt>
+  <dd>
+    In this mode they function as bank select left and right. If your session has more than 8 tracks
+    the next set of 8 tracks is selected with the right button and the faders will move to match the
+    current gain settings of that bank of 8 tracks/busses. If the last bank contains less than 8 
+    tracks/busses the unused  faders will move to the bottom and the pan lights will all turn
+    off. An unlimited amount of tracks can be controlled with the device.
+  </dd>
+  <dt>Transport Group</dt>
+  <dd>The upper left button controls <dfn>Rewind<dfn>.
+  <dd>The upper right button controls <dfn>Fast Foreword</dfn>
+  <dd>The lower left button controls stop</dd>
+  <dd>The lower right button controls play</dd>
+</dl>
+<h3>Send Mode</h3>
+<p>
+  <img alt="Digramatic Image of the Send Mode"
+     src="/images/BCF2000-Send.png">
+</p>
+<p>
+  Send mode allows for the top row of encoders to control the sends for a selected channel.
+  One interesting option is to flip the controls from the encoders to the faders by pressing
+  the shift 1 button and the global view button at the same time.
+</p>
+<dl>
+  <dt>Encoders</dt>
+  <dd>
+    In send mode, the encoders control sends from left to right instead of mixer pans.
+    If there are less than 8 sends the behavior of the encoder will be to continue controlling
+    the mixer pan. Visually it's indicated by the change in the LED from originating at the 12
+    o'clock position to originating at the 7 o'clock position. If <dfn>FLIP</dfn> is pressed 
+    the encoder will control the mixer gain for the selected track/bus.
+  </dd>
+  <dt>First row of buttons</dt>
+  <dd>No Change</dd>
+  <dt>Second row of buttons</dt>
+  <dd>No Change.</dd>
+  <dt>Faders</dt>
+  <dd>
+    No change unless <dfn>FLIP</dfn>is pressed then it controls the send for the selected track/bus.
+  </dd>
+  <dt>Shift Group</dt>
+  <dd>No Change</dd>
+  <dt>Select Group</dt>
+  <dd>No Change</dd>
+  <dt>Transport Group</dt>
+  <dd>No Change</dd>
+</dl>
+<h3>Mixer Pan While Holding Shift 1</h3>
+<p>
+  <img alt="Digramatic Image of the Mixer Mode while holding down shift 1"
+     src="/images/BCF2000-Shift1.png">
+</p>
+<p>
+  The operations of various buttons change while holding down the <dfn>Shift 1</dfn> button
+</p>
+<dl>
+  <dt>Encoders</dt>
+  <dd>No Change</dd>
+  <dt>First row of buttons</dt>
+  <dd>These now control the Soloing of each track/bus in the current bank</dd>
+  <dt>Second row of buttons</dt>
+  <dd>These now control the Enable Record for each track</dd>
+  <dt>Faders</dt>
+  <dd>No Change</dd>
+  <dt>Shift Group</dt>
+  <dd>No change</dd>
+  <dt>Mode Group</dt>
+  <dd>No Change</dd>
+  <dt>Select Group</dt>
+  <dd>
+    These now change the current bank of tracks being controlled over by
+    one. So if you where controlling tracks 1-8 a push the right
+    button the surface would now control tracks 2-9 pressing the left
+    would then shift back to controlling tracks 1-8.
+  </dd>
+  <dt>Transport Group</dt>
+  <dd>The upper left now controls turning on and off <dfn>Loop</dfn> mode.</dd>
+  <dd>
+    The upper right now toggles
+    <dfn>Click</dfn>.
+  </dd>
+  <dd>The lower left toggles <dfn>Replace</dfn>.</dd>
+  <dd>
+    The lower right toggles
+    <dfn>Global Record</dfn>.
+  </dd>
+</dl>
+<h3>Mixer Pan While Holding Shift 2</h3>
+<p>
+  <img alt="Digramatic Image of the Mixer Mode while holding down shift 2"
+     src="/images/BCF2000-Shift2.png">
+</p>
+<p>
+  The operations of various buttons change while holding down the <dfn>Shift 2</dfn> button
+</p>
+<dl>
+  <dt>Encoders</dt>
+  <dd>No Change</dd>
+  <dt>First row of buttons</dt>
+  <dd>FIX ME</dd>
+  <dt>Second row of buttons</dt>
+  <dd>These now control setting up different <dfn>Views</dfn>. See bellow for more info</dd>
+  <dt>Faders</dt>
+  <dd>No Change</dd>
+  <dt>Shift Group</dt>
+  <dd>No change</dd>
+  <dt>Mode Group</dt>
+  <dd>No Change</dd>
+  <dt>Select Group</dt>
+  <dd>Left button controls <dfn>Undo</dfn>(NEEDS VERIFIED)</dd>
+  <dt>Transport Group</dt>
+  <dd>FIX ME</dd>
+  <dd>FIX ME</dd>
+  <dd>FIX ME</dd>
+  <dd>FIX ME</dd>
+</dl>
+<h3>Views</h3>
+<p>
+  <img alt="Digramatic Image of the LED display for different Views"
+     src="/images/BCF2000-Views.png">
+</p>
+<p>
+  FIX ME
+</p>

@@ -1,0 +1,175 @@
+
+<h2>Introduction</h2>
+<p>
+  An engineer reading and using audio level meters compares to a musician 
+  reading or writing sheet-music. Just like there are virtuoso musicians 
+  who can't read a single note, there are great sound-engineers who just
+  go by their ears and produce great mixes and masters without ever looking 
+  at a single meter.
+</p>
+<p>
+  Yet, if you want to work in or with the broadcast industry, it is 
+  usually unavoidable to use meters.
+</p>
+<p>
+  Audio level meters are very powerful tools that are useful in every 
+  part of the entire production chain:
+</p>
+<ul>
+  <li>When tracking, meters are used to ensure that the input 
+  signal does not <dfn>overload</dfn> and maintains reasonable 
+  <dfn>headroom</dfn>.</li>
+  <li>Meters offer a <dfn>quick visual indication</dfn> of a 
+  activity when working with a large number of tracks.</li>
+  <li>During mixing, meters provide an rough estimate of the 
+  <dfn>loudness</dfn> of each track.</li>
+  <li>At the mastering stage, meters are used to check 
+  compliance with upstream <dfn>level</dfn> and <dfn>loudness 
+  standards</dfn> and to optimize the <dfn>loudness range</dfn>
+  for a given medium.</li>
+</ul>
+
+<h2>Meter Types</h2>
+<p>
+  A general treatise on metering is beyond the scope of this 
+  manual. It is a complex subject with a history...
+  For background information and further reading we recommend:
+</p>
+<ul>
+  <li><a href="http://www.digido.com/how-to-make-better-recordings-part-2.html">How To Make Better Recordings in the 21st Century - An Integrated Approach to Metering, Monitoring, and Leveling Practices</a> by Bob Katz. Has a good historic overview of meters and motivates the K-meter</li>
+  <li><a href="https://en.wikipedia.org/wiki/Peak_programme_meter#Table_of_characteristics">Wikipedia: Peak programme meter</a> - overview of meter types.</li>
+  <li>"Audio Metering: Measurements, Standards and Practice: Measurements, Standards and Practics", by Eddy Brixen. ISBN: 0240814673</li>
+  <li>"Art of Digital Audio", by John Watkinson. ISBN: 0240515870</li>
+</ul>
+
+<p>
+  There are different metering standards, most of which are available in Ardour. In short:
+</p>
+
+<dl>
+  <dt>Digital peak-meter</dt>
+  <dd>A <dfn>Digital Peak Meter</dfn> displays the absolute maximum signal 
+  of the raw audio PCM signal (for a given time). It is commonly used when 
+  tracking to make sure the recorded audio never clips. To that end, DPMs 
+  are always calibrated to 0&nbsp;<abbr title="DeciBel Full
+  Scale">dBFS</abbr>, or the maximum level that can be represented digitally
+  in a given system. This value has no musical reason whatsoever and depends 
+  only on the properties of the signal chain or target medium. There are 
+  conventions  for <dfn>fall-off-time</dfn> and <dfn>peak-hold</dfn>, but no 
+  exact specifications.
+  <p>
+  Various conventions for DPM fall-off times and dBFS line-up level can be 
+  chosen in <kbd class="menu">Edit &gt; Preferences &gt; GUI</kbd>.
+  </p>
+  </dd>
+
+  <dt>RMS meters</dt>
+  <dd>An <dfn><abbr title="Root Mean Square">RMS</abbr>-type meter</dfn>
+  is an averaging meter that looks at the energy in the signal. It 
+  provides a general indication of loudness as perceived by humans. Ardour 
+  features three RMS meters, all of which offer additonal peak indication.
+  <ul>
+    <li><dfn>K20</dfn>: A meter according to the K-system introduced by Bob
+    Katz, scale aligned to -20&nbsp;dBFS, rise/fall times and color schema
+    according to spec.</li>
+    <li><dfn>K14</dfn>: Same as K20 with scale aligned to -14&nbsp;dBFS.</li>
+    <li><dfn>K12</dfn>: Same as K20 with scale aligned to -12&nbsp;dBFS (since 3.5.143).</li>
+    <li><dfn>Peak + RMS</dfn>: standard RMS, customizable via
+    <kbd class="menu">Edit &gt; Preferences &gt; GUI &gt; Metering</kbd></li>
+  </ul>
+  </dd>
+
+  <dt>IEC PPMs</dt>
+  <dd><dfn><abbr title="International Electrontechnical Commission">IEC</abbr>-type 
+  <abbr title="Peak Programme Meters">PPM</abbr>s</dfn> are a mix between DPMs and 
+  RMS meters, created mainly for the purpose of 
+  interoperability. Many national and institutional varieties exist (<abbr
+  title="European Broadcasting Union">EBU</abbr>, <abbr title="British Broadcasting
+  Corporation">BBC</abbr>, <abbr title="Deutsche Industrie-Norm">DIN</abbr>). 
+  <p>
+  These loudness and metering standards provide a common point of 
+  reference which is used by broadcasters in particular so that the 
+  interchange of material is uniform across their sphere of influence,
+  regardless of the equipment used to play it back.
+  </p>
+  <p>
+  For home recording, there is no real need for this level of
+  interoperability, and these meters are only strictly required when 
+  working in or with the broadcast industry. However, IEC-type meters have 
+  certain characteristics (rise-time, ballistics) that make them useful 
+  outside the context of broadcast.
+  </p>
+  <p>
+  Their specification is very exact, and consquently, there are no 
+  customizable parameters.
+  </p>
+  </dd>
+  
+  <dt>VU meters</dt>
+  <dd><dfn><abbr title="Volume Unit">VU</abbr> meters</dfn> are the dinosaurs (1939) 
+  amongst the meters. They react very slowly, averaging out peaks.
+  Their specification is very strict (300ms rise-time, 1 - 1.5% overshoot, 
+  flat frequency response). Ardour's VU meter adheres to that spec, but for 
+  visual consistency it is displayed as a bar-graph rather than needle-style
+  (more below).
+  </dd>
+</dl>
+
+<h2>Ardour Specifics</h2>
+
+<img class="right" src="/images/mixer-meter-context-menu.png" alt="mixer strip meter context menu" />
+<p>
+  Meters are available in various places in ardour:
+</p>
+<ul>
+  <li>The mixer window features fixed height meters for each <dfn>channel strip</dfn>.</li>
+  <li>There are small (narrow) meters on each <dfn>track-header</dfn> in the editor window.</li>
+  <li>There are variable height meters in the <dfn>meterbridge window</dfn>.</li>
+  <li>Optionally, a fixed-size <dfn>master meter</dfn> can be displayed in the main toolbar.</li>
+  <li>Various other locations (<dfn>file import</dfn>, <dfn>sends</dfn>) have level-meters.</li>
+</ul>
+<p>
+  They all share the same configuration and color-theme which is available in
+  preferences and the theme-manager. Settings for the Peak and RMS+Peak meters 
+  as well as VU meter standards are found in  
+  <kbd class="menu">Edit &gt; Preferences &gt; GUI &gt; Metering</kbd>.
+</p>
+<p>
+  The type of meter and the <dfn>metering point</dfn> (the place in the signal chain
+  where the meter taps the signal) are configurable in the context menu of each meter.
+  Depending on the <kbd class="menu">Edit &gt; Preferences &gt; GUI &gt; Mixer
+  Strip</kbd> settings, the metering point is also accessible via a button in
+  each Mixer strip.
+</p>
+<img class="right" src="/images/meter-preferences.png" alt="" />
+<p>
+  Regardless of meter type and standard the meter display will highlight red if 
+  the signal on the given channel exceeds the configured peak threshold.
+</p>
+<p>
+  <kbd class="mouse">Left</kbd> on the peak-indicator button resets the
+  <dfn>peak-hold indicator</dfn> of a single channel.<br />
+  <kbd class="mod1 mouse">Left</kbd> resets a whole <dfn>group</dfn>, and<br/>
+  <kbd class="mod13 mouse">Left</kbd> resets all meters.
+</p>
+
+<h2>Overview of meter types</h2>
+
+<p>
+  The figure on the left shows all available meter-types in Ardour 3.4 when fed with a 
+  -18&nbsp;dBFS 1&nbsp;kHz sine wave.
+</p>
+
+<img class="right" style="max-width:45%;height:400px;" src="/images/needle-meters-18.png"
+alt="Needle-style meters as external LV2 plugins" />
+<img style="max-width:45%; height:400px" src="/images/meter-types-18.png"
+alt="Bar-graph meters in Ardour" />
+
+<p>
+  Due to layout concerns and consistent look&amp;feel all meters available in 
+  Ardour itself are bar-graph type meters. Corresponding needle-style meters
+  &mdash;  which take up more visual screen space &mdash; are available as 
+	LV2 plugins (see image on the right):
+	<a href="https://github.com/x42/meters.lv2/">meters.lv2</a>.
+</p>
+

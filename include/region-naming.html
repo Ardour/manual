@@ -1,0 +1,65 @@
+  
+<p><dfn>Region names</dfn> are initially derived from either</p>
+<ul>
+  <li>the name of the playlist for which they were recorded,</li>
+  <li>the name of the track for which they were recorded, or</li>
+  <li>the name of the embedded/imported file they represent.</li>
+</ul>
+<p class="fixme">
+  It appears that recorded regions are always named after the track, not the
+  active playlist in that track.
+</p>
+
+<h2>Whole File Region Names</h2>
+<p>
+  These are not audio files, but regions that represent the full extent of an
+  audio file. Every time a new recording is done, or a new file is imported
+  to the session, a new region is created that represents the <dfn>entire audio 
+  file</dfn>. This region will have the name of the track/playlist/original file, 
+  followed by a "-", then a number plus a dot and then a number.
+</p>
+<p>
+  For <dfn>recorded regions</dfn>, the number will increase each time a new recording 
+  is made. So, for example, if there is a playlist called
+  <samp>Didgeridoo</samp>, the 
+  first recorded whole file region for that playlist will be called
+  <samp>Digderidoo-1</samp>. The next one will be <samp>Digeridoo-2</samp> and so on.
+</p>
+<p>
+  For <dfn>imported regions</dfn>, the region name will be based on the original file 
+  name, but with any final suffix (e.g. ".wav" or ".aiff") removed.
+</p>
+<p>
+  Normally, whole file regions are not inserted into tracks or playlists, 
+  but regions derived from them are. The whole-file versions live in the 
+  editor region list where they act as an organizing mechanism for regions 
+  that are derived from them.
+</p>
+
+<h2>Normal Region Names</h2>
+<p>
+  When a region is inserted into a track and playlist, its initial name will 
+  end in a <dfn>version number</dfn>, such as <samp>.1</samp>. For a recorded region, 
+  if the whole file region was <samp>Hang drum-1</samp>, then the region in 
+  the track will appear with the name <samp>Hang drum-1.1</samp>. For an 
+  imported region, if the whole file region was <samp>Bach:Invention3</samp>, 
+  then the region in the track will appear with the name
+  <samp>Bach:Invention3.1</samp>.
+</p>
+
+<h2>Copied Region Names</h2>
+<p>
+  If you <dfn>copy a region</dfn>, it initially shares the same name as the original. 
+  When you perform an operation modifies one of the copies, Ardour will 
+  increment the version number on the particular copy that changed.
+</p>
+
+<h2>Renaming Regions</h2>
+<p>
+  You can <dfn>rename a region</dfn> at any time. Use the region context menu to 
+  pop up the <kbd class="menu">Rename</kbd> dialog. The new name does not need to 
+  have a version number in it (in fact, it probably should not). Ardour will add a 
+  version number in the future if needed (e.g. if you copy or split the region).
+</p>
+  
+

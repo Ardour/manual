@@ -1,0 +1,42 @@
+
+<p>
+  The display of <dfn>waveforms</dfn> (or, more correctly, <dfn>peak
+  envelopes</dfn>, since the actual waveform is only visible at the highest
+  zoom levels) is configurable via the <kbd
+  class="menu">Edit &gt; Preferences &gt; Editor</kbd> dialog, to support 
+  different usecases and user preferences. The following options are
+  available:
+</p>
+<dl class="wide-table">
+  <dt>Show waveforms in regions</dt>
+  <dd>By default, Ardour draws waveforms within audio regions. Disable this
+  option to hide them.</dd>
+  <dt>Waveform scale</dt>
+  <dd>
+    <dl>
+      <dt>Linear</dt>
+      <dd>This is the traditional <dfn>linear</dfn> (1:1) display of the 
+      peak envelope, or, at higher zoom levels, the individual samples.</dd>
+      <dt>Logarithmic</dt>
+      <dd>Alternatively, you can use a <dfn>logarithmic</dfn> display of the 
+      peak envelope. This will give you a better idea of program loudness (it is similar 
+      to dBs) and plot soft passages more clearly, which is useful for soft
+      recordings or small track height.</dd>
+    </dl>
+  </dd>
+  <dt>Waveform shape</dt>
+  <dd>
+    <dl>
+      <dt>Traditional</dt>
+      <dd>The <dfn>zero</dfn> line appears in the middle of the display and waveforms 
+      appear as positive and negative peaks above <em>and</em> below.</dd>
+      <dt>Rectified</dt>
+      <dd>The zero line appears at the bottom of the display and waveforms appear 
+      as absolute peaks <em>above</em> the line only.</dd>
+    </dl>
+  </dd>
+</dl>
+
+
+{% children %}
+

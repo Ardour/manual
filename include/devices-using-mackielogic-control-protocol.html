@@ -1,0 +1,69 @@
+
+<p>
+  This will walk you through the process of configuring and using
+  a MIDI control surface with Ardour that uses the <dfn>Mackie Control
+  protocol</dfn> (MCP) or <dfn>Logic Control protocol</dfn>. Devices that
+  have been tested and are known to work include the SSL Nucleus, Mackie
+  Control Pro (plus extenders), Behringer devices in Mackie/Logic mode,
+  and Steinberg CMC devices.
+</p>
+
+<h2>Enabling Mackie Control in Ardour</h2>
+<p>
+  Navigate to <kbd class="menu">Edit &gt; Preferences &gt; Control Surfaces</kbd>.
+  Double-click on <kbd class="menu">Mackie Control</kbd> to see the setup dialog:
+</p>
+<img src="" alt="Mackie Control Setup Dialog" />
+<p>
+  From the selector at the top, choose the type of device you are using.
+  (<a
+  href="/using-control-surfaces/devices-using-mackielogic-control-protocol/devices-not-listed/">
+  What to do if your device is not listed</a>).
+</p>
+<p>
+  Once your setup is complete, click "OK" to close the dialog. Now click
+  on the enable checkbox for "Mackie Control".
+</p>
+<h2>Devices using ipMIDI</h2>
+<p>
+  If you are using a device that uses ipMIDI, such as the SSL Nucleus, no
+  MIDI port connections are required &mdash; Ardour and your control
+  surface will be able to talk to each other automatically so long as
+  your control surface and computer are both connected to the same network.
+</p>
+<h2>Connecting control surface and Ardour MIDI ports</h2>
+<p>
+  Before attempting to use a Mackie Control device that communicates via
+  a standard MIDI cable or a USB cable, you should ensure that
+  <a href="/setting-up-your-system/setting-up-midi/midi-on-linux/">your Linux
+  MIDI environment is setup</a>.
+  If you are using a device that uses normal MIDI (via a standard MIDI or
+  USB cable), you need to connect Ardour's Mackie Control in and out ports
+  to the MIDI ports leading to and coming from the control surface.
+</p>
+<p>
+  When you have made these connections once, Ardour will recreate them
+  for you in the future, as long as you leave Mackie Control enabled.
+</p>
+
+<h2>Customizing your control surface</h2>
+<p>
+  Every possible global Mackie Control button can be bound to any <a
+  href="/appendix/menu-actions-list/">
+  action</a> present in Ardour's GUI. Please check your control surface
+  page for suggestions.
+</p>
+
+<h2>Preparing your device for use with Ardour</h2>
+<p>
+  Most interfaces will require some configuration to send and respond to
+  MCP.
+</p>
+
+<p class="note">
+  When setting up the control surface, do <em>not</em> use "Pro Tools"
+  mode. Pro Tools is the only DAW that still requires HUI. The rest of
+  world uses Mackie Control Protocol. Ardour does not support HUI at
+  this time.
+</p>
+

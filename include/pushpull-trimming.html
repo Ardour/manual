@@ -1,0 +1,37 @@
+
+<p>
+  Normally, when you trim regions by dragging with the mouse, it affects 
+  only the selected regions. Their lengths are directly affected by the 
+  trim operation, but nothing else is. Sometimes though, you might like 
+  to trim a region that directly adjoins another, and keep this relationship
+  the same &mdash;  you are not trying to make one of the regions extend 
+  over the other &mdash; you would like the junction to move in one 
+  direction or the other as part of the trim. This requires trimming both 
+  regions on either side of the junction, in opposite directions. 
+  <dfn>Push/Pull trim</dfn>, activated by pressing shift key before 
+  starting the drag, will do just that. Here's a few pictures to show the 
+  difference in the results of a normal trim and push/pull trim. First, 
+  the initial situation:
+</p>
+<img src="/images/a3_before_trim.png" alt="region arrangement before trim" />
+<p>
+  Here is what happens after we trim the right hand (selected) region by 
+  dragging its starting position earlier:
+</p>
+<img src="/images/a3_after_trim.png" alt="region arrangement after a trim" />
+<p>
+  You can see that it now overlaps the earlier region and a crossfade has 
+  been created between them.
+</p>
+<p>
+  Lets look now at what happens if we do the same trim, but <kbd
+  class="mouse mod3">Left</kbd>-dragging to turn it into a push-pull trim instead:
+</p>
+<img src="/images/a3_after_push_trim.png" alt="region arrangement after a push trim" />
+<p>
+  There is no overlap, and the end of the earlier region has been moved 
+  along with the start of the later region, so that they still directly 
+  adjoin each other.
+</p>
+  
+

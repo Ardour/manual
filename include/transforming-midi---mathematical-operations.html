@@ -1,0 +1,54 @@
+
+<p>Considering the numerical nature of MIDI events, it can be tempting to apply mathematical transformations to our MIDI regions by using mathematical operations. Ardour makes it very easy and powerfull with the Transform tool.</p>
+  
+<img src="/images/MIDI_transform.png" alt="MIDI transformation" />
+
+<p>To access the Transform tool, right click the MIDI region &gt; <em>name_of_the_region</em> &gt; MIDI &gt; Transform...</p>
+
+<p>First, select the property you want to modify in the 'Set' field, then change the target value using the 2 following fields. If you want to add more operands, click the "+" sign to create new lines. You can remove a superfluous line using the "-" sign on the right of the newly created line.</p>
+
+<p>In the picture above, we've used the Transform tool to add a bit of humanisation, by slightly changing the velocity of each note of the region, by a random number between -19 and +19 from it's original velocity. So we've used 3 operations :</p>
+
+<ul>
+	<li>Set velocity to this note's velocity</li>
+	<li>+ a random number from 1 to 20</li>
+	<li>- a random number from 1 to 20</li>
+</ul>
+
+<p>Each note will trigger a calculation of its own, so its velocity will be increased by a random number between 1 and 20, then decreased by a random number between 1 and 20.</p>
+
+<p>The properties that can be computed are :</p>
+
+<ul>
+	<li>note number (eg C2 is note number 24, C#2 is 25 and so on)</li>
+	<li>velocity (the global intensity of the note, between 0 and 127)</li>
+	<li>start time (in beats)</li>
+	<li>length (in beats)</li>
+	<li>channel</li>
+</ul>
+
+<p>and the calculation may be based on the following properties :</p>
+
+<ul>
+	<li>this note's</li>
+	<li>the previous note's</li>
+	<li>this note's index (number of the note, i.e. the first one is 0, the second is 1, etc.)</li>
+	<li>exactly (for a constant value, between 1 and 127)</li>
+	<li>a random number from <em>lower</em> to <em>higher</em> (<em>lower</em> and <em>higher</em> beeing constant values between 1 and 127)</li>
+	<li>equal steps from <em>lower</em> to <em>higher</em> (<em>lower</em> and <em>higher</em> beeing constant values between 1 and 127)</li>
+</ul>
+
+<p>The mathematical operators can be :</p>
+
+<ul>
+	<li>+ (addition)</li>
+	<li>- (substration)</li>
+	<li>* (multiplication)</li>
+	<li>/ (euclidian division)</li>
+	<li>mod (rest of the euclidian division)</li>
+</ul>
+
+<p>All this operations can be very handy, as long as you find a mathematical way to achieve your goal. Beware though of odd "border cases" : division by zero (which does nothing), using the note's index and forgetting it starts at 0 and not 1, etc.<p>
+
+<p>You can nevertheless create very interesting results, like humanizing (randomizing the velocity, start time and duration of all the notes), creating arpeggios, automating tedious tasks, transposing, etc.</p>
+

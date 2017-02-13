@@ -322,11 +322,6 @@ if os.access(siteDir, os.F_OK):
 
 shutil.copytree('./source', siteDir)
 
-# Yeah, need to make a symlink in include/ too :-P
-# [this will go away when the rewrite happens]
-if (os.access('include/_manual', os.F_OK) == False):
-	os.symlink('../_manual/', 'include/_manual')
-
 
 # Read the template, and fix the stuff that's fixed for all pages
 temp = open('page-template.txt')

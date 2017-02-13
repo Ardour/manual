@@ -1,0 +1,81 @@
+
+
+
+<p>
+
+  The region list shows all the regions in the session. The left-hand column gives the region name, and there are a range of times given for information:
+
+</p>
+
+
+
+<dl>
+
+  <dt>Position</dt><dd>position of the start of the region on the global timeline</dd>
+
+  <dt>End</dt><dd>position of the region on the global timeline</dd>
+
+  <dt>Length</dt><dd>duration of the region</dd>
+
+  <dt>Sync</dt><dd>position of the sync point, relative to the start of region (can be negative)</dd>
+
+  <dt>Fade In</dt><dd>duration of the fade in. Can't be less than 1 ms, to avoid clipping.</dd>
+
+  <dt>Fade Out</dt><dd>duration of the fade out (positive value, &ge; 1 ms).</dd>
+
+</dl>
+
+
+
+<p>
+
+  The units used to display those times are those used for the clock, so changing the units on the clocks change the display of this values.
+
+</p>
+
+
+
+<p>
+
+  At the right of the list are four columns of flags that can be altered:
+
+</p>
+
+
+
+<dl>
+
+  <dt>L</dt>
+
+  <dd>whether the region position is locked, so that it cannot be moved.</dd>
+
+  <dt>G</dt>
+
+  <dd>whether the region's position is &lsquo;glued&rsquo; to bars and beats. If so, the region will stay at the same position in bars and beats even if the tempo and/or time signature change.</dd>
+
+  <dt>M</dt>
+
+  <dd>whether the region is muted, so that it will not be heard.</dd>
+
+  <dt>O</dt>
+
+  <dd>whether the region is opaque; opaque regions &lsquo;block&rsquo; regions below them from being heard, whereas &lsquo;transparent&rsquo; regions have their contents mixed with whatever is underneath. </dd>
+
+</dl>
+
+
+
+<p>
+
+  Hovering the mouse pointer over a column heading shows a tool-tip which can be handy to remember what the columns are for.
+
+</p>
+
+
+
+<p>
+
+  A handy feature of the region list is that its regions can be dragged and dropped into a suitable track in the session.
+
+</p>
+

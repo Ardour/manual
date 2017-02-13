@@ -1,0 +1,86 @@
+
+<p class="warning">
+  Ardour's VBAP panner is currently in development, and its semantics may
+  change in the near future, possibly affecting your mixes. Please do not
+  rely on it for important production work while the dust settles.
+</p>
+<p>
+  <dfn><abbr title="Vector-base Amplitude Panning">VBAP</abbr></dfn> 
+  is a versatile and straightforward method to pan a source around over an
+  arbitrary number of speakers on a horizontal polygon or a 3D surface,
+  even if the speaker layout is highly irregular.
+</p>
+
+<h2>Basic concepts</h2>
+<p>
+  VBAP was developed by Ville Pulkki at Aalto University, Helsinki, in 2001.
+  It works by distributing the signal to the speakers nearest to the desired
+  direction with appropriate weightings, aiming to create a maximally sharp 
+  phantom source by using as few speakers as possible:
+</p>
+<ul>
+  <li>one speaker, if the desired direction coincides with a speaker
+  location,</li>
+  <li>two speakers, if the desired direction is on the line between two
+  speakers,</li>
+  <li>and three speakers in the general 3D case.</li>
+</ul>
+<p>
+  Thus, if you move the panner onto a speaker, you can be sure that only
+  this speaker will get any signal. This is handy when you need precise
+  1:1 routing.<br />
+  The drawback of VBAP is that a moving source will constantly change its 
+  apparent sharpness, as it transitions between the three states mentioned 
+  above.
+</p>
+<p>
+  A <dfn>horizontal</dfn> VBAP panner has one parameter, the <dfn>azimuth
+  angle</dfn>. A <dfn>full-sphere</dfn> panner offers an additional 
+  <dfn>elevation angle</dfn> control.
+</p>
+<p class="note">
+  More elaborate implementations of VBAP also include a
+  <dfn>spread</dfn> parameter, which  will distribute the signal over a 
+  greater number of speakers in order to maintain constant (but no longer 
+  maximal) sharpness, regardless of position. Ardour's VBAP panner does not 
+  currently include this feature.
+</p>
+
+<h2>Speaker layout</h2>
+<p>
+  Each VBAP panner is specific to its <dfn>speaker layout</dfn>
+  &mdash; the panner has
+  to "know" about the precise location of all the speakers. A complete VBAP
+  implementation must therefore include the possibility to define this
+  layout.
+</p>
+<img src="/images/VBAP-panner-5.png" class="small right" alt="The VBAP
+panner with 5 outputs"/>
+<p>
+  Ardour currently uses a simplified approach: if a track or bus has more
+  than two output channels (which implies stereo), it assumes that you
+  have N speakers distributed in a regular N-gon. That means that for
+  irregular layouts such as 5.1 or 7.1, the direction you dial in will
+  differ a bit from the actual auditory result, but you can still achieve
+  any desired spatialisation.
+</p>
+<h3>Experimental 3D VBAP</h3>
+<img src="/images/VBAP-panner-10.png" class="small right" alt="The VBAP
+panner with 10 outputs, in experimental 3D mode"/>
+<p>
+  For tracks with 10 outputs, Ardour will currently assume a 3-dimensional
+  speaker layout corresponding to Auro-3D 10.1, which is a horizontal 5.1
+  system, four elevated speakers above L, R, Ls, and Rs, and an additional
+  "voice-of-god" speaker at the zenith.
+</p>
+
+<h2>N:M panning</h2>
+<img src="/images/VBAP-panner-4in5.png" class="small right" alt="The VBAP
+panner in 4 in, 5 out mode"/>
+<p>
+  For tracks and busses with more than one input, Ardour will (for now) assume that
+  you wish to distribute the inputs symmetrically along the latitude around
+  the panner direction. The width parameter controls the opening angle of
+  the distribution sector.
+</p>
+

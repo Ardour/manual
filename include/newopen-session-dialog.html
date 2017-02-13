@@ -1,0 +1,111 @@
+
+<p>
+  The initial <dfn>Session</dfn> dialog consists of several consecutive pages:
+</p>  
+
+<h2>Open Session Page</h2>
+<p>
+  On this page, you can open an <dfn>existing session</dfn>.  You can also 
+  open any <a href="/working-with-sessions/snapshots/">snapshot</a> of a 
+  particular session by clicking on the arrow next to the session name to 
+  display all snapshots, and then selecting one.  If your session is 
+  not displayed in the Recent Sessions list, the <kbd class="menu">Other
+  Sessions</kbd> button will bring up a file selection dialog to navigate 
+  your hard drive.<br />
+  Alternatively, you can opt to create a <kbd class="menu">New
+  Session</kbd>.
+</p>
+
+<h2>New Session page</h2>
+<p>
+  Here you can type in the name of a session, select a folder to save in, and 
+  optionally use an existing <a href="/working-with-sessions/session-templates/">template</a>.
+</p>
+<p>
+  Under <dfn>Advanced Options</dfn>, you can select whether you wish to create 
+  a Master Bus, or a Control Bus, and how many channels you wish either to have.
+  You can also decide whether you want Ardour to automatically connect all inputs 
+  to the physical ports of your hardware. Ardour will do so 
+  sequentially and in round-robin fashion, connecting the first track's
+  input to the first input of your hardware and so on. When Ardour has used
+  all available hardware inputs, it will begin again with the first physical
+  input. 
+  You can limit the number of channels on your physical hardware that Ardour
+  uses. 
+</p>
+<p>
+  By default Ardour will connect all tracks and busses to the Master Bus if 
+  there is one. However you can also tell it to automatically connect each 
+  output to the physical outputs of your interface or sound card, and limit
+  the number of physical outputs used, as above.
+</p>
+
+<h3>Audio/MIDI Setup</h3>
+
+<img class="right" src="/images/Audio-MIDI_Setup.png" alt="The Audio+MIDI
+Setup Dialog"/>
+
+<p>
+  This page is not displayed if <abbr title="JACK Audio Connection
+  Kit">JACK</abbr> is already running when you start
+  Ardour. It provides a simple interface to configure JACK, which
+  will then be started by Ardour. For more control and options regarding
+  JACK, it is recommended that you start JACK before using Ardour, via a
+  JACK control application such as QJackCtl (sometimes called "Jack
+  Control"), JackPilot, etc.
+</p>
+<dl>
+  <dt>Audio System</dt>
+  <dd>Currently, the only option here is <kbd class="menu">JACK</kbd>. In the future, native
+  hardware access may be supported.</dd>
+  <dt>Driver</dt>
+  <dd>
+    On Mac OS X this will typically be <kbd class="menu">CoreAudio</kbd>. On Linux usually
+    this will be either <kbd class="menu"><abbr title="Free Firewire Audio Driver fOr
+    linux">FFADO</abbr></kbd>
+    or <kbd class="menu"><abbr title="Advanced Linux Sound
+    Architecture">ALSA</abbr></kbd>, depending on whether or not you are
+    utilizing a firewire device. Advanced users on all platforms may also
+    use <kbd class="menu">NetJack</kbd> which provides network audio I/O.
+  </dd>
+  <dt>Device</dt>
+  <dd>The selector should show all availiable interfaces provided by the
+  driver above and which are capable of duplex operation.
+  <p class="warning">
+    If you are using an Intel Mac running OS X and the builtin audio
+    interface, you must
+    first <a href="/setting-up-your-system/using_more_than_one_audio_device/">merge
+    its separate input and output devices into a single "aggregate
+    device"</a> before Ardour will be able to use it.
+   </p>
+  </dd>
+  <dt>Sample Rate</dt>
+  <dd>
+    The selector will allow you to select from any sample rate
+    supported by the device selected above it.
+  </dd>
+  <dt>Buffer Size</dt>
+  <dd>
+    You can adjust the size of the buffer used by your audio interface
+    to allow for either lower latency, or lower CPU usage and higher
+    latency.
+  </dd>
+  <dt>Input/Output Channels</dt>
+  <dd>
+    Here you can specify the number of hardware channels to use. The
+    default is <kbd class="menu">all available channels</kbd>.</dd>
+  <dt>Hardware Input/Output Latency</dt>
+  <dd>Specify the hardware delay in samples for precise latency compensation.</dd>
+  <dt>Calibrate</dt>
+  <dd>
+    This button guides you through a semi-automated process to obtain
+    precise hardware latency measurements for the above option.</dd>
+  <dt>MIDI System</dt>
+  <dd>
+    Select the MIDI driver to use. On Mac OS X, this will be <kbd
+    class="menu">CoreMIDI</kbd>. On Linux, you can change between two legacy
+    ALSA drivers or the (preferred) new JACK+ALSA implementation.</dd>
+</dl>
+
+{% children %}
+

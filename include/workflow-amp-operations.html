@@ -1,0 +1,115 @@
+
+<h2>Overview of Operations</h2>
+
+<dl class="wide-table">
+  <dt><kbd class="menu">Session &gt; Open Video</kbd></dt>
+  <dd>Add/replace a video to/on the timeline</dd>
+  <dt><kbd class="menu">Window &gt; View Monitor</kbd></dt>
+  <dd>Open/close external video monitor window</dd>
+  <dt><kbd class="menu">View &gt; Video Monitor &gt; …</kbd></dt>
+  <dd>Various settings of the video monitor</dd>
+  <dt><kbd class="menu">Session &gt; Export &gt; Video</kbd></dt>
+  <dd>Export session and multiplex with video-file</dd>
+  <dt><kbd class="mouse">Left</kbd>-drag the video in the timeline</dt>
+  <dd>Re-align video and move 'locked' audio-regions along</dd>
+  <dt>Context-menu on the video-timeline: <kbd class="menu"> &#039;lock&#039;</kbd></dt>
+  <dd>Prevent accidental drags</dd>
+  <dt>Audio region context menu: <kbd class="menu">Position &gt; Lock to video</kbd></dt>
+  <dd>Mark audio region(s) to be moved along with the video.</dd>
+</dl>
+
+
+<h2>Adding Video</h2>
+<p>
+  Adding video is a two-step process: select a video file, and choose 
+  import mode and optionally select an audio track to extract.
+</p>
+<p>
+  The first step is rather straight-forward. The panel on the right side 
+  allows to seek through the video and displays basic file information. 
+  It is also useful to check if the video format/codec is supported:
+</p>
+<img src="/images/a3_video_open.png" alt="video-open-dialog" width="300" />
+<p>
+  The second step analyzes the video file in more detail and offers import options:
+</p>
+<dl>
+  <dt><kbd class="menu">Import/Transcode to Session</kbd></dt>
+  <dd>This is the default. The video will be imported in a suitable
+  video format/codec for the timeline and video monitor and saved inside the
+  session folder.  A location other than the session folder can also be
+  chosen (external disk, or network storage of the video server on a different
+  machine).</dd>
+  <dt><kbd class="menu">Reference from Current Location</kbd></dt>
+  <dd>Only useful for opening files that were previously encoded (are already 
+  in a good format/codec). Use with care.</dd>
+  <dt><kbd class="menu">Do not Import Video</kbd></dt>
+  <dd>Useful for extracting audio only.</dd>
+</dl>
+
+<img src="/images/a3_video_import.png" alt="Video Import Dialog" width="300" />
+
+<p>
+  By default the video is imported using the original width/height.
+  If it is a large video (e.g. full-HD) it makes sense to scale it down
+  to decrease the CPU load and disk I/O required to decode and play the
+  file.<br />
+  A small, low-quality representation of the image is usually sufficient 
+  for editing soundtracks. The default bitrate in kbit/sec is set to use 
+  0.7 bits per pixel. (Compare: the average DVD medium uses 5000&nbsp;kbit/s; 
+  at PAL resolution this is about 0.5 bits per pixel. But the DVD is 
+  using the <dfn>mpeg2</dfn> &mdash; a denser compression algorithm than the 
+  <dfn>mjpeg</dfn> codec used by Ardour.)
+</p>
+
+<h2>Working with A/V</h2>
+<p>
+  Well now,..
+</p>
+<img src="/images/a3_videotimeline.png" alt="Video Timeline" width="600" />
+
+<h2 id="export">Exporting Video</h2>
+<p>
+  The video export will take audio from the current Ardour session and 
+  multiplex it with a video file. The soundtrack of the video is taken from 
+  an audio export of Ardour's master bus.
+</p>
+<p>
+  An arbitrary video file can be chosen. For high quality exports, the 
+  original file (before it was imported into the timeline) should be used. 
+  This is the default behaviour if that file can be found. If not, Ardour 
+  will fall back to the imported proxy-video which is currently in use 
+  on the timeline.  Any existing audio tracks on this video file are stripped.
+</p>
+<p>
+  The range selection allows to cut or extend the video. If the session is 
+  longer than the video duration, black frames are prefixed or appended to 
+  the video. (Note: this process may fail with non-standard pixel aspect 
+  ratios). If Ardour's session range is shorter, the video will be cut accordingly.
+</p>
+
+<p>
+  Audio samplerate and normalization are options for Ardour's audio exporter. 
+  The remaining settings are options that are directly passed on to ffmpeg.
+</p>
+
+<p>
+  The file format is determined by the extension that you choose for it
+  (.avi, .mov, .flv, .ogv, .webm,...)
+  Note: not all combinations of format, codec, and settings produce files 
+  which are according to specifications. For example, flv files require 
+  sample rates of 22.1&nbsp;kHz or 44.1&nbsp;kHz, mpeg containers can not 
+  be used with ac3 audio-codec, etc. If in doubt, use one of the built-in 
+  presets.
+</p>
+
+<img src="/images/a3_video_export.png" alt="Video Export Dialog" width="300" />
+
+<p>
+  Ardour video export is not recommended for mastering! While ffmpeg 
+  (which is used by Ardour) can produce high-quality files, this export 
+  lacks the possibility to tweak many settings. We recommend to use winff, 
+  devede or dvdauthor to mux &amp; master. Nevertheless this video-export c
+  omes in handy to do quick snapshots, intermediates, dailies or online videos.
+</p>
+

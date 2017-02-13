@@ -1,0 +1,53 @@
+
+<p>
+  A <dfn>patch change</dfn> is Ardour's description for a combination
+  of MIDI program change and bank select messages, that (typically)
+  instruct a synthesizer or sampler to select a different sound to use
+  on a particular channel.
+</p>
+<p>
+  Patch changes are shown within MIDI regions as small rectangles or
+  <dfn>flags</dfn>, as shown below:
+</p>
+
+<h2>Inserting Patch Changes</h2>
+<p>
+  Ensure that the
+  <a href="/ardours-interface/the-edit-point-control/">edit point</a> is 
+  located where you want the patch change to be (within an existing
+  MIDI region). Context click, and from the MIDI region's context menu,
+  select <kbd class="menu">MIDI &gt; Insert Patch Change</kbd>. A
+  dialog will appear allowing you to set the bank and program values.
+</p>
+
+<h2>Modifying Patch Changes</h2>
+<p>
+  Context-clicking on a patch change will bring up the same dialog that
+  was used to create it, allowing you to modify the program and/or bank
+  numbers.
+</p>
+<p>
+  You can also use the mouse wheel: <kbd class="mouse">&uArr;</kbd>/<kbd
+  class="mouse">&dArr;</kbd> on the patch change will alter the program
+  number, <kbd class="mouse mod1">&uArr;</kbd>/<kbd
+  class="mouse mod1">&dArr;</kbd> will modify the bank number.
+</p>
+
+<h2>Moving Patch Changes</h2>
+<p>
+  Just <kbd class="mouse">Left</kbd>-drag on the patch change to move it
+  around.
+</p>
+
+<h2>Removing Patch Changes</h2>
+<p>
+  Put the mouse pointer into the rectangular area, and press <kbd>Del</kbd>
+  or use the delete mouse button operation. This will remove the patch change
+  (the operation can be undone).
+</p>
+
+<h2>Names for Patch Numbers: MIDNAM files</h2>
+<p>
+  ...
+</p>
+
