@@ -1392,6 +1392,7 @@ part: part
 ---
 title: MIDI Editing
 include: midi-editing.html
+uri: editing-and-arranging/editing-midi
 part: chapter
 ---
 
@@ -1433,7 +1434,7 @@ part: subchapter
 ---
 title: Change Note Properties
 include: change-note-properties.html
-uri: working-with-midi/change-note-properties
+uri: editing-and-arranging/editing-midi/changing-note-properties
 part: subchapter
 ---
 
@@ -1990,7 +1991,7 @@ part: chapter
 ---
 title: Devices Using Mackie/Logic Control Protocol
 include: devices-using-mackielogic-control-protocol.html
-uri: using-control-surfaces/mackie-control-protocol/mackie-control-configure
+uri: using-control-surfaces/devices-using-mackielogic-control-protocol
 part: subchapter
 ---
 
@@ -2103,7 +2104,7 @@ part: part
 ---
 title: List of Menu Actions
 include: list-of-menu-actions.html
-uri: appendix/menu-actions-list
+uri: using-control-surfaces/midi-binding-maps
 part: chapter
 ---
 
