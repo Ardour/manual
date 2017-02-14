@@ -1,16 +1,35 @@
+<h2 id="selection_clocks">The Selection Clocks</h2>
 
-<img src="/images/selectionpunchclocks.png" alt="An image of the the selection and punch clocks in Ardour" />
+<img src="/images/selection-clocks.png" alt="The range clocks">
 
 <p>
-  The transport bar contains a set of 5 clocks that show the current
-  <dfn>selection range</dfn> and <dfn>punch ranges</dfn>.
+  The current <dfn>selection range</dfn>, as set with the <a href="/ardours-interface/the-toolbox/">Range Mode tool</a>,
+  is displayed in these three clocks: start of the range, end of the range, and length.
 </p>
 <p>
-  Clicking on the punch range clocks will locate to either the beginning or end of the punch range.
-  Similarly, clicking on the range clocks will locate to either the beginning
-  or end of the current selection. In this screen shot there is no current
-  selection range, so the selection clocks show an "off" state.
+  Clicking on the range clocks will locate to either the beginning or end of the punch range.
 </p>
+<p>
+  <kbd class="mouse">Right</kbd> clicking on any of the clocks brings up a context menu
+  allowing to change the type of time display between the <a href="/introducing-ardour/basic-gui-operations/editing-clocks/">
+  4 clock modes</a>, and to copy the selected clock's time to the clipboard.
+</p>
+
+<h2 id="punch_controls">The Punch Controls &amp; clocks</h2>
+
+<figure>
+  <img src="/images/punch-controls.png" alt="The punch controls">
+  <img src="/images/punch-clocks.png" alt="The punch clocks">
+  <figcaption>
+    The Punch Controls, and the related Punch clocks
+  </figcaption>
+</figure>
+
+<p>
+  The punch controls available in the main toolbar, work in conjunction with the
+  punch clocks, only visible while in Editor Mode.
+</p>
+
 <p>
   The <kbd class="menu">In</kbd> and <kbd class="menu">Out</kbd> buttons relate
   to the Punch range, and allow to use only one of the two punch boundaries, or both:
@@ -20,9 +39,34 @@
   <dt>Out only</dt><dd>Records untils the Out marker, without a beginning boundary</dd>
   <dt>In only</dt><dd>Records only between the In and Out markers</dd>
 </dl>
+
 <p>
-  <kbd class="mouse">Right</kbd> clicking on any of the 5 clocks brings up a context menu
-  allowing to change the type of time display between the <a href="/introducing-ardour/basic-gui-operations/editing-clocks/">
-  4 clock modes</a>, and to copy the selected clock's time to the clipboard.
+  The punch clocks can be controlled the same way as the range clocks (moving the playhead,
+  and changing the display mode).
 </p>
 
+<h2 id="rec-mode">Recording mode</h2>
+
+<p>
+  The <kbd class="menu">Rec</kbd> button affects how the tracks behave when recording:
+</p>
+
+<dl>
+  <dt>Non-Layered OFF <em>(default)</em></dt>
+  <dd>Tracks in <dfn>normal mode</dfn> will record non-destructively &mdash;
+  new data is written to new files, and when overdubbing, new regions will be
+  layered on top of existing ones. This is the recommended mode for most workflows.
+  </dd>
+  <dt>Non-Layered ON</dt>
+  <dd>Tracks using <dfn>non-layered mode</dfn> will record non-destructively
+  &mdash; new data is written to new files, but when overdubbing, the existing
+  regions are trimmed so that there are no overlaps. This does not affect
+  the previously recorded audio data, and trimmed regions can be expanded
+  again at will. Non-layered mode can be very useful for spoken word material,
+  especially in combination with <a href="/editing-and-arranging/change-region-lengths/pushpull-trimming/">push/pull trimming</a>.
+  </dd>
+</dl>
+
+<p>
+  See <a href="/working-with-tracks/track-types/">Track Modes</a> for more information.
+</p>

@@ -589,28 +589,28 @@ part: chapter
 ---
 
 ---
-title: Clocks
-include: clocks.html
-part: chapter
----
-
----
 title: Transport Clocks
 include: transport-clocks.html
 uri: ardours-interface/transport-clocks
-part: subchapter
+part: chapter
 ---
 
 ---
 title: Selection and Punch Clocks
 include: selection-and-punch-clocks.html
 uri: ardours-interface/selection-and-punch-clocks
-part: subchapter
+part: chapter
 ---
 
 ---
-title: Status Indicators and Mode Buttons
-include: status-indicators-and-mode-buttons.html
+title: Mini-Timeline
+include: mini-timeline.html
+part: chapter
+---
+
+---
+title: Other Toolbar Items
+include: other-toolbar-items.html
 uri: ardours-interface/status-indicators
 part: chapter
 ---
