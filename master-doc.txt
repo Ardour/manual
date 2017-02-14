@@ -214,13 +214,6 @@ part: subchapter
 ---
 
 ---
-title: Platform Specifics
-include: platform-specifics.html
-uri: setting-up-your-system/platform-specifics
-part: subchapter
----
-
----
 title: Ubuntu Linux
 include: ubuntu-linux.html
 uri: setting-up-your-system/platform-specifics/ubuntu-linux
