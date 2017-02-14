@@ -2,4 +2,5 @@ website
 drupal-export.html
 tmp
 *~
+*.bak
 #*#
