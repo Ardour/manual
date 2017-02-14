@@ -45,9 +45,9 @@
 
 <img src="/images/latency-chain.png"  title="Latency chain" alt="Latency chain" />
 <p>
-  <em>Figure: Latency chain.</em>
-  The numbers are an example for a typical PC. With professional gear and an
-  optimized system the total roundtrip latency is usually lower. The important
+  <em>Figure: Latency chain.</em> 
+  The numbers are an example for a typical PC. With professional gear and an 
+  optimized system the total round-trip latency is usually lower. The important 
   point is that latency is always additive and a sum of many independent factors.
 </p>
 
@@ -55,7 +55,7 @@
   Processing latency is usually divided into <dfn>capture latency</dfn> (the time
   it takes for the digitized audio to be available for digital processing, usually
   one audio period), and <dfn>playback latency</dfn> (the time it takes for
-  In practice, the combination of both matters. It is called <dfn>roundtrip
+  In practice, the combination of both matters. It is called <dfn>round-trip
   latency</dfn>: the time necessary for a certain audio event to be captured,
   processed and played back.
 </p>
@@ -78,7 +78,7 @@
 </p>
 
 
-<h2>Low Latency usecases</h2>
+<h2>Low Latency use cases</h2>
 <p>
   Low latency is <strong>not</strong> always a feature you want to have. It
   comes with a couple of drawbacks: the most prominent is increased power
@@ -180,7 +180,7 @@
     edge of the JACK graph (capture)?
   </li>
   <li>
-    How long will it be until the data writen to port Ao or Bo arrives at the
+    How long will it be until the data written to port Ao or Bo arrives at the
     edge of the JACK graph (playback)?
   </li>
 </ul>
@@ -201,7 +201,7 @@
 <h2>Calibrating JACK Latency</h2>
 <p>
   Linux DSP guru Fons Adriaensen wrote a tool called <dfn>jack_delay</dfn>
-  to accurately measure the roundtrip latency of a closed loop audio chain,
+  to accurately measure the round-trip latency of a closed loop audio chain,
   with sub-sample accuracy. JACK itself includes a variant of this tool
   called <dfn>jack_iodelay</dfn>.
 </p>
@@ -236,7 +236,7 @@
 </p>
 <ol>
   <li>Launch jackd with the configuration you want to test.</li>
-  <li>Launch <kbd class="input">jack_delay</kbd> on the commandline.</li>
+  <li>Launch <kbd class="input">jack_delay</kbd> on the command line.</li>
   <li>Make the appropriate connections between your jack ports so the loop is closed.</li>
   <li>Adjust the playback and capture levels in your mixer.</li>
 </ol>

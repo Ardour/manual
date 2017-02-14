@@ -7,7 +7,7 @@
 
 <table class="dl">
   <tr><th><kbd class="osc">/jog <em>delta</em></kbd></th>
-  <td>Where <em>delta</em> is a float indicating the ammount and direction.</td></tr>
+  <td>Where <em>delta</em> is a float indicating the amount and direction.</td></tr>
   <tr><th><kbd class="osc">/jog/mode <em>mode</em></kbd></th>
   <td>Where <em>mode</em> is an int from 0 to 7 indicating the mode</td></tr>
 </table>
@@ -29,7 +29,7 @@
 
   <ul>
     <li>0 Jog, each tick moves the Playhead forward or backward .2 seconds.</li>
-    <li>1 Nudge, Moves the Playhead forward or backward by the ammount of the nudge clock.</li>
+    <li>1 Nudge, Moves the Playhead forward or backward by the amount of the nudge clock.</li>
     <li>2 Scrub, see <a href="#scrub">Scrub mode</a>.</li>
     <li>3 Shuttle, each tick raises or lowers the transport speed by 12.5%.</li>
     <li>4 Marker, Moves the Playhead to the previous or next Marker.</li>
@@ -46,7 +46,7 @@
 
 <p>
 	Scrub deserves special mention. In an ideal world, scrub would be jog with sound.
-	However, Ardour does not have that functionallity yet. So scrub starts the transport
+	However, Ardour does not have that functionality yet. So scrub starts the transport
 	rolling at either 50% or 100% depending on how fast the jog wheel is turned. The
 	position of the last tick is always saved and if no more ticks are received, the
 	transport is located there when stopped at time out. If the jog wheel gives a value

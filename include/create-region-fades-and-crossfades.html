@@ -70,11 +70,11 @@
 
 <p>
   To activate/deactivate or change the shape of a region's fadein or
-  fade-out, the cursor has to be hovered over the regionfade grip until the
+  fade-out, the cursor has to be hovered over the region fade grip until the
   cursor tip indicates region fade editing, then <kbd class="mouse">right</kbd>
   clicked to bring up a context menu. In the context menu is a list of options
-  for the regionfade. <kbd class="menu">Activate/Deactivate</kbd> enables and
-  disables the regionfade.
+  for the region fade. <kbd class="menu">Activate/Deactivate</kbd> enables and
+  disables the region fade.
 </p>
 <p>
   Because each fade is also a crossfade, it has an inverse fade shape
@@ -86,16 +86,16 @@
 </p>
 <table class="dl">
   <tr><th><kbd class="menu">Linear</kbd></th><td>A simple linear coefficient
-    decrease, and its mathematical inverse. A Linear fade starts attentuating
-    quickly and then cuts off even more abruptly at lower levels. When used as a
+    decrease, and its mathematical inverse. A Linear fade starts attenuating
+    quickly, and then cuts off even more abruptly at lower levels. When used as a
     crossfade, the signals are each -6dB attenuated at the midpoint. This is the
     correct crossfade to use with highly-correlated signals for a smooth
     transition.</td></tr>
-  <tr><th><kbd class="menu">Constant power</kbd></th><td>The constant power
+  <tr><th><kbd class="menu">Constant Power</kbd></th><td>The constant power
     curve starts fading slowly and then cuts off abruptly. When used as a
     crossfade between 2 audio regions, the signals are symmetrically attenuated,
     and they each reach -3dB at the midpoint. This is the correct crossfade to
-    use when splicing audio in the general ( uncorrelated ) case.</td></tr>
+    use when splicing audio in the general (uncorrelated) case.</td></tr>
   <tr><th><kbd class="menu">Symmetric</kbd></th><td>The Symmetric fade starts
     slowly, then attenuates significantly before transitioning to a slower
     fade-out near the end of the fade. When used as a crossfade, the Symmetric
@@ -126,7 +126,7 @@
 <p>
   These fade curves are developed to provide a range of common uses, and
   are developed with the least possible amount of changes in the "slope"
-  of the line. This provides artifact-free crossfades. Some
+  of the line. This provides artefact-free crossfades. Some
   DAWs provide complicated fade editors with parametric "spline" controls
   of the fade curves. While it might be interesting to develop a
   fade curve with a faster cutoff, the mathematical difference between

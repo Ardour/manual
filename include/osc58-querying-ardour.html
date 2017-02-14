@@ -5,7 +5,7 @@
   information. These set of commands are for smarter control surfaces
   That have the logic to figure out what to do with the information.
   These are not of value for mapped controllers like touchOSC and
-  friends. The controller will need to send these queries to ardour
+  friends. The controller will need to send these queries to Ardour
   as often as it needs this information. It may well make sense to use
   regular feedback for things that need to be updated often such as
   position or metering.
@@ -74,7 +74,7 @@
 </p>
 <p class="note">A bus will not have a record enable and so a bus message
   will have one less parameter than a track. It is the controllers
-  responsability to deal with this.
+  responsibility to deal with this.
 </p>
 
 <h3>A list of sends</h3>
@@ -89,7 +89,7 @@
       <li>The send's target bus ssid</li>
       <li>The send's target bus name</li>
       <li>The send id for this strip</li>
-      <li>The send gain as a fader possition</li>
+      <li>The send gain as a fader position</li>
       <li>The Send's enable state</li>
     </ul>
   </ul>
@@ -104,13 +104,13 @@
 <p>
   <code>/strip/receives <em>ssid</em></code> will return a list of
   tracks that have sends to the bus at the ssid. The reply will
-  contain the following information for each track conntected to this
+  contain the following information for each track connected to this
   bus:
   <ul>
     <li>The ssid of the track sending</li>
     <li>The name of the sending track</li>
     <li>The id of the send at that track</li>
-    <li>It's gain in fader possition</li>
+    <li>It's gain in fader position</li>
     <li>The send's enable state</li>
   </ul>
 </p>
@@ -157,7 +157,7 @@
 	After all the parameters have been sent this way, one final message"
 	<code>/strip/plugin/descriptor_end</code> is sent with these parameters:
 	<ul>
-	  <li>Ssid of the strip the pulgin is in</li>
+	  <li>Ssid of the strip the plugin is in</li>
 	  <li>The plug-in id for the plug-in</li>
 	</ul>
 </p>
