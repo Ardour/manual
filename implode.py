@@ -137,7 +137,10 @@ for line in master:
 					while fromFile.readline().startswith('---') == False:
 						pass
 
-				shutil.copyfileobj(fromFile, implode)
+#				shutil.copyfileobj(fromFile, implode)
+				# Strip trailing newlines from content...
+				tempContent = fromFile.read().rstrip('\r\n')
+				implode.write(tempContent + '\n')
 				fromFile.close()
 				delList.append(inclFile)
 

@@ -106,8 +106,8 @@ bindings"&gt;
   A track/bus binding has one of two basic structures
 </p>
 <code>
-  &lt;Binding <em>msg specification</em>  uri="<em>... control address ...</em>"/&gt;
-  &lt;Binding <em>msg specification</em>  function="<em>... function name ...</em>"/&gt;
+  &lt;Binding <em>msg specification</em>  uri="<em>&hellip; control address &hellip;</em>"/&gt;
+  &lt;Binding <em>msg specification</em>  function="<em>&hellip; function name &hellip;</em>"/&gt;
 </code>
 
 <h4>Message specifications</h4>
@@ -117,7 +117,7 @@ bindings"&gt;
   like this:
 </p>
 <code>
-   &lt;Binding channel="1" ctl="13" ....
+   &lt;Binding channel="1" ctl="13" &hellip;.
 </code>
 <p>
   This defines a binding for a MIDI Continuous Controller message involving
@@ -140,8 +140,8 @@ bindings"&gt;
   You can also bind sysex messages:
 </p>
 <code>
-  &lt;Binding sysex="f0 0 0 e 9 0 5b f7" ....
-  &lt;Binding sysex="f0 7f 0 6 7 f7" ....
+  &lt;Binding sysex="f0 0 0 e 9 0 5b f7" &hellip;.
+  &lt;Binding sysex="f0 7f 0 6 7 f7" &hellip;.
 </code>
 <p>
   The string after the <code>sysex=</code> part is the sequence of MIDI bytes,
@@ -150,8 +150,8 @@ bindings"&gt;
 <p>
   Finally, you can bind a totally arbitrary MIDI message:</p>
 <code>
-  &lt;Binding msg="f0 0 0 e 9 0 5b f7" ....
-  &lt;Binding msg="80 60 40" ....
+  &lt;Binding msg="f0 0 0 e 9 0 5b f7" &hellip;.
+  &lt;Binding msg="80 60 40" &hellip;.
 </code>
 <p>
   The string after the <code>msg=</code> part is the sequence of MIDI bytes, as
@@ -228,7 +228,7 @@ bindings"&gt;
 <p>
   One additional feature: for solo and mute bindings, you can also add
   <code>momentary="yes"</code> after the control address. This is useful
-  primarily for NoteOn bindings &mdash; when Ardour gets the NoteOn it
+  primarily for NoteOn bindings&mdash;when Ardour gets the NoteOn it
   will solo or mute the targetted track or bus, but then when a NoteOff
   arrives, it will un-solo or un-mute it.
 </p>
@@ -326,7 +326,7 @@ bindings"&gt;
   for far fewer tracks &amp; busses than many users want to control,
   Ardour offers the relatively common place concept of <dfn>banks</dfn>. Banks
   allow you to control any number of tracks and/or busses easily,
-  regardless of how many faders/knobs etc. your control surface has.<br />
+  regardless of how many faders/knobs etc. your control surface has.<br>
   To use banking, the control addresses must be specified using the
   <dfn>bank relative</dfn> format mentioned above ("B1" to identify
   the first track of a bank of tracks, rather than "1" to identify
@@ -388,6 +388,4 @@ bindings"&gt;
   decimal numbers in the ranges 1-16, 0-127 and 0-127 respectively
   (the channel range may change at some point).
 </p>
-
-{% children %}
 

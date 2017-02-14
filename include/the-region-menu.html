@@ -7,21 +7,21 @@
 	<dt>Insert Region from Region List</dt><dd>If a region is selected in the Editor List, add it at the Edit point</dd>
 	<dt>Play</dt><dd>Starts playback at the beginning of the selected region(s), and stops at its(their) end</dd>
 	<dt>Loop</dt><dd>Creates a loop range on the selected region's boundaries, and starts the looped playback</dd>
-	<dt>Rename...</dt><dd>Changes the name of the region, that appears in its top left area</dd>
-	<dt>Properties...</dt><dd>Shows the <kbd class="menu">Region properties</kbd> window, that displays detailed information about the region and allow for some modifications</dd>
-	<dt>Loudness Analysis...</dt><dd>Shows the <kbd class="menu">Audio Report/Analysis</kbd> window, that displays detailed <a href="/meters/">dBFS information</a> as well as a spectrogram (dBFS of frequency against time)</dd>
-	<dt>Spectral Analysis...</dt><dd>Shows the <kbd class="menu">Audio Report/Analysis</kbd> window, that displays a integrated spectral view of the region (dBFS agaisnt frequency)</dd>
+	<dt>Rename&hellip;</dt><dd>Changes the name of the region, that appears in its top left area</dd>
+	<dt>Properties&hellip;</dt><dd>Shows the <kbd class="menu">Region properties</kbd> window, that displays detailed information about the region and allow for some modifications</dd>
+	<dt>Loudness Analysis&hellip;</dt><dd>Shows the <kbd class="menu">Audio Report/Analysis</kbd> window, that displays detailed <a href="/meters/">dBFS information</a> as well as a spectrogram (dBFS of frequency against time)</dd>
+	<dt>Spectral Analysis&hellip;</dt><dd>Shows the <kbd class="menu">Audio Report/Analysis</kbd> window, that displays a integrated spectral view of the region (dBFS agaisnt frequency)</dd>
 	<dt>Edit</dt>
 		<dt class="sub1">Combine</dt><dd>Creates a new region by joining the selected audio regions in the same track, and replaces those region with the newly created compound. The same rules are applied to create the compound as for playback regarding e.g. layering</dd>
 		<dt class="sub1">Uncombine</dt><dd>Splits back the compound created by <em>combining</em> into its original audio regions</dd>
-		<dt class="sub1">Pitch Shift...</dt><dd>Changes the tune of the audio region, by octave, semitones or percentage, based on spectral analysis. Optionaly, and if they have been set for the region, preserves the formants</dd>
+		<dt class="sub1">Pitch Shift&hellip;</dt><dd>Changes the tune of the audio region, by octave, semitones or percentage, based on spectral analysis. Optionaly, and if they have been set for the region, preserves the formants</dd>
 		<dt class="sub1">Split/Separate</dt><dd>Cuts the selected regions at the Edit point, separating them in two regions</dd>
 		<dt class="sub1">Split at Percussion Onset</dt><dd>Allows splitting the selected regions on its PErcussion Onsets marker as set by the Rhythm Ferret (Not usable as of 5.5)</dd>
 		<dt class="sub1">Make Mono Regions</dt><dd>Creates mono regions out of a stereo or multichannel region by splitting it into its discrete channels. The created regions are added to the Editor List</dd>
 		<dt class="sub1">Close Gaps</dt><dd>Extends (or reduces) the selected regions to be perfecltly aligned. Optionnaly, sets up a crossfade duration, or a pull-back (spacing between regions)</dd>
-		<dt class="sub1">Place Transient</dt><dd>Places a transient at the Edit Point. Used e.g. for the <kbd class="menu">Pitch Shift...</kbd> action</dd>
-		<dt class="sub1">Rhythm Ferret...</dt><dd>Opens the <kbd class="menu">Rhythm Ferret</kbd> which is a powerfull tool to sequence audio files</dd>
-		<dt class="sub1">Strip Silence...</dt><dd>Opens the <kbd class="menu">Strip Silence</kbd> window which is a very handy tool to remove all audio under a user-chosen threshold (with a preview)</dd>
+		<dt class="sub1">Place Transient</dt><dd>Places a transient at the Edit Point. Used e.g. for the <kbd class="menu">Pitch Shift&hellip;</kbd> action</dd>
+		<dt class="sub1">Rhythm Ferret&hellip;</dt><dd>Opens the <kbd class="menu">Rhythm Ferret</kbd> which is a powerfull tool to sequence audio files</dd>
+		<dt class="sub1">Strip Silence&hellip;</dt><dd>Opens the <kbd class="menu">Strip Silence</kbd> window which is a very handy tool to remove all audio under a user-chosen threshold (with a preview)</dd>
 		<dt class="sub1">Reverse</dt><dd>Mirrors the audio horizontally</dd>
 	<dt>Layering</dt>
 		<dt class="sub1">Raise to Top</dt><dd>On overlapping regions, puts the selected one(s) on top</dd>
@@ -29,18 +29,18 @@
 		<dt class="sub1">Lower</dt><dd>Makes the selected region(s) one layer lower</dd>
 		<dt class="sub1">Lower to Bottom</dt><dd>Sends the selected region to the background</dd>
 	<dt>MIDI</dt>
-		<dt class="sub1">Transpose...</dt><dd>On a MIDI region, shows the <a href="/working-with-midi/transpose-midi/"><kbd class="menu">Transpose MIDI</kbd> window</a>, allowing to shift the pitch of the whole MIDI region by &plusmn; <em>n</em> semitones or octaves</dd>
-		<dt class="sub1">Insert Patch Change...</dt><dd>Inserts a patch change at the Edit Point, allowing a change of patch, channel, program and/or bank</dd>
-		<dt class="sub1">Quantize...</dt><dd>Shows the <a href="/working-with-midi/quantize-midi/"><kbd class="menu">Quantize</kbd> window</a>, allowing to perfectly align the MIDI notes to the musical grid</dd>
+		<dt class="sub1">Transpose&hellip;</dt><dd>On a MIDI region, shows the <a href="/working-with-midi/transpose-midi/"><kbd class="menu">Transpose MIDI</kbd> window</a>, allowing to shift the pitch of the whole MIDI region by &plusmn; <em>n</em> semitones or octaves</dd>
+		<dt class="sub1">Insert Patch Change&hellip;</dt><dd>Inserts a patch change at the Edit Point, allowing a change of patch, channel, program and/or bank</dd>
+		<dt class="sub1">Quantize&hellip;</dt><dd>Shows the <a href="/working-with-midi/quantize-midi/"><kbd class="menu">Quantize</kbd> window</a>, allowing to perfectly align the MIDI notes to the musical grid</dd>
 		<dt class="sub1">Legatize</dt><dd>Shortens or elongates the MIDI notes to make them perfectly sequentials, i.e. the end of a note is the start of the following one</dd>
 		<dt class="sub1">Remove Overlap</dt><dd>FIXME Shortens or elongates the MIDI notes to make them perfectly sequentials, i.e. the end of a note is the start of the following one</dd>
-		<dt class="sub1">Transform...</dt><dd><a href="/working-with-midi/transformation-midi/"><kbd class="menu">Transform</kbd> window</a>, that allows for mathematical operations on the midi notes</dd>
+		<dt class="sub1">Transform&hellip;</dt><dd><a href="/working-with-midi/transformation-midi/"><kbd class="menu">Transform</kbd> window</a>, that allows for mathematical operations on the midi notes</dd>
 		<dt class="sub1">Unlink from Other copies</dt><dd>Makes the selected MIDI region independant, e.g. editing this region won't affect any other one.</dd>
-		<dt class="sub1">List Editor...</dt><dd>Shows the <kbd class="menu">List Editor</kbd> which sequentially lists all the MIDI events in the region, and allows for precise modifications</dd>
+		<dt class="sub1">List Editor&hellip;</dt><dd>Shows the <kbd class="menu">List Editor</kbd> which sequentially lists all the MIDI events in the region, and allows for precise modifications</dd>
 	<dt>Gain</dt>
 		<dt class="sub1">[] Opaque</dt><dd>When checked, makes the region opaque audio-wise, i.e., the underlying regions won't be audible</dd>
 		<dt class="sub1">[] Mute</dt><dd>When checked, mutes <em>only</em> the selected region on the track, without muting the track. The muted regions will have <em>!!</em> prepended to their name and will be semi-transparent</dd>
-		<dt class="sub1">Normalize...</dt><dd>Shows the <kbd class="menu">Normalize region</kbd> dialog, which allows to scale the region level by setting its maximum level, optionaly constraining the RMS</dd>
+		<dt class="sub1">Normalize&hellip;</dt><dd>Shows the <kbd class="menu">Normalize region</kbd> dialog, which allows to scale the region level by setting its maximum level, optionaly constraining the RMS</dd>
 		<dt class="sub1">Boost Gain</dt><dd>Increases the gain on the selected region by boosting the audio, without touching the enveloppe or automation</dd>
 		<dt class="sub1">Cut Gain</dt><dd>Reduces the gain without touching the enveloppe or automation</dd>
 		<dt class="sub1">Reset Envelope</dt><dd>If the gain enveloppe has been edited, resets it to its initial value (constant at 0 dB)</dd>
@@ -77,9 +77,9 @@
 		<dt class="sub1">[] Fades</dt><dd>Shortcut to activate/desactivate both the fade in and fade out</dd>
 	<dt>Duplicate</dt>
 		<dt class="sub1">Duplicate</dt><dd>Creates a copy of the selected region(s) and happend it to the original</dd>
-		<dt class="sub1">Multi-Duplicate...</dt><dd>Shows the <kbd class="menu">Duplicate</kbd> dialog, allowing to create multiple copies, or a not-integer number of copies (the last one will then be truncated)</dd>
+		<dt class="sub1">Multi-Duplicate&hellip;</dt><dd>Shows the <kbd class="menu">Duplicate</kbd> dialog, allowing to create multiple copies, or a not-integer number of copies (the last one will then be truncated)</dd>
 		<dt class="sub1">Fill Track</dt><dd>Creates duplicates until it fills the session, i.e. reaches the End marker of the session. The last duplicate may be truncated to fit in</dd>
-	<dt>Export...</dt><dd>Shows the <a href="/exporting/export-dialog/"><kbd class="menu">Export</kbd> dialog</a>, with all parameters set to export only the selected region(s)</dd>
+	<dt>Export&hellip;</dt><dd>Shows the <a href="/exporting/export-dialog/"><kbd class="menu">Export</kbd> dialog</a>, with all parameters set to export only the selected region(s)</dd>
 	<dt>Bounce (without processing)</dt><dd>Creates a bounce, i.e. a version of the region with all the edits (boundaries, enveloppe), as a new region in the Editor List, without any of the effects of the mixer strip</dd>
 	<dt>Bounce (with processing)</dt><dd>Same as above, <em>with</em> the effects of the mixer strip</dd>
 

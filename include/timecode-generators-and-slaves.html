@@ -11,7 +11,7 @@
   Ardour can generate timecode and thus act as timecode <dfn>master</dfn>, 
   providing timecode information to other applications. Ardour can also be 
   <dfn>slaved</dfn> to some external source in which case the playhead 
-  follows the incoming timecode.<br />
+  follows the incoming timecode.<br>
   Combining the timecode slave and generator modes, Ardour can also 
   <dfn>translate</dfn> timecode. e.g create LTC timecode from incoming MTC.
 </p>
@@ -45,7 +45,7 @@
   This is pretty straightforward: simply turn it on. The MTC and MIDI-Clock 
   generator do not have any options. The LTC generator has a configurable
   output level. JACK-transport cannot be <em>generated</em>. Jack itself is 
-  always synced to its own cycle and cannot do varispeed &mdash; it will
+  always synced to its own cycle and cannot do varispeed&mdash;it will
   always be synced to a hardware clock or another JACK master.
 </p>
 
@@ -160,16 +160,16 @@
   specifies 29.97df as 30000/1001 frames per second, not all hardware devices 
   follow that standard. The checkbox 
   <kbd class="option">Lock to 29.9700 fps instead of 30000/1001</kbd> allows 
-  to use a compatibility mode for those devices.<br />
+  to use a compatibility mode for those devices.<br>
   When enabled, the external timecode source is assumed to use 29.970000 fps 
   instead of 30000/1001. SMPTE 12M-1999 specifies 29.97df as 30000/1001. The 
   <abbr title="specification">spec</abbr> further mentions that drop-frame 
   timecode has an accumulated error of -86&nbsp;ms over a 24-hour period. 
   Drop-frame timecode would compensate exactly for a NTSC color frame rate 
   of 30 * 0.9990 (ie 29.970000). That is <em>not</em> the actual rate. However, 
-  some vendors use that rate &mdash;  despite it being against the specs
-  &mdash;  because the variant of using exactly 29.97 fps yields zero timecode 
-  drift.
+  some vendors use that rate&mdash;despite it being against the
+  specs&mdash;because the variant of using exactly 29.97 fps yields zero
+  timecode drift.
 </p>
 
 <h3>Clock Sync Lock</h3>
@@ -209,7 +209,7 @@
   <code>ardour:MIDI clock in</code> port.
 </p>
 
-<h3>LTC - Linear Timecode</h3>
+<h3>LTC&mdash;Linear Timecode</h3>
 <p>
   The <dfn>LTC</dfn> slave decodes an incoming LTC signal on a JACK audio 
   port. It will auto-detect the frame rate and start locking to the signal
@@ -250,7 +250,7 @@
   The user-bits in the received LTC frame are ignored.
 </p>
 
-<h3>MTC - MIDI Timecode</h3>
+<h3>MTC&mdash;MIDI Timecode</h3>
 <p>
   Ardour's MTC slave parses <dfn>full timecode messages</dfn> as well as 
   MTC <dfn>quarter-frame messages</dfn> arriving on the 
@@ -286,5 +286,4 @@
   <kbd class="option">Session &gt; Properties &gt; JACK Time Master</kbd>
   configures Ardour to act as translator from timecode to BBT information.
 </p>
-
 

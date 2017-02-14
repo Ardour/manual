@@ -53,24 +53,27 @@
 </p>
 <dl class="narrower-table">
   <dt>Normal</dt>
-  <dd>Tracks in <dfn>normal mode</dfn> will record non-destructively &mdash; 
-  new data is written to new files, and when overdubbing, new regions will be 
-  layered on top of existing ones. This is the recommended mode for most workflows.
+  <dd>Tracks in <dfn>normal mode</dfn> will record non-destructively&mdash;new
+  data is written to new files, and when overdubbing, new regions will be 
+  layered on top of existing ones. This is the recommended mode for most
+  workflows.
   </dd>
   <dt>Non-Layered</dt>
-  <dd>Tracks using <dfn>non-layered mode</dfn> will record non-destructively
-  &mdash; new data is written to new files, but when overdubbing, the existing 
-  regions are trimmed so that there are no overlaps. This does not affect
-  the previously recorded audio data, and trimmed regions can be expanded
-  again at will. Non-layered mode can be very useful for spoken word material, 
-  especially in combination with <a href="/editing-and-arranging/change-region-lengths/pushpull-trimming/">push/pull trimming</a>.
+  <dd>Tracks using <dfn>non-layered mode</dfn> will record
+  non-destructively&mdash;new data is written to new files, but when
+  overdubbing, the existing regions are trimmed so that there are no overlaps.
+  This does not affect the previously recorded audio data, and trimmed regions
+  can be expanded again at will. Non-layered mode can be very useful for spoken
+  word material, especially in combination with
+  <a href="/editing-and-arranging/change-region-lengths/pushpull-trimming/">push/pull trimming</a>.
   </dd>
   <dt>Tape</dt>
   <dd><dfn>Tape-mode</dfn> tracks do <strong>destructive</strong> recording: 
-  all data is recorded to a single file and if you overdub a section of existing 
-  data, the existing data is destroyed irrevocably &mdash; there is no undo. 
-  Fixed crossfades are added at every punch in and out point. This mode can be 
-  useful for certain kinds of re-recording workflows, but it not suggested for normal 
+  all data is recorded to a single file and if you overdub a section of
+  existing data, the existing data is destroyed irrevocably&mdash;there is no
+  undo. Fixed crossfades are added at every punch in and out point. This mode
+  can be useful for certain kinds of re-recording workflows, but it not
+  suggested for normal 
   use.</dd>
 </dl>
 <img class="right" src="/images/a3_nonlayered_example.png" alt="normal and non-layered overdubbing comparision"
@@ -78,10 +81,10 @@
 <p>
   The screenshot on the right shows the subtle difference between an overdub 
   in <dfn>normal mode</dfn> (upper track) and one in <dfn>non-layered mode</dfn> 
-  (lower track). Both tracks were created using identical audio data. <br />
+  (lower track). Both tracks were created using identical audio data. <br>
   The upper track shows a new region which has been <dfn>layered on
   top</dfn> of the the existing (longer) region. You can see this if you look 
-  carefully at the region name strips.<br />
+  carefully at the region name strips.<br>
   The lower track has split the existing region in two, trimmed each new
   region to create space for the new overdub, and inserted the overdub region 
   in between. 
@@ -94,7 +97,7 @@
   any plugins in a track). However it is useful to not have to configure this sort 
   of thing for the most common cases, and so the 
   <a href="/working-with-tracks/adding-tracks-and-busses/">Add Tracks</a> dialog allows you to 
-  select "Mono", "Stereo" and few other typical multichannel presets<br />
+  select "Mono", "Stereo" and few other typical multichannel presets<br>
   The name of the preset describes the number of <dfn>input channels</dfn>
   of the track or bus.
 </p>
@@ -103,7 +106,7 @@
   busses for you, the number of outputs will be determined by the number of
   inputs of the <dfn>master <a
   href="/introducing-ardour/understanding-basic-concepts-and-terminology/#busses">bus</a></dfn>,
-  to which the track outputs will be connected.<br />
+  to which the track outputs will be connected.<br>
   For example, if you have a two-channel master bus, then a Mono track has one 
   input and two outputs; a Stereo track has two inputs and two outputs.
 </p>
@@ -117,6 +120,4 @@
   preferable to leave Ardour to make connections automatically, even if you later 
   change some of them manually.
 </p>
-  
-  
 

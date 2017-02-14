@@ -1496,7 +1496,7 @@ part: subchapter
 ---
 
 ---
-title: Automating MIDI - Pitch bending and aftertouch
+title: Automating MIDI&mdash;Pitch bending and aftertouch
 menu_title: Automating MIDI
 include: automating-midi---pitch-bending-and-aftertouch.html
 uri: working-with-midi/automation-midi
@@ -1504,7 +1504,7 @@ part: subchapter
 ---
 
 ---
-title: Transforming MIDI - Mathematical operations
+title: Transforming MIDI&mdash;Mathematical operations
 menu_title: Transforming MIDI
 include: transforming-midi---mathematical-operations.html
 uri: working-with-midi/transformation-midi
@@ -2084,6 +2084,7 @@ uri: lua-scripting
 part: chapter
 ---
 
+
 ---
 title: Lua Bindings Class Reference
 style: luadoc
@@ -2092,6 +2093,7 @@ exclude: yes
 uri: lua-scripting/class_reference
 part: chapter
 ---
+
 
 ---
 title: Appendix

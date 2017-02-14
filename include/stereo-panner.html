@@ -189,7 +189,7 @@
 <p class="warning">
 The stereo panner will introduce unwanted side effects on
 material that includes a time difference between the channels, such
-as A/B, ORTF or NOS microphone recordings, or delay-panned mixes.<br />   
+as A/B, ORTF or NOS microphone recordings, or delay-panned mixes.<br>   
 When you reduce the with, you are effectively summing two highly
 correlated signals with a delay, which will cause <dfn>comb filtering</dfn>.
 </p>
@@ -204,13 +204,13 @@ Since pink noise contains equal energy per octave, the expected readout is a
 straight line, which would indicate that our signal chain does not color the
 sound:
 </p>
+
 <img src="/images/stereo-panner-with-ORTF-fullwidth.png" />
+
 <p>
-To simulate an ORTF, we use Robin Gareus' stereo balance
-control LV2 to set the level difference and time delay. Ignore the Trim/Gain
-&mdash; its purpose is just to align the test signal with the 0dB line of the
-analyser.
+  To simulate an ORTF, we use Robin Gareus' stereo balance control LV2 to set the level difference and time delay. Ignore the Trim/Gain&mdash;its purpose is just to align the test signal with the 0dB line of the analyser.
 </p>
+
 <p> 
 Recall that an <dfn>ORTF</dfn> microphone pair consists of two cardioids spaced 17 cm
 apart, with an opening angle of 110°.
@@ -238,9 +238,7 @@ get to keep the pieces.
 <p class="note">
 Depending on your material and on how much you need to manipulate the width,
 some degree of comb filtering may be acceptable. Then again, it may not. Listen
-carefully for artefacts if you manipulate unknown stereo signals &mdash; many
+carefully for artefacts if you manipulate unknown stereo signals&mdash;many
 orchestra sample libraries for example do contain time-delay components.
 </p>
-
-
 

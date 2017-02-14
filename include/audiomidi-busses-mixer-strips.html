@@ -6,13 +6,13 @@
   Its use is to "group" some audio signals to be treated the same way. One simple use case is to group all the audio tracks containing the different drums of a drumkit. Routing all the drums tracks outputs to a bus allows, once the different levels amongst the drums have been set, to adjust the global level of the drumkit in the mix.
 </p>
 <p>
-  Bus usage goes way beyond this simple example though : busses, as tracks, can receive plugins for common audio treatment, and be routed themselves as needed. This makes for a very useful tool that is very commonly used both for musical purposes and computing ones : instead of using e.g. 10 discrete delay plugins on 10 different tracks, busses are often used as receivers of <a href="/signal-routing/aux-sends/">sends</a>, and only 1 delay plugin is used on this bus, reducing the processing power needed.
+  Bus usage goes way beyond this simple example though: busses, as tracks, can receive plugins for common audio treatment, and be routed themselves as needed. This makes for a very useful tool that is very commonly used both for musical purposes and computing ones: instead of using e.g. ten discrete delay plugins on ten different tracks, busses are often used as receivers of <a href="/signal-routing/aux-sends/">sends</a>, and only one delay plugin is used on this bus, reducing the processing power needed.
 </p>
 
 <h2>Audio Busses vs MIDI Busses</h3>
 
 <p>
-	Ardour supports 2 types of busses : Audio and MIDI. A MIDI bus differs from an audio bus just by:
+	Ardour supports 2 types of busses: Audio and MIDI. A MIDI bus differs from an audio bus just by:
 <p>
 <ul>
   <li>its input (which is midi, as shown by the red signal lines in the processor box) instead of <em>n</em> audio</li>
@@ -31,7 +31,7 @@
 <h2>Description</h2>
 <p>
   Busses look and behave exactly like tracks, so they share nearly <a href="/ardours-interface/audio-midi-mixer-strips/">all of their controls</a>.
-  The differences are :
+  The differences are:
 </p>
 <ul>
   <li>as the busses dont have a playlist (and cannot host any media), they can't be recorded on. The recording controls are not present</li>
@@ -56,7 +56,7 @@
 
 <h2>Connecting a track to a bus</h2>
 <p>
-  Depending on the user's workflow and the way busses are used, 2 possibilities exists :
+  Depending on the user's workflow and the way busses are used, 2 possibilities exists:
 </p>
 
 <h3>Connecting a track to a bus via its outputs</h3>
@@ -66,14 +66,14 @@
 	Connecting the output(s) of a track to the input(s) of the bus sends <em>all</em> the audio/MIDI to the bus. In the mixer strip, select (at the bottom) the OUTPUT button (often, by default, "Master"), and in the list, choose the input of a bus. Note that only the bus able to receive this output will show up, e.g. a mono bus wont be able to be connected to the output of a stereo track).
 </p>
 <p>
-	Obviously, doing so will (by default) disconnect the output from the Master's input, which means all the audio/MIDI will be routed to the bus. For more complex routing, the OUTPUT button allows to show the <kbd class="menu">Routing Grid</kbd> that allows to plug the output of the track to multiple outputs at once, be it busses, tracks, Master... The button will then reflect these multiple connections by showing a <em>*number*</em>, number being the number of connections made in the routing grid.
+	Obviously, doing so will (by default) disconnect the output from the Master's input, which means all the audio/MIDI will be routed to the bus. For more complex routing, the OUTPUT button allows to show the <kbd class="menu">Routing Grid</kbd> that allows to plug the output of the track to multiple outputs at once, be it busses, tracks, Master&hellip; The button will then reflect these multiple connections by showing a <em>*number*</em>, number being the number of connections made in the routing grid.
 </p>
 
 <h3>Connecting a track to a bus via Sends</h3>
 
 <img class="left" src="/images/connecting_bus_send.png" alt="Connecting a bus through a send">
 <p>
-	This allows not to interrupt the natural flow of the signal, i.e. the track will still output to what its connected to (e.g. Master). The signal is "tapped" at the point of insertion of the send, to be sent to the bus. Right click where in the signal flow you want the send to happen, and select <kdb class="menu">New Aux Send... &gt; name_of_the_bus</kbd>.
+	This allows not to interrupt the natural flow of the signal, i.e. the track will still output to what its connected to (e.g. Master). The signal is "tapped" at the point of insertion of the send, to be sent to the bus. Right click where in the signal flow you want the send to happen, and select <kdb class="menu">New Aux Send&hellip; &gt; name_of_the_bus</kbd>.
 </p>
 <p>
   By <kbd class="mouse">left-clicking</kbd> the send meter, it is possible to adjust the amount of signal sent to the bus. This is often the way tracks are connected to an effect bus, like a Delay bus.
