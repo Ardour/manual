@@ -2073,12 +2073,7 @@ part: chapter
 ---
 title: Scripting
 part: part
----
-
----
-title: Lua Scripting in Ardour
 include: lua-scripting-in-ardour.html
-part: chapter
 ---
 
 ---
@@ -2086,24 +2081,16 @@ title: Lua Scripting
 include: lua-scripting.html
 exclude: yes
 uri: lua-scripting
-part: subchapter
+part: chapter
 ---
 
 ---
-title: Scripting Documentation
-include: scripting-documentation.html
-exclude: yes
-uri: lua-scripting/brain_dump
-part: subchapter
----
-
----
-title: Class Reference
+title: Lua Bindings Class Reference
 style: luadoc
 include: class-reference.html
 exclude: yes
 uri: lua-scripting/class_reference
-part: subchapter
+part: chapter
 ---
 
 ---
