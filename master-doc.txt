@@ -578,7 +578,6 @@ part: chapter
 ---
 title: Transport Clocks
 include: transport-clocks.html
-#uri: ardours-interface/transport-clocks
 uri: ardours-interface/using-ardour-clock-displays
 part: chapter
 ---
@@ -633,7 +632,6 @@ part: subchapter
 ---
 title: Edit Point Control
 include: edit-point-control.html
-#uri: ardours-interface/the-edit-point-control
 uri: editing-and-arranging/edit-point
 part: subchapter
 ---
@@ -778,7 +776,6 @@ part: chapter
 ---
 title: New/Open Session Dialog
 include: newopen-session-dialog.html
-#uri: working-with-sessions/new-session-dialog
 uri: working-with-sessions/the-new-session-dialog
 part: subchapter
 ---
@@ -1446,7 +1443,6 @@ part: subchapter
 ---
 title: Note Selection
 include: note-selection.html
-#uri: working-with-midi/note-selection
 uri: editing-and-arranging/edit-midi/note-selection
 part: subchapter
 ---
@@ -2065,7 +2061,6 @@ part: chapter
 ---
 title: Scripting
 part: part
-include: lua-scripting-in-ardour.html
 ---
 
 ---

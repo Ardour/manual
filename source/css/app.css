@@ -186,7 +186,15 @@
 
 #content figcaption {
 	display: table-caption;
-	caption-side: bottom ;
+	caption-side: bottom;
+	font-style: italic;
+}
+
+#content figcaption.center {
+	display: table-caption;
+	text-align: center;
+	caption-side: bottom;
+	font-style: italic;
 }
 
 #content figcaption.titleover {
@@ -195,14 +203,19 @@
 
 #content figure.right {
     margin: 0 0 1em 1em;
-    float:right;
-    clear:right;
+    float: right;
+    clear: right;
 }
 
 #content figure.left {
     margin: 0 1em 1em 0;
-    float:left;
-    clear:left;
+    float: left;
+    clear: left;
+}
+
+#content figure.center {
+    margin: 1em auto 1em auto;
+    clear: both;
 }
 
 .multicol2 {
@@ -480,6 +493,12 @@ samp:after {
     clear:left;
 }
 
+#content img.center {
+    display: block;
+    margin:1em auto 1em auto;
+	clear: both;
+}
+
 #content p.center {
 	text-align:center;
 }
@@ -522,7 +541,7 @@ samp:after {
 }
 
 
-
+/* Keyboard modifiers */
 
 .mod1:before {
     content: "Ctrl ";
@@ -552,6 +571,36 @@ samp:after {
     content: "Keypad ";
 }
 
+/* Variants *without* space after them (yes, these are needed!) */
+
+.mod1n:before {
+    content: "Ctrl";
+}
+.mod2n:before {
+    content: "Alt";
+}
+.mod3n:before {
+    content: "Shift";
+}
+.mod4n:before {
+    content: "Win";
+}
+.mod12n:before {
+    content: "Ctrl Alt";
+}
+.mod13n:before {
+    content: "Ctrl Shift";
+}
+.mod14n:before {
+    content: "Ctrl Win";
+}
+.mod23n:before {
+    content: "Alt Shift";
+}
+
+
+/* Automagic translation for Mac based display */
+
 .mac .mod1:before {
     content: "Cmd ";
 }
@@ -576,6 +625,34 @@ samp:after {
 .mac .mod23:before {
     content: "Ctrl Shift ";
 }
+
+/* No space variants (Mac based) */
+
+.mac .mod1n:before {
+    content: "Cmd";
+}
+.mac .mod2n:before {
+    content: "Ctrl";
+}
+.mac .mod3n:before {
+    content: "Shift";
+}
+.mac .mod4n:before {
+    content: "Opt";
+}
+.mac .mod12n:before {
+    content: "Cmd Ctrl";
+}
+.mac .mod13n:before {
+    content: "Cmd Shift";
+}
+.mac .mod14n:before {
+    content: "Cmd Opt";
+}
+.mac .mod23n:before {
+    content: "Ctrl Shift";
+}
+
 
 #gs_tti0 {
 
