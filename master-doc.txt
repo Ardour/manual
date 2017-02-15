@@ -202,15 +202,9 @@ part: subchapter
 
 ---
 title: System Setup
-include: system-setup.html
-part: chapter
----
-
----
-title: Setting Up Your System
 include: setting-up-your-system.html
 uri: setting-up-your-system
-part: subchapter
+part: chapter
 ---
 
 ---
