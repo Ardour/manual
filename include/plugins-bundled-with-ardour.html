@@ -1,6 +1,14 @@
 
 <p>
-  Ardour now comes with the following plugins as part of a standard installation:
+  Ardour does not come with any built-in signal processors of its own (other
+  than volume faders) but does ship, since v5.0, with the small group of
+  plugins listed below. These plugins are listed as authored by "Ardour Team",
+  which are LV2 plugins, and are named with "a-" as the start of the name (like
+  a-EQ) or are listed as authored by "Ardour LUA Task Force" in which case they
+  are example (but still useful) LUA scripts. These plugins use Ardour's
+  generic GUI, and they work on all supported platforms so that projects
+  started on one platform will sound the same on another platform&mdash;if they
+  use just these plugins.
 </p>
 
 <dl class="narrower-table">
@@ -15,11 +23,11 @@
   <dt>a-Fluid Synth</dt>
   <dd>Wraps the Fluidsynth SoundFont2 synthesis engine as a new sample player</dd>
   <dt>a-High/Low Pass Filter</dt>
-  <dd>Independent high and low pass filters with steepness up to 48dB/octave</dd>
+  <dd>Independent high and low pass filters with steepness up to 48dB per octave</dd>
   <dt>a-Inline Scope</dt>
   <dd>A mixer strip inline waveform display</dd>
   <dt>a-Inline Spectrogram</dt>
-  <dd>A mixer strip inline specturm display</dd>
+  <dd>A mixer strip inline spectrum display</dd>
   <dt>a-MIDI Monitor</dt>
   <dd>A mixer strip inline display to show recent <abbr title="Musical Instrument Digital Interface">MIDI</abbr> events</dd>
   <dt>a-Reverb</dt>
