@@ -204,8 +204,10 @@ So if you want the user to press Ctrl-N on Linux, that's actually <kbd
 class="mod1">N</kbd>. It will render as "Ctrl N" for you, and as "Cmd N" for
 your Mac-using friend. Nice, huh?
 
-N.B.: If you want to have just the name of the modifier key by itself, use
-<kbd class="mod1>&zwnj;</kbd> (zero-width non-joiner).
+Multiple modifier keys are supported as "modNM" as well, so for Ctrl-Shift-N on Linux, you would use "mod13".
+
+N.B.: If you want to have just the name of the modifier key by itself, use the
+      modN name followed by a lower case "n", like so: <kbd class="mod1n></kbd>
 
 For anything you want the user to type, use <kbd> as a block-level element.
 See above for other <kbd> classes to denote menu items, selections, mouse
@@ -216,7 +218,7 @@ stylesheet might capitalize them.
 
 CSS Classes used with <kbd> are:
 
-.modN
+.modN, .modNM, .modNn, .modNMn
 .mouse: mouse buttons
 .cmd: a command line
 .lin, .win, .mac: add nice prompts to that command line
@@ -243,6 +245,10 @@ The image tag must contain a 'src="/images/yourimage.png"' element and a
 descriptive 'alt="A short textual description of the image content"' element.
 Images are usually placed as block-level elements, i.e. outside of a paragraph,
 unless they are no higher than one row and make sense in the text flow.
+
+Images should also be wrapped (unless they are embedded inside a paragraph) in
+a <figure></figure> block, and should contain a <figcaption></figcaption> block
+inside as well to describe to the reader what the image is.
 
 
 5. Other conventions
