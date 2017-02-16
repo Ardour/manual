@@ -2292,7 +2292,8 @@ part: subchapter
 title: Generic MIDI
 link: generic-midi
 include: generic-midi.html
-uri: using-control-surfaces/generic-midi
+#uri: using-control-surfaces/generic-midi
+uri: using-control-surfaces/midi-binding-maps
 part: chapter
 ---
 
@@ -2374,7 +2375,7 @@ part: part
 title: List of Menu Actions
 link: list-of-menu-actions
 include: list-of-menu-actions.html
-uri: using-control-surfaces/midi-binding-maps
+uri: appendix/menu-actions-list
 part: chapter
 ---
 

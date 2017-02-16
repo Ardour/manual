@@ -2,17 +2,12 @@ URLs that are currently 404 (Feb/14) -- add 301 redirects or re-instantiate the 
 
 MUST fix:
 
-[FIXED] http://www.manual.ardour.org/editing-and-arranging/editing-midi/ ->  http://manual.ardour.org/midi/midi-editing/
-[FIXED] http://www.manual.ardour.org/editing-and-arranging/editing-midi/changing-note-properties/ -> http://manual.ardour.org/working-with-midi/change-note-properties/
-[FIXED] http://www.manual.ardour.org/using-control-surfaces/midi-binding-maps/  -> http://manual.ardour.org/appendix/menu-actions-list/
-[FIXED] http://www.manual.ardour.org/using-control-surfaces/devices-using-mackielogic-control-protocol/
+...
+
 
 Should fix:
 
 [FIXED?] http://www.manual.ardour.org/ardours-interface/using-ardour-clock-displays/ -> ardours-interface/transport-clocks
-[FIXED] http://www.manual.ardour.org/working-with-sessions/the-new-session-dialog/ -> working-with-sessions/new-session-dialog
-[FIXED] http://www.manual.ardour.org/editing-and-arranging/edit-point/ -> ardours-interface/the-edit-point-control
-[FIXED] http://www.manual.ardour.org/editing-and-arranging/edit-midi/note-selection/ -> working-with-midi/note-selection
 
 
 Maybe fix:
