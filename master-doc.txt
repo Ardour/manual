@@ -1508,17 +1508,17 @@ part: subchapter
 
 ---
 title: Fades and Crossfades
-link: fades-and-crossfades
-include: fades-and-crossfades.html
+link: create-region-fades-and-crossfades
+include: create-region-fades-and-crossfades.html
+uri: editing-and-arranging/create-region-fades-and-crossfades
 part: chapter
 ---
 
 ---
-title: Create Region Fades and Crossfades
-link: create-region-fades-and-crossfades
-include: create-region-fades-and-crossfades.html
-uri: editing-and-arranging/create-region-fades-and-crossfades
-part: subchapter
+title: Gain Envelopes
+link: gain-envelopes
+include: gain-envelopes.html
+part: chapter
 ---
 
 ---

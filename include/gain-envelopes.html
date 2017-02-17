@@ -1,0 +1,28 @@
+
+<figure class=right>
+<img src="/images/gain-envelope1.png" alt="Default gain envelope">
+<figcaption class=center>A typical gain envelope (green line).</figcaption>
+</figure>
+
+<p>
+  In Ardour, every <dfn>region</dfn> has a <dfn>gain envelope</dfn>, which is normally hidden. Clicking on the Draw tool will cause all the gain envelopes on all regions to show themselves; these will appear as green lines with square dots (<dfn>control points</dfn>) at the beginning and end of each region. The vertical axis represents gain, with the top of the region representing +6dB and the bottom representing approximately -170dB. By default, the line starts and ends at 0dB; the control points can be moved up and down to change the amount of gain at that point.
+</p>
+
+<p>
+  Gain follows the line between control points continuously during playback, and adjusts the gain for that region accordingly. It is completely automatic, unlike channel <a href="@@automation">automation</a>.
+</p>
+
+<h2 style="clear: both">Manipulating Gain Envelopes</h2>
+
+<p>
+  The default gain curve, by itself, is not very useful; in order to have more control over the shape of the gain envelope it is necessary to add extra control points. To add a control point to the envelope, click anywhere in the region where there are no existing control points; it will appear <em>on the line</em> at the X-axis of the mouse's current position in the region.
+</p>
+
+<figure class=center>
+<img src="/images/gain-envelope2.png" alt="Complex gain envelope">
+<figcaption class=center>A more complex gain envelope.</figcaption>
+</figure>
+
+<p>
+  Once added, a control point can be <kbd class=mouse>Left</kbd> clicked and dragged to the desired location. Hovering over a control point will show its current level in dB. To remove a control point, <kbd class=mouse>Left</kbd> click it and press <kbd>Delete</kbd>.
+</p>
