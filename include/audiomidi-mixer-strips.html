@@ -28,7 +28,7 @@
 <h2>Headers</h2>
 
 <p>
-  At the top of the window, is the <a href="/working-with-tracks/track-and-bus-groups/">group tabs</a> (here, <em>recm&hellip;</em>). This allows to group tracks together for common controls.
+  At the top of the window, is the <a href="@@the-track-and-bus-group-list">group tabs</a> (here, <em>recm&hellip;</em>). This allows to group tracks together for common controls.
 </p>
 
 <p>
@@ -43,7 +43,7 @@
     The color bar shows the color of the track in the editor
   </li>
   <li>
-    The <kbd class="menu">X</kbd> button toggles the visibility of the track OFF. To turn it back ON, one can either go to the <a href="/ardours-interface/editor-lists/tracks-and-busses-list/">Tracks and Busses list</a> in the Editor view and check the "V" column on the track's line or stay in the Mixer view and check the <kbd class="menu">Show</kbd> column of this strip in the <a href="/ardours-interface/the-strips-list/">Strips list</a>.
+    The <kbd class="menu">X</kbd> button toggles the visibility of the track OFF. To turn it back ON, one can either go to the <a href="@@the-tracks-and-busses-list">Tracks and Busses list</a> in the Editor view and check the "V" column on the track's line or stay in the Mixer view and check the <kbd class="menu">Show</kbd> column of this strip in the <a href="@@strips-list">Strips list</a>.
   </li>
 </ul>
 
@@ -65,7 +65,7 @@
   <dt>Save As Template&hellip;</dt><dd>Allows to save the track without its media content (I/O, effects,&hellip;) for later reuse</dd>
   <dt>Rename&hellip;</dt><dd>Changes the name of the track (effective both in the Mixer and the Editor)</dd>
   <dt><kbd class="option"></kbd>Active</dt><dd>Select the active status of the track. An inactive track won't output any sound</dd>
-  <dt><kbd class="option"></kbd>Strict I/O</dt><dd>While in <a href="/signal-routing/signal-flow/">Strict I/O</a> mode, a track <em>always</em> has as many output as it has inputs, regardless of the effects. When disabled, a stereo effect put on a mono track will result in a stereo output for the strip.</dd>
+  <dt><kbd class="option"></kbd>Strict I/O</dt><dd>While in <a href="@@trackbus-signal-flow">patchbayStrict I/O</a> mode, a track <em>always</em> has as many output as it has inputs, regardless of the effects. When disabled, a stereo effect put on a mono track will result in a stereo output for the strip.</dd>
   <dt>Pin Connections&hellip;</dt><dd>Shows the <kbd class="menu">Pin Configuration</kbd> window, that shows (and allows to modify) all the signal flows inside the track</dd>
   <dt>Adjust Latency&hellip;</dt><dd>Shows the <kbd class="menu">Track Latency</kbd> dialog, that allows fine-tune the latency to the track, in samples, msec or period</dd>
   <dt><kbd class="option"></kbd>Protect Against Denormals</dt><dd>Uses a trick to get rid of <em>denormals</em>, which are very small numbers the CPU can have a hard time dealing with. To be used if the CPU consumption for plugins is noticeably higher than expected</dd>
@@ -85,7 +85,7 @@
   <dt><em>Track n output</em></dt><dd>All the outputs of compatible tracks, e.g., a mono track can only receive a mono signal, a MIDI track can only receive MIDI signal, &hellip;</dd>
   <dt>Add Audio Port</dt><dd>Adds an audio input to the track, i.e. a mono audio track becomes a stero one</dd>
   <dt>Add MIDI Port</dt><dd>Adds a MIDI input to the track. Adding it to an audio track makes it a mixed Audio/MIDI track. This can be usefull e.g. to feed some plugins with a MIDI signal to control the audio, like a vocoder</dd>
-  <dt>Routing Grid</dt><dd>Shows the <a href="/signal-routing/Patchbay/"><kbd class="menu">Routing Grid</kbd> window</a>, which allows for more complex input configuration</dd>
+  <dt>Routing Grid</dt><dd>Shows the <a href="@@patchbay"><kbd class="menu">Routing Grid</kbd> window</a>, which allows for more complex input configuration</dd>
 </dl>
 
 <p>
@@ -113,11 +113,11 @@
 </p>
 
 <p>
-  It is also where the <a href="/signal-routing/aux-sends/">Sends</a> come from, wether external or auxiliary.
+  It is also where the <a href="@@aux-sends">Sends</a> come from, wether external or auxiliary.
 </p>
 
 <p>
-  To learn more about the processor box, see <a href="/working-with-plugins/processor-box/">The Processor Box</a>.
+  To learn more about the processor box, see <a href="@@processor-box">The Processor Box</a>.
 </p>
 
 <h2>Panner</h2>
@@ -137,7 +137,7 @@
 </dl>
 
 <p>
-  See <a href="/mixing/panning/">Panning</a> to learn more about how to control the panner, and what kind of panners are available inside Ardour.
+  See <a href="@@panning">Panning</a> to learn more about how to control the panner, and what kind of panners are available inside Ardour.
 </p>
 
 <h2>Recording options</h2>
@@ -157,7 +157,7 @@
 <h2>Mute/Solo</h2>
 
 <p>
-  These buttons allow to Mute (or silence) the track, or Solo them, shutting down the gain of the other tracks (totally by default, can be set to partially in the options). See <a href="/mixing/muting-and-soloing/">Muting and Soloing</a> for more information.
+  These buttons allow to Mute (or silence) the track, or Solo them, shutting down the gain of the other tracks (totally by default, can be set to partially in the options). See <a href="@@muting-and-soloing">Muting and Soloing</a> for more information.
 </p>
 
 <p>
@@ -176,7 +176,7 @@
 <h2>Gain &amp; Meter</h2>
 
 <p>
-  On the right of this part is a <a href="/meters/">Meter</a>, displaying the level of the track's output after the fader. In can be set to display the signal at any point, see below <em>Metering Point</em>. Right clicking this meter shows a menu allowing to switch the meter type.
+  On the right of this part is a <a href="@@metering-in-ardour">Meter</a>, displaying the level of the track's output after the fader. In can be set to display the signal at any point, see below <em>Metering Point</em>. Right clicking this meter shows a menu allowing to switch the meter type.
 </p>
 
 <p>

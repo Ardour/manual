@@ -6,7 +6,7 @@
   Its use is to "group" some audio signals to be treated the same way. One simple use case is to group all the audio tracks containing the different drums of a drumkit. Routing all the drums tracks outputs to a bus allows, once the different levels amongst the drums have been set, to adjust the global level of the drumkit in the mix.
 </p>
 <p>
-  Bus usage goes way beyond this simple example though: busses, as tracks, can receive plugins for common audio treatment, and be routed themselves as needed. This makes for a very useful tool that is very commonly used both for musical purposes and computing ones: instead of using e.g. ten discrete delay plugins on ten different tracks, busses are often used as receivers of <a href="/signal-routing/aux-sends/">sends</a>, and only one delay plugin is used on this bus, reducing the processing power needed.
+  Bus usage goes way beyond this simple example though: busses, as tracks, can receive plugins for common audio treatment, and be routed themselves as needed. This makes for a very useful tool that is very commonly used both for musical purposes and computing ones: instead of using e.g. ten discrete delay plugins on ten different tracks, busses are often used as receivers of <a href="@@aux-sends">sends</a>, and only one delay plugin is used on this bus, reducing the processing power needed.
 </p>
 
 <h2>Audio Busses vs MIDI Busses</h3>
@@ -30,7 +30,7 @@
 
 <h2>Description</h2>
 <p>
-  Busses look and behave exactly like tracks, so they share nearly <a href="/ardours-interface/audio-midi-mixer-strips/">all of their controls</a>.
+  Busses look and behave exactly like tracks, so they share nearly <a href="@@audiomidi-mixer-strips">all of their controls</a>.
   The differences are:
 </p>
 <ul>
@@ -38,7 +38,7 @@
   <li>an <kbd class="menu">Aux</kbd> button replaces these controls.</li>
 </ul>
 <p>
-  Clicking the <kbd class="menu">Aux</kbd> button makes every track that sends a signal to this bus through <a href="/signal-routing/aux-sends/">Aux sends</a> blink in turquoise.
+  Clicking the <kbd class="menu">Aux</kbd> button makes every track that sends a signal to this bus through <a href="@@aux-sends">Aux sends</a> blink in turquoise.
   Right clicking this button brings up a menu:
 </p>
 <dl>
