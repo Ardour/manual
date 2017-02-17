@@ -2153,6 +2153,7 @@ part: subchapter
 
 ---
 title: Control Surfaces
+link: control-surfaces
 uri: using-control-surfaces
 part: part
 ---
