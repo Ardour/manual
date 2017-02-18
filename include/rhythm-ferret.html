@@ -1,3 +1,169 @@
 
-<p class="fixme">Add content</p>
+<figure>
+  <img src="/images/rhythm-ferret.png" alt="The Rhythm Ferret window">
+  <figcaption>
+    The Rhythm Ferret window
+  </figcaption>
+</figure>
 
+<p>
+  The Rhythm Ferret is a dedicated tool to speed up the usually labor intensive
+  task to slice and adjust a sound region to match a specific time grid. It is
+  especially usefull for drum tracks, either to match a different tempo, or to
+  adjust a slightly out of tempo performance.
+</p>
+<p>
+  It is not limited to this use though, as it supports both percussive and note
+  type detection, and can be used on melodic material too.
+</p>
+
+<h2>Accessing the Rhythm Ferret</h2>
+
+<p>
+  The Rhythm Ferret window can be accessed by <kbd class="mouse">Right</kbd> clicking
+  any audio region, then <kbd class="menu"><em>Name_Of_The_Region</em> &gt; Edit
+  &gt; Rhythm Ferret</kbd>.
+</p>
+<p>
+  Once the window is open, selecting any region will make it the focus of the
+  Rhythm Ferret's detection, hence allowing to process multiple regions sequentially
+  without reopening the window each time.
+</p>
+<p>
+  The window itself is made of:
+</p>
+<ul>
+    <li>a "mode" selection</li>
+    <li>some parameters for this mode</li>
+    <li>an operation selection, that for now only allows to <kbd class="menu">Split
+      regions</kbd>.</li>
+</ul>
+
+
+<h2>The "Mode" selection</h2>
+
+<p>
+  As the Rhythm Ferret is able to detect both percussive hits and melodic notes,
+  it is important to choose the best suited mode for the considered material,
+  so that Ardour can perform the detection with the greatest accuracy :
+</p>
+<ul>
+    <li><dfn>Percussive Onset</dfn> will detect the start of each hit based
+    on the sudden change in energy (&eq; volume) of the waveform</li>
+    <li><dfn>Note Onset</dfn> will detect the start of each note based on the changes
+    in the frequency domain.</li>
+</ul>
+
+
+
+<h2>The Percussive Onset mode</h2>
+
+<p>
+  In this mode, only two parameters are active:
+</p>
+<dl>
+  <dt><dfn>Sensitivity</dfn> (%)</dt><dd>The proportion of the samples that must exceed the
+    energy rise threshold in order for an onset to be detected (at frames in which
+    the detection function peaks). This roughly corresponds to how "noisy" a percussive
+    sound must be in order to be detected.</dd>
+  <dt><dfn>Cut Pos Threshold</dfn> (dB)</dt><dd>The rise in energy amongst a group of samples
+    that is required for that to be counted toward the detection function's count.
+    This roughly corresponds to how "loud" a percussive sound must be in order to
+    be detected.</dd>
+</dl>
+<p>
+  As those parameters are very material-related, there is no recipe for a perfect
+  match, and a good peak detection is a matter of adjusting those two parameters
+  by trial and error, and trying using the <kbd class="menu">Analyze</kbd> button
+  after each try.
+</p>
+<p>
+  Vertical grey markers will appear on the selected region, showing where Ardour
+  detects onsets as per the parameters. This markers can be manually adjusted, see
+  bellow.
+</p>
+
+<h2>The Note Onset Mode</h2>
+
+<p>
+  In the Note Onset mode, more parameters are active:
+</p>
+<dl>
+  <dt><dfn>Detection function</dfn></dt><dd>The method used to detect note changes. More on
+    this bellow.</dd>
+  <dt><dfn>Trigger gap (postproc)</dfn> (ms)</dt><dd>Set the minimum inter-onset interval,
+    in milliseconds, i.e. the shortest interval between two consecutive onsets.
+    </dd>
+  <dt><dfn>Peak threshold</dfn></dt><dd>Set the threshold value for the onset peak picking.
+    Lower threshold values imply more onsets detected. Increasing this threshold
+    should reduce the number of incorrect detections.</dd>
+  <dt><dfn>Silence threshold</dfn> (dB)</dt><dd>Set the silence threshold, in dB, under which
+    the onset will not be detected. A value of -20.0 would eliminate most onsets
+    but the loudest ones. A value of -90.0 would select all onsets.</dd>
+</dl>
+
+<p>
+  The Detection function, used in Note Onset mode to choose the mathematical strategy
+  used to detect the note changes, is user-selectable:
+</p>
+<dl>
+  <dt><dfn>Energy based</dfn></dt><dd>This function calculates the local energy of the input
+    spectral frame</dd>
+  <dt><dfn>Spectral Difference</dfn></dt><dd>Spectral difference onset detection function
+    based on Jonhatan Foote and Shingo Uchihashi's "The beat spectrum: a new
+    approach to rhythm analysis" (2001)</dd>
+  <dt><dfn>High-Frequency Content</dfn></dt><dd> This method computes the High Frequency
+    Content (HFC) of the input spectral frame. The resulting function is efficient
+    at detecting percussive onsets. Based on Paul Masri's "Computer modeling
+    of Sound for Transformation and Synthesis of Musical Signal" (1996)</dd>
+  <dt><dfn>Complex Domain</dfn></dt><dd>This function uses information both in frequency and
+    in phase to determine changes in the spectral content that might correspond
+    to musical onsets. It is best suited for complex signals such as polyphonic
+    recordings.</dd>
+  <dt><dfn>Phase Deviation</dfn></dt><dd>This function uses information both energy and in
+    phase to determine musical onsets.</dd>
+  <dt><dfn>Kullback-Liebler</dfn></dt><dd>Kulback-Liebler onset detection function based on
+    Stephen Hainsworth and Malcom Macleod's "Onset detection in music audio
+    signals" (2003)</dd>
+  <dt><dfn>Modified Kullback-Liebler</dfn></dt><dd>Modified Kulback-Liebler onset detection
+    function based on Paul Brossier's "Automatic annotation of musical audio for
+    interactive systems" (2006)</dd>
+</dl>
+
+<p>
+  Ardour defaults to Complex domain, which usually gives good result for harmonic
+  material.
+</p>
+
+<h2>Manual adjustment</h2>
+
+<figure>
+  <img src="/images/rhythm-ferret-demo-a.png" alt="The Rhythm Ferret: analysing">
+  <img src="/images/rhythm-ferret-demo-b.png" alt="The Rhythm Ferret: Splitting">
+  <img src="/images/rhythm-ferret-demo-c.png" alt="The Rhythm Ferret: Snapping to grid">
+  <figcaption>
+    The Rhythm Ferret: Analyzing, Splitting regions, and snapping to grid
+  </figcaption>
+</figure>
+
+<p>
+  Using the Rhythm Ferret consists usually in finding the right parameters to
+  split the audio, by adjusting them and clicking the
+  <kbd class="menu">Analyze</kbd> button. Each time an analysis is run, Ardour
+  erases the previous results, and creates grey markers on the region according
+  to the parameters. Those markers can be manually dragged with the
+  <kbd class="mouse">LEFT</kbd> mouse button to adjust their positions.
+</p>
+<p>
+  Once the markers are suitably placed, the second button in the down hand side
+  of the Rhythm Ferret window allows to <kbd class="menu">Apply</kbd> the operation.
+  At the moment of writing, only the <kdb class="menu">Split Region</kdb> is
+  available, which will split the region at the markers.
+</p>
+<p>
+  Those regions can then be manually aligned, or have their sync points set to
+  the closest grid (as per the <a href="@@grid-controls">Grid settings</a> in
+  effect), by selecting all the regions, and using the
+  <kbd class="mouse">RIGHT</kbd> click &gt; Selected Regions &gt; Position &gt;
+  Snap posiiton to grid.
+</p>
