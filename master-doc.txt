@@ -841,7 +841,7 @@ part: subchapter
 ---
 
 ---
-title: Control Masters Mixer Strips
+title: VCA Mixer Strips
 link: control-masters-mixer-strips
 include: control-masters-mixer-strips.html
 uri: ardours-interface/control-masters
