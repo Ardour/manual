@@ -1,0 +1,44 @@
+
+<figure>
+  <img src="/images/midi-list-editor.png" alt="The MIDI List Editor window">
+  <figcaption>
+    The MIDI List Editor window
+  </figcaption>
+</figure>
+
+<p>
+  The <dfn>List Editor</dfn> is a way to look at the MIDI data of a region, not
+  graphically as they are displayed in the Editor, but in a tabular form.
+  This way of seeing the MIDI data allows for a quicker "debugging" of a MIDI region,
+  and for a fast <em>non-graphical</em> (i.e. no mouse involved) editing. This
+  list has a vertical flow, i.e. the first events (in time) are on the top
+  of the window, and the latest are at its bottom.
+</p>
+<p>
+  It is accessed by selecting the <kbd class="menu">Region &gt; MIDI &gt; List Editor&hellip;</kbd>
+  menu while having one MIDI region selected, or by <kbd class="mouse">Right</kbd>
+  clicking the MIDI region and choosing <kbd class="menu"><em>Name_Of_The_Region</em>
+  &gt; MIDI &gt; List Editor&hellip;</kbd>
+</p>
+<p>
+  The window displays the following MIDI data:
+</p>
+<dl>
+  <dt>Start</dt><dd>the timestamp of the start of the note</dd>
+  <dt>Channel</dt><dd>the MIDI channel of the event</dd>
+  <dt>Num</dt><dd>The <a href="@@midi-notes-ref">MIDI number</a> of the note</dd>
+  <dt>Name</dt><dd>The MIDI name of the note, made of its english name and octave (e.g. "C4")</dd>
+  <dt>Vel</dt><dd>the velocity of the note (i.e. its intensity, between 0 and 127)</dd>
+  <dt>Length</dt><dd>duration of the note, either expressed as a number (in ticks, related to the tempo) or as a text (fraction of a beat, also related to the tempo)</dd>
+</dl>
+
+<p>
+  At the top of the window is a <kbd class="menu">Sound Selected MIDI Notes</kbd>,
+  which is a toggle button allowing to listen to a note as it is selected.
+</p>
+
+<p>
+  Each value can be manually modified, by <kbd class="mouse">Left</kbd> clicking it.
+  The Name field is related to the Number one, and cannot be edited. To change a
+  note, its number must be changed, which will be reflected in the Name field.
+</p>

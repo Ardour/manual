@@ -1706,6 +1706,13 @@ part: subchapter
 ---
 
 ---
+title: MIDI List Editor
+link: midi-list-editor
+include: midi-list-editor.html
+part: subchapter
+---
+
+---
 title: MIDI Editors
 link: midi-editors
 include: midi-editors.html
@@ -1724,13 +1731,6 @@ part: subchapter
 title: Score Editor
 link: score-editor
 include: score-editor.html
-part: chapter
----
-
----
-title: MIDI Event List
-link: midi-event-list
-include: midi-event-list.html
 part: chapter
 ---
 
@@ -2393,5 +2393,12 @@ title: Files and Directories Ardour Knows About
 link: files-and-directories-ardour-knows-about
 include: files-and-directories-ardour-knows-about.html
 uri: appendix/files-and-directories
+part: chapter
+---
+
+---
+title: MIDI notes reference
+link: midi-notes-ref
+include: midi-notes-ref.html
 part: chapter
 ---
