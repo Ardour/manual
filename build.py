@@ -259,7 +259,8 @@ def BuildList(lst, fs, pagePos, cList):
 		nextPos = lst[i + 1] if i + 1 < len(lst)  else len(fs)
 
 		active = ' class=active' if curPos == pagePos else ''
-		content = content + '<dt' + active + '><a href="/' + fs[curPos]['filename'] + '/">' + fs[curPos]['title'] + '</a></dt><dd' + active + '>'
+		menuTitle = fs[curPos]['menu_title'] if 'menu_title' in fs[curPos] else fs[curPos]['title']
+		content = content + '<dt' + active + '><a href="/' + fs[curPos]['filename'] + '/">' + menuTitle + '</a></dt><dd' + active + '>'
 
 		# If the current page is our page, and it has children, enumerate them
 		if curPos == pagePos:

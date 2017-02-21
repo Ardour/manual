@@ -111,9 +111,6 @@ for line in master:
 			if 'menu_title' in header:
 				explode.write('menu_title: ' + header['menu_title'] + '\n')
 
-			if 'link' in header:
-				explode.write('link: ' + header['link'] + '\n')
-
 			if 'style' in header:
 				explode.write('style: ' + header['style'] + '\n')
 
@@ -125,6 +122,9 @@ for line in master:
 			else:
 				explode.write('include: ' + inclFile + '\n')
 				filenames.append(inclFile)
+
+		if 'link' in header:
+			explode.write('link: ' + header['link'] + '\n')
 
 		if 'uri' in header:
 			explode.write('uri: ' + header['uri'] + '\n')

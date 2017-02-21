@@ -1,0 +1,53 @@
+
+<figure class=right>
+<img src="/images/automation-lane1.png">
+<figcaption class=center>A typical automation lane.</figcaption>
+</figure>
+
+<p>
+  An <dfn>automation lane</dfn> is similar to a track in that it holds data
+  that can be played back; however, unlike a track, it is not an independent
+  entity&mdash;it is always attached to the track that it controls. Automation
+  lanes also contain zero to one <dfn>automation curves</dfn>. Each lane
+  controls one and only one parameter of the track it is attached to.
+</p>
+
+<p>
+  Every track will have at least five automation lanes associated with it:
+  trim, fader, mute, and pan (which consists of two lanes: L/R and Width); it
+  can possibly have many more if there are any processors associated with it.
+  All these lanes are automatically attached to the track but hidden, and
+  initially they are all empty (have no automation curves in them).
+</p>
+
+<figure class=center>
+<img src="/images/automation-multi-lane1.png">
+<figcaption class=center>An example of a track with three lanes of automation (fader &amp; pan).</figcaption>
+</figure>
+
+<p>
+  Automation lanes typically have the following controls:
+</p>
+
+<ul>
+  <li>A hide button (square button with an "X" inside)</li>
+  <li>A horizontal fader</li>
+  <li>An <dfn>automation mode</dfn> selector</li>
+</ul>
+
+<p>
+  The hide button, as the name implies, hides the automation lane. The
+  horizontal fader controls the level of the parameter that the lane controls;
+  manipulating this while in <kbd class=menu>Write</kbd> or <kbd
+  class=menu>Touch</kbd> mode during playback will make changes to the lane's
+  automation curve. The automation mode selector selects which mode the lane is
+  in (<kbd class=menu>Manual</kbd>, <kbd class=menu>Play</kbd>, <kbd
+  class=menu>Write</kbd>, or <kbd class=menu>Touch</kbd>).
+</p>
+
+<p class=note>
+  The hide button will only hide the lane; it does not remove it from the
+  track. The automation lane never really goes away&mdash;the closest one can
+  get to that is to clear the automation curve and hide the lane.
+</p>
+

@@ -91,9 +91,6 @@ for line in master:
 			if 'menu_title' in header:
 				implode.write('menu_title: ' + header['menu_title'] + '\n')
 
-			if 'link' in header:
-				implode.write('link: ' + header['link'] + '\n')
-
 			if 'style' in header:
 				implode.write('style: ' + header['style'] + '\n')
 
@@ -103,6 +100,9 @@ for line in master:
 				noMove = True
 				implode.write('include: ' + header['include'] + '\n')
 				implode.write('exclude: yes\n')
+
+		if 'link' in header:
+			implode.write('link: ' + header['link'] + '\n')
 
 		if 'uri' in header:
 			implode.write('uri: ' + header['uri'] + '\n')

@@ -1,0 +1,83 @@
+
+<figure class=right>
+<img src="/images/automation-menu1.png">
+<figcaption class=center>The automation menu.</figcaption>
+</figure>
+
+<p>
+  To automate a parameter on a given track, click on the track's <kbd
+  class=menu>A</kbd> button and select a parameter to control from the menu
+  that appears. Once a parameter has been selected, an automation lane for that
+  parameter will appear beneath the track. The lane thus shown will be empty;
+  from here an automation curve must be defined.
+</p>
+
+<p class=note>
+  If the height of the automation lane is too small to see all of its controls,
+  the height can be increased by <kbd class=mouse>Left</kbd> clicking on the
+  bottom border of the lane and dragging it.
+</p>
+
+<p>
+  There are three ways to define an automation curve:
+</p>
+
+<ul>
+  <li>Record it using <kbd class=menu>Write</kbd> mode</li>
+  <li>Record it using <kbd class=menu>Touch</kbd> mode</li>
+  <li>Draw it using the mouse</li>
+</ul>
+
+<h2>Recording an Automation Curve Using Write Mode</h2>
+
+<p>
+  To create an automation curve using <kbd class=menu>Write</kbd> mode, first
+  set the lane's mode selector to <kbd class=menu>Write</kbd>, then set the
+  playhead to the position where the automation curve should start, then set
+  the transport to play. While the playhead is moving, Ardour will continuously
+  record any changes made with the lane's fader. Even if no changes are made to
+  the fader, they will overwrite anything that existed in the lane where the
+  playhead is moving. When the desired automation curve has been recorded, stop
+  the transport.
+</p>
+
+<p class=note>
+  After the transport is stopped, the lane's mode selector will automatically
+  switch to <kbd class=menu>Touch</kbd> mode&mdash;it is generally a bad idea
+  to leave an automation lane in <kbd class=menu>Write</kbd> mode, as it is a
+  destructive operation that makes it easy to inadvertently overwrite existing
+  automation curves.
+</p>
+
+<h2>Recording an Automation Curve Using Touch Mode</h2>
+
+<p>
+  Creating an automation curve using <kbd class=menu>Touch</kbd> mode is
+  similar to the method employed in creating one using <kbd
+  class=menu>Write</kbd> mode; the only difference is that changes are written
+  to the automation curve <em>only</em> when the lane's fader is moved&mdash;at
+  all other times, whatever was in the automation curve will remain as it was.
+</p>
+
+<p class=note>
+  <kbd class=menu>Touch</kbd> mode is useful when only small parts of the
+  automation curve need touching up versus <kbd class=menu>Write</kbd> mode,
+  which is usually used to create the automation curve in the first place.
+</p>
+
+<h2>Drawing an Automation Curve Using the Mouse</h2>
+
+<p>
+  In <dfn>Draw</dfn> mode, <dfn>control points</dfn> can be entered in the
+  automation lane by <kbd class=mouse>Left</kbd>-clicking in the lane at a
+  point where there is no existing control point.
+</p>
+
+<p>
+  Once added, a control point can be <kbd class=mouse>Left</kbd>-clicked and
+  dragged to a desired location. Hovering over a control point will show its
+  current level in dB. To remove a control point, <kbd
+  class=mouse>Left</kbd>-click it and press <kbd>Delete</kbd>, or <kbd
+  class=mod3n></kbd><kbd class=mouse>Right</kbd>-click on it.
+</p>
+
