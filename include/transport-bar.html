@@ -1,7 +1,8 @@
 <h2>The transport controls</h2>
 
 <p>
-  The <dfn>Transport Bar</dfn> groups all the actions regarding the control of playback and recording.
+  The <dfn>Transport Bar</dfn> groups all the actions regarding the control of
+  playback and recording.
 </p>
 
 <img src="/images/transport.png" alt="The transport controls">
@@ -12,33 +13,60 @@
 
 <dl>
 	<dt>Midi Panic</dt><dd>Immediately stops all midi output.</dd>
-	<dt>Enable/disable Audio Click</dt><dd>Toggles (on/off) a click track (metronome) along the <a href="@@tempo-and-meter">tempo</a>. Right clicking brings up the <kbd class="menu">Click</kbd> submenu from the Preferences.</dd>
-	<dt>Go to Start of the Session</dt><dd>Jumps back at the beginning of the session, as defined by the <a href="@@working-with-markers">start marker</a>.</dd>
-	<dt>Go to End of the Session</dt><dd>Jumps forward to the end of the session, as defined by the <a href="@@working-with-markers">end marker</a>.</dd>
-	<dt>Play Loop Range</dt><dd>Repeats the defined <a href="@@controlling-playback">loop</a> as defined by the <a href="@@the-loop-range">Loop range</a>, until the "Stop playback" button is pressed. Clicking the "Play loop Range" button while already active switches to normal Play mode, which exits the loop without stopping and restarting playback.</dd>
-	<dt>Play Range/Selection</dt><dd>If a range has been defined using the Range Mode button, plays the range, of if an audio or MIDI region is selected, plays this region. In both cases, the playback stops at the end of the range or selected region.</dd>
-	<dt>Play from playhead</dt><dd>Starts the playback and optionally record (more below).</dd>
-	<dt>Stop</dt><dd>Whatever the playing mode (loop, range, &hellip;) stops all playback. Depending on other settings, some effects (like chorus or reverb) might still be audible for a while.</dd>
-	<dt>Toggle Record</dt><dd>Global switch button to activate/deactivate recording. While active, the button blinks red. The button doesn't start recording by itself: if one or more tracks are marked as record-enabled, pressing the "Play from Playhead" starts recording on those tracks. See <a href="@@record-setup">Recording</a>.</dd>
+	<dt>Enable/disable Audio Click</dt><dd>Toggles (on/off) a click track (metronome)
+    along the <a href="@@tempo-and-meter">tempo</a>. Right clicking brings up the
+    <kbd class="menu">Click</kbd> submenu from the Preferences. Scrolling with
+    the mouse wheel adjusts the gain of the click.</dd>
+	<dt>Go to Start of the Session</dt><dd>Jumps back at the beginning of the session,
+    as defined by the <a href="@@working-with-markers">start marker</a>.</dd>
+	<dt>Go to End of the Session</dt><dd>Jumps forward to the end of the session,
+    as defined by the <a href="@@working-with-markers">end marker</a>.</dd>
+	<dt>Play Loop Range</dt><dd>Repeats the defined <a href="@@controlling-playback">loop</a>
+     as defined by the <a href="@@the-loop-range">Loop range</a>, until the "Stop
+     playback" button is pressed. Clicking the "Play loop Range" button while
+     already active switches to normal Play mode, which exits the loop without
+     stopping and restarting playback.</dd>
+	<dt>Play Range/Selection</dt><dd>If a range has been defined using the Range
+    Mode button, plays the range, of if an audio or MIDI region is selected,
+    plays this region. In both cases, the playback stops at the end of the range
+    or selected region.</dd>
+	<dt>Play from playhead</dt><dd>Starts the playback and optionally record (more
+    below).</dd>
+	<dt>Stop</dt><dd>Whatever the playing mode (loop, range, &hellip;) stops all
+    playback. Depending on other settings, some effects (like chorus or reverb)
+    might still be audible for a while.</dd>
+	<dt>Toggle Record</dt><dd>Global switch button to activate/deactivate recording.
+    While active, the button blinks red. The button doesn't start recording by
+    itself: if one or more tracks are marked as record-enabled, pressing the
+    "Play from Playhead" starts recording on those tracks. See
+    <a href="@@record-setup">Recording</a>.</dd>
 </dl>
 
 <p class="note">
-  All these actions are bound to keyboard shortcuts, which allows for speedier use and more focused work.
+  All these actions are bound to keyboard shortcuts, which allows for speedier
+  use and more focused work.
 </p>
 
 <p class="note">
-  If you synchronize Ardour with other devices then some or all of these control methods may be unavailable&mdash;depending on the synchronization protocol, Ardour may respond only to commands sent from its master device(s).
+  If you synchronize Ardour with other devices then some or all of these control
+  methods may be unavailable&mdash;depending on the synchronization protocol,
+  Ardour may respond only to commands sent from its master device(s).
 </p>
 
 <p>
-  Under these buttons is the <dfn>Shuttle Speed Control</dfn> that allows to scrub through the audio quickly. The slider decides the playback speed : the further from the center it is set, the faster the playback will scrub in both directions.
+  Under these buttons is the <dfn>Shuttle Speed Control</dfn> that allows to scrub
+  through the audio quickly. The slider decides the playback speed : the further
+  from the center it is set, the faster the playback will scrub in both directions.
 </p>
 <p>
-  The Shuttle Speed Control supports 2 operating modes, that can be chosen with right click > Mode:
+  The Shuttle Speed Control supports 2 operating modes, that can be chosen with
+  right click > Mode:
 </p>
 <ul>
-  <li><dfn>Sprung mode</dfn> that allows for a temporary scrub: it only scubs while the mouse is left clicked on the control.</li>
-  <li><dfn>Wheel mode</dfn> that allows to set a playback speed until the "Stop" button is pressed, which stops the playback and resets its speed.</li>
+  <li><dfn>Sprung mode</dfn> that allows for a temporary scrub: it only scubs
+    while the mouse is left clicked on the control.</li>
+  <li><dfn>Wheel mode</dfn> that allows to set a playback speed until the "Stop"
+    button is pressed, which stops the playback and resets its speed.</li>
 </ul>
 
 <p>
@@ -49,7 +77,8 @@
   (see <a href="@@timecode-generators-and-slaves">Timecode Generators and Slaves</a>).
 </p>
 <p>
-  The current playback status (Stop, Play, or speed %) is shown on the right of the speed slider.
+  The current playback status (Stop, Play, or speed %) is shown on the right of
+  the speed slider.
 </p>
 
 
@@ -70,6 +99,6 @@
 </dl>
 
 <p>
-  Go to the <kdb class="menu">Transport</kbd> and <kdb class="menu">Transport &gt; Playhead</kbd> to find more.
+  Go to the <kdb class="menu">Transport</kbd> and <kdb class="menu">Transport &gt;
+    Playhead</kbd> to find more.
 </p>
-
