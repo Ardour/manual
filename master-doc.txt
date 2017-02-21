@@ -552,6 +552,7 @@ part: subchapter
 
 ---
 title: Ardour's Interface
+uri: ardours-interface
 part: part
 ---
 
@@ -559,7 +560,7 @@ part: part
 title: About Ardour's Interface
 include: about-ardours-interface.html
 link: about-ardours-interface
-uri: ardours-interface
+uri: ardours-interface/about
 part: chapter
 ---
 
