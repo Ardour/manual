@@ -1,10 +1,10 @@
 
 <p>
-  An Ardour session is stored in a single folder on your computer's filesystem. This makes <dfn>backup</dfn> very easy&mdash;any tool capable of backing up a folder can be used to backup a session. You pick the location of a session when it is created&mdash;by default it will be in your default session location, which can be altered via <kbd class="menu">Edit &gt; Preferences &gt; Misc &gt; Session Management</kbd>. 
+  An Ardour session is stored in a single folder on the computer's filesystem. This makes <dfn>backup</dfn> very easy&mdash;any tool capable of backing up a folder can be used to backup a session. The location of a session can be chosen when it is created&mdash;by default it will be in the default session location, which can be altered via <kbd class="menu">Edit &gt; Preferences &gt; Misc &gt; Session Management</kbd>. 
 </p>
 
 <p class="warning">
-  There is one complication: a session may reference media files that are stored outside of the session folder, if the user has opted not to select <kbd class="optoff">Session &gt; Import &gt; Copy to Session</kbd> during import. Backing up a session with embedded files will not create a copy of the session containing those files.
+  There is one complication: a session may reference media files that are stored outside of the session folder, if <kbd class="optoff">Session &gt; Import &gt; Copy to Session</kbd> is not selected during import. Backing up a session without embedded files will <strong>not</strong> create a copy of the session containing those files.
 </p>
 
 <p>

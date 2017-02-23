@@ -879,14 +879,6 @@ part: chapter
 ---
 
 ---
-title: New/Open Session Dialog
-include: newopen-session-dialog.html
-link: newopen-session-dialog
-uri: working-with-sessions/the-new-session-dialog
-part: subchapter
----
-
----
 title: What's in a Session?
 include: whats-in-a-session.html
 link: whats-in-a-session
@@ -903,42 +895,10 @@ part: subchapter
 ---
 
 ---
-title: Backup and Sharing of Sessions
-include: backup-and-sharing-of-sessions.html
-link: backup-and-sharing-of-sessions
-uri: working-with-sessions/backup-and-sharing-of-sessions
-part: subchapter
----
-
----
-title: Interchange with other DAWs
-include: interchange-with-other-daws.html
-link: interchange-with-other-daws
-uri: working-with-sessions/interchange-with-other-daws
-part: subchapter
----
-
----
-title: Copying The Interchange Folder
-include: copying-the-interchange-folder.html
-link: copying-the-interchange-folder
-uri: working-with-sessions/interchange-with-other-daws/copying-the-interchange-folder
-part: subchapter
----
-
----
-title: Stem Exports
-include: stem-exports.html
-link: stem-exports
-uri: working-with-sessions/interchange-with-other-daws/stem-exports
-part: subchapter
----
-
----
-title: Using AATranslator
-include: using-aatranslator.html
-link: using-aatranslator
-uri: working-with-sessions/interchange-with-other-daws/using-aatranslator
+title: New/Open Session Dialog
+include: newopen-session-dialog.html
+link: newopen-session-dialog
+uri: working-with-sessions/the-new-session-dialog
 part: subchapter
 ---
 
@@ -951,23 +911,7 @@ part: subchapter
 ---
 
 ---
-title: Session Templates
-include: session-templates.html
-link: session-templates
-uri: working-with-sessions/session-templates
-part: subchapter
----
-
----
-title: Snapshots
-include: snapshots.html
-link: snapshots
-uri: working-with-sessions/snapshots
-part: subchapter
----
-
----
-title: Metadata
+title: Session Metadata
 include: metadata.html
 link: metadata
 uri: working-with-sessions/metadata
@@ -975,50 +919,10 @@ part: subchapter
 ---
 
 ---
-title: Cleaning up Sessions
-include: cleaning-up-sessions.html
-link: cleaning-up-sessions
-uri: working-with-sessions/cleaning_up
-part: subchapter
----
-
----
-title: Copying versus Linking
-include: copying-versus-linking.html
-link: copying-versus-linking
-uri: adding-pre-existing-material/copying-versus-linking
-part: subchapter
----
-
----
-title: Adding Pre-existing Material
-include: adding-pre-existing-material.html
-link: adding-pre-existing-material
-uri: adding-pre-existing-material
-part: subchapter
----
-
----
-title: Import Dialog
-include: import-dialog.html
-link: import-dialog
-uri: adding-pre-existing-material/import-dialog
-part: subchapter
----
-
----
-title: Searching for Files Using Tags
-include: searching-for-files-using-tags.html
-link: searching-for-files-using-tags
-uri: adding-pre-existing-material/searching-for-files-using-tags
-part: subchapter
----
-
----
-title: Supported File Formats
-include: supported-file-formats.html
-link: supported-file-formats
-uri: adding-pre-existing-material/supported-file-formats
+title: Backup and Sharing of Sessions
+include: backup-and-sharing-of-sessions.html
+link: backup-and-sharing-of-sessions
+uri: working-with-sessions/backup-and-sharing-of-sessions
 part: subchapter
 ---
 
@@ -1055,11 +959,58 @@ part: subchapter
 ---
 
 ---
+title: Controlling Track Ordering
+include: controlling-track-ordering.html
+link: controlling-track-ordering
+uri: working-with-tracks/controlling-track-ordering
+part: subchapter
+---
+
+---
+title: Track Context Menu
+include: track-context-menu.html
+link: track-context-menu
+uri: working-with-tracks/track-context-menu
+part: subchapter
+---
+
+---
+title: Track Controls
+include: track-controls.html
+link: track-controls
+part: chapter
+---
+
+---
+title: Bus Controls
+include: bus-controls.html
+link: bus-controls
+uri: working-with-tracks/bus-controls
+part: subchapter
+---
+
+---
+title: Audio Track Controls
+include: audio-track-controls.html
+link: audio-track-controls
+uri: working-with-tracks/audio-track-controls
+part: subchapter
+---
+
+---
+title: MIDI Track Controls
+include: midi-track-controls.html
+link: midi-track-controls
+uri: working-with-tracks/midi-track-controls
+part: subchapter
+---
+
+---
 title: Controlling Track Appearance
 include: controlling-track-appearance.html
 link: controlling-track-appearance
 uri: working-with-tracks/controlling-track-appearance
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -1095,88 +1046,123 @@ part: subchapter
 ---
 
 ---
-title: Controlling Track Ordering
-include: controlling-track-ordering.html
-link: controlling-track-ordering
-uri: working-with-tracks/controlling-track-ordering
-part: subchapter
----
-
----
-title: Reordering Tracks
-include: reordering-tracks.html
-link: reordering-tracks
-uri: working-with-tracks/controlling-track-ordering/reordering-tracks
-part: subchapter
----
-
----
-title: Track Ordering and Remote Control IDs
-include: track-ordering-and-remote-control-ids.html
-link: track-ordering-and-remote-control-ids
-uri: working-with-tracks/controlling-track-ordering/track-ordering-and-remote-control-ids
-part: subchapter
----
-
----
-title: Bus Controls
-include: bus-controls.html
-link: bus-controls
-uri: working-with-tracks/bus-controls
-part: subchapter
----
-
----
-title: Audio Track Controls
-include: audio-track-controls.html
-link: audio-track-controls
-uri: working-with-tracks/audio-track-controls
-part: subchapter
----
-
----
-title: MIDI Track Controls
-include: midi-track-controls.html
-link: midi-track-controls
-uri: working-with-tracks/midi-track-controls
-part: subchapter
----
-
----
-title: Track Context Menu
-include: track-context-menu.html
-link: track-context-menu
-uri: working-with-tracks/track-context-menu
-part: subchapter
----
-
----
-title: Grouping Tracks
-include: grouping-tracks.html
-link: grouping-tracks
-part: chapter
----
-
----
 title: Track and Bus Groups
 include: track-and-bus-groups.html
 link: track-and-bus-groups
 uri: working-with-tracks/track-and-bus-groups
-part: subchapter
+part: chapter
 ---
 
 ---
 title: Importing and Exporting Session Data
+menu_title: Import/Export Session Data
 include: importing-and-exporting-session-data.html
 link: importing-and-exporting-session-data
 part: chapter
 ---
 
 ---
+title: Import Dialog
+include: import-dialog.html
+link: import-dialog
+uri: adding-pre-existing-material/import-dialog
+part: subchapter
+---
+
+---
+title: Supported File Formats
+include: supported-file-formats.html
+link: supported-file-formats
+uri: adding-pre-existing-material/supported-file-formats
+part: subchapter
+---
+
+---
+title: Adding Pre-existing Material
+include: adding-pre-existing-material.html
+link: adding-pre-existing-material
+uri: adding-pre-existing-material
+part: subchapter
+---
+
+---
+title: Copying Versus Linking
+include: copying-versus-linking.html
+link: copying-versus-linking
+uri: adding-pre-existing-material/copying-versus-linking
+part: subchapter
+---
+
+---
+title: Searching for Files Using Tags
+include: searching-for-files-using-tags.html
+link: searching-for-files-using-tags
+uri: adding-pre-existing-material/searching-for-files-using-tags
+part: subchapter
+---
+
+---
+title: Stem Exports
+include: stem-exports.html
+link: stem-exports
+uri: working-with-sessions/interchange-with-other-daws/stem-exports
+part: subchapter
+---
+
+---
 title: File and Session Management and Compatibility
+menu_title: File/Session Mgmt &amp; Compat.
 include: file-and-session-management-and-compatibility.html
 link: file-and-session-management-and-compatibility
 part: chapter
+---
+
+---
+title: Session Templates
+include: session-templates.html
+link: session-templates
+uri: working-with-sessions/session-templates
+part: subchapter
+---
+
+---
+title: Snapshots
+include: snapshots.html
+link: snapshots
+uri: working-with-sessions/snapshots
+part: subchapter
+---
+
+---
+title: Cleaning Up Sessions
+include: cleaning-up-sessions.html
+link: cleaning-up-sessions
+uri: working-with-sessions/cleaning_up
+part: subchapter
+---
+
+---
+title: Interchange with other DAWs
+include: interchange-with-other-daws.html
+link: interchange-with-other-daws
+uri: working-with-sessions/interchange-with-other-daws
+part: subchapter
+---
+
+---
+title: Copying The Interchange Folder
+include: copying-the-interchange-folder.html
+link: copying-the-interchange-folder
+uri: working-with-sessions/interchange-with-other-daws/copying-the-interchange-folder
+part: subchapter
+---
+
+---
+title: Using AATranslator
+include: using-aatranslator.html
+link: using-aatranslator
+uri: working-with-sessions/interchange-with-other-daws/using-aatranslator
+part: subchapter
 ---
 
 ---
@@ -1708,8 +1694,8 @@ part: subchapter
 
 ---
 title: MIDI List Editor
-link: midi-list-editor
 include: midi-list-editor.html
+link: midi-list-editor
 part: subchapter
 ---
 
@@ -2075,6 +2061,7 @@ part: chapter
 
 ---
 title: Multichannel Tracks and Signal Routing
+menu_title: Multichannel Signal Routing
 include: multichannel-tracks-and-signal-routing.html
 link: multichannel-tracks-and-signal-routing
 part: chapter
@@ -2434,7 +2421,7 @@ part: chapter
 
 ---
 title: MIDI notes reference
-link: midi-notes-ref
 include: midi-notes-ref.html
+link: midi-notes-ref
 part: chapter
 ---
