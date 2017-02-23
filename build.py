@@ -18,15 +18,25 @@ import shutil
 import argparse
 
 
+# Global vars
+# This matches all *non* letter/number, ' ', '.', '-', and '_' chars
+cleanString = re.compile(r'[^a-zA-Z0-9 \._-]+')
+# This matches new 'unbreakable' links, up to the closing quote or anchor
+findLinks = re.compile(r'@@[^#"]*')
+
 #
 # Create an all lowercase filename without special characters and with spaces
 # replaced with dashes.
 #
 def MakeFilename(s):
-	# Cleans up the file name, removing all non ASCII or .-_ chars
-	fn = re.sub(r'[^.\-_a-zA-Z0-9 ]', '', s)
-	fn = fn.lower()
-	fn = fn.replace(' ', '-')
+	global cleanString
+	# Clean up the file name, removing all non letter/number or " .-_" chars.
+	# Also, convert to lower case and replace all spaces with dashes.
+	fn = cleanString.sub('', s).lower().replace(' ', '-')
+	# Double dashes can creep in from the above replacement, so we check for
+	# that here.
+	fn = fn.replace('--', '-')
+
 	return fn
 
 
@@ -122,7 +132,8 @@ def GetFileStructure():
 				for i in range(level + 1):
 					fullName = fullName + fnames[i] + '/'
 
-				hdr['filename'] = fullName.rstrip('/')
+				# Strip trailing '/' on filename
+				hdr['filename'] = fullName[:-1]
 
 			fs.append(hdr)
 
@@ -226,25 +237,27 @@ def FindInternalLinks(fs):
 # them with the appropriate link.
 #
 def FixInternalLinks(links, content, title):
-
-	# Make key1|key2|key3|... out of our links keys
-	pattern = re.compile('|'.join(links.keys()))
-
-	# Use a lambda callback to substitute each occurance found
-	result = pattern.sub(lambda x: links[x.group()], content)
-
-	# Check for missing link targets, and report them to the user
-	match = re.findall('"@@.*"', result)
+	global findLinks
+	match = findLinks.findall(content)
+	missing = []
 
 	if len(match) > 0:
-		print('\nMissing link target' + ('s' if len(match) > 1 else '') + ' in "' + title + '":')
-
 		for s in match:
-			print('  ' + s[3:-1])
+			if s in links:
+				content = content.replace(s, links[s])
+			else:
+				missing.append(s)
+
+	# Report missing link targets to the user (if any)
+	if len(missing) > 0:
+		print('\nMissing link target' + ('s' if len(missing) > 1 else '') + ' in "' + title + '":')
+
+		for s in missing:
+			print('  ' + s)
 
 		print()
 
-	return result
+	return content
 
 
 #
@@ -297,14 +310,15 @@ def CreateLinkSidebar(fs, pos, childList):
 parser = argparse.ArgumentParser(description='A build script for the Ardour Manual')
 parser.add_argument('-v', '--verbose', action='store_true', help='Display the high-level structure of the manual')
 parser.add_argument('-q', '--quiet', action='store_true', help='Suppress all output (overrides -v)')
+parser.add_argument('-d', '--devmode', action='store_true', help='Add content to pages to help developers debug them')
 args = parser.parse_args()
 verbose = args.verbose
 quiet = args.quiet
+devmode = args.devmode
 
 if quiet:
 	verbose = False
 
-#verbose = False
 level = 0
 fileCount = 0
 levelNums = [0]*6
@@ -314,6 +328,9 @@ toc = ''
 pageNumber = 0
 
 siteDir = './website/'
+
+if not quiet and devmode:
+	print('Devmode active: scribbling extra junk to the manual...')
 
 if os.access(siteDir, os.F_OK):
 	if not quiet:
@@ -453,6 +470,10 @@ for header in fileStruct:
 
 	# Fix up any internal links
 	content = FixInternalLinks(links, content, header['title'])
+
+	# Add header information to the page if in dev mode
+	if devmode and 'link' in header:
+		content = '<h1>link: ' + header['link'] + '</h2>\n<br><br>\n' + content
 
 	# Set up the actual page from the template
 	if 'style' not in header:

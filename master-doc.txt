@@ -1675,7 +1675,7 @@ part: subchapter
 ---
 
 ---
-title: Automating MIDI&mdash;Pitch bending and aftertouch
+title: Automating MIDI--Pitch bending and aftertouch
 menu_title: Automating MIDI
 include: automating-midi---pitch-bending-and-aftertouch.html
 link: automating-midi---pitch-bending-and-aftertouch
@@ -1684,7 +1684,7 @@ part: subchapter
 ---
 
 ---
-title: Transforming MIDI&mdash;Mathematical operations
+title: Transforming MIDI--Mathematical operations
 menu_title: Transforming MIDI
 include: transforming-midi---mathematical-operations.html
 link: transforming-midi---mathematical-operations

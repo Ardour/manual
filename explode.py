@@ -12,6 +12,7 @@ import re
 import shutil
 
 lineCount = 0
+cleanString = re.compile(r'[^a-zA-Z0-9 \._-]+')
 
 
 #
@@ -19,10 +20,14 @@ lineCount = 0
 # replaced with dashes.
 #
 def MakeFilename(s):
-	# Cleans up the file name, removing all non ASCII or .-_ chars
-	fn = re.sub(r'[^.\-_a-zA-Z0-9 ]', '', s)
-	fn = fn.lower()
-	fn = fn.replace(' ', '-')
+	global cleanString
+	# Clean up the file name, removing all non letter/number or " .-_" chars.
+	# Also, convert to lower case and replace all spaces with dashes.
+	fn = cleanString.sub('', s).lower().replace(' ', '-')
+	# Double dashes can creep in from the above replacement, so we check for
+	# that here.
+	fn = fn.replace('--', '-')
+
 	return fn
 
 
