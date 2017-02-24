@@ -195,7 +195,7 @@ def GetParent(fs, pos):
 	thisLevel =  fs[pos]['level']
 	pos = pos - 1
 
-	while fs[pos]['level'] >= thisLevel and pos > 0:
+	while pos >= 0 and fs[pos]['level'] >= thisLevel:
 		pos = pos - 1
 
 	return pos
@@ -206,9 +206,9 @@ def GetParent(fs, pos):
 def GetBreadCrumbs(fs, pos):
 	breadcrumbs = ' <span class="divider">&gt;</span> <li class="active">'+ fs[pos]['title'] + '</li>'
 	# The <span class="divider">&gt;</span> is for Bootstrap pre-3.0
-	while pos:
+	while pos >= 0:
 		pos = GetParent(fs,pos)
-		if pos:
+		if pos >= 0:
 			breadcrumbs=' <span class="divider">&gt;</span> <li><a href="/' + fs[pos]['filename'] + '/">'+ fs[pos]['title'] + '</a></li>'+ breadcrumbs
 
 	breadcrumbs = '<ol class="breadcrumb"><li><a href="/toc/index.html">Home</a></li>' + breadcrumbs + '</ol>'
