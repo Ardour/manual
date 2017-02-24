@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-      
+
 <head>
 	<title>{{page.page_title}}</title>
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
@@ -26,6 +26,7 @@
 	</div></div>
 	<div class="span12" id="content">
 		<div id="search" class="gcse-search"></div>
+    {% breadcrumbs %}
 		<div id="content-main">
 		<h1 class="title">{{ page.title }}</h1>
 {{ content }}
@@ -61,4 +62,3 @@ if ( (isA(/Mac/) || isAbout(/OS X/)) && (!isAbout(/Linux/)) ) {
 
 </body>
 </html>
-
