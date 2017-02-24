@@ -1,43 +1,36 @@
 
 <p>
-  Many editing operations in Ardour require you to first <dfn>select one or more
-  regions</dfn> that you want to change in some way. You can select a single region,
-  or multiple regions, including regions in different tracks. When you select
-  a region, it will appear in a darker color than unselected regions.
+  Many editing operations in Ardour require to first <dfn>select one or more
+  regions</dfn> to change them in some way. A single region,
+  or multiple regions can be selected, including regions in different tracks. When
+  a region is selected, it will appear in a darker color than unselected regions.
 </p>
 <p>
-  Note that if a track is a member of a group that is active and has the
+  If a track is a member of a group that is active and has the
   <kbd class="option">Select</kbd> property enabled, then Ardour will attempt to
-  match whatever selections you make in one track across every other track of the
-  group. See
-  <a href="@@corresponding-regions-selection">Corresponding
+  match whatever selections is made in one track across every other track of the
+  group. See <a href="@@corresponding-regions-selection">Corresponding
   Regions Selection</a> for more information on precisely how selections will be
   propagated to other tracks.
 </p>
 
 <h2>Region Selection and Track Selection</h2>
 <p>
-  Please read
-  <a href="@@selecting-tracks">Region &amp; Track Selection</a>
+  Please read <a href="@@selecting-tracks">Region &amp; Track Selection</a>
   for more information on how selecting regions and selecting tracks interact.
 </p>
 
-<h2>Select a Region</h2>
+<h2>Selecting a Region</h2>
 <p>
-  Confirm that you are using the
-  <a href="@@toolbox">Grab Mode tool</a>,
-  then click on a region to select it. If
-  <a href="@@toolbox">Smart mode</a>
-  is enabled, click in the lower half of the region.
+  Using the <a href="@@toolbox">Grab Mode tool</a>, <kbd class="mouse">left</kbd>
+  clicking on a region selects it. If <a href="@@toolbox">Smart mode</a> is
+  enabled, the lower half of the region must be clicked.
 </p>
 
-<h2>Deselect a Region</h2>
+<h2>Deselecting a Region</h2>
 <p>
-  Confirm you are using the
-  <a href="@@toolbox">Grab Mode tool</a>,
-  then <kbd class="mouse mod1">Left</kbd>-click the region. If
-  <a href="@@toolbox">Smart mode</a>
-  is enabled, click in the lower half of the region.
+  Still using the <a href="@@toolbox">Grab Mode tool</a>, <kbd class="mouse mod1">Left</kbd>-clicking the region deselects it. If
+  <a href="@@toolbox">Smart mode</a> is enabled, the lower half of the region must be clicked.
 </p>
 <p>
   Note that a <kbd class="mouse mod1">left</kbd> click simply toggles the
@@ -45,44 +38,37 @@
   too.
 </p>
 
-<h2>Select Multiple Regions in a Track</h2>
-<p>Do one of the following:</p>
+<h2>Selecting Multiple Regions in a Track</h2>
+<p>This can be achieved in different ways:</p>
 <ul>
-  <li><kbd class="mouse mod1">Left</kbd>-click each region, or</li>
-  <li>
-    drag a rubberband box from an empty point in a track before the first
-    region you wish to select to a point within or after the last region
-    you wish to select (you can <kbd class="mouse mod1">left</kbd>-drag to do this
-    multiple times), or,
-  </li>
-  <li>
-    if the regions are all adjacent to one another, click the first region
-    you wish to select, then <kbd class="mouse mod3">Left</kbd>-click the last
-    region you wish to select.
+  <li><kbd class="mouse mod1">Left</kbd>-clicking each region.</li>
+  <li>Dragging a rubberband box from an empty point in a track before the first
+    region to select to a point within or after the last region to select. Using
+    <kbd class="mouse mod1">left</kbd>-drag allows doing it multiple times.</li>
+  <li>If the regions are all adjacent to one another, clicking the first region
+    to select, then <kbd class="mouse mod3">Left</kbd>-clicking the last one.
   </li>
 </ul>
 
-<h2>Select All Regions in a Track</h2>
+<h2>Selecting All Regions in a Track</h2>
 <p>
-  Context-click the track, and in the context menu, navigate to
-  <kbd class="menu">Select &gt; Select All In Track</menu>.
+  The <kbd class="menu">Select &gt; Select All In Track</kbd> option in the context menu
+  (<kbd class="mouse">Right</kbd> click on the track) selects all the regions in the track at once.
 </p>
 <p>
   See the <a href="@@track-context-menu">Track Context Menu</a>
   for more information on other per-track selection operations that are available.
 </p>
 
-<h2>Select Multiple Regions Across Different Tracks</h2>
+<h2>Selecting Multiple Regions Across Different Tracks</h2>
 <p>
-  <kbd class="mouse mod1">Left</kbd>-click or <kbd class="mouse
-  mod3">Left</kbd>-click the regions you wish to select.
+  This can be achieved by a <kbd class="mouse mod1">left</kbd>-click or <kbd class="mouse
+  mod3">Left</kbd>-click on the regions to select.
 </p>
 
-<h2>Select a Region From the Region List</h2>
+<h2>Selecting a Region From the Region List</h2>
 <p>
-  Click the name of the region in the
-  <a href="@@the-region-list">Region List</a>.
-  Note that this will do nothing for whole-file regions, since they do not exist
+  Clicking the name of the region in the <a href="@@the-region-list">Region List</a>.
+  selects it. This will do nothing for whole-file regions, since they do not exist
   anywhere in a playlist or track.
 </p>
-
