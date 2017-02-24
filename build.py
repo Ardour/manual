@@ -188,6 +188,31 @@ def GetChildren(fs, pos):
 
 	return children
 
+#
+# Get the parent at this level
+#
+def GetParent(fs, pos):
+	thisLevel =  fs[pos]['level']
+	pos = pos - 1
+
+	while fs[pos]['level'] >= thisLevel and pos > 0:
+		pos = pos - 1
+
+	return pos
+
+#
+# Creates the BreadCrumbs
+#
+def GetBreadCrumbs(fs, pos):
+	breadcrumbs = ' <span class="divider">&gt;</span> <li class="active">'+ fs[pos]['title'] + '</li>'
+	# The <span class="divider">&gt;</span> is for Bootstrap pre-3.0
+	while pos:
+		pos = GetParent(fs,pos)
+		if pos:
+			breadcrumbs=' <span class="divider">&gt;</span> <li><a href="/' + fs[pos]['filename'] + '/">'+ fs[pos]['title'] + '</a></li>'+ breadcrumbs
+
+	breadcrumbs = '<ol class="breadcrumb"><li><a href="/toc/index.html">Home</a></li>' + breadcrumbs + '</ol>'
+	return breadcrumbs
 
 #
 # Make an array of children attached to each node in the file structure
@@ -431,17 +456,28 @@ for header in fileStruct:
 
 		more = '<div id=subtopics>\n' + '<h2>This section contains the following topics:</h2>\n' + '<ul>\n' + more + '</ul>\n' + '</div>\n'
 
+	parent = GetParent(fileStruct, pageNumber)
+
 	# Make the 'Previous' & 'Next' content
 	nLink = ''
 	pLink = ''
+	uLink = ''
 
 	if pageNumber > 0:
-		pLink = '<li><a title="' + fileStruct[pageNumber - 1]['title'] + '" href="/' + fileStruct[pageNumber - 1]['filename'] + '/" class="previous"> &lt; Previous </a></li>'
+		pLink = '<li><a title="' + fileStruct[pageNumber - 1]['title'] + '" href="/' + fileStruct[pageNumber - 1]['filename'] + '/" class="previous"> &larr; Previous </a></li>'
 
 	if pageNumber < len(fileStruct) - 1:
-		nLink = '<li><a title="' + fileStruct[pageNumber + 1]['title'] + '" href="/' + fileStruct[pageNumber + 1]['filename'] + '/" class="next"> Next &gt; </a></li>'
+		nLink = '<li><a title="' + fileStruct[pageNumber + 1]['title'] + '" href="/' + fileStruct[pageNumber + 1]['filename'] + '/" class="next"> Next &rarr; </a></li>'
 
-	prevnext = '<ul class=pager>' + pLink + nLink + '</ul>'
+	if level > 0:
+		uLink = '<li><a title="' + fileStruct[parent]['title'] + '" href="/' + fileStruct[parent]['filename'] + '/" class="active"> &uarr; Up </a></li>'
+	else:
+		uLink = '<li><a title="Ardour Table of Contents" href="/toc/index.html" class="active"> &uarr; Up </a></li>'
+
+	prevnext = '<ul class=pager>' + pLink + uLink + nLink + '</ul>'
+
+	# Make the BreadCrumbs
+	breadcrumbs = GetBreadCrumbs(fileStruct, pageNumber)
 
 	# Create the link sidebar
 	sidebar = CreateLinkSidebar(fileStruct, pageNumber, nodeChildren)
@@ -473,7 +509,7 @@ for header in fileStruct:
 
 	# Add header information to the page if in dev mode
 	if devmode and 'link' in header:
-		content = '<h1>link: ' + header['link'] + '</h2>\n<br><br>\n' + content
+		content = '<h1>link: ' + header['link'] + '</h1>\n<br><br>\n' + content
 
 	# Set up the actual page from the template
 	if 'style' not in header:
@@ -486,6 +522,7 @@ for header in fileStruct:
 	page = page.replace('{{ page.title }}', header['title'])
 	page = page.replace('{% tree %}', sidebar)
 	page = page.replace('{% prevnext %}', prevnext)
+	page = page.replace('{% breadcrumbs %}', breadcrumbs)
 	page = page.replace('{{ content }}', content + more)
 
 	# Create the directory for the index.html file to go into (we use makedirs,
@@ -509,6 +546,7 @@ page = page.replace('{{ page.title }}', 'Ardour Table of Contents')
 page = page.replace('{% tree %}', sidebar)
 page = page.replace('{{ content }}', toc)
 page = page.replace('{% prevnext %}', '')
+page = page.replace('{% breadcrumbs %}', '')
 
 os.mkdir(siteDir + 'toc', 0o775)
 tocFile = open(siteDir + 'toc/index.html', 'w')

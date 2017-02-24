@@ -1,13 +1,96 @@
 
 <p>
-  An Ardour session is stored in a single folder on the computer's filesystem. This makes <dfn>backup</dfn> very easy&mdash;any tool capable of backing up a folder can be used to backup a session. The location of a session can be chosen when it is created&mdash;by default it will be in the default session location, which can be altered via <kbd class="menu">Edit &gt; Preferences &gt; Misc &gt; Session Management</kbd>. 
+  An Ardour session is stored in a single folder on the computer's filesystem.
+  This makes <dfn>backup</dfn> very easy: any tool capable of backing up a
+  folder can be used to backup a session. The location of a session is picked when
+  it is created &mdash;by default it will be in the default session location,
+  which can be altered via <kbd class="menu">Edit &gt; Preferences &gt; General &gt;
+  Session</kbd>.
+</p>
+<p>
+  The single folder approach also makes sharing a project easy. Simply copy the
+  session folder (onto a storage device, or across a network) and another Ardour
+  user (on any platform) will be able to use it.
+</p>
+<p>
+  There is one complication in both cases: a session may reference media files that are stored
+  outside of the session folder, if the user has opted not to select
+  <kbd class="optoff">Session &gt; Import &gt; Copy to Session</kbd> during import.
+  Backing up a session with embedded files will not create a copy of the session
+  containing those files. To bring those external files to the session folder,
+  the <a href="@@cleaning-up-sessions"><kbd class="menu">Session &gt; Clean-up &gt;
+  Bring all media into session folder</kbd> menu</a> can be used.
 </p>
 
-<p class="warning">
-  There is one complication: a session may reference media files that are stored outside of the session folder, if <kbd class="optoff">Session &gt; Import &gt; Copy to Session</kbd> is not selected during import. Backing up a session without embedded files will <strong>not</strong> create a copy of the session containing those files.
+<h2>Using the dedicated Zip/Archive Current Session tool</h2>
+
+<figure>
+  <img src="/images/archive-session.png" alt="The Zip/Archive Current Session window">
+  <figcaption>
+    The Zip/Archive Current Session window
+  </figcaption>
+</figure>
+
+<p>
+  The <kbd class="menu">Zip/Archive Current Session</kbd> tool is located in the
+  <kbd class="menu"> File &gt; Archive&hellip;</kbd> menu.
+</p>
+<p>
+  It allows to create a single file containing everything usefull in the session,
+  to share it or back it up, conveniently compressed to a session-archive which
+  is a zip-file (tar.xz to be specific) containing all the audio, MIDI,
+  plugin-settings,... and the currently active session. Ardour can also extract
+  those bundles (<kbd class="menu">Session > Open&hellip;</kbd>).
+</p>
+<p>
+  As opposed to zipping the entire session-folder manually,
+</p>
+<ol>
+  <li>the session-archive only contains the current session-snapshot and only
+    files which are used</li>
+  <li>externally referenced files are included in the archive.</li>
+</ol>
+
 </p>
 
 <p>
-  The single folder approach also makes sharing a project easy. Simply copy the session folder (onto a storage device, or across a network) and another Ardour user (on any platform) will be able to use it. The limitation regarding embedded files applies to session sharing as well.
+  The window shows the following options:
 </p>
+<dl>
+  <dt><dfn>Archive Name</dfn></dt><dd>The name of the archive file, defaulting to
+  the name of the session followed by the date and time</dd>
+  <dt>a dropdown extension selector</dt><dd>allowing to choose between different kind or
+  compressed archive file types</dd>
+  <dt><dfn>Target directory/folder</dfn></dt><dd>defining where in the filesystem
+  the archive file will be generated</dd>
+  <dt><dfn>Audio Compression</dfn></dt><dd>a dropdown menu allowing to compress
+  the audio files themselves by using an audio-tailored compression format, more
+  on that bellow</dd>
+  <dt><dfn>Exclude unused audio sources</dfn></dt><dd>a checkbox to drop every
+  audio that is in the session, but not actually used in the editor</dd>
+</dl>
 
+<p>
+  The <kbd class="menu">Audio Compression</kbd> selection accepts any of:
+</p>
+<ul>
+  <li>None</li>
+  <li>FLAC 16bit</li>
+  <li>FLAC 24bit</li>
+</ul>
+<p>
+  Encoding the audio sources to <abbr title="Free Lossless Audio Codec">FLAC</abbr> allows for a good size reduction of the session.
+  It should be noted though that FLAC is a fixed-point format, meaning that if the
+  audio in the session is in a floating-point format, this conversion will loose
+  some information on the samples values that are rounded, though usually, this
+  lost information cannot be perceived. Choosing "<em>None</em>" for Audio
+  Compression does not compress the audio to FLAC, hence preserving the floating-point
+  data at the cost of a bigger file size. Notice also that converting to FLAC
+  automatically normalizes the audio.
+</p>
+<p>
+  Using the <kbd class="option">Exclude unused audio sources</kbd> option allows
+  to only keep the files actually used in the session, which can be useful to leave
+  any unused take or reference material out of the backup, reducing the archive's
+  global file size.
+</p>
