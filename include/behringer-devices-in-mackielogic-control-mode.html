@@ -1,11 +1,11 @@
 
-<h2>Behringer BCF-2000 Faders Controller</h2> 
+<h2>Behringer BCF-2000 Faders Controller</h2>
 <p>
   <img alt="Digramatic Image of the BCF2000"
      src="/images/BCF2000.png">
 </p>
 <p>
-  The Behringer BCF-2000 Fader Controller is a control surface with 8 motorized 
+  The Behringer BCF-2000 Fader Controller is a control surface with 8 motorized
   faders, 8 rotary encoders and 30 push buttons. The device is a class
   compliant USB Midi Interface and also has standard Midi DIN IN/OUT/THRU  ports.
   The device has included a Mackie/Logic Control Emulation Mode since firmware v1.06.
@@ -18,11 +18,11 @@
 </p>
 
 <p>
-  In order to put the controller into Mackie/Logic control mode turn on the 
+  In order to put the controller into Mackie/Logic control mode turn on the
   unit while holding third button from the left in the top most row
   of buttons (under the rotary encoder row). Hold the button down until <dfn>EG</dfn>
   or edit global mode is displayed on the LCD screen of the unit. The global parameters
-  can then be edited using the 8 rotary encoders in the top row. 
+  can then be edited using the 8 rotary encoders in the top row.
 </p>
   <ul>
     <li><code>
@@ -31,16 +31,16 @@
     </li></code>
     <li><code>
       Encoder #3 sets the foot switch mode and should most likely be set to
-      <dfn>Auto</dfn> to detect how the foot switch is wired. 
+      <dfn>Auto</dfn> to detect how the foot switch is wired.
     </li></code>
     <li><code>
       Encoder #5 sets the device id, if you are using only 1 device the id
       should be set to <dfn>ID 1</dfn>. If you are using multiple BCF/BCR2000 each
       device is required to be set up sequentially and one at a time.
     </li></code>
-    <li><code>      
+    <li><code>
       Encoder #7 controls the MIDI <dfn>Dead Time</dfn> or the amount of milliseconds
-      after a move has been made that the device ignores further changes, this 
+      after a move has been made that the device ignores further changes, this
       should be set to <dfn>100</dfn>.
     </li></code>
     <li><code>
@@ -59,7 +59,7 @@
      src="/images/BCF2000-Modes.png">
 </p>
 <p>
-  The four buttons arranged in a rectangle and located under the Behringer logo 
+  The four buttons arranged in a rectangle and located under the Behringer logo
   are the mode selection buttons in Logic Control Emulation Mode,
   currently Ardour has implemented support for two of these modes.
 </p>
@@ -134,7 +134,7 @@ The surface can be broken into 8 groups of controls.
   <dd>
     In this mode they function as bank select left and right. If your session has more than 8 tracks
     the next set of 8 tracks is selected with the right button and the faders will move to match the
-    current gain settings of that bank of 8 tracks/busses. If the last bank contains less than 8 
+    current gain settings of that bank of 8 tracks/busses. If the last bank contains less than 8
     tracks/busses the unused  faders will move to the bottom and the pan lights will all turn
     off. An unlimited amount of tracks can be controlled with the device.
   </dd>
@@ -160,7 +160,7 @@ The surface can be broken into 8 groups of controls.
     In send mode, the encoders control sends from left to right instead of mixer pans.
     If there are less than 8 sends the behavior of the encoder will be to continue controlling
     the mixer pan. Visually it's indicated by the change in the LED from originating at the 12
-    o'clock position to originating at the 7 o'clock position. If <dfn>FLIP</dfn> is pressed 
+    o'clock position to originating at the 7 o'clock position. If <dfn>FLIP</dfn> is pressed
     the encoder will control the mixer gain for the selected track/bus.
   </dd>
   <dt>First row of buttons</dt>

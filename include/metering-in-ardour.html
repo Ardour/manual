@@ -1,37 +1,37 @@
 
 <h2>Introduction</h2>
 <p>
-  An engineer reading and using audio level meters compares to a musician 
-  reading or writing sheet-music. Just like there are virtuoso musicians 
+  An engineer reading and using audio level meters compares to a musician
+  reading or writing sheet-music. Just like there are virtuoso musicians
   who can't read a single note, there are great sound-engineers who just
-  go by their ears and produce great mixes and masters without ever looking 
+  go by their ears and produce great mixes and masters without ever looking
   at a single meter.
 </p>
 <p>
-  Yet, if you want to work in or with the broadcast industry, it is 
+  Yet, if you want to work in or with the broadcast industry, it is
   usually unavoidable to use meters.
 </p>
 <p>
-  Audio level meters are very powerful tools that are useful in every 
+  Audio level meters are very powerful tools that are useful in every
   part of the entire production chain:
 </p>
 <ul>
-  <li>When tracking, meters are used to ensure that the input 
-  signal does not <dfn>overload</dfn> and maintains reasonable 
+  <li>When tracking, meters are used to ensure that the input
+  signal does not <dfn>overload</dfn> and maintains reasonable
   <dfn>headroom</dfn>.</li>
-  <li>Meters offer a <dfn>quick visual indication</dfn> of a 
+  <li>Meters offer a <dfn>quick visual indication</dfn> of a
   activity when working with a large number of tracks.</li>
-  <li>During mixing, meters provide an rough estimate of the 
+  <li>During mixing, meters provide an rough estimate of the
   <dfn>loudness</dfn> of each track.</li>
-  <li>At the mastering stage, meters are used to check 
-  compliance with upstream <dfn>level</dfn> and <dfn>loudness 
+  <li>At the mastering stage, meters are used to check
+  compliance with upstream <dfn>level</dfn> and <dfn>loudness
   standards</dfn> and to optimize the <dfn>loudness range</dfn>
   for a given medium.</li>
 </ul>
 
 <h2>Meter Types</h2>
 <p>
-  A general treatise on metering is beyond the scope of this 
+  A general treatise on metering is beyond the scope of this
   manual. It is a complex subject with a history&hellip;
   For background information and further reading we recommend:
 </p>
@@ -48,25 +48,25 @@
 
 <dl>
   <dt>Digital peak-meter</dt>
-  <dd>A <dfn>Digital Peak Meter</dfn> displays the absolute maximum signal 
-  of the raw audio PCM signal (for a given time). It is commonly used when 
-  tracking to make sure the recorded audio never clips. To that end, DPMs 
+  <dd>A <dfn>Digital Peak Meter</dfn> displays the absolute maximum signal
+  of the raw audio PCM signal (for a given time). It is commonly used when
+  tracking to make sure the recorded audio never clips. To that end, DPMs
   are always calibrated to 0&nbsp;<abbr title="DeciBel Full
   Scale">dBFS</abbr>, or the maximum level that can be represented digitally
-  in a given system. This value has no musical reason whatsoever and depends 
-  only on the properties of the signal chain or target medium. There are 
-  conventions  for <dfn>fall-off-time</dfn> and <dfn>peak-hold</dfn>, but no 
+  in a given system. This value has no musical reason whatsoever and depends
+  only on the properties of the signal chain or target medium. There are
+  conventions  for <dfn>fall-off-time</dfn> and <dfn>peak-hold</dfn>, but no
   exact specifications.
   <p>
-  Various conventions for DPM fall-off times and dBFS line-up level can be 
+  Various conventions for DPM fall-off times and dBFS line-up level can be
   chosen in <kbd class="menu">Edit &gt; Preferences &gt; GUI</kbd>.
   </p>
   </dd>
 
   <dt>RMS meters</dt>
   <dd>An <dfn><abbr title="Root Mean Square">RMS</abbr>-type meter</dfn>
-  is an averaging meter that looks at the energy in the signal. It 
-  provides a general indication of loudness as perceived by humans. Ardour 
+  is an averaging meter that looks at the energy in the signal. It
+  provides a general indication of loudness as perceived by humans. Ardour
   features three RMS meters, all of which offer additonal peak indication.
   <ul>
     <li><dfn>K20</dfn>: A meter according to the K-system introduced by Bob
@@ -80,36 +80,36 @@
   </dd>
 
   <dt>IEC PPMs</dt>
-  <dd><dfn><abbr title="International Electrontechnical Commission">IEC</abbr>-type 
-  <abbr title="Peak Programme Meters">PPM</abbr>s</dfn> are a mix between DPMs and 
-  RMS meters, created mainly for the purpose of 
+  <dd><dfn><abbr title="International Electrontechnical Commission">IEC</abbr>-type
+  <abbr title="Peak Programme Meters">PPM</abbr>s</dfn> are a mix between DPMs and
+  RMS meters, created mainly for the purpose of
   interoperability. Many national and institutional varieties exist (<abbr
   title="European Broadcasting Union">EBU</abbr>, <abbr title="British Broadcasting
-  Corporation">BBC</abbr>, <abbr title="Deutsche Industrie-Norm">DIN</abbr>). 
+  Corporation">BBC</abbr>, <abbr title="Deutsche Industrie-Norm">DIN</abbr>).
   <p>
-  These loudness and metering standards provide a common point of 
-  reference which is used by broadcasters in particular so that the 
+  These loudness and metering standards provide a common point of
+  reference which is used by broadcasters in particular so that the
   interchange of material is uniform across their sphere of influence,
   regardless of the equipment used to play it back.
   </p>
   <p>
   For home recording, there is no real need for this level of
-  interoperability, and these meters are only strictly required when 
-  working in or with the broadcast industry. However, IEC-type meters have 
-  certain characteristics (rise-time, ballistics) that make them useful 
+  interoperability, and these meters are only strictly required when
+  working in or with the broadcast industry. However, IEC-type meters have
+  certain characteristics (rise-time, ballistics) that make them useful
   outside the context of broadcast.
   </p>
   <p>
-  Their specification is very exact, and consquently, there are no 
+  Their specification is very exact, and consquently, there are no
   customizable parameters.
   </p>
   </dd>
-  
+
   <dt>VU meters</dt>
-  <dd><dfn><abbr title="Volume Unit">VU</abbr> meters</dfn> are the dinosaurs (1939) 
+  <dd><dfn><abbr title="Volume Unit">VU</abbr> meters</dfn> are the dinosaurs (1939)
   amongst the meters. They react very slowly, averaging out peaks.
-  Their specification is very strict (300ms rise-time, 1&ndash;1.5% overshoot, 
-  flat frequency response). Ardour's VU meter adheres to that spec, but for 
+  Their specification is very strict (300ms rise-time, 1&ndash;1.5% overshoot,
+  flat frequency response). Ardour's VU meter adheres to that spec, but for
   visual consistency it is displayed as a bar-graph rather than needle-style
   (more below).
   </dd>
@@ -130,8 +130,8 @@
 </ul>
 <p>
   They all share the same configuration and color-theme which is available in
-  preferences and the theme-manager. Settings for the Peak and RMS+Peak meters 
-  as well as VU meter standards are found in  
+  preferences and the theme-manager. Settings for the Peak and RMS+Peak meters
+  as well as VU meter standards are found in
   <kbd class="menu">Edit &gt; Preferences &gt; GUI &gt; Metering</kbd>.
 </p>
 <p>
@@ -143,7 +143,7 @@
 </p>
 <img class="right" src="/images/meter-preferences.png" alt="" />
 <p>
-  Regardless of meter type and standard the meter display will highlight red if 
+  Regardless of meter type and standard the meter display will highlight red if
   the signal on the given channel exceeds the configured peak threshold.
 </p>
 <p>
@@ -156,7 +156,7 @@
 <h2>Overview of meter types</h2>
 
 <p>
-  The figure on the left shows all available meter-types in Ardour 3.4 when fed with a 
+  The figure on the left shows all available meter-types in Ardour 3.4 when fed with a
   -18&nbsp;dBFS 1&nbsp;kHz sine wave.
 </p>
 
@@ -166,7 +166,7 @@ alt="Needle-style meters as external LV2 plugins" />
 alt="Bar-graph meters in Ardour" />
 
 <p>
-  Due to layout concerns and consistent look&amp;feel all meters available in 
+  Due to layout concerns and consistent look&amp;feel all meters available in
   Ardour itself are bar-graph type meters. Corresponding needle-style
   meters&mdash;which take up more visual screen space&mdash;are available as
   LV2 plugins (see image on the right):

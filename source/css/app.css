@@ -675,8 +675,9 @@ samp:after {
 }
 
 #chapter { padding-top: 1em; padding-left: 1em; }
-
 #subchapter { padding-left: 4em; }
+#section { padding-left: 6em; }
+#subsection { padding-left: 8em; }
 
 #content table.alternate{	border-collapse:collapse; }
 .alternate td{ padding:7px; border:#4e95f4 1px solid; }

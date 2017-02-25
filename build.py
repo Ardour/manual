@@ -188,6 +188,7 @@ def GetChildren(fs, pos):
 
 	return children
 
+
 #
 # Get the parent at this level
 #
@@ -200,19 +201,23 @@ def GetParent(fs, pos):
 
 	return pos
 
+
 #
 # Creates the BreadCrumbs
 #
 def GetBreadCrumbs(fs, pos):
-	breadcrumbs = ' <span class="divider">&gt;</span> <li class="active">'+ fs[pos]['title'] + '</li>'
 	# The <span class="divider">&gt;</span> is for Bootstrap pre-3.0
+	breadcrumbs = ' <span class="divider">&gt;</span> <li class="active">'+ fs[pos]['title'] + '</li>'
+
 	while pos >= 0:
-		pos = GetParent(fs,pos)
+		pos = GetParent(fs, pos)
+
 		if pos >= 0:
 			breadcrumbs=' <span class="divider">&gt;</span> <li><a href="/' + fs[pos]['filename'] + '/">'+ fs[pos]['title'] + '</a></li>'+ breadcrumbs
 
 	breadcrumbs = '<ol class="breadcrumb"><li><a href="/toc/index.html">Home</a></li>' + breadcrumbs + '</ol>'
 	return breadcrumbs
+
 
 #
 # Make an array of children attached to each node in the file structure
@@ -443,9 +448,9 @@ for header in fileStruct:
 	elif level == 2:
 		toc = toc + '    <a id=subchapter href="/' + header['filename'] + '/">' + header['title'] + '</a><br>\n'
 	elif level == 3:
-		toc = toc + '      <a id=subchapter href="/' + header['filename'] + '/">' + header['title'] + '</a><br>\n'
+		toc = toc + '      <a id=section href="/' + header['filename'] + '/">' + header['title'] + '</a><br>\n'
 	elif level == 4:
-		toc = toc + '      <a id=subchapter href="/' + header['filename'] + '/">' + header['title'] + '</a><br>\n'
+		toc = toc + '      <a id=subsection href="/' + header['filename'] + '/">' + header['title'] + '</a><br>\n'
 
 	# Make the 'this thing contains...' stuff
 	if HaveChildren(fileStruct, pageNumber):
@@ -555,3 +560,4 @@ tocFile.close()
 
 if not quiet:
 	print('Processed ' + str(fileCount) + ' files.')
+

@@ -1,111 +1,124 @@
 
 <p>
-  Ardour can be used in many different ways, from extremely simple to
-  extremely complex. Many projects will be handled using the following
-  kind of <dfn>workflow</dfn>.
+  Ardour can be used in many different ways, from extremely simple to extremely
+  complex. Many projects can be handled using the following kind of
+  <dfn>workflow</dfn>:
 </p>
 
-<h2>Stage 1: Creating Your Project</h2>
+<h2>Stage 1: Creating The Project</h2>
+
 <p>
-  The first step is to create a new <dfn>session</dfn>, or open an
-  existing one. A session consists of a folder containing a session file
-  that defines all the information about the session. All media files used
-  by the session can be stored within the session folder.
-</p>
-<p>
-  More details on sessions can be found in
-<a href="@@sessions">Working With Sessions</a>.
+  The first step is to create a new <dfn>session</dfn>, or open an existing
+  one. A session consists of a folder containing a session file that defines
+  all the information about the session. All media files used by the session
+  are usually stored within the session folder.
 </p>
 
-<h2>Stage 2: Creating and Importing Audio and MIDI data</h2>
-<p>
-  Once you have a session, you will want to add some audio and/or MIDI
-  material to it, which can be done in one of 3 ways:
+<p class="note">
+  More details on sessions can be found in <a href="@@sessions">Sessions</a>
+  chapter.
 </p>
+
+<h2>Stage 2: Creating and Importing Audio and MIDI Data</h2>
+
+<p>
+  Once a session has been created, it will be necessary to add some audio
+  and/or MIDI material to it&mdash;which can be done in one of 3 ways:
+</p>
+
 <ul>
-  <li><dfn>Record</dfn> incoming audio or MIDI data, either via audio or MIDI hardware
-  connected to your computer, or from other applications.</li>
-  <li><dfn>Create</dfn> new MIDI data using the mouse and/or various dialogs</li>
+  <li><dfn>Record</dfn> incoming audio or MIDI data, either via audio or MIDI
+  hardware connected to the computer, or from other applications</li>
+  <li><dfn>Create</dfn> new MIDI data using the mouse and/or various dialogs
+  </li>
   <li><dfn>Import</dfn> existing media files into the session</li>
 </ul>
+
 <p>
-  <dfn>MIDI recordings</dfn> consist of performance data ("play note X at 
-  time T") rather than actual sound. As a result, they are more flexible 
-  than actual audio, since the precise sound that they will generate when
-  played depends on where you send the MIDI to.<br>
-  Two different synthesizers may produce very different sound in response
-  to the same incoming MIDI data.
+  <dfn>MIDI recordings</dfn> consist of performance data ("play note X at time
+  T") rather than actual sound. As a result, they are more flexible than actual
+  audio, since the precise sound that they will generate when played depends on
+  where the MIDI data is sent to. Two different synthesizers may produce very
+  different sounds in response to the same incoming MIDI data.
 </p>
+
 <p>
   <dfn>Audio recordings</dfn> can be made from external instruments with
-  electrical outputs (keyboards, guitars etc.) or via microphones from 
-  acoustic instruments.
+  electrical outputs (keyboards, guitars, etc.), or via microphones or other sound capturing equipment.
 </p>
+
 <p>
-  Ardour uses the <dfn>JACK Audio Connection Kit</dfn> for all audio and
-  MIDI I/O, which means that recording audio/MIDI from other applications
-  is fundamentally identical to recording audio/MIDI from your audio/MIDI
-  hardware.
+  Ardour uses the <dfn>JACK Audio Connection Kit</dfn> for all audio and MIDI
+  I/O, which means that recording audio/MIDI from other applications is
+  fundamentally identical to recording audio/MIDI from audio/MIDI hardware.
 </p>
+
+<p class=fixme>Sanity check: is this true anymore? Does Ardour's ALSA backend make this statment not exactly true?</p>
 
 <h2>Stage 3: Editing and Arranging</h2>
+
 <p>
-  Once you have some material within the session, you can start to arrange
-  it in time. This is done in one of the two main windows of Ardour, the 
-  <dfn>Editor</dfn> window.
-</p>
-<p>
-  Your audio/MIDI data appears in chunks called <dfn>regions</dfn>, which
-  are arranged into horizontal lanes called <dfn>tracks</dfn>. Tracks are 
-  stacked vertically in the Editor window. You can copy, shorten, move, 
-  and delete regions without changing the actual data stored in the session 
-  at all&mdash;Ardour is a <dfn>non-destructive</dfn> editor. (Almost) 
-  nothing that you do while editing will ever modify the files stored on 
-  disk (except the session file itself). 
-</p>
-<p>
-  You can also carry out many <dfn>transformations</dfn> to the contents 
-  of regions, again without altering anything on disk. You can alter,
-  move, and delete MIDI notes, and remove silence from audio regions, for 
-  example.
+  Once there is material within the session, it can be arranged in time. This
+  is done in one of the two main windows of Ardour: the <dfn>Editor</dfn>
+  window.
 </p>
 
-<h2>Stage 4: Mixing and Adding Effects</h2>
 <p>
-  Once you have the arrangement of your session mostly complete, you will 
-  typically move on to the <dfn>mixing</dfn> phase. Mixing is a broad term
-  to cover the way the audio signals that your session generates during 
-  playback and processed and added together into a final result that you 
-  actually hear. It can involve altering the relative levels of various 
-  parts of the session, adding effects that improve or transform certain 
-  elements, and others that bring the sound of the whole session to a new 
-  level.
+  Audio/MIDI data appears in chunks called <dfn>regions</dfn>, which are
+  arranged into horizontal lanes called <dfn>tracks</dfn>. Tracks are stacked
+  vertically in the Editor window. Regions can be copied, shortened, moved, and
+  deleted without changing the actual data stored in the session at
+  all&mdash;Ardour is a <dfn>non-destructive</dfn> editor. (Almost) nothing
+  done while editing will ever modify the files stored on disk (with the
+  exception of the session file itself).
 </p>
+
 <p>
-  Ardour will allow you to <dfn>automate</dfn> changes to any mixing 
-  parameters (such as volume, panning, and effects controls)&mdash;it will 
-  record the changes you make over time, using a mouse or keyboard or some 
-  external control device, and can play back those changes later. This is 
-  very useful because often the settings you need will vary in one part of 
-  a session compared to another&mdash;rather than using a single setting 
-  for the volume, you may need increases followed by decreases (for example,
-  to track the changing volume of a singer). Using automation can make all
-  of this relatively simple.
+  Many <dfn>transformations</dfn> can be done to the contents of regions, again
+  without altering anything on disk. It is possible to alter, move, and delete
+  MIDI notes, and remove silence from audio regions, for example.
+</p>
+
+<p class=fixme>Sanity check: deleting MIDI notes doesn't change them on disk? Isn't anything done to MIDI a destructive operation?</p>
+
+<h2>Stage 4: Mixing and Adding Effects</h2>
+
+<p>
+  Once the arrangement of the session mostly complete, the next step is the
+  <dfn>mixing</dfn> phase. Mixing is a broad term to cover the way the audio
+  signals that the session generates during playback are processed and added
+  together into a final result that is actually heard. It can involve altering
+  the relative levels of various parts of the session, adding effects that
+  improve or transform certain elements, and others that bring the sound of the
+  whole session to a new level.
+</p>
+
+<p>
+  Ardour allows <dfn>automation</dfn> of changes to any mixing parameters (such
+  as volume, panning, and effects controls)&mdash;it will record the changes
+  made over time, using a mouse or keyboard or some external control device,
+  and can play back those changes later. This is very useful because often the
+  settings needed will vary in one part of a session compared to
+  another&mdash;rather than using a single setting for the volume of a track,
+  it may need increases followed by decreases (for example, to track the
+  changing volume of a singer). Using automation can make all of this
+  relatively easy.
 </p>
 
 <h2>Stage 5: Export</h2>
+
 <p>
-  Once you are really satisfied with the arrangement and mix of your
-  session, you will typically want to produce a single audio file that
-  contains a ready-to-listen to version of the work. Ardour will allow you to
-  <dfn>export</dfn> audio files in a variety of formats (simultaneously in
-  some cases). This exported file would typically be used in creating a CD, 
-  or be the basis for digital distribution of the work.
+  Once the arrangement and mix of the session is finalized, a single audio file
+  that contains a ready-to-listen to version of the work is usually desired.
+  Ardour allows the <dfn>exporting</dfn> of audio files in a variety of formats
+  (simultaneously in some cases). This exported file would typically be used in
+  creating a CD, or be the basis for digital distribution of the work.
 </p>
+
 <p>
-  Of course sometimes you will want to do export material that isn't finished
-  yet, for example to give a copy to someone else to try to mix on their own
-  system. Ardour will allow you to export as much of a session as you want, at
-  any time, in any supported format.
+  Of course it is sometimes desirable to export material that isn't finished
+  yet&mdash;for example, to give a copy to another party to mix on their own
+  system. Ardour allows exporting as much of a session as desired, at any
+  time, in any supported format.
 </p>
 

@@ -1,46 +1,50 @@
 
 <h2>Clicking</h2>
+
 <p>
-  Throughout this manual, the term <dfn>click</dfn> refers to the act of pressing
-  and releasing the <kbd class="mouse">Left</kbd> mouse button. This action is used to select objects, activate
-  buttons, turn choices on and off, pop up menus and so forth.<br>
-  On touch surfaces, it also corresponds to a single, one-finger tap on 
-  the GUI.
+  Throughout this manual, the term <dfn>click</dfn> refers to the act of
+  pressing and releasing the <kbd class="mouse">Left</kbd> mouse button. This
+  action is used to select objects, activate buttons, turn choices on and off,
+  pop up menus and so forth. On touch surfaces, it also corresponds to a
+  single, one-finger tap on the GUI.
 </p>
 
 <h2>Right Clicking</h2>
+
 <p>
-  The term <dfn>right-click</dfn> refers to the act of pressing and releasing 
-  the <kbd class="mouse">Right</kbd> mouse button. 
-  This action is used to pop up <dfn>context menus</dfn> (hence the term 
-  "context click", which you will also see). It is also used by default in
-  combination with the shift key to delete objects within the editor
-  window.
+  The term <dfn>right-click</dfn> refers to the act of pressing and releasing
+  the <kbd class="mouse">Right</kbd> mouse button. This action is used to pop
+  up <dfn>context menus</dfn> (hence the term "context click", which will also
+  be seen). It is also used by default in combination with the shift key to
+  delete objects within the editor window.
 </p>
-<p class="note mac"> 
+
+<p class="note mac">
   Some mice designed for use with Mac OS X may have only one button. By
   convention, pressing and holding the Control key while clicking is
-  interpreted as a right-click by many application..
+  interpreted as a right-click by many applications.
 </p>
 
 <h2>Middle Clicking</h2>
+
 <p>
   A <dfn>middle-click</dfn> refers to the act of pressing and releasing the
-  <kbd class="mouse">Middle</kbd> mouse button. Not all all mice have a middle click button 
-  (see the <a href="@@mouse">Mouse</a> chapter for
-  details). Sometimes the scroll wheel acts as a clickable middle button. 
-  This action is used for time-constrained region copying and mapping MIDI
-  bindings.
+  <kbd class="mouse">Middle</kbd> mouse button. Not all all mice have a middle
+  click button (see the <a href="@@mouse">Mouse</a> chapter for details).
+  Sometimes the scroll wheel acts as a clickable middle button. This action is
+  used for time-constrained region copying and mapping MIDI bindings.
 </p>
+
 <p class="note">
-  Internally, your operating system may identify the mouse buttons as 
-  <kbd class="mouse">Button1</kbd>, <kbd class="mouse">Button2</kbd>, and
-  <kbd class="mouse">Button3</kbd>, respectively. It may be possible to 
-  invert the order of buttons to accommodate left-handed users, or to re-assign
-  them arbitrarily. This manual assumes the canonical order.
+  Internally, your operating system may identify the mouse buttons as <kbd
+  class="mouse">Button1</kbd>, <kbd class="mouse">Button2</kbd>, and <kbd
+  class="mouse">Button3</kbd>, respectively. It may be possible to invert the
+  order of buttons to accommodate left-handed users, or to re-assign them
+  arbitrarily. This manual assumes the canonical order.
 </p>
 
 <h2>Double Clicking</h2>
+
 <p>
   A <dfn>double click</dfn> refers to two rapid press/release cycles on the
   leftmost mouse button. The time interval between the two actions that
@@ -49,29 +53,35 @@
 </p>
 
 <h2>Dragging</h2>
+
 <p>
-  A <dfn>drag</dfn> primarily refers to the act of pressing the leftmost
-  mouse button, moving the mouse with the button held down, and then 
-  releasing the button. On touch surfaces, this term also corresponds to 
-  a single one-finger touch-move-release action.
+  A <dfn>drag</dfn> primarily refers to the act of pressing the leftmost mouse
+  button, moving the mouse with the button held down, and then releasing the
+  button. On touch surfaces, this term also corresponds to a single one-finger
+  touch-move-release action.
 </p>
+
 <p>
-  Ardour also uses the middle mouse button for certain kinds of drags,
-  which will be referred to as <dfn>middle-drag</dfn>.
+  Ardour also uses the middle mouse button for certain kinds of drags, which
+  will be referred to as a <dfn>middle-drag</dfn>.
 </p>
 
 <h2>Modifiers</h2>
+
 <p>
-  There are many actions in Ardour that can be carried out using a mouse
-  button in combination with a <dfn>modifier key</dfn>. When the manual 
-  refers to <kbd class="mod1 mouse">Left</kbd>, it means that you should first 
-  press the <kbd class="mod1"></kbd> key, carry out a left click
-  while <kbd class="mod1"></kbd> is held down, and then finally release the key.
+  There are many actions in Ardour that can be carried out using a mouse button
+  in combination with a <dfn>modifier key</dfn>. When the manual refers to <kbd
+  class="mod1 mouse">Left</kbd>, it means that you should first press the <kbd
+  class="mod1n"></kbd> key, carry out a left click while <kbd
+  class="mod1n"></kbd> is held down, and then finally release the key.
 </p>
+
 <p>
   Available modifiers depend on your platform:
 </p>
+
 <h3>Linux Modifiers</h3>
+
 <ul>
   <li><kbd>Ctrl</kbd> (Control)</li>
   <li><kbd>Shift</kbd></li>
@@ -81,10 +91,12 @@
   <li><kbd>Mod4</kbd></li>
   <li><kbd>Mod5</kbd></li>
 </ul>
-<p class="warning">
+
+<p class=fixme>
   The following section is almost certainly wrong. Will need to be checked
   and rewritten asap.
 </p>
+
 <p>
   Mod2 typically corresponds to the <kbd>NumLock</kbd> key on many systems.
   On most Linux systems, there are no keys that will function as modifiers
@@ -93,6 +105,7 @@
 </p>
 
 <h3>OS X Modifiers</h3>
+
 <ul>
   <li><kbd>Cmd</kbd> (Command, "windmill")</li>
   <li><kbd>Ctrl</kbd> (Control)</li>
@@ -101,22 +114,25 @@
 </ul>
 
 <h2>Scroll Wheel</h2>
+
 <p>
-  Ardour can make good use of a <dfn>scroll wheel</dfn> on your mouse, which can be
-  utilized for a variety of purposes. Scroll wheels generate vertical 
-  scroll events, <kbd class="mouse">&uArr;</kbd> (ScrollUp) and 
-  <kbd class="mouse">&dArr;</kbd> (ScrollDown). Some also emit horizontal 
-  events, <kbd class="mouse">&lArr;</kbd> (ScrollLeft) and 
-  <kbd class="mouse">&rArr;</kbd> (ScrollRight).
+  Ardour can make good use of a <dfn>scroll wheel</dfn> on the mouse (assuming
+  it has one), which can be utilized for a variety of purposes. Scroll wheels
+  generate vertical scroll events, <kbd class="mouse">&uArr;</kbd> (ScrollUp)
+  and <kbd class="mouse">&dArr;</kbd> (ScrollDown). Some also emit horizontal
+  events, <kbd class="mouse">&lArr;</kbd> (ScrollLeft) and <kbd
+  class="mouse">&rArr;</kbd> (ScrollRight).
 </p>
+
 <p>
   When appropriate, Ardour will differentiate between these two different
   scroll axes. Otherwise it will interpret ScrollDown and ScrollLeft as
   equivalent and similarly interpret ScrollUp and ScrollRight as equivalent.
 </p>
+
 <p>
-  Typically, scroll wheel input is used to adjust
-  <dfn>continuous controls</dfn> such as faders and knobs, or to scroll
-  vertically or horizontally inside a window.
+  Typically, scroll wheel input is used to adjust <dfn>continuous
+  controls</dfn> such as faders and knobs, or to scroll vertically or
+  horizontally inside a window.
 </p>
 

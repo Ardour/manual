@@ -21,26 +21,10 @@ part: subchapter
 ---
 
 ---
-title: Welcome to Ardour!
-include: welcome-to-ardour_2.html
-link: welcome-to-ardour_2
+title: Ardour Overview
+include: ardour-overview.html
+link: ardour-overview
 uri: welcome-to-ardour
-part: subchapter
----
-
----
-title: Isn't This A Really Complicated Program?
-include: isnt-this-a-really-complicated-program.html
-link: isnt-this-a-really-complicated-program
-uri: welcome-to-ardour/about-ardour/isnt-this-a-really-complicated-program
-part: subchapter
----
-
----
-title: Why Write a DAW for Linux?
-include: why-write-a-daw-for-linux.html
-link: why-write-a-daw-for-linux
-uri: welcome-to-ardour/about-ardour/why-write-a-daw-for-linux
 part: subchapter
 ---
 
@@ -53,18 +37,19 @@ part: subchapter
 ---
 
 ---
-title: Why write another DAW?
-include: why-write-another-daw.html
-link: why-write-another-daw
-uri: welcome-to-ardour/about-ardour/why-write-another-daw
+title: Why Write a DAW for Linux?
+include: why-write-a-daw-for-linux.html
+link: why-write-a-daw-for-linux
+uri: welcome-to-ardour/about-ardour/why-write-a-daw-for-linux
 part: subchapter
 ---
 
 ---
-title: Additional Resources
-include: additional-resources.html
-link: additional-resources
-uri: welcome-to-ardour/additional-resources
+title: Isn't This a Really Complicated Program?
+menu_title: Isn't This a Complex Program?
+include: isnt-this-a-really-complicated-program.html
+link: isnt-this-a-really-complicated-program
+uri: welcome-to-ardour/about-ardour/isnt-this-a-really-complicated-program
 part: subchapter
 ---
 
@@ -77,58 +62,35 @@ part: subchapter
 ---
 
 ---
-title: Ardour Concepts
-include: ardour-concepts.html
-link: ardour-concepts
+title: Additional Resources
+include: additional-resources.html
+link: additional-resources
+uri: welcome-to-ardour/additional-resources
+part: subchapter
+---
+
+---
+title: Ardour Basics
+include: ardour-basics.html
+link: ardour-basics
 uri: introducing-ardour
 part: chapter
 ---
 
 ---
+title: Starting Ardour
+include: starting-ardour.html
+link: starting-ardour
+uri: setting-up-your-system/starting-ardour
+part: subchapter
+---
+
+---
 title: Understanding Basic Concepts and Terminology
+menu_title: Basic Concepts and Terminology
 include: understanding-basic-concepts-and-terminology.html
 link: understanding-basic-concepts-and-terminology
 uri: introducing-ardour/understanding-basic-concepts-and-terminology
-part: subchapter
----
-
----
-title: Basic GUI Operations
-include: basic-gui-operations.html
-link: basic-gui-operations
-uri: introducing-ardour/basic-gui-operations
-part: subchapter
----
-
----
-title: Interface Elements
-include: interface-elements.html
-link: interface-elements
-uri: introducing-ardour/basic-gui-operations/interface-elements
-part: subchapter
----
-
----
-title: Selection Techniques
-include: selection-techniques.html
-link: selection-techniques
-uri: introducing-ardour/basic-gui-operations/selection-techniques
-part: subchapter
----
-
----
-title: Tooltips
-include: tooltips.html
-link: tooltips
-uri: introducing-ardour/basic-gui-operations/tooltips
-part: subchapter
----
-
----
-title: Undo/Redo for Editing
-include: undoredo-for-editing.html
-link: undoredo-for-editing
-uri: introducing-ardour/basic-gui-operations/undoredo-for-editing-
 part: subchapter
 ---
 
@@ -141,26 +103,10 @@ part: subchapter
 ---
 
 ---
-title: Cut and Paste Operations
-include: cut-and-paste-operations.html
-link: cut-and-paste-operations
-uri: introducing-ardour/basic-gui-operations/cut-and-paste-operations
-part: subchapter
----
-
----
-title: Deleting Objects
-include: deleting-objects.html
-link: deleting-objects
-uri: introducing-ardour/basic-gui-operations/deleting-objects
-part: subchapter
----
-
----
-title: Starting Ardour
-include: starting-ardour.html
-link: starting-ardour
-uri: setting-up-your-system/starting-ardour
+title: Basic GUI Operations
+include: basic-gui-operations.html
+link: basic-gui-operations
+uri: introducing-ardour/basic-gui-operations
 part: subchapter
 ---
 

@@ -9,9 +9,9 @@
 </p>
 <p>
   Usually, aux sends from several tracks are collectively sent to a
-  dedicated <dfn>Aux bus</dfn> in Ardour, to create a monitor mix for a 
+  dedicated <dfn>Aux bus</dfn> in Ardour, to create a monitor mix for a
   musician, or to feed an effect unit. The output of such a bus might
-  be routed to separate hardware outputs (in the case of headphone or monitor 
+  be routed to separate hardware outputs (in the case of headphone or monitor
   wedge mixes), or returned to the main mix (in the case of an effect).<br
   />
   Aux sends are not JACK ports, with <a href="@@external-sends">
@@ -19,84 +19,84 @@
   send the tapped signal somewhere else directly, which is not usually
   possible on hardware mixers.
 </p>
-  
+
 <p>
-  It may be useful to 
-  <a href="@@comparing-aux-sends-and-subgroups">compare and contrast</a> 
+  It may be useful to
+  <a href="@@comparing-aux-sends-and-subgroups">compare and contrast</a>
   the use of aux sends with <a href="@@subgrouping">subgrouping</a>.
 </p>
 
 <h2>Adding a new aux bus</h2>
 <p>
-  Choose <kbd class="menu">Session &gt; Add New Track or Bus</kbd>. In the 
-  <kbd class="menu">New Track &amp; Bus</kbd> dialog, select "Busses" in the Track/Bus 
+  Choose <kbd class="menu">Session &gt; Add New Track or Bus</kbd>. In the
+  <kbd class="menu">New Track &amp; Bus</kbd> dialog, select "Busses" in the Track/Bus
   selector at the upper right.
 </p>
 
 <h2>Adding a send to an aux bus</h2>
 <p>
-  Context-click on the processor box for the track you want to send to the bus, and 
-  choose <kbd class="menu">New Aux Send</kbd>. From the submenu, choose the bus you 
-  want to send to. A send will be added (and will be visible in the processor box). 
+  Context-click on the processor box for the track you want to send to the bus, and
+  choose <kbd class="menu">New Aux Send</kbd>. From the submenu, choose the bus you
+  want to send to. A send will be added (and will be visible in the processor box).
   Note that the submenu may be empty if you have not created a bus yet.
 </p>
 
 <h3>Pre-fader and Post-fader Aux Sends</h3>
 <p>
-  Depending on whether you context-click above or below the fader in the processor box, 
-  the new aux send can be placed before or after the fader in the channel strip. 
-  <dfn>Post-fader</dfn> aux sends are typically used when using an aux for shared signal 
+  Depending on whether you context-click above or below the fader in the processor box,
+  the new aux send can be placed before or after the fader in the channel strip.
+  <dfn>Post-fader</dfn> aux sends are typically used when using an aux for shared signal
   processing (FX), so that the amount of effect is always proportional to
-  the main mix fader. <dfn>Pre-fader</dfn> sends ensure that the level sent to the bus 
-  is controlled <em>only</em> by the send, not the main fader&mdash;this is typical 
-  when constructing headphone and monitor wedge mixes. 
+  the main mix fader. <dfn>Pre-fader</dfn> sends ensure that the level sent to the bus
+  is controlled <em>only</em> by the send, not the main fader&mdash;this is typical
+  when constructing headphone and monitor wedge mixes.
 </p>
 
 <h2>Adding a new aux bus and sending a Track Group to it</h2>
 <p>
-  You can add aux sends to all members of a group and connect them to a new aux bus 
-  with a single click. After creating the track group (and adding tracks to it), 
-  context-click on the group tab and choose either 
-  <kbd class="menu">Add New Aux Bus (pre-fader)</kbd> or 
-  <kbd class="menu">Add New Aux Bus (post-fader)</kbd>. A new aux bus will be created, 
+  You can add aux sends to all members of a group and connect them to a new aux bus
+  with a single click. After creating the track group (and adding tracks to it),
+  context-click on the group tab and choose either
+  <kbd class="menu">Add New Aux Bus (pre-fader)</kbd> or
+  <kbd class="menu">Add New Aux Bus (post-fader)</kbd>. A new aux bus will be created,
   and a new aux send added to every member of the track group that connects to
   this  aux bus.
 </p>
 
 <h2>Altering Send Levels</h2>
 <p>
-  You can alter the amount of the signal received by a send that it delivers to the bus 
+  You can alter the amount of the signal received by a send that it delivers to the bus
   it connects to. There are three approaches to this:
 </p>
 <h3>Use the Send Fader</h3>
 <p>
-  Every send processor has a small horizontal fader that can be adjusted in the usual way. It is 
-  not very big and so this can be a little unsatisfactory if you want very fine control 
-  over the send level. 
+  Every send processor has a small horizontal fader that can be adjusted in the usual way. It is
+  not very big and so this can be a little unsatisfactory if you want very fine control
+  over the send level.
 </p>
 <h3>Mapping the Main Fader</h3>
 <p>
-  Double-clicking on the send in the processor box will allow you to use the 
-  big fader of the mixer strip to control the send. The visual appearance of 
-  the mixer strip will change to reflect this. Double-click the send again to 
+  Double-clicking on the send in the processor box will allow you to use the
+  big fader of the mixer strip to control the send. The visual appearance of
+  the mixer strip will change to reflect this. Double-click the send again to
   revert back to normal function for the strip.
 </p>
 <h3>Map Aux Sends To Main Faders</h3>
 <p>
-  Pressing the button marked <kbd class="menu">Aux Sends</kbd> on a aux bus will 
-  alter the channel strip for every track or bus that feeds the aux bus. Many 
-  aspects of the strip will become insensitive and/or change their visual 
-  appearance. More importantly, the main fader of the affected channel strips 
-  will now control the send level and <strong>not</strong> the track gain. 
-  This gives a larger, more configurable control to alter the level. Click the 
-  <kbd class="menu">Aux Sends</kbd> button of the aux bus again to revert the 
+  Pressing the button marked <kbd class="menu">Aux Sends</kbd> on a aux bus will
+  alter the channel strip for every track or bus that feeds the aux bus. Many
+  aspects of the strip will become insensitive and/or change their visual
+  appearance. More importantly, the main fader of the affected channel strips
+  will now control the send level and <strong>not</strong> the track gain.
+  This gives a larger, more configurable control to alter the level. Click the
+  <kbd class="menu">Aux Sends</kbd> button of the aux bus again to revert the
   channel strips to their normal use.
 </p>
 <h2>Disabling Sends</h2>
 <p>
-  Clicking on the small "LED" in the send display in the processor box of the 
-  channel strip will enable/disable the send. When disabled, only silence will 
-  be delivered to the aux bus by this track. When enabled, the signal arriving 
+  Clicking on the small "LED" in the send display in the processor box of the
+  channel strip will enable/disable the send. When disabled, only silence will
+  be delivered to the aux bus by this track. When enabled, the signal arriving
   at the send will be delivered to the aux bus.
 </p>
 <h2>Send Panning</h2>

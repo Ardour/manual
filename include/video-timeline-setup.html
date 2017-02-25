@@ -7,12 +7,12 @@
 
 <p>
   If you compile Ardour from source, or have installed it from a 3rd party repository, three additional tools will need to be installed manually, which are used by Ardour to provide video features:
-</p> 
+</p>
 
-<ul> 
+<ul>
   <li>xjadeo (the video monitor application): <a href="http://xjadeo.sourceforge.net/" title="http://xjadeo.sourceforge.net/" rel="nofollow">http://xjadeo.sf.net</a></li>
-  <li>harvid (a video decoder used for the thumbnail timeline): <a href="http://x42.github.io/harvid/" title="http://x42.github.io/harvid/" rel="nofollow">http://x42.github.com/harvid/</a></li> 
-  <li>ffmpeg, ffprobe (used to import/export video, extract soundtracks and query video information): <a href="http://ffmpeg.org" title="http://ffmpeg.org" rel="nofollow">http://ffmpeg.org</a></li> 
+  <li>harvid (a video decoder used for the thumbnail timeline): <a href="http://x42.github.io/harvid/" title="http://x42.github.io/harvid/" rel="nofollow">http://x42.github.com/harvid/</a></li>
+  <li>ffmpeg, ffprobe (used to import/export video, extract soundtracks and query video information): <a href="http://ffmpeg.org" title="http://ffmpeg.org" rel="nofollow">http://ffmpeg.org</a></li>
 </ul>
 
 <p>
@@ -24,15 +24,15 @@
 </p>
 
 <p>
-  All four applications need to be found in <code>$PATH</code> (e.g. 
-  <code>$HOME/bin</code> or <code>/usr/local/bin</code>). For convenience the 
-  binary releases of harvid include ffmpeg_harvid and ffprobe_harvid, but if 
-  your distribution provides suitable ffmpeg commands you can also just create 
+  All four applications need to be found in <code>$PATH</code> (e.g.
+  <code>$HOME/bin</code> or <code>/usr/local/bin</code>). For convenience the
+  binary releases of harvid include ffmpeg_harvid and ffprobe_harvid, but if
+  your distribution provides suitable ffmpeg commands you can also just create
   symbolic links:
 </p>
 
 <kbd class="cmd lin">sudo ln -s /usr/bin/ffmpeg /usr/bin/ffmpeg_harvid</kbd>
-<kbd class="cmd lin">sudo ln -s /usr/bin/ffprobe /usr/bin/ffprobe_harvid</kbd>   
+<kbd class="cmd lin">sudo ln -s /usr/bin/ffprobe /usr/bin/ffprobe_harvid</kbd>
 
 <p>
   Binary releases are available from ardour.org as well as an installer script: <a href="https://github.com/Ardour/ardour/blob/master/tools/videotimeline/install_video_tools.sh" title="https://github.com/Ardour/ardour/blob/master/tools/videotimeline/install_video_tools.sh" rel="nofollow">install_video_tools.sh</a>.

@@ -1,34 +1,34 @@
 
-<p>  
+<p>
   In the days of analog tape recording, the routing of monitor signals was
-  performed with relays and other analog audio switching devices.  Digital 
-  recorders have the same feature, but may impart some 
+  performed with relays and other analog audio switching devices.  Digital
+  recorders have the same feature, but may impart some
   <a
-  href="/synchronization/latency-and-latency-compensation/"><dfn>latency</dfn></a> 
-  (delay) between the time you make a noise and the time that you hear it 
+  href="/synchronization/latency-and-latency-compensation/"><dfn>latency</dfn></a>
+  (delay) between the time you make a noise and the time that you hear it
   come back from the recorder.
 </p>
 <p>
-  The latency of <em>any</em> conversion from analog to digital and back to 
-  analog is about 1.5&ndash;2&nbsp;ms. Some musicians claim that even the 
-  basic <abbr title="Analog to Digital to Analog">A/D/A</abbr> conversion 
-  time is objectionable. However even acoustic instruments such as the piano 
+  The latency of <em>any</em> conversion from analog to digital and back to
+  analog is about 1.5&ndash;2&nbsp;ms. Some musicians claim that even the
+  basic <abbr title="Analog to Digital to Analog">A/D/A</abbr> conversion
+  time is objectionable. However even acoustic instruments such as the piano
   can have approximately 3&nbsp;ms of latency, due to the time the sound
-  takes to travel from the instrument to the musician's ears. Latency below 
+  takes to travel from the instrument to the musician's ears. Latency below
   5&nbsp;ms should be suitable for a professional recording setup. Because
-  2&nbsp;ms are already used in the A/D/A process, you must use extremely low 
-  <dfn>buffer sizes</dfn> in your workstation <abbr title="Input/Output">I/O</abbr> 
-  setup to keep the overall latency below 5ms. Not all 
-  <a href="@@the-right-computer-system-for-digital-audio">computer audio systems</a> 
+  2&nbsp;ms are already used in the A/D/A process, you must use extremely low
+  <dfn>buffer sizes</dfn> in your workstation <abbr title="Input/Output">I/O</abbr>
+  setup to keep the overall latency below 5ms. Not all
+  <a href="@@the-right-computer-system-for-digital-audio">computer audio systems</a>
   are able to work reliably at such low buffer sizes.
 </p>
 <p>
   For this reason it is sometimes best to route the monitor signal
   through an external mixing console while recording, an approach taken by
-  most if not all professional recording studios. Many computer I/O devices 
+  most if not all professional recording studios. Many computer I/O devices
   have a hardware mixer built in which can route the monitor signal "around"
   the computer, avoiding the systemlatency.<br>
-  In either case, the monitoring hardware may be digital or analog.  And in 
+  In either case, the monitoring hardware may be digital or analog.  And in
   the digital case you will still have the A-D-A conversion latency of
   1&ndash;2&nbsp;ms.
 </p>

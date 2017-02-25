@@ -1,7 +1,7 @@
-    
+
 <p>
-  Ardour will only ever deal with a single <dfn>audio device</dfn>. If you 
-  want to use more than one, you have two choices: 
+  Ardour will only ever deal with a single <dfn>audio device</dfn>. If you
+  want to use more than one, you have two choices:
 </p>
 <ul>
   <li>
@@ -18,12 +18,12 @@
   Ardour is fundamentally designed to be a component in a
   pro-audio/music creation environment. Standard operating practice
   for such setups involves using only a single digital <dfn>sample
-  clock</dfn> (something counting off the time between audio samples). 
+  clock</dfn> (something counting off the time between audio samples).
   This means that trying to use multiple independent soundcards is
-  problematic, because each soundcard has its own sample clock, running 
+  problematic, because each soundcard has its own sample clock, running
   independently from the others. Over time, these different clocks
-  <dfn>drift</dfn> 
-  out of sync with each other, which causes glitches in the audio. You 
+  <dfn>drift</dfn>
+  out of sync with each other, which causes glitches in the audio. You
   cannot stop this drift, although in some cases the effects may be
   insignificant enough that some people might not care about them.
 </p>
@@ -39,8 +39,8 @@
 
 <h2>OS X</h2>
 <p>
-  In CoreAudio, <dfn>aggregate devices</dfn> provide a method to use 
-  multiple soundcards as a single device. For example, you can 
+  In CoreAudio, <dfn>aggregate devices</dfn> provide a method to use
+  multiple soundcards as a single device. For example, you can
   aggregate two 8-channel devices so that you can record 16 channels
   into Ardour.
 </p>
@@ -50,7 +50,7 @@
   audio interface (such as those from Apogee, RME, Presonus, and many
   others), <em>or</em> you are using JackPilot or a similar
   application to start JACK, you do not need to worry about this.<br>
-  You will need to set up an aggregate device only if either 
+  You will need to set up an aggregate device only if either
   of the following conditions are true:
 </p>
 <ul>
@@ -60,7 +60,7 @@
     want to start JACK using Ardour.</li>
   <li>You want to use more than two entirely separate devices</li>
 </ul>
-</div>  
+</div>
 <p>
   In the case of your builtin audio device, you will need to create
   an aggregate device that combines "Builtin Input" and "Builtin

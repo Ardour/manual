@@ -1,34 +1,34 @@
 
 <p>There are three basic ways to approach monitoring: </p>
 
-<h3>External Monitoring</h3> 
+<h3>External Monitoring</h3>
 <img class="right"
 src="/images/external-monitoring.png" />
 <p>When using <dfn>external monitoring</dfn>, Ardour plays no role in
   monitoring at all. Perhaps the recording set-up has an external mixer which
   can be used to set up monitor mixes, or perhaps the sound-card being used
-  has a "listen to the input" feature. This approach yields zero or near-zero 
-  latency.  On the other hand it requires external hardware, and the monitoring 
-  settings are less flexible and not saved with the session.</p> 
+  has a "listen to the input" feature. This approach yields zero or near-zero
+  latency.  On the other hand it requires external hardware, and the monitoring
+  settings are less flexible and not saved with the session.</p>
 
-<h3>JACK-Based Hardware Monitoring</h3> 
+<h3>JACK-Based Hardware Monitoring</h3>
 <img class="right" src="/images/jack-monitoring.png" />
 <p>Some sound cards have the ability
-  to mix signals from their inputs to their outputs with very low or even zero 
+  to mix signals from their inputs to their outputs with very low or even zero
   latency, a feature called <dfn>hardware monitoring</dfn>.
   Furthermore, on some cards this function can be controlled by JACK.  This is a nice arrangement,
   if the sound card supports it, as it combines the convenience of having the
   monitoring controlled by Ardour with the low latency operation of doing it
   externally.
-</p> 
+</p>
 
-<h3>Software Monitoring</h3> 
+<h3>Software Monitoring</h3>
 <img class="right" src="/images/ardour-monitoring.png" />
 <p>With the <dfn>software monitoring</dfn> approach, all monitoring is
   performed by Ardour&mdash;it makes track inputs available at track
   outputs, governed by various controls. This approach will almost always have
   more routing flexibility than JACK-based monitoring. The disadvantage is
   that there will be some latency between the input and the output, which
-  depends for the most part on the JACK buffer size that is being used. 
-</p> 
+  depends for the most part on the JACK buffer size that is being used.
+</p>
 

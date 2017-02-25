@@ -13,14 +13,14 @@
 <dl>
   <dt><kbd class="menu">Timecode frames-per-second</kbd></dt>
   <dd>
-    Configure timecode frames-per-second (23.976, 24, 24.975, 25, 29.97, 
-    29.97 drop, 30, 30 drop, 59.94, 60). Note that all fractional 
+    Configure timecode frames-per-second (23.976, 24, 24.975, 25, 29.97,
+    29.97 drop, 30, 30 drop, 59.94, 60). Note that all fractional
     framerates are actually fps*(1000.0/1001.0).
   </dd>
   <dt><kbd class="menu">Pull up/down</kbd></dt>
   <dd>
-    Video pull-up modes change the effective samplerate of Ardour to 
-    allow for changing a film soundtrack from one frame rate to another. 
+    Video pull-up modes change the effective samplerate of Ardour to
+    allow for changing a film soundtrack from one frame rate to another.
     See <a href="http://en.wikipedia.org/wiki/Telecine">Telecine</a>
   </dd>
   <dt><kbd class="menu">Slave Timecode offset</kbd></dt>
@@ -48,29 +48,29 @@
   </dd>
   <dt><kbd class="option">Match session video frame rate to external timecode</kbd></dt>
   <dd>
-    This option controls the value of the video frame rate <em>while 
-    chasing</em> an external timecode source. When enabled, the 
-    session video frame rate will be changed to match that of the selected 
-    external timecode source. When disabled, the session video frame rate 
-    will not be changed to match that of the selected external timecode 
-    source. Instead the frame rate indication in the main clock will flash 
-    red and Ardour will convert between the external timecode standard and 
+    This option controls the value of the video frame rate <em>while
+    chasing</em> an external timecode source. When enabled, the
+    session video frame rate will be changed to match that of the selected
+    external timecode source. When disabled, the session video frame rate
+    will not be changed to match that of the selected external timecode
+    source. Instead the frame rate indication in the main clock will flash
+    red and Ardour will convert between the external timecode standard and
     the session standard.
   </dd>
   <dt><kbd class="option">External timecode is sync locked</kbd></dt>
   <dd>
-    Indicates that the selected external timecode source shares sync (Black 
+    Indicates that the selected external timecode source shares sync (Black
     &amp; Burst, Wordclock, etc) with the audio interface.
   </dd>
   <dt><kbd class="option">Lock to 29.9700 fps instead of 30000/1001</kbd></dt>
   <dd>
-    The external timecode source is assumed to use 29.97 fps instead of 
-    30000/1001. SMPTE 12M-1999 specifies 29.97df as 30000/1001. The spec 
-    further mentions that drop-frame timecode has an accumulated error of -86ms 
-    over a 24-hour period. Drop-frame timecode would compensate exactly for a 
-    NTSC color frame rate of 30 * 0.9990 (ie 29.970000). That is not the actual 
-    rate. However, some vendors use that rate&mdash;despite it being against 
-    the specs&mdash;because the variant of using exactly 29.97 fps has zero 
+    The external timecode source is assumed to use 29.97 fps instead of
+    30000/1001. SMPTE 12M-1999 specifies 29.97df as 30000/1001. The spec
+    further mentions that drop-frame timecode has an accumulated error of -86ms
+    over a 24-hour period. Drop-frame timecode would compensate exactly for a
+    NTSC color frame rate of 30 * 0.9990 (ie 29.970000). That is not the actual
+    rate. However, some vendors use that rate&mdash;despite it being against
+    the specs&mdash;because the variant of using exactly 29.97 fps has zero
     timecode drift.
   </dd>
   <dt><kbd class="menu">LTC incoming port</kbd></dt>
@@ -81,13 +81,13 @@
   <dd>Does just what it says.</dd>
   <dt><kbd class="option">Send LTC while stopped</kbd></dt>
   <dd>
-    Enable to continue to send LTC information even when the transport 
-    (playhead) is not moving. This mode is intended to drive analog tape 
+    Enable to continue to send LTC information even when the transport
+    (playhead) is not moving. This mode is intended to drive analog tape
     machines which unspool the tape if no LTC timecode is received.
   </dd>
   <dt><kbd class="menu">LTC generator level</kbd></dt>
   <dd>
-    Specify the Peak Volume of the generated LTC signal in dbFS. A good value 
+    Specify the Peak Volume of the generated LTC signal in dbFS. A good value
     is 0&nbsp;dBu (which is -18&nbsp;dbFS in an EBU calibrated system).
   </dd>
 </dl>

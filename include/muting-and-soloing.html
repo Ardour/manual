@@ -1,14 +1,14 @@
 
 <p>
-  Each track and bus has two buttons which have important implications 
-  for signal flow: <dfn>mute</dfn> and <dfn>solo</dfn>. The behaviour 
-  of these buttons is configurable in Ardour, to suit different studio 
+  Each track and bus has two buttons which have important implications
+  for signal flow: <dfn>mute</dfn> and <dfn>solo</dfn>. The behaviour
+  of these buttons is configurable in Ardour, to suit different studio
   set-ups.
 </p>
 
 <h2>Without a monitor bus</h2>
 <p>
-  If you are using Ardour without a monitor bus, there is only one way 
+  If you are using Ardour without a monitor bus, there is only one way
   in which mute and solo will work:</p>
 <ul>
   <li>
@@ -16,54 +16,54 @@
      so that it will not be heard.
   </li>
   <li>
-    Solo on a track or bus will solo that track or bus and mute all 
-    others. Soloing a bus will also solo any tracks or 
+    Solo on a track or bus will solo that track or bus and mute all
+    others. Soloing a bus will also solo any tracks or
     busses which feed that bus.
   </li>
 </ul>
 
 <h2>With a monitor bus</h2>
 <p>
-  For setups with a monitor bus, you have more options, mostly 
-  governed by the setting of the 
-  <kbd class="option">Solo controls are Listen controls</kbd> option 
+  For setups with a monitor bus, you have more options, mostly
+  governed by the setting of the
+  <kbd class="option">Solo controls are Listen controls</kbd> option
   in <kbd class="menu">Edit &gt; Preferences &gt; Solo / mute.
 </p>
 <p>
-  With <kbd class="optoff">Solo controls are Listen controls</kbd> 
-  unticked, behaviour is almost exactly the same as the situation 
-  without a monitor bus. Mute and solo behave the same, and the monitor 
+  With <kbd class="optoff">Solo controls are Listen controls</kbd>
+  unticked, behaviour is almost exactly the same as the situation
+  without a monitor bus. Mute and solo behave the same, and the monitor
   bus is fed from the master bus, so it sees the same thing.
 </p>
 <p>
-  With <kbc class="option">Solo controls are Listen controls</kbd> 
-  ticked, the master and monitor busses behave differently. In this 
-  mode, solo controls are more properly called <dfn>listen</dfn> 
-  controls, and Ardour's solo buttons will change their legend from 
-  <samp>S</samp> to either <samp>A</samp> or <samp>P</samp> to 
+  With <kbc class="option">Solo controls are Listen controls</kbd>
+  ticked, the master and monitor busses behave differently. In this
+  mode, solo controls are more properly called <dfn>listen</dfn>
+  controls, and Ardour's solo buttons will change their legend from
+  <samp>S</samp> to either <samp>A</samp> or <samp>P</samp> to
   reflect this.
 </p>
 <p>
-  Now, without any mute or listen, the monitor bus remains fed by 
+  Now, without any mute or listen, the monitor bus remains fed by
   the master bus. Also:
 </p>
 <ul>
   <li>
-    Mute will mute the track or bus, so that it will not be heard 
+    Mute will mute the track or bus, so that it will not be heard
     anywhere (neither on the master nor monitor busses), much as before.
   </li>
   <li>
-    Listen will disconnect the monitor bus from the master bus, so 
-    that the monitor bus now only receives things that are "listened to". 
-    Listen will not perform any muting, and hence the master bus will 
+    Listen will disconnect the monitor bus from the master bus, so
+    that the monitor bus now only receives things that are "listened to".
+    Listen will not perform any muting, and hence the master bus will
     not be affected by a listened track or bus.
   </li>
 </ul>
 <p>
   When solo controls are listen controls, the listening point can be set
-  to either After-Fade Listen (AFL) or Pre-Fade Listen (PFL). The precise 
-  point to get the signal from can further be configured using the 
-  <kbd class="menu">PFL signals come from</kbd> and 
+  to either After-Fade Listen (AFL) or Pre-Fade Listen (PFL). The precise
+  point to get the signal from can further be configured using the
+  <kbd class="menu">PFL signals come from</kbd> and
   <kbd class="menu">AFL signals come from</kbd> options.
 </p>
 <p>
@@ -71,15 +71,15 @@
 </p>
 <img src="/images/solo-mute.png" alt="mute/solo signal flow" />
 <p>
-  Here we have a number of tracks or busses (in orange). Each one has an 
-  output which feeds the master bus. In addition, each has PFL and AFL 
-  outputs; we have a choice of which to use. PFL/AFL from each track or 
-  bus are mixed. Then, whenever anything is set to AFL/PFL, the monitor out 
-  becomes just those AFL/PFL feeds; the rest of the time, the monitor out is 
+  Here we have a number of tracks or busses (in orange). Each one has an
+  output which feeds the master bus. In addition, each has PFL and AFL
+  outputs; we have a choice of which to use. PFL/AFL from each track or
+  bus are mixed. Then, whenever anything is set to AFL/PFL, the monitor out
+  becomes just those AFL/PFL feeds; the rest of the time, the monitor out is
   fed from the master bus.
 </p>
 <p>
-  In this scheme Solo has no effect other than to mute other non-soloed tracks; 
+  In this scheme Solo has no effect other than to mute other non-soloed tracks;
   with solo (rather then listen), the monitor out is fed from the master bus.
 </p>
 
@@ -91,41 +91,40 @@
 
 <h3>Solo-in-place mute cut</h3>
 <p>
-  When using solo-in-place (SiP), in other words when soloed tracks are being 
-  listened to on the master bus, this fader specifies the gain that will be 
+  When using solo-in-place (SiP), in other words when soloed tracks are being
+  listened to on the master bus, this fader specifies the gain that will be
   applied to other tracks in order to mute them. Setting this level to
-  -∞&nbdp;dB will mean that other tracks will not be heard at all; setting to 
+  -∞&nbdp;dB will mean that other tracks will not be heard at all; setting to
   some higher value less than 0dB means that other non-soloed tracks will be h
-  eard, just reduced in volume compared to the soloed tracks. Using a value 
-  larger than -∞dB is sometimes called "Solo-In-Front" by other DAWs, because 
-  the listener has the sense that soloed material is "in front" of other 
-  material. In Ardour, this is not a distinct mode, but instead the mute cut 
+  eard, just reduced in volume compared to the soloed tracks. Using a value
+  larger than -∞dB is sometimes called "Solo-In-Front" by other DAWs, because
+  the listener has the sense that soloed material is "in front" of other
+  material. In Ardour, this is not a distinct mode, but instead the mute cut
   control offers any level of "in-front-ness" that you might want to use.
 </p>
 <h3>Exclusive solo</h3>
 <p>
-  If this is enabled, only one track or bus will ever be soloed at once; soloing 
-  track B while track A is currently soloed will un-solo track A before soloing 
+  If this is enabled, only one track or bus will ever be soloed at once; soloing
+  track B while track A is currently soloed will un-solo track A before soloing
   track B.
 </p>
 <h3>Show solo muting</h3>
 <p>
-  If this is enabled, the mute button of tracks and busses will be drawn 
-  outlined to indicate that the track or bus is muted because something else 
-  is soloed. This is enabled by default, and we recommend that you leave it 
+  If this is enabled, the mute button of tracks and busses will be drawn
+  outlined to indicate that the track or bus is muted because something else
+  is soloed. This is enabled by default, and we recommend that you leave it
   that way unless you are extremely comfortable with Ardour's mute/solo
   behaviour.
 </p>
 <h3>Soloing overrides muting</h3>
 <p>
-  If this is enabled, a track or bus that is both soloed and muted will behave 
+  If this is enabled, a track or bus that is both soloed and muted will behave
   as if it is soloed.
 </p>
 <h3>Mute affects…</h3>
 <p>
-  These options dictate whether muting the track will affect various routes out 
-  of the track; through the sends, through the control outputs (to the monitor 
+  These options dictate whether muting the track will affect various routes out
+  of the track; through the sends, through the control outputs (to the monitor
   bus) and to the main outputs.
 </p>
-  
 

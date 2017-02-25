@@ -5,7 +5,7 @@
   rely on it for important production work while the dust settles.
 </p>
 <p>
-  <dfn><abbr title="Vector-base Amplitude Panning">VBAP</abbr></dfn> 
+  <dfn><abbr title="Vector-base Amplitude Panning">VBAP</abbr></dfn>
   is a versatile and straightforward method to pan a source around over an
   arbitrary number of speakers on a horizontal polygon or a 3D surface,
   even if the speaker layout is highly irregular.
@@ -15,7 +15,7 @@
 <p>
   VBAP was developed by Ville Pulkki at Aalto University, Helsinki, in 2001.
   It works by distributing the signal to the speakers nearest to the desired
-  direction with appropriate weightings, aiming to create a maximally sharp 
+  direction with appropriate weightings, aiming to create a maximally sharp
   phantom source by using as few speakers as possible:
 </p>
 <ul>
@@ -29,20 +29,20 @@
   Thus, if you move the panner onto a speaker, you can be sure that only
   this speaker will get any signal. This is handy when you need precise
   1:1 routing.<br>
-  The drawback of VBAP is that a moving source will constantly change its 
-  apparent sharpness, as it transitions between the three states mentioned 
+  The drawback of VBAP is that a moving source will constantly change its
+  apparent sharpness, as it transitions between the three states mentioned
   above.
 </p>
 <p>
   A <dfn>horizontal</dfn> VBAP panner has one parameter, the <dfn>azimuth
-  angle</dfn>. A <dfn>full-sphere</dfn> panner offers an additional 
+  angle</dfn>. A <dfn>full-sphere</dfn> panner offers an additional
   <dfn>elevation angle</dfn> control.
 </p>
 <p class="note">
   More elaborate implementations of VBAP also include a
-  <dfn>spread</dfn> parameter, which  will distribute the signal over a 
-  greater number of speakers in order to maintain constant (but no longer 
-  maximal) sharpness, regardless of position. Ardour's VBAP panner does not 
+  <dfn>spread</dfn> parameter, which  will distribute the signal over a
+  greater number of speakers in order to maintain constant (but no longer
+  maximal) sharpness, regardless of position. Ardour's VBAP panner does not
   currently include this feature.
 </p>
 
