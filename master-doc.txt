@@ -173,7 +173,7 @@ part: subchapter
 ---
 
 ---
-title: System Setup
+title: System Specific Setup
 include: setting-up-your-system.html
 link: setting-up-your-system
 uri: setting-up-your-system
