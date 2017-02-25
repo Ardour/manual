@@ -1,21 +1,24 @@
 
 <p>
-  <dfn>Auxilliary sends</dfn> are <a
+  <dfn>Auxilliary sends</dfn> are simple <a
   href="/working-with-plugins/processor-box/">processors</a> in a bus or
   track channel strip. They tap the signal at a specific point in the signal
   flow (pre-fader, post-fader, before or after EQs and other plugins, etc.)
-  and send a copy of that signal somewhere else, without affecting the
+  and send a copy of that signal to a bus, without affecting the
   normal signal flow downwards to the channel fader.
 </p>
 <p>
-  Usually, aux sends from several tracks are collectively sent to a
-  dedicated <dfn>Aux bus</dfn> in Ardour, to create a monitor mix for a
-  musician, or to feed an effect unit. The output of such a bus might
+  Aux sends from several tracks are collectively sent to a
+  <dfn>bus</dfn> in Ardour, to create a monitor mix for a
+  musician, or to feed an effect unit. A bus used in this way is considered
+  an auxilliary bus or <dfn>Aux bus</dfn> even though it is the same as
+  any other bus. The output of such a bus might
   be routed to separate hardware outputs (in the case of headphone or monitor
-  wedge mixes), or returned to the main mix (in the case of an effect).<br
-  />
-  Aux sends are not JACK ports, with <a href="@@external-sends">
-  External Sends</a> Jack ports are created so it is also possible to
+  wedge mixes), or returned to the main mix (in the case of an effect).
+</p>
+<p>
+  Aux sends are not JACK ports, use <a href="@@external-sends">
+  External Sends</a> to send audio to Jack ports. External Sends can
   send the tapped signal somewhere else directly, which is not usually
   possible on hardware mixers.
 </p>
@@ -55,12 +58,12 @@
 <h2>Adding a new aux bus and sending a Track Group to it</h2>
 <p>
   You can add aux sends to all members of a group and connect them to a new aux bus
-  with a single click. After creating the track group (and adding tracks to it),
-  context-click on the group tab and choose either
+  with a single click. After creating the <a href="@@track-and-bus-groups">track group</a>
+  (and adding tracks to it), context-click on the group tab and choose either
   <kbd class="menu">Add New Aux Bus (pre-fader)</kbd> or
   <kbd class="menu">Add New Aux Bus (post-fader)</kbd>. A new aux bus will be created,
   and a new aux send added to every member of the track group that connects to
-  this  aux bus.
+  this aux bus.
 </p>
 
 <h2>Altering Send Levels</h2>
