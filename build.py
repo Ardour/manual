@@ -513,8 +513,15 @@ for header in fileStruct:
 	content = FixInternalLinks(links, content, header['title'])
 
 	# Add header information to the page if in dev mode
-	if devmode and 'link' in header:
-		content = '<h1>link: ' + header['link'] + '</h1>\n<br><br>\n' + content
+	if devmode:
+		devnote ='<aside style="background-color:indigo; color:white;">'
+		if 'filename' in header:
+			devnote = devnote + 'filename: ' + header['filename'] + '<br>'
+		if 'include' in header:
+			devnote = devnote + 'include: ' + header['include'] + '<br>'
+		if 'link' in header:
+			devnote = devnote + 'link: ' + header['link'] + '<br>'
+		content = devnote + '</aside>' + content
 
 	# Set up the actual page from the template
 	if 'style' not in header:
@@ -560,4 +567,3 @@ tocFile.close()
 
 if not quiet:
 	print('Processed ' + str(fileCount) + ' files.')
-
