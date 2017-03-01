@@ -1,0 +1,107 @@
+
+<p>
+  The Stretch Mode tool can be switched to by selecting it in the
+  <a href="@@toolbox">Toolbox</a>, or simply by hitting the <kbd class="menu">T</kbd>
+  key.
+</p>
+<p>
+  It allows to extend or reduce the duration of a region, optionnaly maintaining
+  its pitch. This is one of the few operations in Ardour that affect the underlying
+  audio data from a region, even if the original audio is kept safely&mdash;no data
+  is lost in the process.
+</p>
+<p>
+  This operation is usually used to fit an audio sequence with a different rhythm
+  into a session, but can be used in a wide area of cases, due to its ability to
+  maitain or alter the pitch.
+</p>
+
+<figure>
+  <img src="/images/before-stretch.png" alt="region arrangement before the stretch" />
+  <img src="/images/while-stretch.png" alt="region arrangement while stretching" />
+  <img src="/images/after-stretch.png" alt="region arrangement after the stretch" />
+  <figcaption>
+    Using the Stretch Mode tool. Before stretching, while stretching, and after a stretch
+  </figcaption>
+</figure>
+
+<p>
+  The Stretch Mode tool is very similar in use to doing a trim in grab mode: the
+  boundary (start or end) is <kbd class="mouse">left</kbd>-clicked and dragged to
+  its wanted position. Notice a timer appearing, showing the new duration of the
+  region using the same <a href="@@editing-clocks">clock mode</a> as in the
+  <a href="@@transport-clocks">primary transport clock</a>.
+</p>
+<p>
+  Stretching is a complex operation (phase vocoding), involving resampling,
+  frequency analysis and synthesis. The parameters used to transform the audio
+  data are user tweakable, and exposed to the user as the <kbd class="mouse">
+  left</kbd> mouse button is released:
+</p>
+
+<figure>
+  <img src="/images/time-stretch-audio.png" alt="The Time Stretch Audio window" />
+  <figcaption>
+    The Time Stretch Audio window
+  </figcaption>
+</figure>
+
+<p>
+  The Time Stretch Audio window is made of:
+</p>
+
+<dl>
+  <dt><dfn>Duration</dfn></dt><dd>The target duration of the region, expressed using the
+    primary transport clock's mode</dd>
+  <dt><dfn>Percent</dfn></dt><dd>The target duration of the region, expressed as a percentage
+    of the region's original lenght. Can be either higher than 100&#37; (to
+    expand the region) or lower (to shrink it)</dd>
+  <dt><dfn>Contents</dfn></dt><dd>The type of audio the region is made of. Ardour will fine-tune
+    its algorithm based on this content, see below</dd>
+  <dt><dfn>Minimize time distortion</dfn></dt><dd>Tries to reduce the smearing
+    of the audio created by the pahse vocoding process</dd>
+  <dt>a <dfn>Progress</dfn> bar</dt><dd>showing the operation in progress.</dd>
+</dl>
+
+<p>
+  The <em>Contents</em> should be selected to best fit the actual content of the region, amongst:
+</p>
+
+<table class="alternate" style="text-align:center;">
+  <tbody>
+    <tr>  <td>Content</td>
+          <td>Disable phase resynchronisation at transients</td>
+          <td>Band-limit phase resync to extreme frequencies</td>
+          <td>Disable phase locking to peak frequencies</td>
+          <td>Use longer processing window (actual size may vary)</td>
+          <td>Use shorter processing window</td>  </tr>
+    <tr><td><dfn>Mushy</dfn>                                          </td><td>X</td><td></td><td>X</td><td>X</td><td></td></tr>
+    <tr><td><dfn>Smooth</dfn>                                         </td><td>X</td><td></td><td>X</td><td></td><td></td></tr>
+    <tr><td><dfn>Balanced multitimbral mixture</dfn>                  </td><td>X</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td><dfn>Unpitched percussion with stable notes</dfn>         </td><td></td><td>X</td><td></td><td></td><td></td></tr>
+    <tr><td><dfn>Crisp monophonic instrumental</dfn> (<em>default</em>)</td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td><dfn>Unpitched solo percussion</dfn>                      </td><td></td><td></td><td>X</td><td></td><td>X</td></tr>
+    <tr><td><dfn>Resample without preserving pitch</dfn>              </td><td colspan="5"><em>see below</em></td></tr>
+    </tbody>
+</table>
+
+<p>
+  While the table above details <em>how</em> the different kinds of audio material
+  alter the fine-tuning of the DSP, from an user point of view, the operation often
+  consists in trying different settings and listening to the result.
+</p>
+
+<p>
+  The best way to start experimenting is to consider the material itself:
+</p>
+
+<ul>
+  <li>If the material doesn't need its pitch to be preserved, the best choice is
+    <em>Resample without preserving pitch</em></li>
+  <li>For drum-type material, the best choice is (depending on the transients crispness,
+    stretching factor...) one of the two <em>percussion</em> types</li>
+  <li>For melodic mono-tonal material (bass, winds,&hellip;), the best (and default) choice is <em>Crisp
+    monophonic instrumental</em></li>
+  <li>For multi-tonal material (chords,&hellip;), either one of the three first choice, or the default
+    <em>Crisp</em>.</li>
+</ul>

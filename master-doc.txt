@@ -1415,6 +1415,13 @@ part: subchapter
 ---
 
 ---
+title: Stretching
+include: stretching-regions.html
+link: stretching
+part: subchapter
+---
+
+---
 title: Separate Under
 include: separate-under.html
 link: separate-under
