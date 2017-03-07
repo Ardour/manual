@@ -1430,14 +1430,6 @@ part: subchapter
 ---
 
 ---
-title: Separate Range
-include: separate-range.html
-link: separate-range
-uri: editing-and-arranging/separation/separate-range
-part: subchapter
----
-
----
 title: Strip Silence from Audio Regions
 menu_title: Stripping Silence
 include: strip-silence-from-audio-regions.html
