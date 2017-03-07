@@ -7,68 +7,49 @@
 </p>
 
 <h2>Drag-Trimming With the Mouse</h2>
+
+<figure class="right">
+  <img src="/images/trimming-region-before.png" alt="Trimming region - before">
+  <img src="/images/trimming-region-after.png" alt="Trimming region - after">
+  <figcaption>
+    Trimming region - before and after
+  </figcaption>
+</figure>
+
 <p>
-  In object mode, move the pointer near the beginning or end of the region.
-  The cursor will change to indicate that trimming is possible, and you then
-  <kbd class="mouse">Left</kbd>-drag the edge of the region.
+  In Grab mode, moving the pointer near the beginning or end of the region changes
+  the cursor to indicate that trimming is possible, and the edge of the region can
+  then be <kbd class="mouse">Left</kbd>-dragged in both directions.
 </p>
 <p>
   Trimming will obey <a href="@@grid-controls">Snap settings</a>.
 </p>
 
-<h2>Click Trimming With the Mouse</h2>
-<p>
-  <kbd class="mouse">Left</kbd>-click in the colored bar at the bottom of a region.
-  If you are nearer to the start of a region, this will trim the start time to the
-  position of the pointer. If you are nearer to the end of a region, it will trim the
-  end time.
-</p>
-
-<h2>Keyboard Shortcuts for Trimming</h2>
+<h2>Other Trimming operations</h2>
 <p>
   There are several commands for region trimming. Some use the
   <a href="@@edit-point-control">edit point</a> to determine where
   to trim to. Some are not bound to any keys by default (but could be via the
-  Keybindings Editor).
+  <a href="@@default-keyboard-bindings">Keybindings Editor</a>).
+</p>
+<p>
+  These command are both in the <kbd class="menu">Region &gt; Trim</kbd> main menu
+  (with a region selected) or in the contect menu of a region, <kbd class="menu">
+  <kbd class="mouse">right</kbd> click on a region &gt; <em>Name_Of_The_Region</em>
+  &gt; Trim</kbd>
 </p>
 
 <dl class="wide-table">
-  <dt><kbd class="menu">Region/trim-front</kbd> <kbd>j</kbd></dt>
+  <dt><dfn>Trim Start at Edit Point</dfn> (<kbd>j</kbd>)</dt>
   <dd>Trim selected region(s) start to edit point.</dd>
-  <dt><kbd class="menu">Region/trim-end</kbd> <kbd>k</kbd></dt>
+  <dt><dfn>Trim End at Edit Point</dfn> (<kbd>k</kbd>)</dt>
   <dd>Trim selected region(s) end to edit point.</dd>
+  <dt><dfn>Trim to Loop/Punch</dfn></dt>
+  <dd>Trim selected region(s) beginning and end to the loop/punch boundaries (if it exists).</dd>
+  <dt><dfn>Trim to Previous</dfn> (<kbd class="mod1">j</kbd>)</dt>
+  <dd>Trim the start of selected region(s) to the end of the previous region.
+    If the region is too short, it is extended to it's maximum to the left.</dd>
+  <dt><dfn>Trim to Next</dfn> (<kbd class="mod1">k</kbd>)</dt>
+  <dd>Trim the end of selected region(s) to the start of the following region.
+    If the region is too short, it is extended to it's maximum to the right.</dd>
 </dl>
-
-<h2 id="trimtonextprevious">Trim to Next/Previous Region</h2>
-<p>
-  Sometimes you just want to extend the start or end of region so that it reaches
-  the end or start of an adjacent region. There is now an operation accessible
-  from the region context menu, under <kbd class="menu">Edit &gt;Trim &gt; Trim to
-  Next</kbd> or <kbd class="menu">Edit &gt; Trim &gt; Trim to Previous</kbd>. This
-  will extend the selected regions so they directly adjoin their neighbours, unless
-  their source files are not long enough, in which case they will be extended to the
-  maximum possible. Trim to Next will extend the end of the selected regions to the
-  start of the next region; Trim to Previous will extend the start of the selected
-  regions to the end of the previous region.
-</p>
-<dl class="wide-table">
-  <dt><kbd class="menu">Region/trim-to-previous-region</kbd> <kbd class="mod1">j</kbd></dt>
-  <dd>Trim the start of selected region(s) to the end of the previous
-  region.</dd>
-  <dt><kbd class="menu">Region/trim-to-next-region</kbd> <kbd class="mod1">k</kbd></dt>
-  <dd>Trim the end of selected region(s) to the start of the following
-  region.</dd>
-</dl>
-
-<h2>Other Possible Commands for Trimming</h2>
-<p>
-  These are not bound to any keys by default, but could be via the Keybindings
-  Editor. They can also be sent via OSC or other control protocols.
-</p>
-<dl class="wide-table">
-  <dt><kbd class="menu">Region/trim-region-to-loop</kbd></dt>
-  <dd>Trim region to match the current loop range.</dd>
-  <dt><kbd class="menu">Region/trim-region-to-punch</kbd></dt>
-  <dd>Trim region to match the current punch range.</dd>
-</dl>
-

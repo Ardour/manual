@@ -1,18 +1,54 @@
+<figure>
+  <img src="/images/strip-silence-window.png" alt="The Strip Silence window">
+  <figcaption>
+    The Strip Silence window
+  </figcaption>
+</figure>
 
 <p>
-  From the region context menu, choose <kbd class="menu">Edit &gt; Strip
-  Silence</kbd> to detect silence (based on a user-chosen threshold in
-  <abbr title="Decibels relative to Full Scale">dBFS</abbr>), split a
-  region based on the boundaries of the silent segments, and remove the
-  silence. You can also specify a minimum length for silence&mdash;useful
-  when editing very percussive material and just needing to
-  automatically trim the ends of a region. The dialog looks like this:
-</p>
-<img src="/images/a3_strip_silence.png" alt="strip silence dialog" />
-<p>
-  The edit applies to all selected regions, allowing batch processing.
-  You can also see in the screenshot how the main editor window is used
-  to show silent segments and report the number and durations of the
-  shortest segments.
+  The <dfn>Strip Silence</dfn> tool allows to remove the parts of one or multiple
+  regions that are below a user-defined silence threshold. It does <em>not</em>
+  destroy the underlying audio, but trims the regions according to the silence
+  threshold parameter. The edit applies to all selected regions, allowing batch
+  processing.
 </p>
 
+<p>
+  The window, accessible either through the <kbd class="menu">Region &gt; Edit &gt; Strip
+  Silence</kbd> menu or <kbd class="menu"><kbd class="mouse">right</kbd> click on a region
+  &gt; <em>Name_Of_The_Region</em> &gt; Edit &gt; Strip Silence</kbd>is made of:
+</p>
+
+<dl>
+  <dt><dfn>Threshold</dfn></dt>
+    <dd>The audio level under which the audio is considered silent (in <abbr
+    title="Decibels relative to Full Scale">dBFS</abbr>)</dd>
+  <dt><dfn>Minimum length</dfn></dt>
+    <dd>A minimum number of samples for Ardour to create a split. Under this
+      number, the region won't be sliced</dd>
+  <dt><dfn>Fade length</dfn></dt>
+    <dd>Ardour adds fades, both in and out, to the trimmed regions, to the created
+      region (so the sliced regions are longer by both the in and out fades duration,
+      expressed in samples)</dd>
+  <dt>A progress bar</dt>
+    <dd>showing the time Ardour takes to compute the trimming based on the current
+      parameters</dd>
+</dl>
+
+<p>
+  Changing any parameter in the window is reflected in the main editor: the silent
+  segments are highlighted and the number and durations of the shortest segments is
+  displayed, helping fine-tune the parameters.
+</p>
+
+<figure>
+  <img src="/images/strip-silence-audio.png" alt="strip silence: view of the audio">
+  <img src="/images/strip-silence-after.png" alt="strip silence: view of the audio after">
+  <figcaption>
+    Strip Silence : a view of the audio while changing the parameters, and after treatment
+  </figcaption>
+</figure>
+
+<p class="note">The minimum length for silence can be useful when editing very
+  percussive material and just needing to automatically trim the ends of a region.
+</p>
