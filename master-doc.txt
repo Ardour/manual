@@ -1630,6 +1630,13 @@ part: chapter
 ---
 
 ---
+title: MIDI Tracer
+include: midi-tracer.html
+link: midi-tracer
+part: chapter
+---
+
+---
 title: MIDI Recording
 include: midi-recording.html
 link: midi-recording

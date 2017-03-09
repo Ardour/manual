@@ -1,0 +1,52 @@
+
+<figure>
+  <img src="/images/midi-tracer.png" alt="The MIDI Tracer window">
+  <figcaption>
+    The MIDI Tracer window
+  </figcaption>
+</figure>
+
+<p>
+  The <dfn>MIDI Tracer</dfn> is similar to the <a href="@@midi-list-editor">MIDI
+  List Editor</a>, in the way that it displays MIDI information as a tabular text
+  view, and has a vertical flow, i.e. the events follow a top to bottom time
+  order.
+</p>
+<p>
+  Its use is different though, as it is <em>not</em> bound to a specific region or track:
+  the MIDI that is monitored is any global input or output Ardour presents to the
+  system. It is hence a very useful option to monitor a MIDI port, be it an external
+  controller/device or the in/output of any track.
+</p>
+<p>
+  It is accessed by selecting the <kbd class="menu">Window &gt; MIDI Tracer</kbd>
+  menu.
+</p>
+<p>
+  The window is made of:
+</p>
+<dl>
+  <dt><dfn>Port</dfn></dt><dd>a list of all the MIDI ports Ardour presents to the system. They
+    are both internal and external and are the same ports Ardour presents to JACK, if
+    enabled.</dd>
+  <dt>the events list</dt><dd>where all the events for this port are listed, see below</dd>
+  <dt><dfn>Line history</dfn></dt><dd>how many lines should be kept in the events list</dd>
+  <dt><dfn>Delta times</dfn></dt><dd>if checked, shows the times as the duration since the last event, instead of the <a href="@@on-clock-and-time">absolute time</a></dd>
+  <dt><dfn>Decimal</dfn></dt><dd>if checked, shows the MIDI data as decimal values instead of the original hexadecimal values</dd>
+  <dt><dfn>Enabled</dfn></dt><dd>if checked, the events are displayed in the events list, otherwise stops the logging</dd>
+  <dt><dfn>Auto-Scroll</dfn></dt><dd>if checked, the events list scrolls as new events are logged, allowing to keep the newest events on screen</dd>
+</dl>
+
+<p>
+  The events list displays the events as columns:
+</p>
+<dl>
+  <dt>time of the event</dt><dd>either absolute or relative, based on the <kbd class="option">Delta times</kbd> checkbox</dd>
+  <dt>MIDI status (event type)</dt><dd>what midi events happened (e.g. Note On, Note Off, Pitch Bend, &hellip;)</dd>
+  <dt>MIDI channel</dt><dd>in which MIDI channel did the event happen</dd>
+  <dt>MIDI data bytes (event parameters)</dt><dd>parameters of the event, e.g. for a Note On: what <a gref="@@midi-notes-ref">note</a> was it, and which was the note's velocity</dd>
+</dl>
+
+<p class="note">
+  Note: The MIDI Tracer can lists all kind of MIDI events, "audio" ones, but also <a href="@@midi-scene-automation">scene automation</a> or <a href="@@timecode-generators-and-slaves">timecodes</a> ones.
+</p>
