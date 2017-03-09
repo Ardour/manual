@@ -46,17 +46,21 @@
   <li>A ramped tempo increases its tempo over time so that when the next tempo section has arrived, the sesion tempo is the same as the second one. This is useful for matching the session tempo to music which has been recorded without a metronome. Ramps may also be used as a compositional tool, but more on this later. Note that a ramp requires two points&mdash;a start and an end tempo. The first tempo in a new session is ramped, but appears to be constant as it has no tempo to ramp to. It is only when you add a new tempo and adjust one of them that you will hear a ramp. The same applies to the last tempo in the session&mdash;it will always appear to be constant until a new last tempo is added and changed.</li>
 </ul>
 
-<p>
-  <img src="/images/constant-tempo.png" alt="A constant tempo displaying the tempo at the playhead in the audio clock">
 
-  A series of constant tempo markers. The tempo at the playhead position is the same as the previous tempo.
-</p>
+<figure>
+    <img src="/images/constant-tempo.png" alt="A constant tempo displaying the tempo at the playhead in the audio clock">
+    <figcaption>
+        A series of constant tempo markers. The tempo at the playhead position is the same as the previous tempo.
+    </figcaption>
+</figure>
 
-<p>
-  <img src="/images/ramped-tempo.png" alt="A ramped tempo displaying the tempo at the playhead in the audio clock">
+<figure>
+    <img src="/images/ramped-tempo.png" alt="A ramped tempo displaying the tempo at the playhead in the audio clock">
+    <figcaption>
+        A ramped tempo marker. The tempo at the playhead position is approaching the second tempo. Because the playhead is equidistant (in beats) between the two markers, the tempo at the playhead is the average of the two.
+    </figcaption>
+</figure>
 
-  A ramped tempo marker. The tempo at the playhead position is approaching the second tempo. Because the playhead is equidistant (in beats) between the two markers, the tempo at the playhead is the average of the two.
-</p>
 
 <p>
   To add a new tempo, use the primary modifier and click on the tempo line at the desired position. The new tempo will be the same as the tempo at the position of the mouse click (it will not change the shape of the ramp).
@@ -90,5 +94,4 @@
 
 <li>To change a meter, double click it. A dialog will appear.</li>
 
-<li>To copy a meter, hold down <kbd class="mod1"></kbd> and drag it.</li>
-
+<li>To copy a meter, hold down <kbd class="mod1n"></kbd> and drag it.</li>
