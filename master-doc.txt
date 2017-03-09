@@ -1197,13 +1197,6 @@ part: subchapter
 ---
 
 ---
-title: MIDI Recording
-include: midi-recording.html
-link: midi-recording
-part: chapter
----
-
----
 title: Punch Recording Modes
 include: punch-recording-modes.html
 link: punch-recording-modes
@@ -1499,18 +1492,10 @@ part: part
 
 ---
 title: MIDI Editing
-include: midi-editing.html
-link: midi-editing
-uri: editing-and-arranging/editing-midi
-part: chapter
----
-
----
-title: Edit MIDI
 include: edit-midi.html
 link: edit-midi
 uri: working-with-midi
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -1518,39 +1503,39 @@ title: Fundamental Concepts
 include: fundamental-concepts.html
 link: fundamental-concepts
 uri: working-with-midi/fundamental-concepts
-part: subchapter
+part: chapter
 ---
 
 ---
-title: Create MIDI Tracks
+title: Creating MIDI Tracks
 include: create-midi-tracks.html
 link: create-midi-tracks
 uri: working-with-midi/create-midi-tracks
-part: subchapter
+part: chapter
 ---
 
 ---
-title: Create MIDI Regions
+title: Creating MIDI Regions
 include: create-midi-regions.html
 link: create-midi-regions
 uri: working-with-midi/create-midi-regions
-part: subchapter
+part: chapter
 ---
 
 ---
-title: Add New Notes
+title: Adding New Notes
 include: add-new-notes.html
 link: add-new-notes
 uri: working-with-midi/add-new-notes
-part: subchapter
+part: chapter
 ---
 
 ---
-title: Change Note Properties
+title: Changing Note Properties
 include: change-note-properties.html
 link: change-note-properties
 uri: editing-and-arranging/editing-midi/changing-note-properties
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -1559,7 +1544,7 @@ menu_title: Overlapping Notes
 include: handling-overlapping-notes.html
 link: handling-overlapping-notes
 uri: working-with-midi/handle-overlapping-notes
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -1567,7 +1552,7 @@ title: Note Cut, Copy and Paste
 include: note-cut-copy-and-paste.html
 link: note-cut-copy-and-paste
 uri: working-with-midi/note-cut-copy-and-paste-
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -1575,15 +1560,15 @@ title: Note Selection
 include: note-selection.html
 link: note-selection
 uri: editing-and-arranging/edit-midi/note-selection
-part: subchapter
+part: chapter
 ---
 
 ---
-title: Quantize MIDI
+title: Quantizing MIDI
 include: quantize-midi.html
 link: quantize-midi
 uri: working-with-midi/quantize-midi
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -1591,7 +1576,7 @@ title: Step Entry
 include: step-entry.html
 link: step-entry
 uri: working-with-midi/step-entry
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -1599,7 +1584,7 @@ title: Patch Change
 include: patch-change.html
 link: patch-change
 uri: working-with-midi/patch-change
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -1608,7 +1593,7 @@ menu_title: Copy MIDI Region
 include: independent-and-dependent-midi-region-copies.html
 link: independent-and-dependent-midi-region-copies
 uri: working-with-midi/copy-midi-region
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -1616,38 +1601,38 @@ title: Transposing MIDI
 include: transposing-midi.html
 link: transposing-midi
 uri: working-with-midi/transpose-midi
-part: subchapter
+part: chapter
 ---
 
 ---
-title: Automating MIDI--Pitch bending and aftertouch
+title: Automating MIDI-Pitch bending and aftertouch
 menu_title: Automating MIDI
 include: automating-midi---pitch-bending-and-aftertouch.html
 link: automating-midi---pitch-bending-and-aftertouch
 uri: working-with-midi/automation-midi
-part: subchapter
+part: chapter
 ---
 
 ---
-title: Transforming MIDI--Mathematical operations
+title: Transforming MIDI-Mathematical operations
 menu_title: Transforming MIDI
 include: transforming-midi---mathematical-operations.html
 link: transforming-midi---mathematical-operations
 uri: working-with-midi/transformation-midi
-part: subchapter
+part: chapter
 ---
 
 ---
 title: MIDI List Editor
 include: midi-list-editor.html
 link: midi-list-editor
-part: subchapter
+part: chapter
 ---
 
 ---
-title: MIDI Editors
-include: midi-editors.html
-link: midi-editors
+title: MIDI Recording
+include: midi-recording.html
+link: midi-recording
 part: chapter
 ---
 
@@ -1656,13 +1641,6 @@ title: MIDI Scene Automation
 include: midi-scene-automation.html
 link: midi-scene-automation
 uri: automation/midi-scenes
-part: subchapter
----
-
----
-title: Score Editor
-include: score-editor.html
-link: score-editor
 part: chapter
 ---
 
