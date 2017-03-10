@@ -11,6 +11,20 @@
     window or pane. Edit notes right where you see them.
   </li>
   <li>
+    MIDI, just like audio, exists in regions. MIDI regions behave like audio
+    regions: they can be moved, trimmed, copied (cloned), or deleted. Ardour allows
+    either editing MIDI (or audio) regions, or MIDI region content (the notes), but
+    never both at the same time. The <kbd class="menu">e</kbd> key (by default)
+    toggles between region level and note level editing
+  </li>
+  <li>
+    Editing note information in Ardour occurs in only a single region. There is no
+    way currently to edit in note data for multiple regions at the same time, so for
+    example notes cannot be selected in several regions and then all deleted, nor
+    can they be copied-and-pasted from one region to another. Region(s), though, can
+    be copy-pasted just as with audio. 
+  </li>
+  <li>
     All MIDI I/O is done via JACK for sample accurate timing and maximal
     efficiency when communicating with external software synthesizers.
   </li>
@@ -59,4 +73,3 @@
     and the operation cannot be undone.
   </li>
 </ul>
-
