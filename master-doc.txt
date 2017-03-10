@@ -1432,6 +1432,13 @@ part: subchapter
 ---
 
 ---
+title: Insert/Remove Time
+include: insert-remove-time.html
+link: insert-remove-time
+part: subchapter
+---
+
+---
 title: Fades and Crossfades
 include: create-region-fades-and-crossfades.html
 link: create-region-fades-and-crossfades
