@@ -289,7 +289,7 @@
 
 #content .wide-table dt
 {
-        font-weight: normal;
+    font-weight: normal;
     clear: left;
     float: left;
     width: 30%;
@@ -341,17 +341,13 @@
 }
 
 kbd {
-  display: inline;
   display: inline-block;
   min-width: 1em;
   padding: .2em .3em;
   font: normal .85em/1 "Lucida Grande", Lucida, Arial, sans-serif;
   text-align: center;
   text-decoration: none;
-  -moz-border-radius: .3em;
-  -webkit-border-radius: .3em;
   border-radius: .3em;
-  border: none;
   cursor: default;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -361,8 +357,6 @@ kbd {
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(210, 210, 210)), to(rgb(255, 255, 255)));
   color:  rgb(50, 50, 50);
   text-shadow: 0 0 2px rgb(255, 255, 255);
-  -moz-box-shadow: inset 0 0 1px rgb(255, 255, 255), inset 0 0 .4em rgb(200, 200, 200), 0 .1em 0 rgb(130, 130, 130), 0 .11em 0 rgba(0, 0, 0, .4), 0 .1em .11em rgba(0, 0, 0, .9);
-  -webkit-box-shadow: inset 0 0 1px rgb(255, 255, 255), inset 0 0 .4em rgb(200, 200, 200), 0 .1em 0 rgb(130, 130, 130), 0 .11em 0 rgba(0, 0, 0, .4), 0 .1em .11em rgba(0, 0, 0, .9);
   box-shadow: inset 0 0 1px rgb(255, 255, 255), inset 0 0 .4em rgb(200, 200, 200), 0 .1em 0 rgb(130, 130, 130), 0 .11em 0 rgba(0, 0, 0, .4), 0 .1em .11em rgba(0, 0, 0, .9);
 
 }
@@ -371,7 +365,11 @@ kbd.input,kbd.cmd,kbd.osc {
     font-family:mono;
     border-width:0;
     text-transform:none;
+}
 
+kbd.input {
+    background:none;
+    border-radius: 0;
 }
 
 kbd.cmd {
@@ -381,12 +379,8 @@ kbd.cmd {
     text-transform:none;
     background: rgb(220, 220, 220);
     text-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
     box-shadow: none;
     text-align:left;
-
-
 }
 
 kbd.cmd.lin:before {
@@ -407,10 +401,6 @@ kbd.cmd.win:before {
 kbd.optoff, kbd.option {
     border:none;
     background:none;
-    /*-moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;*/
-
 }
 
 kbd.optoff:before {
@@ -433,11 +423,13 @@ kbd.menu {
     white-space:normal;
 }
 
-
 kbd.osc {
+    border:none;
+    background:none;
+    font-stretch:extra-condensed;
+    white-space:normal;
+    text-align:left;
 }
-
-
 
 kbd.fader, kbd.knob, kbd.button {
     border-color:#ccccff #aaaadd #8888bb #bbbbee;
@@ -450,19 +442,16 @@ kbd.fader {
 }
 
 kbd.knob {
-    -moz-border-radius:12px;
     border-radius:12px;
     border-width: 1px 1px 9px 9px;
 }
 
 kbd.button {
-    -moz-border-radius:8px;
     border-radius:8px;
     border-width: 1px 1px 3px 3px;
 }
 
 kbd.mouse {
-    -moz-border-radius:10px;
     border-radius:10px;
 }
 
