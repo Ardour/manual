@@ -1506,14 +1506,6 @@ part: chapter
 ---
 
 ---
-title: Fundamental Concepts
-include: fundamental-concepts.html
-link: fundamental-concepts
-uri: working-with-midi/fundamental-concepts
-part: chapter
----
-
----
 title: Creating MIDI Tracks
 include: create-midi-tracks.html
 link: create-midi-tracks
