@@ -19,13 +19,13 @@
   as for control. For example:
 </p>
 
-<dl class="bindings">
+<dl>
   <dt><kbd class="osc">/transport_stop</kbd></dt>
   <dd></dd>
 </dl>
 <p>can be used also in the form:</p>
 
-<dl class="bindings">
+<dl>
   <dt><kbd class="osc">/transport_stop <em>press</em></kbd></dt>
   <dd>where <em>press</em> is an int/bool indicating if the button is pressed or not.</dd>
 </dl>
@@ -37,7 +37,7 @@
   The feedback will be:
 </p>
 
-<dl class="bindings">
+<dl>
   <dt><kbd class="osc">/transport_stop <em>state</em></kbd></dt>
   <dd>where <em>state</em> is an int/bool indicating if the transport is stopped or not.</dd>
 </dl>
@@ -80,7 +80,7 @@
   In the case where Gainmode is set to position, the track name will
   show the dB value while values are changing.
 </p>
-<dl class="bindings">
+<dl>
   <dt><kbd class="osc">/strip/name <em>ssid</em> <em>track_name</em></kbd></dt>
   <dd>where <em>track_name</em> is a string representing the name of the track</dd>
   <dt><kbd class="osc">/session_name <em>session_name</em></kbd></dt>
@@ -106,7 +106,7 @@
 </dl>
 
 <h3>Transport Control</h3>
-<dl class="bindings">
+<dl>
   <dt><kbd class="osc">/transport_stop <em>state</em></kbd></dt>
   <dd><em>state</em> is true when transport is stopped</dd>
   <dt><kbd class="osc">/transport_play <em>state</em></kbd></dt>
@@ -122,7 +122,7 @@
 </dl>
 
 <h3>Recording control</h3>
-<dl class="bindings">
+<dl>
   <!--dt><kbd class="osc">/toggle_punch_in</kbd></dt>
   <dd></dd>
   <dt><kbd class="osc">/toggle_punch_out</kbd></dt>
@@ -136,7 +136,7 @@
   Master and monitor strips are similar to track strips but do not use
   the SSID. Rather they use their name as part of the path:
 </p>
-<dl class="bindings">
+<dl>
   <dt><kbd class="osc">/master/gain <em>dB</em></kbd></dt>
   <dd>where <em>dB</em> is a float ranging from -193 to +6 representing the actual gain of master in dB</dd>
   <dt><kbd class="osc">/master/fader  <em>position</em></kbd></dt>
@@ -167,7 +167,7 @@
   Calculating Feedback and Strip-types Values.</a>
 </p>
 
-<dl class="bindings">
+<dl>
   <dt><kbd class="osc">/bank_up <em>LED</em></kbd></dt>
   <dd>where <em>LED</em> is a bool that indicates another bank_up operation is possible.</dd>
   <dt><kbd class="osc">/bank_down <em>LED</em></kbd></dt>
@@ -203,7 +203,7 @@
   from <em>/strip</em> to <em>/select</em> and there is no <em>ssid</em>.
   there are some extra feedback and commands that will be listed here.
 </p>
-<dl class="bindings">
+<dl>
   <dt><kbd class="osc">/select/n_inputs <em>number</em></kbd></dt>
   <dd>where <em>number</em> number of inputs for this strip</dd>
   <dt><kbd class="osc">/select/n_outputs <em>number</em></kbd></dt>
