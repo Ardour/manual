@@ -2,7 +2,9 @@
 <img class="right" src="/images/mixer-1-strip-numbered.png" alt="A mixer strip">
 
 <p>
-  A <dfn>mixer strip</dfn> in Ardour is a vertical view of the track, from a mixing point of view. This view is convenient to deal with I/O, effects, panning/muting, gain, etc&hellip; It has a general "top to bottom" flow.
+  A <dfn>mixer strip</dfn> in Ardour is a vertical view of the track, from a
+  mixing point of view. This view is convenient to deal with I/O, effects,
+  panning/muting, gain, etc&hellip; It has a general "top to bottom" flow.
 </p>
 
 <p>
@@ -28,7 +30,9 @@
 <h2>Headers</h2>
 
 <p>
-  At the top of the window, is the <a href="@@the-track-and-bus-group-list">group tabs</a> (here, <em>recm&hellip;</em>). This allows to group tracks together for common controls.
+  At the top of the window, is the <a href="@@the-track-and-bus-group-list">group
+  tabs</a> (here, <em>recm&hellip;</em>). This allows to group tracks together for
+  common controls.
 </p>
 
 <p>
@@ -37,18 +41,26 @@
 
 <ul>
   <li>
-    The double arrow button allows to shrink/expand the width of the strip. <kbd class="mod1"></kbd><kbd class="mod3"></kbd><kbd class="mouse">Click</kbd> the button will shrink/expand all the tracks at once
+    The double arrow button allows to shrink/expand the width of the strip. <kbd
+    class="mod1n"></kbd><kbd class="mod3n"></kbd><kbd class="mouse">Click</kbd> the
+    button will shrink/expand all the tracks at once
   </li>
   <li>
     The color bar shows the color of the track in the editor
   </li>
   <li>
-    The <kbd class="menu">X</kbd> button toggles the visibility of the track OFF. To turn it back ON, one can either go to the <a href="@@the-tracks-and-busses-list">Tracks and Busses list</a> in the Editor view and check the "V" column on the track's line or stay in the Mixer view and check the <kbd class="menu">Show</kbd> column of this strip in the <a href="@@strips-list">Strips list</a>.
+    The <kbd class="menu">X</kbd> button toggles the visibility of the track OFF. To
+    turn it back ON, one can either go to the <a
+    href="@@the-tracks-and-busses-list">Tracks and Busses list</a> in the Editor
+    view and check the "V" column on the track's line or stay in the Mixer view and
+    check the <kbd class="menu">Show</kbd> column of this strip in the <a
+    href="@@strips-list">Strips list</a>.
   </li>
 </ul>
 
 <p>
-  <kbd class="mouse">Right</kbd> clicking on the color bar will bring up a context menu, which is exactly the same as clicking on the Track name button.
+  <kbd class="mouse">Right</kbd> clicking on the color bar will bring up a context
+  menu, which is exactly the same as clicking on the Track name button.
 </p>
 
 <h2>Track Name</h2>
@@ -59,71 +71,113 @@
 
 <dl>
   <dt>Color&hellip;</dt><dd>Changes the strip/track color</dd>
-  <dt>Comments&hellip;</dt><dd>Shows an editor to put comments about the track, see below the Comments button</dd>
+  <dt>Comments&hellip;</dt><dd>Shows an editor to put comments about the track,
+    see below the Comments button</dd>
   <dt>Inputs&hellip;</dt><dd>Shows the Routing grid for the inputs of the track</dd>
   <dt>Outputs&hellip;</dt><dd>Shows the Routing grid for the outputs of the track</dd>
-  <dt>Save As Template&hellip;</dt><dd>Allows to save the track without its media content (I/O, effects,&hellip;) for later reuse</dd>
-  <dt>Rename&hellip;</dt><dd>Changes the name of the track (effective both in the Mixer and the Editor)</dd>
-  <dt><kbd class="option"></kbd>Active</dt><dd>Select the active status of the track. An inactive track won't output any sound</dd>
-  <dt><kbd class="option"></kbd>Strict I/O</dt><dd>While in <a href="@@trackbus-signal-flow">patchbayStrict I/O</a> mode, a track <em>always</em> has as many output as it has inputs, regardless of the effects. When disabled, a stereo effect put on a mono track will result in a stereo output for the strip.</dd>
-  <dt>Pin Connections&hellip;</dt><dd>Shows the <kbd class="menu">Pin Configuration</kbd> window, that shows (and allows to modify) all the signal flows inside the track</dd>
-  <dt>Adjust Latency&hellip;</dt><dd>Shows the <kbd class="menu">Track Latency</kbd> dialog, that allows fine-tune the latency to the track, in samples, msec or period</dd>
-  <dt><kbd class="option"></kbd>Protect Against Denormals</dt><dd>Uses a trick to get rid of <em>denormals</em>, which are very small numbers the CPU can have a hard time dealing with. To be used if the CPU consumption for plugins is noticeably higher than expected</dd>
-  <dt>Duplicate&hellip;</dt><dd>Copies the track to a new one, optionnaly with its playlist</dd>
+  <dt>Save As Template&hellip;</dt><dd>Allows to save the track without its media
+    content (I/O, effects,&hellip;) for later reuse</dd>
+  <dt>Rename&hellip;</dt><dd>Changes the name of the track (effective both in the
+    Mixer and the Editor)</dd>
+  <dt><kbd class="option">Active</kbd></dt><dd>Select the active status of the track.
+    An inactive track won't output any sound</dd>
+  <dt><kbd class="option">Strict I/O</kbd></dt><dd>While in <a href="@@trackbus-signal-flow">
+    patchbayStrict I/O</a> mode, a track <em>always</em> has as many output as it
+    has inputs, regardless of the effects. When disabled, a stereo effect put on
+    a mono track will result in a stereo output for the strip.</dd>
+  <dt>Pin Connections&hellip;</dt><dd>Shows the <kbd class="menu">Pin Configuration</kbd>
+    window, that shows (and allows to modify) all the signal flows inside the track</dd>
+  <dt>Adjust Latency&hellip;</dt><dd>Shows the <kbd class="menu">Track Latency</kbd>
+    dialog, that allows fine-tune the latency to the track, in samples, msec or period</dd>
+  <dt><kbd class="option">Protect Against Denormals</kbd></dt><dd>Uses a trick to
+    get rid of <em>denormals</em>, which are very small numbers the CPU can have
+    a hard time dealing with. To be used if the CPU consumption for plugins is
+    noticeably higher than expected</dd>
+  <dt>Duplicate&hellip;</dt><dd>Copies the track to a new one, optionnaly with
+    its playlist</dd>
   <dt>Remove</dt><dd>Deletes the track and its playlist</dd>
 </dl>
 
 <h2>Inputs</h2>
 
 <p>
-  The dropdown button shows the current input port(s), i.e. what's plugged to the "in" of the track. By default, each audio track is connected to the system inputs, ready for recording, as shown by the number(s). Clicking the dropdown Inputs button will allow to change the inputs, through a menu:
+  The dropdown button shows the current input port(s), i.e. what's plugged to the
+  "in" of the track. By default, each audio track is connected to the system
+  inputs, ready for recording, as shown by the number(s). Clicking the dropdown
+  Inputs button will allow to change the inputs, through a menu:
 </p>
 
 <dl>
   <dt>Disconnect</dt><dd>Disconnects everything, i.e. the track has no input</dd>
-  <dt>In <em>n</em></dt><dd>Those are the system inputs, e.g. to record from the soundcard. A mono track will have <em>In 1</em> and <em>In 2</em> separated, while a stereo track can have <em>In 1+2</em></dd>
-  <dt><em>Track n output</em></dt><dd>All the outputs of compatible tracks, e.g., a mono track can only receive a mono signal, a MIDI track can only receive MIDI signal, &hellip;</dd>
-  <dt>Add Audio Port</dt><dd>Adds an audio input to the track, i.e. a mono audio track becomes a stero one</dd>
-  <dt>Add MIDI Port</dt><dd>Adds a MIDI input to the track. Adding it to an audio track makes it a mixed Audio/MIDI track. This can be usefull e.g. to feed some plugins with a MIDI signal to control the audio, like a vocoder</dd>
-  <dt>Routing Grid</dt><dd>Shows the <a href="@@patchbay"><kbd class="menu">Routing Grid</kbd> window</a>, which allows for more complex input configuration</dd>
+  <dt>In <em>n</em></dt><dd>Those are the system inputs, e.g. to record from the
+    soundcard. A mono track will have <em>In 1</em> and <em>In 2</em> separated,
+    while a stereo track can have <em>In 1+2</em></dd>
+  <dt><em>Track n output</em></dt><dd>All the outputs of compatible tracks, e.g.,
+    a mono track can only receive a mono signal, a MIDI track can only receive MIDI
+    signal, &hellip;</dd>
+  <dt>Add Audio Port</dt><dd>Adds an audio input to the track, i.e. a mono audio
+    track becomes a stero one</dd>
+  <dt>Add MIDI Port</dt><dd>Adds a MIDI input to the track. Adding it to an audio
+    track makes it a mixed Audio/MIDI track. This can be usefull e.g. to feed some
+    plugins with a MIDI signal to control the audio, like a vocoder</dd>
+  <dt>Routing Grid</dt><dd>Shows the <a href="@@patchbay"><kbd class="menu">Routing
+    Grid</kbd> window</a>, which allows for more complex input configuration</dd>
 </dl>
 
 <p>
-  The <kbd class="menu">Routing Grid</kbd> can also be shown by right clicking the dropdown Inputs button. It allows to make the connections through a matrix, and connect things that are not listed in the menu above, or connect to multiple sources at once, reduce the number of inputs, etc&hellip;
+  The <kbd class="menu">Routing Grid</kbd> can also be shown by right clicking the
+  dropdown Inputs button. It allows to make the connections through a matrix, and
+  connect things that are not listed in the menu above, or connect to multiple
+  sources at once, reduce the number of inputs, etc&hellip;
 </p>
 
 <p>
-  On audio tracks, is a Trim knob, as on traditional consoles. It set the base input level for the track, avoiding any clipping. Notice that it trims both any input, but (when playing back), also the level of the playlist as displayed in the Editor. It makes sense as while playing, the input of the track is the playlist, on which the mixer strip acts.
+  On audio tracks, is a Trim knob, as on traditional consoles. It set the base
+  input level for the track, avoiding any clipping. Notice that it trims both any
+  input, but (when playing back), also the level of the playlist as displayed in
+  the Editor. It makes sense as while playing, the input of the track is the
+  playlist, on which the mixer strip acts.
 </p>
 
 <p>
-  On midi tracks, it is replaced by a MIDI Input button, that allows/disallows MIDI input on the track.
+  On midi tracks, it is replaced by a MIDI Input button, that allows/disallows
+  MIDI input on the track.
 </p>
 
 <h2>Polarity</h2>
 
 <p>
-  On audio tracks only, the Polarity button(s), 1 per input, allow to reverse the signal, i.e. a negative value will be positive and vice-versa. This can help deal with phasing issues.
+  On audio tracks only, the Polarity button(s), 1 per input, allow to reverse
+  the signal, i.e. a negative value will be positive and vice-versa. This can help
+  deal with phasing issues.
 </p>
 
 <h2>Processor box</h2>
 
 <p>
-  The processor box is where the effects are added. By default, one effect is always present: the Fader (see below). The effects can be added <em>pre</em>-fader and appear in brown, or <em>post</em>-fader, where they will appear in dark green. The signal flow is represented by lines, red for the MIDI and green for the audio.
+  The processor box is where the effects are added. By default, one effect is
+  always present: the Fader (see below). The effects can be added
+  <em>pre</em>-fader and appear in brown, or <em>post</em>-fader, where they will
+  appear in dark green. The signal flow is represented by lines, red for the MIDI
+  and green for the audio.
 </p>
 
 <p>
-  It is also where the <a href="@@aux-sends">Sends</a> come from, wether external or auxiliary.
+  It is also where the <a href="@@aux-sends">Sends</a> come from, wether
+  external or auxiliary.
 </p>
 
 <p>
-  To learn more about the processor box, see <a href="@@processor-box">The Processor Box</a>.
+  To learn more about the processor box, see <a href="@@processor-box">The
+  Processor Box</a>.
 </p>
 
 <h2>Panner</h2>
 
 <p>
-  The <dfn>Panner</dfn> visually displays how the sound will be distributed between the different outputs. They'll look and behave differently if the track is mono, stereo, or has multiple channels.
+  The <dfn>Panner</dfn> visually displays how the sound will be distributed
+  between the different outputs. They'll look and behave differently if the
+  track is mono, stereo, or has multiple channels.
 </p>
 
 <p>
@@ -131,37 +185,53 @@
 </p>
 
 <dl>
-  <dt><kbd class="option"></kbd>Bypass</dt><dd>When checked, the panner is grayed, and the signal is not affected by it</dd>
-  <dt>Reset</dt><dd>Resets the panner to its default settings, e.g. for a mono signal, it is centered</dd>
-  <dt>Edit&hellip;</dt><dd>Shows a <kbd class="menu">Panner</kbd> dialog, which allows for fine tuning of the panner</dd>
+  <dt><kbd class="option">Bypass</kbd></dt><dd>When checked, the panner is grayed,
+    and the signal is not affected by it</dd>
+  <dt>Reset</dt><dd>Resets the panner to its default settings, e.g. for a mono
+    signal, it is centered</dd>
+  <dt>Edit&hellip;</dt><dd>Shows a <kbd class="menu">Panner</kbd> dialog, which
+    allows for fine tuning of the panner</dd>
 </dl>
 
 <p>
-  See <a href="@@panning">Panning</a> to learn more about how to control the panner, and what kind of panners are available inside Ardour.
+  See <a href="@@panning">Panning</a> to learn more about how to control the panner,
+  and what kind of panners are available inside Ardour.
 </p>
 
 <h2>Recording options</h2>
 
 <p>
-  The most noticeable button here is the Record Enable one, with a red circle. When enabled, next time the Global record will be armed and playback started, everything that comes from the input of the track will be recorded. Right clicking a disabled record button allows to enable <kbd class="menu">Rec-Safe</kbd>, thus protecting the track against accidental recording.
+  The most noticeable button here is the Record Enable one, with a red circle.
+  When enabled, next time the Global record will be armed and playback started,
+  everything that comes from the input of the track will be recorded. Right clicking
+  a disabled record button allows to enable <kbd class="menu">Rec-Safe</kbd>,
+  thus protecting the track against accidental recording.
 </p>
 
 <p>
-  The buttons on the right, <kbd class="menu">In</kbd> and <kbd class="menu">Disk</kbd>, show what the user is listening to by lighting up, between the <em>In</em>put and the actual content of the playlist on <em>Disk</em>.
+  The buttons on the right, <kbd class="menu">In</kbd> and <kbd
+  class="menu">Disk</kbd>, show what the user is listening to by lighting up,
+  between the <em>In</em>put and the actual content of the playlist on
+  <em>Disk</em>.
 </p>
 
 <p>
-  They also allow to override the automatic switching by pressing them to lock one source or the other to be what the user is hearing.
+  They also allow to override the automatic switching by pressing them to lock
+  one source or the other to be what the user is hearing.
 </p>
 
 <h2>Mute/Solo</h2>
 
 <p>
-  These buttons allow to Mute (or silence) the track, or Solo them, shutting down the gain of the other tracks (totally by default, can be set to partially in the options). See <a href="@@muting-and-soloing">Muting and Soloing</a> for more information.
+  These buttons allow to Mute (or silence) the track, or Solo them, shutting
+  down the gain of the other tracks (totally by default, can be set to partially
+  in the options). See <a href="@@muting-and-soloing">Muting and Soloing</a> for
+  more information.
 </p>
 
 <p>
-  Notice that by default, Solo overrides Mute, i.e. if a track is both Soloed and Muted, it will play. That can be changed in the preferences.
+  Notice that by default, Solo overrides Mute, i.e. if a track is both Soloed and
+  Muted, it will play. That can be changed in the preferences.
 </p>
 
 <p>
@@ -169,36 +239,58 @@
 </p>
 
 <ul>
-  <li>Solo Isolate, as the name suggests, isolates tracks or busses from the solo system. When tracks or busses are soloed the isolated ones will not mute.</li>
-  <li>Solo Lock locks the solo into its current state (ie solo on or solo off). It will not allow the solo state to be changed until the lock is released.</li>
+  <li>Solo Isolate, as the name suggests, isolates tracks or busses from the solo
+    system. When tracks or busses are soloed the isolated ones will not mute.</li>
+  <li>Solo Lock locks the solo into its current state (ie solo on or solo off).
+    It will not allow the solo state to be changed until the lock is released.</li>
 </ul>
 
 <h2>Gain &amp; Meter</h2>
 
 <p>
-  On the right of this part is a <a href="@@metering-in-ardour">Meter</a>, displaying the level of the track's output after the fader. In can be set to display the signal at any point, see below <em>Metering Point</em>. Right clicking this meter shows a menu allowing to switch the meter type.
+  On the right of this part is a <a href="@@metering-in-ardour">Meter</a>,
+  displaying the level of the track's output after the fader. In can be set to
+  display the signal at any point, see below <em>Metering Point</em>. Right
+  clicking this meter shows a menu allowing to switch the meter type.
 </p>
 
 <p>
-  The big Gain slider on the left allows to change the gain of the track. Its default O dB value is reminded with a white horizontal line, and its precise value is shown in a text field above it, that doubles as a way to type in a numeric value.
+  The big Gain slider on the left allows to change the gain of the track. Its
+  default OdB value is reminded with a white horizontal line, and its precise
+  value is shown in a text field above it, that doubles as a way to type in a
+  numeric value.
 </p>
 
 <p>
-  The text field above the meter shows the "Peak", i.e. the mawimum value that has been reached during playback. To avoid distortion, the value should stay below O dB, and if it goes above this value, the text field will turn red. Clicking on this field will reset the Peak value (for a new measurement or a new part of the track).
+  The text field above the meter shows the "Peak", i.e. the mawimum value that has
+  been reached during playback. To avoid distortion, the value should stay below OdB,
+  and if it goes above this value, the text field will turn red. Clicking on
+  this field will reset the Peak value (for a new measurement or a new part of the
+  track).
 </p>
 
 <p class="note">
-  Notice that if any gain automation has been set and the automation state is set on "Play" (see below), then the Gain fader is driven by the automation, and not by the user. The Gain fader will turn grey to show it's inactive.
+  Notice that if any gain automation has been set and the
+  automation state is set on "Play" (see below), then the Gain fader is driven by
+  the automation, and not by the user. The Gain fader will turn grey to show it's
+  inactive.
 </p>
 
-<h2>Control master</h2>
+<h2>VCAs</h2>
 
 <p>
-  If at least one control master exists, this button will show up, allowing the user to link this track to any control master.
+  If at least one <a href="@@control-masters-mixer-strips">VCA</a> exists, this
+  button will show up, allowing the user to link this track to any control master.
 </p>
 
 <p>
-  Clicking the button lists all the available control masters, and a menu option to <kbd class="menu">Unassign all</kbd>. Notice that a track can have be a slave to as many control masters as they are in the session, hence multiplying the number of C.M. buttons. The displayed number is the number of the Control Master, not the count of C.M. linked to the track. A track with no control master assigned will show a unique button with a "<kbd class="menu">-vca-</kbd>" label instead of this number.
+  Clicking the button lists all the available control masters, and a menu option
+  to <kbd class="menu">Unassign all</kbd>. Notice that a track can have be a slave
+  to as many VCAs as they are in the session, hence multiplying the number
+  of VCA buttons. The displayed number is the number of the VCA,
+  not the count of VCAs linked to the track. A track with no VCA assigned
+  will show a unique button with a "<kbd class="menu">-vca-</kbd>" label instead
+  of this number.
 </p>
 
 <h2>Fader automation/mix group/metering point</h2>
@@ -210,22 +302,31 @@
 </p>
 
 <dl>
-  <dt>Manual</dt><dd><em>(default)</em> The playback won't use the fader automation data</dd>
+  <dt>Manual</dt><dd><em>(default)</em> The playback won't use the fader automation
+    data</dd>
   <dt>Play</dt><dd>Enables playback/use of fader automation data</dd>
-  <dt>Write</dt><dd>While the transport is rolling, all fader changes will be recorded to the fader automation lane</dd>
-  <dt>Touch</dt><dd>While the transport is rolling, touching the fader will initiate recording all fader changes until the fader is released. When the fader is not being touched, existing automation data will be played/used to control the gain level.</dd>
+  <dt>Write</dt><dd>While the transport is rolling, all fader changes will be
+    recorded to the fader automation lane</dd>
+  <dt>Touch</dt><dd>While the transport is rolling, touching the fader will initiate
+    recording all fader changes until the fader is released. When the fader is not
+    being touched, existing automation data will be played/used to control the gain
+    level.</dd>
 </dl>
 
 <h3>Mix group</h3>
 
 <p>
-  This button displays the mix group information as does the tab in the header (see above). It is convenient though, as it allows to quickly switch the track from one group to another with a drop down menu, also allowing to affect the track to a non-adjascent group (which the tab won't easily allow).
+  This button displays the mix group information as does the tab in the header
+  (see above). It is convenient though, as it allows to quickly switch the track
+  from one group to another with a drop down menu, also allowing to affect the
+  track to a non-adjascent group (which the tab won't easily allow).
 </p>
 
 <h3>Metering Point</h3>
 
 <p>
-  The metering displayed in the meter is by default is 'Post', i.e. Post fader. It can be changed with this button to Any point of the signal flow:
+  The metering displayed in the meter is by default is 'Post', i.e. Post fader.
+  It can be changed with this button to Any point of the signal flow:
 </p>
 
 <dl>
@@ -233,18 +334,23 @@
   <dt>Pre</dt><dd>Pre-fader</dd>
   <dt>Post</dt><dd>Post-fader</dd>
   <dt>Out</dt><dd>The output of the track</dd>
-  <dt>Custom</dt><dd>A <em>Meter</em> processor is added to the processor box an can be set anywhere (by dragging and dropping) to probe the signal flow at that pointat the point</dd>
+  <dt>Custom</dt><dd>A <em>Meter</em> processor is added to the processor box and
+    can be set anywhere (by dragging and dropping) to probe the signal flow at
+    that point</dd>
 </dl>
 
 <h2>Output(s)</h2>
 
 <p>
-  This button is exactly the same as the <em>Input</em> button, but applies to the <em>output</em> of the track.
+  This button is exactly the same as the <em>Input</em> button, but applies to
+  the <em>output</em> of the track.
 </p>
 
 <h2>Comments</h2>
 
 <p>
-  This buttons open up a little text editor, that can be used to add some written notes to the track, as e.g. a particular setting. The button's caption is replaced by the beginning of the text, so it can be used as a "sub" name for the track.
+  This buttons open up a little text editor, that can be used to add some
+  written notes to the track, as e.g. a particular setting. The button's caption
+  is replaced by the beginning of the text, so it can be used as a "sub" name for
+  the track.
 </p>
-
