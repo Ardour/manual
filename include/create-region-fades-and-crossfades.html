@@ -1,120 +1,133 @@
-<p>Every Region has a fade-in and fade-out. By default, the region fade
-is very short, and serves to de-click the transitions at the start and
-end of the region.  By adjusting the regions fade length, a more
-gradual transition can be accomplished.<br></p>
+<p>
+  Every Region has a fade-in and fade-out. By default, the region fade
+  is very short, and serves to de-click the transitions at the start and
+  end of the region.  By adjusting the regions fade length, a more
+  gradual transition can be accomplished.
+</p>
 
 <h2>Region Fades</h2>
-<p> <dfn>Region fades</dfn>  are possible at the beginning and end of
-all audio regions. In object mode, a grip appears at the top left and
-top right of an audio region when the cursor hovers over it. Placing
-the cursor over the top of the grip displays the region fade cursor
-tip. Click and drag the grip left or right in the timeline to
-adjust the length of the fade.<br>
+<p>
+  <dfn>Region fades</dfn>  are possible at the beginning and end of
+  all audio regions. In object mode, a grip appears at the top left and
+  top right of an audio region when the cursor hovers over it. Placing
+  the cursor over the top of the grip displays the region fade cursor
+  tip. Click and drag the grip left or right in the timeline to
+  adjust the length of the fade.
 </p>
+
 <h2>Crossfades</h2>
-<p> <dfn>Crossfades</dfn> refer to the behavior when you want to make
-a smooth transition (mix) from one audio region to another on the same
-track. Historically, this was done by splicing 2 pieces of analog
-tape together, and this concept was carried forward into digital
-editing. Each track is a sequence of sound files (regions). If
-two regions are butted against each other, there needs to be a method
-to splice them smoothly together. The crossfade allows one region
-to fade smoothly out, while the next region fades smoothly in, like 2
-pieces of tape that have been cut at and angle, and overlapped.<br>
+
+<p>
+  <dfn>Crossfades</dfn> refer to the behavior when you want to make
+  a smooth transition (mix) from one audio region to another on the same
+  track. Historically, this was done by splicing 2 pieces of analog
+  tape together, and this concept was carried forward into digital
+  editing. Each track is a sequence of sound files (regions). If
+  two regions are butted against each other, there needs to be a method
+  to splice them smoothly together. The crossfade allows one region
+  to fade smoothly out, while the next region fades smoothly in, like 2
+  pieces of tape that have been cut at and angle, and overlapped.
 </p>
-<p>But Ardour uses a more refined "layered" editing model, and
-therefore it is possible for multiple regions to be stacked on a single
-location with arbitrary overlaps between different layers. For
-this reason, crossfades must be implemented differently. We can't
-assume that a crossfade is an entitry that exists between 2 regions;
-instead each region must have its own associated crossfades at each
-end, and the topmost region must always crossfade down to the
-underlying region(s), if any.<br>
+<p>
+  But Ardour uses a more refined "layered" editing model, and
+  therefore it is possible for multiple regions to be stacked on a single
+  location with arbitrary overlaps between different layers. For
+  this reason, crossfades must be implemented differently. We can't
+  assume that a crossfade is an entitry that exists between 2 regions;
+  instead each region must have its own associated crossfades at each
+  end, and the topmost region must always crossfade down to the
+  underlying region(s), if any.
 </p>
-<p>Ardour solves this problem by putting a crossfade at the beginning
-and end of every region. The fades of the bottom-most region are
-first rendered, and then each region is rendered on top of the one
-below it, with fades at the end of each region providing a crossfade to
-the region(s) beneath it. <br>
+<p>
+  Ardour solves this problem by putting a crossfade at the beginning
+  and end of every region. The fades of the bottom-most region are
+  first rendered, and then each region is rendered on top of the one
+  below it, with fades at the end of each region providing a crossfade to
+  the region(s) beneath it.
 </p>
-<p>It is important to understand that region fades <em>are</em> crossfades. When one region has
-another region or multiple regions beneath its fade area, then you will
-hear the topmost region fade-out be mirrored as a fade-in on the
-underlying region(s). The grip for the topmost region will allow
-changing the length and type of the crossfade into the underlying
-region(s). In this way you can create a complicated series of
-crossfades, and then layer another region atop the others, and fade
-into _that_ complicated series. <em>An image here would
-probably help.</em><br>
+<p>
+  It is important to understand that region fades <em>are</em> crossfades. When one region has
+  another region or multiple regions beneath its fade area, then you will
+  hear the topmost region fade-out be mirrored as a fade-in on the
+  underlying region(s). The grip for the topmost region will allow
+  changing the length and type of the crossfade into the underlying
+  region(s). In this way you can create a complicated series of
+  crossfades, and then layer another region atop the others, and fade
+  into a complicated series.
 </p>
-<p>If a region doesn't have any region(s) under it, then the region is
-crossfaded to silence; for convenience we call this a "fade"
-rather than a crossfade.<br>
+<p>
+  If a region doesn't have any region(s) under it, then the region is
+  crossfaded to silence; for convenience we call this a "fade"
+  rather than a crossfade.
 </p>
-<h2>Fade Shapes<br>
-</h2>
-<p>To activate/deactivate or change the shape of a region's fadein or
-fade-out, hover the cursor over the regionfade grip till the cursor tip
-indicates region fade editing and context-click to bring up a context
-menu. In the context menu there is a list of options for the
-regionfade. <kbd class="menu">Activate/Deactivate</kbd> enables and
-disables the regionfade.<br>
+
+<h2>Fade Shapes</h2>
+
+<p>
+  To activate/deactivate or change the shape of a region's fadein or
+  fade-out, hover the cursor over the regionfade grip till the cursor tip
+  indicates region fade editing and context-click to bring up a context
+  menu. In the context menu there is a list of options for the
+  regionfade. <kbd class="menu">Activate/Deactivate</kbd> enables and
+  disables the regionfade.
 </p>
-<p>Because each fade is also a crossfade, it has an inverse fade shape
-for the audio beneath the fade. It is important to know how the
-shapes differ, and which are most suitable for various editing tasks.<br>
+<p>
+  Because each fade is also a crossfade, it has an inverse fade shape
+  for the audio beneath the fade. It is important to know how the
+  shapes differ, and which are most suitable for various editing tasks.
 </p>
-<p>The different types of fades are:<br>
+<p>
+  The different types of fades are:
 </p>
-<ul>
-  <li><kbd class="menu">Linear</kbd>: A simple linear coefficient decrease, and its
+<dl>
+  <dt><kbd class="menu">Linear</kbd></dt><dd>A simple linear coefficient decrease, and its
 mathematical inverse. A Linear fade starts attentuating quickly
 and then cuts off even more abruptly at lower levels. When used
 as a crossfade, the signals are each -6dB attenuated at the midpoint.
 This is the correct crossfade to use with highly-correlated signals for
-a smooth transition.<br>
-  </li>
-  <li><kbd class="menu">Constant Power</kbd>: The constant power curve starts fading
+a smooth transition.</dd>
+  <dt><kbd class="menu">Constant Power</kbd></dt><dd>The constant power curve starts fading
 slowly and then cuts off abruptly. When used as a crossfade
 between 2 audio regions, the signals are symetrically attenuated, and
 they each reach -3dB at the midpoint. This is the correct crossfade to
-use when you want to splice audio in the general ( uncorrelated ) case.<br>
-  </li>
-  <li><kbd class="menu">Symmetric</kbd>: The Symmetric fade starts slowly, then
+use when you want to splice audio in the general ( uncorrelated ) case.</dd>
+  <dt><kbd class="menu">Symmetric</kbd></dt><dd>The Symmetric fade starts slowly, then
 attenuates significantly before transitioning to a slower fade-out near
 the end of the fade. When used as a crossfade, the Symmetric
 curve is not mathematically correct like the Equal Power or Linear
 curves, but it provides a slower fade-out at low volumes. This is
 sometimes useful when editing 2 entire music works together so that the
-transition is more gradual.<br>
-  </li>
-  <li><kbd class="menu">Fast</kbd>: The Fast curve is a linear decibel fade; It sounds
+transition is more gradual.</dd>
+  <dt><kbd class="menu">Fast</kbd></dt><dd>The Fast curve is a linear decibel fade; It sounds
 like a perfectly smooth fader or knob moved to silence. This shape is
 excellent as a general-purpose fade-in. When used as a
 crossfade, the inverse fade curve maintains constant power but is
 therefore non-symmetric; so its use is limited to those cases where the
-user finds it appropriate.</li>
-  <li><kbd class="menu">Slow</kbd>: The Slow curve is a modified linear decibel fade.
+user finds it appropriate.</dd>
+  <dt><kbd class="menu">Slow</kbd></dt><dd>The Slow curve is a modified linear decibel fade.
 The initial curve starts more gradually so that it has a less
 abrupt transition near unity. After that, it sounds like a
 perfectly smooth fader or knob moved to silence. This shape is excellent as
 a general-purpose fade-out. When used as a crossfade, the
 inverse fade curve maintains constant power but is therefore
 non-symmetric; so its use is limited to those cases where the user
-finds it appropriate.<br>
-  </li>
-</ul>
-<p>Although these fade shapes serve specific purposes, you might find that
-any of the shapes is usable in your situation. The final decision
-is an artistic choice rather than a <br></p>
-<br>
-<p>These fade curves are developed to provide a range of common uses, and
-are developed with the least possible amount of changes in the "slope"
-of the line. This provides artifact-free crossfades. Some
-DAWs provide complicated fade editors with parametric "spline" controls
-of the fade curves. While it might be interesting to develop a
-fade curve with a faster cutoff, the mathematical difference between
-this and simply shortening the fade is vanishingly small; and the
-amount of effort to shorten the fade is much easier than messing with a
-crossfade editor dialog.<br></p>
+finds it appropriate.</dd>
+</dl>
 
+<p>
+  Although these fade shapes serve specific purposes, you might find that
+  any of the shapes is usable in your situation. The final decision
+  is mostly an artistic choice.
+</p>
+
+<p>
+  These fade curves are developed to provide a range of common uses, and
+  are developed with the least possible amount of changes in the "slope"
+  of the line. This provides artifact-free crossfades. Some
+  DAWs provide complicated fade editors with parametric "spline" controls
+  of the fade curves. While it might be interesting to develop a
+  fade curve with a faster cutoff, the mathematical difference between
+  this and simply shortening the fade is vanishingly small; and the
+  amount of effort to shorten the fade is much easier than messing with a
+  crossfade editor dialog.
+</p>
