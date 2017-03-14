@@ -66,7 +66,8 @@
 #content p,
 #content li,
 #content dt,
-#content dd {
+#content dd,
+#content table {
   font-size: 16px;
   line-height: 28px;
 }
@@ -124,10 +125,9 @@
   border-bottom: 1px solid #eee;
 }
 
-
 #content h4 {
   font-size: 18px;
- margin: 20px 0 10px 0;
+  margin: 20px 0 10px 0;
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
 }
@@ -137,6 +137,59 @@
   color: #555;
 }
 
+#content table.dl, table.nodl {
+  width:100%;
+  margin: 1em 0;
+  padding: 0;
+  font-weight: normal;
+  text-align: left;
+}
+
+#content table.dl tr, table.nodl tr {
+  border-bottom: 2px solid #eeeeee;
+  background-color: white;
+}
+
+#content table.dl tr:nth-child(odd), table.nodl tr:nth-child(odd){
+  background-color: white;
+}
+
+#content table.dl tr:nth-child(even), table.nodl tr:nth-child(even){
+  background-color: #F2F9FF;
+}
+
+#content table.dl thead, table.nodl thead {
+  font-weight:bold;
+}
+
+#content table.dl th, table.nodl th {
+  margin: 0;
+  padding: 5px;
+  font-weight: normal;
+}
+
+#content table.dl td, table.nodl td {
+  margin: 0;
+  padding: 5px;
+}
+
+#content table.dl th.sub1, table.nodl th.sub1 {
+    padding-left: 2em;
+}
+
+#content table.dl th.sub2, table.nodl th.sub2 {
+    padding-left: 4em;
+}
+
+#content table.dl th {
+  min-width: 20%;
+}
+
+#content table.dl td {
+  width: 100%; /*maximizes the width of the 2nd column */
+}
+
+
 #content dl
 {
     float:none;
@@ -144,6 +197,7 @@
     width:100%;
     margin: 1em 0;
     padding: 0;
+    display:inline-block;
 }
 
 #content dl:after {
@@ -395,7 +449,7 @@ kbd.osc {
     border:none;
     background: rgb(208, 208, 243);
     font-stretch:extra-condensed;
-    white-space:normal;
+    white-space: nowrap;
     text-align:left;
 }
 
@@ -657,12 +711,6 @@ samp:after {
 #subchapter { padding-left: 4em; }
 #section { padding-left: 6em; }
 #subsection { padding-left: 8em; }
-
-#content table.alternate{	border-collapse:collapse; }
-.alternate td{ padding:7px; border:#4e95f4 1px solid; }
-.alternate tr{ background: #b8d1f3; }
-.alternate tr:nth-child(odd){ background: #b8d1f3; }
-.alternate tr:nth-child(even){ background: #dae5f4; }
 
 .container { position:relative; border: none;}
 .hoverimg { position: absolute; border: none;  }

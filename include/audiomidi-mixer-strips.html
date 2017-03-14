@@ -69,34 +69,34 @@
   Clicking the Track name button will bring up a menu:
 </p>
 
-<dl>
-  <dt>Color&hellip;</dt><dd>Changes the strip/track color</dd>
-  <dt>Comments&hellip;</dt><dd>Shows an editor to put comments about the track,
-    see below the Comments button</dd>
-  <dt>Inputs&hellip;</dt><dd>Shows the Routing grid for the inputs of the track</dd>
-  <dt>Outputs&hellip;</dt><dd>Shows the Routing grid for the outputs of the track</dd>
-  <dt>Save As Template&hellip;</dt><dd>Allows to save the track without its media
-    content (I/O, effects,&hellip;) for later reuse</dd>
-  <dt>Rename&hellip;</dt><dd>Changes the name of the track (effective both in the
-    Mixer and the Editor)</dd>
-  <dt><kbd class="option">Active</kbd></dt><dd>Select the active status of the track.
-    An inactive track won't output any sound</dd>
-  <dt><kbd class="option">Strict I/O</kbd></dt><dd>While in <a href="@@trackbus-signal-flow">
+<table class="dl">
+  <tr><th>Color&hellip;</th><td>Changes the strip/track color</td></tr>
+  <tr><th>Comments&hellip;</th><td>Shows an editor to put comments about the track,
+    see below the Comments button</td></tr>
+  <tr><th>Inputs&hellip;</th><td>Shows the Routing grid for the inputs of the track</td></tr>
+  <tr><th>Outputs&hellip;</th><td>Shows the Routing grid for the outputs of the track</td></tr>
+  <tr><th>Save As Template&hellip;</th><td>Allows to save the track without its media
+    content (I/O, effects,&hellip;) for later reuse</td></tr>
+  <tr><th>Rename&hellip;</th><td>Changes the name of the track (effective both in the
+    Mixer and the Editor)</td></tr>
+  <tr><th><kbd class="option">Active</kbd></th><td>Select the active status of the track.
+    An inactive track won't output any sound</td></tr>
+  <tr><th><kbd class="option">Strict I/O</kbd></th><td>While in <a href="@@trackbus-signal-flow">
     patchbayStrict I/O</a> mode, a track <em>always</em> has as many output as it
     has inputs, regardless of the effects. When disabled, a stereo effect put on
-    a mono track will result in a stereo output for the strip.</dd>
-  <dt>Pin Connections&hellip;</dt><dd>Shows the <kbd class="menu">Pin Configuration</kbd>
-    window, that shows (and allows to modify) all the signal flows inside the track</dd>
-  <dt>Adjust Latency&hellip;</dt><dd>Shows the <kbd class="menu">Track Latency</kbd>
-    dialog, that allows fine-tune the latency to the track, in samples, msec or period</dd>
-  <dt><kbd class="option">Protect Against Denormals</kbd></dt><dd>Uses a trick to
+    a mono track will result in a stereo output for the strip.</td></tr>
+  <tr><th>Pin Connections&hellip;</th><td>Shows the <kbd class="menu">Pin Configuration</kbd>
+    window, that shows (and allows to modify) all the signal flows inside the track</td></tr>
+  <tr><th>Adjust Latency&hellip;</th><td>Shows the <kbd class="menu">Track Latency</kbd>
+    dialog, that allows fine-tune the latency to the track, in samples, msec or period</td></tr>
+  <tr><th><kbd class="option">Protect Against Denormals</kbd></th><td>Uses a trick to
     get rid of <em>denormals</em>, which are very small numbers the CPU can have
     a hard time dealing with. To be used if the CPU consumption for plugins is
-    noticeably higher than expected</dd>
-  <dt>Duplicate&hellip;</dt><dd>Copies the track to a new one, optionnaly with
-    its playlist</dd>
-  <dt>Remove</dt><dd>Deletes the track and its playlist</dd>
-</dl>
+    noticeably higher than expected</td></tr>
+  <tr><th>Duplicate&hellip;</th><td>Copies the track to a new one, optionnaly with
+    its playlist</td></tr>
+  <tr><th>Remove</th><td>Deletes the track and its playlist</td></tr>
+</table>
 
 <h2>Inputs</h2>
 
@@ -107,22 +107,22 @@
   Inputs button will allow to change the inputs, through a menu:
 </p>
 
-<dl>
-  <dt>Disconnect</dt><dd>Disconnects everything, i.e. the track has no input</dd>
-  <dt>In <em>n</em></dt><dd>Those are the system inputs, e.g. to record from the
+<table class="dl">
+  <tr><th>Disconnect</th><td>Disconnects everything, i.e. the track has no input</td></tr>
+  <tr><th>In <em>n</em></th><td>Those are the system inputs, e.g. to record from the
     soundcard. A mono track will have <em>In 1</em> and <em>In 2</em> separated,
-    while a stereo track can have <em>In 1+2</em></dd>
-  <dt><em>Track n output</em></dt><dd>All the outputs of compatible tracks, e.g.,
+    while a stereo track can have <em>In 1+2</em></td></tr>
+  <tr><th><em>Track n output</em></th><td>All the outputs of compatible tracks, e.g.,
     a mono track can only receive a mono signal, a MIDI track can only receive MIDI
-    signal, &hellip;</dd>
-  <dt>Add Audio Port</dt><dd>Adds an audio input to the track, i.e. a mono audio
-    track becomes a stero one</dd>
-  <dt>Add MIDI Port</dt><dd>Adds a MIDI input to the track. Adding it to an audio
+    signal, &hellip;</td></tr>
+  <tr><th>Add Audio Port</th><td>Adds an audio input to the track, i.e. a mono audio
+    track becomes a stero one</td></tr>
+  <tr><th>Add MIDI Port</th><td>Adds a MIDI input to the track. Adding it to an audio
     track makes it a mixed Audio/MIDI track. This can be usefull e.g. to feed some
-    plugins with a MIDI signal to control the audio, like a vocoder</dd>
-  <dt>Routing Grid</dt><dd>Shows the <a href="@@patchbay"><kbd class="menu">Routing
-    Grid</kbd> window</a>, which allows for more complex input configuration</dd>
-</dl>
+    plugins with a MIDI signal to control the audio, like a vocoder</td></tr>
+  <tr><th>Routing Grid</th><td>Shows the <a href="@@patchbay"><kbd class="menu">Routing
+    Grid</kbd> window</a>, which allows for more complex input configuration</td></tr>
+</table>
 
 <p>
   The <kbd class="menu">Routing Grid</kbd> can also be shown by right clicking the
@@ -184,14 +184,14 @@
     Right clicking the Panner will show a menu:
 </p>
 
-<dl>
-  <dt><kbd class="option">Bypass</kbd></dt><dd>When checked, the panner is grayed,
-    and the signal is not affected by it</dd>
-  <dt>Reset</dt><dd>Resets the panner to its default settings, e.g. for a mono
-    signal, it is centered</dd>
-  <dt>Edit&hellip;</dt><dd>Shows a <kbd class="menu">Panner</kbd> dialog, which
-    allows for fine tuning of the panner</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="option">Bypass</kbd></th><td>When checked, the panner is grayed,
+    and the signal is not affected by it</td></tr>
+  <tr><th>Reset</th><td>Resets the panner to its default settings, e.g. for a mono
+    signal, it is centered</td></tr>
+  <tr><th>Edit&hellip;</th><td>Shows a <kbd class="menu">Panner</kbd> dialog, which
+    allows for fine tuning of the panner</td></tr>
+</table>
 
 <p>
   See <a href="@@panning">Panning</a> to learn more about how to control the panner,
@@ -301,17 +301,17 @@
   This button allows to choose the mode used regarding automation:
 </p>
 
-<dl>
-  <dt>Manual</dt><dd><em>(default)</em> The playback won't use the fader automation
-    data</dd>
-  <dt>Play</dt><dd>Enables playback/use of fader automation data</dd>
-  <dt>Write</dt><dd>While the transport is rolling, all fader changes will be
-    recorded to the fader automation lane</dd>
-  <dt>Touch</dt><dd>While the transport is rolling, touching the fader will initiate
+<table class="dl">
+  <tr><th>Manual</th><td><em>(default)</em> The playback won't use the fader automation
+    data</td></tr>
+  <tr><th>Play</th><td>Enables playback/use of fader automation data</td></tr>
+  <tr><th>Write</th><td>While the transport is rolling, all fader changes will be
+    recorded to the fader automation lane</td></tr>
+  <tr><th>Touch</th><td>While the transport is rolling, touching the fader will initiate
     recording all fader changes until the fader is released. When the fader is not
     being touched, existing automation data will be played/used to control the gain
-    level.</dd>
-</dl>
+    level.</td></tr>
+</table>
 
 <h3>Mix group</h3>
 
@@ -329,15 +329,15 @@
   It can be changed with this button to Any point of the signal flow:
 </p>
 
-<dl>
-  <dt>In</dt><dd>The input of the track</dd>
-  <dt>Pre</dt><dd>Pre-fader</dd>
-  <dt>Post</dt><dd>Post-fader</dd>
-  <dt>Out</dt><dd>The output of the track</dd>
-  <dt>Custom</dt><dd>A <em>Meter</em> processor is added to the processor box and
+<table class="dl">
+  <tr><th>In</th><td>The input of the track</td></tr>
+  <tr><th>Pre</th><td>Pre-fader</td></tr>
+  <tr><th>Post</th><td>Post-fader</td></tr>
+  <tr><th>Out</th><td>The output of the track</td></tr>
+  <tr><th>Custom</th><td>A <em>Meter</em> processor is added to the processor box and
     can be set anywhere (by dragging and dropping) to probe the signal flow at
-    that point</dd>
-</dl>
+    that point</td></tr>
+</table>
 
 <h2>Output(s)</h2>
 

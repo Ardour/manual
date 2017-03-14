@@ -9,29 +9,29 @@
 <p>
   Any of these actions will open the Add Track/Bus/VCA dialog.
 </p>
-<dl>
-  <dt>Add</dt>
-  <dd>Here you can select the number of tracks, busses or VCAs you wish to create, and
-  their <a href="@@track-types">types</a>.</dd>
-  <dt>Name</dt>
-  <dd>Defines the name of the new track(s). If multiple tracks are created, or if a track with the same name already exists, a space and number will be happened at the end (e.g.: Audio 1, Audio 2&hellip;)</dd>
-  <dt>Configuration</dt>
-  <dd>This menu lets you choose from a number of route templates, which determine the number of input ports and optionally contain plugins and other mixer strip configuration. The most common choices here are <em>mono</em> and <em>stereo</em>.</dd>
-  <dt>Record mode</dt>
-  <dd>This option is only available for audio tracks and affects how it behaves when recording. See <a href="@@track-types#trackmodes">Track Modes</a> for details.</dd>
-  <dt>Instrument</dt>
-  <dd>This option is only available for MIDI tracks and busses and lets you select a
-  default instrument from the list of available plugins.</dd>
-  <dt>Group</dt>
-  <dd>Tracks and busses can be assigned groups so that a selected range of
+<table class="dl">
+  <tr><th>Add</th>
+  <td>Here you can select the number of tracks, busses or VCAs you wish to create, and
+  their <a href="@@track-types">types</a>.</td></tr>
+  <tr><th>Name</th>
+  <td>Defines the name of the new track(s). If multiple tracks are created, or if a track with the same name already exists, a space and number will be happened at the end (e.g.: Audio 1, Audio 2&hellip;)</td></tr>
+  <tr><th>Configuration</th>
+  <td>This menu lets you choose from a number of route templates, which determine the number of input ports and optionally contain plugins and other mixer strip configuration. The most common choices here are <em>mono</em> and <em>stereo</em>.</td></tr>
+  <tr><th>Record mode</th>
+  <td>This option is only available for audio tracks and affects how it behaves when recording. See <a href="@@track-types#trackmodes">Track Modes</a> for details.</td></tr>
+  <tr><th>Instrument</th>
+  <td>This option is only available for MIDI tracks and busses and lets you select a
+  default instrument from the list of available plugins.</td></tr>
+  <tr><th>Group</th>
+  <td>Tracks and busses can be assigned groups so that a selected range of
   operations are applied to all members of a group at the same time (selecting
   record enable, or editing, for example). This option lets you assign to an
-  existing group, or create a new group.</dd>
-  <dt>Insert</dt>
-  <dd>Defines where in the track list is the track created. The default is <em>Last</em>, i.e. after all the tracks and busses, and can also be <em>First</em>, <em>Before Selection</em> (to place it just above the selected track) or <em>After selection</em>.</dd>
-  <dt>Output Ports</dt>
-  <dd>Defines how the number of output responds to adding a plugin with a different number of outputs than the track itself. in <em>Strict I/O</em> mode, the track will only use a few of the plugins I/O and will keep its own number of output fixed, while in <em>lexible I/O</em> mode, it will automatically adapt to the I/O of its plugins. See <a href="@@trackbus-signal-flow">Signal flow</a> to learn more about those options.</dd>
-</dl>
+  existing group, or create a new group.</td></tr>
+  <tr><th>Insert</th>
+  <td>Defines where in the track list is the track created. The default is <em>Last</em>, i.e. after all the tracks and busses, and can also be <em>First</em>, <em>Before Selection</em> (to place it just above the selected track) or <em>After selection</em>.</td></tr>
+  <tr><th>Output Ports</th>
+  <td>Defines how the number of output responds to adding a plugin with a different number of outputs than the track itself. in <em>Strict I/O</em> mode, the track will only use a few of the plugins I/O and will keep its own number of output fixed, while in <em>lexible I/O</em> mode, it will automatically adapt to the I/O of its plugins. See <a href="@@trackbus-signal-flow">Signal flow</a> to learn more about those options.</td></tr>
+</table>
 
 <p>
   New tracks appear in both the editor and mixer windows. The editor window
@@ -47,4 +47,3 @@
   from the menu. A warning dialog will pop up, as track removal cannot be undone;
   use this option with care!
 </p>
-

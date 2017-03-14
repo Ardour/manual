@@ -17,22 +17,22 @@
   The Insert Time window not only allows to set the time inserted, but also some fine tuning options:
 </p>
 
-<dl>
-  <dt>Insert Time starting at:</dt>
-    <dd>Sets the point in the session where the time will be added. By default, it is the playhead's position</dd>
-  <dt>Time to insert:</dt>
-    <dd>Duration of the blank space inserted</dd>
-  <dt>Inserted regions should:</dt>
-    <dd>A choice as to what happens to regions that exists at the Insert Time set above. See below.</dd>
-  <dt>Apply to all the track's playlists</dt>
-    <dd>As a track can have multiple <a href="@@understanding-playlists">playlists</a>, the insertion can happen either only on the active playlist or on all the plylists of this track</dd>
-  <dt>Move glued-to-musical-time regions (MIDI regions)</dt>
-    <dd>Defines if MIDI regions in selected tracks are affected by the operation</dd>
-  <dt>Move markers</dt>
-    <dd>As a <a href="@@working-with-markers">marker</a> can be <kbd class="option">locked</kbd> or <kbd class="option">glued to bars/beats</kbd>, this option and the two subjascent ones allow to shift the time position of those markers</dd>
-  <dt>Move tempo and meter changes</dt>
-    <dd>The <a href="@@tempo-and-meter">tempo and meter</a> markers, that can be used to change the tempo along the session, can also be shifted in the process. Though, moving the tempo markers while e.g. keeping the MIDI regions unaffected can create oddities.</dd>
-</dl>
+<table class="dl">
+  <tr><th>Insert Time starting at:</th>
+    <td>Sets the point in the session where the time will be added. By default, it is the playhead's position</td></tr>
+  <tr><th>Time to insert:</th>
+    <td>Duration of the blank space inserted</td></tr>
+  <tr><th>Inserted regions should:</th>
+    <td>A choice as to what happens to regions that exists at the Insert Time set above. See below.</td></tr>
+  <tr><th>Apply to all the track's playlists</th>
+    <td>As a track can have multiple <a href="@@understanding-playlists">playlists</a>, the insertion can happen either only on the active playlist or on all the plylists of this track</td></tr>
+  <tr><th>Move glued-to-musical-time regions (MIDI regions)</th>
+    <td>Defines if MIDI regions in selected tracks are affected by the operation</td></tr>
+  <tr><th>Move markers</th>
+    <td>As a <a href="@@working-with-markers">marker</a> can be <kbd class="option">locked</kbd> or <kbd class="option">glued to bars/beats</kbd>, this option and the two subjascent ones allow to shift the time position of those markers</td></tr>
+  <tr><th>Move tempo and meter changes</th>
+    <td>The <a href="@@tempo-and-meter">tempo and meter</a> markers, that can be used to change the tempo along the session, can also be shifted in the process. Though, moving the tempo markers while e.g. keeping the MIDI regions unaffected can create oddities.</td></tr>
+</table>
 
 <p>
   Both the two time fields have a useful context menu, that allows to copy/paste
@@ -50,11 +50,11 @@
   menu allows to choose what happens to the regions that exist at the insertion time :
 </p>
 
-<dl>
-  <dt><dfn>stay in position</dfn> <em>(default)</em></dt><dd>The crossed regions are not affected by the time insertion</dd>
-  <dt><dfn>move</dfn></dt><dd>The crossed regions are shifted in time</dd>
-  <dt><dfn>be split</dfn></dt><dd>The crossed regions are split, and the section that is after the time insertion point are shifted in time</dd>
-</dl>
+<table class="dl">
+  <tr><th><dfn>stay in position</dfn> <em>(default)</em></th><td>The crossed regions are not affected by the time insertion</td></tr>
+  <tr><th><dfn>move</dfn></th><td>The crossed regions are shifted in time</td></tr>
+  <tr><th><dfn>be split</dfn></th><td>The crossed regions are split, and the section that is after the time insertion point are shifted in time</td></tr>
+</table>
 
 <p>
   This last mode allows a <em>brute force</em> insertion, creating a blank space

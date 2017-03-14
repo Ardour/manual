@@ -2,18 +2,18 @@
 The right approach for using MIDI on Linux depends on which version of
 JACK you use. The world divides into:
 
-<dl>
-<dt>Systems using JACK 1, versions 0.124 or later</dt>
-<dd>On these systems, just start JACK with
+<table class="dl">
+<tr><th>Systems using JACK 1, versions 0.124 or later</th>
+<td>On these systems, just start JACK with
  the <code>-X alsa_midi</code> server argument. To support legacy control
  applications, you can also use the -X seq argument to the ALSA
- backend of JACK and get the exact same results.</dd>
-<dt>All others</dt>
-<dd>Use a2jmidid to act as a bridge between ALSA MIDI and JACK. Do
+ backend of JACK and get the exact same results.</td></tr>
+<tr><th>All others</th>
+<td>Use a2jmidid to act as a bridge between ALSA MIDI and JACK. Do
   not use the -X seq or -X raw arguments&mdash;the timing and performance
   of these options is not acceptable.
-</dd>
-</dl>
+</td></tr>
+</table>
 
 <h2>a2jmidid</h2>
 <p>

@@ -11,36 +11,36 @@
   This bar is made of (from left to right):
 </p>
 
-<dl>
-	<dt>Midi Panic</dt><dd>Immediately stops all midi output.</dd>
-	<dt>Enable/disable Audio Click</dt><dd>Toggles (on/off) a click track (metronome)
+<table class="dl">
+	<tr><th>Midi Panic</th><td>Immediately stops all midi output.</td></tr>
+	<tr><th>Enable/disable Audio Click</th><td>Toggles (on/off) a click track (metronome)
     along the <a href="@@tempo-and-meter">tempo</a>. Right clicking brings up the
     <kbd class="menu">Click</kbd> submenu from the Preferences. Scrolling with
-    the mouse wheel adjusts the gain of the click.</dd>
-	<dt>Go to Start of the Session</dt><dd>Jumps back at the beginning of the session,
-    as defined by the <a href="@@working-with-markers">start marker</a>.</dd>
-	<dt>Go to End of the Session</dt><dd>Jumps forward to the end of the session,
-    as defined by the <a href="@@working-with-markers">end marker</a>.</dd>
-	<dt>Play Loop Range</dt><dd>Repeats the defined <a href="@@controlling-playback">loop</a>
+    the mouse wheel adjusts the gain of the click.</td></tr>
+	<tr><th>Go to Start of the Session</th><td>Jumps back at the beginning of the session,
+    as defined by the <a href="@@working-with-markers">start marker</a>.</td></tr>
+	<tr><th>Go to End of the Session</th><td>Jumps forward to the end of the session,
+    as defined by the <a href="@@working-with-markers">end marker</a>.</td></tr>
+	<tr><th>Play Loop Range</th><td>Repeats the defined <a href="@@controlling-playback">loop</a>
      as defined by the <a href="@@the-loop-range">Loop range</a>, until the "Stop
      playback" button is pressed. Clicking the "Play loop Range" button while
      already active switches to normal Play mode, which exits the loop without
-     stopping and restarting playback.</dd>
-	<dt>Play Range/Selection</dt><dd>If a range has been defined using the Range
+     stopping and restarting playback.</td></tr>
+	<tr><th>Play Range/Selection</th><td>If a range has been defined using the Range
     Mode button, plays the range, of if an audio or MIDI region is selected,
     plays this region. In both cases, the playback stops at the end of the range
-    or selected region.</dd>
-	<dt>Play from playhead</dt><dd>Starts the playback and optionally record (more
-    below).</dd>
-	<dt>Stop</dt><dd>Whatever the playing mode (loop, range, &hellip;) stops all
+    or selected region.</td></tr>
+	<tr><th>Play from playhead</th><td>Starts the playback and optionally record (more
+    below).</td></tr>
+	<tr><th>Stop</th><td>Whatever the playing mode (loop, range, &hellip;) stops all
     playback. Depending on other settings, some effects (like chorus or reverb)
-    might still be audible for a while.</dd>
-	<dt>Toggle Record</dt><dd>Global switch button to activate/deactivate recording.
+    might still be audible for a while.</td></tr>
+	<tr><th>Toggle Record</th><td>Global switch button to activate/deactivate recording.
     While active, the button blinks red. The button doesn't start recording by
     itself: if one or more tracks are marked as record-enabled, pressing the
     "Play from Playhead" starts recording on those tracks. See
-    <a href="@@record-setup">Recording</a>.</dd>
-</dl>
+    <a href="@@record-setup">Recording</a>.</td></tr>
+</table>
 
 <p class="note">
   All these actions are bound to keyboard shortcuts, which allows for speedier
@@ -89,17 +89,16 @@
   shows both the default bindings and internal command names for some of them.
 </p>
 
-<dl class="wide-table">
-  <dt><kbd>Space</kbd></dt><dd>switch between playback and stop.</dd>
-  <dt><kbd>Home</kbd></dt><dd>Move playhead to session start marker</dd>
-  <dt><kbd>End</kbd></dt><dd>Move playhead to session end marker</dd>
-  <dt><kbd>&rarr;</kbd></dt><dd>Playhead to next region boundary</dd>
-  <dt><kbd>&larr;</kbd></dt><dd>Playhead to previous region boundary</dd>
-  <dt><kbd>0</kbd></dt><dd>Move playhead to start of the timeline</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd>Space</kbd></th><td>switch between playback and stop.</td></tr>
+  <tr><th><kbd>Home</kbd></th><td>Move playhead to session start marker</td></tr>
+  <tr><th><kbd>End</kbd></th><td>Move playhead to session end marker</td></tr>
+  <tr><th><kbd>&rarr;</kbd></th><td>Playhead to next region boundary</td></tr>
+  <tr><th><kbd>&larr;</kbd></th><td>Playhead to previous region boundary</td></tr>
+  <tr><th><kbd>0</kbd></th><td>Move playhead to start of the timeline</td></tr>
+</table>
 
 <p>
   Go to the <kdb class="menu">Transport</kbd> and <kdb class="menu">Transport &gt;
     Playhead</kbd> to find more.
 </p>
-

@@ -19,21 +19,21 @@
   &gt; <em>Name_Of_The_Region</em> &gt; Edit &gt; Strip Silence</kbd>is made of:
 </p>
 
-<dl>
-  <dt><dfn>Threshold</dfn></dt>
-    <dd>The audio level under which the audio is considered silent (in <abbr
-    title="Decibels relative to Full Scale">dBFS</abbr>)</dd>
-  <dt><dfn>Minimum length</dfn></dt>
-    <dd>A minimum number of samples for Ardour to create a split. Under this
-      number, the region won't be sliced</dd>
-  <dt><dfn>Fade length</dfn></dt>
-    <dd>Ardour adds fades, both in and out, to the trimmed regions, to the created
+<table class="dl">
+  <tr><th><dfn>Threshold</dfn></th>
+    <td>The audio level under which the audio is considered silent (in <abbr
+    title="Decibels relative to Full Scale">dBFS</abbr>)</td></tr>
+  <tr><th><dfn>Minimum length</dfn></th>
+    <td>A minimum number of samples for Ardour to create a split. Under this
+      number, the region won't be sliced</td></tr>
+  <tr><th><dfn>Fade length</dfn></th>
+    <td>Ardour adds fades, both in and out, to the trimmed regions, to the created
       region (so the sliced regions are longer by both the in and out fades duration,
-      expressed in samples)</dd>
-  <dt>A progress bar</dt>
-    <dd>showing the time Ardour takes to compute the trimming based on the current
-      parameters</dd>
-</dl>
+      expressed in samples)</td></tr>
+  <tr><th>A progress bar</th>
+    <td>showing the time Ardour takes to compute the trimming based on the current
+      parameters</td></tr>
+</table>
 
 <p>
   Changing any parameter in the window is reflected in the main editor: the silent

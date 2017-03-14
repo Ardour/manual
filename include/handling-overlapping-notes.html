@@ -15,20 +15,20 @@
   Options</kbd>.
 </p>
 
-<dl class="wide-table">
-  <dt>never allow them</dt>
-  <dd>Edits that would create note overlaps are not allowed</dd>
-  <dt>don't do anything in particular</dt>
-  <dd>Ardour leaves overlapping notes alone&mdash;the behaviour of a MIDI receiver (plugin or hardware) is undefined</dd>
-  <dt>replace any overlapped existing note</dt>
-  <dd>When one note is moved to overlap another, remove the one that wasn't being moved</dd>
-  <dt>shorten the overlapped existing note</dt>
-  <dd>When one note is moved to overlap another, shorten the one that wasn't moved so that there is no overlap</dd>
-  <dt>shorten the overlapping new note</dt>
-  <dd>When one note is moved to overlap another, shorten the one that was moved so that there is no overlap</dd>
-  <dt>replace both overlapping notes with a single note</dt>
-  <dd>When one note is moved to overlap another, merge them both to form one (longer) note</dd>
-</dl>
+<table class="dl">
+  <tr><th>never allow them</th>
+  <td>Edits that would create note overlaps are not allowed</td></tr>
+  <tr><th>don't do anything in particular</th>
+  <td>Ardour leaves overlapping notes alone&mdash;the behaviour of a MIDI receiver (plugin or hardware) is undefined</td></tr>
+  <tr><th>replace any overlapped existing note</th>
+  <td>When one note is moved to overlap another, remove the one that wasn't being moved</td></tr>
+  <tr><th>shorten the overlapped existing note</th>
+  <td>When one note is moved to overlap another, shorten the one that wasn't moved so that there is no overlap</td></tr>
+  <tr><th>shorten the overlapping new note</th>
+  <td>When one note is moved to overlap another, shorten the one that was moved so that there is no overlap</td></tr>
+  <tr><th>replace both overlapping notes with a single note</th>
+  <td>When one note is moved to overlap another, merge them both to form one (longer) note</td></tr>
+</table>
 <p>
   Changing the option in use will not retroactively make changes&mdash;it will
   only affect new note overlaps created while the option remains chosen.

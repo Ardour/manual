@@ -53,56 +53,56 @@
 	most surfaces used for this will only be able to handle one parameter.
 </p>
 <h4>Commands</h4>
-<dl>
-  <dt><kbd class="osc">/cue/connect</kbd></dt>
-  <dd>Returns a list of aux busses.</dd>
-  <dt><kbd class="osc">/cue/aux <em>aux-number</em></kbd></dt>
-  <dd>where <em>aux-number</em> is an integer which is the aux bus
-  number this surface will use.</dd>
-  <dt><kbd class="osc">/cue/next_aux</kbd></dt>
-  <dd>Sets the the aux bus to one bus higher.</dd>
-  <dt><kbd class="osc">/cue/previous_aux</kbd></dt>
-  <dd>Sets the aux to one bus lower.</dd>
-  <dt><kbd class="osc">/cue/connect</kbd></dt>
-  <dd>Returns a list of aux busses.</dd>
-  <dt><kbd class="osc">/cue/fader <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is a float for the position of the fader
-  between 0.0 and 1.0.</dd>
-  <dt><kbd class="osc">/cue/mute <em>state</em></kbd></dt>
-  <dd>where <em>state</em> is a float of 0.0 for mute off and 1.0 for mute on.</dd>
-  <dt><kbd class="osc">/cue/send/fader/<em>id</em> <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is a float for the position of the fader
-  between 0.0 and 1.0.</dd>
-  <dt><kbd class="osc">/cue/send/enable/<em>id</em> <em>state</em></kbd></dt>
-  <dd>where <em>state</em> is a float of 0.0 for disable and 1.0 for enable.</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/cue/connect</kbd></th>
+  <td>Returns a list of aux busses.</td></tr>
+  <tr><th><kbd class="osc">/cue/aux <em>aux-number</em></kbd></th>
+  <td>where <em>aux-number</em> is an integer which is the aux bus
+  number this surface will use.</td></tr>
+  <tr><th><kbd class="osc">/cue/next_aux</kbd></th>
+  <td>Sets the the aux bus to one bus higher.</td></tr>
+  <tr><th><kbd class="osc">/cue/previous_aux</kbd></th>
+  <td>Sets the aux to one bus lower.</td></tr>
+  <tr><th><kbd class="osc">/cue/connect</kbd></th>
+  <td>Returns a list of aux busses.</td></tr>
+  <tr><th><kbd class="osc">/cue/fader <em>position</em></kbd></th>
+  <td>where <em>position</em> is a float for the position of the fader
+  between 0.0 and 1.0.</td></tr>
+  <tr><th><kbd class="osc">/cue/mute <em>state</em></kbd></th>
+  <td>where <em>state</em> is a float of 0.0 for mute off and 1.0 for mute on.</td></tr>
+  <tr><th><kbd class="osc">/cue/send/fader/<em>id</em> <em>position</em></kbd></th>
+  <td>where <em>position</em> is a float for the position of the fader
+  between 0.0 and 1.0.</td></tr>
+  <tr><th><kbd class="osc">/cue/send/enable/<em>id</em> <em>state</em></kbd></th>
+  <td>where <em>state</em> is a float of 0.0 for disable and 1.0 for enable.</td></tr>
+</table>
 <h4>Feedback</h4>
-<dl>
-  <dt><kbd class="osc">/cue/name <em>name</em></kbd></dt>
-  <dd>where <em>name</em> is a string that is the name of the currently
-  selected aux bus.</dd>
-  <dt><kbd class="osc">/cue/name/<em>id</em> <em>name</em></kbd></dt>
-  <dd>where <em>name</em> is a string that is the name of the aux bus
-  that <em>id</em> belongs to.</dd>
-  <dt><kbd class="osc">/cue/fader <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is a float from 0.0 to 1.0 that shows the
-  fader position for the selected aux bus.</dd>
-  <dt><kbd class="osc">/cue/mute <em>state</em></kbd></dt>
-  <dd>where <em>state</em> is a float of 0.0 or 1.0 that shows the state
-  of the mute for the selected aux bus.</dd>
-  <dt><kbd class="osc">/cue/signal <em>activity</em></kbd></dt>
-  <dd>where <em>activity</em> is a float of 0.0 or 1.0 that shows audio
-  activity for the selected aux bus.</dd>
-  <dt><kbd class="osc">/cue/send/name/<em>id</em> <em>name</em></kbd></dt>
-  <dd>where <em>name</em> is a string that is the name of the channel
-  that send <em>id</em> belongs to.</dd>
-  <dt><kbd class="osc">/cue/send/fader/<em>id</em> <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is a float from 0.0 to 1.0 that is the position
-  for the fader for the send that <em>id</em> belongs to.</dd>
-  <dt><kbd class="osc">/cue/send/enable/<em>id</em> <em>state</em></kbd></dt>
-  <dd>where <em>state</em> is a float of 0.0 or 1.0 that is the state
-  of the enable for the send that <em>id</em> belongs to.</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/cue/name <em>name</em></kbd></th>
+  <td>where <em>name</em> is a string that is the name of the currently
+  selected aux bus.</td></tr>
+  <tr><th><kbd class="osc">/cue/name/<em>id</em> <em>name</em></kbd></th>
+  <td>where <em>name</em> is a string that is the name of the aux bus
+  that <em>id</em> belongs to.</td></tr>
+  <tr><th><kbd class="osc">/cue/fader <em>position</em></kbd></th>
+  <td>where <em>position</em> is a float from 0.0 to 1.0 that shows the
+  fader position for the selected aux bus.</td></tr>
+  <tr><th><kbd class="osc">/cue/mute <em>state</em></kbd></th>
+  <td>where <em>state</em> is a float of 0.0 or 1.0 that shows the state
+  of the mute for the selected aux bus.</td></tr>
+  <tr><th><kbd class="osc">/cue/signal <em>activity</em></kbd></th>
+  <td>where <em>activity</em> is a float of 0.0 or 1.0 that shows audio
+  activity for the selected aux bus.</td></tr>
+  <tr><th><kbd class="osc">/cue/send/name/<em>id</em> <em>name</em></kbd></th>
+  <td>where <em>name</em> is a string that is the name of the channel
+  that send <em>id</em> belongs to.</td></tr>
+  <tr><th><kbd class="osc">/cue/send/fader/<em>id</em> <em>position</em></kbd></th>
+  <td>where <em>position</em> is a float from 0.0 to 1.0 that is the position
+  for the fader for the send that <em>id</em> belongs to.</td></tr>
+  <tr><th><kbd class="osc">/cue/send/enable/<em>id</em> <em>state</em></kbd></th>
+  <td>where <em>state</em> is a float of 0.0 or 1.0 that is the state
+  of the enable for the send that <em>id</em> belongs to.</td></tr>
+</table>
 <p>
 	While a fader is being adjusted, the corresponding <em>/*/name</em>
 	text will give the level in db.

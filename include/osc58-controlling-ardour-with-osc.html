@@ -88,13 +88,13 @@ here</em>"/&gt;</kbd>
 <p>
   These values give the same behaviour as prior versions of Ardour. (or the closest possible)
 </p>
-<dl>
-  <dt><kbd class="osc">/set_surface <em>bank_size</em> <em>strip_types</em>
-  <em>feedback</em> <em>fadermode</em></kbd></dt>
-  <dd>
+<table class="dl">
+  <tr><th><kbd class="osc">/set_surface <em>bank_size</em> <em>strip_types</em>
+  <em>feedback</em> <em>fadermode</em></kbd></th>
+  <td>
 	  See below for an explanation of each parameter.
-  </dd>
-</dl>
+  </td></tr>
+</table>
 <h3>bank_size</h3>
 <p>
   Bank Size is the number of channel strips the controller supports
@@ -187,136 +187,136 @@ here</em>"/&gt;</kbd>
 <h3>Master or Global messages</h3>
 
 <h4>Transport Control</h4>
-<dl>
-  <dt><kbd class="osc">/transport_stop</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/transport_play</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/toggle_roll</kbd></dt>
-  <dd>Toggles between play and stop</dd>
-  <dt><kbd class="osc">/set_transport_speed <em>s</em></kbd></dt>
-  <dd>where <em>s</em> is a float ranging from -8.0f to 8.0f</dd>
-  <dt><kbd class="osc">/ffwd</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/rewind</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/goto_start</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/goto_end</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/jump_bars <em>bars</em></kbd></dt>
-  <dd>Where <em>bars</em> is a float (+/-) of the number of bars to jump</dd>
-  <dt><kbd class="osc">/jump_seconds <em>seconds</em></kbd></dt>
-  <dd>Where <em>seconds</em> is a float (+/-) of the number of seconds to jump</dd>
-  <dt><kbd class="osc">/add_marker</kbd></dt>
-  <dd>(adds marker to the current transport position)</dd>
-  <dt><kbd class="osc">/remove_marker</kbd></dt>
-  <dd>Removes marker at the current transport position (if there is one)</dd>
-  <dt><kbd class="osc">/mark_in</kbd></dt>
-  <dd>Marks the begining of a range at the current transport position</dd>
-  <dt><kbd class="osc">/mark_out</kbd></dt>
-  <dd>Marks the end of a range at the current transport position</dd>
-  <dt><kbd class="osc">/next_marker</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/prev_marker</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/locate <em>spos</em> <em>roll</em></kbd></dt>
-  <dd>where <em>spos</em> is the target position in samples and
+<table class="dl">
+  <tr><th><kbd class="osc">/transport_stop</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/transport_play</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/toggle_roll</kbd></th>
+  <td>Toggles between play and stop</td></tr>
+  <tr><th><kbd class="osc">/set_transport_speed <em>s</em></kbd></th>
+  <td>where <em>s</em> is a float ranging from -8.0f to 8.0f</td></tr>
+  <tr><th><kbd class="osc">/ffwd</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/rewind</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/goto_start</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/goto_end</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/jump_bars <em>bars</em></kbd></th>
+  <td>Where <em>bars</em> is a float (+/-) of the number of bars to jump</td></tr>
+  <tr><th><kbd class="osc">/jump_seconds <em>seconds</em></kbd></th>
+  <td>Where <em>seconds</em> is a float (+/-) of the number of seconds to jump</td></tr>
+  <tr><th><kbd class="osc">/add_marker</kbd></th>
+  <td>(adds marker to the current transport position)</td></tr>
+  <tr><th><kbd class="osc">/remove_marker</kbd></th>
+  <td>Removes marker at the current transport position (if there is one)</td></tr>
+  <tr><th><kbd class="osc">/mark_in</kbd></th>
+  <td>Marks the begining of a range at the current transport position</td></tr>
+  <tr><th><kbd class="osc">/mark_out</kbd></th>
+  <td>Marks the end of a range at the current transport position</td></tr>
+  <tr><th><kbd class="osc">/next_marker</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/prev_marker</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/locate <em>spos</em> <em>roll</em></kbd></th>
+  <td>where <em>spos</em> is the target position in samples and
   <em>roll</em> is a bool/integer defining whether you want transport
-  to be kept rolling or not</dd>
-  <dt><kbd class="osc">/loop_toggle</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/loop_location <em>start</em> <em>end</em></kbd></dt>
-  <dd><em>start</em> is the beginning of a loop and <em>end</em> is the
-  end of a loop both are integer frame positions.</dd>
-  <dt><kbd class="osc">/set_loop_range</kbd></dt>
-  <dd>Uses edit range as loop range</dd>
-  <dt><kbd class="osc">/set_session_range</kbd></dt>
-  <dd>Uses edit range as session range</dd>
-  <dt><kbd class="osc">/toggle_click</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/midi_panic</kbd></dt>
-  <dd>Ardour will send an all notes off to all midi tracks</dd>
-  <dt><kbd class="osc">/cancel_all_solos</kbd></dt>
-  <dd>Cancel All Solos/PFLs/AFLs</dd>
-</dl>
+  to be kept rolling or not</td></tr>
+  <tr><th><kbd class="osc">/loop_toggle</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/loop_location <em>start</em> <em>end</em></kbd></th>
+  <td><em>start</em> is the beginning of a loop and <em>end</em> is the
+  end of a loop both are integer frame positions.</td></tr>
+  <tr><th><kbd class="osc">/set_loop_range</kbd></th>
+  <td>Uses edit range as loop range</td></tr>
+  <tr><th><kbd class="osc">/set_session_range</kbd></th>
+  <td>Uses edit range as session range</td></tr>
+  <tr><th><kbd class="osc">/toggle_click</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/midi_panic</kbd></th>
+  <td>Ardour will send an all notes off to all midi tracks</td></tr>
+  <tr><th><kbd class="osc">/cancel_all_solos</kbd></th>
+  <td>Cancel All Solos/PFLs/AFLs</td></tr>
+</table>
 
 <h4>Transport Information</h4>
-<dl>
-  <dt><kbd class="osc">/transport_frame</kbd></dt>
-  <dd>Ardour sends /transport_frame <em>current_frame</em></dd>
-  <dt><kbd class="osc">/transport_speed</kbd></dt>
-  <dd>Ardour sends /transport_speed <em>speed</em></dd>
-  <dt><kbd class="osc">/record_enabled</kbd></dt>
-  <dd>Ardour sends /record_enabled <em>recordenable_status</em></dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/transport_frame</kbd></th>
+  <td>Ardour sends /transport_frame <em>current_frame</em></td></tr>
+  <tr><th><kbd class="osc">/transport_speed</kbd></th>
+  <td>Ardour sends /transport_speed <em>speed</em></td></tr>
+  <tr><th><kbd class="osc">/record_enabled</kbd></th>
+  <td>Ardour sends /record_enabled <em>recordenable_status</em></td></tr>
+</table>
 
 <h4>Editing-related</h4>
-<dl>
-  <dt><kbd class="osc">/undo</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/redo</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/save_state</kbd></dt>
-  <dd>(this is the regular <kbd class="menu">Session &gt; Save</kbd>
-  operation)</dd>
-  <dt><kbd class="osc">/quick_snapshot_switch</kbd></dt>
-  <dd>Take a snapshot and switch to new version</dd>
-  <dt><kbd class="osc">/quick_snapshot_stay</kbd></dt>
-  <dd>Take a snapshot and keep working on this version</dd>
-  <dt><kbd class="osc">/fit_*_track(s)</kbd></dt>
-  <dd>Were <em>*</em> is one of 1, 2, 4, 8, 16, 32 or all. Fits this
-  many tracks in editor window. (add s for more than 1)</dd>
-  <dt><kbd class="osc">/zoom_*</kbd></dt>
-  <dd>Zoom editor to include <em>*</em> where <em>*</em> is 100_ms, 1_sec,
-  10_sec, 1_min, 5_min, 10_min or to_session</dd>
-  <dt><kbd class="osc">/temporal_zoom_in</kbd></dt>
-  <dd>Zoom editor in to show less time</dd>
-  <dt><kbd class="osc">/temporal_zoom_out</kbd></dt>
-  <dd>Zoom editor out to show more time</dd>
-  <dt><kbd class="osc">/scroll_up_1_track</kbd></dt>
-  <dd>Scroll the editor pane up 1 track</dd>
-  <dt><kbd class="osc">/scroll_up_1_page</kbd></dt>
-  <dd>Scroll the editor pane up 1 page</dd>
-  <dt><kbd class="osc">/scroll_dn_1_track</kbd></dt>
-  <dd>Scroll the editor pane down 1 track</dd>
-  <dt><kbd class="osc">/scroll_dn_1_page</kbd></dt>
-  <dd>Scroll the editor pane down 1 page</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/undo</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/redo</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/save_state</kbd></th>
+  <td>(this is the regular <kbd class="menu">Session &gt; Save</kbd>
+  operation)</td></tr>
+  <tr><th><kbd class="osc">/quick_snapshot_switch</kbd></th>
+  <td>Take a snapshot and switch to new version</td></tr>
+  <tr><th><kbd class="osc">/quick_snapshot_stay</kbd></th>
+  <td>Take a snapshot and keep working on this version</td></tr>
+  <tr><th><kbd class="osc">/fit_*_track(s)</kbd></th>
+  <td>Were <em>*</em> is one of 1, 2, 4, 8, 16, 32 or all. Fits this
+  many tracks in editor window. (add s for more than 1)</td></tr>
+  <tr><th><kbd class="osc">/zoom_*</kbd></th>
+  <td>Zoom editor to include <em>*</em> where <em>*</em> is 100_ms, 1_sec,
+  10_sec, 1_min, 5_min, 10_min or to_session</td></tr>
+  <tr><th><kbd class="osc">/temporal_zoom_in</kbd></th>
+  <td>Zoom editor in to show less time</td></tr>
+  <tr><th><kbd class="osc">/temporal_zoom_out</kbd></th>
+  <td>Zoom editor out to show more time</td></tr>
+  <tr><th><kbd class="osc">/scroll_up_1_track</kbd></th>
+  <td>Scroll the editor pane up 1 track</td></tr>
+  <tr><th><kbd class="osc">/scroll_up_1_page</kbd></th>
+  <td>Scroll the editor pane up 1 page</td></tr>
+  <tr><th><kbd class="osc">/scroll_dn_1_track</kbd></th>
+  <td>Scroll the editor pane down 1 track</td></tr>
+  <tr><th><kbd class="osc">/scroll_dn_1_page</kbd></th>
+  <td>Scroll the editor pane down 1 page</td></tr>
+</table>
 
 <h4>Recording control</h4>
-<dl>
-  <dt><kbd class="osc">/toggle_punch_in</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/toggle_punch_out</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/set_punch_range</kbd></dt>
-  <dd>Uses edit range as punch range</dd>
-  <dt><kbd class="osc">/rec_enable_toggle</kbd></dt>
-  <dd></dd>
-  <!--dt><kbd class="osc">/toggle_all_rec_enables</kbd></dt>
-  <dd>(toggles all tracks' recording state)</dd-->
-  <dt><kbd class="osc">/stop_forget</kbd></dt>
-  <dd>Stop transport and delete/forget last take</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/toggle_punch_in</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/toggle_punch_out</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/set_punch_range</kbd></th>
+  <td>Uses edit range as punch range</td></tr>
+  <tr><th><kbd class="osc">/rec_enable_toggle</kbd></th>
+  <td></td></tr>
+  <!--dt><kbd class="osc">/toggle_all_rec_enables</kbd></th>
+  <td>(toggles all tracks' recording state)</dd-->
+  <tr><th><kbd class="osc">/stop_forget</kbd></th>
+  <td>Stop transport and delete/forget last take</td></tr>
+</table>
 
 <h4>Master and Monitor strip control</h4>
-<dl>
-  <dt><kbd class="osc">/master/gain <em>dB</em></kbd></dt>
-  <dd>See gain in strips</dd>
-  <dt><kbd class="osc">/master/fader  <em>position</em></kbd></dt>
-  <dd>See fader in strips</dd>
-  <dt><kbd class="osc">/master/trimdB <em>dB</em></kbd></dt>
-  <dd>see trimdb in strips</dd>
-  <dt><kbd class="osc">/master/pan_stereo_position <em>position</em></kbd></dt>
-  <dd>See pan_stereo_position in strips</dd>
-  <dt><kbd class="osc">/master/mute  <em>yn</em></kbd></dt>
-  <dd>See mute in strips</dd>
-  <dt><kbd class="osc">/monitor/gain <em>dB</em></kbd></dt>
-  <dd>See gain in strips</dd>
-  <dt><kbd class="osc">/monitor/fader  <em>position</em></kbd></dt>
-  <dd>See fader in strips</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/master/gain <em>dB</em></kbd></th>
+  <td>See gain in strips</td></tr>
+  <tr><th><kbd class="osc">/master/fader  <em>position</em></kbd></th>
+  <td>See fader in strips</td></tr>
+  <tr><th><kbd class="osc">/master/trimdB <em>dB</em></kbd></th>
+  <td>see trimdb in strips</td></tr>
+  <tr><th><kbd class="osc">/master/pan_stereo_position <em>position</em></kbd></th>
+  <td>See pan_stereo_position in strips</td></tr>
+  <tr><th><kbd class="osc">/master/mute  <em>yn</em></kbd></th>
+  <td>See mute in strips</td></tr>
+  <tr><th><kbd class="osc">/monitor/gain <em>dB</em></kbd></th>
+  <td>See gain in strips</td></tr>
+  <tr><th><kbd class="osc">/monitor/fader  <em>position</em></kbd></th>
+  <td>See fader in strips</td></tr>
+</table>
 
 <h3>Track specific operations</h3>
 <p>
@@ -337,75 +337,75 @@ here</em>"/&gt;</kbd>
   below can also be sent as /strip/command/ssid param. In this case the
   param should be a float even if an int is required below.
 </p>
-<dl>
-  <dt><kbd class="osc">/bank_up </kbd></dt>
-  <dd>Change bank to the next higher bank.</dd>
-  <dt><kbd class="osc">/bank_down </kbd></dt>
-  <dd>Change bank to the next lower bank.</dd>
-  <dt><kbd class="osc">/strip/mute <em>ssid</em> <em>mute_st</em></kbd></dt>
-  <dd>where <em>mute_st</em> is a bool/int representing the desired mute state of the track</dd>
-  <dt><kbd class="osc">/strip/solo <em>ssid</em> <em>solo_st</em></kbd></dt>
-  <dd>where <em>solo_st</em> is a bool/int representing the desired solo state of the track</dd>
-  <dt><kbd class="osc">/strip/solo_iso <em>ssid</em> <em>state</em></kbd></dt>
-  <dd>where <em>state</em> is a bool/int representing the desired solo isolate state of the track</dd>
-  <dt><kbd class="osc">/strip/solo_safe <em>ssid</em> <em>state</em></kbd></dt>
-  <dd>where <em>state</em> is a bool/int representing the desired solo safe/lock state of the track</dd>
-  <dt><kbd class="osc">/strip/monitor_input <em>ssid</em> <em>monitor_st</em></kbd></dt>
-  <dd>where <em>monitor_st</em> is a bool/int where 1 is forced input monitoring.</dd>
-  <dt><kbd class="osc">/strip/monitor_disk <em>ssid</em> <em>monitor_st</em></kbd></dt>
-  <dd>where <em>monitor_st</em> is a bool/int where 1 is forced disk monitoring. When input and disk are both off,
-  Auto monitoring is enabled.</dd>
-  <dt><kbd class="osc">/strip/recenable <em>ssid</em> <em>rec_st</em></kbd></dt>
-  <dd>where <em>rec_st</em> is a bool/int representing the desired rec state of the track</dd>
-  <dt><kbd class="osc">/strip/record_safe <em>ssid</em> <em>rec_st</em></kbd></dt>
-  <dd>where <em>rec_st</em> is a bool/int representing the desired record safe state of the track</dd>
-  <dt><kbd class="osc">/strip/polarity <em>ssid</em> <em>invert</em></kbd></dt>
-  <dd>where <em>invert</em> is a bool/int representing the desired polarity of the track</dd>
-  <dt><kbd class="osc">/strip/gain <em>ssid</em>  <em>gain</em></kbd></dt>
-  <dd>where <em>gain</em> is a float ranging from -193 to 6 representing the desired gain of the track in dB.</dd>
-  <dt><kbd class="osc">/strip/fader <em>ssid</em>  <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the fader control position.</dd>
-  <dt><kbd class="osc">/strip/trimdB <em>ssid</em>  <em>trim_db</em></kbd></dt>
-  <dd>where <em>trim_db</em> is a float ranging from -20 to 20 representing the desired trim of the track in dB.</dd>
-  <dt><kbd class="osc">/strip/pan_stereo_position <em>ssid</em> <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan position of the track</dd>
-  <dt><kbd class="osc">/strip/pan_stereo_width <em>ssid</em> <em>width</em></kbd></dt>
-  <dd>where <em>width</em> is a float ranging from 0 to 1 representing the desired pan width of the track</dd>
-  <dt><kbd class="osc">/strip/send/gain <em>ssid</em> <em>sendid</em> <em>send_gain</em></kbd></dt>
-  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
-  ranging from -193 to +6 representing the desired gain in dB for the send</dd>
-  <dt><kbd class="osc">/strip/send/fader <em>ssid</em> <em>sendid</em> <em>send_gain</em></kbd></dt>
-  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
-  ranging from 0 to 1 representing the desired position for the send as a fader</dd>
-  <dt><kbd class="osc">/strip/send/enable <em>ssid</em> <em>sendid</em> <em>state</em></kbd></dt>
-  <dd>where <em>sendid</em> = nth_send, <em>state</em> is 1 for enabled and 0 for disabled</dd>
-  <dt><kbd class="osc">/strip/list </kbd></dt>
-  <dd>see: <a href="@@osc58-querying-ardour">
-  Querying Ardour with OSC.</a></dd>
-  <dt><kbd class="osc">/strip/sends <em>ssid</em></kbd></dt>
-  <dd>see: <a href="@@osc58-querying-ardour">
-  Querying Ardour with OSC.</a></dd>
-  <dt><kbd class="osc">/strip/receives <em>ssid</em></kbd></dt>
-  <dd>see: <a href="@@osc58-querying-ardour">
-  Querying Ardour with OSC.</a></dd>
-  <dt><kbd class="osc">/strip/plugin/list <em>ssid</em></kbd></dt>
-  <dd>see: <a href="@@osc58-querying-ardour">
-  Querying Ardour with OSC.</a></dd>
-  <dt><kbd class="osc">/strip/plugin/descriptor <em>ssid</em></kbd></dt>
-  <dd>see: <a href="@@osc58-querying-ardour">
-  Querying Ardour with OSC.</a></dd>
-  <dt><kbd class="osc">/strip/plugin/reset <em>ssid</em> <em>piid</em> </kbd></dt>
-  <dd>where <em>piid</em> = nth Plugin, will reset all values to the plugin's original values</dd>
-  <dt><kbd class="osc">/strip/plugin/activate <em>ssid</em> <em>piid</em> </kbd></dt>
-  <dd>where <em>piid</em> = nth Plugin, will set the plugin's state to active</dd>
-  <dt><kbd class="osc">/strip/plugin/deactivate <em>ssid</em> <em>piid</em> </kbd></dt>
-  <dd>where <em>piid</em> = nth Plugin, will set the plugin's state to inactive</dd>
-  <dt><kbd class="osc">/strip/plugin/parameter <em>ssid</em> <em>piid</em> <em>param</em> <em>value</em></kbd></dt>
-  <dd>where <em>piid</em> = nth Plugin, <em>param</em> = nth param, <em>value</em>
-  is a float ranging from 0 to 1 representing the desired parameter value</dd>
-  <dt><kbd class="osc">/strip/name <em>ssid</em> <em>name</em></kbd></dt>
-  <dd>where <em>name</em> is a string for the desired name of the track</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/bank_up </kbd></th>
+  <td>Change bank to the next higher bank.</td></tr>
+  <tr><th><kbd class="osc">/bank_down </kbd></th>
+  <td>Change bank to the next lower bank.</td></tr>
+  <tr><th><kbd class="osc">/strip/mute <em>ssid</em> <em>mute_st</em></kbd></th>
+  <td>where <em>mute_st</em> is a bool/int representing the desired mute state of the track</td></tr>
+  <tr><th><kbd class="osc">/strip/solo <em>ssid</em> <em>solo_st</em></kbd></th>
+  <td>where <em>solo_st</em> is a bool/int representing the desired solo state of the track</td></tr>
+  <tr><th><kbd class="osc">/strip/solo_iso <em>ssid</em> <em>state</em></kbd></th>
+  <td>where <em>state</em> is a bool/int representing the desired solo isolate state of the track</td></tr>
+  <tr><th><kbd class="osc">/strip/solo_safe <em>ssid</em> <em>state</em></kbd></th>
+  <td>where <em>state</em> is a bool/int representing the desired solo safe/lock state of the track</td></tr>
+  <tr><th><kbd class="osc">/strip/monitor_input <em>ssid</em> <em>monitor_st</em></kbd></th>
+  <td>where <em>monitor_st</em> is a bool/int where 1 is forced input monitoring.</td></tr>
+  <tr><th><kbd class="osc">/strip/monitor_disk <em>ssid</em> <em>monitor_st</em></kbd></th>
+  <td>where <em>monitor_st</em> is a bool/int where 1 is forced disk monitoring. When input and disk are both off,
+  Auto monitoring is enabled.</td></tr>
+  <tr><th><kbd class="osc">/strip/recenable <em>ssid</em> <em>rec_st</em></kbd></th>
+  <td>where <em>rec_st</em> is a bool/int representing the desired rec state of the track</td></tr>
+  <tr><th><kbd class="osc">/strip/record_safe <em>ssid</em> <em>rec_st</em></kbd></th>
+  <td>where <em>rec_st</em> is a bool/int representing the desired record safe state of the track</td></tr>
+  <tr><th><kbd class="osc">/strip/polarity <em>ssid</em> <em>invert</em></kbd></th>
+  <td>where <em>invert</em> is a bool/int representing the desired polarity of the track</td></tr>
+  <tr><th><kbd class="osc">/strip/gain <em>ssid</em>  <em>gain</em></kbd></th>
+  <td>where <em>gain</em> is a float ranging from -193 to 6 representing the desired gain of the track in dB.</td></tr>
+  <tr><th><kbd class="osc">/strip/fader <em>ssid</em>  <em>position</em></kbd></th>
+  <td>where <em>position</em> is a float ranging from 0 to 1 representing the fader control position.</td></tr>
+  <tr><th><kbd class="osc">/strip/trimdB <em>ssid</em>  <em>trim_db</em></kbd></th>
+  <td>where <em>trim_db</em> is a float ranging from -20 to 20 representing the desired trim of the track in dB.</td></tr>
+  <tr><th><kbd class="osc">/strip/pan_stereo_position <em>ssid</em> <em>position</em></kbd></th>
+  <td>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan position of the track</td></tr>
+  <tr><th><kbd class="osc">/strip/pan_stereo_width <em>ssid</em> <em>width</em></kbd></th>
+  <td>where <em>width</em> is a float ranging from 0 to 1 representing the desired pan width of the track</td></tr>
+  <tr><th><kbd class="osc">/strip/send/gain <em>ssid</em> <em>sendid</em> <em>send_gain</em></kbd></th>
+  <td>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
+  ranging from -193 to +6 representing the desired gain in dB for the send</td></tr>
+  <tr><th><kbd class="osc">/strip/send/fader <em>ssid</em> <em>sendid</em> <em>send_gain</em></kbd></th>
+  <td>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
+  ranging from 0 to 1 representing the desired position for the send as a fader</td></tr>
+  <tr><th><kbd class="osc">/strip/send/enable <em>ssid</em> <em>sendid</em> <em>state</em></kbd></th>
+  <td>where <em>sendid</em> = nth_send, <em>state</em> is 1 for enabled and 0 for disabled</td></tr>
+  <tr><th><kbd class="osc">/strip/list </kbd></th>
+  <td>see: <a href="@@osc58-querying-ardour">
+  Querying Ardour with OSC.</a></td></tr>
+  <tr><th><kbd class="osc">/strip/sends <em>ssid</em></kbd></th>
+  <td>see: <a href="@@osc58-querying-ardour">
+  Querying Ardour with OSC.</a></td></tr>
+  <tr><th><kbd class="osc">/strip/receives <em>ssid</em></kbd></th>
+  <td>see: <a href="@@osc58-querying-ardour">
+  Querying Ardour with OSC.</a></td></tr>
+  <tr><th><kbd class="osc">/strip/plugin/list <em>ssid</em></kbd></th>
+  <td>see: <a href="@@osc58-querying-ardour">
+  Querying Ardour with OSC.</a></td></tr>
+  <tr><th><kbd class="osc">/strip/plugin/descriptor <em>ssid</em></kbd></th>
+  <td>see: <a href="@@osc58-querying-ardour">
+  Querying Ardour with OSC.</a></td></tr>
+  <tr><th><kbd class="osc">/strip/plugin/reset <em>ssid</em> <em>piid</em> </kbd></th>
+  <td>where <em>piid</em> = nth Plugin, will reset all values to the plugin's original values</td></tr>
+  <tr><th><kbd class="osc">/strip/plugin/activate <em>ssid</em> <em>piid</em> </kbd></th>
+  <td>where <em>piid</em> = nth Plugin, will set the plugin's state to active</td></tr>
+  <tr><th><kbd class="osc">/strip/plugin/deactivate <em>ssid</em> <em>piid</em> </kbd></th>
+  <td>where <em>piid</em> = nth Plugin, will set the plugin's state to inactive</td></tr>
+  <tr><th><kbd class="osc">/strip/plugin/parameter <em>ssid</em> <em>piid</em> <em>param</em> <em>value</em></kbd></th>
+  <td>where <em>piid</em> = nth Plugin, <em>param</em> = nth param, <em>value</em>
+  is a float ranging from 0 to 1 representing the desired parameter value</td></tr>
+  <tr><th><kbd class="osc">/strip/name <em>ssid</em> <em>name</em></kbd></th>
+  <td>where <em>name</em> is a string for the desired name of the track</td></tr>
+</table>
 <h3>Selected Strip Operations</h3>
 <p>
   New for Ardour 5, A whole set of operations that work on the selected
@@ -440,58 +440,58 @@ here</em>"/&gt;</kbd>
   </ul>
 </p>
 
-<dl>
-  <dt><kbd class="osc">/strip/select <em>ssid</em> <em>y/n</em></kbd></dt>
-  <dd>Where <em>y/n</em> = 1 for select. Sets both GUI select and strip
-  to expanded mode. (0 is ignored)</dd>
-  <dt><kbd class="osc">/strip/expand <em>ssid</em> <em>y/n</em></kbd></dt>
-  <dd>Where <em>y/n</em> = 1 for expanded mode. Sets only local strip to
-  Expanded. Setting to 0 resets the expansion to follow selection.</dd>
-  <dt><kbd class="osc">/select/expand <em>y/n</em></kbd></dt>
-  <dd>Where <em>y/n</em> = 1 for expanded mode, 0 for Select mode.</dd>
-  <dt><kbd class="osc">/select/recenable <em>y/n</em></kbd></dt>
-  <dd>Where <em>y/n</em> is 1 for enabled and 0 for disabled</dd>
-  <dt><kbd class="osc">/select/record_safe <em>y/n</em></kbd></dt>
-  <dd>Where <em>y/n</em> is 1 for safe and 0 for unlocked</dd>
-  <dt><kbd class="osc">/select/mute <em>y/n</em></kbd></dt>
-  <dd>Where <em>y/n</em> is 1 for enabled and 0 for disabled</dd>
-  <dt><kbd class="osc">/select/solo <em>y/n</em></kbd></dt>
-  <dd>Where <em>y/n</em> is 1 for enabled and 0 for disabled</dd>
-  <dt><kbd class="osc">/select/solo_iso <em>state</em></kbd></dt>
-  <dd>where <em>state</em> is a bool/int representing the desired solo isolate state of the track</dd>
-  <dt><kbd class="osc">/select/solo_safe <em>state</em></kbd></dt>
-  <dd>where <em>state</em> is a bool/int representing the desired solo safe/lock state of the track</dd>
-  <dt><kbd class="osc">/select/monitor_input <em>y/n</em></kbd></dt>
-  <dd>Where <em>y/n</em> is 1 for monitor from input and 0 for auto</dd>
-  <dt><kbd class="osc">/select/monitor_disk <em>y/n</em></kbd></dt>
-  <dd>Where <em>y/n</em> is 1 for monitor from disk and 0 for auto</dd>
-  <dt><kbd class="osc">/select/polarity <em>invert</em></kbd></dt>
-  <dd>where <em>invert</em> is a bool/int representing the desired polarity of the track</dd>
-  <dt><kbd class="osc">/select/gain <em>gain</em></kbd></dt>
-  <dd>Where <em>gain</em> is a float ranging from -193 to 6 representing the desired gain of the track in dB.</dd>
-  <dt><kbd class="osc">/select/fader <em>position</em></kbd></dt>
-  <dd>Where <em>position</em> is an float ranging from 0 to 1 representing the fader control position.</dd>
-  <dt><kbd class="osc">/select/trimdB <em>trim_db</em></kbd></dt>
-  <dd>where <em>trim_db</em> is a float ranging from -20 to 20 representing the desired trim of the track in dB.</dd>
-  <dt><kbd class="osc">/select/pan_stereo_position <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan position of the track</dd>
-  <dt><kbd class="osc">/select/pan_stereo_width <em>width</em></kbd></dt>
-  <dd>where <em>width</em> is a float ranging from 0 to 1 representing the desired pan width of the track</dd>
-  <dt><kbd class="osc">/select/pan_elevation_position <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan elevation of the track</dd>
-  <dt><kbd class="osc">/select/pan_frontback_position <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the desired front to back position of the track</dd>
-  <dt><kbd class="osc">/select/pan_lfe_control <em>value</em></kbd></dt>
-  <dd>where <em>value</em> is a float ranging from 0 to 1 representing the desired LFE control value for the track</dd>
-  <dt><kbd class="osc">/select/send_gain", <em>sendid</em> <em>send_gain</em></kbd></dt>
-  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
-  ranging from -193 to +6 representing the desired gain in dB for the send</dd>
-  <dt><kbd class="osc">/select/send_fader", <em>sendid</em> <em>send_gain</em></kbd></dt>
-  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
-  ranging from 0 to 1 representing the desired position for the send as a fader</dd>
-  <dt><kbd class="osc">/select/send_enable", <em>sendid</em> <em>state</em></kbd></dt>
-  <dd>where <em>sendid</em> = nth_send, <em>state</em> is 1 for enabled and 0 for disabled</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/strip/select <em>ssid</em> <em>y/n</em></kbd></th>
+  <td>Where <em>y/n</em> = 1 for select. Sets both GUI select and strip
+  to expanded mode. (0 is ignored)</td></tr>
+  <tr><th><kbd class="osc">/strip/expand <em>ssid</em> <em>y/n</em></kbd></th>
+  <td>Where <em>y/n</em> = 1 for expanded mode. Sets only local strip to
+  Expanded. Setting to 0 resets the expansion to follow selection.</td></tr>
+  <tr><th><kbd class="osc">/select/expand <em>y/n</em></kbd></th>
+  <td>Where <em>y/n</em> = 1 for expanded mode, 0 for Select mode.</td></tr>
+  <tr><th><kbd class="osc">/select/recenable <em>y/n</em></kbd></th>
+  <td>Where <em>y/n</em> is 1 for enabled and 0 for disabled</td></tr>
+  <tr><th><kbd class="osc">/select/record_safe <em>y/n</em></kbd></th>
+  <td>Where <em>y/n</em> is 1 for safe and 0 for unlocked</td></tr>
+  <tr><th><kbd class="osc">/select/mute <em>y/n</em></kbd></th>
+  <td>Where <em>y/n</em> is 1 for enabled and 0 for disabled</td></tr>
+  <tr><th><kbd class="osc">/select/solo <em>y/n</em></kbd></th>
+  <td>Where <em>y/n</em> is 1 for enabled and 0 for disabled</td></tr>
+  <tr><th><kbd class="osc">/select/solo_iso <em>state</em></kbd></th>
+  <td>where <em>state</em> is a bool/int representing the desired solo isolate state of the track</td></tr>
+  <tr><th><kbd class="osc">/select/solo_safe <em>state</em></kbd></th>
+  <td>where <em>state</em> is a bool/int representing the desired solo safe/lock state of the track</td></tr>
+  <tr><th><kbd class="osc">/select/monitor_input <em>y/n</em></kbd></th>
+  <td>Where <em>y/n</em> is 1 for monitor from input and 0 for auto</td></tr>
+  <tr><th><kbd class="osc">/select/monitor_disk <em>y/n</em></kbd></th>
+  <td>Where <em>y/n</em> is 1 for monitor from disk and 0 for auto</td></tr>
+  <tr><th><kbd class="osc">/select/polarity <em>invert</em></kbd></th>
+  <td>where <em>invert</em> is a bool/int representing the desired polarity of the track</td></tr>
+  <tr><th><kbd class="osc">/select/gain <em>gain</em></kbd></th>
+  <td>Where <em>gain</em> is a float ranging from -193 to 6 representing the desired gain of the track in dB.</td></tr>
+  <tr><th><kbd class="osc">/select/fader <em>position</em></kbd></th>
+  <td>Where <em>position</em> is an float ranging from 0 to 1 representing the fader control position.</td></tr>
+  <tr><th><kbd class="osc">/select/trimdB <em>trim_db</em></kbd></th>
+  <td>where <em>trim_db</em> is a float ranging from -20 to 20 representing the desired trim of the track in dB.</td></tr>
+  <tr><th><kbd class="osc">/select/pan_stereo_position <em>position</em></kbd></th>
+  <td>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan position of the track</td></tr>
+  <tr><th><kbd class="osc">/select/pan_stereo_width <em>width</em></kbd></th>
+  <td>where <em>width</em> is a float ranging from 0 to 1 representing the desired pan width of the track</td></tr>
+  <tr><th><kbd class="osc">/select/pan_elevation_position <em>position</em></kbd></th>
+  <td>where <em>position</em> is a float ranging from 0 to 1 representing the desired pan elevation of the track</td></tr>
+  <tr><th><kbd class="osc">/select/pan_frontback_position <em>position</em></kbd></th>
+  <td>where <em>position</em> is a float ranging from 0 to 1 representing the desired front to back position of the track</td></tr>
+  <tr><th><kbd class="osc">/select/pan_lfe_control <em>value</em></kbd></th>
+  <td>where <em>value</em> is a float ranging from 0 to 1 representing the desired LFE control value for the track</td></tr>
+  <tr><th><kbd class="osc">/select/send_gain", <em>sendid</em> <em>send_gain</em></kbd></th>
+  <td>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
+  ranging from -193 to +6 representing the desired gain in dB for the send</td></tr>
+  <tr><th><kbd class="osc">/select/send_fader", <em>sendid</em> <em>send_gain</em></kbd></th>
+  <td>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
+  ranging from 0 to 1 representing the desired position for the send as a fader</td></tr>
+  <tr><th><kbd class="osc">/select/send_enable", <em>sendid</em> <em>state</em></kbd></th>
+  <td>where <em>sendid</em> = nth_send, <em>state</em> is 1 for enabled and 0 for disabled</td></tr>
+</table>
 
 <h3>Menu actions</h3>
 <p>

@@ -9,8 +9,8 @@
   changing one changes all clocks in that group. The different modes are:
 </p>
 
-<dl>
-  <dt>Timecode</dt><dd>Time is shown as <dfn><abbr title="Society of Motion Picture and Television
+<table class="dl">
+  <tr><th>Timecode</th><td>Time is shown as <dfn><abbr title="Society of Motion Picture and Television
   Engineers">SMPTE</abbr> timecode</dfn> in Hours:Minutes:Seconds:Frames,
   measured from the timecode zero point on the timeline (which may not
   correspond to the session start and/or absolute zero on the timeline,
@@ -19,20 +19,20 @@
   Second">FPS</abbr> setting, or, if slaved to an external timecode master,
   the master's setting. In the transport clocks, the FPS value is shown below
   the time display, along with an indication of the current timecode source
-  (<samp>INT</samp> means that Ardour is its own timecode source).</dd>
-  <dt>BBT</dt><dd>Time is shown as Bars:Beats:Ticks, indicating <dfn>musical time</dfn> measured
+  (<samp>INT</samp> means that Ardour is its own timecode source).</td></tr>
+  <tr><th>BBT</th><td>Time is shown as Bars:Beats:Ticks, indicating <dfn>musical time</dfn> measured
   from the start of the session. The transport clocks show the current tempo
   in <abbr title="Beats Per Minute">bpm</abbr> and meter below the time
-  display.</dd>
-  <dt>Minutes:Seconds</dt><dd>Time is shown as Hours:Minutes:Seconds.Milliseconds, measured from the
+  display.</td></tr>
+  <tr><th>Minutes:Seconds</th><td>Time is shown as Hours:Minutes:Seconds.Milliseconds, measured from the
   absolute start of the timeline (ignoring the session start and any timecode
-  offsets).</dd>
-  <dt>Samples</dt><dd>Time is shown as a <dfn>sample count</dfn> from the absolute start of the timeline
+  offsets).</td></tr>
+  <tr><th>Samples</th><td>Time is shown as a <dfn>sample count</dfn> from the absolute start of the timeline
   (ignoring the session start and any timecode offsets). The number of
   samples per second is given by the current sample rate, and in the transport
   clocks, this rate is shown below the time display along with any
-  pullup/pulldown adjustment.</dd>
-</dl>
+  pullup/pulldown adjustment.</td></tr>
+</table>
 
 <h2>Changing clock values with the keyboard</h2>
 

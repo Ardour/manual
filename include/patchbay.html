@@ -22,28 +22,28 @@
   Both sources and destinations are divided up into groups, with each
   group being given a tab:
 </p>
-<dl class="narrower-table">
-  <dt>Hardware</dt>
-  <dd>
+<table class="dl">
+  <tr><th>Hardware</th>
+  <td>
     These are ports which are connected to a physical piece of hardware
-    (a sound card or MIDI interface).</dd>
-  <dt>Ardour Busses</dt>
-  <dd>All ports belonging to busses.</dd>
-  <dt>Ardour Tracks</dt>
-  <dd>All ports belonging to tracks.</dd>
-  <dt>Ardour Misc</dt>
-  <dd>
+    (a sound card or MIDI interface).</td></tr>
+  <tr><th>Ardour Busses</th>
+  <td>All ports belonging to busses.</td></tr>
+  <tr><th>Ardour Tracks</th>
+  <td>All ports belonging to tracks.</td></tr>
+  <tr><th>Ardour Misc</th>
+  <td>
     These are other ports that do not fit into the previous two
     categories; for example, the ports on which the metronome click
     is output, and MIDI ports for things like control surfaces and
     timecode.
-  </dd>
-  <dt>Other</dt>
-  <dd>
+  </td></tr>
+  <tr><th>Other</th>
+  <td>
     If you have other JACK clients running, their ports will be found
     here. If there are no such ports, the tab will not exist (on one or
-    both axes of the grid).</dd>
-</dl>
+    both axes of the grid).</td></tr>
+</table>
 <p>
   The main part of the patchbay is a <dfn>matrix grid</dfn>. Within this
   grid, green dots represent connections, and you can click in any of the
@@ -87,29 +87,29 @@
   Context-clicking on a port name in the connection manager opens a menu
   which provides a few handy options:
 </p>
-<dl class="wide-table">
-  <dt><kbd class="menu">Add audio port</kbd> and <kbd class="menu">Add MIDI port</kbd></dt>
-  <dd>
+<table class="dl">
+  <tr><th><kbd class="menu">Add audio port</kbd> and <kbd class="menu">Add MIDI port</kbd></th>
+  <td>
     These options add audio or MIDI ports to the thing that you opened
     the menu over, if this is possible. In this way, for example, tracks
     and busses can be extended to have more inputs or outputs.
-  </dd>
-  <dt><kbd class="menu">Remove</dt>
-  <dd>
+  </td></tr>
+  <tr><th><kbd class="menu">Remove</th>
+  <td>
     Removes the given port, if possible. <kbd class="mouse mod3">Right</kbd>-clicking
     a port will do the same.
-  </dd>
-  <dt><kbd class="menu">Disconnect all from…</kbd></dt>
-  <dd>Disconnects everything from the given port.</dd>
-  <dt><kbd class="menu">Rescan</kbd></dt>
-  <dd>
+  </td></tr>
+  <tr><th><kbd class="menu">Disconnect all from…</kbd></th>
+  <td>Disconnects everything from the given port.</td></tr>
+  <tr><th><kbd class="menu">Rescan</kbd></th>
+  <td>
     Ardour will try to keep abreast of any changes to the JACK ports on
     your system, and reflect them in any connection managers which are open.
     If for some reason this fails, use this to re-scan the list of ports and
     update the manager.
-  </dd>
-  <dt><kbd class="menu">Show individual ports</kbd></dt>
-  <dd>
+  </td></tr>
+  <tr><th><kbd class="menu">Show individual ports</kbd></th>
+  <td>
     If you have a session which has lots of multi-channel tracks or busses,
     it may be an unnecessary detail that you have to connect left to left and
     right to right every time you make a connection. This obviously gets worse
@@ -120,15 +120,15 @@
     to the corresponding channel of the destination (left to left, right to right
     and so on). In this mode, a half-circle in the connection grid indicates that
     some (but not all) of the source's ports are connected to the destination.
-  </dd>
-  <dt><kbd class="menu">Flip</kbd></dt>
-  <dd>
+  </td></tr>
+  <tr><th><kbd class="menu">Flip</kbd></th>
+  <td>
     This will flip the visible ports on the vertical axis with those on the
     horizontal. If, for example, the top of the connection manager is showing
     <kbd class="menu">Ardour Busses</kbd> and the right is showing
     <kbd class="menu">Hardware</kbd>, flip will swap the view to the
     opposite. You can also flip by pressing <kbd>f</kbd>. Note that if there are
     no matching tabs on both axes, flipping will be impossible.
-  </dd>
-</dl>
+  </td></tr>
+</table>
 

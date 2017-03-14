@@ -178,46 +178,46 @@ bindings"&gt;
   A <dfn>control address</dfn> defines what the binding will actually control.
   There are quite a few different things that can be specified here:
 </p>
-<dl class="wide-table">
-<dt>/route/gain</dt>
-<dd>the gain control ("fader") for the track/bus</dd>
-<dt>/route/trim</dt>
-<dd>the trim control for the track/bus (new in 4.1)</dd>
-<dt>/route/solo</dt>
-<dd>a toggleable control for solo (and listen) of the track/bus</dd>
-<dt>/route/mute</dt>
-<dd>a toggleable control to mute/unmute the track/bus</dd>
-<dt>/route/recenable</dt>
-<dd>a toggleable control to record-enable the track</dd>
-<dt>/route/panwidth</dt>
-<dd>interpreted by the track/bus panner, should control image "width"</dd>
-<dt>/route/pandirection</dt>
-<dd>interpreted by the track/bus panner, should control image "direction"</dd>
-<dt>/route/plugin/parameter</dt>
-<dd>the Mth parameter of the Nth plugin of a track/bus
-</dd>
-<dt>/route/send/gain</dt>
-<dd>the gain control ("fader") of the Nth send of a track/bus</dd>
-</dl>
+<table class="dl">
+<tr><th>/route/gain</th>
+<td>the gain control ("fader") for the track/bus</td></tr>
+<tr><th>/route/trim</th>
+<td>the trim control for the track/bus (new in 4.1)</td></tr>
+<tr><th>/route/solo</th>
+<td>a toggleable control for solo (and listen) of the track/bus</td></tr>
+<tr><th>/route/mute</th>
+<td>a toggleable control to mute/unmute the track/bus</td></tr>
+<tr><th>/route/recenable</th>
+<td>a toggleable control to record-enable the track</td></tr>
+<tr><th>/route/panwidth</th>
+<td>interpreted by the track/bus panner, should control image "width"</td></tr>
+<tr><th>/route/pandirection</th>
+<td>interpreted by the track/bus panner, should control image "direction"</td></tr>
+<tr><th>/route/plugin/parameter</th>
+<td>the Mth parameter of the Nth plugin of a track/bus
+</td></tr>
+<tr><th>/route/send/gain</th>
+<td>the gain control ("fader") of the Nth send of a track/bus</td></tr>
+</table>
 <p>Each of the specifications needs an address, which takes various forms too. For track-level controls (solo/gain/mute/recenable), the address is one the following:</p>
-<dl class="wide-table">
-<dt>a number, eg. "1"
-</dt>
-<dd>identifies a track or bus by its remote control ID
-</dd>
-<dt>B, followed by a number
-</dt>
-<dd>identifies a track or bus by its remote control ID within the current bank (see below for more on banks)
-</dd>
-<dt>S, followed by a number
-</dt>
-<dd>identifies a selected track in order they have been selected, S1 should be the same track as the Editor Mixer
-</dd>
-<dt>one or more words
-</dt>
-<dd>identifies a track or bus by its name
-</dd>
-</dl>
+<table class="dl">
+<tr><th>a number, eg. "1"
+</th>
+<td>identifies a track or bus by its remote control ID
+</td></tr>
+<tr><th>B, followed by a number
+</th>
+<td>identifies a track or bus by its remote control ID within the current bank (see below for more on banks)
+</td></tr>
+<tr><th>S, followed by a number
+</th>
+<td>identifies a selected track in order they have been selected, S1 should be the same track as the Editor Mixer
+</td></tr>
+<tr><th>one or more words
+</th>
+<td>identifies a track or bus by its name
+</td></tr>
+</table>
 <p>
   For send/insert/plugin controls, the address consists of a track/bus
   address (as just described) followed by a number identifying the plugin/send
@@ -246,58 +246,58 @@ bindings"&gt;
   In this case, a NoteOn message for note number 13 (on channel 1) will
   start the transport rolling. The following function names are available:
 </p>
-<dl class="narrower-table">
-<dt>
+<table class="dl">
+<tr><th>
 <code>transport-stop</code>
-</dt>
-<dd>stop the transport
-</dd>
-<dt>
+</th>
+<td>stop the transport
+</td></tr>
+<tr><th>
 <code>transport-roll</code>
-</dt>
-<dd>start the transport "rolling"
-</dd>
-<dt>
+</th>
+<td>start the transport "rolling"
+</td></tr>
+<tr><th>
 <code>transport-zero</code>
-</dt>
-<dd>move the playhead to the zero position
-</dd>
-<dt>
+</th>
+<td>move the playhead to the zero position
+</td></tr>
+<tr><th>
 <code>transport-start</code>
-</dt>
-<dd>move the playhead to the start marker
-</dd>
-<dt>
+</th>
+<td>move the playhead to the start marker
+</td></tr>
+<tr><th>
 <code>transport-end</code>
-</dt>
-<dd>move the playhead to the end marker
-</dd>
-<dt>
+</th>
+<td>move the playhead to the end marker
+</td></tr>
+<tr><th>
 <code>loop-toggle</code>
-</dt>
-<dd>turn on loop playback
-</dd>
-<dt>
+</th>
+<td>turn on loop playback
+</td></tr>
+<tr><th>
 <code>rec-enable</code>
-</dt>
-<dd>enable the global record button
-</dd>
-<dt>
+</th>
+<td>enable the global record button
+</td></tr>
+<tr><th>
 <code>rec-disable</code>
-</dt>
-<dd>disable the global record button
-</dd>
-<dt>
+</th>
+<td>disable the global record button
+</td></tr>
+<tr><th>
 <code>next-bank</code>
-</dt>
-<dd>Move track/bus mapping to the next bank (see Banks below)
-</dd>
-<dt>
+</th>
+<td>Move track/bus mapping to the next bank (see Banks below)
+</td></tr>
+<tr><th>
 <code>prev-bank</code>
-</dt>
-<dd>Move track/bus mapping to the previous bank (see Banks below)
-</dd>
-</dl>
+</th>
+<td>Move track/bus mapping to the previous bank (see Banks below)
+</td></tr>
+</table>
 
 <h4>Binding to Ardour "actions"</h4>
 <p>

@@ -41,59 +41,59 @@
 </p>
 
 <h2>Hardware-related Considerations</h2>
-<dl class="wide-table">
-  <dt>Video interface</dt>
-  <dd>Poorly engineered video interfaces (and/or their device drivers) can
+<table class="dl">
+  <tr><th>Video interface</th>
+  <td>Poorly engineered video interfaces (and/or their device drivers) can
   "steal" computer resources for a long time, preventing the audio interface
-  from keeping up with the flow of data</dd>
-  <dt>Wireless interface</dt>
-  <dd>Poorly engineered wireless networking interfaces (and/or their device
+  from keeping up with the flow of data</td></tr>
+  <tr><th>Wireless interface</th>
+  <td>Poorly engineered wireless networking interfaces (and/or their device
   drivers) can also block the audio interface from keeping up with the flow
-  of data</dd>
-  <dt><abbr title="Universal Serial Bus">USB</abbr> ports</dt>
-  <dd>If you are using an audio interface connected via USB, and sometimes
+  of data</td></tr>
+  <tr><th><abbr title="Universal Serial Bus">USB</abbr> ports</th>
+  <td>If you are using an audio interface connected via USB, and sometimes
   even if you are not, the precise configuration of your system's USB ports
   can make a big difference. There are many cases where plugging the
   interface into one port will work, but using different USB port results
   in much worse performance. This has been seen even on Apple systems.
-  </dd>
-  <dt>Internal USB Hubs</dt>
-  <dd>Ideally, you'd like your USB ports to all connect directly to the
+  </td></tr>
+  <tr><th>Internal USB Hubs</th>
+  <td>Ideally, you'd like your USB ports to all connect directly to the
   main bus inside the computer. Some laptops (and possibly some
   desktop systems) come wired with an internal USB hub between the
   ports and the system bus, which can then cause problems for various
   kinds of external USB devices, including some models of audio
   interfaces. It is very difficult to discover whether this is true or
-  not, without simplying trying it out.</dd>
-  <dt><abbr title="Central Processing Unit">CPU</abbr> speed control</dt>
-  <dd>Handling audio with low latency requires that your processor keeps
+  not, without simplying trying it out.</td></tr>
+  <tr><th><abbr title="Central Processing Unit">CPU</abbr> speed control</th>
+  <td>Handling audio with low latency requires that your processor keeps
   running at its highest speed at all times. Many portable systems try to
   regulate processor speed in order to save power&mdash;for low latency
   audio, you want this totally disabled, either in the BIOS or at the OS
-  level.</dd>
-  <dt>Excessive Interrupt Sharing</dt>
-  <dd>If your audio interface is forced by your computer to share an
+  level.</td></tr>
+  <tr><th>Excessive Interrupt Sharing</th>
+  <td>If your audio interface is forced by your computer to share an
   interrupt line (basically a way to tell the CPU that something needs
   its attention) with too many, or the wrong, other devices, this can also
   prevent the audio interface from keeping up with the flow of data. In
   laptops it is generally impossible to do anything about this. In many
   desktop systems, it is possible at the BIOS level to reassign interrupts
-  to work around the problem.</dd>
-  <dt><abbr title="System Management Interrupt">SMI</abbr>s</dt>
-  <dd>SMIs are interrupts sent by the motherboard to tell the computer
+  to work around the problem.</td></tr>
+  <tr><th><abbr title="System Management Interrupt">SMI</abbr>s</th>
+  <td>SMIs are interrupts sent by the motherboard to tell the computer
   about the state of various hardware. They cannot safely be disabled,
   but they can also take a relatively long time to process. It is better
   to have a motherboard which never sends SMIs at all&mdash;this is
   also a requirement for realtime stock trading systems, which have
-  similar issues with latency.</dd>
-  <dt>Hyperthreading</dt>
-  <dd>This technology is becoming less common as actual multi-core CPUs
+  similar issues with latency.</td></tr>
+  <tr><th>Hyperthreading</th>
+  <td>This technology is becoming less common as actual multi-core CPUs
   become the norm, but it still exists and is generally not good for
   realtime performance. Sometimes you can disable this in the BIOS,
   sometimes you cannot. A processor that uses hyperthreading will be
-  less stable in very low latency situations than one without.</dd>
-  <dt>Excessive vibration</dt>
-  <dd>This doesn't affect the flow of data to/from the audio interface,
+  less stable in very low latency situations than one without.</td></tr>
+  <tr><th>Excessive vibration</th>
+  <td>This doesn't affect the flow of data to/from the audio interface,
   but it can cause the flow of data to/from your disk storage to become
   <em>much</em> slower. If you are going to use a computer in an
   environment with loud live sound (specifically, high bass volume),
@@ -101,6 +101,6 @@
   vibration. The vibrations will physically displace the head-write
   heads of disk, and the resulting errors will force a retry of the
   reading from the disk. Retrying over and over massively reduces the
-  rate at which data can be read from the disk. Avoid this.</dd>
-</dl>
+  rate at which data can be read from the disk. Avoid this.</td></tr>
+</table>
 

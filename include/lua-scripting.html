@@ -74,21 +74,21 @@ Like Control surfaces and the GUI, Lua Scripts are confined to certain aspects o
 In Ardour's case Lua is available:
 </p>
 
-<dl>
-	<dt>Editor Action Scripts</dt><dd>User initiated actions (menu, shortcuts) for batch processing</dd>
-	<dt>Editor Hooks/Callbacks</dt><dd>Event triggered actions for the Editor/Mixer GUI</dd>
-	<dt>Session Scripts</dt><dd>Scripts called at the start of every audio cycle (session, real-time)</dd>
-	<dt>DSP Scripts</dt><dd>Audio/Midi processor - plugins with access to the Ardour session (per track/bus, real-time)</dd>
-	<dt>Script Console</dt><dd>Action Script commandline</dd>
-</dl>
+<table class="dl">
+	<tr><th>Editor Action Scripts</th><td>User initiated actions (menu, shortcuts) for batch processing</td></tr>
+	<tr><th>Editor Hooks/Callbacks</th><td>Event triggered actions for the Editor/Mixer GUI</td></tr>
+	<tr><th>Session Scripts</th><td>Scripts called at the start of every audio cycle (session, real-time)</td></tr>
+	<tr><th>DSP Scripts</th><td>Audio/Midi processor - plugins with access to the Ardour session (per track/bus, real-time)</td></tr>
+	<tr><th>Script Console</th><td>Action Script commandline</td></tr>
+</table>
 
 <p>
 There are is also a special mode:
 </p>
-<dl>
-	<dt>Commandline Tool</dt><dd>Replaces the complete Editor GUI, direct access to libardour (no GUI) from the commandline.<br/>
-	<em>Be aware that the vast majority of complex functionality is provided by the Editor UI.</em></dd>
-</dl>
+<table class="dl">
+	<tr><th>Commandline Tool</th><td>Replaces the complete Editor GUI, direct access to libardour (no GUI) from the commandline.<br/>
+	<em>Be aware that the vast majority of complex functionality is provided by the Editor UI.</em></td></tr>
+</table>
 
 <h2 id="Managing Scripts">Managing Scripts</h2>
 
@@ -104,13 +104,13 @@ Apart from scripts included directly with Ardour, this includes</p>
 <p>Files must end with <code>.lua</code> file extension.</p>
 
 <p>Scripts are managed via the GUI</p>
-<dl>
-	<dt>Editor Action Scripts</dt><dd>Menu &rarr; Edit &rarr; Scripted Actions &rarr; Manage</dd>
-	<dt>Editor Hooks/Callbacks</dt><dd>Menu &rarr; Edit &rarr; Scripted Actions &rarr; Manage</dd>
-	<dt>Session Scripts</dt><dd>Menu &rarr; Session &rarr; Scripting &rarr; Add/Remove Script</dd>
-	<dt>DSP Scripts</dt><dd>Mixer-strip &rarr; context menu (right click) &rarr; New Lua Proc</dd>
-	<dt>Script Console</dt><dd>Menu &rarr; Window &rarr; Scripting</dd>
-</dl>
+<table class="dl">
+	<tr><th>Editor Action Scripts</th><td>Menu &rarr; Edit &rarr; Scripted Actions &rarr; Manage</td></tr>
+	<tr><th>Editor Hooks/Callbacks</th><td>Menu &rarr; Edit &rarr; Scripted Actions &rarr; Manage</td></tr>
+	<tr><th>Session Scripts</th><td>Menu &rarr; Session &rarr; Scripting &rarr; Add/Remove Script</td></tr>
+	<tr><th>DSP Scripts</th><td>Mixer-strip &rarr; context menu (right click) &rarr; New Lua Proc</td></tr>
+	<tr><th>Script Console</th><td>Menu &rarr; Window &rarr; Scripting</td></tr>
+</table>
 
 <h2 id="Script Layout">Script Layout</h2>
 <ul>
@@ -140,13 +140,13 @@ Apart from scripts included directly with Ardour, this includes</p>
 <p>
 The common part for all scripts is the "Descriptor". It's a Lua function which returns a table (key/values) with the following keys (the keys are case-sensitive):
 </p>
-<dl>
-	<dt>type [required]</dt><dd>one of "<code>DSP</code>", "<code>Session</code>", "<code>EditorHook</code>", "<code>EditorAction</code>" (the type is not case-sensitive)</dd>
-	<dt>name [required]</dt><dd>Name/Title of the script</dd>
-	<dt>author</dt><dd>Your Name</dd>
-	<dt>license</dt><dd>The license of the script (e.g. "GPL" or "MIT")</dd>
-	<dt>description</dt><dd>A longer text explaining to the user what the script does</dd>
-</dl>
+<table class="dl">
+	<tr><th>type [required]</th><td>one of "<code>DSP</code>", "<code>Session</code>", "<code>EditorHook</code>", "<code>EditorAction</code>" (the type is not case-sensitive)</td></tr>
+	<tr><th>name [required]</th><td>Name/Title of the script</td></tr>
+	<tr><th>author</th><td>Your Name</td></tr>
+	<tr><th>license</th><td>The license of the script (e.g. "GPL" or "MIT")</td></tr>
+	<tr><th>description</th><td>A longer text explaining to the user what the script does</td></tr>
+</table>
 
 <p class="note">
 Scripts that come with Ardour (currently mostly examples) can be found in the <a href="https://github.com/Ardour/ardour/tree/master/scripts">Source Tree</a>.

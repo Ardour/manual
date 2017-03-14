@@ -20,15 +20,15 @@
   of what you need to use the new tracks for, and Ardour offers you three
   choices:
 </p>
-<dl class="narrower-table">
-  <dt>Audio</dt>
-  <dd>An <dfn>Audio Track</dfn> is created with a user-specified number of
+<table class="dl">
+  <tr><th>Audio</th>
+  <td>An <dfn>Audio Track</dfn> is created with a user-specified number of
   inputs. The number of outputs is defined by the master bus channel count
   (for details see <a href="#channelconfiguration">Channel Configuration</a>
   below). This is the type of track to use when planning to work with
-  existing or newly recorded audio.</dd>
-  <dt>MIDI</dt>
-  <dd>A <dfn>MIDI track</dfn> is created with a single MIDI input, and a
+  existing or newly recorded audio.</td></tr>
+  <tr><th>MIDI</th>
+  <td>A <dfn>MIDI track</dfn> is created with a single MIDI input, and a
   single MIDI output. This is the type of track to use when planning to
   record and play back MIDI. There are several methods to enable playback
   of a MIDI track: add an instrument plugin to the track, connect the
@@ -36,46 +36,46 @@
   <p class="note">
     If you add an instrument plugin, the MIDI track outputs audio instead
     of MIDI data.
-  </p></dd>
-  <dt>Audio/MIDI</dt>
-  <dd>There are a few notable plugins that can usefully accept both <dfn>Audio
+  </p></td></tr>
+  <tr><th>Audio/MIDI</th>
+  <td>There are a few notable plugins that can usefully accept both <dfn>Audio
   and MIDI</dfn> data (Reaktor is one, and various "auto-tune" like plugins
   are another).  It can be tricky to configure this type of track manually,
   so Ardour allows you to select this type specifically for use with such
   plugins. It is <em>not</em> generally the right choice when working normal
-  MIDI tracks, and a dialog will warn you of this.</dd>
-</dl>
+  MIDI tracks, and a dialog will warn you of this.</td></tr>
+</table>
 
 <h2 id="trackmodes">Track Modes</h2>
 <p>
   Audio tracks in Ardour have a <dfn>mode</dfn> which affects how they behave
   when recording:
 </p>
-<dl class="narrower-table">
-  <dt>Normal</dt>
-  <dd>Tracks in <dfn>normal mode</dfn> will record non-destructively&mdash;new
+<table class="dl">
+  <tr><th>Normal</th>
+  <td>Tracks in <dfn>normal mode</dfn> will record non-destructively&mdash;new
   data is written to new files, and when overdubbing, new regions will be
   layered on top of existing ones. This is the recommended mode for most
   workflows.
-  </dd>
-  <dt>Non-Layered</dt>
-  <dd>Tracks using <dfn>non-layered mode</dfn> will record
+  </td></tr>
+  <tr><th>Non-Layered</th>
+  <td>Tracks using <dfn>non-layered mode</dfn> will record
   non-destructively&mdash;new data is written to new files, but when
   overdubbing, the existing regions are trimmed so that there are no overlaps.
   This does not affect the previously recorded audio data, and trimmed regions
   can be expanded again at will. Non-layered mode can be very useful for spoken
   word material, especially in combination with
   <a href="@@pushpull-trimming">push/pull trimming</a>.
-  </dd>
-  <dt>Tape</dt>
-  <dd><dfn>Tape-mode</dfn> tracks do <strong>destructive</strong> recording:
+  </td></tr>
+  <tr><th>Tape</th>
+  <td><dfn>Tape-mode</dfn> tracks do <strong>destructive</strong> recording:
   all data is recorded to a single file and if you overdub a section of
   existing data, the existing data is destroyed irrevocably&mdash;there is no
   undo. Fixed crossfades are added at every punch in and out point. This mode
   can be useful for certain kinds of re-recording workflows, but it not
   suggested for normal
-  use.</dd>
-</dl>
+  use.</td></tr>
+</table>
 <img class="right" src="/images/a3_nonlayered_example.png" alt="normal and non-layered overdubbing comparision"
 />
 <p>

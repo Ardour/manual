@@ -3,46 +3,46 @@
   The <kbd class="menu">Session</kbd> menu groups together everything related to the session and the file operations.
 </p>
 
-<dl>
-	<dt>New&hellip;</dt><dd>Creates a <a href="@@newopen-session-dialog">new</a> session</dd>
-	<dt>Open&hellip;</dt><dd>Opens an existing session</dd>
-	<dt>Recent&hellip;</dt><dd>Opens a list of recent session that can be opened</dd>
-	<dt>Close</dt><dd>Closes the current session (but not Ardour)</dd>
+<table class="dl">
+	<tr><th>New&hellip;</th><td>Creates a <a href="@@newopen-session-dialog">new</a> session</td></tr>
+	<tr><th>Open&hellip;</th><td>Opens an existing session</td></tr>
+	<tr><th>Recent&hellip;</th><td>Opens a list of recent session that can be opened</td></tr>
+	<tr><th>Close</th><td>Closes the current session (but not Ardour)</td></tr>
 
-	<dt>Save</dt><dd>Saves the current session</dd>
-	<dt>Save As&hellip;</dt><dd>Saves to a new session (with options)</dd>
-	<dt>Rename&hellip;</dt><dd>Changes the name of the session</dd>
-	<dt>Snapshot (&amp; keep working on current version)&hellip;</dt><dd>Create a <a href="@@snapshots">Snapshot</a> but any subsequent change will be saved to this session</dd>
-	<dt>Snapshot (&amp; switch to new version)&hellip;</dt><dd>Same thing, and any subsequent change will be saved to this new snapshot session</dd>
-	<dt>Save Template&hellip;</dt><dd>Saves the session as a <a href="@@session-templates">template</a>, without the audio</dd>
-  <dt>Archive&hellip;</dt><dd>Exports the session as a <a href="@@backup-and-sharing-of-sessions">compressed file</a> for archiving or sharing purposes, optionnaly compressing the audio to FLAC</dd>
-	<dt>Metadata</dt>
-		<dt class="sub1">Edit Metadata&hellip;</dt><dd>Opens the <a href="@@metadata">Metadata</a> window, where informations about the session can be saved</dd>
-		<dt class="sub1">Import Metadata&hellip;</dt><dd>Creates the metadata by extracting them from another session</dd>
+	<tr><th>Save</th><td>Saves the current session</td></tr>
+	<tr><th>Save As&hellip;</th><td>Saves to a new session (with options)</td></tr>
+	<tr><th>Rename&hellip;</th><td>Changes the name of the session</td></tr>
+	<tr><th>Snapshot (&amp; keep working on current version)&hellip;</th><td>Create a <a href="@@snapshots">Snapshot</a> but any subsequent change will be saved to this session</td></tr>
+	<tr><th>Snapshot (&amp; switch to new version)&hellip;</th><td>Same thing, and any subsequent change will be saved to this new snapshot session</td></tr>
+	<tr><th>Save Template&hellip;</th><td>Saves the session as a <a href="@@session-templates">template</a>, without the audio</td></tr>
+  <tr><th>Archive&hellip;</th><td>Exports the session as a <a href="@@backup-and-sharing-of-sessions">compressed file</a> for archiving or sharing purposes, optionnaly compressing the audio to FLAC</td></tr>
+	<tr><th>Metadata</th>
+		<tr><th class="sub1">Edit Metadata&hellip;</th><td>Opens the <a href="@@metadata">Metadata</a> window, where informations about the session can be saved</td></tr>
+		<tr><th class="sub1">Import Metadata&hellip;</th><td>Creates the metadata by extracting them from another session</td></tr>
 
-	<dt>Add Track, Bus or VCA&hellip;</dt><dd>Adds a <a href="@@adding-tracks-busses-and-vcas">new track/bus/VCA</a> to the session, same as the <kbd class="menu">Track &gt; Add Track, Bus or VCA&hellip;</kbd></dd>
+	<tr><th>Add Track, Bus or VCA&hellip;</th><td>Adds a <a href="@@adding-tracks-busses-and-vcas">new track/bus/VCA</a> to the session, same as the <kbd class="menu">Track &gt; Add Track, Bus or VCA&hellip;</kbd></td></tr>
 
-	<dt>Import</dt><dd>Opens the <a href="@@adding-pre-existing-material">Import</a> windows, to add media to the session</dd>
-	<dt>Import PT session</dt><dd>Import a ProTools&copy; session file. Not everything in the original session can be imported.</dd>
-	<dt>Scripting</dt>
-		<dt class="sub1">Add Lua Script&hellip;</dt><dd>Loads or adds a <a href="@@lua-scripting">Lua Session script</a> to the current session</dd>
-		<dt class="sub1">Remove Lua Script</dt><dd>Removes a loaded Lua Session script from the session</dd>
-	<dt>Open Video&hellip;</dt><dd>Imports a <a href="@@video-timeline-and-monitoring">video file</a> in the session</dd>
-	<dt>Remove Video</dt><dd>Removes the video part of the session (the video timeline disappears)</dd>
-	<dt>Export</dt>
-		<dt class="sub1">Export to Audio File(s)&hellip;</dt><dd><a href="@@mixdown">Export</a> all or part of the session in audio form</dd>
-		<dt class="sub1">Stem export&hellip;</dt><dd><a href="@@export-dialog">Exports each track</a> as its own audio file (for e.g. DAW interchange)</dd>
-		<dt class="sub1">Export to Video File</dt><dd>Exports the session to a <a href="@@workflow-amp-operations">video file</a></dd>
-	<dt>Clean-Up</dt>
-		<dt class="sub1">Bring all media into session folder</dt><dd>Copies all the media files imported from outside the session folder in that folder, see <a href="@@cleaning-up-sessions">Cleaning up Sessions</a></dd>
-		<dt class="sub1">Reset Peak Files</dt><dd>Reinitializes the buffered images representing the audio files</dd>
-		<dt class="sub1">Clean-up Unused Sources&hellip;</dt><dd>Quarantines all the media files not used in the session to a specific subfolder of the session</dd>
-		<dt class="sub1">Flush Wastebasket</dt><dd>Deletes those quarantined files</dd>
+	<tr><th>Import</th><td>Opens the <a href="@@adding-pre-existing-material">Import</a> windows, to add media to the session</td></tr>
+	<tr><th>Import PT session</th><td>Import a ProTools&copy; session file. Not everything in the original session can be imported.</td></tr>
+	<tr><th>Scripting</th>
+		<tr><th class="sub1">Add Lua Script&hellip;</th><td>Loads or adds a <a href="@@lua-scripting">Lua Session script</a> to the current session</td></tr>
+		<tr><th class="sub1">Remove Lua Script</th><td>Removes a loaded Lua Session script from the session</td></tr>
+	<tr><th>Open Video&hellip;</th><td>Imports a <a href="@@video-timeline-and-monitoring">video file</a> in the session</td></tr>
+	<tr><th>Remove Video</th><td>Removes the video part of the session (the video timeline disappears)</td></tr>
+	<tr><th>Export</th>
+		<tr><th class="sub1">Export to Audio File(s)&hellip;</th><td><a href="@@mixdown">Export</a> all or part of the session in audio form</td></tr>
+		<tr><th class="sub1">Stem export&hellip;</th><td><a href="@@export-dialog">Exports each track</a> as its own audio file (for e.g. DAW interchange)</td></tr>
+		<tr><th class="sub1">Export to Video File</th><td>Exports the session to a <a href="@@workflow-amp-operations">video file</a></td></tr>
+	<tr><th>Clean-Up</th>
+		<tr><th class="sub1">Bring all media into session folder</th><td>Copies all the media files imported from outside the session folder in that folder, see <a href="@@cleaning-up-sessions">Cleaning up Sessions</a></td></tr>
+		<tr><th class="sub1">Reset Peak Files</th><td>Reinitializes the buffered images representing the audio files</td></tr>
+		<tr><th class="sub1">Clean-up Unused Sources&hellip;</th><td>Quarantines all the media files not used in the session to a specific subfolder of the session</td></tr>
+		<tr><th class="sub1">Flush Wastebasket</th><td>Deletes those quarantined files</td></tr>
 
-	<dt>[] Properties</dt><dd>Shows the <a href="@@session-properties-dialog">Session Properties</a> dialog, allowing to fine-tune the parameters of the current session</dd>
+	<tr><th>[] Properties</th><td>Shows the <a href="@@session-properties-dialog">Session Properties</a> dialog, allowing to fine-tune the parameters of the current session</td></tr>
 
-	<dt>Lock</dt><dd>Locks the session by showing an Unlock window that (until cliked) blocks every action on Ardour's window</dd>
+	<tr><th>Lock</th><td>Locks the session by showing an Unlock window that (until cliked) blocks every action on Ardour's window</td></tr>
 
-	<dt>Quit</dt><dd>Exits Ardour. Prompts for saving the session if it has been modified.</dd>
-</dl>
+	<tr><th>Quit</th><td>Exits Ardour. Prompts for saving the session if it has been modified.</td></tr>
+</table>
 

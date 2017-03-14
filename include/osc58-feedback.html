@@ -19,16 +19,16 @@
   as for control. For example:
 </p>
 
-<dl>
-  <dt><kbd class="osc">/transport_stop</kbd></dt>
-  <dd></dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/transport_stop</kbd></th>
+  <td></td></tr>
+</table>
 <p>can be used also in the form:</p>
 
-<dl>
-  <dt><kbd class="osc">/transport_stop <em>press</em></kbd></dt>
-  <dd>where <em>press</em> is an int/bool indicating if the button is pressed or not.</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/transport_stop <em>press</em></kbd></th>
+  <td>where <em>press</em> is an int/bool indicating if the button is pressed or not.</td></tr>
+</table>
 
 <p>
   The feedback does not have the same meaning as the control message.
@@ -37,10 +37,10 @@
   The feedback will be:
 </p>
 
-<dl>
-  <dt><kbd class="osc">/transport_stop <em>state</em></kbd></dt>
-  <dd>where <em>state</em> is an int/bool indicating if the transport is stopped or not.</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/transport_stop <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int/bool indicating if the transport is stopped or not.</td></tr>
+</table>
 <p>
   With feedback turned on, OSC control commands that try to change a
   control that does not exist will get feedback that resets that control
@@ -80,78 +80,78 @@
   In the case where Gainmode is set to position, the track name will
   show the dB value while values are changing.
 </p>
-<dl>
-  <dt><kbd class="osc">/strip/name <em>ssid</em> <em>track_name</em></kbd></dt>
-  <dd>where <em>track_name</em> is a string representing the name of the track</dd>
-  <dt><kbd class="osc">/session_name <em>session_name</em></kbd></dt>
-  <dd>where <em>session_name</em> is a string representing the name of the session</dd>
-  <dt><kbd class="osc">/strip/meter <em>ssid</em> <em>meter</em></kbd></dt>
-  <dd>where <em>meter</em> is a value repesenting the current audio level.
-  (the exact math used is determined by the feedback bits set)</dd>
-  <dt><kbd class="osc">/strip/signal <em>ssid</em> <em>signal</em></kbd></dt>
-  <dd>where <em>signal</em> is a float indicating the instantaneous
-  audio level is -40dB or higher.</dd>
-  <dt><kbd class="osc">/position/smpte <em>time</em></kbd></dt>
-  <dd>where <em>time</em> is a string with the current play head time. Seconds as per smpte.</dd>
-  <dt><kbd class="osc">/position/bbt <em>beat</em></kbd></dt>
-  <dd>where <em>beat</em> is a string with the current play head bar/beat.</dd>
-  <dt><kbd class="osc">/position/time <em>time</em></kbd></dt>
-  <dd>where <em>time</em> is a string with the current play head time. Seconds are in milliseconds</dd>
-  <dt><kbd class="osc">/position/samples <em>samples</em></kbd></dt>
-  <dd>where <em>samples</em> is a string with the current play head position in samples.</dd>
-  <dt><kbd class="osc">/heartbeat <em>LED</em></kbd></dt>
-  <dd>where <em>LED</em> is a float that cycles 1/0 at 1 second intervals.</dd>
-  <dt><kbd class="osc">/record_tally <em>state</em></kbd></dt>
-  <dd>Some record enable is true or "ready to record". For a "Recording" sign at studio door.</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/strip/name <em>ssid</em> <em>track_name</em></kbd></th>
+  <td>where <em>track_name</em> is a string representing the name of the track</td></tr>
+  <tr><th><kbd class="osc">/session_name <em>session_name</em></kbd></th>
+  <td>where <em>session_name</em> is a string representing the name of the session</td></tr>
+  <tr><th><kbd class="osc">/strip/meter <em>ssid</em> <em>meter</em></kbd></th>
+  <td>where <em>meter</em> is a value repesenting the current audio level.
+  (the exact math used is determined by the feedback bits set)</td></tr>
+  <tr><th><kbd class="osc">/strip/signal <em>ssid</em> <em>signal</em></kbd></th>
+  <td>where <em>signal</em> is a float indicating the instantaneous
+  audio level is -40dB or higher.</td></tr>
+  <tr><th><kbd class="osc">/position/smpte <em>time</em></kbd></th>
+  <td>where <em>time</em> is a string with the current play head time. Seconds as per smpte.</td></tr>
+  <tr><th><kbd class="osc">/position/bbt <em>beat</em></kbd></th>
+  <td>where <em>beat</em> is a string with the current play head bar/beat.</td></tr>
+  <tr><th><kbd class="osc">/position/time <em>time</em></kbd></th>
+  <td>where <em>time</em> is a string with the current play head time. Seconds are in milliseconds</td></tr>
+  <tr><th><kbd class="osc">/position/samples <em>samples</em></kbd></th>
+  <td>where <em>samples</em> is a string with the current play head position in samples.</td></tr>
+  <tr><th><kbd class="osc">/heartbeat <em>LED</em></kbd></th>
+  <td>where <em>LED</em> is a float that cycles 1/0 at 1 second intervals.</td></tr>
+  <tr><th><kbd class="osc">/record_tally <em>state</em></kbd></th>
+  <td>Some record enable is true or "ready to record". For a "Recording" sign at studio door.</td></tr>
+</table>
 
 <h3>Transport Control</h3>
-<dl>
-  <dt><kbd class="osc">/transport_stop <em>state</em></kbd></dt>
-  <dd><em>state</em> is true when transport is stopped</dd>
-  <dt><kbd class="osc">/transport_play <em>state</em></kbd></dt>
-  <dd><em>state</em> is true when transport speed is 1.0</dd>
-  <dt><kbd class="osc">/ffwd <em>state</em></kbd></dt>
-  <dd><em>state</em> is true when transport is moving forward but not at speed 1.0</dd>
-  <dt><kbd class="osc">/rewind <em>state</em></kbd></dt>
-  <dd><em>state</em> is true when transport speed is less than 0.0</dd>
-  <dt><kbd class="osc">/loop_toggle <em>state</em></kbd></dt>
-  <dd><em>state</em> is true when loop mode is true</dd>
-  <dt><kbd class="osc">/cancel_all_solos <em>state</em></kbd></dt>
-  <dd>Where <em>state</em> true indicates there are active solos that can be canceled.</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/transport_stop <em>state</em></kbd></th>
+  <td><em>state</em> is true when transport is stopped</td></tr>
+  <tr><th><kbd class="osc">/transport_play <em>state</em></kbd></th>
+  <td><em>state</em> is true when transport speed is 1.0</td></tr>
+  <tr><th><kbd class="osc">/ffwd <em>state</em></kbd></th>
+  <td><em>state</em> is true when transport is moving forward but not at speed 1.0</td></tr>
+  <tr><th><kbd class="osc">/rewind <em>state</em></kbd></th>
+  <td><em>state</em> is true when transport speed is less than 0.0</td></tr>
+  <tr><th><kbd class="osc">/loop_toggle <em>state</em></kbd></th>
+  <td><em>state</em> is true when loop mode is true</td></tr>
+  <tr><th><kbd class="osc">/cancel_all_solos <em>state</em></kbd></th>
+  <td>Where <em>state</em> true indicates there are active solos that can be canceled.</td></tr>
+</table>
 
 <h3>Recording control</h3>
-<dl>
-  <!--dt><kbd class="osc">/toggle_punch_in</kbd></dt>
-  <dd></dd>
-  <dt><kbd class="osc">/toggle_punch_out</kbd></dt>
-  <dd></dd-->
-  <dt><kbd class="osc">/rec_enable_toggle <em>state</em></kbd></dt>
-  <dd>Master record enabled.</dd>
-</dl>
+<table class="dl">
+  <!--dt><kbd class="osc">/toggle_punch_in</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/toggle_punch_out</kbd></th>
+  <td></dd-->
+  <tr><th><kbd class="osc">/rec_enable_toggle <em>state</em></kbd></th>
+  <td>Master record enabled.</td></tr>
+</table>
 
 <h3>Master and monitor strips</h3>
 <p>
   Master and monitor strips are similar to track strips but do not use
   the SSID. Rather they use their name as part of the path:
 </p>
-<dl>
-  <dt><kbd class="osc">/master/gain <em>dB</em></kbd></dt>
-  <dd>where <em>dB</em> is a float ranging from -193 to +6 representing the actual gain of master in dB</dd>
-  <dt><kbd class="osc">/master/fader  <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position</dd>
-  <dt><kbd class="osc">/master/trimdB <em>dB</em></kbd></dt>
-  <dd>where <em>dB</em> is a float ranging from -20 to +20 representing the actual trim for master in dB</dd>
-  <dt><kbd class="osc">/master/pan_stereo_position <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the actual pan position for master</dd>
-  <dt><kbd class="osc">/master/mute  <em>yn</em></kbd></dt>
-  <dd>where <em>yn</em> is a bool/int representing the actual mute state of the Master strip</dd>
-  <dt><kbd class="osc">/monitor/gain <em>dB</em></kbd></dt>
-  <dd>where <em>dB</em> is a float ranging from -193 to 6 representing the actual gain of monitor in dB</dd>
-  <dt><kbd class="osc">/monitor/fader  <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/master/gain <em>dB</em></kbd></th>
+  <td>where <em>dB</em> is a float ranging from -193 to +6 representing the actual gain of master in dB</td></tr>
+  <tr><th><kbd class="osc">/master/fader  <em>position</em></kbd></th>
+  <td>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position</td></tr>
+  <tr><th><kbd class="osc">/master/trimdB <em>dB</em></kbd></th>
+  <td>where <em>dB</em> is a float ranging from -20 to +20 representing the actual trim for master in dB</td></tr>
+  <tr><th><kbd class="osc">/master/pan_stereo_position <em>position</em></kbd></th>
+  <td>where <em>position</em> is a float ranging from 0 to 1 representing the actual pan position for master</td></tr>
+  <tr><th><kbd class="osc">/master/mute  <em>yn</em></kbd></th>
+  <td>where <em>yn</em> is a bool/int representing the actual mute state of the Master strip</td></tr>
+  <tr><th><kbd class="osc">/monitor/gain <em>dB</em></kbd></th>
+  <td>where <em>dB</em> is a float ranging from -193 to 6 representing the actual gain of monitor in dB</td></tr>
+  <tr><th><kbd class="osc">/monitor/fader  <em>position</em></kbd></th>
+  <td>where <em>position</em> is an int ranging from 0 to 1023 representing the fader control position</td></tr>
+</table>
 
 <h3>Track specific operations</h3>
 <p>
@@ -167,67 +167,67 @@
   Calculating Feedback and Strip-types Values.</a>
 </p>
 
-<dl>
-  <dt><kbd class="osc">/bank_up <em>LED</em></kbd></dt>
-  <dd>where <em>LED</em> is a bool that indicates another bank_up operation is possible.</dd>
-  <dt><kbd class="osc">/bank_down <em>LED</em></kbd></dt>
-  <dd>where <em>LED</em> is a bool that indicates another bank_down operation is possible.</dd>
-  <dt><kbd class="osc">/strip/name <em>ssid</em> <em>track_name</em></kbd></dt>
-  <dd>where <em>track_name</em> is a string representing the name of the track
-  (note there is no coresponding command to set the track name)</dd>
-  <dt><kbd class="osc">/strip/mute <em>ssid</em> <em>mute_st</em></kbd></dt>
-  <dd>where <em>mute_st</em> is a bool/int representing the actual mute state of the track</dd>
-  <dt><kbd class="osc">/strip/solo <em>ssid</em> <em>solo_st</em></kbd></dt>
-  <dd>where <em>solo_st</em> is a bool/int representing the actual solo state of the track</dd>
-  <dt><kbd class="osc">/strip/monitor_input <em>ssid</em> <em>monitor_st</em></kbd></dt>
-  <dd>where <em>monitor_st</em> is a bool/int. True/1 meaning the track is force to monitor input</dd>
-  <dt><kbd class="osc">/strip/monitor_disk <em>ssid</em> <em>monitor_st</em></kbd></dt>
-  <dd>where <em>monitor_st</em> is a bool/int. True/1 meaning the track is force to monitor disk,
-  where both disk and input are false/0, auto monitoring is used.</dd>
-  <dt><kbd class="osc">/strip/recenable <em>ssid</em> <em>rec_st</em></kbd></dt>
-  <dd>where <em>rec_st</em> is a bool/int representing the actual rec state of the track</dd>
-  <dt><kbd class="osc">/strip/record_safe <em>ssid</em> <em>rec_st</em></kbd></dt>
-  <dd>where <em>rec_st</em> is a bool/int representing the actual record safe state of the track</dd>
-  <dt><kbd class="osc">/strip/gain <em>ssid</em> <em>gain</em></kbd></dt>
-  <dd>where <em>gain</em> is a float ranging from -193 to 6 representing the actual gain of the track in dB.</dd>
-  <dt><kbd class="osc">/strip/fader <em>ssid</em>  <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is an float ranging from 0 to 1 representing the actual fader position of the track.</dd>
-  <dt><kbd class="osc">/strip/trimdB <em>ssid</em>  <em>trim_db</em></kbd></dt>
-  <dd>where <em>trim_db</em> is a float ranging from -20 to 20 representing the actual trim of the track in dB.</dd>
-  <dt><kbd class="osc">/strip/pan_stereo_position <em>ssid</em> <em>position</em></kbd></dt>
-  <dd>where <em>position</em> is a float ranging from 0 to 1 representing the actual pan position of the track</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/bank_up <em>LED</em></kbd></th>
+  <td>where <em>LED</em> is a bool that indicates another bank_up operation is possible.</td></tr>
+  <tr><th><kbd class="osc">/bank_down <em>LED</em></kbd></th>
+  <td>where <em>LED</em> is a bool that indicates another bank_down operation is possible.</td></tr>
+  <tr><th><kbd class="osc">/strip/name <em>ssid</em> <em>track_name</em></kbd></th>
+  <td>where <em>track_name</em> is a string representing the name of the track
+  (note there is no coresponding command to set the track name)</td></tr>
+  <tr><th><kbd class="osc">/strip/mute <em>ssid</em> <em>mute_st</em></kbd></th>
+  <td>where <em>mute_st</em> is a bool/int representing the actual mute state of the track</td></tr>
+  <tr><th><kbd class="osc">/strip/solo <em>ssid</em> <em>solo_st</em></kbd></th>
+  <td>where <em>solo_st</em> is a bool/int representing the actual solo state of the track</td></tr>
+  <tr><th><kbd class="osc">/strip/monitor_input <em>ssid</em> <em>monitor_st</em></kbd></th>
+  <td>where <em>monitor_st</em> is a bool/int. True/1 meaning the track is force to monitor input</td></tr>
+  <tr><th><kbd class="osc">/strip/monitor_disk <em>ssid</em> <em>monitor_st</em></kbd></th>
+  <td>where <em>monitor_st</em> is a bool/int. True/1 meaning the track is force to monitor disk,
+  where both disk and input are false/0, auto monitoring is used.</td></tr>
+  <tr><th><kbd class="osc">/strip/recenable <em>ssid</em> <em>rec_st</em></kbd></th>
+  <td>where <em>rec_st</em> is a bool/int representing the actual rec state of the track</td></tr>
+  <tr><th><kbd class="osc">/strip/record_safe <em>ssid</em> <em>rec_st</em></kbd></th>
+  <td>where <em>rec_st</em> is a bool/int representing the actual record safe state of the track</td></tr>
+  <tr><th><kbd class="osc">/strip/gain <em>ssid</em> <em>gain</em></kbd></th>
+  <td>where <em>gain</em> is a float ranging from -193 to 6 representing the actual gain of the track in dB.</td></tr>
+  <tr><th><kbd class="osc">/strip/fader <em>ssid</em>  <em>position</em></kbd></th>
+  <td>where <em>position</em> is an float ranging from 0 to 1 representing the actual fader position of the track.</td></tr>
+  <tr><th><kbd class="osc">/strip/trimdB <em>ssid</em>  <em>trim_db</em></kbd></th>
+  <td>where <em>trim_db</em> is a float ranging from -20 to 20 representing the actual trim of the track in dB.</td></tr>
+  <tr><th><kbd class="osc">/strip/pan_stereo_position <em>ssid</em> <em>position</em></kbd></th>
+  <td>where <em>position</em> is a float ranging from 0 to 1 representing the actual pan position of the track</td></tr>
+</table>
 <h3>Selection Operations</h3>
 <p>
   Selection feedback is the same as for strips, only the path changes
   from <em>/strip</em> to <em>/select</em> and there is no <em>ssid</em>.
   there are some extra feedback and commands that will be listed here.
 </p>
-<dl>
-  <dt><kbd class="osc">/select/n_inputs <em>number</em></kbd></dt>
-  <dd>where <em>number</em> number of inputs for this strip</dd>
-  <dt><kbd class="osc">/select/n_outputs <em>number</em></kbd></dt>
-  <dd>where <em>number</em> number of outputs for this strip</dd>
-  <dt><kbd class="osc">/select/comment <em>text</em></kbd></dt>
-  <dd>where <em>text</em> is the strip comment</dd>
-  <dt><kbd class="osc">/select/solo_iso <em>state</em></kbd></dt>
-  <dd>where <em>state</em> is a bool/int representing the Actual solo isolate state of the track</dd>
-  <dt><kbd class="osc">/select/solo_safe <em>state</em></kbd></dt>
-  <dd>where <em>state</em> is a bool/int representing the actual solo safe/lock state of the track</dd>
-  <dt><kbd class="osc">/select/polarity <em>invert</em></kbd></dt>
-  <dd>where <em>invert</em> is a bool/int representing the actual polarity of the track</dd>
-  <dt><kbd class="osc">/select/pan_stereo_width <em>width</em></kbd></dt>
-  <dd>where <em>width</em> is a float ranging from 0 to 1 representing the actual pan width of the track</dd>
-  <dt><kbd class="osc">/select/send_gain", <em>sendid</em> <em>send_gain</em></kbd></dt>
-  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em>is a float
-  ranging from -193 to +6 representing the actual gain in dB for the send</dd>
-  <dt><kbd class="osc">/select/send_fader", <em>sendid</em> <em>send_gain</em></kbd></dt>
-  <dd>where <em>sendid</em> = nth_send, <em>send_gain</em>is a float
-  ranging from 0 to 1 representing the actual position for the send as a fader</dd>
-  <dt><kbd class="osc">/select/send_name <em>sendid</em> <em>send_name</em></kbd></dt>
-  <dd>where <em>send_name</em> is a string representing the name of the buss
-  this send goes to.</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="osc">/select/n_inputs <em>number</em></kbd></th>
+  <td>where <em>number</em> number of inputs for this strip</td></tr>
+  <tr><th><kbd class="osc">/select/n_outputs <em>number</em></kbd></th>
+  <td>where <em>number</em> number of outputs for this strip</td></tr>
+  <tr><th><kbd class="osc">/select/comment <em>text</em></kbd></th>
+  <td>where <em>text</em> is the strip comment</td></tr>
+  <tr><th><kbd class="osc">/select/solo_iso <em>state</em></kbd></th>
+  <td>where <em>state</em> is a bool/int representing the Actual solo isolate state of the track</td></tr>
+  <tr><th><kbd class="osc">/select/solo_safe <em>state</em></kbd></th>
+  <td>where <em>state</em> is a bool/int representing the actual solo safe/lock state of the track</td></tr>
+  <tr><th><kbd class="osc">/select/polarity <em>invert</em></kbd></th>
+  <td>where <em>invert</em> is a bool/int representing the actual polarity of the track</td></tr>
+  <tr><th><kbd class="osc">/select/pan_stereo_width <em>width</em></kbd></th>
+  <td>where <em>width</em> is a float ranging from 0 to 1 representing the actual pan width of the track</td></tr>
+  <tr><th><kbd class="osc">/select/send_gain", <em>sendid</em> <em>send_gain</em></kbd></th>
+  <td>where <em>sendid</em> = nth_send, <em>send_gain</em>is a float
+  ranging from -193 to +6 representing the actual gain in dB for the send</td></tr>
+  <tr><th><kbd class="osc">/select/send_fader", <em>sendid</em> <em>send_gain</em></kbd></th>
+  <td>where <em>sendid</em> = nth_send, <em>send_gain</em>is a float
+  ranging from 0 to 1 representing the actual position for the send as a fader</td></tr>
+  <tr><th><kbd class="osc">/select/send_name <em>sendid</em> <em>send_name</em></kbd></th>
+  <td>where <em>send_name</em> is a string representing the name of the buss
+  this send goes to.</td></tr>
+</table>
 <h3>Menu actions</h3>
 <p>
   Every single menu item in Ardour's GUI is accessible via OSC. However,

@@ -10,44 +10,44 @@
 </ul>
 
 <h2>Timecode Settings</h2>
-<dl>
-  <dt><kbd class="menu">Timecode frames-per-second</kbd></dt>
-  <dd>
+<table class="dl">
+  <tr><th><kbd class="menu">Timecode frames-per-second</kbd></th>
+  <td>
     Configure timecode frames-per-second (23.976, 24, 24.975, 25, 29.97,
     29.97 drop, 30, 30 drop, 59.94, 60). Note that all fractional
     framerates are actually fps*(1000.0/1001.0).
-  </dd>
-  <dt><kbd class="menu">Pull up/down</kbd></dt>
-  <dd>
+  </td></tr>
+  <tr><th><kbd class="menu">Pull up/down</kbd></th>
+  <td>
     Video pull-up modes change the effective samplerate of Ardour to
     allow for changing a film soundtrack from one frame rate to another.
     See <a href="http://en.wikipedia.org/wiki/Telecine">Telecine</a>
-  </dd>
-  <dt><kbd class="menu">Slave Timecode offset</kbd></dt>
-  <dd>
+  </td></tr>
+  <tr><th><kbd class="menu">Slave Timecode offset</kbd></th>
+  <td>
     The specified offset is added to the received timecode (MTC or
     LTC).
-  </dd>
-  <dt><kbd class="menu">Timecode Generator offset</kbd></dt>
-  <dd>
+  </td></tr>
+  <tr><th><kbd class="menu">Timecode Generator offset</kbd></th>
+  <td>
     Specify an offset which is added to the generated timecode (so far only LTC).
-  </dd>
-  <dt><kbd class="option">JACK Time Master</kbd></dt>
-  <dd>
+  </td></tr>
+  <tr><th><kbd class="option">JACK Time Master</kbd></th>
+  <td>
     Provide Bar|Beat|Tick and other information to JACK.
-  </dd>
-</dl>
+  </td></tr>
+</table>
 <p>These settings are session specific.</p>
 
 
 <h2>Transport Preferences</h2>
-<dl>
-  <dt><kbd class="menu">External timecode source</kbd></dt>
-  <dd>
+<table class="dl">
+  <tr><th><kbd class="menu">External timecode source</kbd></th>
+  <td>
     Select timecode source: JACK, LTC, MTC, MIDI Clock
-  </dd>
-  <dt><kbd class="option">Match session video frame rate to external timecode</kbd></dt>
-  <dd>
+  </td></tr>
+  <tr><th><kbd class="option">Match session video frame rate to external timecode</kbd></th>
+  <td>
     This option controls the value of the video frame rate <em>while
     chasing</em> an external timecode source. When enabled, the
     session video frame rate will be changed to match that of the selected
@@ -56,14 +56,14 @@
     source. Instead the frame rate indication in the main clock will flash
     red and Ardour will convert between the external timecode standard and
     the session standard.
-  </dd>
-  <dt><kbd class="option">External timecode is sync locked</kbd></dt>
-  <dd>
+  </td></tr>
+  <tr><th><kbd class="option">External timecode is sync locked</kbd></th>
+  <td>
     Indicates that the selected external timecode source shares sync (Black
     &amp; Burst, Wordclock, etc) with the audio interface.
-  </dd>
-  <dt><kbd class="option">Lock to 29.9700 fps instead of 30000/1001</kbd></dt>
-  <dd>
+  </td></tr>
+  <tr><th><kbd class="option">Lock to 29.9700 fps instead of 30000/1001</kbd></th>
+  <td>
     The external timecode source is assumed to use 29.97 fps instead of
     30000/1001. SMPTE 12M-1999 specifies 29.97df as 30000/1001. The spec
     further mentions that drop-frame timecode has an accumulated error of -86ms
@@ -72,32 +72,32 @@
     rate. However, some vendors use that rate&mdash;despite it being against
     the specs&mdash;because the variant of using exactly 29.97 fps has zero
     timecode drift.
-  </dd>
-  <dt><kbd class="menu">LTC incoming port</kbd></dt>
-  <dd>
+  </td></tr>
+  <tr><th><kbd class="menu">LTC incoming port</kbd></th>
+  <td>
     Offers a session agnostic way to retain the LTC port connection.
-  </dd>
-  <dt><kbd class="option">Enable LTC generator</kbd></dt>
-  <dd>Does just what it says.</dd>
-  <dt><kbd class="option">Send LTC while stopped</kbd></dt>
-  <dd>
+  </td></tr>
+  <tr><th><kbd class="option">Enable LTC generator</kbd></th>
+  <td>Does just what it says.</td></tr>
+  <tr><th><kbd class="option">Send LTC while stopped</kbd></th>
+  <td>
     Enable to continue to send LTC information even when the transport
     (playhead) is not moving. This mode is intended to drive analog tape
     machines which unspool the tape if no LTC timecode is received.
-  </dd>
-  <dt><kbd class="menu">LTC generator level</kbd></dt>
-  <dd>
+  </td></tr>
+  <tr><th><kbd class="menu">LTC generator level</kbd></th>
+  <td>
     Specify the Peak Volume of the generated LTC signal in dbFS. A good value
     is 0&nbsp;dBu (which is -18&nbsp;dbFS in an EBU calibrated system).
-  </dd>
-</dl>
+  </td></tr>
+</table>
 <p>These settings are common to all sessions.</p>
 
 
 <h2>MIDI Preferences</h2>
-<dl>
-  <dt><kbd class="option">Send MIDI Timecode</kbd></dt><dd>Enable MTC generator</dd>
-  <dt><kbd class="option">Send MIDI Clock</kbd></dt><dd>Enable MIDI Clock generator</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="option">Send MIDI Timecode</kbd></th><td>Enable MTC generator</td></tr>
+  <tr><th><kbd class="option">Send MIDI Clock</kbd></th><td>Enable MIDI Clock generator</td></tr>
+</table>
 <p>These settings are also common to all sessions.</p>
 

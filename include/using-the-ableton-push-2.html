@@ -53,18 +53,18 @@
 <p>
   With the Push 2 support in Ardour 5.4, you can do the following
   things:
-  <dl>
-    <dt>Perform using the 8 x 8 pad "grid"</dt>
-    <dd>The Push 2 has really lovely pressure-sensitive pads that can
-    also generate either aftertouch or note (polyphonic) pressure.</dd>
-    <dt>Global Mixing</dt>
-    <dd>See many tracks at once, and control numerous parameters for each.</dd>
-    <dt>Track/Bus Mixing</dt>
-    <dd>View a single track/bus, with even more parameters for the track.</dd>
-    <dt>Choose the mode/scale, root note and more for the pads</dt>
-    <dd>37 scales are available. Like Live, Ardour offers both
-    "in-key" and "chromatic" pad layouts.</dd>
-  </dl>
+  <table class="dl">
+    <tr><th>Perform using the 8 x 8 pad "grid"</th>
+    <td>The Push 2 has really lovely pressure-sensitive pads that can
+    also generate either aftertouch or note (polyphonic) pressure.</td></tr>
+    <tr><th>Global Mixing</th>
+    <td>See many tracks at once, and control numerous parameters for each.</td></tr>
+    <tr><th>Track/Bus Mixing</th>
+    <td>View a single track/bus, with even more parameters for the track.</td></tr>
+    <tr><th>Choose the mode/scale, root note and more for the pads</th>
+    <td>37 scales are available. Like Live, Ardour offers both
+    "in-key" and "chromatic" pad layouts.</td></tr>
+  </table>
 
   &hellip; plus a variety of tasks related to transport control, selection,
   import, click track control and more.
@@ -111,23 +111,23 @@
 </p>
 <p>
   As of Ardour 5.4, the possible parameters are:
-  <dl>
-    <dt>Volumes</dt>
-    <dd>The display shows a knob and text displaying
+  <table class="dl">
+    <tr><th>Volumes</th>
+    <td>The display shows a knob and text displaying
       the current gain setting for the track, and a meter that
       corresponds precisely to the meter shown in the Ardour GUI for
       that track. Changing the meter type (e.g. from Peak to K12) in the
       GUI will also change it in the Push 2 display. The physical knob
       will alter track/bus gain.
-    </dd>
-    <dt>Pans</dt>
-    <dd>The display shows a knob indicating the pan direction/azimuth
+    </td></tr>
+    <tr><th>Pans</th>
+    <td>The display shows a knob indicating the pan direction/azimuth
     for the corresponding track/bus. Turning the physical knob will
     pan the track left and right. If the track/bus has no panner
     (i.e. it has only a single output), no knob is shown and the
-    physical knob will do nothing. </dd>
-    <dt>Pan Widths</dt>
-    <dd><p>For tracks with 2 outputs, the display will show a knob
+    physical knob will do nothing. </td></tr>
+    <tr><th>Pan Widths</th>
+    <td><p>For tracks with 2 outputs, the display will show a knob
 	indicating the pan width setting for the corresponding
 	track/bus. The physical knob can be turned to adjust the
 	width.
@@ -142,17 +142,17 @@
 	please be aware than many DAWs use a "panner" that actually
 	implement "balance" and not "panning", hence the difference.
       </p>
-    </dd>
-    <dt>A Sends</dt>
-    <dd>The display shows a knob indicating the gain level for the
+    </td></tr>
+    <tr><th>A Sends</th>
+    <td>The display shows a knob indicating the gain level for the
       first send in that track. If the track has no send, no knob will
       be shown, and the physical knob for that track will do nothing.
-    </dd>
-    <dt>B Sends, C Sends, D Sends</dt>
-    <dd>Like "A Sends", but for the 2nd, 3rd and 4th sends of a
+    </td></tr>
+    <tr><th>B Sends, C Sends, D Sends</th>
+    <td>Like "A Sends", but for the 2nd, 3rd and 4th sends of a
       track/bus respectively.
-    </dd>
-  </dl>
+    </td></tr>
+  </table>
 </p>
 <p>
   To change which tracks are shown while in global mix mode, use the
@@ -281,81 +281,81 @@
   the buttons and knobs around the edges of the Push 2 will carry out
   various functions related to their (illuminated) label. As of Ardour
   5.4, this includes:
-  <dl>
-    <dt>Metronome (button and adjacent knob)</dt>
-    <dd>
+  <table class="dl">
+    <tr><th>Metronome (button and adjacent knob)</th>
+    <td>
       Enables/disables the click (metronome). The knob directly above
       it will control the volume (gain) of the click.
-    </dd>
-    <dt>Undo/Redo</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Undo/Redo</th>
+    <td>
       Undo or redo the previous editing operation.
-    </dd>
-    <dt>Delete</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Delete</th>
+    <td>
       Deletes the currently selected region, or range, or
       note. Equivalent to using Ctrl/Cmd-x on the keyboard.
-    </dd>
-    <dt>Quantize</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Quantize</th>
+    <td>
       If a MIDI region is selected in Ardour, this will open the
       quantize dialog.
-    </dd>
-    <dt>Duplicate</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Duplicate</th>
+    <td>
       Duplicates the current region or range selection.
-    </dd>
-    <dt>Rec-Enable</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Rec-Enable</th>
+    <td>
       Enables and disables Ardour's global record enable state.
-    </dd>
-    <dt>Play</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Play</th>
+    <td>
       Starts and stops the transport. Press Shift-Play to return to
       the session start.
-    </dd>
-    <dt>Add Track</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Add Track</th>
+    <td>
       Opens Ardour's Add Track/Bus dialog.
-    </dd>
-    <dt>Browse</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Browse</th>
+    <td>
       Open's Ardour's import dialog to select and audition existing
       audio and MIDI files.
-    </dd>
-    <dt>Master</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Master</th>
+    <td>
       Pressing this button jumps directly to Track Mix mode, with the
       master out bus displayed.
-    </dd>
-    <dt>Cursor arrows</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Cursor arrows</th>
+    <td>
       These are used by some modes to navigate within the display (e.g
       Scale mode). In other modes, the up/down cursor arrows will
       scroll the GUI display up and down, while the left/right cursor
       arrows will generally scroll within the Push 2 display itself.
-    </dd>
-    <dt>Repeat</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Repeat</th>
+    <td>
       Enables/disables loop playback. This will follow Ardour's "loop
       is mode" preference, just like the loop button in the Ardour
       GUI.
-    </dd>
-    <dt>Octave buttons</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Octave buttons</th>
+    <td>
       These shift the root note of the current pad scale up or down by
       1 octave.
-    </dd>
-    <dt>Page buttons</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Page buttons</th>
+    <td>
       These scroll Ardour's editor display left and right along the
       timeline.
-    </dd>
-    <dt>Master (top right) knob</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Master (top right) knob</th>
+    <td>
       This knob controls the gain/volume of Ardour's main output. If
       the session has a monitor saec
-    </dd>
-  </dl>
+    </td></tr>
+  </table>
 </p>
 

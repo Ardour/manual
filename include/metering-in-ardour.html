@@ -46,9 +46,9 @@
   There are different metering standards, most of which are available in Ardour. In short:
 </p>
 
-<dl>
-  <dt>Digital peak-meter</dt>
-  <dd>A <dfn>Digital Peak Meter</dfn> displays the absolute maximum signal
+<table class="dl">
+  <tr><th>Digital peak-meter</th>
+  <td>A <dfn>Digital Peak Meter</dfn> displays the absolute maximum signal
   of the raw audio PCM signal (for a given time). It is commonly used when
   tracking to make sure the recorded audio never clips. To that end, DPMs
   are always calibrated to 0&nbsp;<abbr title="DeciBel Full
@@ -61,10 +61,10 @@
   Various conventions for DPM fall-off times and dBFS line-up level can be
   chosen in <kbd class="menu">Edit &gt; Preferences &gt; GUI</kbd>.
   </p>
-  </dd>
+  </td></tr>
 
-  <dt>RMS meters</dt>
-  <dd>An <dfn><abbr title="Root Mean Square">RMS</abbr>-type meter</dfn>
+  <tr><th>RMS meters</th>
+  <td>An <dfn><abbr title="Root Mean Square">RMS</abbr>-type meter</dfn>
   is an averaging meter that looks at the energy in the signal. It
   provides a general indication of loudness as perceived by humans. Ardour
   features three RMS meters, all of which offer additonal peak indication.
@@ -77,10 +77,10 @@
     <li><dfn>Peak + RMS</dfn>: standard RMS, customizable via
     <kbd class="menu">Edit &gt; Preferences &gt; GUI &gt; Metering</kbd></li>
   </ul>
-  </dd>
+  </td></tr>
 
-  <dt>IEC PPMs</dt>
-  <dd><dfn><abbr title="International Electrontechnical Commission">IEC</abbr>-type
+  <tr><th>IEC PPMs</th>
+  <td><dfn><abbr title="International Electrontechnical Commission">IEC</abbr>-type
   <abbr title="Peak Programme Meters">PPM</abbr>s</dfn> are a mix between DPMs and
   RMS meters, created mainly for the purpose of
   interoperability. Many national and institutional varieties exist (<abbr
@@ -103,17 +103,17 @@
   Their specification is very exact, and consquently, there are no
   customizable parameters.
   </p>
-  </dd>
+  </td></tr>
 
-  <dt>VU meters</dt>
-  <dd><dfn><abbr title="Volume Unit">VU</abbr> meters</dfn> are the dinosaurs (1939)
+  <tr><th>VU meters</th>
+  <td><dfn><abbr title="Volume Unit">VU</abbr> meters</dfn> are the dinosaurs (1939)
   amongst the meters. They react very slowly, averaging out peaks.
   Their specification is very strict (300ms rise-time, 1&ndash;1.5% overshoot,
   flat frequency response). Ardour's VU meter adheres to that spec, but for
   visual consistency it is displayed as a bar-graph rather than needle-style
   (more below).
-  </dd>
-</dl>
+  </td></tr>
+</table>
 
 <h2>Ardour Specifics</h2>
 

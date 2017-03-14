@@ -25,27 +25,27 @@
 <p>
   The window is made of:
 </p>
-<dl>
-  <dt><dfn>Port</dfn></dt><dd>a list of all the MIDI ports Ardour presents to the system. They
+<table class="dl">
+  <tr><th><dfn>Port</dfn></th><td>a list of all the MIDI ports Ardour presents to the system. They
     are both internal and external and are the same ports Ardour presents to JACK, if
-    enabled.</dd>
-  <dt>the events list</dt><dd>where all the events for this port are listed, see below</dd>
-  <dt><dfn>Line history</dfn></dt><dd>how many lines should be kept in the events list</dd>
-  <dt><dfn>Delta times</dfn></dt><dd>if checked, shows the times as the duration since the last event, instead of the <a href="@@on-clock-and-time">absolute time</a></dd>
-  <dt><dfn>Decimal</dfn></dt><dd>if checked, shows the MIDI data as decimal values instead of the original hexadecimal values</dd>
-  <dt><dfn>Enabled</dfn></dt><dd>if checked, the events are displayed in the events list, otherwise stops the logging</dd>
-  <dt><dfn>Auto-Scroll</dfn></dt><dd>if checked, the events list scrolls as new events are logged, allowing to keep the newest events on screen</dd>
-</dl>
+    enabled.</td></tr>
+  <tr><th>the events list</th><td>where all the events for this port are listed, see below</td></tr>
+  <tr><th><dfn>Line history</dfn></th><td>how many lines should be kept in the events list</td></tr>
+  <tr><th><dfn>Delta times</dfn></th><td>if checked, shows the times as the duration since the last event, instead of the <a href="@@on-clock-and-time">absolute time</a></td></tr>
+  <tr><th><dfn>Decimal</dfn></th><td>if checked, shows the MIDI data as decimal values instead of the original hexadecimal values</td></tr>
+  <tr><th><dfn>Enabled</dfn></th><td>if checked, the events are displayed in the events list, otherwise stops the logging</td></tr>
+  <tr><th><dfn>Auto-Scroll</dfn></th><td>if checked, the events list scrolls as new events are logged, allowing to keep the newest events on screen</td></tr>
+</table>
 
 <p>
   The events list displays the events as columns:
 </p>
-<dl>
-  <dt>time of the event</dt><dd>either absolute or relative, based on the <kbd class="option">Delta times</kbd> checkbox</dd>
-  <dt>MIDI status (event type)</dt><dd>what midi events happened (e.g. Note On, Note Off, Pitch Bend, &hellip;)</dd>
-  <dt>MIDI channel</dt><dd>in which MIDI channel did the event happen</dd>
-  <dt>MIDI data bytes (event parameters)</dt><dd>parameters of the event, e.g. for a Note On: what <a gref="@@midi-notes-ref">note</a> was it, and which was the note's velocity</dd>
-</dl>
+<table class="dl">
+  <tr><th>time of the event</th><td>either absolute or relative, based on the <kbd class="option">Delta times</kbd> checkbox</td></tr>
+  <tr><th>MIDI status (event type)</th><td>what midi events happened (e.g. Note On, Note Off, Pitch Bend, &hellip;)</td></tr>
+  <tr><th>MIDI channel</th><td>in which MIDI channel did the event happen</td></tr>
+  <tr><th>MIDI data bytes (event parameters)</th><td>parameters of the event, e.g. for a Note On: what <a gref="@@midi-notes-ref">note</a> was it, and which was the note's velocity</td></tr>
+</table>
 
 <p class="note">
   Note: The MIDI Tracer can lists all kind of MIDI events, "audio" ones, but also <a href="@@midi-scene-automation">scene automation</a> or <a href="@@timecode-generators-and-slaves">timecodes</a> ones.

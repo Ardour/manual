@@ -3,26 +3,26 @@
   This lists the tracks and busses that are present in the session. The list order reflects the order in the editor, and you can drag-and-drop track or bus names in the editor list to re-order them in the editor. The columns in the list represent the following:
 </p>
 
-<dl>
-  <dt id="visible">V</dt>
-  <dd>whether the track or bus is visible; they can be hidden, in which case they will still play, but just not be visible in the editor; this can be useful for keeping the display uncluttered.</dd>
-  <dt id="active">A</dt>
-  <dd>whether the track or bus is active; unactive tracks will not play, and will not consume any CPU.</dd>
-  <dt id="input">I</dt>
-  <dd>for MIDI tracks, whether the MIDI input is enabled; this dictates whether MIDI data from the track's inputs ports will be passed through the track.</dd>
-  <dt id="record">R</dt>
-  <dd>whether the track is record-enabled.</dd>
-  <dt id="record-safe">RS</dt>
-  <dd>whether the track is record safe; a record safe track cannot be armed for recording, to protect against a mistake.</dd>
-  <dt id="mute">M</dt>
-  <dd>whether the track is muted.</dd>
-  <dt id="solo">S</dt>
-  <dd>track solo state.</dd>
-  <dt id="solo-isolated">SI</dt>
-  <dd>track solo-isolated state.</dd>
-  <dt id="solo-safe">SS</dt>
-  <dd>solo safe state. </dd>
-</dl>
+<table class="dl">
+  <tr><th id="visible">V</th>
+  <td>whether the track or bus is visible; they can be hidden, in which case they will still play, but just not be visible in the editor; this can be useful for keeping the display uncluttered.</td></tr>
+  <tr><th id="active">A</th>
+  <td>whether the track or bus is active; unactive tracks will not play, and will not consume any CPU.</td></tr>
+  <tr><th id="input">I</th>
+  <td>for MIDI tracks, whether the MIDI input is enabled; this dictates whether MIDI data from the track's inputs ports will be passed through the track.</td></tr>
+  <tr><th id="record">R</th>
+  <td>whether the track is record-enabled.</td></tr>
+  <tr><th id="record-safe">RS</th>
+  <td>whether the track is record safe; a record safe track cannot be armed for recording, to protect against a mistake.</td></tr>
+  <tr><th id="mute">M</th>
+  <td>whether the track is muted.</td></tr>
+  <tr><th id="solo">S</th>
+  <td>track solo state.</td></tr>
+  <tr><th id="solo-isolated">SI</th>
+  <td>track solo-isolated state.</td></tr>
+  <tr><th id="solo-safe">SS</th>
+  <td>solo safe state. </td></tr>
+</table>
 
 <p class="note">
   Each icon in these columns can be clicked to toggle the track/bus state, which is a very fast way to set multiple tracks/busses state at once.

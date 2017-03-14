@@ -34,11 +34,11 @@
   The <kbd class="menu">In</kbd> and <kbd class="menu">Out</kbd> buttons relate
   to the Punch range, and allow to use only one of the two punch boundaries, or both:
 </p>
-<dl>
-  <dt>In only</dt><dd>Records from the In marker on, without a end boundary</dd>
-  <dt>Out only</dt><dd>Records untils the Out marker, without a beginning boundary</dd>
-  <dt>In only</dt><dd>Records only between the In and Out markers</dd>
-</dl>
+<table class="dl">
+  <tr><th>In only</th><td>Records from the In marker on, without a end boundary</td></tr>
+  <tr><th>Out only</th><td>Records untils the Out marker, without a beginning boundary</td></tr>
+  <tr><th>In only</th><td>Records only between the In and Out markers</td></tr>
+</table>
 
 <p>
   The punch clocks can be controlled the same way as the range clocks (moving the playhead,
@@ -51,21 +51,21 @@
   The <kbd class="menu">Rec</kbd> button affects how the tracks behave when recording:
 </p>
 
-<dl>
-  <dt>Non-Layered OFF <em>(default)</em></dt>
-  <dd>Tracks in <dfn>normal mode</dfn> will record non-destructively &mdash;
+<table class="dl">
+  <tr><th>Non-Layered OFF <em>(default)</em></th>
+  <td>Tracks in <dfn>normal mode</dfn> will record non-destructively &mdash;
   new data is written to new files, and when overdubbing, new regions will be
   layered on top of existing ones. This is the recommended mode for most workflows.
-  </dd>
-  <dt>Non-Layered ON</dt>
-  <dd>Tracks using <dfn>non-layered mode</dfn> will record non-destructively
+  </td></tr>
+  <tr><th>Non-Layered ON</th>
+  <td>Tracks using <dfn>non-layered mode</dfn> will record non-destructively
   &mdash; new data is written to new files, but when overdubbing, the existing
   regions are trimmed so that there are no overlaps. This does not affect
   the previously recorded audio data, and trimmed regions can be expanded
   again at will. Non-layered mode can be very useful for spoken word material,
   especially in combination with <a href="@@pushpull-trimming">push/pull trimming</a>.
-  </dd>
-</dl>
+  </td></tr>
+</table>
 
 <p>
   See <a href="@@track-types">Track Modes</a> for more information.

@@ -54,15 +54,15 @@
   current work session, for hardware and software and is made of:
 </p>
 
-<dl>
-  <dt>Audio System</dt>
-  <dd>Depending on the operating system, Ardour can possibly use different audio
+<table class="dl">
+  <tr><th>Audio System</th>
+  <td>Depending on the operating system, Ardour can possibly use different audio
     systems, e.g. on Linux, both <abbr title="Advanced Linux Sound Architecture">
     ALSA</abbr> and <abbr title="JACK Audio Connection Kit">JACK</abbr> are
     available.
- </dd>
-  <dt>Driver</dt>
-  <dd>
+ </td></tr>
+  <tr><th>Driver</th>
+  <td>
     On Mac OS X this will typically be <kbd class="menu">CoreAudio</kbd>. On Linux usually
     this will be either <kbd class="menu"><abbr title="Free Firewire Audio Driver fOr
     linux">FFADO</abbr></kbd>
@@ -70,9 +70,9 @@
     Architecture">ALSA</abbr></kbd>, depending on whether or not you are
     utilizing a firewire device. Advanced users on all platforms may also
     use <kbd class="menu">NetJack</kbd> which provides network audio I/O.
-  </dd>
-  <dt>Device</dt>
-  <dd>The selector should show all availiable interfaces provided by the
+  </td></tr>
+  <tr><th>Device</th>
+  <td>The selector should show all availiable interfaces provided by the
   driver above and which are capable of duplex operation.
   <p class="warning">
     If you are using an Intel Mac running OS X and the builtin audio
@@ -81,31 +81,31 @@
     its separate input and output devices into a single "aggregate
     device"</a> before Ardour will be able to use it.
    </p>
-  </dd>
-  <dt>Sample Rate</dt>
-  <dd>
+  </td></tr>
+  <tr><th>Sample Rate</th>
+  <td>
     The selector will allow you to select from any sample rate
     supported by the device selected above it.
-  </dd>
-  <dt>Buffer Size</dt>
-  <dd>
+  </td></tr>
+  <tr><th>Buffer Size</th>
+  <td>
     You can adjust the size of the buffer used by your audio interface
     to allow for either lower latency, or lower CPU usage and higher
     latency.
-  </dd>
-  <dt>Input/Output Channels</dt>
-  <dd>
+  </td></tr>
+  <tr><th>Input/Output Channels</th>
+  <td>
     Here you can specify the number of hardware channels to use. The
-    default is <kbd class="menu">all available channels</kbd>.</dd>
-  <dt>Hardware Input/Output Latency</dt>
-  <dd>Specify the hardware delay in samples for precise latency compensation.</dd>
-  <dt>Calibrate</dt>
-  <dd>
+    default is <kbd class="menu">all available channels</kbd>.</td></tr>
+  <tr><th>Hardware Input/Output Latency</th>
+  <td>Specify the hardware delay in samples for precise latency compensation.</td></tr>
+  <tr><th>Calibrate</th>
+  <td>
     This button guides you through a semi-automated process to obtain
-    precise hardware latency measurements for the above option.</dd>
-  <dt>MIDI System</dt>
-  <dd>
+    precise hardware latency measurements for the above option.</td></tr>
+  <tr><th>MIDI System</th>
+  <td>
     Select the MIDI driver to use. On Mac OS X, this will be <kbd
     class="menu">CoreMIDI</kbd>. On Linux, you can change between two legacy
-    ALSA drivers or the (preferred) new JACK+ALSA implementation.</dd>
-</dl>
+    ALSA drivers or the (preferred) new JACK+ALSA implementation.</td></tr>
+</table>

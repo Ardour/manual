@@ -61,16 +61,16 @@
 <p>
   In this mode, only two parameters are active:
 </p>
-<dl>
-  <dt><dfn>Sensitivity</dfn> (%)</dt><dd>The proportion of the samples that must exceed the
+<table class="dl">
+  <tr><th><dfn>Sensitivity</dfn> (%)</th><td>The proportion of the samples that must exceed the
     energy rise threshold in order for an onset to be detected (at frames in which
     the detection function peaks). This roughly corresponds to how "noisy" a percussive
-    sound must be in order to be detected.</dd>
-  <dt><dfn>Cut Pos Threshold</dfn> (dB)</dt><dd>The rise in energy amongst a group of samples
+    sound must be in order to be detected.</td></tr>
+  <tr><th><dfn>Cut Pos Threshold</dfn> (dB)</th><td>The rise in energy amongst a group of samples
     that is required for that to be counted toward the detection function's count.
     This roughly corresponds to how "loud" a percussive sound must be in order to
-    be detected.</dd>
-</dl>
+    be detected.</td></tr>
+</table>
 <p>
   As those parameters are very material-related, there is no recipe for a perfect
   match, and a good peak detection is a matter of adjusting those two parameters
@@ -88,47 +88,47 @@
 <p>
   In the Note Onset mode, more parameters are active:
 </p>
-<dl>
-  <dt><dfn>Detection function</dfn></dt><dd>The method used to detect note changes. More on
-    this bellow.</dd>
-  <dt><dfn>Trigger gap (postproc)</dfn> (ms)</dt><dd>Set the minimum inter-onset interval,
+<table class="dl">
+  <tr><th><dfn>Detection function</dfn></th><td>The method used to detect note changes. More on
+    this bellow.</td></tr>
+  <tr><th><dfn>Trigger gap (postproc)</dfn> (ms)</th><td>Set the minimum inter-onset interval,
     in milliseconds, i.e. the shortest interval between two consecutive onsets.
-    </dd>
-  <dt><dfn>Peak threshold</dfn></dt><dd>Set the threshold value for the onset peak picking.
+    </td></tr>
+  <tr><th><dfn>Peak threshold</dfn></th><td>Set the threshold value for the onset peak picking.
     Lower threshold values imply more onsets detected. Increasing this threshold
-    should reduce the number of incorrect detections.</dd>
-  <dt><dfn>Silence threshold</dfn> (dB)</dt><dd>Set the silence threshold, in dB, under which
+    should reduce the number of incorrect detections.</td></tr>
+  <tr><th><dfn>Silence threshold</dfn> (dB)</th><td>Set the silence threshold, in dB, under which
     the onset will not be detected. A value of -20.0 would eliminate most onsets
-    but the loudest ones. A value of -90.0 would select all onsets.</dd>
-</dl>
+    but the loudest ones. A value of -90.0 would select all onsets.</td></tr>
+</table>
 
 <p>
   The Detection function, used in Note Onset mode to choose the mathematical strategy
   used to detect the note changes, is user-selectable:
 </p>
-<dl>
-  <dt><dfn>Energy based</dfn></dt><dd>This function calculates the local energy of the input
-    spectral frame</dd>
-  <dt><dfn>Spectral Difference</dfn></dt><dd>Spectral difference onset detection function
+<table class="dl">
+  <tr><th><dfn>Energy based</dfn></th><td>This function calculates the local energy of the input
+    spectral frame</td></tr>
+  <tr><th><dfn>Spectral Difference</dfn></th><td>Spectral difference onset detection function
     based on Jonhatan Foote and Shingo Uchihashi's "The beat spectrum: a new
-    approach to rhythm analysis" (2001)</dd>
-  <dt><dfn>High-Frequency Content</dfn></dt><dd> This method computes the High Frequency
+    approach to rhythm analysis" (2001)</td></tr>
+  <tr><th><dfn>High-Frequency Content</dfn></th><td> This method computes the High Frequency
     Content (HFC) of the input spectral frame. The resulting function is efficient
     at detecting percussive onsets. Based on Paul Masri's "Computer modeling
-    of Sound for Transformation and Synthesis of Musical Signal" (1996)</dd>
-  <dt><dfn>Complex Domain</dfn></dt><dd>This function uses information both in frequency and
+    of Sound for Transformation and Synthesis of Musical Signal" (1996)</td></tr>
+  <tr><th><dfn>Complex Domain</dfn></th><td>This function uses information both in frequency and
     in phase to determine changes in the spectral content that might correspond
     to musical onsets. It is best suited for complex signals such as polyphonic
-    recordings.</dd>
-  <dt><dfn>Phase Deviation</dfn></dt><dd>This function uses information both energy and in
-    phase to determine musical onsets.</dd>
-  <dt><dfn>Kullback-Liebler</dfn></dt><dd>Kulback-Liebler onset detection function based on
+    recordings.</td></tr>
+  <tr><th><dfn>Phase Deviation</dfn></th><td>This function uses information both energy and in
+    phase to determine musical onsets.</td></tr>
+  <tr><th><dfn>Kullback-Liebler</dfn></th><td>Kulback-Liebler onset detection function based on
     Stephen Hainsworth and Malcom Macleod's "Onset detection in music audio
-    signals" (2003)</dd>
-  <dt><dfn>Modified Kullback-Liebler</dfn></dt><dd>Modified Kulback-Liebler onset detection
+    signals" (2003)</td></tr>
+  <tr><th><dfn>Modified Kullback-Liebler</dfn></th><td>Modified Kulback-Liebler onset detection
     function based on Paul Brossier's "Automatic annotation of musical audio for
-    interactive systems" (2006)</dd>
-</dl>
+    interactive systems" (2006)</td></tr>
+</table>
 
 <p>
   Ardour defaults to Complex Domain, which usually gives good result for harmonic

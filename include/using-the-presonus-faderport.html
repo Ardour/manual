@@ -80,9 +80,9 @@
 <h3>Transport Buttons</h3>
 <p>
   The transport buttons all work as you would expect.
-  <dl>
-    <dt>Rewind</dt>
-    <dd>
+  <table class="dl">
+    <tr><th>Rewind</th>
+    <td>
       <p>
       When pressed on its own, starts the transport moving backwards. Successive presses
       speed up the "rewind" behaviour.
@@ -95,9 +95,9 @@
 	If pressed while also holding the Shift button, the playhead will
 	move to the session start marker.
       </p>
-    </dd>
-    <dt>Fast Forward</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Fast Forward</th>
+    <td>
       <p>
 	When pressed on its own, starts the transport moving faster than normal. Successive presses
 	speed up the "fast forward" behaviour.
@@ -106,23 +106,23 @@
 	If pressed while also holding the Shift button, the playhead
 	will move to the session end marker.
       </p>
-    </dd>
-    <dt>Stop</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Stop</th>
+    <td>
       Stops the transport. Also used in combination with the Rewind
       button to "return to zero".
-    </dd>
-    <dt>Play</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Play</th>
+    <td>
       Starts the transport. If pressed while the transport is
       already rolling at normal speed, causes the playhead to jump to
       the start of the last "roll" and continue rolling ("Poor man's
       looping").
-    </dd>
-    <dt>Record Enable</dt>
-    <dd>Toggles the global record enable setting
-    </dd>
-  </dl>
+    </td></tr>
+    <tr><th>Record Enable</th>
+    <td>Toggles the global record enable setting
+    </td></tr>
+  </table>
 </p>
 
 <h3>Other Global Controls</h3>
@@ -152,9 +152,9 @@
   confusing and it can be hard to find what you're looking
   for. However, all possible actions are there, so keep looking!
 <p>
-  <dl>
-    <dt>Mix</dt>
-    <dd>
+  <table class="dl">
+    <tr><th>Mix</th>
+    <td>
       <p>
 	Possible actions include:
 	<ul>
@@ -162,9 +162,9 @@
 	  <li>Show/Hide the Editor mixer strip</li>
 	</ul>
       </p>
-    </dd>
-    <dt>Proj</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Proj</th>
+    <td>
       <p>
 	Possible actions include:
 	<ul>
@@ -176,9 +176,9 @@
 	  <li>Zoom out</li>
 	</ul>
       </p>
-   </dd>
-    <dt>Trns</dt>
-    <dd>
+   </td></tr>
+    <tr><th>Trns</th>
+    <td>
       <p>
 	Possible actions include:
 	<ul>
@@ -188,15 +188,15 @@
 	  <li>Set Playhead at current pointer position</li>
 	</ul>
       </p>
-    </dd>
-    <dt>Undo/Redo</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Undo/Redo</th>
+    <td>
       Undo Causes the last operation carried out in the editor to be
       undone. When pressed in conjuction with the Shift button, it
       causes the most recent undone operation to be re-done.
-    </dd>
-    <dt>Punch</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Punch</th>
+    <td>
       <p>
 	When pressed on its own, toggles punch recording. If there is no
 	punch range set for the session, this will do nothing.
@@ -205,9 +205,9 @@
 	When pressed in conjunction with the Shift button, this moves
 	the playhead to the previous Marker
       </p>
-    </dd>
-    <dt>User</dt>
-    <dd>
+    </td></tr>
+    <tr><th>User</th>
+    <td>
       <p>
 	See above. Any and all GUI-initiated actions can be driven with
 	by pressing this button on its own, or with a "long" press.
@@ -216,9 +216,9 @@
 	When pressed in conjunction with the Shift button, this will move
 	the playhead to the next marker.
       </p>
-    </dd>
-    <dt>Loop</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Loop</th>
+    <td>
       <p>
 	When pressed on its own, this toggles loop playback. If the
 	Ardour preference "Loop-is-mode" is enabled, this does nothing
@@ -230,40 +230,40 @@
 	create a new (unnamed) marker at the current playhead
 	position.
       </p>
-    </dd>
-  </dl>
+    </td></tr>
+  </table>
 </p>
 
 <h3>Per-track Controls</h3>
 <p>
-  <dl>
-    <dt>Mute</dt>
-    <dd>
+  <table class="dl">
+    <tr><th>Mute</th>
+    <td>
       This toggles the mute setting of the currently controlled
       track/bus. The button will be lit if the track/bus is muted.
-    </dd>
-    <dt>Solo</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Solo</th>
+    <td>
       This toggles the solo (or listen) setting of the currently
       controlled track/bus. The button will be lit if the track/bus is
       soloed (or set to listen mode).
-    </dd>
-    <dt>Rec</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Rec</th>
+    <td>
       This toggles the record-enabled setting of the currently
       controlled track/bus. The button will be lit if the track is
       record-enabled. This button will do nothing if the Faderport is
       controlling a bus.
-    </dd>
-    <dt>Fader</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Fader</th>
+    <td>
       The fader controls the gain applied to the currently controlled
       track/bus. If the Faderport is powered, changing the gain in
       Ardour's GUI or via another control surface, or via automation,
       will result in the fader moving under its own control.
-    </dd>
-    <dt>Knob/Dial/Encoder</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Knob/Dial/Encoder</th>
+    <td>
       <p>
 	The knob controls 1 or 2 pan settings for the current
 	controlled track/bus. When used alone, turning the knob controls
@@ -283,32 +283,32 @@
 	in order to modify the input gain for the currently controlled
 	track.
       </p>
-    </dd>
-    <dt>Read</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Read</th>
+    <td>
       Enables playback/use of fader automation data by the controlled track/bus.
-    </dd>
-    <dt>Write</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Write</th>
+    <td>
       Puts the fader for the controlled track/bus into automation
       write mode. While the transport is rolling, all fader changes
       will be recorded to the fader automation lane for the relevant track/bus.
-    </dd>
-    <dt>Touch</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Touch</th>
+    <td>
       Puts the fader for the controlled track/bus into automation
       touch mode. While the transport is rolling, touching the fader
       will initiate recording all fader changes until the fader is
       released. When the fader is not being touched, existing
       automation data will be played/used to control the gain level.
-    </dd>
-    <dt>Off</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Off</th>
+    <td>
       This disables all automation modes for the currently controlled
       track/bus. Existing automation data will be left unmodified by
       any fader changes, and will not be used for controlling gain.
-    </dd>
-  </dl>
+    </td></tr>
+  </table>
 </p>
 
 <h3>Track Selection Controls</h3>
@@ -319,25 +319,25 @@
   track and <em>only</em> that track/bus.
 </p>
 <p>
-  <dl>
-    <dt>Left (arrow)</dt>
-    <dd>
+  <table class="dl">
+    <tr><th>Left (arrow)</th>
+    <td>
       This causes the Ardour GUI to select the previous track/bus
       (using the current visual order in the editor window), which
       will in turn cause the Faderport to control that track. If there
       is no previous track/bus, the selected track/bus is left
       unchanged, and the Faderport continues to control it.
-    </dd>
-    <dt>Right (arrow)</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Right (arrow)</th>
+    <td>
       This causes the Ardour GUI to select the next track/bus
       (using the current visual order in the editor window), which
       will in turn cause the Faderport to control that track. If there
       is no next track/bus, the selected track/bus is left
       unchanged, and the Faderport continues to control it.
-    </dd>
-    <dt>Output</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Output</th>
+    <td>
       <p>
 	Pressing the Output button causes the Faderport to control
 	the fader, pan, mute and solo settings of the Master bus. If
@@ -362,11 +362,11 @@
 	where it is no longer apparent what is being controlled and
 	what will happen if you try to change it.
       </p>
-    </dd>
-    <dt>Bank</dt>
-    <dd>
+    </td></tr>
+    <tr><th>Bank</th>
+    <td>
       The "Bank" button is currently not used by Ardour
-    </dd>
-  </dl>
+    </td></tr>
+  </table>
 </p>
 

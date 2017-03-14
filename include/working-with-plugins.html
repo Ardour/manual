@@ -14,34 +14,34 @@
   Ardour supports a variety of different plugin standards:
 </p>
 
-<dl class="narrower-table">
-  <dt><abbr title="Linux Audio Developers' Simple Plugin API">LADSPA</abbr></dt>
-  <dd>An early, simple, lightweight plugin <abbr title="Application
+<table class="dl">
+  <tr><th><abbr title="Linux Audio Developers' Simple Plugin API">LADSPA</abbr></th>
+  <td>An early, simple, lightweight plugin <abbr title="Application
   Programming Interface">API</abbr>, audio effects only,
-  plugins have no editors/GUI of their own (Ardour provides one, however).</dd>
-  <dt><abbr title="LADSPA Version 2">LV2</abbr></dt>
-  <dd>An extensible, full-featured plugin API, audio and <abbr
+  plugins have no editors/GUI of their own (Ardour provides one, however).</td></tr>
+  <tr><th><abbr title="LADSPA Version 2">LV2</abbr></th>
+  <td>An extensible, full-featured plugin API, audio and <abbr
   title="Musical Instrument Digital Interface">MIDI</abbr>, plugins can provide their
   own  <abbr title="Graphical User Interface">GUI</abbr>s but may use the
-  one Ardour provides instead.</dd>
-  <dt><abbr title="Audio Unit">AU</abbr></dt>
-  <dd>OS X only, full featured, audio and MIDI, plugins can provide their own GUI</dd>
+  one Ardour provides instead.</td></tr>
+  <tr><th><abbr title="Audio Unit">AU</abbr></th>
+  <td>OS X only, full featured, audio and MIDI, plugins can provide their own GUI</td></tr>
 
-  <dt><abbr title="Virtual Studio Technology">VST</abbr></dt>
-  <dd>Plugins using Steinberg's VST plugin standard. Varies by platform:
-    <dl>
-    <dt>on Linux</dt><dd>(native) Linux VST plugins fully supported (VST2.4)</dd>
-    <dt>on Windows</dt><dd>(native) Windows VST plugins fully supported (VST2.4)</dd>
-    <dt>on OS X</dt><dd>(native) macOS VST plugins fully supported (VST2.4) since Ardour 5.5</dd>
-  </dl>
-  </dd>
+  <tr><th><abbr title="Virtual Studio Technology">VST</abbr></th>
+  <td>Plugins using Steinberg's VST plugin standard. Varies by platform:
+    <table class="dl">
+    <tr><th>on Linux</th><td>(native) Linux VST plugins fully supported (VST2.4)</td></tr>
+    <tr><th>on Windows</th><td>(native) Windows VST plugins fully supported (VST2.4)</td></tr>
+    <tr><th>on OS X</th><td>(native) macOS VST plugins fully supported (VST2.4) since Ardour 5.5</td></tr>
+  </table>
+  </td></tr>
 
-  <dt>Windows VST Plugins on Linux</dt>
-  <dd>VST plugins for Windows, but being used on Linux. <em>Not
+  <tr><th>Windows VST Plugins on Linux</th>
+  <td>VST plugins for Windows, but being used on Linux. <em>Not
   supported by normal builds of Ardour. <a href="@@using-windows-vst-plugins-on-linux">Read
   more&hellip;</a></em>
-  </dd>
-</dl>
+  </td></tr>
+</table>
 
 <h2>Adding/Removing/Copying Plugins</h2>
 

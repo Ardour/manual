@@ -67,14 +67,14 @@
   to the grid:
 </p>
 
-<dl class="wide-table">
-  <dt><kbd class="menu">No Grid</kbd></dt>
-    <dd>disables the grid. All objects move freely in this mode.</br>
+<table class="dl">
+  <tr><th><kbd class="menu">No Grid</kbd></th>
+    <td>disables the grid. All objects move freely in this mode.</br>
     In <kbd class="menu">No Grid</kbd> mode, the grid may be temporarily activated
     by pressing the snap modifier (for absolute snap) or switch to relative snap
-    by pressing the relative snap modifier.</dd>
-  <dt><kbd class="menu">Grid</kbd></dt>
-    <dd>activates normal snapping. All positions of objects snap to the grid. (See
+    by pressing the relative snap modifier.</td></tr>
+  <tr><th><kbd class="menu">Grid</kbd></th>
+    <td>activates normal snapping. All positions of objects snap to the grid. (See
     <a href="#gridunits">Grid Units</a> below to change the grid).
     Moving an object in "Grid"-mode, does not change its position until
     the mouse is far enough for the object to reach the next grid line.</br>
@@ -85,16 +85,16 @@
     New objects will always be created at grid
     points.</br>
     Holding down the snap modifier will disable the current grid
-    setting and allow you to move the object freely.</dd>
-  <dt><kbd class="menu">Magnetic</kbd></dt>
-    <dd>is a less strict type of snapping. Objects can still be moved to any
+    setting and allow you to move the object freely.</td></tr>
+  <tr><th><kbd class="menu">Magnetic</kbd></th>
+    <td>is a less strict type of snapping. Objects can still be moved to any
     position, but positions close to the relative or absolute grid points will snap.
     In order to move an object very close to a snap point, it may be necessary to
     zoom in to prevent snapping to that point, or to use the snap modifier to
     disable snap completely.</br> As with Grid mode, the snap modifier will disable
     snap completely while the absolute snap modifier will move the "notch" of
-    Magnetic snap to the grid lines.</dd>
-</dl>
+    Magnetic snap to the grid lines.</td></tr>
+</table>
 
 <h2>Syncing Regions to the Grid</h2>
 
@@ -112,30 +112,30 @@
   elements. The grid can be set to several different units:
 </p>
 
-<dl class="wide-table">
-  <dt><kbd class="menu">CD Frames</kbd></dt>
-  <dd>A CD Frame is 1/75th of a second. Snapping to CD Frames (using absolute snap) can be used to avoid issues with CD track lengths.</dd>
-  <dt><kbd class="menu">Timecode Frames/Seconds/Minutes</kbd></dt>
-  <dd>The duration of a frame depends on the timecode settings for the session.</dd>
-  <dt><kbd class="menu">Seconds/Minutes</kbd></dt>
-  <dd>These are absolute time units, unaffected by sample rate or timecode settings</dd>
-  <dt><kbd class="menu">Beats/N</kbd></dt>
-  <dd>Set the grid to units of 1/N beats, where N can be 128, 64, 32, 16, 8, 7, 6, 5, 4, 3, 2. The duration of a grid unit will depend on the tempo and meter in effect at that point in the timeline.</dd>
-  <dt><kbd class="menu">Beats</kbd></dt>
-  <dd>Set the grid to whole beats. The duration of a grid unit will depend on the tempo and meter in effect at that point in the timeline.</dd>
-  <dt><kbd class="menu">Bars</kbd></dt>
-  <dd>Set the grid to whole bars. The duration of a grid unit will depend on the tempo and meter in effect at that point in the timeline.</dd>
-  <dt><kbd class="menu">Markers</kbd></dt>
-  <dd>The grid lines are the markers.</dd>
-  <dt><kbd class="menu">Region Starts</kbd></dt>
-  <dd>The grid lines are constructed from region start points (see below).</dd>
-  <dt><kbd class="menu">Region Ends</kbd></dt>
-  <dd>The grid lines are constructed from region end points (see below).</dd>
-  <dt><kbd class="menu">Region Syncs</kbd></dt>
-  <dd>The grid lines are constructed from region sync points.</dd>
-  <dt><kbd class="menu">Region Bounds</kbd></dt>
-  <dd>The grid lines are constructed from region start or end points.</dd>
-</dl>
+<table class="dl">
+  <tr><th><kbd class="menu">CD Frames</kbd></th>
+  <td>A CD Frame is 1/75th of a second. Snapping to CD Frames (using absolute snap) can be used to avoid issues with CD track lengths.</td></tr>
+  <tr><th><kbd class="menu">Timecode Frames/Seconds/Minutes</kbd></th>
+  <td>The duration of a frame depends on the timecode settings for the session.</td></tr>
+  <tr><th><kbd class="menu">Seconds/Minutes</kbd></th>
+  <td>These are absolute time units, unaffected by sample rate or timecode settings</td></tr>
+  <tr><th><kbd class="menu">Beats/N</kbd></th>
+  <td>Set the grid to units of 1/N beats, where N can be 128, 64, 32, 16, 8, 7, 6, 5, 4, 3, 2. The duration of a grid unit will depend on the tempo and meter in effect at that point in the timeline.</td></tr>
+  <tr><th><kbd class="menu">Beats</kbd></th>
+  <td>Set the grid to whole beats. The duration of a grid unit will depend on the tempo and meter in effect at that point in the timeline.</td></tr>
+  <tr><th><kbd class="menu">Bars</kbd></th>
+  <td>Set the grid to whole bars. The duration of a grid unit will depend on the tempo and meter in effect at that point in the timeline.</td></tr>
+  <tr><th><kbd class="menu">Markers</kbd></th>
+  <td>The grid lines are the markers.</td></tr>
+  <tr><th><kbd class="menu">Region Starts</kbd></th>
+  <td>The grid lines are constructed from region start points (see below).</td></tr>
+  <tr><th><kbd class="menu">Region Ends</kbd></th>
+  <td>The grid lines are constructed from region end points (see below).</td></tr>
+  <tr><th><kbd class="menu">Region Syncs</kbd></th>
+  <td>The grid lines are constructed from region sync points.</td></tr>
+  <tr><th><kbd class="menu">Region Bounds</kbd></th>
+  <td>The grid lines are constructed from region start or end points.</td></tr>
+</table>
 
 <p>
   To use Region starts/ends/syncs/bounds as snap choices, it is necessary to have either:

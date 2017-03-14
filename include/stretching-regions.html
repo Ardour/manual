@@ -50,24 +50,24 @@
   The Time Stretch Audio window is made of:
 </p>
 
-<dl>
-  <dt><dfn>Duration</dfn></dt><dd>The target duration of the region, expressed using the
-    primary transport clock's mode</dd>
-  <dt><dfn>Percent</dfn></dt><dd>The target duration of the region, expressed as a percentage
+<table class="dl">
+  <tr><th><dfn>Duration</dfn></th><td>The target duration of the region, expressed using the
+    primary transport clock's mode</td></tr>
+  <tr><th><dfn>Percent</dfn></th><td>The target duration of the region, expressed as a percentage
     of the region's original lenght. Can be either higher than 100&#37; (to
-    expand the region) or lower (to shrink it)</dd>
-  <dt><dfn>Contents</dfn></dt><dd>The type of audio the region is made of. Ardour will fine-tune
-    its algorithm based on this content, see below</dd>
-  <dt><dfn>Minimize time distortion</dfn></dt><dd>Tries to reduce the smearing
-    of the audio created by the phase vocoding process</dd>
-  <dt>a <dfn>Progress</dfn> bar</dt><dd>showing the operation in progress.</dd>
-</dl>
+    expand the region) or lower (to shrink it)</td></tr>
+  <tr><th><dfn>Contents</dfn></th><td>The type of audio the region is made of. Ardour will fine-tune
+    its algorithm based on this content, see below</td></tr>
+  <tr><th><dfn>Minimize time distortion</dfn></th><td>Tries to reduce the smearing
+    of the audio created by the phase vocoding process</td></tr>
+  <tr><th>a <dfn>Progress</dfn> bar</th><td>showing the operation in progress.</td></tr>
+</table>
 
 <p>
   The <em>Contents</em> should be selected to best fit the actual content of the region, amongst:
 </p>
 
-<table class="alternate" style="text-align:center;">
+<table class="dl" style="text-align:center;">
   <tbody>
     <tr>  <td>Content</td>
           <td>Disable phase resynchronisation at transients</td>
