@@ -1,2 +1,44 @@
 
+<p>
+  <dfn><abbr title="Musical Instrument Digital Interface">MIDI</abbr></dfn> is
+  a way to describe musical performances and to control music hardware and
+  software.
+</p>
+
+<p>
+  Ardour can import and record MIDI data, and perform a variety of editing
+  operations on it. Furthermore, MIDI can be used to control various functions
+  of Ardour.
+</p>
+
+<h2>MIDI Handling Frameworks</h2>
+
+<p>
+  MIDI input and output for Ardour are handled by the same "engine" that
+  handles audio input and output.
+</p>
+
+<table class="dl">
+  <tr><th>OS X</th>
+  <td><dfn>CoreMIDI</dfn> is the standard MIDI framework on OSX systems.</td></tr>
+  <tr><th>Linux</th>
+  <td><dfn><abbr title="Advanced Linux Sound API">ALSA</abbr> MIDI</dfn> is the
+  standard MIDI framework on Linux systems.</td></tr>
+  <tr><th>Windows</th>
+  <td>There is no single standard MIDI framework on Windows, but Ardour
+  can work with ASIO and others.</td></tr>
+</table>
+
+<p class="note">
+  On Linux systems, <dfn>QJackCtl</dfn> control software displays ALSA MIDI
+  ports under its "ALSA" tab (it does not currently display CoreMIDI ports).
+  By contrast, JACK MIDI ports show up under the <kbd class="menu">MIDI</kbd>
+  tab in QJackCtl.
+</p>
+
+<h2>JACK MIDI Configuration</h2>
+
+<p>
+  By default, JACK will <strong>not</strong> automatically detect and use existing MIDI ports. One of several ways of <dfn>bridging</dfn> between the native MIDI frameworks (e.g. CoreMIDI or ALSA) and JACK MIDI must be chosen, as described in the following sections.
+</p>
 

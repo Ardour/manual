@@ -1,106 +1,101 @@
 
 <p>
-  It would be nice to think that you could just go and buy any computer,
-  install a bit of software on it and start using it to record and create
-  music. This idea isn't wrong, but there some important details that it
-  misses.
-</p>
-<p>
-  Any computer that you can buy today (since somewhere around the end of
-  2012) is capable of recording and processing a lot of audio data. It
-  will come with a builtin audio interface that can accept inputs from
-  microphones or electrical instruments. It will have a disk with a huge
+  It is nice to think that one could just go and buy any computer, install a
+  bit of software on it and start using it to record and create music. This
+  idea isn't necessarily wrong, but there are some important details that it
+  misses. Any computer that that can be bought today (since somewhere around
+  the end of 2012) is capable of recording and processing a lot of audio data.
+  It will come with a builtin audio interface that can accept inputs from
+  microphones and/or electrical instruments; it will have a disk with a huge
   amount of space for storing audio files.
 </p>
+
 <p>
-  When you are recording, editing and mixing music, you generally want to
-  work with very little <dfn>latency</dfn> between the time that
-  a sound is generated and when you can hear it. When the audio signal
-  flows through a computer, that means that the computer has to be able to
-  receive the signal, process it and send it back out again as fast as
-  possible.<br>
-  And that is where it becomes very important <em>what</em> computer system
-  you have, because it is <strong>absolutely not</strong> the case that any
-  computer can do this job well.
+  However, when recording, editing and mixing music, it is generally desirable
+  to have very little <dfn>latency</dfn> between the time a sound is generated
+  and when it can be heard. When the audio signal flows through a computer,
+  that means that the computer has to be able to receive the signal, process it
+  and send it back out again as quickly as possible. And this is where it
+  becomes very important <em>what</em> computer system is being used for this
+  task, because it is <strong>absolutely not</strong> the case that
+  <em>any</em> computer can do it well.
 </p>
+
 <p>
-  Routing audio through a computer will always cause some delay, but if it
-  is small, you will generally never notice it. There are also ways to work
-  in which the delay does not matter at all (for example, not sending the
-  output from the computer to speakers).
+  Routing audio through a computer will always cause some delay, but if it is
+  small, it will generally never be noticed. There are also ways to work in
+  which the delay does not matter at all (for example, not sending the output
+  from the computer to speakers).
 </p>
+
 <p>
-  The latency that you want for working with digital audio is typically in
-  the 1&ndash;5&nbsp;ms range. For comparison, if you are sitting 1&nbsp;m
-  (3&nbsp;ft) from your speakers, the time the sound takes to reach your
+  The latency that is typically needed for working with digital audio is in the
+  1&ndash;5&nbsp;ms range. For comparison, if one is sitting 1&nbsp;m
+  (3&nbsp;ft) from a set of speakers, the time the sound takes to reach the
   ears is about 3&nbsp;ms. Any modern computer can limit the delay to
-  100&nbsp;ms. Most can keep it under 50&nbsp;ms. Many will be able to get
-  down to 10&nbsp;ms without too much effort. If you try to reduce the delay
-  on a computer that cannot meet your goal, you will get clicks and
-  glitches in the audio, which is clearly extremely undesirable.
+  100&nbsp;ms; most can keep it under 50&nbsp;ms. Many will be able to get down
+  to 10&nbsp;ms without too much effort. Attempting to reduce the latency on a
+  computer that cannot physically do it will cause clicks and glitches in the
+  audio, which is clearly undesirable.
 </p>
 
 <h2>Hardware-related Considerations</h2>
+
 <table class="dl">
   <tr><th>Video interface</th>
   <td>Poorly engineered video interfaces (and/or their device drivers) can
   "steal" computer resources for a long time, preventing the audio interface
-  from keeping up with the flow of data</td></tr>
+  from keeping up with the flow of data.</td></tr>
   <tr><th>Wireless interface</th>
   <td>Poorly engineered wireless networking interfaces (and/or their device
-  drivers) can also block the audio interface from keeping up with the flow
-  of data</td></tr>
+  drivers) can also block the audio interface from keeping up with the flow of
+  data.</td></tr>
   <tr><th><abbr title="Universal Serial Bus">USB</abbr> ports</th>
-  <td>If you are using an audio interface connected via USB, and sometimes
-  even if you are not, the precise configuration of your system's USB ports
-  can make a big difference. There are many cases where plugging the
-  interface into one port will work, but using different USB port results
-  in much worse performance. This has been seen even on Apple systems.
-  </td></tr>
+  <td>When using an audio interface connected via USB, and sometimes even if
+  not, the precise configuration of the system's USB ports can make a big
+  difference. There are many cases where plugging the interface into one port
+  will work, but using different USB port results in much worse performance.
+  This has been seen even on Apple systems.</td></tr>
   <tr><th>Internal USB Hubs</th>
-  <td>Ideally, you'd like your USB ports to all connect directly to the
-  main bus inside the computer. Some laptops (and possibly some
-  desktop systems) come wired with an internal USB hub between the
-  ports and the system bus, which can then cause problems for various
-  kinds of external USB devices, including some models of audio
-  interfaces. It is very difficult to discover whether this is true or
-  not, without simplying trying it out.</td></tr>
+  <td>Ideally, all USB ports should connect directly to the main bus inside the
+  computer. Some laptops (and possibly some desktop systems) come wired with an
+  internal USB hub between the ports and the system bus, which can then cause
+  problems for various kinds of external USB devices, including some models of
+  audio interfaces. It is very difficult to discover whether this is true or
+  not without simplying trying it out.</td></tr>
   <tr><th><abbr title="Central Processing Unit">CPU</abbr> speed control</th>
-  <td>Handling audio with low latency requires that your processor keeps
-  running at its highest speed at all times. Many portable systems try to
-  regulate processor speed in order to save power&mdash;for low latency
-  audio, you want this totally disabled, either in the BIOS or at the OS
-  level.</td></tr>
+  <td>Handling audio with low latency requires that the processor keeps running
+  at its highest speed at all times. Many portable systems try to regulate
+  processor speed in order to save power&mdash;for low latency audio, this
+  should be totally disabled, either in the BIOS or at the OS level.</td></tr>
   <tr><th>Excessive Interrupt Sharing</th>
-  <td>If your audio interface is forced by your computer to share an
-  interrupt line (basically a way to tell the CPU that something needs
-  its attention) with too many, or the wrong, other devices, this can also
-  prevent the audio interface from keeping up with the flow of data. In
-  laptops it is generally impossible to do anything about this. In many
-  desktop systems, it is possible at the BIOS level to reassign interrupts
-  to work around the problem.</td></tr>
+  <td>If the audio interface is forced by the computer to share an interrupt
+  line (basically a way to tell the CPU that something needs its attention)
+  with too many other (or wrong) devices, this can also prevent the audio
+  interface from keeping up with the flow of data. In laptops it is generally
+  impossible to do anything about this. In many desktop systems, it is possible
+  at the BIOS level to reassign interrupts to work around the problem.</td></tr>
   <tr><th><abbr title="System Management Interrupt">SMI</abbr>s</th>
-  <td>SMIs are interrupts sent by the motherboard to tell the computer
-  about the state of various hardware. They cannot safely be disabled,
-  but they can also take a relatively long time to process. It is better
-  to have a motherboard which never sends SMIs at all&mdash;this is
-  also a requirement for realtime stock trading systems, which have
-  similar issues with latency.</td></tr>
+  <td>SMIs are interrupts sent by the motherboard to tell the computer about
+  the state of various hardware. They cannot safely be disabled, and they can
+  take a relatively long time to process. It is better to have a motherboard
+  which never sends SMIs at all&mdash;this is also a requirement for realtime
+  stock trading systems, which have similar issues with latency.</td></tr>
   <tr><th>Hyperthreading</th>
-  <td>This technology is becoming less common as actual multi-core CPUs
-  become the norm, but it still exists and is generally not good for
-  realtime performance. Sometimes you can disable this in the BIOS,
-  sometimes you cannot. A processor that uses hyperthreading will be
-  less stable in very low latency situations than one without.</td></tr>
+  <td>This technology is becoming less common as actual multi-core CPUs become
+  the norm, but it still exists and is generally not good for realtime
+  performance. Sometimes this can be disabled in the BIOS, sometimes it cannot.
+  A processor that uses hyperthreading will be less stable in very low latency
+  situations than one without.</td></tr>
   <tr><th>Excessive vibration</th>
-  <td>This doesn't affect the flow of data to/from the audio interface,
-  but it can cause the flow of data to/from your disk storage to become
-  <em>much</em> slower. If you are going to use a computer in an
-  environment with loud live sound (specifically, high bass volume),
-  make sure to place it so that the disk is not subject to noticeable
-  vibration. The vibrations will physically displace the head-write
-  heads of disk, and the resulting errors will force a retry of the
-  reading from the disk. Retrying over and over massively reduces the
-  rate at which data can be read from the disk. Avoid this.</td></tr>
+  <td>This doesn't affect the flow of data to or from the audio interface, but
+  it can cause the flow of data to and from disk storage to become
+  <em>much</em> slower. If a computer going to be used in an environment with
+  loud live sound (specifically, high bass volume), make sure it is placed so
+  that the disk is not subjected to noticeable vibration. The vibrations will
+  physically displace the read-write heads of disk, and the resulting errors
+  will force a retry of the reading from the disk. Retrying over and over
+  massively reduces the rate at which data can be read from the disk. Avoid
+  this.</td></tr>
 </table>
 

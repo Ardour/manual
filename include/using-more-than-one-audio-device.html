@@ -1,79 +1,73 @@
 
 <p>
-  Ardour will only ever deal with a single <dfn>audio device</dfn>. If you
-  want to use more than one, you have two choices:
+  Ardour will only ever deal with a single <dfn>audio device</dfn>. When it is
+  desired to use more than one audio device at the same time, there are two
+  choices:
 </p>
+
 <ul>
-  <li>
-    If you want to use Ardour to start JACK (which handles all
-    audio I/O) you will need to create a "fake" audio device on your
-    computer the represents all the multiple devices you wish to
-    use. How to do this is platform dependent and described below.
-  </li>
-  <li>
-    Use a different tool to start JACK and manage all the devices.
-  </li>
+  <li>Use Ardour to start JACK (which handles all audio I/O), and create a
+  "fake" audio device which represents all the multiple devices to be used. How
+  to do this is platform dependent and described below.</li>
+  <li>Use a different tool to start JACK and manage all the devices.</li>
 </ul>
+
 <p>
-  Ardour is fundamentally designed to be a component in a
-  pro-audio/music creation environment. Standard operating practice
-  for such setups involves using only a single digital <dfn>sample
-  clock</dfn> (something counting off the time between audio samples).
-  This means that trying to use multiple independent soundcards is
-  problematic, because each soundcard has its own sample clock, running
-  independently from the others. Over time, these different clocks
-  <dfn>drift</dfn>
-  out of sync with each other, which causes glitches in the audio. You
-  cannot stop this drift, although in some cases the effects may be
-  insignificant enough that some people might not care about them.
+  Ardour is fundamentally designed to be a component in a pro-audio/music
+  creation environment. Standard operating practice for such setups involves
+  using only a single digital <dfn>sample clock</dfn> (something counting off
+  the time between audio samples). This means that trying to use multiple
+  independent soundcards is problematic, because each soundcard has its own
+  sample clock, running independently from the others. Over time, these
+  different clocks <dfn>drift</dfn> out of sync with each other, which causes
+  glitches in the audio. This drift cannot be stopped, although in some cases
+  the effects may be insignificant enough that they might not be noticeable.
 </p>
+
 <p>
-  Thus in an ideal world you should not use multiple independent
-  soundcards but instead use a single device with a single clock and all
-  the inputs, outputs and other features that you need.
-</p>
-<p>
-  Of course, a lot of people don't live in an ideal world, and believe
-  that software should make up for this.
+  Thus, in an ideal world, a single device with a single clock and all the inputs, outputs and other features needed should be used. Of course, there are those who like to point out that this is not an ideal world, and believe that software should make up for this.
 </p>
 
 <h2>OS X</h2>
+
 <p>
-  In CoreAudio, <dfn>aggregate devices</dfn> provide a method to use
-  multiple soundcards as a single device. For example, you can
-  aggregate two 8-channel devices so that you can record 16 channels
-  into Ardour.
+  In CoreAudio, <dfn>aggregate devices</dfn> provide a method to use multiple
+  soundcards as a single device. For example, two eight-channel devices can be
+  aggregated so that 16 channels can be recorded in Ardour.
 </p>
+
 <div class="note">
 <p>
-  If you are using a <em>single</em> typical 3rd party
-  audio interface (such as those from Apogee, RME, Presonus, and many
-  others), <em>or</em> you are using JackPilot or a similar
-  application to start JACK, you do not need to worry about this.<br>
-  You will need to set up an aggregate device only if either
-  of the following conditions are true:
-</p>
+  When using a <em>single</em> typical 3rd party audio interface (such as those
+  from Apogee, RME, Presonus, and many others), <em>or</em> using JackPilot or
+  a similar application to start JACK, there is no need to worry about any of
+  this. An aggregate device only needs to be set up if any of the following
+  conditions are true:
+
 <ul>
-  <li>You want to use two entirely separate
-    devices <em>and</em> want to start JACK using Ardour.</li>
-  <li>You want to use your <dfn>builtin audio device</dfn> <em>and</em>
-    want to start JACK using Ardour.</li>
-  <li>You want to use more than two entirely separate devices</li>
+  <li>Two entirely separate devices are used <em>and</em> JACK is started using
+  Ardour</li>
+  <li>A <dfn>builtin audio device is used</dfn> <em>and</em> JACK is started
+  using Ardour</li>
+  <li>More than two entirely separate devices are used</li>
 </ul>
 </div>
+
 <p>
-  In the case of your builtin audio device, you will need to create
-  an aggregate device that combines "Builtin Input" and "Builtin
-  Output" into one device.
+  In the case of a builtin audio device, an aggregate device that combines
+  "Builtin Input" and "Builtin Output" into one device needs to be created.
 </p>
+
 <p>
-  The precise instructions for creating an aggregate device on OS X
-  have varied from one released to another. Please read <a href="https://support.apple.com/en-us/HT202000">https://support.apple.com/en-us/HT202000</a>
+  The precise instructions for creating an aggregate device on OS X have varied
+  from one released to another. Please read <a
+  href="https://support.apple.com/en-us/HT202000">https://support.apple.com/en-us/HT202000</a>.
 </p>
 
 <h2>Linux</h2>
+
 <p>
   Please see the instructions at <a href="http://jackaudio.org/faq/"
-  title="http://jackaudio.org/faq/">http://jackaudio.org/faq</a>
+  title="http://jackaudio.org/faq/">http://jackaudio.org/faq</a>.
 </p>
 

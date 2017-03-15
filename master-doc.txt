@@ -119,7 +119,7 @@ part: chapter
 
 ---
 title: Default Keyboard Bindings
-menu_title: Key Bindings
+menu_title: Default Key Bindings
 include: default-keyboard-bindings.html
 link: default-keyboard-bindings
 uri: default-keyboard-bindings
@@ -128,7 +128,7 @@ part: subchapter
 
 ---
 title: Mnemonic Bindings for Linux
-menu_title: Linux
+menu_title: Linux Bindings
 include: mnemonic-bindings-for-linux.html
 link: mnemonic-bindings-for-linux
 uri: default-keyboard-bindings/mnemonic-bindings-for-linux
@@ -137,6 +137,7 @@ part: subchapter
 
 ---
 title: Mnemonic Bindings for OS X
+menu_title: OS X Bindings
 include: mnemonic-bindings-for-os-x.html
 link: mnemonic-bindings-for-os-x
 uri: default-keyboard-bindings/mnemonic-bindings-for-os-x
@@ -165,7 +166,7 @@ part: subchapter
 ---
 
 ---
-title: Mouse
+title: The Right Mouse
 include: mouse.html
 link: mouse
 uri: setting-up-your-system/mouse
@@ -212,6 +213,7 @@ part: chapter
 
 ---
 title: Connecting Audio and MIDI Devices
+menu_title: Audio and MIDI Devices
 include: connecting-audio-and-midi-devices.html
 link: connecting-audio-and-midi-devices
 uri: setting-up-your-system/connecting-audio-and-midi-devices
@@ -220,6 +222,7 @@ part: subchapter
 
 ---
 title: Using More Than One Audio Device
+menu_title: More Than One Audio Device
 include: using-more-than-one-audio-device.html
 link: using-more-than-one-audio-device
 uri: setting-up-your-system/using_more_than_one_audio_device
@@ -227,27 +230,12 @@ part: subchapter
 ---
 
 ---
-title: Preferences
-include: preferences.html
-link: preferences
-part: chapter
----
-
----
-title: Preferences and Session Properties
-include: preferences-and-session-properties.html
-link: preferences-and-session-properties
-uri: preferences-and-session-properties
-part: subchapter
----
-
----
-title: Global Preferences Dialog
+title: Global Preferences
 menu_title: Global Preferences
 include: global-preferences-dialog.html
 link: global-preferences-dialog
 uri: preferences-and-session-properties/preferences-dialog
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -368,12 +356,12 @@ part: subchapter
 ---
 
 ---
-title: Session Properties Dialog
+title: Session Properties
 menu_title: Session Properties
 include: session-properties-dialog.html
 link: session-properties-dialog
 uri: preferences-and-session-properties/session-properties-dialog
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -461,23 +449,8 @@ part: subchapter
 title: Configuring MIDI
 include: configuring-midi.html
 link: configuring-midi
-part: chapter
----
-
----
-title: Using External MIDI Devices
-include: using-external-midi-devices.html
-link: using-external-midi-devices
-uri: setting-up-your-system/using-external-midi-devices
-part: subchapter
----
-
----
-title: Setting Up MIDI
-include: setting-up-midi.html
-link: setting-up-midi
 uri: setting-up-your-system/setting-up-midi
-part: subchapter
+part: chapter
 ---
 
 ---
