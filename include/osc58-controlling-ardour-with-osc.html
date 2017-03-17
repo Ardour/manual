@@ -500,6 +500,17 @@ here</em>"/&gt;</kbd>
   with the mouse (or keyboard):</p>
 <kbd class="osc">/access_action <em>action_name</em></kbd>
 <p>
+  As of Ardour 5.9, <em>access_action</em> can be inlined for control surfaces
+  that are unable to send string parameters. <em>Action_name</em> is composed of
+  a group and an action in the form of <em>Group/action</em> which fits very well
+  an OSC path extension:
+</p>
+<kbd class="osc">/access_action/<em>Group/action</em> <em>key_pressed</em></kbd>
+<p>
+  The key_pressed is optional, but if present is a float 1 or 0 where the
+  command is ignored if key_pressed is  0.
+</p>
+<p>
   The <a
   href="/appendix/menu-actions-list/">
   list of actions</a> shows all available values of <em>action-name</em> as of
