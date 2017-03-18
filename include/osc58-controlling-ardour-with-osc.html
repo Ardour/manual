@@ -192,8 +192,6 @@ here</em>"/&gt;</kbd>
   <td></td></tr>
   <tr><th><kbd class="osc">/transport_play</kbd></th>
   <td></td></tr>
-  <tr><th><kbd class="osc">/toggle_roll</kbd></th>
-  <td>Toggles between play and stop</td></tr>
   <tr><th><kbd class="osc">/set_transport_speed <em>s</em></kbd></th>
   <td>where <em>s</em> is a float ranging from -8.0f to 8.0f</td></tr>
   <tr><th><kbd class="osc">/ffwd</kbd></th>
@@ -212,10 +210,6 @@ here</em>"/&gt;</kbd>
   <td>(adds marker to the current transport position)</td></tr>
   <tr><th><kbd class="osc">/remove_marker</kbd></th>
   <td>Removes marker at the current transport position (if there is one)</td></tr>
-  <tr><th><kbd class="osc">/mark_in</kbd></th>
-  <td>Marks the begining of a range at the current transport position</td></tr>
-  <tr><th><kbd class="osc">/mark_out</kbd></th>
-  <td>Marks the end of a range at the current transport position</td></tr>
   <tr><th><kbd class="osc">/next_marker</kbd></th>
   <td></td></tr>
   <tr><th><kbd class="osc">/prev_marker</kbd></th>
@@ -229,14 +223,6 @@ here</em>"/&gt;</kbd>
   <tr><th><kbd class="osc">/loop_location <em>start</em> <em>end</em></kbd></th>
   <td><em>start</em> is the beginning of a loop and <em>end</em> is the
   end of a loop both are integer frame positions.</td></tr>
-  <tr><th><kbd class="osc">/set_loop_range</kbd></th>
-  <td>Uses edit range as loop range</td></tr>
-  <tr><th><kbd class="osc">/set_session_range</kbd></th>
-  <td>Uses edit range as session range</td></tr>
-  <tr><th><kbd class="osc">/toggle_click</kbd></th>
-  <td></td></tr>
-  <tr><th><kbd class="osc">/midi_panic</kbd></th>
-  <td>Ardour will send an all notes off to all midi tracks</td></tr>
   <tr><th><kbd class="osc">/cancel_all_solos</kbd></th>
   <td>Cancel All Solos/PFLs/AFLs</td></tr>
 </table>
@@ -260,28 +246,6 @@ here</em>"/&gt;</kbd>
   <tr><th><kbd class="osc">/save_state</kbd></th>
   <td>(this is the regular <kbd class="menu">Session &gt; Save</kbd>
   operation)</td></tr>
-  <tr><th><kbd class="osc">/quick_snapshot_switch</kbd></th>
-  <td>Take a snapshot and switch to new version</td></tr>
-  <tr><th><kbd class="osc">/quick_snapshot_stay</kbd></th>
-  <td>Take a snapshot and keep working on this version</td></tr>
-  <tr><th><kbd class="osc">/fit_*_track(s)</kbd></th>
-  <td>Were <em>*</em> is one of 1, 2, 4, 8, 16, 32 or all. Fits this
-  many tracks in editor window. (add s for more than 1)</td></tr>
-  <tr><th><kbd class="osc">/zoom_*</kbd></th>
-  <td>Zoom editor to include <em>*</em> where <em>*</em> is 100_ms, 1_sec,
-  10_sec, 1_min, 5_min, 10_min or to_session</td></tr>
-  <tr><th><kbd class="osc">/temporal_zoom_in</kbd></th>
-  <td>Zoom editor in to show less time</td></tr>
-  <tr><th><kbd class="osc">/temporal_zoom_out</kbd></th>
-  <td>Zoom editor out to show more time</td></tr>
-  <tr><th><kbd class="osc">/scroll_up_1_track</kbd></th>
-  <td>Scroll the editor pane up 1 track</td></tr>
-  <tr><th><kbd class="osc">/scroll_up_1_page</kbd></th>
-  <td>Scroll the editor pane up 1 page</td></tr>
-  <tr><th><kbd class="osc">/scroll_dn_1_track</kbd></th>
-  <td>Scroll the editor pane down 1 track</td></tr>
-  <tr><th><kbd class="osc">/scroll_dn_1_page</kbd></th>
-  <td>Scroll the editor pane down 1 page</td></tr>
 </table>
 
 <h4>Recording control</h4>
@@ -290,14 +254,8 @@ here</em>"/&gt;</kbd>
   <td></td></tr>
   <tr><th><kbd class="osc">/toggle_punch_out</kbd></th>
   <td></td></tr>
-  <tr><th><kbd class="osc">/set_punch_range</kbd></th>
-  <td>Uses edit range as punch range</td></tr>
   <tr><th><kbd class="osc">/rec_enable_toggle</kbd></th>
   <td></td></tr>
-  <!--dt><kbd class="osc">/toggle_all_rec_enables</kbd></th>
-  <td>(toggles all tracks' recording state)</dd-->
-  <tr><th><kbd class="osc">/stop_forget</kbd></th>
-  <td>Stop transport and delete/forget last take</td></tr>
 </table>
 
 <h4>Master and Monitor strip control</h4>
@@ -516,5 +474,54 @@ here</em>"/&gt;</kbd>
   list of actions</a> shows all available values of <em>action-name</em> as of
   June 2016 for Ardour 5.0.pre0.1. You can get the current list at any
   time by running Ardour with the -b flag.
-  </p>
+</p>
+
+<!--p> These listed below are still working but may in the future not work
+any more. All of them are just short cuts to a menu action and since menu
+actions can now be "inlined", all known OSC controllers can call them directly.
+Any of these actions that can be moved to session->action calls may reapear.
+</p>
+
+  <!--tr><th><kbd class="osc">/toggle_roll</kbd></th>
+  <td>Toggles between play and stop</td></tr>
+  <tr><th><kbd class="osc">/mark_in</kbd></th>
+  <td>Marks the begining of a range at the current transport position</td></tr>
+  <tr><th><kbd class="osc">/mark_out</kbd></th>
+  <td>Marks the end of a range at the current transport position</td></tr>
+  <tr><th><kbd class="osc">/set_loop_range</kbd></th>
+  <td>Uses edit range as loop range</td></tr>
+  <tr><th><kbd class="osc">/set_session_range</kbd></th>
+  <td>Uses edit range as session range</td></tr>
+  <tr><th><kbd class="osc">/toggle_click</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/midi_panic</kbd></th>
+  <td>Ardour will send an all notes off to all midi tracks</td></tr>
+  <tr><th><kbd class="osc">/quick_snapshot_switch</kbd></th>
+  <td>Take a snapshot and switch to new version</td></tr>
+  <tr><th><kbd class="osc">/quick_snapshot_stay</kbd></th>
+  <td>Take a snapshot and keep working on this version</td></tr>
+  <tr><th><kbd class="osc">/fit_*_track(s)</kbd></th>
+  <td>Were <em>*</em> is one of 1, 2, 4, 8, 16, 32 or all. Fits this
+  many tracks in editor window. (add s for more than 1)</td></tr>
+  <tr><th><kbd class="osc">/zoom_*</kbd></th>
+  <td>Zoom editor to include <em>*</em> where <em>*</em> is 100_ms, 1_sec,
+  10_sec, 1_min, 5_min, 10_min or to_session</td></tr>
+  <tr><th><kbd class="osc">/temporal_zoom_in</kbd></th>
+  <td>Zoom editor in to show less time</td></tr>
+  <tr><th><kbd class="osc">/temporal_zoom_out</kbd></th>
+  <td>Zoom editor out to show more time</td></tr>
+  <tr><th><kbd class="osc">/scroll_up_1_track</kbd></th>
+  <td>Scroll the editor pane up 1 track</td></tr>
+  <tr><th><kbd class="osc">/scroll_up_1_page</kbd></th>
+  <td>Scroll the editor pane up 1 page</td></tr>
+  <tr><th><kbd class="osc">/scroll_dn_1_track</kbd></th>
+  <td>Scroll the editor pane down 1 track</td></tr>
+  <tr><th><kbd class="osc">/scroll_dn_1_page</kbd></th>
+  <td>Scroll the editor pane down 1 page</td></tr>
+  <tr><th><kbd class="osc">/set_punch_range</kbd></th>
+  <td>Uses edit range as punch range</td></tr>
+  <dt><kbd class="osc">/toggle_all_rec_enables</kbd></th>
+  <td>(toggles all tracks' recording state)</dd>
+  <tr><th><kbd class="osc">/stop_forget</kbd></th>
+  <td>Stop transport and delete/forget last take</td></tr-->
 
