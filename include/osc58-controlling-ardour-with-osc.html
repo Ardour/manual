@@ -223,6 +223,8 @@ here</em>"/&gt;</kbd>
   <tr><th><kbd class="osc">/loop_location <em>start</em> <em>end</em></kbd></th>
   <td><em>start</em> is the beginning of a loop and <em>end</em> is the
   end of a loop both are integer frame positions.</td></tr>
+  <tr><th><kbd class="osc">/midi_panic</kbd></th>
+  <td>Ardour will send an all notes off to all midi tracks</td></tr>
   <tr><th><kbd class="osc">/cancel_all_solos</kbd></th>
   <td>Cancel All Solos/PFLs/AFLs</td></tr>
 </table>
@@ -255,25 +257,31 @@ here</em>"/&gt;</kbd>
   <tr><th><kbd class="osc">/toggle_punch_out</kbd></th>
   <td></td></tr>
   <tr><th><kbd class="osc">/rec_enable_toggle</kbd></th>
-  <td></td></tr>
+  <td>Toggles master record enable</td></tr>
 </table>
 
 <h4>Master and Monitor strip control</h4>
 <table class="dl">
   <tr><th><kbd class="osc">/master/gain <em>dB</em></kbd></th>
-  <td>See gain in strips</td></tr>
+  <td>dB is a float indicating the desired gain in dB</td></tr>
   <tr><th><kbd class="osc">/master/fader  <em>position</em></kbd></th>
-  <td>See fader in strips</td></tr>
+  <td>position is a float between 0 and 1 setting the desired position of the fader</td></tr>
   <tr><th><kbd class="osc">/master/trimdB <em>dB</em></kbd></th>
-  <td>see trimdb in strips</td></tr>
+  <td>dB is a float from -20 to +20 representing the desired trim gain in dB</td></tr>
   <tr><th><kbd class="osc">/master/pan_stereo_position <em>position</em></kbd></th>
-  <td>See pan_stereo_position in strips</td></tr>
-  <tr><th><kbd class="osc">/master/mute  <em>yn</em></kbd></th>
-  <td>See mute in strips</td></tr>
+  <td>position is a float from 0 to 1 representing the desired pan position</td></tr>
+  <tr><th><kbd class="osc">/master/mute  <em>state</em></kbd></th>
+  <td>state is an int of o or 1 representing the desired mute state</td></tr>
   <tr><th><kbd class="osc">/monitor/gain <em>dB</em></kbd></th>
-  <td>See gain in strips</td></tr>
+  <td>dB is a float indicating the desired gain in dB</td></tr>
   <tr><th><kbd class="osc">/monitor/fader  <em>position</em></kbd></th>
-  <td>See fader in strips</td></tr>
+  <td>position is a float between 0 and 1 setting the desired position of the fader</td></tr>
+  <tr><th><kbd class="osc">/monitor/mute  <em>state</em></kbd></th>
+  <td>state is an int of 0 or 1 where 1 is muted</td></tr>
+  <tr><th><kbd class="osc">/monitor/dim  <em>state</em></kbd></th>
+  <td>state is an int of 0 or 1 where 1 is dimmed</td></tr>
+  <tr><th><kbd class="osc">/monitor/mono  <em>state</em></kbd></th>
+  <td>state is an int of 0 or 1 where 1 is mono mode</td></tr>
 </table>
 
 <h3>Track specific operations</h3>
@@ -459,21 +467,23 @@ here</em>"/&gt;</kbd>
 <kbd class="osc">/access_action <em>action_name</em></kbd>
 <p>
   As of Ardour 5.9, <em>access_action</em> can be inlined for control surfaces
-  that are unable to send string parameters. <em>Action_name</em> is composed of
+  that are unable to send string parameters. The <em>action_name</em> is composed of
   a group and an action in the form of <em>Group/action</em> which fits very well
-  an OSC path extension:
+  as an OSC path extension:
 </p>
 <kbd class="osc">/access_action/<em>Group/action</em> <em>key_pressed</em></kbd>
 <p>
   The key_pressed is optional, but if present is a float 1 or 0 where the
   command is ignored if key_pressed is  0.
 </p>
+<p class="note">
+  Some of the Menu Actions duplicate other OSC commands. In all cases it is better
+  to use the OSC commands rather than the Menu Actions if possible as the OSC commands
+  are more direct.
+</p>
 <p>
-  The <a
-  href="/appendix/menu-actions-list/">
-  list of actions</a> shows all available values of <em>action-name</em> as of
-  June 2016 for Ardour 5.0.pre0.1. You can get the current list at any
-  time by running Ardour with the -b flag.
+  The <a href="/appendix/menu-actions-list/"> list of actions</a>
+  shows all available values of <em>action-name</em> for Ardour.
 </p>
 
 <!--p> These listed below are still working but may in the future not work
@@ -494,8 +504,6 @@ Any of these actions that can be moved to session->action calls may reapear.
   <td>Uses edit range as session range</td></tr>
   <tr><th><kbd class="osc">/toggle_click</kbd></th>
   <td></td></tr>
-  <tr><th><kbd class="osc">/midi_panic</kbd></th>
-  <td>Ardour will send an all notes off to all midi tracks</td></tr>
   <tr><th><kbd class="osc">/quick_snapshot_switch</kbd></th>
   <td>Take a snapshot and switch to new version</td></tr>
   <tr><th><kbd class="osc">/quick_snapshot_stay</kbd></th>
