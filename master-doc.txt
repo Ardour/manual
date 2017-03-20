@@ -1836,13 +1836,6 @@ part: subchapter
 ---
 
 ---
-title: Favorite Plugins Window
-include: favorite-plugins-window_2.html
-link: favorite-plugins-window_2
-part: subchapter
----
-
----
 title: Managing Plugin Presets
 include: managing-plugin-presets.html
 link: managing-plugin-presets
