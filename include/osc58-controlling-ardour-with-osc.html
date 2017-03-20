@@ -189,37 +189,43 @@ here</em>"/&gt;</kbd>
 <h4>Transport Control</h4>
 <table class="dl">
   <tr><th><kbd class="osc">/transport_stop</kbd></th>
-  <td></td></tr>
+  <td>Stops a rolling transport</td></tr>
   <tr><th><kbd class="osc">/transport_play</kbd></th>
-  <td></td></tr>
+  <td>Puts transport in play mode</td></tr>
+  <tr><th><kbd class="osc">/toggle_roll</kbd></th>
+  <td>Toggles between play and stop</td></tr>
+  <tr><th><kbd class="osc">/stop_forget</kbd></th>
+  <td>Stop transport and delete/forget last take</td></tr>
   <tr><th><kbd class="osc">/set_transport_speed <em>s</em></kbd></th>
   <td>where <em>s</em> is a float ranging from -8.0f to 8.0f</td></tr>
   <tr><th><kbd class="osc">/ffwd</kbd></th>
-  <td></td></tr>
+  <td>Adds 1.5 times to transport speed to maximum +8 times normal speed</td></tr>
   <tr><th><kbd class="osc">/rewind</kbd></th>
-  <td></td></tr>
+  <td>Adds -1.5 times to transport speed to maximum -8 times normal speed</td></tr>
   <tr><th><kbd class="osc">/goto_start</kbd></th>
-  <td></td></tr>
+  <td>Move playhead to start of session</td></tr>
   <tr><th><kbd class="osc">/goto_end</kbd></th>
-  <td></td></tr>
+  <td>Move playhead to end of session</td></tr>
   <tr><th><kbd class="osc">/jump_bars <em>bars</em></kbd></th>
   <td>Where <em>bars</em> is a float (+/-) of the number of bars to jump</td></tr>
   <tr><th><kbd class="osc">/jump_seconds <em>seconds</em></kbd></th>
   <td>Where <em>seconds</em> is a float (+/-) of the number of seconds to jump</td></tr>
+  <tr><th><kbd class="osc">/toggle_click</kbd></th>
+  <td>Toggle metronome click on and off</td></tr>
   <tr><th><kbd class="osc">/add_marker</kbd></th>
   <td>(adds marker to the current transport position)</td></tr>
   <tr><th><kbd class="osc">/remove_marker</kbd></th>
   <td>Removes marker at the current transport position (if there is one)</td></tr>
   <tr><th><kbd class="osc">/next_marker</kbd></th>
-  <td></td></tr>
+  <td>Move playhead to next marker</td></tr>
   <tr><th><kbd class="osc">/prev_marker</kbd></th>
-  <td></td></tr>
+  <td>Move playhead to previous marker</td></tr>
   <tr><th><kbd class="osc">/locate <em>spos</em> <em>roll</em></kbd></th>
   <td>where <em>spos</em> is the target position in samples and
   <em>roll</em> is a bool/integer defining whether you want transport
   to be kept rolling or not</td></tr>
   <tr><th><kbd class="osc">/loop_toggle</kbd></th>
-  <td></td></tr>
+  <td>Toggle loop mode on and off</td></tr>
   <tr><th><kbd class="osc">/loop_location <em>start</em> <em>end</em></kbd></th>
   <td><em>start</em> is the beginning of a loop and <em>end</em> is the
   end of a loop both are integer frame positions.</td></tr>
@@ -227,6 +233,16 @@ here</em>"/&gt;</kbd>
   <td>Ardour will send an all notes off to all midi tracks</td></tr>
   <tr><th><kbd class="osc">/cancel_all_solos</kbd></th>
   <td>Cancel All Solos/PFLs/AFLs</td></tr>
+</table>
+
+<h4>Recording control</h4>
+<table class="dl">
+  <tr><th><kbd class="osc">/toggle_punch_in</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/toggle_punch_out</kbd></th>
+  <td></td></tr>
+  <tr><th><kbd class="osc">/rec_enable_toggle</kbd></th>
+  <td>Toggles master record enable</td></tr>
 </table>
 
 <h4>Transport Information</h4>
@@ -248,16 +264,6 @@ here</em>"/&gt;</kbd>
   <tr><th><kbd class="osc">/save_state</kbd></th>
   <td>(this is the regular <kbd class="menu">Session &gt; Save</kbd>
   operation)</td></tr>
-</table>
-
-<h4>Recording control</h4>
-<table class="dl">
-  <tr><th><kbd class="osc">/toggle_punch_in</kbd></th>
-  <td></td></tr>
-  <tr><th><kbd class="osc">/toggle_punch_out</kbd></th>
-  <td></td></tr>
-  <tr><th><kbd class="osc">/rec_enable_toggle</kbd></th>
-  <td>Toggles master record enable</td></tr>
 </table>
 
 <h4>Master and Monitor strip control</h4>
@@ -492,8 +498,6 @@ actions can now be "inlined", all known OSC controllers can call them directly.
 Any of these actions that can be moved to session->action calls may reapear.
 </p>
 
-  <!--tr><th><kbd class="osc">/toggle_roll</kbd></th>
-  <td>Toggles between play and stop</td></tr>
   <tr><th><kbd class="osc">/mark_in</kbd></th>
   <td>Marks the begining of a range at the current transport position</td></tr>
   <tr><th><kbd class="osc">/mark_out</kbd></th>
@@ -502,8 +506,6 @@ Any of these actions that can be moved to session->action calls may reapear.
   <td>Uses edit range as loop range</td></tr>
   <tr><th><kbd class="osc">/set_session_range</kbd></th>
   <td>Uses edit range as session range</td></tr>
-  <tr><th><kbd class="osc">/toggle_click</kbd></th>
-  <td></td></tr>
   <tr><th><kbd class="osc">/quick_snapshot_switch</kbd></th>
   <td>Take a snapshot and switch to new version</td></tr>
   <tr><th><kbd class="osc">/quick_snapshot_stay</kbd></th>
@@ -529,7 +531,5 @@ Any of these actions that can be moved to session->action calls may reapear.
   <tr><th><kbd class="osc">/set_punch_range</kbd></th>
   <td>Uses edit range as punch range</td></tr>
   <dt><kbd class="osc">/toggle_all_rec_enables</kbd></th>
-  <td>(toggles all tracks' recording state)</dd>
-  <tr><th><kbd class="osc">/stop_forget</kbd></th>
-  <td>Stop transport and delete/forget last take</td></tr-->
+  <td>(toggles all tracks' recording state)</dd-->
 
