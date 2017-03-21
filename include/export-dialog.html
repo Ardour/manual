@@ -1,21 +1,30 @@
 
 <p>
-When you have finished mixing your session, you probably want to export it to a sound
-file to burn to a CD, upload to the web, or whatever. <kbd class="menu">Session &gt; Export &gt; Export to Audio file(s)&hellip;</kbd>
-shows the Export Dialog to do this.
-
+  When you have finished mixing your session, you probably want to export it to a sound
+  file to burn to a CD, upload to the web, or whatever. <kbd class="menu">Session &gt; Export &gt; Export to Audio file(s)&hellip;</kbd>
+  shows the Export Dialog to do this.
 </p>
+
 <p>
-You can also export the outputs of multiple tracks &amp; busses all at once via
-<kbd class="menu">Session &gt; Export &gt; Stem Export&hellip;</kbd>.
+  You can also export the outputs of multiple tracks &amp; busses all at once via
+  <kbd class="menu">Session &gt; Export &gt; Stem Export&hellip;</kbd>.
 </p>
 
 <h2>File Format</h2>
-<img src="/images/export-dialog-file-format.png" />
+
+<figure>
+  <img src="/images/export-dialog-file-format.png" alt="The Export window">
+  <figcaption>
+    The Export window
+  </figcaption>
+</figure>
+
 <p>
-This tab contains controls for the format of the exported audio file.
-You can enable more than one format here, in which case each will be exported in turn.
-Ardour is supplied with a list of export formats, including:
+  This tab contains controls for the format of the exported audio file.
+  You can enable more than one format here, in which case each will be exported in turn.
+  Ardour is supplied with a list of export formats, including:
+</p>
+
 <ul>
 <li>CD (Red Book)</li>
 <li>DVD-A</li>
@@ -25,12 +34,15 @@ Ardour is supplied with a list of export formats, including:
 <li>Ogg_Vorbis (tagged)</li>
 <li>Ring Tone</li>
 </ul>
-You can edit these formats, or create your own, with the <a href="@@export-format-profiles">"Edit Export Format Profile"</a> dialog, which
-appears when you click the "Edit" or "New" button to the right of the drop-down list of formats.
+
+<p>
+  You can edit these formats, or create your own, with the <a href="@@export-format-profiles">"Edit Export Format Profile"</a> dialog, which
+  appears when you click the "Edit" or "New" button to the right of the drop-down list of formats.
 </p>
 
 <p>
-You can also create a 'Preset' consisting of one or more formats. Ardour provides some ready-made presets, too:
+  You can also create a 'Preset' consisting of one or more formats. Ardour provides some ready-made presets, too:
+</p>
 
 <ul>
 <li>CD + DVD-A</li>
@@ -48,48 +60,131 @@ You can also create a 'Preset' consisting of one or more formats. Ardour provide
 <li>Ogg_Vorbis </li>
 <li>Ogg_Vorbis (tagged)</li>
 </ul>
+
+<h2>The location</h2>
+
+<p>
+  Aside from providing a way to tell Ardour <em>where</em> to put the created file(s),
+  the <dfn>location</dfn> part of the window allows to name the exported files with
+  a lot of choice regarding the naming convention, hence blending into the user's
+  workflow, and providing a clean way to keep the export folders from beeing cluttered
+  with poorly named files.
+</p>
+<p>
+  The name of the file(s) can optionnaly be made of:
 </p>
 
-<h3>Soundcloud upload</h3>
+<ul>
+  <li>The session or snapshot's name</li>
+  <li>A custom label (i.e., any text)</li>
+  <li>A revision number</li>
+  <li>The name of the timespan (see below)</li>
+  <li>A date (in multiple formats)</li>
+  <li>A time (also in multiple format).</li>
+</ul>
+
+<h2>Soundcloud upload</h2>
 <p>
-When 'Upload to Soundcloud' is ticked on in any format's tab, a pane containing fields
-to enter in Soundcloud account details (email and password), and what should happen
-to the uploaded files will become visible.
+  When 'Upload to Soundcloud' is ticked on in any format's tab, a pane containing fields
+  to enter in Soundcloud account details (email and password), and what should happen
+  to the uploaded files will become visible.
 </p>
-<img src="/images/soundcloud-upload.png" />
-<p>
+
+<figure>
+  <img src="/images/soundcloud-upload.png" alt="Exporting to Soundcloud">
+  <figcaption>
+    Exporting to Soundcloud
+  </figcaption>
+</figure>
+
 <table class="dl">
-<tr><th>Make files public</th><td>Choose whether to make uploaded files available to anyone via the Soundcloud web site.</td></tr>
-<tr><th>Open uploaded files in browser</th><td>Open each file on soundcloud in your browser after upload.
-If you don't enable this, you can still see the URLs in the <a href="">Log window</a>.</td></tr>
-<tr><th>Make files downloadable</th><td>Choose whether to allow downloading of files uploaded to Soundcloud.</td></tr>
+  <tr><th>Make files public</th>
+      <td>Choose whether to make uploaded files available to anyone via the Soundcloud web site.</td></tr>
+  <tr><th>Open uploaded files in browser</th>
+      <td>Open each file on soundcloud in your browser after upload.
+      If you don't enable this, you can still see the URLs in the Log window.</td></tr>
+  <tr><th>Make files downloadable</th>
+      <td>Choose whether to allow downloading of files uploaded to Soundcloud.</td></tr>
 </table>
+
+<h2>Analyze exported audio</h2>
+
+<figure>
+  <img src="/images/export-report-analysis.png" alt="The Export Report/Analysis window">
+  <figcaption>
+    The Export Report/Analysis window
+  </figcaption>
+</figure>
+
+<p>
+  Checking <kbd class="option">Analyze Exported Audio</kbd> shows the Export Report/Analysis
+  window. This provides a lot of usefull informations about the exported file:
 </p>
-
-
-
+<ul>
+  <li>the file name and location</li>
+  <li>its format</li>
+  <li>its channel count</li>
+  <li>its sample rate</li>
+  <li>its duration and timecode.</li>
+</ul>
+<p>
+  It also allows to <kbd class="menu">Play</kbd> the file, and the <kbd class="menu">
+  Open Folder</kbd> button gives a quick access to the place where it has been created.
+</p>
+<p>
+  The most prominent feature though, are the two generated views of the audio file
+  in time (waveform) and frequency (sonograph) domain, and the loudness
+  analysis, giving:
+</p>
+<ul>
+  <li>the Peak value</li>
+  <li>the True Peak value (to take inter sample peaks into account)</li>
+  <li>the Normalization Gain (if it has been applied)</li>
+  <li>the Integrated Loudness</li>
+  <li>the loudness range</li>
+  <li>a graph of the multiplicity of the peaks at the different loudness levels.</li>
+</ul>
 
 <h2>Time Span</h2>
-<img src="/images/export-dialog-timespan.png" />
+
+<figure>
+  <img src="/images/export-dialog-timespan.png" alt="The Time Span tab">
+  <figcaption>
+    The Time Span tab
+  </figcaption>
+</figure>
+
 <p>
-This tab allows you to select the range (or ranges) of the timeline to export. By default, "session" is
-enabled&mdash;this will export the whole session from the start marker to the end marker.
+  This tab allows you to select the range (or ranges) of the timeline to export. By default, "session" is
+  enabled&mdash;this will export the whole session from the start marker to the end marker.
 </p>
 
-
 <h2>Channels</h2>
-<img src="/images/export-dialog-channels.png" />
+
+<figure>
+  <img src="/images/export-dialog-channels.png" alt="The Channels tab">
+  <figcaption>
+    The Channels tab
+  </figcaption>
+</figure>
+
 <p>
-Here you can choose which outputs (tracks or busses) should be sent to the exported file.
+  Here you can choose which outputs (tracks or busses) should be sent to the exported file.
 </p>
 
 <h2>Stem Export</h2>
-<img src="/images/export-dialog-stem-export.png" />
-<p>
-If you chose 'Stem Export', the 'Channels' tab appears slightly differently:
-in this case each chosen channel (track or bus) is exported to its own file,
-instead of all channels being mixed together into a single file. You can
-choose to export either the region contents or the track output here in this
-case.
-</p>
 
+<figure>
+  <img src="/images/export-dialog-stem-export.png" alt="Stem export">
+  <figcaption>
+    Stem export
+  </figcaption>
+</figure>
+
+<p>
+  If you chose 'Stem Export', the 'Channels' tab appears slightly differently:
+  in this case each chosen channel (track or bus) is exported to its own file,
+  instead of all channels being mixed together into a single file. You can
+  choose to export either the region contents or the track output here in this
+  case.
+</p>
