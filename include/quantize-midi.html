@@ -1,12 +1,52 @@
 
-<p><img src="/images/a3_quantize.png" alt="quantize dialog" /></p>
-<p>Accessed via <kbd>q</kbd>, the dialog includes:</p>
-<ul>
-  <li>Options for grid, legato amd groove quantize</li>
-  <li>Snap note start, or end</li>
-  <li>Snap to current grid, or many beat subdivisions</li>
-  <li>Quantize threshold (how far away from a chosen position a note must be in order to be quantized)</li>
-  <li>Strength (how close to move a note to its new position, as a percentage of the nominal distance)</li>
-  <li>Swing</li>
-</ul>
+<figure>
+    <img src="/images/quantize.png" alt="the Quantize dialog">
+    <figcaption>
+      The Quantize dialog
+    </figcaption>
+</figure>
 
+<p>
+  Quantizing a MIDI region, usually one recorded from a MIDI instrument, consists
+  in perfectly aligning the notes with the grid by shifting the notes positions to
+  the closest grid line. The result is a perfectly timed MIDI region, allowing
+  to correct rhythmically poor performance.
+</p>
+
+<p>
+  This dialog is accessed via the <kbd class="menu">Region &gt; MIDI &gt; Quantize...</kbd>
+  while having a MIDI region selected, or by <kbd class="mouse">right</kbd> clicking
+  a MIDI region, <kbd class="menu"><em>Name_Of_The_Region</em> &gt; MIDI &gt; Quantize...</kbd>
+  or with the default <kbd class="mod2">5</kbd> shortcut and includes:
+</p>
+
+<table class="dl">
+  <tr><th>Snap note start</th>
+      <td>If checked, the start of the notes will be aligned to the grid as defined
+        in the following combo-box (see below)</td></tr>
+  <tr><th>Snap note end</th>
+      <td>If checked, the end of the notes will be aligned to the grid as defined
+        in the following combo-box (see below)</td></tr>
+  <tr><th>Threshold (ticks)</th>
+      <td>Defines how close from a grid point a note must be in order to be quantized. Notes farther than this number of <a href="@@timecode-generators-and-slaves">ticks</a> will not be affected.</td></tr>
+  <tr><th>Strength</th>
+      <td>Defines how close to its new position the note must be moved, as a percentage of the nominal distance (allowing for a non-perfect quantization, i.e. just making the performance rhytmically better without giving it a machine-generated feel)</td></tr>
+  <tr><th>Swing</th>
+      <td>Applies a <em>swing</em> to the midi notes, i.e. delays every 2nd note by this amount, to e.g. simulate a groovy drummer</td></tr>
+</table>
+
+<p>
+  The grid selection combo boxes allow a choice between the current <em>main grid</em>, or many beat subdivisions.
+</p>
+
+<p>
+  Both note start and note end can be selected at once, resulting in a 2-pass quantization:
+  the note starts are aligned to the grid (with or without the <kbd class="menu">swing</kbd>
+  and <kbd class="menu">Strength</kbd> parameters), then their ends are aligned.
+</p>
+
+<p>
+  The swing is a value between 0 and 130, and is relative to the user-selected grid
+  type: every note which is considered a second note (i.e. close enough to an odd
+  grid line as per the threshold value) will be delayed by this number of ticks.
+</p>
