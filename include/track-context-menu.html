@@ -1,76 +1,58 @@
 
 <p>
-  Within the editor window, context-click (right-click) on either a region
-  or empty space within a track to display the <dfn>track context menu</dfn>.
+  Within the editor window, context-clicking (<kbd class="mouse">right</kbd> click) on either a region
+  or empty space within a track displays the <dfn>track context menu</dfn>.
   The context menu provides easy access to many track-level operations.
 </p>
 <p>
-  If you click on a <dfn>region</dfn>, the first item in the menu is the name of the
-  region. If you click on a
-  <a href="@@layering-display">layered region</a>,
+  If a <dfn>region</dfn> is clicked, the first item in the menu is the name of the
+  region. If a <a href="@@layering-display">layered region</a> is clicked,
   the next item in the menu is <kbd class="menu">Choose Top</kbd>. If selected,
-  you will see a dialog that allows you to change the vertical order of layers
+  a dialog appears that allows you to change the vertical order of layers
   at that point. See <a href="@@layering-display">Layering Display</a> for more details.
 </p>
 <p>
   The rest of the track context menu is structured as follows:
 </p>
 <table class="dl">
-  <tr><th>Play</th>
-  <td>
-    <table class="dl">
-    <tr><th>Play from Edit Point</th>
-    <td>Play from the location of the current <a href="@@edit-point-control">edit point</a>.</td></tr>
-      <tr><th>Play from Start </th>
-      <td>Play from the start of the session</td></tr>
-      <tr><th>Play Region(s)</th>
-      <td>Plays the duration of the session from the start of the earliest selected region to the end of the latest selected region</td></tr>
-    </table>
-  </td></tr>
-  <tr><th>Select</th>
-  <td>
-    <table class="dl">
-      <tr><th>Select All in Track</th>
-      <tr><th>Select All</th>
-      <tr><th>Invert Selection in Track</th>
-      <tr><th>Invert Selection</th>
-      <tr><th>Set Range to Loop Range</th>
-      <tr><th>Set Range to Punch Range</th>
-      <tr><th>Select All After Edit Point</th>
-      <tr><th>Select All Before Edit Point</th>
-      <tr><th>Select All After Playhead</th>
-      <tr><th>Select All Before Playhead</th>
-      <tr><th>Select All Between Playhead and Edit Point</th>
-      <tr><th>Select All Within Playhead and Edit Point</th>
-      <tr><th>Select Range Between Playhead and Edit Point</th>
-    </table>
-  </td></tr>
-  <tr><th>Edit</th>
-  <td>
-    <table class="dl">
-<tr><th>Cut</th>
-<tr><th>Copy</th>
-<tr><th>Paste</th>
-<tr><th>Align</th>
-<tr><th>Align Relative</th>
-</table>
-</td></tr>
-<tr><th>Insert Selected Region</th>
-<tr><th>Insert Existing Media</th>
-<tr><th>Nudge</th>
-<td>
-<table class="dl">
-<tr><th>Nudge Entire Track Later</th>
-<tr><th>Nudge Track After Edit Point Later</th>
-<tr><th>Nudge Entire Track Earlier</th>
-<tr><th>Nudge Track After Edit Point Earlier</th>
-</table>
-</td></tr>
-<tr><th>Freeze</th>
-</table>
 
-<!-- FIXME: Adding a <p>aragraph with fixme, note, or warning classes after a <table class="dl"> causes the styling of the class to hijack the styling of the definition list, hence, the following ugliness: -->
-<p>&nbsp;</p>
+  <tr><th>Play</th><td></td></tr>
+    <tr><th class="sub1">Play from Edit Point</th><td>Plays from the location of the current <a href="@@edit-point-control">Edit Point</a>.</td></tr>
+    <tr><th class="sub1">Play from Start</th><td>Plays from the start of the session</td></tr>
+    <tr><th class="sub1">Play Region</th><td>Plays the duration of the session from the start of the earliest selected region to the end of the latest selected region</td></tr>
+  <tr><th>Select</th><td></td></tr>
+    <tr><th class="sub1">Select All in Track</th><td>Selects all the regions and automation points in the current track</td></tr>
+    <tr><th class="sub1">Select All Objects</th><td>Selects all the regions and automation points in the session</td></tr>
+    <tr><th class="sub1">Invert Selection in Track</th><td>Select the previously unselected regions, and deselect the previously selected ones <em>only</em> in the current track</td></tr>
+    <tr><th class="sub1">Invert Selection</th><td>Select the previously unselected regions, and deselect the previously selected ones</td></tr>
+    <tr><th class="sub1">Set Range to Loop Range</th><td>Creates a range selection on the selected tracks, based on the selected loop markers, and switches to <a href="@@toolbox">Range Mode tool</a></td></tr>
+    <tr><th class="sub1">Set Range to Punch Range</th><td>Same as above, based on the selected punch markers</td></tr>
+    <tr><th class="sub1">Set Range to Selected Regions</th><td>Same as above, based on the selected regions (i.e. from the start of the earliest region to the end of the latest one)</td></tr>
+    <tr><th class="sub1">Select All After Edit Point</th><td>Select all the regions and automation points that exist after the Edit Point, even if the region starts before it. If some tracks are selected, only selects on these tracks.</td></tr>
+    <tr><th class="sub1">Select All Before Edit Point</th><td>Same as above, but before the Edit point (i.e. to the left of it)</td></tr>
+    <tr><th class="sub1">Select All After Playhead</th><td>Same as above, but considering the Playhead, regardless of the Edit Point choice</td></tr>
+    <tr><th class="sub1">Select All Before Playhead</th><td>Same as above, with the Playhead</td></tr>
+    <tr><th class="sub1">Select All Between Playhead and Edit Point</th><td>Selects all the regions between the Playhead and the Edit Point</td></tr>
+    <tr><th class="sub1">Select All Within Playhead and Edit Point</th><td>Same as above, but the regions must be totally included between the Playhead and Edit Point</td></tr>
+    <tr><th class="sub1">Select Range Between Playhead and Edit Point</th><td>Creates a Range between the Playhead and the Edit Point</td></tr>
 
-<p class=fixme>Add content</p>
+  <tr><th>Edit</th><td></td></tr>
+    <tr><th class="sub1">Cut</th><td>Deletes the current selection, but puts it in memory ready to be pasted</td></tr>
+    <tr><th class="sub1">Copy</th><td>Copies the current selection to memory</td></tr>
+    <tr><th class="sub1">Paste</th><td>Pastes the memory at the <a href="@@edit-point-control">Edit Point</a>, after a Cut or Copy operation</td></tr>
 
+    <tr><th class="sub1">Align</th><td>Aligns the sync point of all selected regions to the Edit Point</td></tr>
+    <tr><th class="sub1">Align Relative</th><td>Same as above, but considers multiple regions as a block and aligns the whole block, not each regions</td></tr>
+
+  <tr><th>Insert Selected Region</th><td>If a region is selected in <a href="@@the-region-list">the Region List</a>, inserts it in the track</td></tr>
+
+  <tr><th>Insert Existing Media</th><td>Inserts an external media file in the track, same as <a href="@@adding-pre-existing-material">the <kbd class="menu">Session &gt; Insert Media</kbd> menu</a></td></tr>
+
+  <tr><th>Nudge</th><td></td></tr>
+    <tr><th class="sub1">Nudge Entire Track Later</th><td>Moves all the region to the right by the amount shown in the <a href="@@nudge-controls">nudge timer</a></td></tr>
+    <tr><th class="sub1">Nudge Track After Edit Point Later</th><td>Same as above, but only for regions that begin after the Edit Point</td></tr>
+    <tr><th class="sub1">Nudge Entire Track Earlier</th><td>Same as above, to the left</td></tr>
+    <tr><th class="sub1">Nudge Track After Edit Point Earlier</th><td>Same as above, to the left</td></tr>
+
+  <tr><th>(un)Freeze</th><td>Consolidates all the regions in the track into one <em>frozen</em> region which can be handled as a normal, single region. This operation can be undone at any time with the same sub-menu.</td></tr>
+</table>
