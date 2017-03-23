@@ -54,8 +54,8 @@
 }
 
 #content {
-    padding: 10px 30px 30px 350px;
-    margin-left: 0;
+  padding: 10px 30px 30px 350px;
+  margin-left: 0;
 }
 
 #content-main {
@@ -72,29 +72,26 @@
   line-height: 28px;
 }
 
-
 #tree a {
-    display: inline !important;
-    font-weight: normal;
-    color: #E4E4E4;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 2px;
+  display: inline !important;
+  font-weight: normal;
+  color: #E4E4E4;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
 }
 
 #tree a:hover {
-    text-decoration: none;
-    border-bottom: 1px solid #aaa;
+  text-decoration: none;
+  border-bottom: 1px solid #aaa;
 }
 
 #tree .active > a {
-    display: inline;
-    color: #da0808;
-    border-bottom: 1px solid #FFF;
-
+  display: inline;
+  color: #da0808;
+  border-bottom: 1px solid #FFF;
 }
 
-#content,
-#tree {
+#content, #tree {
   font-family: Junge;
 }
 
@@ -102,11 +99,11 @@
 #content h2,
 #content h3,
 #content h4 {
-    font-weight: normal;
+  font-weight: normal;
 }
 
 #content h1.title {
- border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
   padding-bottom: 10px;
   margin-bottom: 40px;
 }
@@ -119,7 +116,7 @@
 }
 
 #content h3 {
- margin: 20px 0 10px 0;
+  margin: 20px 0 10px 0;
   padding-bottom: 5px;
   font-size: 20px;
   border-bottom: 1px solid #eee;
@@ -132,12 +129,7 @@
   border-bottom: 1px solid #eee;
 }
 
-#content code {
-  font-size: 14px;
-  color: #555;
-}
-
-#content table.dl, table.nodl {
+#content table {
   width:100%;
   margin: 1em 0;
   padding: 0;
@@ -145,97 +137,100 @@
   text-align: left;
 }
 
-#content table.dl tr, table.nodl tr {
+#content table tr {
   border-bottom: 2px solid #eeeeee;
+}
+
+#content table tr:nth-child(odd){
   background-color: white;
 }
 
-#content table.dl tr:nth-child(odd), table.nodl tr:nth-child(odd){
-  background-color: white;
+#content table tr:nth-child(even){
+  background-color: #f5f5f5;
 }
 
-#content table.dl tr:nth-child(even), table.nodl tr:nth-child(even){
+#content table tr:hover {
   background-color: #F2F9FF;
 }
 
-#content table.dl thead, table.nodl thead {
-  font-weight:bold;
-}
-
-#content table.dl th, table.nodl th {
+#content table td, th {
   margin: 0;
   padding: 5px;
   font-weight: normal;
 }
 
-#content table.dl td, table.nodl td {
-  margin: 0;
-  padding: 5px;
+#content table th.sub1 {
+  padding-left: 2em;
 }
 
-#content table.dl th.sub1, table.nodl th.sub1 {
-    padding-left: 2em;
+#content table th.sub2 {
+  padding-left: 4em;
 }
 
-#content table.dl th.sub2, table.nodl th.sub2 {
-    padding-left: 4em;
+#content table thead {
+  font-weight:bold;
 }
 
 #content table.dl th {
+  /* dl class (definition list) is for 2-columns tables that describe properties:
+  maximmizes the width of the 2nd (description) column */
   min-width: 20%;
+  vertical-align: top;
 }
 
 #content table.dl td {
-  width: 100%; /*maximizes the width of the 2nd column */
+  width: 100%;
 }
-
 
 #content dl
 {
-    float:none;
-    clear:both;
-    width:100%;
-    margin: 1em 0;
-    padding: 0;
-    display:inline-block;
+  float:none;
+  clear:both;
+  width:100%;
+  margin: 1em 0;
+  padding: 0;
+  display:inline-block;
 }
 
 #content dl:after {
-    content:' ';
-    display:block;
-    clear:both;
+  content:' ';
+  display:block;
+  clear:both;
 }
 
-#content dt
-{
-    clear: left;
-    float: left;
-    width: 25%;
-    margin: 0;
-    padding: 5px;
-    font-weight: normal;
+#content dt, #content dd {
+  border-top: 2px solid #eee;
+  float: left;
+  margin: 0;
+  padding: 5px;
+  font-weight: normal;
 }
 
-#content dd
-{
-    float: left;
-    width: 65%;
-    margin: 0;
-    padding: 5px;
-    font-weight: normal;
+#content dt {
+  clear: left;
+  width: 25%;
+}
+
+#content dd {
+  width: 65%;
 }
 
 #content dt.sub1 {
-    padding-left: 2em;
+  padding-left: 2em;
 }
 
 #content dt.sub2 {
-    padding-left: 4em;
+  padding-left: 4em;
+}
+
+#content dt:first-child,
+#content dd:nth-child(2) {
+  border-top: none;
 }
 
 
 #content figure {
-    display: table;
+  display: table;
 }
 
 #content figcaption {
@@ -245,120 +240,44 @@
 }
 
 #content figcaption.center {
-	display: table-caption;
 	text-align: center;
 	caption-side: bottom;
-	font-style: italic;
 }
 
 #content figcaption.titleover {
+  text-align: center;
 	caption-side: top ;
 }
 
 #content figure.right {
-    margin: 0 0 1em 1em;
-    float: right;
-    clear: right;
+  margin: 0 0 1em 1em;
+  float: right;
+  clear: right;
 }
 
 #content figure.left {
-    margin: 0 1em 1em 0;
-    float: left;
-    clear: left;
+  margin: 0 1em 1em 0;
+  float: left;
+  clear: left;
 }
 
 #content figure.center {
-    margin: 1em auto 1em auto;
-    clear: both;
+  margin: 1em auto 1em auto;
+  clear: both;
 }
 
 .multicol2 {
-    width: 48%;
-		float:left;
-		padding:0 0 0 2%;
-		margin:0;
+  width: 48%;
+	float:left;
+	padding:0 0 0 2%;
+	margin:0;
 }
 
 .multicol3 {
-    width: 31%;
-		float:left;
-		padding:0 0 0 2%;
-		margin:0;
-}
-
-.multicol4 {
-    width: 23%;
-		float:left;
-		padding:0 0 0 2%;
-		margin:0;
-}
-
-.multicol5 {
-    width: 18%;
-		float:left;
-		padding:0 0 0 2%;
-		margin:0;
-}
-
-#content dl.wide-table
-{
-    float: left;
-    width: 100%;
-    margin: 1em 0;
-    padding: 0;
-}
-
-#content .wide-table dt
-{
-    font-weight: normal;
-    clear: left;
-    float: left;
-    width: 30%;
-    margin: 0;
-    padding: 5px;
-}
-
-#content dt,
-#content dd {
-    border-top: 2px solid #eee;
-}
-
-#content dt:first-child,
-#content dd:nth-child(2) {
-    border-top: none;
-}
-
-#content .wide-table dd
-{
-    float: left;
-    width: 60%;
-    margin: 0;
-    padding: 5px;
-}
-
-#content dl.narrower-table
-{
-    float: left;
-    width: 100%;
-    margin: 1em 0;
-    padding: 0;
-}
-
-#content .narrower-table dt
-{
-    clear: left;
-    float: left;
-    width: 20%;
-    margin: 0;
-    padding: 5px;
-}
-
-#content .narrower-table dd
-{
-    float: left;
-    width: 70%;
-    margin: 0;
-    padding: 5px;
+  width: 31%;
+	float:left;
+	padding:0 0 0 2%;
+	margin:0;
 }
 
 kbd {
@@ -384,151 +303,142 @@ kbd {
 }
 
 kbd.input,kbd.cmd,kbd.osc {
-    font-family:mono;
-    border-width:0;
-    text-transform:none;
+  font-family:mono;
+  border-width:0;
+  text-transform:none;
 }
 
 kbd.input {
-    background:none;
-    border-radius: 0;
+  background:none;
+  border-radius: 0;
 }
 
 kbd.cmd {
-    display:block;
-    width:100%;
-    margin-bottom:1ex;
-    text-transform:none;
-    background: rgb(220, 220, 220);
-    text-shadow: none;
-    box-shadow: none;
-    text-align:left;
+  display:block;
+  width:100%;
+  margin-bottom:1ex;
+  text-transform:none;
+  background: rgb(220, 220, 220);
+  text-shadow: none;
+  box-shadow: none;
+  text-align:left;
 }
 
 kbd.cmd.lin:before {
-    content: 'user@linux:~ ';
-    color:#999999;
+  content: 'user@linux:~ ';
+  color:#999999;
 }
 
 kbd.cmd.mac:before {
-    content: 'MacBook:~/Desktop User\$ ';
-    color:#999999;
+  content: 'MacBook:~/Desktop User\$ ';
+  color:#999999;
 }
 
 kbd.cmd.win:before {
-    content: 'C:\\Users\\myAccount> ';
-    color:#999999;
+  content: 'C:\\Users\\myAccount> ';
+  color:#999999;
 }
 
 kbd.optoff, kbd.option {
-    border:none;
-    background:none;
+  border:none;
+  background:none;
 }
 
 kbd.optoff:before {
-    content:url('/images/checkbox-unchecked.png');
-    margin: 0 5px 0 0;
-    vertical-align:middle;
+  content:url('/images/checkbox-unchecked.png');
+  margin: 0 5px 0 0;
+  vertical-align:middle;
 }
 
 kbd.option:before {
-    content:url('/images/checkbox-checked.png');
-    margin: 0 5px 0 0;
-    vertical-align:middle;
+  content:url('/images/checkbox-checked.png');
+  margin: 0 5px 0 0;
+  vertical-align:middle;
 }
 
 kbd.menu {
-    border:none;
-    background:none;
-    font-weight:bold;
-    font-stretch:extra-condensed;
-    white-space:normal;
+  border:none;
+  background:none;
+  font-weight:bold;
+  font-stretch:extra-condensed;
+  white-space:normal;
 }
 
 kbd.osc {
-    border:none;
-    background: rgb(208, 208, 243);
-    font-stretch:extra-condensed;
-    white-space: nowrap;
-    text-align:left;
+  border:none;
+  background: rgb(208, 208, 243);
+  font-stretch:extra-condensed;
+  white-space: nowrap;
+  text-align:left;
 }
 
 kbd.fader, kbd.knob, kbd.button {
-    background: rgb(174, 174, 217);
-    background: -moz-linear-gradient(top, rgb(174, 174, 217), rgb(221, 221, 255));
-    background: -webkit-gradient(linear, left top, left bottom, from(rgb(174, 174, 217)), to(rgb(221, 221, 255)));
-    color:#000044;
+  background: rgb(174, 174, 217);
+  background: -moz-linear-gradient(top, rgb(174, 174, 217), rgb(221, 221, 255));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(174, 174, 217)), to(rgb(221, 221, 255)));
+  color:#000044;
 }
 
 kbd.fader {
-    border-width: 1px 1px 9px 9px;
+  border-width: 1px 1px 9px 9px;
 }
 
 kbd.knob {
-    border-radius:12px;
-    border-width: 1px 1px 9px 9px;
+  border-radius:12px;
+  border-width: 1px 1px 9px 9px;
 }
 
 kbd.button {
-    border-radius:8px;
-    border-width: 1px 1px 3px 3px;
+  border-radius:8px;
+  border-width: 1px 1px 3px 3px;
 }
 
 kbd.mouse {
-    border-radius:10px;
+  border-radius:10px;
 }
 
-
 samp {
-    font-family:mono;
-    font-style:italic;
-    color:#333333;
-    background-color:transparent;
-    margin-left: 1ex;
-    margin-right: 1ex;
+  font-family:mono;
+  font-style:italic;
+  color:#333333;
+  background-color:transparent;
+  margin-left: 1ex;
+  margin-right: 1ex;
 }
 
 samp:before {
-    content:"\BB";
+  content:"\BB";
 }
 
 samp:after {
-    content:"\AB";
-}
-
-#content td {
-    padding: 0 1em 0 1em;
-}
-
-#content .small {
-    width:150px;
+  content:"\AB";
 }
 
 #subtopics ul {
-    font-size:20px;
-    font-weight:bold;
+  font-size:20px;
+  font-weight:bold;
 }
 
 #content dfn {
-    font-weight: bold;
-    font-style: normal;
+  font-weight: bold;
+  font-style: normal;
 }
 
 #content img.right {
-    margin: 0 0 1em 1em;
-    float:right;
-    clear:right;
+  margin: 0 0 1em 1em;
+  float:right;
+  clear:right;
 }
 
 #content img.left {
-    margin:0 1em 1em 0;
-    float:left;
-    clear:left;
+  margin:0 1em 1em 0;
+  float:left;
+  clear:left;
 }
 
 #content img.center {
-    display: block;
-    margin:1em auto 1em auto;
+  display: block;
+  margin:1em auto 1em auto;
 	clear: both;
 }
 
@@ -537,161 +447,89 @@ samp:after {
 }
 
 #content .note,.warning,.fixme {
-    min-height: 20px;
-    padding: 19px;
-    margin-bottom: 20px;
-    border-style: solid;
-    border-width: 1px 1px 1px 8px;
-    -webkit-border-radius: 4px;
-       -moz-border-radius: 4px;
-            border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-       -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-width: 1px 1px 1px 8px;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
 
+#content code {
+  font-size: 14px;
+  color: #555;
 }
 
 #content .note {
-    border-color: #e3e3e3;
-    background-color: #f5f5f5;
+  border-color: #e3e3e3;
+  background-color: #f5f5f5;
 }
 
 #content .warning {
-    border-color: #995555;
-    background-color: #ffeeee;
+  border-color: #995555;
+  background-color: #ffeeee;
 }
 
 #content .fixme {
-    border-color: #999944;
-    background-color: #f0f0e0;
-    font-weight:bold;
+  border-color: #999944;
+  background-color: #f0f0e0;
+  font-weight:bold;
 }
 
 .fixme:before {
-    content:'FIXME: ';
-    font-style: italic;
-    font-size:200%;
+  content:'FIXME: ';
+  font-style: italic;
+  font-size:200%;
 }
 
 
 /* Keyboard modifiers */
 
-.mod1:before {
-    content: "Ctrl ";
-}
-.mod2:before {
-    content: "Alt ";
-}
-.mod3:before {
-    content: "Shift ";
-}
-.mod4:before {
-    content: "Win ";
-}
-.mod12:before {
-    content: "Ctrl Alt ";
-}
-.mod13:before {
-    content: "Ctrl Shift ";
-}
-.mod14:before {
-    content: "Ctrl Win ";
-}
-.mod23:before {
-    content: "Alt Shift ";
-}
-.kp:before {
-    content: "Keypad ";
-}
-
+.mod1:before {        content: "Ctrl ";}
+.mod2:before {        content: "Alt ";}
+.mod3:before {        content: "Shift ";}
+.mod4:before {        content: "Win ";}
+.mod12:before {       content: "Ctrl Alt ";}
+.mod13:before {       content: "Ctrl Shift ";}
+.mod14:before {       content: "Ctrl Win ";}
+.mod23:before {       content: "Alt Shift ";}
+.kp:before {          content: "Keypad ";}
 /* Variants *without* space after them (yes, these are needed!) */
-
-.mod1n:before {
-    content: "Ctrl";
-}
-.mod2n:before {
-    content: "Alt";
-}
-.mod3n:before {
-    content: "Shift";
-}
-.mod4n:before {
-    content: "Win";
-}
-.mod12n:before {
-    content: "Ctrl Alt";
-}
-.mod13n:before {
-    content: "Ctrl Shift";
-}
-.mod14n:before {
-    content: "Ctrl Win";
-}
-.mod23n:before {
-    content: "Alt Shift";
-}
-
-
+.mod1n:before {       content: "Ctrl";}
+.mod2n:before {       content: "Alt";}
+.mod3n:before {       content: "Shift";}
+.mod4n:before {       content: "Win";}
+.mod12n:before {      content: "Ctrl Alt";}
+.mod13n:before {      content: "Ctrl Shift";}
+.mod14n:before {      content: "Ctrl Win";}
+.mod23n:before {      content: "Alt Shift";}
 /* Automagic translation for Mac based display */
-
-.mac .mod1:before {
-    content: "Cmd ";
-}
-.mac .mod2:before {
-    content: "Ctrl ";
-}
-.mac .mod3:before {
-    content: "Shift ";
-}
-.mac .mod4:before {
-    content: "Opt ";
-}
-.mac .mod12:before {
-    content: "Cmd Ctrl ";
-}
-.mac .mod13:before {
-    content: "Cmd Shift ";
-}
-.mac .mod14:before {
-    content: "Cmd Opt ";
-}
-.mac .mod23:before {
-    content: "Ctrl Shift ";
-}
-
+.mac .mod1:before {   content: "Cmd ";}
+.mac .mod2:before {   content: "Ctrl ";}
+.mac .mod3:before {   content: "Shift ";}
+.mac .mod4:before {   content: "Opt ";}
+.mac .mod12:before {  content: "Cmd Ctrl ";}
+.mac .mod13:before {  content: "Cmd Shift ";}
+.mac .mod14:before {  content: "Cmd Opt ";}
+.mac .mod23:before {  content: "Ctrl Shift ";}
 /* No space variants (Mac based) */
-
-.mac .mod1n:before {
-    content: "Cmd";
-}
-.mac .mod2n:before {
-    content: "Ctrl";
-}
-.mac .mod3n:before {
-    content: "Shift";
-}
-.mac .mod4n:before {
-    content: "Opt";
-}
-.mac .mod12n:before {
-    content: "Cmd Ctrl";
-}
-.mac .mod13n:before {
-    content: "Cmd Shift";
-}
-.mac .mod14n:before {
-    content: "Cmd Opt";
-}
-.mac .mod23n:before {
-    content: "Ctrl Shift";
-}
-
+.mac .mod1n:before {  content: "Cmd";}
+.mac .mod2n:before {  content: "Ctrl";}
+.mac .mod3n:before {  content: "Shift";}
+.mac .mod4n:before {  content: "Opt";}
+.mac .mod12n:before { content: "Cmd Ctrl";}
+.mac .mod13n:before { content: "Cmd Shift";}
+.mac .mod14n:before { content: "Cmd Opt";}
+.mac .mod23n:before { content: "Ctrl Shift";}
 
 #gs_tti0 {
-
   padding-top: 2px;
   padding-bottom: 0;
-
 }
 
 @media (max-width: 800px) {
@@ -707,11 +545,13 @@ samp:after {
   }
 }
 
+/* for the TOC */
 #chapter { padding-top: 1em; padding-left: 1em; }
 #subchapter { padding-left: 4em; }
 #section { padding-left: 6em; }
 #subsection { padding-left: 8em; }
 
+/* for images sliced in divs, as in http://manual.ardour.org/ardours-interface/about/ */
 .container { position:relative; border: none;}
 .hoverimg { position: absolute; border: none;  }
 .hoverimg:hover{ z-index:100; box-shadow: 0 0 5px 5px lightgreen; }
