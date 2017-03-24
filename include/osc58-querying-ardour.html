@@ -32,14 +32,22 @@
   current session has. Ardour replies with a message for each
   strip with the following information:
   <ul>
-    <li>Strip type</li>
+    <li>Strip type - One of:</li>
+    <ul>
+		<li>AT - Audio Track</li>
+		<li>MT - MIDI Track</li>
+		<li>B - Audio Bus</li>
+		<li>MB - MIDI bus</li>
+		<li>AX - Aux bus</li>
+		<li>V - VCA</li>
+    </ul>
     <li>Strip name</li>
     <li>Number of inputs</li>
     <li>Number of outputs</li>
-    <li>Muted (bool)</li>
-    <li>Soloed (bool)</li>
+    <li>Muted</li>
+    <li>Soloed</li>
     <li>Ssid (strip number)</li>
-    <li>Record enabled (bool)</li>
+    <li>Record enabled</li>
   </ul>
   After all the strip messages have been sent, one final message is
   sent with:
@@ -47,6 +55,7 @@
     <li>The text <code>end_route_list</code></li>
     <li>The session frame rate</li>
     <li>The last frame number of the session</li>
+    <li>Monitor section present</li>
   </ul>
 </p>
 <p class="note">A bus will not have a record enable and so a bus message
