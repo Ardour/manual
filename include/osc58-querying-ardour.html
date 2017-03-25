@@ -58,6 +58,13 @@
     <li>Monitor section present</li>
   </ul>
 </p>
+<p>
+  If the surface is using <code>/strip/list</code>, the surface needs to know
+  if the strips have changed. This would be true if a strip gets moved, created or
+  deleted. When this happens Ardour sends <code>/strip/list</code> to the surfaces
+  that have previously requested a <code>/strip/list</code>. This lets the
+  surface know that it's list of strips is no longer valid.
+</p>
 <p class="note">A bus will not have a record enable and so a bus message
   will have one less parameter than a track. It is the controllers
   responsability to deal with this.
