@@ -67,7 +67,7 @@
 #content li,
 #content dt,
 #content dd,
-#content table {
+#content table.dl {
   font-size: 16px;
   line-height: 28px;
 }
