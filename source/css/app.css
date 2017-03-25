@@ -129,48 +129,6 @@
   border-bottom: 1px solid #eee;
 }
 
-#content table {
-  width:100%;
-  margin: 1em 0;
-  padding: 0;
-  font-weight: normal;
-  text-align: left;
-}
-
-#content table tr {
-  border-bottom: 2px solid #eeeeee;
-}
-
-#content table tr:nth-child(odd){
-  background-color: white;
-}
-
-#content table tr:nth-child(even){
-  background-color: #f5f5f5;
-}
-
-#content table tr:hover {
-  background-color: #F2F9FF;
-}
-
-#content table td, th {
-  margin: 0;
-  padding: 5px;
-  font-weight: normal;
-}
-
-#content table th.sub1 {
-  padding-left: 2em;
-}
-
-#content table th.sub2 {
-  padding-left: 4em;
-}
-
-#content table thead {
-  font-weight:bold;
-}
-
 #content table.dl th {
   /* dl class (definition list) is for 2-columns tables that describe properties:
   maximmizes the width of the 2nd (description) column */
