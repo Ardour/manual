@@ -85,8 +85,7 @@ body {
 #content p,
 #content li,
 #content dt,
-#content dd,
-#content table {
+#content dd {
   line-height: 2em;
 }
 
@@ -130,6 +129,7 @@ body {
   padding: 0;
   font-weight: normal;
   text-align: left;
+  line-height: 2ex;
 }
 
 #content table tr {
