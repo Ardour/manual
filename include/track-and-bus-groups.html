@@ -6,54 +6,61 @@
   multiple-microphone recordings of a single source (an acoustic guitar,
   perhaps, or a drum-kit).
 </p>
+
+<figure class="left">
+    <img src="/images/track-in-group.png" alt="Track headers for a group">
+    <figcaption>
+      Track headers for a group
+    </figcaption>
+</figure>
+
 <p>
-  You can group tracks and busses in various ways. In the editor window,
-  a track's controls might look like these:
+  Tracks and busses can be grouped in various ways. In the editor window,
+  a track's controls might look like the adjacent image.
 </p>
-<img class="left" src="/images/track-in-group.png" alt="track headers for a group" />
 <p>
   The green tab to the left of the track header indicates that this track
-  is in a group called <samp>Fred</samp>. You can drag these tabs to add
+  is in a group called <samp>Fred</samp>. These tabs can be dragged to add
   adjacent tracks to a group.
 </p>
 
 <h2>Create New Groups</h2>
 <p>
-  There are several ways to <dfn>create groups</dfn> for tracks and bussess:
+  There are several ways to <dfn>create groups</dfn> for tracks and busses:
 </p>
 <ul>
-  <li>Context-click on the group tab and use one of the <kbd
-  class="menu">Create&hellip;</kbd> options there. You can create a group with
+  <li><kbd class="mouse">Right</kbd>-clicking on the group tab and using one of the <kbd
+  class="menu">Create&hellip;</kbd> options there. A group can be created with
   no members, or one that starts with the currently selected tracks, or
   record-enabled tracks, or soloed tracks.</li>
-  <li>Alternatively, click the ‘g’ button on a track header to open the
+  <li>Alternatively, clicking the <kbd class="menu">g</kbd> button on a track header to open the
   Group menu. The menu lists the available groups. Selecting one of these
-  groups will add the track or bus to that group. The menu also lets you
-  create a new group.</li>
+  groups will add the track or bus to that group. The menu also allows creating
+  a new group.</li>
   <li>Finally, the <a href="@@groups-list">Groups list</a>
-  has a <kbd class="menu">plus (+)</kbd> button at the
-  bottom of the list. Click on the plus sign to create a new group.</li>
+  has a <kbd class="menu">plus (&plus;)</kbd> button at the
+  bottom of the list that can be clicked on to create a new group.</li>
 </ul>
 
 <h2>Remove Groups</h2>
 <p>
-  Context-click on a <dfn>group tab</dfn> and select <kbd class="menu">Remove
-  Group</kbd> from the menu. Removing a group does <em>not</em> remove
+  Context-clicking on a <dfn>group tab</dfn> and selecting <kbd class="menu">Remove
+  Group</kbd> from the menu removes it. Removing a group does <em>not</em> remove
   the members of a group.
 </p>
 <p>
-  You can also remove groups by selecting them in the <a href="@@groups-list">Groups list</a>
-  and then pressing the <kbd class="menu">minus (-)</kbd> button at the bottom of the list.
+  Groups can also be removed by selecting them in the <a href="@@groups-list">Groups list</a>
+  and then pressing the <kbd class="menu">minus (&minus;)</kbd> button at the bottom of the list.
 </p>
 
 <h2>Add/Remove Tracks and Busses From a Group</h2>
 <p>
-  Click the <kbd class="menu">g</kbd> button to display a menu with a list
-  of the available groups. Select one of these groups to add the track or bus
-  to that group. Select <kbd class="menu">No Group</kbd> to remove it.
+  Clicking the <kbd class="menu">g</kbd> button displays a menu with a list
+  of the available groups. Selecting one of these groups adds the track or bus
+  to that group. Selecting <kbd class="menu">No Group</kbd> removes it.
 </p>
 <p>
-  Alternatively, you can also drag a group tab to add or remove tracks from
+  Alternatively, a group tab can be dregged to add or remove tracks from
   the group.
 </p>
 
@@ -62,23 +69,30 @@
   Clicking on a group tab toggles the group between being active and inactive.
   An inactive group has no effect when editing its members. An active group
   will share its configured properties across its members. Tabs for disabled
-  groups are coloured grey.</p>
-
-<h2>Modify Group Properties</h2>
-<p>
-  To edit the properties of a group, context-click on its tab and choose
-  <kbd class="menu">Edit Group…</kbd>. This opens the track/bus group dialog,
-  which is also used when creating new groups:
+  groups are coloured grey.
 </p>
 
-<img class="right" src="/images/route-group-dialogue.png" alt="the track/bus group dialog" />
+<h2>Modify Group Properties</h2>
+
+<figure class="right">
+  <img src="/images/route-group-dialogue.png" alt="The Track/bus Group dialog">
+  <figcaption>
+    The Track/bus Group dialog
+  </figcaption>
+</figure>
+
+<p>
+  Edit the properties of a group is done by <kbd class="mouse">right</kbd>-clicking
+  on its tab and choosing <kbd class="menu">Edit Group&hellip;</kbd>. This opens
+  the track/bus group dialog, which is also used when creating new groups.
+</p>
 
 <h3>Group Color</h3>
 <p>
-  Click on the color selector button to change a group's colour. This affects
-  the colour of the group's tab in the editor and mixer windows. The color does
-  <em>not</em> affect the color of the group members unless you also enable the
-  shared <kbd class="menu">Color</kbd> property.
+  Clicking on the color selector button changes a group's color. This affects
+  the color of the group's tab in the editor and mixer windows. The color does
+  <em>not</em> affect the color of the group members unless the shared
+  <kbd class="menu">Color</kbd> property is enabled.
 </p>
 
 <h3>Shared Properties</h3>
@@ -87,60 +101,53 @@
   always have the same value; <kbd class="option">Relative</kbd> means that the
   gain changes are applied relative to each member's current value. If, for
   example, there are two tracks in a group with relative gain sharing, and their
-  faders are set to -3&nbsp;dB and -1&nbsp;dB, a change of the first track to a
-  gain of -6&nbsp;dB will result in the second track having a gain of
-  -4&nbsp;dB (the <em>difference</em> of the gains remains the same).
+  faders are set to &minus;3&nbsp;dB and &minus;1&nbsp;dB, a change of the first track to a
+  gain of &minus;6&nbsp;dB will result in the second track having a gain of
+  &minus;4&nbsp;dB (the <em>difference</em> of the gains remains the same).
 </p>
 <p>
   <a href="@@bus-controls#mute"><kbd class="option">Muting</kbd></a>,
   <a href="@@bus-controls#solo"><kbd class="option">Soloing</kbd></a>,
   <a href="@@audio-track-controls#record"><kbd class="option">record enable</kbd></a>,
   <a href="@@the-tracks-and-busses-list"><kbd class="option">active state</kbd></a>,
-  <a href="@@track-color"><kbd class="option">colour</kbd></a> and
+  <a href="@@track-color"><kbd class="option">color</kbd></a> and
   <a href="@@monitoring"><kbd class="option">monitoring</kbd></a>
   are all straightforward. They simply mean that all member tracks or busses will
   share the same settings in these respects.
 </p>
 <p>
   <kbd class="option">Selection</kbd> means that if a region is selected or
-  deselected on one member track, <a
-  href="/working-with-regions/corresponding-regions-selection/">corresponding
-  regions</a> on other member tracks
-  will be similarly selected. Since region editing operations are applied to all
-  currently selected regions, this is the way to make edits apply across all tracks
-  in the group.
+  deselected on one member track, <a href="@@corresponding-regions-selection">corresponding
+  regions</a> on other member tracks will be similarly selected. Since region
+  editing operations are applied to all currently selected regions, this is the
+  way to make edits apply across all tracks in the group.
 </p>
 
 <h3>Group Tab Context Menu</h3>
 <p>Context-clicking on the group tab offers a further menu of group-related actions. </p>
 <table class="dl">
 <tr><th>Create a New Group</th>
-<td>create a new group</td></tr>
+    <td>create a new group</td></tr>
 <tr><th>Create New Group from&hellip;</th>
-<td> create a new group and automatically add &hellip;
-<table class="dl">
-<tr><th>Selected</th>
-<td>all currently selected tracks and busses</td></tr>
-<tr><th>Rec-enabled</th>
-<td>all currently record-enabled tracks</td></tr>
-<tr><th>Soloed</th>
-<td>all currently soloed tracks and busses</td></tr>
-</table>
-</td></tr>
+    <td> create a new group and automatically add &hellip;</td></tr>
+<tr><th class="sub1">Selected</th>
+    <td>all currently selected tracks and busses</td></tr>
+<tr><th class="sub1">Rec-enabled</th>
+    <td>all currently record-enabled tracks</td></tr>
+<tr><th class="sub1">Soloed</th>
+    <td>all currently soloed tracks and busses</td></tr>
 <tr><th>Collect Group</th>
-<td>moves all the member tracks so that they are together in the editor window</td></tr>
+    <td>moves all the member tracks so that they are together in the editor window</td></tr>
 <tr><th>Remove Group</th>
-<td>removes the group (and only the group, not its members).</td></tr>
+    <td>removes the group (and only the group, not its members).</td></tr>
 <tr><th>Add New Subgroup Bus</th>
-<td> creates a bus (giving it the name of the group) and connects the output of each member to the new bus.
-</td></tr>
+    <td>creates a bus (giving it the name of the group) and connects the output of each member to the new bus.</td></tr>
 <tr><th>Add New Aux Bus</th>
-<td>adds a bus and gives each member a send to that bus. There are two options for this, specifying whether the sends should be placed pre- or post-fader.</td></tr>
+    <td>adds a bus and gives each member a send to that bus. There are two options for this, specifying whether the sends should be placed pre- or post-fader.</td></tr>
 <tr><th>Fit to Window</th>
-<td> will zoom the member tracks so that they fill the editor window.</td></tr>
+    <td> will zoom the member tracks so that they fill the editor window.</td></tr>
 <tr><th>Enable All Groups</th>
-<td>makes all group active, including any hidden groups.</td></tr>
+    <td>makes all group active, including any hidden groups.</td></tr>
 <tr><th>Disable All Groups</th>
-<td>makes all groups inactive, including any hidden groups.</td></tr>
+    <td>makes all groups inactive, including any hidden groups.</td></tr>
 </table>
-
