@@ -58,6 +58,11 @@
     <li>Monitor section present</li>
   </ul>
 </p>
+<p class="note">
+	The <code>/set_surface</code> should be set before this is called. That way
+	The right set of strips will be sent in return (though the default is good
+	for most uses) and feedback will start correctly.
+</p>
 <p>
   If the surface is using <code>/strip/list</code>, the surface needs to know
   if the strips have changed. This would be true if a strip gets moved, created or
