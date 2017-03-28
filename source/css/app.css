@@ -1,5 +1,14 @@
+@font-face {
+    font-family: 'junge-regular';
+    src: url('junge-regular-webfont.woff2') format('woff2'),
+         url('junge-regular-webfont.woff') format('woff'),
+         url('junge-regular-webfont.ttf')  format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-  font-family: Junge;
+  font-family: 'junge-regular';
   font-size: 16px;
   line-height: 2ex;
 }
@@ -85,7 +94,9 @@ body {
 #content p,
 #content li,
 #content dt,
-#content dd {
+#content dd,
+#content td,
+#content th{
   line-height: 2em;
 }
 
@@ -170,12 +181,13 @@ body {
 #content table.dl th {
   /* dl class (definition list) is for 2-columns tables that describe properties:
   maximmizes the width of the 2nd (description) column */
-  min-width: 20%;
   vertical-align: top;
+  min-width: 20%;
   white-space:nowrap
 }
 
 #content table.dl td {
+  vertical-align: top;
   width: 100%;
 }
 
@@ -526,25 +538,6 @@ samp:after {
 .mac .mod14n:before { content: "Cmd Opt";}
 .mac .mod23n:before { content: "Ctrl Shift";}
 
-/* google search : reset style for the search field */
-#search table,
-#search input,
-#search tr,
-#search td,
-#search th,
-#search thead,
-#search tbody{
-  margin: inherit;
-  padding: inherit;
-  color: inherit;
-  border: inherit;
-  background: inherit;
-  line-height: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  box-shadow: inherit;
-}
-
 @media (max-width: 800px) {
   #tree {
     position: relative;
@@ -559,12 +552,18 @@ samp:after {
 }
 
 /* for the TOC */
+#chapter,
+#subchapter,
+#section,
+#subsection {
+  line-height:1.5em;
+}
 #chapter { padding-top: 1em; padding-left: 1em; }
 #subchapter { padding-left: 4em; }
 #section { padding-left: 6em; }
 #subsection { padding-left: 8em; }
 
 /* for images sliced in divs, as in http://manual.ardour.org/ardours-interface/about/ */
-.container { position:relative; border: none;}
-.hoverimg { position: absolute; border: none;  }
+.container { position: relative; border: none; }
+.hoverimg { position: absolute; border: none; }
 .hoverimg:hover{ z-index:100; box-shadow: 0 0 .2em .2em lightgreen; }
