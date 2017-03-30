@@ -20,7 +20,7 @@
 	<div id="tree"><div id="tree-inner">
 		<h1 class="title"><a href="/"><img src="/images/logo.png" alt="The Ardour Manual" /></a></h1>
 
-    <form id="custom-search-form" class="form-search form-horizontal pull-right" method="post" action="https://duckduckgo.com">
+    <form id="custom-search-form" class="form-search form-horizontal hidden-phone" method="post" action="https://duckduckgo.com">
       <div class="input-append">
           <input type="text" class="search-query" name="q" placeholder="Search &hellip;">
           <button type="submit" class="btn"><i class="icon-search"></i></button>
