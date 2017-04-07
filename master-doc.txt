@@ -1805,6 +1805,14 @@ part: subchapter
 ---
 
 ---
+title: VBAP Panner
+include: vbap-panner.html
+link: vbap-panner
+uri: mixing/panning/vbap_panner
+part: subchapter
+---
+
+---
 title: Plugin and Hardware Inserts
 include: plugin-and-hardware-inserts.html
 link: plugin-and-hardware-inserts
@@ -1939,41 +1947,6 @@ title: Export Format Profiles
 include: export-format-profiles.html
 link: export-format-profiles
 uri: exporting/edit-export-format-profile
-part: subchapter
----
-
----
-title: Surround
-part: part
----
-
----
-title: Ardour Setup for Surround
-include: ardour-setup-for-surround.html
-link: ardour-setup-for-surround
-part: chapter
----
-
----
-title: Multichannel Tracks and Signal Routing
-menu_title: Multichannel Signal Routing
-include: multichannel-tracks-and-signal-routing.html
-link: multichannel-tracks-and-signal-routing
-part: chapter
----
-
----
-title: Surround Panning and Mixing
-include: surround-panning-and-mixing.html
-link: surround-panning-and-mixing
-part: chapter
----
-
----
-title: VBAP Panner
-include: vbap-panner.html
-link: vbap-panner
-uri: mixing/panning/vbap_panner
 part: subchapter
 ---
 
