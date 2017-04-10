@@ -1239,6 +1239,13 @@ part: part
 ---
 
 ---
+title: Navigating the Editor
+include: navigating-the-editor.html
+link: navigating-the-editor
+part: chapter
+---
+
+---
 title: Editing Basics
 include: editing-basics.html
 link: editing-basics

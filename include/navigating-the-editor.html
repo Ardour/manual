@@ -1,0 +1,133 @@
+
+<p>
+  Navigating the Editor window is obviously a very frequent operation. Ardour sticks
+  with a lot of the usual conventions in this regard, to allow for a quick learning.
+  As those operations are so common, it is worth taking the time to learn most of
+  the keyboard and mouse shortcuts in order for these to become fast and natural.
+</p>
+<p>
+  The keyboard shortcuts can, as always, be edited, so the defaults are shown here.
+</p>
+
+<h2>Panning and scrolling</h2>
+
+<p>
+  Panning can be done on-canvas, or with the <a href="@@summary">Summary</a>. Panning
+  vertically is often named <em>scrolling</em>.
+</p>
+
+<h3>On Canvas</h3>
+
+<table>
+  <thead>
+    <tr><th>Action</th><th>Mouse</th><th>Keyboard</th></tr>
+  </thead>
+  <tbody>
+    <tr><th>Panning up</th><td><kbd class="mouse">&uArr;</kbd></td><td><kbd>&uarr;</kbd></td></tr>
+    <tr><th>Panning down</th><td><kbd class="mouse">&dArr;</kbd></td><td><kbd>&darr;</kbd></td></tr>
+    <tr><th>Panning up one page</th><td></td><td><kbd>&#8670;</kbd></td></tr>
+    <tr><th>Panning down one page</th><td></td><td><kbd>&#8671;</kbd></td></tr>
+    <tr><th>Panning left</th><td><kbd class="mod3 mouse">&uArr;</kbd></td><td></td></tr>
+    <tr><th>Panning right</th><td><kbd class="mod3 mouse">&dArr;</kbd></td><td></td></tr>
+  </tbody>
+</table>
+
+<p class="note">
+  Moving the playhead outside the view may scroll the screen accordingly, so using
+  or <kbd class="mod2">&larr;</kbd> or <kbd class="mod2">&rarr;</kbd>, while not
+  <em>panning</em> per se, will result in panning if <kbd class="option">Transport
+  > Follow playhead</kbd> is checked. This is also true with the <a href="@@mini-timeline">
+  Navigation Timeline</a>, and anything that moves the Playhead.
+</p>
+
+<h3>In the Summary</h3>
+
+<p>
+  Clicking and dragging in the Summary will pan the view left and right. If the
+  screen view is clicked (the white rectangle) and dragged, the view can also be panned
+  vertically.
+</p>
+<p>
+  Additionnaly, on the left of the Summary, the two <kbd class="menu">&lt;</kbd> and
+  <kbd class="menu">&gt;</kbd> arrows buttons allow to scroll one screen either left
+  or right, while at the right of the Summary, the two <kbd class="menu">&and;</kbd> and
+  <kbd class="menu">&or;</kbd> arrows buttons allow to scroll one screen either up
+  or down.
+</p>
+
+<h2>Zooming</h2>
+
+<p>
+  Zooming (on time) can be done on-canvas (which will always be centerd around the mouse cursor),
+  with the Summary, or with the <a href="@@zoom-controls">Zoom Controls</a>.
+</p>
+
+<h3>On Canvas</h3>
+
+<table class="dl">
+  <tr><th>Zooming in</th><td><kbd class="mod1 mouse">&uArr;</kbd></td></tr>
+  <tr><th>Zooming out</th><td><kbd class="mod1 mouse">&dArr;</kbd></td></tr>
+</table>
+
+<h3>In the Summary</h3>
+
+<p>
+  Resizing the screen view in the Summary (the white rectangle) changes the zoom
+  accordingly.
+</p>
+
+<h3>With the Zoom Controls</h3>
+
+<p>
+  With the Zoom Focus set, the <kbd>&minus;</kbd> and <kbd>&plus;</kbd> buttons
+  will zoom out or in around this focus. The <kbd>[&nbsp;]</kbd> button zooms to the
+  whole session as defined by the start and end markers.
+</p>
+<p>
+  Theses controls are bound to the keyboard <kbd>&minus;</kbd> and <kbd>=</kbd>
+  respectively by default.
+</p>
+
+<h2>Height of the tracks</h2>
+
+<p>
+  Changing the height of the tracks results in more or less tracks on screen. This
+  can be done on canvas, with the Summary or with the Zoom Controls.
+</p>
+
+<h3>On canvas</h3>
+
+<p>
+  Using <kbd class="mod2 mouse">&dArr;</kbd> or <kbd class="mod2 mouse">&uArr;</kbd>
+  while hovering over a track reduces or enhances its height, i.e. zooms on the
+  hovered track, regardless of the selection.
+</p>
+<p>
+  The <kbd>F</kbd> key resizes the tracks so that only the selected one(s) are
+  displayed. If some unselected tracks are inbetween those selected tracks, their
+  <a href="@@the-tracks-and-busses-list">visibility</a> will be toggled off.
+</p>
+
+
+<h3>In the Summary</h3>
+
+<p>
+  Resizing the screen view in the Summary (the white rectangle) changes the number
+  of tracks displayed (hence their heights) accordingly. It behaves more like a zoom
+  as the relative height of the tracks are kept.
+</p>
+
+<h3>With the Zoom Controls</h3>
+
+<p>
+  The three rightmost buttons of the Zoom Control bar, while not zoom buttons,
+  act upon the height of the tracks:
+</p>
+<ul>
+  <li>The first selector directly selects how many tracks are currently on screen.</li>
+  <li>The second one reduces the height of the selected track(s). If none are
+    selected, all the tracks are affected, while maintaining (as long as it is
+    possible) their relative heights.</li>
+  <li>The third one enlarges the tracks, and is the counterpart of the previous
+    one.</li>
+</ul>
