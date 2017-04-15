@@ -55,7 +55,7 @@
 <p>
   The FaderPort's controls can be divided into five groups:
 </p>
-<ul>
+<ul class="inside">
   <li>Transport buttons</li>
   <li>Session Navigation controls</li>
   <li>Fader modes</li>
@@ -74,11 +74,11 @@
 </p>
 
 <h3>Transport Buttons</h3>
-<figure class="left olist">
+<figure class="left">
   <img alt="FaderPort8 Transport Buttons"
        src="/images/fp8_transport.png"/>
 </figure>
-<ol>
+<ol class="inside">
   <li><strong>Stop</strong> Stops the transport. Press twice to return
     to session start.</li>
   <li><strong>Loop</strong> Toggles loop playback. A loop-range needs to be
@@ -103,11 +103,11 @@
   of the push-button encoder and the "Prev", "Next" buttons.
   With exception of "Click" the seven modes are exclusive (radio buttons).
 </p>
-<figure class="left olist">
+<figure class="left">
   <img alt="FaderPort8 Navigation Buttons"
        src="/images/fp8_navigation.png"/>
 </figure>
-<ol>
+<ol class="inside">
   <li><strong>Channel</strong> Prev/Next button select the previous or next track or bus (if no track is selected, next selects the first, prev the last). Pressing the encoder moves the most recently selected channel into view.  The encoder scrolls the editor-canvas up/down.</li>
   <li><strong>Master</strong> The encoder controls the master-bus level. If a session includes a monitor-section, the encoder controls monitor-out by default. Hold the button to control the master-bus level.  Press the encoder to reset the gain to 0dB. The Prev/Next navigation buttons bank the visible strips on the FP8 by 1 track left/right.</li>
   <li><strong>Zoom</strong> The encoder controls horizontal zoom of the editor. Press the encoder to zoom to fit the session. Prev/Next navigation buttons zoom selected tracks vertically (or all tracks if none are selected).</li>
@@ -125,7 +125,7 @@
 <div class="clearer"></div>
 
 <h3>Shift Button</h3>
-<figure class="left olist">
+<figure class="left">
   <img alt="the FaderPort8 Shift Button"
        src="/images/fp8_shift_large.png"/>
 </figure>
@@ -149,11 +149,11 @@
   change the behavior of the channel-strip and scribble strip displays.
   (Note: with the 1.01 firmware these buttons always act on press.)
 </p>
-<figure class="left olist">
+<figure class="left">
   <img alt="FaderPort8 Fader Mode Buttons"
        src="/images/fp8_fadermode.png"/>
 </figure>
-<ol>
+<ol class="inside">
   <li><strong>Track</strong> In Track-mode, the motorized faders display and control the channel signal level. The Pan/Param encoder modifies the azimuth of the panner (hold shift to control the width, if the track's panner supports it). Mute and Solo affect the respective channel-strip.</li>
   <li><strong>Edit Plugins</strong> When Edit Plug-ins mode is active, the motorized faders will control the parameter settings. Press the "Edit Plugins" button to view all available plugin-inserts on a channel. If no plugins are available, "Edit Plugins" will not engage and the FP8 automatically switches back to Track-mode.  Use the "Select" buttons under the scribble strip to pick a plugin to edit.  The faders and Select buttons will respectively control the parameters and toggles of the selected plugin. Press the "Edit Plugins" button again to return to the insert select view. (Once a plugin has been selected, it stays in edit mode regardless of channel-selection).  If there are more than eight, he Pan/Param encoder allows to scroll through available control-parameters.</li>
   <li><strong>Sends</strong> in Sends mode, each of the faders is mapped to the send-level of aux-sends of the selected track. If there are more than eight sends on a given track, the Pan/Param encoder can scroll through them. Send-mode follow the selection.  If there are no sends on a given track, the FP8 automatically switches back to Track-mode.</li>
@@ -165,24 +165,24 @@
 <div class="clearer"></div>
 
 <h3>Channel Strip</h3>
-<figure class="left olist">
+<figure class="left">
   <img alt="The FaderPort8 Channel Strip"
        src="/images/fp8_strip.png"/>
 </figure>
-<ul>
+<ul class="inside">
   <li><strong>Touch-Sensitive Fader</strong> The fader can be used to control
     volume levels, aux send levels, panning, or plugin parameters, depending
     on the fader-mode (see above).</li>
   <li><strong>Mute</strong> toggles the mute-control of the corresponding mixer-strip. Mute engages on press, and disengages on release. Press and hold the button for at least 0.5sec for momentary.</li>
   <li><strong>Solo</strong> toggles the solo or listen (AFL,PFL) control of the corresponding mixer-strip. Solo engages on press, and disengages on release. Press and hold the button for at least 500ms for momentary.</li>
   <li><strong>Select</strong> In Track and Sends and Pan mode the "Select" button select/de-select a given mixer-strip. Since selection is not limited to a single mixer-strip, the button acts in tri-state. A mixer-strip light indicates selection:
-    <ul>
+    <ul class="inside">
       <li><strong>Any Selected Track</strong> The select button is lit with the track's color.</li>
       <li><strong>Any Not Selected Track</strong> The select button is off (dimly showing the track's color).</li>
       <li><strong>Most Recently Selected Track</strong> Only one track at a time. The select button is blinks width the track's color.</li>
     </ul>
     Operations such as "Edit Plugins" or "Sends" use the most-recently-selected track. To modify the selection, the button's action depends on the current selection:
-    <ol>
+    <ol class="inside">
       <li><strong>"Select" any unselected track</strong> The track is added to the selection and becomes the most-recently selected.</li>
       <li><strong>"Select" the most-recently-selected (blinking)</strong> Removes the track from selection (most-recent falls back).</li>
       <li><strong>"Select" any other selected track</strong> Make it most-recently-selected track.</li>
@@ -205,11 +205,11 @@
   channel-strips. In combination with the "Shift" modifier ten total
   filters are available:
 </p>
-<figure class="left olist">
+<figure class="left">
   <img alt="FaderPort8 Mix Management Buttons"
        src="/images/fp8_mixmanage.png"/>
 </figure>
-<ol>
+<ol class="inside">
   <li><strong>Audio/Inputs</strong> View Audio Tracks only; "Inputs" shows all record-armed tracks (Audio and MIDI).</li>
   <li><strong>VI/MIDI</strong> Show tracks with virtual instrument plugins; "MIDI views all MIDI tracks.</li>
   <li><strong>Bus/Outputs</strong> Display only Busses; "Outputs" shows the Master and Monitor Bus.</li>
@@ -228,11 +228,11 @@
   "Pan" fader modes where they affect the fader and pan automation
   modes respectively.
 </p>
-<figure class="left olist">
+<figure class="left">
   <img alt="FaderPort8 Automation Buttons"
        src="/images/fp8_automation.png"/>
 </figure>
-<ol>
+<ol class="inside">
   <li><strong>Latch</strong> Currently not available in Ardour.</li>
   <li><strong>Trim</strong> Currently not available in Ardour.</li>
   <li><strong>Off</strong> Select "Manual" automation mode.</li>
@@ -245,7 +245,7 @@
   The Automation Controls also double as session state controls
   when combined with "Shift".
 </p>
-<ol>
+<ol class="inside">
   <li><strong>Save</strong> Save the session. The button lights up red if the session is modified.</li>
   <li><strong>Redo</strong> Redo a previously undone operation. The button lights up green if redo is possible.</li>
   <li><strong>Undo</strong> Undo the most recent operation. The button lights up green if undo is possible.</li>
@@ -256,11 +256,11 @@
 <div class="clearer"></div>
 
 <h3>Miscellaneous</h3>
-<figure class="left olist">
+<figure class="left">
   <img alt="FaderPort8 Misc Buttons"
        src="/images/fp8_misc.png"/>
 </figure>
-<ul>
+<ul class="inside">
   <li><strong>Solo Clear</strong> Reset all solo controls in the session.</li>
   <li><strong>Mute Clear</strong> Unmute all mixer-strips in the session.</li>
   <li><strong>Bypass</strong> A/B bypass toggle any plugins on all selected mixer-strips.</li>

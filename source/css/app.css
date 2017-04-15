@@ -17,6 +17,12 @@ div.clearer {
   clear:both;
 }
 
+ul.inside li, ol.inside li {
+	left: 1em;
+	position: relative;
+	padding-right: 1em;
+}
+
 #tree {
   background-color: #212A30;
   line-height: 1.8ex;
@@ -273,10 +279,6 @@ div.clearer {
   margin: 0 1em 1em 0;
   float: left;
   clear: left;
-}
-
-#content figure.left.olist {
-  margin-right: 2em;
 }
 
 #content figure.center {
