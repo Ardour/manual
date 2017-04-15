@@ -2222,8 +2222,8 @@ part: subchapter
 ---
 
 ---
-title: Using the Presonus Faderport
-menu_title: Presonus Faderport
+title: Using the PreSonus FaderPort
+menu_title: PreSonus FaderPort
 include: using-the-presonus-faderport.html
 link: using-the-presonus-faderport
 uri: using-control-surfaces/Presonus_FaderPort
