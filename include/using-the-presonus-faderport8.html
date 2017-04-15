@@ -28,9 +28,8 @@
   required.)
   <br/>
   While the FaderPort provides a Mackie Control Universal (MCU) mode,
-  Ardour's Mackie control-surface does not support various elements
-  available on the FP8. e.g. colored buttons, and the custom mode
-  scribble strips.
+  MCU does not support various elements available on the FP8.
+  e.g. colored buttons, and the custom mode scribble strips.
 </p>
 
 <p>
@@ -176,13 +175,13 @@
     <li><strong>Touch-Sensitive Fader</strong> The fader can be used to control
       volume levels, aux send levels, panning, or plugin parameters, depending
       on the fader-mode (see above).</li>
-    <li><strong>Mute</strong> toggles the mute-control of the corresponding mixer-strip. Mute engages on press, and disengages on release. Press and hold the button for at least 500ms for momentary.</li>
+    <li><strong>Mute</strong> toggles the mute-control of the corresponding mixer-strip. Mute engages on press, and disengages on release. Press and hold the button for at least 0.5sec for momentary.</li>
     <li><strong>Solo</strong> toggles the solo or listen (AFL,PFL) control of the corresponding mixer-strip. Solo engages on press, and disengages on release. Press and hold the button for at least 500ms for momentary.</li>
     <li><strong>Select</strong> In Track and Sends and Pan mode the "Select" button select/de-select a given mixer-strip. Since selection is not limited to a single mixer-strip, the button acts in tri-state. A mixer-strip light indicates selection:
       <ul>
-        <li><strong>Any Selected Track</strong> The select button is lit with the track's color</li>
-        <li><strong>Any Not Selected Track</strong> The select button is off (dimly showing the track's color)</li>
-        <li><strong>Most Recently Selected Track</strong> Only one track at a time. The select button is blinks width the track's color</li>
+        <li><strong>Any Selected Track</strong> The select button is lit with the track's color.</li>
+        <li><strong>Any Not Selected Track</strong> The select button is off (dimly showing the track's color).</li>
+        <li><strong>Most Recently Selected Track</strong> Only one track at a time. The select button is blinks width the track's color.</li>
       </ul>
       Operations such as "Edit Plugins" or "Sends" use the most-recently-selected track. To modify the selection, the button's action depends on the current selection:
       <ol>
@@ -211,11 +210,11 @@
        src="/images/fp8_mixmanage.png"/>
   </figure>
   <ol>
-    <li><strong>Audio/Inputs</strong> View Audio Tracks only; "Inputs" shows all record-armed tracks (Audio and MIDI)</li>
+    <li><strong>Audio/Inputs</strong> View Audio Tracks only; "Inputs" shows all record-armed tracks (Audio and MIDI).</li>
     <li><strong>VI/MIDI</strong> Show tracks with virtual instrument plugins; "MIDI views all MIDI tracks.</li>
     <li><strong>Bus/Outputs</strong> Display only Busses; "Outputs" shows the Master and Monitor Bus.</li>
     <li><strong>VCA/FX</strong> Show VCAs. "FX" shows Aux-Busess.</li>
-    <li><strong>All/User</strong> Display all Tracks, Busses (incl master-bus) and VCA, "User" displays all currently selected Tracks or Busses only.</li>
+    <li><strong>All/User</strong> Display all Tracks, Busses (incl master-bus) and VCAs; "User" displays all currently selected Tracks or Busses only.</li>
   </ol>
 </p>
 <div class="clearer"/>
@@ -241,6 +240,7 @@
     <li><strong>Write</strong> Select "Write" automation mode (note at the end of a write pass, Ardour automatically puts the track into "touch".</li>
     <li><strong>Touch</strong> Select "Touch" automation mode.</li>
   </ol>
+  <div class="clearer"/>
   The Automation Controls also double as session state controls
   when combined with "Shift".
   <ol>
@@ -261,11 +261,11 @@
   <ul>
     <li><strong>Solo Clear</strong> Reset all solo controls in the session.</li>
     <li><strong>Mute Clear</strong> Unmute all mixer-strips in the session.</li>
-    <li><strong>Bypass</strong> A/B bypass toggle any plugins on all selected mixer-strips</li>
-    <li><strong>Bypass All (Shift + Bypass)</strong> currently the same as "Bypass"</li>
-    <li><strong>Macro</strong> Shows the Editor Window</li>
-    <li><strong>Open (Shift + Macro)</strong> Shows the Import Audio Dialog</li>
-    <li><strong>Link</strong> Switch to the Mixer Window</li>
+    <li><strong>Bypass</strong> A/B bypass toggle any plugins on all selected mixer-strips.</li>
+    <li><strong>Bypass All (Shift + Bypass)</strong> currently the same as "Bypass".</li>
+    <li><strong>Macro</strong> Shows the Editor Window.</li>
+    <li><strong>Open (Shift + Macro)</strong> Shows the Import Audio Dialog.</li>
+    <li><strong>Link</strong> Switch to the Mixer Window.</li>
     <li><strong>Lock (Shift + Link)</strong> Locks the GUI (alike Session &gt; Lock) to prevent accidental changes.</li>
   </ul>
 </p>
