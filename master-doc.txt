@@ -2230,6 +2230,16 @@ uri: using-control-surfaces/Presonus_FaderPort
 part: chapter
 ---
 
+
+---
+title: Using the PreSonus FaderPort 8
+menu_title: PreSonus FaderPort 8
+include: using-the-presonus-faderport8.html
+link: using-the-presonus-faderport8
+uri: using-control-surfaces/PreSonus_FaderPort8
+part: chapter
+---
+
 ---
 title: Using the Ableton Push 2
 menu_title: Ableton Push 2
