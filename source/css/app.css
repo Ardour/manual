@@ -13,6 +13,10 @@ body {
   line-height: 2ex;
 }
 
+div.clearer {
+  clear:both;
+}
+
 #tree {
   background-color: #212A30;
   line-height: 1.8ex;
@@ -269,6 +273,10 @@ body {
   margin: 0 1em 1em 0;
   float: left;
   clear: left;
+}
+
+#content figure.left.olist {
+  margin-right: 2em;
 }
 
 #content figure.center {
