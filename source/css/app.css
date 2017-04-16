@@ -173,8 +173,16 @@ ul.inside li, ol.inside li {
 #content table th {
   margin: 0;
   padding: .5em;
+}
+
+#content table th {
+  font-weight: bold;
+}
+
+#content table td {
   font-weight: normal;
 }
+
 
 #content table th.sub1 {
   padding-left: 2em;
