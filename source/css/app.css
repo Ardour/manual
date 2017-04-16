@@ -319,6 +319,11 @@ kbd {
   text-transform:capitalize;
 }
 
+kbd.def {
+  font-weight:bolder;
+	margin-right:.2em;
+}
+
 kbd.input,
 kbd.cmd,
 kbd.osc {
