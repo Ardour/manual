@@ -102,14 +102,12 @@
   Session Navigation allows quick navigation and provides access to
   session-wide controls. Each of the eight buttons alters the function
   of the push-button encoder and the "Prev", "Next" buttons.
-  With exception of "Click" the seven modes are exclusive (radio buttons).
+  With exception of <kbd>Click</kbd> the seven modes are exclusive (radio buttons).
 </p>
 <figure class="left">
   <img alt="FaderPort8 Navigation Buttons"
        src="/images/fp8_navigation.png"/>
 </figure>
-<!-- This could be a table: | MODE | prev/next | encoder action | encoder-press action | !-->
-<!-- Except a table does not flow nicely around the figure !-->
 <ol class="inside">
   <li><kbd class="def">Channel</kbd>: The <kbd>Prev</kbd>/<kbd>Next</kbd>
     buttons select the previous/next mixer-strip. If no strip is selected,
@@ -152,6 +150,20 @@ up/down.</li>
   functions, which can be configured in the Preference Dialog. The buttons will
   light up if an action has been assigned to a button.
 </p>
+<p>
+  The following tables shows a condensed overview of the session-navigation modes:
+</p>
+<table>
+  <tr><th></th><th><kbd>Prev</kbd> / <kbd>Next</kbd></th><th>Encoder knob</th><th><kbd>Encoder</kbd> Press</th></tr>
+  <tr><th>Channel</th><td>Select prev/next mixer-strip</td><td>Scroll Editor up/down</td><td>Bank to show selected strip on FP8</td></tr>
+  <tr><th>Master</th><td>Bank visible strips on FP8 by 1</td><td>Adjust master/monitor level</td><td>Reset master/monitor to 0dB</td></tr>
+  <tr><th>Zoom</th><td>Vertical zoom (editor track-height)</td><td>Horizontal timeline zoom (time)</td><td>Horizontal zoom to session</td></tr>
+  <tr><th>Scroll</th><td>Bank visible strips on FP8 by 1</td><td>Scroll the timeline (move playhead)</td><td>Horizontal zoom to session</td></tr>
+  <tr><th>Section</th><td>Nudge the selected region</td><td>Nudge the playhead</td><td> - </td></tr>
+  <tr><th>Bank</th><td>Bank visible strips on FP8 by 8</td><td>Bank visible strips on FP8 by 1</td><td>Bank to show selected strip on FP8</td></tr>
+  <tr><th>Marker</th><td>Move to prev/next marker</td><td>Scroll the timeline (move playhead)</td><td>Drop a new marker</td></tr>
+  <tr><th>Press and hold <kbd>Click</kbd></th><td> (mode dependent) </td><td>Adjust metronome Level </td><td>Reset metronome level to 0dBFS</td></tr>
+</table>
 <div class="clearer"></div>
 
 <h3>Shift Button</h3>
