@@ -28,12 +28,6 @@
 		        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 		      </span>
 		  </div>
-
-<!--
-			<div class="input-group add-on">
-          <input type="text" class="form-control" name="q" placeholder="Search &hellip;">
-          <button type="submit" class="btn"><i class="glyphicon glyphicon-search"></i></button>
-      </div>  -->
 			<input type="hidden" name="sites" value="manual.ardour.org"><!-- domain -->
 			<input type="hidden" name="kh" value="1"> <!--HTTPS on/off -->
 			<input type="hidden" name="kl" value="wt-wt"> <!--region wt-wt = no region/worldwide -->

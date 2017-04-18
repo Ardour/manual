@@ -3,175 +3,19 @@
   In the editor window, right clicking (context clicking) on a region
   displays a menu with <dfn>track and region operations</dfn>. The menu begins with the
   name of the region, or <kbd class="menu">Selected Regions</kbd> if multiple
-  regions are selected.
+  regions are selected. Selecting it will display <a href="@@the-region-menu">
+  the Region menu</a> for operations on this(these) region(s).
+</p>
+<p class="note">
+  Some items may not be in the exact same order as in the main menu.
 </p>
 <p>
-  If there is more than one region layered at the point where you clicked, the
-  menu will also contain an item <kbd class="menu">Choose Top</kbd>. This
-  dialog lets you select which region you want on the top <dfn>layer</dfn>. See
+  If there is more than one region layered at the point clicked, the
+  menu will also contain a <kbd class="menu">Choose Top</kbd> item. This
+  dialog allows to select which region should be on the top <dfn>layer</dfn>. See
   <a href="@@layering-display">Adjusting Region Layering</a> for more details.
 </p>
 <p>
-  Below these items is the rest of the
-  <a href="@@track-context-menu">Track Context Menu</a>, which
-  provides access to <dfn>track-level operations</dfn>. To see the contents
-  of the region context menu, select the region name or "Selected Regions", and
-  the following submenu structure appears:
+  Below these items is the rest of the <a href="@@track-context-menu">Track Context Menu</a>, which
+  provides access to <dfn>track-level operations</dfn>.
 </p>
-<table class="dl">
-  <tr><th>Play</th>
-  <td></td></tr>
-  <tr><th>Loop</th>
-  <td></td></tr>
-  <tr><th>Properties</th>
-  <td></td></tr>
-  <tr><th>Rename</th>
-  <td></td></tr>
-  <tr><th>Edit</th>
-  <td>
-    <table class="dl">
-      <tr><th>Combine</th>
-      <td></td></tr>
-      <tr><th>Uncombine</th>
-      <td></td></tr>
-      <tr><th>Split</th>
-      <td></td></tr>
-      <tr><th>Make Mono Regions</th>
-      <td></td></tr>
-      <tr><th>Opaque</th>
-      <td></td></tr>
-      <tr><th>Mute</th>
-      <td></td></tr>
-      <tr><th>Pitch Shift</th>
-      <td></td></tr>
-      <tr><th>Reverse</th>
-      <td></td></tr>
-      <tr><th>Close Gaps</th>
-      <td></td></tr>
-      <tr><th>Place Transients</th>
-      <td></td></tr>
-      <tr><th>Rhythm Ferret</th>
-      <td></td></tr>
-      <tr><th>Strip Silence</th>
-      <td></td></tr>
-    </table>
-  </td></tr>
-  <tr><th>Position</th>
-  <td>
-    <table class="dl">
-      <tr><th>Move To Original Position</th>
-      <td></td></tr>
-      <tr><th>Lock</th>
-      <td></td></tr>
-      <tr><th>Glue to Bars and Beats</th>
-      <td></td></tr>
-      <tr><th>Snap Position to Grid</th>
-      <td></td></tr>
-      <tr><th>Set Sync Position</th>
-      <td></td></tr>
-      <tr><th>Remove Sync</th>
-      <td></td></tr>
-<tr><th>Nudge Later</th>
-<td></td></tr>
-<tr><th>Nudge Earlier</th>
-<td></td></tr>
-<tr><th>Nudge Later by capture offset</th>
-<td></td></tr>
-<tr><th>Nudge Earlier by capture offset</th>
-<td></td></tr>
-</table>
-</td></tr>
-<tr><th>Trim</th>
-<td>
-<table class="dl">
-<tr><th>Trim Start at Edit Point</th>
-<td></td></tr>
-<tr><th>Trim End at Edit Point</th>
-<td></td></tr>
-<tr><th>Trim to Loop</th>
-<td></td></tr>
-<tr><th>Trim to Punch</th>
-<td></td></tr>
-<tr><th>Trim to Previous</th>
-<td></td></tr>
-<tr><th>Trim to Next</th>
-<td></td></tr>
-</table>
-</td></tr>
-<tr><th>Layering</th>
-<td>
-<table class="dl">
-<tr><th>Raise to Top</th>
-<td></td></tr>
-<tr><th>Raise</th>
-<td></td></tr>
-<tr><th>Lower</th>
-<td></td></tr>
-<tr><th>Lower to Bottom</th>
-<td></td></tr>
-</table>
-</td></tr>
-<tr><th>Ranges</th>
-<td>
-<table class="dl">
-<tr><th>Set Loop Range</th>
-<td></td></tr>
-<tr><th>Set Punch Range</th>
-<td></td></tr>
-<tr><th>Add Single Range Marker</th>
-<td></td></tr>
-<tr><th>Add Range Marker per Region</th>
-<td></td></tr>
-<tr><th>Set Range Selection</th>
-<td></td></tr>
-</table>
-</td></tr>
-<tr><th>Gain</th>
-<td>
-<table class="dl">
-<tr><th>Normalize</th>
-<td></td></tr>
-<tr><th>Boost</th>
-<td></td></tr>
-<tr><th>Cut</th>
-<td></td></tr>
-<tr><th>Reset Envelope</th>
-<td></td></tr>
-<tr><th>Envelope Active</th>
-<td></td></tr>
-</table>
-</td></tr>
-<tr><th>Fades</th>
-<td>
-<table class="dl">
-<tr><th>Fade In</th>
-<td></td></tr>
-<tr><th>Fade Out</th>
-<td></td></tr>
-<tr><th>Fades        </th>
-<td></td></tr>
-</table>
-</td></tr>
-<tr><th>Duplicate</th>
-<td>
-<table class="dl">
-<tr><th>Duplicate</th>
-<td></td></tr>
-<tr><th>Multi-Duplicate</th>
-<td></td></tr>
-<tr><th>Fill Track</th>
-<td></td></tr>
-</table>
-</td></tr>
-<tr><th>Export</th>
-<td></td></tr>
-<tr><th>Bounce (without processing)</th>
-<td></td></tr>
-<tr><th>Bounce (with processing)</th>
-<td></td></tr>
-<tr><th>Spectral Analysis</th>
-<td></td></tr>
-<tr><th>Remove</th>
-<td></td></tr>
-</table>
-
