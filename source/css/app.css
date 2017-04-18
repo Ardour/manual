@@ -45,6 +45,10 @@ ul.inside li, ol.inside li {
   font-weight: normal;
 }
 
+#tree dl {
+  margin-left: 1em;
+}
+
 #tree h1.title a:hover {
   border-bottom: none;
 }
