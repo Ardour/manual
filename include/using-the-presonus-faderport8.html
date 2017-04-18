@@ -260,20 +260,15 @@
         time. The select button is blinks width the track's color.</li>
     </ul>
     Operations such as <kbd>Edit Plugins</kbd> or <kbd>Sends</kbd> use the
-    most-recently-selected track. To modify the selection, the button's action
-    depends on the current selection:
+    most-recently-selected (focused) track. To modify the selection, the
+    button's action depends on the current selection:
     <ol class="inside">
-      <li><strong><kbd>Select</kbd> any unselected track</strong>: The track is
-        added to the selection and becomes the most-recently selected.</li>
-      <li><strong><kbd>Select</kbd> the most-recently-selected
-          (blinking)</strong>: Removes the track from selection (most-recent
-          falls back).</li>
-      <li><strong><kbd>Select</kbd> any other selected track</strong>: Make it
-        most-recently-selected track.</li>
+      <li><strong><kbd>Select</kbd></strong>: The track is exclusively selected
+        and also becomes the most-recently selected.</li>
       <li><strong><kbd>Shift</kbd> + <kbd>Select</kbd> any selected
           track</strong>: Deselect the track.</li>
       <li><strong><kbd>Shift</kbd> + <kbd>Select</kbd> any unselected
-          track</strong>: Exclusively select the given track (and make it
+          track</strong>: Adds the given track to the selection and make it
           most-recently selected).</li>
     </ol>
   </li>
