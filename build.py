@@ -9,7 +9,7 @@
 
 # Remnants (could go into the master document as the first header)
 
-#bootstrap_path: /bootstrap-2.2.2
+#bootstrap_path: /bootstrap-3.3.7
 #page_title: The Ardour Manual
 
 import os
@@ -207,15 +207,15 @@ def GetParent(fs, pos):
 #
 def GetBreadCrumbs(fs, pos):
 	# The <span class="divider">&gt;</span> is for Bootstrap pre-3.0
-	breadcrumbs = ' <span class="divider">&gt;</span> <li class="active">'+ fs[pos]['title'] + '</li>'
+	breadcrumbs = '<li class="active">'+ fs[pos]['title'] + '</li>'
 
 	while pos >= 0:
 		pos = GetParent(fs, pos)
 
 		if pos >= 0:
-			breadcrumbs=' <span class="divider">&gt;</span> <li><a href="/' + fs[pos]['filename'] + '/">'+ fs[pos]['title'] + '</a></li>'+ breadcrumbs
+			breadcrumbs='<li><a href="/' + fs[pos]['filename'] + '/">'+ fs[pos]['title'] + '</a></li>'+ breadcrumbs
 
-	breadcrumbs = '<ol class="breadcrumb"><li><a href="/toc/index.html">Home</a></li>' + breadcrumbs + '</ol>'
+	breadcrumbs = '<ul class="breadcrumb"><li><a href="/toc/index.html">Home</a></li>' + breadcrumbs + '</ul>'
 	return breadcrumbs
 
 
@@ -376,7 +376,7 @@ temp = open('page-template.txt')
 template = temp.read()
 temp.close()
 
-template = template.replace('{{page.bootstrap_path}}', '/bootstrap-2.2.2')
+template = template.replace('{{page.bootstrap_path}}', '/bootstrap-3.3.7')
 template = template.replace('{{page.page_title}}', 'The Ardour Manual')
 
 
