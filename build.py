@@ -444,13 +444,13 @@ for header in fileStruct:
 	if level == 0:
 		toc = toc + '<h2>Part ' + num2roman(levelNums[level]) + ': ' + header['title'] + '</h2>\n';
 	elif level == 1:
-		toc = toc + '  <p id=chapter>Ch. ' + str(levelNums[level]) + ':&nbsp;&nbsp;<a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
+		toc = toc + '  <p class="chapter">Ch. ' + str(levelNums[level]) + ':&nbsp;&nbsp;<a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
 	elif level == 2:
-		toc = toc + '    <a id=subchapter href="/' + header['filename'] + '/">' + header['title'] + '</a><br>\n'
+		toc = toc + '    <p class="subchapter"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
 	elif level == 3:
-		toc = toc + '      <a id=section href="/' + header['filename'] + '/">' + header['title'] + '</a><br>\n'
+		toc = toc + '      <p class="section"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
 	elif level == 4:
-		toc = toc + '      <a id=subsection href="/' + header['filename'] + '/">' + header['title'] + '</a><br>\n'
+		toc = toc + '      <p class="subsection"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
 
 	# Make the 'this thing contains...' stuff
 	if HaveChildren(fileStruct, pageNumber):
