@@ -579,16 +579,16 @@ samp:after {
 }
 
 /* for the TOC */
-#chapter,
-#subchapter,
-#section,
-#subsection {
-  line-height:1.5em;
+#content p.chapter,
+#content p.subchapter,
+#content p.section,
+#content p.subsection {
+  line-height:1em;
 }
-#chapter { padding-top: 1em; padding-left: 1em; }
-#subchapter { padding-left: 4em; }
-#section { padding-left: 6em; }
-#subsection { padding-left: 8em; }
+#content p.chapter { padding-top: 1em; padding-left: 1em; padding-bottom:1em; }
+#content p.subchapter { padding-left: 4em; }
+#content p.section { padding-left: 6em; }
+#content p.subsection { padding-left: 8em; }
 
 /* for images sliced in divs, as in http://manual.ardour.org/ardours-interface/about/ */
 .container { position: relative; border: none; }
