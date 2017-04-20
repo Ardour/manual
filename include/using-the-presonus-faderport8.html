@@ -19,17 +19,19 @@
   in both Ardour and other similar software.
 </p>
 
-<p class="well">
-  Ardour uses the FaderPort 8 in what PreSonus calls "Studio One" or
-  "native" mode.
-  (If you would like to change the mode at any point, power on the unit while
-  holding down the first two Select buttons, see the FaderPort 8 manual
-  for further details, also note that at least Firmware version 1.01 is
-  required.)
+<p class="warning">
+  Ardour uses the FaderPort 8 in what PreSonus calls "Studio One" or "native"
+  mode. To use the FaderPort8 with Ardour's FP8 Control Surface, make sure that
+  the device is in "Studio One" mode. (If you would like to change the mode at
+  any point, power on the unit while holding down the two leftmost Select
+  buttons, see the FaderPort 8 manual for further details. Also note that at
+  least firmware version 1.01 is required. NB. "factory default" resets the
+  firmware, see the PreSonus FaderPort8 Owner's manual chapter 9.4.)
   <br/>
-  While the FaderPort provides a Mackie Control Universal (MCU) mode,
-  MCU does not support various elements available on the FP8.
-  e.g. colored buttons, and the custom mode scribble strips.
+  While the FaderPort provides a Mackie Control Universal (MCU) mode, which
+  works with Ardour's Mackie Control Surface, MCU does not support various
+  elements available on the FP8 (e.g. colored buttons, and the custom mode
+  scribble strips).
 </p>
 
 <p>
@@ -248,9 +250,10 @@
     of the corresponding mixer-strip. Solo engages on press, and disengages on
     release. Press and hold the button for at least 500ms for momentary.</li>
   <li><kbd class="def">Select</kbd>: In Track and Sends and Pan mode the Select
-    button select/de-select a given mixer-strip. Since selection is not limited
-    to a single mixer-strip, the button acts in tri-state. A mixer-strip light
-    indicates selection:
+    button select/de-select a given mixer-strip.
+    <br/>
+    Since selection is not limited to a single mixer-strip, the button acts in
+    tri-state. A mixer-strip light indicates selection:
     <ul class="inside">
       <li><strong>Any Selected Track</strong>: The select button is lit with the
         track's color.</li>
@@ -274,8 +277,8 @@
   </li>
 </ul>
 <p>
-  While holding the <kbd>ARM</kbd> button the <kbd>Select</kbd> button light
-  changes to red and the <kbd>Select</kbd> buttons controls the record-arm of
+  While holding the <kbd>ARM</kbd> button the <kbd>Select</kbd> button lights
+  change to red and the <kbd>Select</kbd> buttons controls the record-arm of
   the given track. Mixer-strips that cannot be record-armed have a dim white
   light.
 </p>
