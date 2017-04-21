@@ -476,7 +476,7 @@ part: part
 ---
 
 ---
-title: About Ardour's Interface
+title: Ardour's Interface Overview
 include: about-ardours-interface.html
 link: about-ardours-interface
 uri: ardours-interface/about
