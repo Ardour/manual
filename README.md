@@ -1,7 +1,8 @@
 
 # The Ardour Manual
 
-This is the project that generates the static ardour manual website available at [manual.ardour.org](http://manual.ardour.org). The site is built using python 3.
+This is the project that generates the static ardour manual website available at
+[manual.ardour.org](http://manual.ardour.org). The site is built using python 3.
 
 ### Get the code
 
@@ -17,9 +18,10 @@ There are 2 different types of content:
 
 ### The Master Document
 
-This is a text file (master-doc.txt) which describes the structure of the manual. It does this
-through headers which tell the build script where the content lives, what its
-relationship to the overall structure is, as well as a few other things.
+This is a text file (master-doc.txt) which describes the structure of the
+manual. It does this through headers which tell the build script where the
+content lives, what its relationship to the overall structure is, as well as a
+few other things.
 
 All headers have a similar structure, and have to have at least the following
 minimal structure:
@@ -31,7 +33,7 @@ minimal structure:
 
 Keywords that go into the header are of the form:
 
-	keyword: value
+	  keyword: value
 
 Here are the keywords you can put in, and a brief description of what they do:
 
@@ -49,9 +51,21 @@ Here are the keywords you can put in, and a brief description of what they do:
 
 ### Normal content
 
-Manual content goes into the `include/` directory (or in the Master Document itself); and consists of normal HTML, sans the usual headers that is normally seen in regular HTML web pages. Any other content, such as css files, images, files and fixed pages goes into the `source/` directory.
+Manual content goes into the `include/` directory (or in the Master Document
+itself); and consists of normal HTML, sans the usual headers that is normally
+seen in regular HTML web pages. Any other content, such as css files, images,
+files and fixed pages goes into the `source/` directory.
 
-Adding `source/images/horse.png` makes it available at the url `/images/horse.png` after publishing it; things work similarly for `source/files/` and `source/css/`.
+Adding `source/images/horse.png` makes it available at the url
+`/images/horse.png` after publishing it; things work similarly for
+`source/files/` and `source/css/`.
+
+### CSS
+
+The manual uses [Bootstrap](http://getbootstrap.com/) for its global layout, and
+a custom CSS (`source/css/app.css`) that contains classes used for keys, menus,
+tables, etc... so it is recommanded to have a look at it first, or at least see
+how other pages are made to keep the manual consistent in its appearance.
 
 ## More Advanced Stuff
 
@@ -61,7 +75,7 @@ notes just in case you decide to anyway.
 ### Run it locally
 
 You may want the manual available on a machine that doesn't have constant
-internet access. You will need `git`, and `python` installed.
+internet access. You will need `git`, and `python3` installed.
 
 1. Download code and build manual
 
@@ -71,12 +85,12 @@ internet access. You will need `git`, and `python` installed.
   ./build.py
   ```
 
-2. open `ardour-manual/website/index.html` in your favorite web browser
-
-  If this page doesn't open and function correctly, follow these optional steps to serve up the page with nginx.
-  N.B.: Step 2 will *never* work; you *must* install nginx if you want to see it!
+2. Install and configure a web server on your machine. Any web server should
+work,  Apache, nginx, etc... The following steps are for nginx, using another
+server means following the same procedure for the server you decide to use.
 
 3. Install [nginx](http://wiki.nginx.org/Install)
+
 4. Configure nginx server block in `/etc/nginx/sites-available/default`
 
   ```
@@ -97,5 +111,18 @@ internet access. You will need `git`, and `python` installed.
 
 ### Helper scripts: `implode` and `explode`
 
-The `implode` and `explode` scripts exist in order to accomodate different working styles. `implode` takes all the files referenced by the `include` keywords in the headers in the Master Document and automagically puts them into the Master Document in their proper places. Note that any header that has an `exclude` keyword will remain in the `include/` directory. `explode` does the inverse of `implode`; it takes all the content in the Master Document and blows it into individual files in the `include/` directory.
+The `implode` and `explode` scripts exist in order to accomodate different
+working styles. `implode` takes all the files referenced by the `include`
+keywords in the headers in the Master Document and automagically puts them into
+the Master Document in their proper places. Note that any header that has an
+`exclude` keyword will remain in the `include/` directory. `explode` does the
+inverse of `implode`; it takes all the content in the Master Document and blows
+it into individual files in the `include/` directory.
 
+### Build options
+
+The `build.py` script that builds the manual accepts the following options:
+- '-v', or '--verbose', to display the high-level structure of the manual
+- '-q', or '--quiet', to suppress all output (overrides -v)
+- '-d', or '--devmode', to add content to pages to help developers debug them
+(link, file name, URL)
