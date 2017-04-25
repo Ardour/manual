@@ -229,6 +229,49 @@ uri: setting-up-your-system/using_more_than_one_audio_device
 part: subchapter
 ---
 
+
+---
+title: Synchronization
+include: working-with-synchronization.html
+link: working-with-synchronization
+uri: synchronization
+part: chapter
+---
+
+---
+title: On Clock and Time
+include: on-clock-and-time.html
+link: on-clock-and-time
+uri: synchronization/on-clock-and-time
+part: subchapter
+---
+
+---
+title: Latency and Latency-Compensation
+menu_title: Latency
+include: latency-and-latency-compensation.html
+link: latency-and-latency-compensation
+uri: synchronization/latency-and-latency-compensation
+part: subchapter
+---
+
+---
+title: Timecode Generators and Slaves
+include: timecode-generators-and-slaves.html
+link: timecode-generators-and-slaves
+uri: synchronization/timecode-generators-and-slaves
+part: subchapter
+---
+
+---
+title: Overview of all Timecode related settings
+menu_title: Overview of Timecode settings
+include: overview-of-all-timecode-related-settings.html
+link: overview-of-all-timecode-related-settings
+uri: synchronization/overview-of-timecode-related-settings
+part: subchapter
+---
+
 ---
 title: Global Preferences
 menu_title: Global Preferences
@@ -777,6 +820,45 @@ part: subchapter
 ---
 
 ---
+title: Editor Tracks
+include: track-controls.html
+link: track-controls
+part: chapter
+---
+
+---
+title: Audio Track Controls
+include: audio-track-controls.html
+link: audio-track-controls
+uri: working-with-tracks/audio-track-controls
+part: subchapter
+---
+
+---
+title: MIDI Track Controls
+include: midi-track-controls.html
+link: midi-track-controls
+uri: working-with-tracks/midi-track-controls
+part: subchapter
+---
+
+---
+title: Bus Controls
+include: bus-controls.html
+link: bus-controls
+uri: working-with-tracks/bus-controls
+part: subchapter
+---
+
+---
+title: Track and Bus Groups
+include: track-and-bus-groups.html
+link: track-and-bus-groups
+uri: working-with-tracks/track-and-bus-groups
+part: chapter
+---
+
+---
 title: Monitor Section
 include: monitor-section.html
 link: monitor-section
@@ -894,37 +976,6 @@ part: subchapter
 ---
 
 ---
-title: Track Controls
-include: track-controls.html
-link: track-controls
-part: chapter
----
-
----
-title: Bus Controls
-include: bus-controls.html
-link: bus-controls
-uri: working-with-tracks/bus-controls
-part: subchapter
----
-
----
-title: Audio Track Controls
-include: audio-track-controls.html
-link: audio-track-controls
-uri: working-with-tracks/audio-track-controls
-part: subchapter
----
-
----
-title: MIDI Track Controls
-include: midi-track-controls.html
-link: midi-track-controls
-uri: working-with-tracks/midi-track-controls
-part: subchapter
----
-
----
 title: Controlling Track Appearance
 include: controlling-track-appearance.html
 link: controlling-track-appearance
@@ -962,14 +1013,6 @@ include: waveform-display.html
 link: waveform-display
 uri: working-with-tracks/controlling-track-appearance/waveform-display
 part: subchapter
----
-
----
-title: Track and Bus Groups
-include: track-and-bus-groups.html
-link: track-and-bus-groups
-uri: working-with-tracks/track-and-bus-groups
-part: chapter
 ---
 
 ---
@@ -1958,64 +2001,8 @@ part: subchapter
 ---
 
 ---
-title: Sync & Video
+title: Video
 part: part
----
-
----
-title: Working with Synchronization
-include: working-with-synchronization.html
-link: working-with-synchronization
-uri: synchronization
-part: chapter
----
-
----
-title: On Clock and Time
-include: on-clock-and-time.html
-link: on-clock-and-time
-uri: synchronization/on-clock-and-time
-part: subchapter
----
-
----
-title: Latency and Latency-Compensation
-menu_title: Latency
-include: latency-and-latency-compensation.html
-link: latency-and-latency-compensation
-uri: synchronization/latency-and-latency-compensation
-part: subchapter
----
-
----
-title: Timecode Generators and Slaves
-include: timecode-generators-and-slaves.html
-link: timecode-generators-and-slaves
-uri: synchronization/timecode-generators-and-slaves
-part: subchapter
----
-
----
-title: Overview of all Timecode related settings
-menu_title: Overview of Timecode settings
-include: overview-of-all-timecode-related-settings.html
-link: overview-of-all-timecode-related-settings
-uri: synchronization/overview-of-timecode-related-settings
-part: subchapter
----
-
----
-title: Working with Field Recorders in Ardour
-include: working-with-field-recorders-in-ardour.html
-link: working-with-field-recorders-in-ardour
-part: chapter
----
-
----
-title: Working with Video in Ardour
-include: working-with-video-in-ardour.html
-link: working-with-video-in-ardour
-part: chapter
 ---
 
 ---
@@ -2023,7 +2010,7 @@ title: Video Timeline and Monitoring
 include: video-timeline-and-monitoring.html
 link: video-timeline-and-monitoring
 uri: video-timeline
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -2031,7 +2018,7 @@ title: Video Timeline Setup
 include: video-timeline-setup.html
 link: video-timeline-setup
 uri: video-timeline/setup
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -2039,7 +2026,7 @@ title: Transcoding, Formats &amp; Codecs
 include: transcoding-formats-amp-codecs.html
 link: transcoding-formats-amp-codecs
 uri: video-timeline/transcoding_formats_codecs
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -2047,7 +2034,7 @@ title: Workflow &amp; Operations
 include: workflow-amp-operations.html
 link: workflow-amp-operations
 uri: video-timeline/operations
-part: subchapter
+part: chapter
 ---
 
 ---

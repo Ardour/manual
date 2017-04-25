@@ -1,26 +1,21 @@
 
-<p>A typical control area or <dfn>bus header<dfn> is shown below:</p>
-<img src="/images/typical-bus-controls.png" alt="bus controls" />
+<figure>
+  <img src="/images/typical-bus-controls.png" alt="bus controls">
+  <figcaption>
+    A MIDI track header section
+  </figcaption>
+</figure>
 
 <p>
-  At the top-left of the controls is the name of the bus, which can be
-  edited by double-clicking on it. The new name must be unique within the
-  session. Underneath the name is a copy of the bus' main level fader.
-  The control buttons to the right-hand side are:
+  The bus' header is very similar to the <a href="@@audio-track-controls">audio track
+  header</a>, minus :
 </p>
-<table class="dl">
-  <tr><th id="mute">M</th>
-  <td><dfn>Mute</dfn>&mdash;click to mute the bus. Right-click to display
-  a menu which dictates what particular parts of the bus should be muted.</td></tr>
-  <tr><th id="solo">S</th>
-  <td><dfn>Solo</dfn>&mdash;solo the bus. The behaviour of the solo system
-  is described in detail in the section <a
-  href="/mixing/muting-and-soloing/">Muting and Soloing</a>.</td></tr>
-  <tr><th id="automation">A</th>
-  <td><dfn>Automation</dfn>&mdash;opens the automation menu for the
-  bus. For details see <a href="@@automation">Automation</a>.</td></tr>
-  <tr><th id="group">G</th>
-  <td><dfn>Group</dfn>&mdash;lets you assign the bus to an existing or a
-  new group. For details see <a href="@@the-track-and-bus-group-list">Track and bus groups</a>. </td></tr>
-</table>
+<ul>
+  <li>the playlist button, as a bus doesn't have any playlists or regions by itself,
+  it is only a pipe to route audio or midi through</li>
+  <li>the record button, for the same reason.</li>
+</ul>
 
+<p>
+  For more information about the bus concept, see <a href="@@understanding-basic-concepts-and-terminology#busses">Understanding basic concepts</a>.
+</p>

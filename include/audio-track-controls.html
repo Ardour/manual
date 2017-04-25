@@ -1,26 +1,59 @@
 
+<figure>
+    <img src="/images/typical-audio-track-controls.png" alt="audio track controls">
+    <figcaption>
+      An audio track header section
+    </figcaption>
+</figure>
+
 <p>
-  A typical control area or <dfn>track header</dfn> for an audio track is
-  shown below:
+  At the top-left of the controls is the name of the track, which can be
+  edited by double-clicking on it. The new name must be unique within the
+  session.
+</p>
+<p>
+  Underneath the name is the track's main level fader. Changing it will affect
+  the whole track :
+</p>
+<ul>
+  <li><kbd class="mouse">dragging</kbd> will change the fader's value as
+    per the mouse's position</li>
+  <li><kbd class="mod1 mouse">clicking</kbd> will set the fader to &minus;&infin;
+    </li>
+  <li><kbd class="mod3 mouse">clicking</kbd> will reset the fader to its original
+    0dB position.</li>
+</ul>
+
+<p>
+  On the right-hand side of the headers are level meters for the outputs of the track
+  (1 level per output).
 </p>
 
-<img src="/images/typical-audio-track-controls.png" alt="audio track controls" />
-
 <p>
-  An audio track has the same
-  <a href="@@bus-controls">controls as a bus</a>, with the
-  addition of two extras.
+  The control buttons are:
 </p>
-
 <table class="dl">
-  <tr><th id="record" style="color:red;font-weight:bold;">[&bull;]</th>
-  <td><dfn>Record</dfn>&mdash;The button with the pink circle arms the track
-  for recording. When armed, the entire button will turn pink, and change to
-  bright red as soon as the transport is rolling and the track is recording.</td></tr>
-  <tr><th id="playlist">p</th>
-  <td><dfn>Playlist</dfn>&mdash;Opens a playlist menu when clicked. The menu
-  offers various operations related to the track's <a
-  href="/working-with-playlists/">playlist</a>.
-  </td></tr>
+  <tr><th id="record"><kbd style="color:red;">&#9679;</kbd> (Record)</th>
+      <td>The button with the pink circle arms the track
+      for recording. When armed, the entire button will turn pink, and change to
+      bright red as soon as the transport is rolling and the track is recording.
+      <kbd class="mouse">Right</kbd> clicking will allow to en/disable Rec-safe,
+      protecting the track against accidental recording.</td></tr>
+  <tr><th id="mute"><kbd>M</kbd> (Mute)</th>
+      <td>Mutes the track. <kbd class="mouse">Right</kbd> clicking displays
+      a menu which dictates what particular parts of the track should be muted.</td></tr>
+  <tr><th id="solo"><kbd>S</kbd> (Solo)</th>
+      <td>Soloes the track. The behaviour of the solo system
+      is described in detail in the section <a href="@@muting-and-soloing">Muting and Soloing</a>.
+      <kbd class="mouse">Right</kbd> clicking will allow to en/disable Solo isolate
+      and Solo safe.</td></tr>
+  <tr><th id="playlist"><kbd>P</kbd> (Playlist)</th>
+      <td>Opens a playlist menu when clicked. The menu
+      offers various operations related to the track's <a href="@@playlists">playlist</a>.</td></tr>
+  <tr><th id="automation"><kbd>A</kbd> (Automation)</th>
+      <td>Opens the automation menu for the
+      track. For details see <a href="@@automation">Automation</a>.</td></tr>
+  <tr><th id="group"><kbd>G</kbd> (Group)</th>
+      <td>Allows to assign the track to an existing or a
+      new group. For details see <a href="@@track-and-bus-groups">Track and bus groups</a>.</td></tr>
 </table>
-
