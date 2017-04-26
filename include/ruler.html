@@ -1,25 +1,44 @@
 
-<img src="/images/ruler.png" alt="Ardour's Ruler">
+<figure>
+    <img src="/images/ruler.png" alt="Ardour's Ruler">
+    <figcaption>
+      Ardour's Ruler
+    </figcaption>
+</figure>
 
-<p>
-  The <dfn>Ruler</dfn> scales the session along time, allows navigating, and can be marked for different uses. The main use of the Ruler is to move the playhead: clicking anywhere on the timeline will bring the playhead at this location in time.
+
+<p> The <dfn>Ruler</dfn> scales the session along time, allows navigating, and
+  can be marked for different uses.
 </p>
-
 <p>
-  It is made of a succession of rows, each having a special role related to time. From top to bottom, those rows are:
+  One of its main uses is to move the playhead:
+  clicking anywhere on the timeline will bring the playhead at this location in
+  time. Also, using the mouse's scrollwheel while hovering the Ruler will zoom in
+  or out (<kbd class="mouse">&uArr;</kbd>/<kbd class="mouse">&dArr;</kbd> ).
+</p>
+<p>
+  The Ruler is made of a succession of rows, each having a special role related to
+  time. Adding or removing rows can be done by <kbd class="mouse">right</kbd> clicking
+  anywhere in the ruler's header on the left, and ticking any of:
 </p>
 
 <table class="dl">
-	<tr><th><dfn>Timecode</dfn></th><td>scaling the session whith the traditionnal Hours:Mins:Secs:Frames notation</td></tr>
-	<tr><th><dfn>Bars:Beats</dfn></th><td>slicing the time according to the time signature ot the Meter</td></tr>
+  <tr><th><dfn>Mins:Secs</dfn></th><td>scaling the session with the Mins:Secs:mSec notation</td></tr>
+  <tr><th><dfn>Timecode</dfn></th><td>scaling the session with the Hours:Mins:Secs:Frames notation</td></tr>
+  <tr><th><dfn>Samples</dfn></th><td>scaling the session with the sample number notation</td></tr>
+  <tr><th><dfn>Bars:Beats</dfn></th><td>slicing the time according to the time signature ot the Meter</td></tr>
 	<tr><th><dfn>Meter</dfb></th><td>shows the time signature. It can be changed along the timeline, by <kbd class="mouse">Right click</kbd> &gt; <kbd class="menu">New Meter</kbd>. The Bars:Beats ruler will reflect the change.</td></tr>
 	<tr><th><dfn>Tempo</dfn></th><td>shows the BPM. It can be changed along the timeline, by <kbd class="mouse">Right click</kbd> &gt; <kbd class="menu">New Tempo</kbd>. The Bars:Beats ruler will reflect the change.</td></tr>
 	<tr><th><dfn>Range Markers</dfn></th><td>allow to create and modify ranges directly on the Ruler.</td></tr>
 	<tr><th><dfn>Loop/Punch Ranges</dfn></th><td>are special kind of ranges designed to be played as a loop and to do punch recording, i.e. recording on a precise section of time, respectively.</td></tr>
 	<tr><th><dfn>CD Markers</dfn></th><td>are markers designed to be used while creating a recording that has to be split in time, as an audio CD</td></tr>
 	<tr><th><dfn>Location Markers</dfn></th><td>is meant to receive any kind of marker, user generated or from Ardour itself.</td></tr>
+  <tr><th><dfn>Video Timeline</dfn></th><td>shows thumbnails of the <a href="@@video-timeline-and-monitoring">video</a> in the timeline</td></tr>
 </table>
 
 <p>
-  Most of the operations on the markers are described in <a href="@@working-with-markers">Working with Markers</a>, while the Meter, Tempo, Bars:Beats and Timecode use are described in <a href="@@tempo-and-meter">Tempo and Meter</a>.
+  Most of the operations on the markers are described in <a
+  href="@@working-with-markers">Working with Markers</a>, while the Meter,
+  Tempo, Bars:Beats and Timecode use are described in <a
+  href="@@tempo-and-meter">Tempo and Meter</a>.
 </p>
