@@ -2093,6 +2093,14 @@ part: subchapter
 ---
 
 ---
+title: OSC&#58; Jog Modes
+include: osc58-jog-modes.html
+link: osc58-jog-modes
+uri: using-control-surfaces/controlling-ardour-with-osc/jog-modes
+part: subchapter
+---
+
+---
 title: OSC&#58; Personal Monitoring Control
 include: osc58-personal-monitoring-control.html
 link: osc58-personal-monitoring-control

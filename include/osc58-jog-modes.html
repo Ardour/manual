@@ -1,0 +1,52 @@
+
+<p>
+	The <code>/jog</code> command will have a different affect depending
+	on which jog mode is selected. The jog system has two commands and
+	gives feedback of the mode chosen.
+</p>
+
+<table class="dl">
+  <tr><th><kbd class="osc">/jog <em>delta</em></kbd></th>
+  <td>Where <em>delta</em> is a float indicating the ammount and direction.</td></tr>
+  <tr><th><kbd class="osc">/jog/mode <em>mode</em></kbd></th>
+  <td>Where <em>mode</em> is an int from 0 to 7 indicating the mode</td></tr>
+</table>
+
+<p>
+	Feedback is as below
+</p>
+
+<table class="dl">
+  <tr><th><kbd class="osc">/jog/mode/name <em>name</em></kbd></th>
+  <td>Where <em>name</em> is a string indicating the name of the mode.</td></tr>
+  <tr><th><kbd class="osc">/jog/mode <em>mode</em></kbd></th>
+  <td>Where <em>mode</em> is an int from 0 to 7 indicating the mode</td></tr>
+</table>
+
+<h3>Jog Modes</h3>
+
+<p>
+
+  <ul>
+    <li>0 Jog, each tick moves the Playhead forward or backward .2 seconds.</li>
+    <li>1 Nudge, Moves the Playhead forward or backward by the ammount of the nudge clock.</li>
+    <li>2 Scrub, see <a href="#scrub">Scrub mode</a>.</li>
+    <li>3 Shuttle, each tick raises or lowers the transport speed by 12.5%.</li>
+    <li>4 Marker, Moves the Playhead to the previous or next Marker.</li>
+    <li>5 Scroll, each tick scrolls the edit window by one, forward or back.</li>
+    <li>6 Track, moves the current bank left or right by one strip.</li>
+    <li>7 Bank, Moves the current bank left or right by one bank.</li>
+  </ul>
+</p>
+  
+<h2 id="scrub">Scrub</h2>
+
+<p>
+	Scrub deserves special mention. In an ideal world, scrub would be jog with sound.
+	However, Ardour does not have that functionallity yet. So scrub starts the transport
+	rolling at either 50% or 100% depending on how fast the jog wheel is turned. The
+	position of the last tick is always saved and if no more ticks are received, the
+	transport is located there when stopped at time out. If the jog wheel gives a value
+	of 0 when released the transport stops at the location the value 0 is sent.
+</p>
+
