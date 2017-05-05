@@ -18,9 +18,9 @@
 
 <table class="dl">
   <tr><th><kbd class="osc">/jog/mode/name <em>name</em></kbd></th>
-  <td>Where <em>name</em> is a string indicating the name of the mode.</td></tr>
+  <td>Where <em>name</em> is a string indicating the name of the current jog mode.</td></tr>
   <tr><th><kbd class="osc">/jog/mode <em>mode</em></kbd></th>
-  <td>Where <em>mode</em> is an int from 0 to 7 indicating the mode</td></tr>
+  <td>Where <em>mode</em> is an int from 0 to 7 indicating the current jog mode.</td></tr>
 </table>
 
 <h3>Jog Modes</h3>
@@ -38,7 +38,10 @@
     <li>7 Bank, Moves the current bank left or right by one bank.</li>
   </ul>
 </p>
-  
+<p>
+	The jog mode may be set using a slider with 0 to 7 limits, a group of switches
+	or radio buttons. What works in any situation will depend on the controller.
+</p>
 <h2 id="scrub">Scrub</h2>
 
 <p>
