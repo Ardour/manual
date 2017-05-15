@@ -2101,6 +2101,14 @@ part: subchapter
 ---
 
 ---
+title: OSC&#58; Automation
+include: osc58-automation.html
+link: osc58-automation
+uri: using-control-surfaces/controlling-ardour-with-osc/automation
+part: subchapter
+---
+
+---
 title: OSC&#58; Personal Monitoring Control
 include: osc58-personal-monitoring-control.html
 link: osc58-personal-monitoring-control

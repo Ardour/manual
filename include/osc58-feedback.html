@@ -83,6 +83,9 @@
 <table class="dl">
   <tr><th><kbd class="osc">/strip/name <em>ssid</em> <em>track_name</em></kbd></th>
   <td>where <em>track_name</em> is a string representing the name of the track</td></tr>
+  <tr><th><kbd class="osc">/strip/*/automation_name <em>ssid</em>  <em>name</em></kbd></th>
+  <td>where <em>name</em> is a string representing the current automation mode for the control.
+  <a href="@@osc58-automation">See OSC Automation.</a></td></tr>
   <tr><th><kbd class="osc">/session_name <em>session_name</em></kbd></th>
   <td>where <em>session_name</em> is a string representing the name of the session</td></tr>
   <tr><th><kbd class="osc">/strip/meter <em>ssid</em> <em>meter</em></kbd></th>
@@ -200,6 +203,9 @@
   <td>where <em>gain</em> is a float ranging from -193 to 6 representing the actual gain of the track in dB.</td></tr>
   <tr><th><kbd class="osc">/strip/fader <em>ssid</em>  <em>position</em></kbd></th>
   <td>where <em>position</em> is an float ranging from 0 to 1 representing the actual fader position of the track.</td></tr>
+  <tr><th><kbd class="osc">/strip/*/automation <em>ssid</em>  <em>mode</em></kbd></th>
+  <td>where <em>mode</em> is an int ranging from 0 to 3 representing the actual automation mode for the control.
+  <a href="@@osc58-automation">See OSC Automation.</a></td></tr>
   <tr><th><kbd class="osc">/strip/trimdB <em>ssid</em>  <em>trim_db</em></kbd></th>
   <td>where <em>trim_db</em> is a float ranging from -20 to 20 representing the actual trim of the track in dB.</td></tr>
   <tr><th><kbd class="osc">/strip/pan_stereo_position <em>ssid</em> <em>position</em></kbd></th>
