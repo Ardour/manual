@@ -153,7 +153,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:SideChain">SideChain</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::SideChain (ARDOUR::Processor::*)()">to_sidechain</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:UnknownProcessor">UnknownProcessor</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::UnknownProcessor (ARDOUR::Processor::*)()">to_unknownprocessor</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -293,6 +293,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><dl><dt class="param-name-index-2">gap</dt><dd class="param-descr-index-2"> from the beginning of the region to the next beginning </dd><dt class="param-name-index-3">end</dt><dd class="param-descr-index-3"> the first frame that does _not_ contain a duplicated frame </dd></dl></div></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Region">Region</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Region&gt; (ARDOUR::Playlist::*)(long, ARDOUR::RegionPoint, int)">find_next_region</abbr></span><span class="functionargs"> (<span class="em">long</span>, <a class="" href="#ARDOUR.RegionPoint">RegionPoint</a>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Playlist::*)(long, int)">find_next_region_boundary</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Playlist::*)(long, int)">find_next_transient</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Playlist::*)(boost::shared_ptr&lt;ARDOUR::Region&gt;)">lower_region</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Region">Region</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Playlist::*)(boost::shared_ptr&lt;ARDOUR::Region&gt;)">lower_region_to_bottom</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Region">Region</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::Playlist::*)() const">n_regions</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -315,7 +316,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:AudioPlaylist">AudioPlaylist</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::AudioPlaylist (ARDOUR::Playlist::*)()">to_audioplaylist</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MidiPlaylist">MidiPlaylist</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MidiPlaylist (ARDOUR::Playlist::*)()">to_midiplaylist</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -406,11 +407,13 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">can_move</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">captured</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)()">clear_sync_position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#Evoral:Control">Control</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;Evoral::Control&gt; (ARDOUR::Region::*)(Evoral::Parameter const&amp;, bool)">control</abbr></span><span class="functionargs"> (<a class="" href="#Evoral:Parameter">Parameter</a>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)(long) const">covers</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">cut_end</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">cut_front</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:DataType">DataType</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::DataType const&amp; (ARDOUR::Region::*)() const">data_type</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">external</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">has_transients</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">hidden</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">import</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">is_compound</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -454,6 +457,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><em>LuaTable</em>(<span class="em">long</span>, ...)</td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Region::*)(int&amp;) const">sync_offset</abbr></span><span class="functionargs"> (<span class="em">int&amp;</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Region::*)() const">sync_position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  Sync position in session time </p></div></div></td></tr>
+ <tr><td class="def"><a class="" href="#C:Int64List">Int64List</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;long &gt; (ARDOUR::Region::*)()">transients</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">trim_end</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">trim_front</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, long, int)">trim_to</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
@@ -464,7 +468,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:MidiRegion">MidiRegion</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MidiRegion (ARDOUR::Region::*)()">to_midiregion</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Readable">Readable</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Readable (ARDOUR::Region::*)()">to_readable</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -508,9 +512,10 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Source::*)() const">writable</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><th colspan="3">Cast</th></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AudioSource">AudioSource</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::AudioSource (ARDOUR::Source::*)()">to_audiosource</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:FileSource">FileSource</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::FileSource (ARDOUR::Source::*)()">to_filesource</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MidiSource">MidiSource</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MidiSource (ARDOUR::Source::*)()">to_midisource</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -596,7 +601,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_makeup_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_mode_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Stripable::*)(unsigned int) const">comp_mode_name</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_redux_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">--MISSING (boost::shared_ptr&lt;ARDOUR::ReadOnlyControl&gt;)--</span></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::ReadOnlyControl&gt; (ARDOUR::Stripable::*)() const">comp_redux_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_speed_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Stripable::*)(unsigned int) const">comp_speed_name</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_threshold_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -605,9 +610,11 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">eq_enable_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_freq_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_gain_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">eq_hpf_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_q_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_shape_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_enable_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_freq_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_slope_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:GainControl">GainControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::GainControl&gt; (ARDOUR::Stripable::*)() const">gain_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Stripable::*)() const">is_auditioner</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Stripable::*)() const">is_hidden</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -637,7 +644,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><th colspan="3">Cast</th></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Route">Route</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Route (ARDOUR::Stripable::*)()">to_route</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -725,6 +732,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 </table>
 <h3 id="ARDOUR:AutomationList" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:AutomationList</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; ARDOUR::AutomationList &gt;, boost::weak_ptr&lt; ARDOUR::AutomationList &gt;</p>
+ <p class="classinfo">is-a: <a class="" href="#Evoral:ControlList">Evoral:ControlList</a></p>
 <div class="clear"></div>
 <div class="classdox"><p class="para-brief"> AutomationList is a stateful wrapper around Evoral::ControlList. It includes session-specifics (such as automation state), control logic (e.g. touch, signals) and acts as proxy to the underlying ControlList which holds the actual data.</p></div>
 <table class="classmembers">
@@ -740,6 +748,31 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#PBD:Stateful">Stateful</a></td><td class="decl"><span class="functionname"><abbr title="PBD::Stateful (ARDOUR::AutomationList::*)()">to_stateful</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#PBD:StatefulDestructible">StatefulDestructible</a></td><td class="decl"><span class="functionname"><abbr title="PBD::StatefulDestructible (ARDOUR::AutomationList::*)()">to_statefuldestructible</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
+<h4 class="cls">Inherited from Evoral:ControlList</h4>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::ControlList::*)(double, double, bool, bool)">add</abbr></span><span class="functionargs"> (<span class="em">double</span>, <span class="em">double</span>, <span class="em">bool</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> add automation events </p><dl><dt class="param-name-index-0">when</dt><dd class="param-descr-index-0"> absolute time in samples </dd><dt class="param-name-index-1">value</dt><dd class="param-descr-index-1"> parameter value </dd><dt class="param-name-index-2">with_guards</dt><dd class="param-descr-index-2"> if true, add guard-points </dd><dt class="param-name-index-3">with_initial</dt><dd class="param-descr-index-3"> if true, add an initial point if the list is empty</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::ControlList::*)(double, double)">clear</abbr></span><span class="functionargs"> (<span class="em">double</span>, <span class="em">double</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> remove all automation events between the given time range </p><dl><dt class="param-name-index-0">start</dt><dd class="param-descr-index-0"> start of range (inclusive) in audio samples </dd><dt class="param-name-index-1">end</dt><dd class="param-descr-index-1"> end of range (inclusive) in audio samples</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::ControlList::*)()">clear_list</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (Evoral::ControlList::*)(double)">eval</abbr></span><span class="functionargs"> (<span class="em">double</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> query value at given time (takes a read-lock, not safe while writing automation) </p><dl><dt class="param-name-index-0">where</dt><dd class="param-descr-index-0"> absolute time in samples </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  parameter value</p></div></div></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:EventList">EventList</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;Evoral::ControlEvent* &gt; const&amp; (Evoral::ControlList::*)() const">events</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (Evoral::ControlList::*)() const">in_write_pass</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#Evoral.ControlList.InterpolationStyle">InterpolationStyle</a></td><td class="decl"><span class="functionname"><abbr title="Evoral::ControlList::InterpolationStyle (Evoral::ControlList::*)() const">interpolation</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> query interpolation style of the automation data </p><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  Interpolation Style</p></div></div></td></tr>
+ <tr><td class="def"><em>LuaTable</em>(<span class="em">double</span>, ...)</td><td class="decl"><span class="functionname"><abbr title="double (Evoral::ControlList::*)(double, bool&amp;)">rt_safe_eval</abbr></span><span class="functionargs"> (<span class="em">double</span>, <span class="em">bool&amp;</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> realtime safe version of eval, may fail if read-lock cannot be taken </p><dl><dt class="param-name-index-0">where</dt><dd class="param-descr-index-0"> absolute time in samples </dd><dt class="param-name-index-1">ok</dt><dd class="param-descr-index-1"> boolean reference if returned value is valid </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  parameter value</p></div></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::ControlList::*)(Evoral::ControlList::InterpolationStyle)">set_interpolation</abbr></span><span class="functionargs"> (<a class="" href="#Evoral.ControlList.InterpolationStyle">InterpolationStyle</a>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> set the interpolation style of the automation data </p><dl><dt class="param-name-index-0">is</dt><dd class="param-descr-index-0"> interpolation style</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::ControlList::*)(double)">thin</abbr></span><span class="functionargs"> (<span class="em">double</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Thin the number of events in this list.</p><p> The thinning factor corresponds to the area of a triangle computed between three points in the list (time-difference * value-difference). If the area is large, it indicates significant non-linearity between the points.</p><p> Time is measured in samples, value is usually normalized to 0..1.</p><p> During automation recording we thin the recorded points using this value.  If a point is sufficiently co-linear with its neighbours (as defined by the area of the triangle formed by three of them), we will not include it in the list.  The larger the value, the more points are excluded, so this effectively measures the amount of thinning to be done.</p><dl><dt class="param-name-index-0">thinning_factor</dt><dd class="param-descr-index-0"> area-size (default: 20)</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::ControlList::*)(double)">truncate_end</abbr></span><span class="functionargs"> (<span class="em">double</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> truncate the event list after the given time </p><dl><dt class="param-name-index-0">last_coordinate</dt><dd class="param-descr-index-0"> last event to include</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::ControlList::*)(double)">truncate_start</abbr></span><span class="functionargs"> (<span class="em">double</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> truncate the event list to the given time </p><dl><dt class="param-name-index-0">overall_length</dt><dd class="param-descr-index-0"> overall length</dd></dl></div></td></tr>
+</table>
 <h3 id="ARDOUR:BackendVector" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:BackendVector</h3>
 <p class="cdecl"><em>C&#8225;</em>: std::vector&lt;ARDOUR::AudioBackendInfo const* &gt;</p>
 <div class="clear"></div>
@@ -752,6 +785,19 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><em>LuaIter</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">iter</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (std::vector&lt;ARDOUR::AudioBackendInfo const* &gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">table</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ </table>
+<h3 id="ARDOUR:BeatsFramesConverter" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:BeatsFramesConverter</h3>
+<p class="cdecl"><em>C&#8225;</em>: ARDOUR::BeatsFramesConverter</p>
+<div class="clear"></div>
+<div class="classdox"><p class="para-brief"> Converter between quarter-note beats and frames.  Takes distances in quarter-note beats or frames  from some origin (supplied to the constructor in frames), and converts  them to the opposite unit, taking tempo changes into account.</p></div>
+<table class="classmembers">
+ <tr><th colspan="3">Constructor</th></tr>
+ <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">ARDOUR.BeatsFramesConverter</span><span class="functionargs"> (<a class="" href="#ARDOUR:TempoMap">TempoMap</a>, <span class="em">long</span>)</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><a class="" href="#Evoral:Beats">Beats</a></td><td class="decl"><span class="functionname"><abbr title="Evoral::Beats (ARDOUR::BeatsFramesConverter::*)(long) const">from</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Convert B time to A time (A from B) </p></div></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::BeatsFramesConverter::*)(Evoral::Beats) const">to</abbr></span><span class="functionargs"> (<a class="" href="#Evoral:Beats">Beats</a>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Convert A time to B time (A to B) </p></div></td></tr>
  </table>
 <h3 id="ARDOUR:BufferSet" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:BufferSet</h3>
 <p class="cdecl"><em>C&#8225;</em>: ARDOUR::BufferSet</p>
@@ -990,7 +1036,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:SideChain">SideChain</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::SideChain (ARDOUR::Processor::*)()">to_sidechain</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:UnknownProcessor">UnknownProcessor</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::UnknownProcessor (ARDOUR::Processor::*)()">to_unknownprocessor</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1023,6 +1069,77 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (std::vector&lt;ARDOUR::AudioBackend::DeviceStatus &gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">table</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
+<h3 id="ARDOUR:DoubleBeatsFramesConverter" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:DoubleBeatsFramesConverter</h3>
+<p class="cdecl"><em>C&#8225;</em>: ARDOUR::DoubleBeatsFramesConverter</p>
+<div class="clear"></div>
+<div class="classdox"><p class="para-brief"> Converter between quarter-note beats and frames.  Takes distances in quarter-note beats or frames  from some origin (supplied to the constructor in frames), and converts  them to the opposite unit, taking tempo changes into account.</p></div>
+<table class="classmembers">
+ <tr><th colspan="3">Constructor</th></tr>
+ <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">ARDOUR.DoubleBeatsFramesConverter</span><span class="functionargs"> (<a class="" href="#ARDOUR:TempoMap">TempoMap</a>, <span class="em">long</span>)</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::DoubleBeatsFramesConverter::*)(long) const">from</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Convert B time to A time (A from B) </p></div></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::DoubleBeatsFramesConverter::*)(double) const">to</abbr></span><span class="functionargs"> (<span class="em">double</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Convert A time to B time (A to B) </p></div></td></tr>
+ </table>
+<h3 id="ARDOUR:EventList" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:EventList</h3>
+<p class="cdecl"><em>C&#8225;</em>: std::list&lt;Evoral::ControlEvent* &gt;</p>
+<div class="clear"></div>
+<table class="classmembers">
+ <tr><th colspan="3">Constructor</th></tr>
+ <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">ARDOUR.EventList</span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><a class="" href="#Evoral:ControlEvent">ControlEvent</a></td><td class="decl"><span class="functionname"><abbr title="Evoral::ControlEvent* const&amp; (std::list&lt;Evoral::ControlEvent* &gt;::*)() const">back</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (std::list&lt;Evoral::ControlEvent* &gt;::*)() const">empty</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#Evoral:ControlEvent">ControlEvent</a></td><td class="decl"><span class="functionname"><abbr title="Evoral::ControlEvent* const&amp; (std::list&lt;Evoral::ControlEvent* &gt;::*)() const">front</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><em>LuaIter</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">iter</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (std::list&lt;Evoral::ControlEvent* &gt;::*)()">reverse</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (std::list&lt;Evoral::ControlEvent* &gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">table</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ </table>
+<h3 id="ARDOUR:FileSource" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:FileSource</h3>
+<p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; ARDOUR::FileSource &gt;, boost::weak_ptr&lt; ARDOUR::FileSource &gt;</p>
+ <p class="classinfo">is-a: <a class="" href="#ARDOUR:Source">ARDOUR:Source</a></p>
+<div class="clear"></div>
+<div class="classdox"><p class="para-brief"> A source associated with a file on disk somewhere </p></div>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">unsigned short</span></td><td class="decl"><span class="functionname"><abbr title="unsigned short (ARDOUR::FileSource::*)() const">channel</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">float</span></td><td class="decl"><span class="functionname"><abbr title="float (ARDOUR::FileSource::*)() const">gain</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="void (*)()">isnil</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string const&amp; (ARDOUR::FileSource::*)() const">origin</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string const&amp; (ARDOUR::FileSource::*)() const">path</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string const&amp; (ARDOUR::FileSource::*)() const">take_id</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::FileSource::*)() const">within_session</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ </table>
+<h4 class="cls">Inherited from ARDOUR:Source</h4>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Source::*)()">ancestor_name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Source::*)() const">can_be_analysed</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Source::*)() const">destructive</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Source::*)() const">empty</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Source::*)() const">has_been_analysed</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Source::*)(long) const">length</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Source::*)() const">natural_position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Source::*)() const">timeline_position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Source::*)() const">timestamp</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (ARDOUR::Source::*)() const">use_count</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Source::*)() const">used</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Source::*)() const">writable</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Cast</th></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AudioSource">AudioSource</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::AudioSource (ARDOUR::Source::*)()">to_audiosource</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:FileSource">FileSource</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::FileSource (ARDOUR::Source::*)()">to_filesource</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:MidiSource">MidiSource</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MidiSource (ARDOUR::Source::*)()">to_midisource</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+</table>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Cast</th></tr>
+ <tr><td class="def"><a class="" href="#PBD:Stateful">Stateful</a></td><td class="decl"><span class="functionname"><abbr title="PBD::Stateful (ARDOUR::SessionObject::*)()">to_stateful</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#PBD:StatefulDestructible">StatefulDestructible</a></td><td class="decl"><span class="functionname"><abbr title="PBD::StatefulDestructible (ARDOUR::SessionObject::*)()">to_statefuldestructible</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+</table>
 <h3 id="ARDOUR:FluidSynth" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:FluidSynth</h3>
 <p class="cdecl"><em>C&#8225;</em>: ARDOUR::FluidSynth</p>
 <div class="clear"></div>
@@ -1092,7 +1209,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 </table>
 <h3 id="ARDOUR:IO" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:IO</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; ARDOUR::IO &gt;, boost::weak_ptr&lt; ARDOUR::IO &gt;</p>
- <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObject">ARDOUR:SessionObject</a></p>
+ <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObjectPtr">ARDOUR:SessionObjectPtr</a></p>
 <div class="clear"></div>
 <div class="classdox"><p class="para-brief"> A collection of ports (all input or all output) with connections.</p><p> An IO can contain ports of varying types, making routes&#47;inserts&#47;etc with varied combinations of types (eg MIDI and audio) possible.</p></div>
 <table class="classmembers">
@@ -1113,7 +1230,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:Port">Port</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Port&gt; (ARDOUR::IO::*)(unsigned int) const">port_by_name</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (ARDOUR::IO::*)(boost::shared_ptr&lt;ARDOUR::Port&gt;, void*)">remove_port</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Port">Port</a>, <span class="em">void*</span>)</span></td><td class="fill"></td></tr>
  </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1156,7 +1273,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:SideChain">SideChain</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::SideChain (ARDOUR::Processor::*)()">to_sidechain</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:UnknownProcessor">UnknownProcessor</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::UnknownProcessor (ARDOUR::Processor::*)()">to_unknownprocessor</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1278,6 +1395,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:PluginInfo">PluginInfo</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::PluginInfo&gt; (*)(std::string const&amp;, ARDOUR::PluginType)">new_plugin_info</abbr></span><span class="functionargs"> (<span class="em">std::string</span>, <a class="" href="#ARDOUR.PluginType">PluginType</a>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> search a Plugin</p><dl><dt class="param-name-index-0">id</dt><dd class="param-descr-index-0"> Plugin Name, ID or URI </dd><dt class="param-name-index-1">type</dt><dd class="param-descr-index-1"> Plugin Type </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  PluginInfo or nil if not found</p></div></div></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Processor">Processor</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Processor&gt; (*)()">nil_proc</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:NotePtrList">NotePtrList</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;boost::shared_ptr&lt;Evoral::Note&lt;Evoral::Beats&gt; &gt; &gt; &gt; (*)(boost::shared_ptr&lt;ARDOUR::MidiModel&gt;)">note_list</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:MidiModel">MidiModel</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">...</span></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">plugin_automation</abbr></span><span class="functionargs"> (<span class="em">--lua--</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> A convenience function to get a Automation Lists and ParamaterDescriptor for a given plugin control.</p><p> This is equivalent to the following lua code </p><pre> function (processor, param_id)
   local plugininsert = processor:to_insert ()
@@ -1359,7 +1477,11 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">char*</span></td><td class="decl"><span class="functionname"><abbr title="char const* (ARDOUR::Plugin::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>LuaTable</em>(<span class="em">unsigned int</span>, ...)</td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::Plugin::*)(unsigned int, bool&amp;) const">nth_parameter</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">bool&amp;</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::Plugin::*)() const">parameter_count</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Plugin::*)(unsigned int) const">parameter_is_audio</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Plugin::*)(unsigned int) const">parameter_is_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Plugin::*)(unsigned int) const">parameter_is_input</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Plugin::*)(unsigned int) const">parameter_is_output</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Plugin::*)(unsigned int) const">parameter_label</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:PresetRecord">PresetRecord</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Plugin::PresetRecord const* (ARDOUR::Plugin::*)(std::string const&amp;)">preset_by_label</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:PresetRecord">PresetRecord</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Plugin::PresetRecord const* (ARDOUR::Plugin::*)(std::string const&amp;)">preset_by_uri</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Plugin::*)() const">unique_id</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1530,6 +1652,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><dl><dt class="param-name-index-2">gap</dt><dd class="param-descr-index-2"> from the beginning of the region to the next beginning </dd><dt class="param-name-index-3">end</dt><dd class="param-descr-index-3"> the first frame that does _not_ contain a duplicated frame </dd></dl></div></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Region">Region</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Region&gt; (ARDOUR::Playlist::*)(long, ARDOUR::RegionPoint, int)">find_next_region</abbr></span><span class="functionargs"> (<span class="em">long</span>, <a class="" href="#ARDOUR.RegionPoint">RegionPoint</a>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Playlist::*)(long, int)">find_next_region_boundary</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Playlist::*)(long, int)">find_next_transient</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Playlist::*)(boost::shared_ptr&lt;ARDOUR::Region&gt;)">lower_region</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Region">Region</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Playlist::*)(boost::shared_ptr&lt;ARDOUR::Region&gt;)">lower_region_to_bottom</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Region">Region</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::Playlist::*)() const">n_regions</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1552,7 +1675,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:AudioPlaylist">AudioPlaylist</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::AudioPlaylist (ARDOUR::Playlist::*)()">to_audioplaylist</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MidiPlaylist">MidiPlaylist</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MidiPlaylist (ARDOUR::Playlist::*)()">to_midiplaylist</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1616,11 +1739,13 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">can_move</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">captured</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)()">clear_sync_position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#Evoral:Control">Control</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;Evoral::Control&gt; (ARDOUR::Region::*)(Evoral::Parameter const&amp;, bool)">control</abbr></span><span class="functionargs"> (<a class="" href="#Evoral:Parameter">Parameter</a>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)(long) const">covers</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">cut_end</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">cut_front</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:DataType">DataType</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::DataType const&amp; (ARDOUR::Region::*)() const">data_type</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">external</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">has_transients</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">hidden</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">import</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">is_compound</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1664,6 +1789,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><em>LuaTable</em>(<span class="em">long</span>, ...)</td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Region::*)(int&amp;) const">sync_offset</abbr></span><span class="functionargs"> (<span class="em">int&amp;</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Region::*)() const">sync_position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  Sync position in session time </p></div></div></td></tr>
+ <tr><td class="def"><a class="" href="#C:Int64List">Int64List</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;long &gt; (ARDOUR::Region::*)()">transients</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">trim_end</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">trim_front</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, long, int)">trim_to</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
@@ -1674,7 +1800,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:MidiRegion">MidiRegion</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MidiRegion (ARDOUR::Region::*)()">to_midiregion</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Readable">Readable</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Readable (ARDOUR::Region::*)()">to_readable</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1709,9 +1835,10 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Source::*)() const">writable</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><th colspan="3">Cast</th></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AudioSource">AudioSource</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::AudioSource (ARDOUR::Source::*)()">to_audiosource</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:FileSource">FileSource</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::FileSource (ARDOUR::Source::*)()">to_filesource</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MidiSource">MidiSource</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MidiSource (ARDOUR::Source::*)()">to_midisource</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1797,7 +1924,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_makeup_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_mode_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Stripable::*)(unsigned int) const">comp_mode_name</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_redux_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">--MISSING (boost::shared_ptr&lt;ARDOUR::ReadOnlyControl&gt;)--</span></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::ReadOnlyControl&gt; (ARDOUR::Stripable::*)() const">comp_redux_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_speed_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Stripable::*)(unsigned int) const">comp_speed_name</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_threshold_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1806,9 +1933,11 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">eq_enable_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_freq_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_gain_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">eq_hpf_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_q_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_shape_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_enable_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_freq_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_slope_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:GainControl">GainControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::GainControl&gt; (ARDOUR::Stripable::*)() const">gain_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Stripable::*)() const">is_auditioner</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Stripable::*)() const">is_hidden</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1838,7 +1967,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><th colspan="3">Cast</th></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Route">Route</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Route (ARDOUR::Stripable::*)()">to_route</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1921,7 +2050,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:SideChain">SideChain</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::SideChain (ARDOUR::Processor::*)()">to_sidechain</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:UnknownProcessor">UnknownProcessor</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::UnknownProcessor (ARDOUR::Processor::*)()">to_unknownprocessor</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -1994,15 +2123,33 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#PBD:ID">ID</a></td><td class="decl"><span class="functionname"><abbr title="PBD::ID const&amp; (PBD::Stateful::*)() const">id</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:OwnedPropertyList">OwnedPropertyList</a></td><td class="decl"><span class="functionname"><abbr title="PBD::OwnedPropertyList const&amp; (PBD::Stateful::*)() const">properties</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
+<h3 id="ARDOUR:NotePtrList" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:NotePtrList</h3>
+<p class="cdecl"><em>C&#8225;</em>: std::list&lt;boost::shared_ptr&lt;Evoral::Note&lt;Evoral::Beats&gt; &gt; &gt; &gt;</p>
+<div class="clear"></div>
+<table class="classmembers">
+ <tr><th colspan="3">Constructor</th></tr>
+ <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">ARDOUR.NotePtrList</span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">add</abbr></span><span class="functionargs"> (<em>LuaTable</em> {<a class="" href="#Evoral:Beats">Beats</a>})</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#Evoral:NotePtr">NotePtr</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;Evoral::Note&lt;Evoral::Beats&gt; &gt; const&amp; (std::list&lt;boost::shared_ptr&lt;Evoral::Note&lt;Evoral::Beats&gt; &gt; &gt; &gt;::*)() const">back</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (std::list&lt;boost::shared_ptr&lt;Evoral::Note&lt;Evoral::Beats&gt; &gt; &gt; &gt;::*)() const">empty</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#Evoral:NotePtr">NotePtr</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;Evoral::Note&lt;Evoral::Beats&gt; &gt; const&amp; (std::list&lt;boost::shared_ptr&lt;Evoral::Note&lt;Evoral::Beats&gt; &gt; &gt; &gt;::*)() const">front</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><em>LuaIter</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">iter</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (std::list&lt;boost::shared_ptr&lt;Evoral::Note&lt;Evoral::Beats&gt; &gt; &gt; &gt;::*)(boost::shared_ptr&lt;Evoral::Note&lt;Evoral::Beats&gt; &gt; const&amp;)">push_back</abbr></span><span class="functionargs"> (<a class="" href="#Evoral:NotePtr">NotePtr</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (std::list&lt;boost::shared_ptr&lt;Evoral::Note&lt;Evoral::Beats&gt; &gt; &gt; &gt;::*)()">reverse</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (std::list&lt;boost::shared_ptr&lt;Evoral::Note&lt;Evoral::Beats&gt; &gt; &gt; &gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">table</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (std::list&lt;boost::shared_ptr&lt;Evoral::Note&lt;Evoral::Beats&gt; &gt; &gt; &gt;::*)()">unique</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ </table>
 <h3 id="ARDOUR:OwnedPropertyList" class="cls opaque"><abbr title="Opaque Object">&empty;</abbr>&nbsp;ARDOUR:OwnedPropertyList</h3>
 <p class="cdecl"><em>C&#8225;</em>: PBD::OwnedPropertyList</p>
  <p class="classinfo">is-a: <a class="" href="#ARDOUR:PropertyList">ARDOUR:PropertyList</a></p>
 <div class="clear"></div>
-<div class="classdox"><p class="para-brief"> A variant of PropertyList that does not delete its  property list in its destructor. Objects with their  own Properties store them in an OwnedPropertyList  to avoid having them deleted at the wrong time.</p></div>
+<div class="classdox"><p class="para-brief"> Persistent Property List</p><p> A variant of PropertyList that does not delete its property list in its destructor. Objects with their own Properties store them in an OwnedPropertyList to avoid having them deleted at the wrong time.</p></div>
 <p class="classinfo">This class object is only used indirectly as return-value and function-parameter. It provides no methods by itself.</p>
 <h3 id="ARDOUR:PannerShell" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:PannerShell</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; ARDOUR::PannerShell &gt;, boost::weak_ptr&lt; ARDOUR::PannerShell &gt;</p>
- <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObject">ARDOUR:SessionObject</a></p>
+ <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObjectPtr">ARDOUR:SessionObjectPtr</a></p>
 <div class="clear"></div>
 <div class="classdox"><p class="para-brief"> Class to manage panning by instantiating and controlling  an appropriate Panner object for a given in&#47;out configuration.</p></div>
 <table class="classmembers">
@@ -2011,7 +2158,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="void (*)()">isnil</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::PannerShell::*)(bool)">set_bypassed</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -2028,7 +2175,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><th colspan="3">Constructor</th></tr>
  <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">ARDOUR.ParameterDescriptor</span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><th colspan="3">Methods</th></tr>
- <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (*)(unsigned char)">midi_note_name</abbr></span><span class="functionargs"> (<span class="em">unsigned char</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (*)(unsigned char, bool)">midi_note_name</abbr></span><span class="functionargs"> (<span class="em">unsigned char</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><th colspan="3">Data Members</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname">label</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">logarithmic</span></td><td class="fill"></td></tr>
@@ -2081,7 +2228,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:SideChain">SideChain</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::SideChain (ARDOUR::Processor::*)()">to_sidechain</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:UnknownProcessor">UnknownProcessor</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::UnknownProcessor (ARDOUR::Processor::*)()">to_unknownprocessor</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -2134,7 +2281,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 </table>
 <h3 id="ARDOUR:Playlist" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:Playlist</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; ARDOUR::Playlist &gt;, boost::weak_ptr&lt; ARDOUR::Playlist &gt;</p>
- <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObject">ARDOUR:SessionObject</a></p>
+ <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObjectPtr">ARDOUR:SessionObjectPtr</a></p>
 <div class="clear"></div>
 <div class="classdox"><p class="para-brief"> A named object associated with a Session. Objects derived from this class are    expected to be destroyed before the session calls drop_references().</p></div>
 <table class="classmembers">
@@ -2152,6 +2299,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><dl><dt class="param-name-index-2">gap</dt><dd class="param-descr-index-2"> from the beginning of the region to the next beginning </dd><dt class="param-name-index-3">end</dt><dd class="param-descr-index-3"> the first frame that does _not_ contain a duplicated frame </dd></dl></div></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Region">Region</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::Region&gt; (ARDOUR::Playlist::*)(long, ARDOUR::RegionPoint, int)">find_next_region</abbr></span><span class="functionargs"> (<span class="em">long</span>, <a class="" href="#ARDOUR.RegionPoint">RegionPoint</a>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Playlist::*)(long, int)">find_next_region_boundary</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Playlist::*)(long, int)">find_next_transient</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="void (*)()">isnil</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Playlist::*)(boost::shared_ptr&lt;ARDOUR::Region&gt;)">lower_region</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Region">Region</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Playlist::*)(boost::shared_ptr&lt;ARDOUR::Region&gt;)">lower_region_to_bottom</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Region">Region</a>)</span></td><td class="fill"></td></tr>
@@ -2175,7 +2323,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:AudioPlaylist">AudioPlaylist</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::AudioPlaylist (ARDOUR::Playlist::*)()">to_audioplaylist</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MidiPlaylist">MidiPlaylist</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MidiPlaylist (ARDOUR::Playlist::*)()">to_midiplaylist</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -2203,7 +2351,11 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">char*</span></td><td class="decl"><span class="functionname"><abbr title="char const* (ARDOUR::Plugin::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>LuaTable</em>(<span class="em">unsigned int</span>, ...)</td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::Plugin::*)(unsigned int, bool&amp;) const">nth_parameter</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>, <span class="em">bool&amp;</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::Plugin::*)() const">parameter_count</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Plugin::*)(unsigned int) const">parameter_is_audio</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Plugin::*)(unsigned int) const">parameter_is_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Plugin::*)(unsigned int) const">parameter_is_input</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Plugin::*)(unsigned int) const">parameter_is_output</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Plugin::*)(unsigned int) const">parameter_label</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:PresetRecord">PresetRecord</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Plugin::PresetRecord const* (ARDOUR::Plugin::*)(std::string const&amp;)">preset_by_label</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:PresetRecord">PresetRecord</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Plugin::PresetRecord const* (ARDOUR::Plugin::*)(std::string const&amp;)">preset_by_uri</abbr></span><span class="functionargs"> (<span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Plugin::*)() const">unique_id</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -2328,7 +2480,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:SideChain">SideChain</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::SideChain (ARDOUR::Processor::*)()">to_sidechain</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:UnknownProcessor">UnknownProcessor</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::UnknownProcessor (ARDOUR::Processor::*)()">to_unknownprocessor</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -2470,7 +2622,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  </table>
 <h3 id="ARDOUR:Processor" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:Processor</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; ARDOUR::Processor &gt;, boost::weak_ptr&lt; ARDOUR::Processor &gt;</p>
- <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObject">ARDOUR:SessionObject</a></p>
+ <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObjectPtr">ARDOUR:SessionObjectPtr</a></p>
 <div class="clear"></div>
 <div class="classdox"><p class="para-brief"> A mixer strip element - plugin, send, meter, etc </p></div>
 <table class="classmembers">
@@ -2495,7 +2647,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:SideChain">SideChain</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::SideChain (ARDOUR::Processor::*)()">to_sidechain</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:UnknownProcessor">UnknownProcessor</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::UnknownProcessor (ARDOUR::Processor::*)()">to_unknownprocessor</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -2581,7 +2733,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  </table>
 <h3 id="ARDOUR:Region" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:Region</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; ARDOUR::Region &gt;, boost::weak_ptr&lt; ARDOUR::Region &gt;</p>
- <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObject">ARDOUR:SessionObject</a></p>
+ <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObjectPtr">ARDOUR:SessionObjectPtr</a></p>
 <div class="clear"></div>
 <div class="classdox"><p class="para-brief"> A named object associated with a Session. Objects derived from this class are    expected to be destroyed before the session calls drop_references().</p></div>
 <table class="classmembers">
@@ -2591,11 +2743,13 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">can_move</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">captured</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)()">clear_sync_position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#Evoral:Control">Control</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;Evoral::Control&gt; (ARDOUR::Region::*)(Evoral::Parameter const&amp;, bool)">control</abbr></span><span class="functionargs"> (<a class="" href="#Evoral:Parameter">Parameter</a>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)(long) const">covers</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">cut_end</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">cut_front</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:DataType">DataType</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::DataType const&amp; (ARDOUR::Region::*)() const">data_type</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">external</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">has_transients</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">hidden</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">import</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Region::*)() const">is_compound</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -2640,6 +2794,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><em>LuaTable</em>(<span class="em">long</span>, ...)</td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Region::*)(int&amp;) const">sync_offset</abbr></span><span class="functionargs"> (<span class="em">int&amp;</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Region::*)() const">sync_position</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  Sync position in session time </p></div></div></td></tr>
+ <tr><td class="def"><a class="" href="#C:Int64List">Int64List</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;long &gt; (ARDOUR::Region::*)()">transients</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">trim_end</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, int)">trim_front</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Region::*)(long, long, int)">trim_to</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
@@ -2650,7 +2805,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:MidiRegion">MidiRegion</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MidiRegion (ARDOUR::Region::*)()">to_midiregion</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Readable">Readable</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Readable (ARDOUR::Region::*)()">to_readable</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -2755,7 +2910,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_makeup_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_mode_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Stripable::*)(unsigned int) const">comp_mode_name</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_redux_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">--MISSING (boost::shared_ptr&lt;ARDOUR::ReadOnlyControl&gt;)--</span></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::ReadOnlyControl&gt; (ARDOUR::Stripable::*)() const">comp_redux_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_speed_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Stripable::*)(unsigned int) const">comp_speed_name</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_threshold_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -2764,9 +2919,11 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">eq_enable_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_freq_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_gain_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">eq_hpf_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_q_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_shape_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_enable_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_freq_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_slope_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:GainControl">GainControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::GainControl&gt; (ARDOUR::Stripable::*)() const">gain_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Stripable::*)() const">is_auditioner</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Stripable::*)() const">is_hidden</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -2796,7 +2953,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><th colspan="3">Cast</th></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Route">Route</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Route (ARDOUR::Stripable::*)()">to_route</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -2814,6 +2971,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  </table>
 <h3 id="ARDOUR:RouteGroup" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:RouteGroup</h3>
 <p class="cdecl"><em>C&#8225;</em>: ARDOUR::RouteGroup</p>
+ <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObject">ARDOUR:SessionObject</a></p>
 <div class="clear"></div>
 <div class="classdox"><p class="para-brief"> A group identifier for routes.</p><p> RouteGroups permit to define properties which are shared among all Routes that use the given identifier.</p><p> A route can at most be in one group.</p></div>
 <table class="classmembers">
@@ -2838,6 +2996,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RouteGroup::*)() const">is_solo</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool, ARDOUR::Placement)">make_subgroup</abbr></span><span class="functionargs"> (<span class="em">bool</span>, <a class="" href="#ARDOUR.Placement">Placement</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (ARDOUR::RouteGroup::*)(boost::shared_ptr&lt;ARDOUR::Route&gt;)">remove</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:Route">Route</a>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (ARDOUR::RouteGroup::*)() const">rgba</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:RouteListPtr">RouteListPtr</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;std::list&lt;boost::shared_ptr&lt;ARDOUR::Route&gt; &gt; &gt; (ARDOUR::RouteGroup::*)()">route_list</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool, void*)">set_active</abbr></span><span class="functionargs"> (<span class="em">bool</span>, <span class="em">void*</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool)">set_color</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
@@ -2847,11 +3006,20 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool)">set_mute</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool)">set_recenable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool, void*)">set_relative</abbr></span><span class="functionargs"> (<span class="em">bool</span>, <span class="em">void*</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(unsigned int)">set_rgba</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> set route-group color and notify UI about change </p></div></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool)">set_route_active</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool)">set_select</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::RouteGroup::*)(bool)">set_solo</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (ARDOUR::RouteGroup::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
+<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Cast</th></tr>
+ <tr><td class="def"><a class="" href="#PBD:Stateful">Stateful</a></td><td class="decl"><span class="functionname"><abbr title="PBD::Stateful (ARDOUR::SessionObject::*)()">to_stateful</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+</table>
 <h3 id="ARDOUR:RouteGroupList" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:RouteGroupList</h3>
 <p class="cdecl"><em>C&#8225;</em>: std::list&lt;ARDOUR::RouteGroup* &gt;</p>
 <div class="clear"></div>
@@ -2922,6 +3090,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Session::*)() const">current_end_frame</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Session::*)() const">current_start_frame</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)(bool, bool)">disable_record</abbr></span><span class="functionargs"> (<span class="em">bool</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Session::*)() const">end_is_free</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AudioEngine">AudioEngine</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::AudioEngine&amp; (ARDOUR::Session::*)()">engine</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Session::*)(boost::shared_ptr&lt;std::list&lt;boost::shared_ptr&lt;ARDOUR::Route&gt; &gt; &gt;, std::string const&amp;)">export_track_state</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:RouteListPtr">RouteListPtr</a>, <span class="em">std::string</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Session::*)() const">frame_rate</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -2971,6 +3140,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)(boost::shared_ptr&lt;ARDOUR::AutomationControl&gt;, double, PBD::Controllable::GroupControlDisposition)">set_control</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:AutomationControl">AutomationControl</a>, <span class="em">double</span>, <a class="" href="#PBD.Controllable.GroupControlDisposition">GroupControlDisposition</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)(boost::shared_ptr&lt;std::list&lt;boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; &gt; &gt;, double, PBD::Controllable::GroupControlDisposition)">set_controls</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:ControlListPtr">ControlListPtr</a>, <span class="em">double</span>, <a class="" href="#PBD.Controllable.GroupControlDisposition">GroupControlDisposition</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)()">set_dirty</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)(bool)">set_end_is_free</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)(boost::shared_ptr&lt;std::list&lt;boost::shared_ptr&lt;ARDOUR::Route&gt; &gt; &gt;, bool, bool)">set_exclusive_input_active</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR:RouteListPtr">RouteListPtr</a>, <span class="em">bool</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Session::*)() const">snap_name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Session::*)() const">solo_isolated</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -3164,7 +3334,17 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#PBD:ID">ID</a></td><td class="decl"><span class="functionname"><abbr title="PBD::ID const&amp; (PBD::Stateful::*)() const">id</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:OwnedPropertyList">OwnedPropertyList</a></td><td class="decl"><span class="functionname"><abbr title="PBD::OwnedPropertyList const&amp; (PBD::Stateful::*)() const">properties</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h3 id="ARDOUR:SessionObject" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:SessionObject</h3>
+<h3 id="ARDOUR:SessionObject" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;ARDOUR:SessionObject</h3>
+<p class="cdecl"><em>C&#8225;</em>: ARDOUR::SessionObject</p>
+<div class="clear"></div>
+<div class="classdox"><p class="para-brief"> A named object associated with a Session. Objects derived from this class are    expected to be destroyed before the session calls drop_references().</p></div>
+<table class="classmembers">
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Cast</th></tr>
+ <tr><td class="def"><a class="" href="#PBD:Stateful">Stateful</a></td><td class="decl"><span class="functionname"><abbr title="PBD::Stateful (ARDOUR::SessionObject::*)()">to_stateful</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ </table>
+<h3 id="ARDOUR:SessionObjectPtr" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:SessionObjectPtr</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; ARDOUR::SessionObject &gt;, boost::weak_ptr&lt; ARDOUR::SessionObject &gt;</p>
 <div class="clear"></div>
 <div class="classdox"><p class="para-brief"> A named object associated with a Session. Objects derived from this class are    expected to be destroyed before the session calls drop_references().</p></div>
@@ -3215,7 +3395,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:SideChain">SideChain</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::SideChain (ARDOUR::Processor::*)()">to_sidechain</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:UnknownProcessor">UnknownProcessor</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::UnknownProcessor (ARDOUR::Processor::*)()">to_unknownprocessor</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -3431,7 +3611,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 </table>
 <h3 id="ARDOUR:Source" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:Source</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; ARDOUR::Source &gt;, boost::weak_ptr&lt; ARDOUR::Source &gt;</p>
- <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObject">ARDOUR:SessionObject</a></p>
+ <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObjectPtr">ARDOUR:SessionObjectPtr</a></p>
 <div class="clear"></div>
 <div class="classdox"><p class="para-brief"> A named object associated with a Session. Objects derived from this class are    expected to be destroyed before the session calls drop_references().</p></div>
 <table class="classmembers">
@@ -3451,9 +3631,10 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Source::*)() const">writable</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><th colspan="3">Cast</th></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AudioSource">AudioSource</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::AudioSource (ARDOUR::Source::*)()">to_audiosource</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:FileSource">FileSource</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::FileSource (ARDOUR::Source::*)()">to_filesource</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MidiSource">MidiSource</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MidiSource (ARDOUR::Source::*)()">to_midisource</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -3479,7 +3660,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  </table>
 <h3 id="ARDOUR:Stripable" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;ARDOUR:Stripable</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; ARDOUR::Stripable &gt;, boost::weak_ptr&lt; ARDOUR::Stripable &gt;</p>
- <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObject">ARDOUR:SessionObject</a></p>
+ <p class="classinfo">is-a: <a class="" href="#ARDOUR:SessionObjectPtr">ARDOUR:SessionObjectPtr</a></p>
 <div class="clear"></div>
 <div class="classdox"><p class="para-brief"> A named object associated with a Session. Objects derived from this class are    expected to be destroyed before the session calls drop_references().</p></div>
 <table class="classmembers">
@@ -3488,7 +3669,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_makeup_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_mode_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Stripable::*)(unsigned int) const">comp_mode_name</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_redux_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">--MISSING (boost::shared_ptr&lt;ARDOUR::ReadOnlyControl&gt;)--</span></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::ReadOnlyControl&gt; (ARDOUR::Stripable::*)() const">comp_redux_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_speed_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Stripable::*)(unsigned int) const">comp_speed_name</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_threshold_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -3497,9 +3678,11 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">eq_enable_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_freq_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_gain_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">eq_hpf_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_q_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_shape_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_enable_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_freq_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_slope_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:GainControl">GainControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::GainControl&gt; (ARDOUR::Stripable::*)() const">gain_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Stripable::*)() const">is_auditioner</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Stripable::*)() const">is_hidden</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -3530,7 +3713,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><th colspan="3">Cast</th></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Route">Route</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Route (ARDOUR::Stripable::*)()">to_route</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -3566,6 +3749,10 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Returns the BBT time corresponding to the supplied frame position. </p><dl><dt class="param-name-index-0">frame</dt><dd class="param-descr-index-0"> the position in audio samples. </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  the BBT time at the frame position .</p></div></div></td></tr>
  <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::TempoMap::*)(long const&amp;, int) const">exact_beat_at_frame</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::TempoMap::*)(long const&amp;, int) const">exact_qn_at_frame</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::TempoMap::*)(long, Evoral::Beats) const">framepos_plus_qn</abbr></span><span class="functionargs"> (<span class="em">long</span>, <a class="" href="#Evoral:Beats">Beats</a>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Add some (fractional) Beats to a session frame position, and return the result in frames.  pos can be -ve, if required.</p></div></td></tr>
+ <tr><td class="def"><a class="" href="#Evoral:Beats">Beats</a></td><td class="decl"><span class="functionname"><abbr title="Evoral::Beats (ARDOUR::TempoMap::*)(long, long) const">framewalk_to_qn</abbr></span><span class="functionargs"> (<span class="em">long</span>, <span class="em">long</span>)</span></td><td class="fill"></td></tr>
+<tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> Count the number of beats that are equivalent to distance when going forward,    starting at pos.</p></div></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MeterSection">MeterSection</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MeterSection const&amp; (ARDOUR::TempoMap::*)(double) const">meter_section_at_beat</abbr></span><span class="functionargs"> (<span class="em">double</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:MeterSection">MeterSection</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::MeterSection const&amp; (ARDOUR::TempoMap::*)(long) const">meter_section_at_frame</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:TempoSection">TempoSection</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::TempoSection&amp; (ARDOUR::TempoMap::*)(long)">tempo_section_at_frame</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
@@ -3660,7 +3847,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_makeup_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_mode_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Stripable::*)(unsigned int) const">comp_mode_name</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_redux_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">--MISSING (boost::shared_ptr&lt;ARDOUR::ReadOnlyControl&gt;)--</span></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::ReadOnlyControl&gt; (ARDOUR::Stripable::*)() const">comp_redux_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_speed_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::Stripable::*)(unsigned int) const">comp_speed_name</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">comp_threshold_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -3669,9 +3856,11 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">eq_enable_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_freq_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_gain_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
- <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)() const">eq_hpf_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_q_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(unsigned int) const">eq_shape_control</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_enable_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_freq_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:AutomationControl">AutomationControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::AutomationControl&gt; (ARDOUR::Stripable::*)(bool) const">filter_slope_controllable</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:GainControl">GainControl</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;ARDOUR::GainControl&gt; (ARDOUR::Stripable::*)() const">gain_control</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Stripable::*)() const">is_auditioner</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::Stripable::*)() const">is_hidden</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -3701,7 +3890,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><th colspan="3">Cast</th></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:Route">Route</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::Route (ARDOUR::Stripable::*)()">to_route</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -3740,7 +3929,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ARDOUR:SideChain">SideChain</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::SideChain (ARDOUR::Processor::*)()">to_sidechain</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:UnknownProcessor">UnknownProcessor</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::UnknownProcessor (ARDOUR::Processor::*)()">to_unknownprocessor</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 </table>
-<h4 class="cls">Inherited from ARDOUR:SessionObject</h4>
+<h4 class="cls">Inherited from ARDOUR:SessionObjectPtr</h4>
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">std::string</span></td><td class="decl"><span class="functionname"><abbr title="std::string (ARDOUR::SessionObject::*)() const">name</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -3879,7 +4068,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#ArdourUI:Selection">Selection</a></td><td class="decl"><span class="functionname"><abbr title="Selection&amp; (PublicEditor::*)() const">get_selection</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>LuaTable</em>(<span class="em">bool</span>, ...)</td><td class="decl"><span class="functionname"><abbr title="bool (PublicEditor::*)(long&amp;, long&amp;) const">get_selection_extents</abbr></span><span class="functionargs"> (<span class="em">long&amp;</span>, <span class="em">long&amp;</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (PublicEditor::*)() const">get_smart_mode</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
- <tr><td class="def"><a class="" href="#ArdourUI:TrackViewList">TrackViewList</a></td><td class="decl"><span class="functionname"><abbr title="TrackViewList const&amp; (PublicEditor::*)()">get_track_views</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ArdourUI:TrackViewList">TrackViewList</a></td><td class="decl"><span class="functionname"><abbr title="TrackViewList const&amp; (PublicEditor::*)() const">get_track_views</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (PublicEditor::*)() const">get_videotl_bar_height</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (PublicEditor::*)() const">get_y_origin</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#Editing.ZoomFocus">ZoomFocus</a></td><td class="decl"><span class="functionname"><abbr title="Editing::ZoomFocus (PublicEditor::*)() const">get_zoom_focus</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -4205,6 +4394,24 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (std::vector&lt;float &gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">table</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
+<h3 id="C:Int64List" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;C:Int64List</h3>
+<p class="cdecl"><em>C&#8225;</em>: std::list&lt;long &gt;</p>
+<div class="clear"></div>
+<table class="classmembers">
+ <tr><th colspan="3">Constructor</th></tr>
+ <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">C.Int64List</span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">add</abbr></span><span class="functionargs"> (<em>LuaTable</em> {<span class="em">long</span>})</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long const&amp; (std::list&lt;long &gt;::*)() const">back</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (std::list&lt;long &gt;::*)() const">empty</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long const&amp; (std::list&lt;long &gt;::*)() const">front</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><em>LuaIter</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">iter</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (std::list&lt;long &gt;::*)(long const&amp;)">push_back</abbr></span><span class="functionargs"> (<span class="em">long</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (std::list&lt;long &gt;::*)()">reverse</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">unsigned long</span></td><td class="decl"><span class="functionname"><abbr title="unsigned long (std::list&lt;long &gt;::*)() const">size</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><em>LuaTable</em></td><td class="decl"><span class="functionname"><abbr title="int (*)(lua_State*) const">table</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (std::list&lt;long &gt;::*)()">unique</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ </table>
 <h3 id="C:IntArray" class="cls array"><abbr title="C Array">&ctdot;</abbr>&nbsp;C:IntArray</h3>
 <p class="cdecl"><em>C&#8225;</em>: int*</p>
 <div class="clear"></div>
@@ -4406,6 +4613,15 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="void (*)()">isnil</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#Evoral:ControlList">ControlList</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;Evoral::ControlList&gt; (Evoral::Control::*)()">list</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
+<h3 id="Evoral:ControlEvent" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;Evoral:ControlEvent</h3>
+<p class="cdecl"><em>C&#8225;</em>: Evoral::ControlEvent</p>
+<div class="clear"></div>
+<div class="classdox"><p class="para-brief"> A single event (time-stamped value) for a control</p></div>
+<table class="classmembers">
+ <tr><th colspan="3">Data Members</th></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname">value</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname">when</span></td><td class="fill"></td></tr>
+ </table>
 <h3 id="Evoral:ControlList" class="cls pointerclass"><abbr title="Pointer Class">&Rarr;</abbr>&nbsp;Evoral:ControlList</h3>
 <p class="cdecl"><em>C&#8225;</em>: boost::shared_ptr&lt; Evoral::ControlList &gt;, boost::weak_ptr&lt; Evoral::ControlList &gt;</p>
 <div class="clear"></div>
@@ -4416,8 +4632,10 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> add automation events </p><dl><dt class="param-name-index-0">when</dt><dd class="param-descr-index-0"> absolute time in samples </dd><dt class="param-name-index-1">value</dt><dd class="param-descr-index-1"> parameter value </dd><dt class="param-name-index-2">with_guards</dt><dd class="param-descr-index-2"> if true, add guard-points </dd><dt class="param-name-index-3">with_initial</dt><dd class="param-descr-index-3"> if true, add an initial point if the list is empty</dd></dl></div></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::ControlList::*)(double, double)">clear</abbr></span><span class="functionargs"> (<span class="em">double</span>, <span class="em">double</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> remove all automation events between the given time range </p><dl><dt class="param-name-index-0">start</dt><dd class="param-descr-index-0"> start of range (inclusive) in audio samples </dd><dt class="param-name-index-1">end</dt><dd class="param-descr-index-1"> end of range (inclusive) in audio samples</dd></dl></div></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (Evoral::ControlList::*)()">clear_list</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (Evoral::ControlList::*)(double)">eval</abbr></span><span class="functionargs"> (<span class="em">double</span>)</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> query value at given time (takes a read-lock, not safe while writing automation) </p><dl><dt class="param-name-index-0">where</dt><dd class="param-descr-index-0"> absolute time in samples </dd></dl><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  parameter value</p></div></div></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR:EventList">EventList</a></td><td class="decl"><span class="functionname"><abbr title="std::list&lt;Evoral::ControlEvent* &gt; const&amp; (Evoral::ControlList::*)() const">events</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (Evoral::ControlList::*)() const">in_write_pass</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#Evoral.ControlList.InterpolationStyle">InterpolationStyle</a></td><td class="decl"><span class="functionname"><abbr title="Evoral::ControlList::InterpolationStyle (Evoral::ControlList::*)() const">interpolation</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
 <tr><td></td><td class="doc" colspan="2"><div class="dox"><p class="para-brief"> query interpolation style of the automation data </p><div class="result-discussion"><p class="para-returns"><span class="word-returns">Returns</span>  Interpolation Style</p></div></div></td></tr>
@@ -4514,6 +4732,24 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <table class="classmembers">
  <tr><th colspan="3">Methods</th></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="void (*)()">isnil</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ </table>
+<h3 id="LuaDialog:Dialog" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;LuaDialog:Dialog</h3>
+<p class="cdecl"><em>C&#8225;</em>: LuaDialog::Dialog</p>
+<div class="clear"></div>
+<table class="classmembers">
+ <tr><th colspan="3">Constructor</th></tr>
+ <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">LuaDialog.Dialog</span><span class="functionargs"> (<span class="em">std::string</span>, <span>Lua-Function</span>)</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><em>...</em></td><td class="decl"><span class="functionname"><abbr title="int (LuaDialog::Dialog::*)(lua_State*)">run</abbr></span><span class="functionargs"> (<span class="em">--lua--</span>)</span></td><td class="fill"></td></tr>
+ </table>
+<h3 id="LuaDialog:Message" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;LuaDialog:Message</h3>
+<p class="cdecl"><em>C&#8225;</em>: LuaDialog::Message</p>
+<div class="clear"></div>
+<table class="classmembers">
+ <tr><th colspan="3">Constructor</th></tr>
+ <tr><td class="def">&Copf;</td><td class="decl"><span class="functionname">LuaDialog.Message</span><span class="functionargs"> (<span class="em">std::string</span>, <span class="em">std::string</span>, <a class="" href="#LuaDialog.Message.MessageType">MessageType</a>, <a class="" href="#LuaDialog.Message.ButtonType">ButtonType</a>)</span></td><td class="fill"></td></tr>
+ <tr><th colspan="3">Methods</th></tr>
+ <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (LuaDialog::Message::*)()">run</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  </table>
 <h3 id="LuaSignal:Set" class="cls class"><abbr title="Class">&comp;</abbr>&nbsp;LuaSignal:Set</h3>
 <p class="cdecl"><em>C&#8225;</em>: std::bitset&lt;47ul&gt;</p>
@@ -5101,7 +5337,6 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li class="const">ARDOUR.PresentationInfo.Flag.MasterOut</li>
 <li class="const">ARDOUR.PresentationInfo.Flag.MonitorOut</li>
 <li class="const">ARDOUR.PresentationInfo.Flag.Auditioner</li>
-<li class="const">ARDOUR.PresentationInfo.Flag.Selected</li>
 <li class="const">ARDOUR.PresentationInfo.Flag.Hidden</li>
 <li class="const">ARDOUR.PresentationInfo.Flag.GroupOrderSet</li>
 <li class="const">ARDOUR.PresentationInfo.Flag.StatusMask</li>
@@ -5328,6 +5563,30 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li class="const">Cairo.WrapMode.Char</li>
 <li class="const">Cairo.WrapMode.WordChar</li>
 </ul>
+<h3 id="LuaDialog.Message.MessageType" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;LuaDialog.Message.MessageType</h3>
+<ul class="enum">
+<li class="const">LuaDialog.MessageType.Info</li>
+<li class="const">LuaDialog.MessageType.Warning</li>
+<li class="const">LuaDialog.MessageType.Question</li>
+<li class="const">LuaDialog.MessageType.Error</li>
+</ul>
+<h3 id="LuaDialog.Message.ButtonType" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;LuaDialog.Message.ButtonType</h3>
+<ul class="enum">
+<li class="const">LuaDialog.ButtonType.OK</li>
+<li class="const">LuaDialog.ButtonType.Close</li>
+<li class="const">LuaDialog.ButtonType.Cancel</li>
+<li class="const">LuaDialog.ButtonType.Yes_No</li>
+<li class="const">LuaDialog.ButtonType.OK_Cancel</li>
+</ul>
+<h3 id="LuaDialog.Response" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;LuaDialog.Response</h3>
+<ul class="enum">
+<li class="const">LuaDialog.Response.OK</li>
+<li class="const">LuaDialog.Response.Cancel</li>
+<li class="const">LuaDialog.Response.Close</li>
+<li class="const">LuaDialog.Response.Yes</li>
+<li class="const">LuaDialog.Response.No</li>
+<li class="const">LuaDialog.Response.None</li>
+</ul>
 <h3 id="LuaSignal.LuaSignal" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;LuaSignal.LuaSignal</h3>
 <ul class="enum">
 <li class="const">LuaSignal.ConfigChanged</li>
@@ -5505,6 +5764,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#ARDOUR:AutomationControl">ARDOUR:AutomationControl</a></li>
 <li><a class="" href="#ARDOUR:AutomationList">ARDOUR:AutomationList</a></li>
 <li><a class="" href="#ARDOUR:BackendVector">ARDOUR:BackendVector</a></li>
+<li><a class="" href="#ARDOUR:BeatsFramesConverter">ARDOUR:BeatsFramesConverter</a></li>
 <li><a class="" href="#ARDOUR:BufferSet">ARDOUR:BufferSet</a></li>
 <li><a class="" href="#ARDOUR:ChanCount">ARDOUR:ChanCount</a></li>
 <li><a class="" href="#ARDOUR:ChanMapping">ARDOUR:ChanMapping</a></li>
@@ -5519,6 +5779,9 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#ARDOUR:Delivery">ARDOUR:Delivery</a></li>
 <li><a class="" href="#ARDOUR:DeviceStatus">ARDOUR:DeviceStatus</a></li>
 <li><a class="" href="#ARDOUR:DeviceStatusVector">ARDOUR:DeviceStatusVector</a></li>
+<li><a class="" href="#ARDOUR:DoubleBeatsFramesConverter">ARDOUR:DoubleBeatsFramesConverter</a></li>
+<li><a class="" href="#ARDOUR:EventList">ARDOUR:EventList</a></li>
+<li><a class="" href="#ARDOUR:FileSource">ARDOUR:FileSource</a></li>
 <li><a class="" href="#ARDOUR:FluidSynth">ARDOUR:FluidSynth</a></li>
 <li><a class="" href="#ARDOUR:GainControl">ARDOUR:GainControl</a></li>
 <li><a class="" href="#ARDOUR:IO">ARDOUR:IO</a></li>
@@ -5548,6 +5811,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#ARDOUR:MonitorProcessor">ARDOUR:MonitorProcessor</a></li>
 <li><a class="" href="#ARDOUR:MusicFrame">ARDOUR:MusicFrame</a></li>
 <li><a class="" href="#ARDOUR:MuteControl">ARDOUR:MuteControl</a></li>
+<li><a class="" href="#ARDOUR:NotePtrList">ARDOUR:NotePtrList</a></li>
 <li><a class="" href="#ARDOUR:OwnedPropertyList">ARDOUR:OwnedPropertyList</a></li>
 <li><a class="" href="#ARDOUR:PannerShell">ARDOUR:PannerShell</a></li>
 <li><a class="" href="#ARDOUR:ParameterDescriptor">ARDOUR:ParameterDescriptor</a></li>
@@ -5590,6 +5854,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#ARDOUR:Session">ARDOUR:Session</a></li>
 <li><a class="" href="#ARDOUR:SessionConfiguration">ARDOUR:SessionConfiguration</a></li>
 <li><a class="" href="#ARDOUR:SessionObject">ARDOUR:SessionObject</a></li>
+<li><a class="" href="#ARDOUR:SessionObjectPtr">ARDOUR:SessionObjectPtr</a></li>
 <li><a class="" href="#ARDOUR:SideChain">ARDOUR:SideChain</a></li>
 <li><a class="" href="#ARDOUR:SlavableAutomationControl,">ARDOUR:SlavableAutomationControl,</a></li>
 <li><a class="" href="#ARDOUR:SoloControl">ARDOUR:SoloControl</a></li>
@@ -5630,6 +5895,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#C:FloatArray">C:FloatArray</a></li>
 <li><a class="" href="#C:FloatArrayVector">C:FloatArrayVector</a></li>
 <li><a class="" href="#C:FloatVector">C:FloatVector</a></li>
+<li><a class="" href="#C:Int64List">C:Int64List</a></li>
 <li><a class="" href="#C:IntArray">C:IntArray</a></li>
 <li><a class="" href="#C:StringList">C:StringList</a></li>
 <li><a class="" href="#C:StringVector">C:StringVector</a></li>
@@ -5638,6 +5904,7 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#Cairo:PangoLayout">Cairo:PangoLayout</a></li>
 <li><a class="" href="#Evoral:Beats">Evoral:Beats</a></li>
 <li><a class="" href="#Evoral:Control">Evoral:Control</a></li>
+<li><a class="" href="#Evoral:ControlEvent">Evoral:ControlEvent</a></li>
 <li><a class="" href="#Evoral:ControlList">Evoral:ControlList</a></li>
 <li><a class="" href="#Evoral:ControlSet">Evoral:ControlSet</a></li>
 <li><a class="" href="#Evoral:Event">Evoral:Event</a></li>
@@ -5646,6 +5913,8 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#Evoral:ParameterDescriptor">Evoral:ParameterDescriptor</a></li>
 <li><a class="" href="#Evoral:Range">Evoral:Range</a></li>
 <li><a class="" href="#Evoral:Sequence">Evoral:Sequence</a></li>
+<li><a class="" href="#LuaDialog:Dialog">LuaDialog:Dialog</a></li>
+<li><a class="" href="#LuaDialog:Message">LuaDialog:Message</a></li>
 <li><a class="" href="#LuaSignal:Set">LuaSignal:Set</a></li>
 <li><a class="" href="#PBD">PBD</a></li>
 <li><a class="" href="#PBD:Command">PBD:Command</a></li>
@@ -5675,6 +5944,6 @@ Pointer Classes cannot be created in lua scripts. It always requires a call to C
 <li><a class="" href="#Vamp:PluginBase:ParameterList">Vamp:PluginBase:ParameterList</a></li>
 <li><a class="" href="#Vamp:RealTime">Vamp:RealTime</a></li>
 </ul>
-<!-- 489 / 2283 !-->
+<!-- 510 / 2397 !-->
 </div>
-<div class="luafooter">Ardour 5.8-155-g51d43c6e1 &nbsp;-&nbsp; Thu, 16 Mar 2017 21:47:44 +0100</div>
+<div class="luafooter">Ardour 5.9 &nbsp;-&nbsp; Mon, 15 May 2017 22:51:18 +0200</div>
