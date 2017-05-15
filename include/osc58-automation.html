@@ -1,6 +1,4 @@
 
-<h3>OSC Automation</h3>
-
 <p>
 	Ardour has automation modes for many of it's controls. As of version
 	5.9, OSC can control what automation mode a fader uses.
@@ -13,7 +11,6 @@
 	<code>/strip/[control]/automation ii ssid mode</code>
 </p>
 
-<p>
 <ul>
 	<li>/strip may also be /select in which case the only parameter is the mode.</li>
 	<li>[control] as of Ardour version 5.9 control can be:
@@ -35,7 +32,7 @@
 		0 to 3 to be used to control mode.
 	</li>
 </ul>
-</p>
+
 <p>
 	The next version of Ardour will add <code>/strip/[control]/automation_name is ssid mode_name</code>
 	as feedback. A surface may choose to use only the first character of the string (M, P, W or T) instead of
