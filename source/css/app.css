@@ -122,6 +122,12 @@ ul.inside li, ol.inside li {
   padding-bottom: .3ex;
 }
 
+#content h2.clear,
+#content h3.clear,
+#content h4.clear {
+	clear:both;
+}
+
 #content h1.title {
   font-size: 1.8em;
   margin: 0 0 2ex 0;
@@ -478,6 +484,15 @@ samp:after {
   display: block;
   margin:1em auto 1em auto;
 	clear: both;
+}
+
+#content img.mini {
+  width:200px;
+}
+
+#content img.mini:hover {
+  width: 100%;
+  transition: width .5s ease;
 }
 
 #content p.center {

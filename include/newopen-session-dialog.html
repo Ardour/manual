@@ -1,51 +1,75 @@
 
 <p>
-  The initial <dfn>Session</dfn> dialog consists of several consecutive pages:
+  The initial <dfn>Session</dfn> dialog, displayed at each start of Ardour, consists
+  of several consecutive pages:
 </p>
 
 <h2>Open Session Page</h2>
+
+<figure class="left">
+  <img class="mini" src="/images/session_setup.png" alt="The Session Setup Dialog">
+  <figcaption>
+    The Session Setup Dialog
+  </figcaption>
+</figure>
+
 <p>
-  On this page, you can open an <dfn>existing session</dfn>.  You can also
-  open any <a href="@@snapshots">snapshot</a> of a
-  particular session by clicking on the arrow next to the session name to
-  display all snapshots, and then selecting one.  If your session is
-  not displayed in the Recent Sessions list, the <kbd class="menu">Other
-  Sessions</kbd> button will bring up a file selection dialog to navigate
-  your hard drive.<br>
-  Alternatively, you can opt to create a <kbd class="menu">New
-  Session</kbd>.
+  On this page, an <dfn>existing session</dfn> can be opened. Any <a href="@@snapshots">snapshot</a>
+  of a particular session can also be accessed by clicking on the arrow next to
+  the session name to display all snapshots, and then selecting one.
+
+</p>
+<p>
+  If the session is not displayed in the Recent Sessions list, the <kbd
+  class="menu">Other Sessions</kbd> button will bring up a file selection dialog
+  to navigate the file system.
+</p>
+<p>
+  Alternatively, a <kbd class="menu">New Session</kbd> can be created.
 </p>
 
-<h2>New Session page</h2>
+<h2 class="clear">New Session page</h2>
+
+<figure class="left">
+  <img class="mini" src="/images/session_new.png" alt="The New Session Dialog">
+  <figcaption>
+    The New Session Dialog
+  </figcaption>
+</figure>
+
 <p>
-  Here you can type in the name of a session, select a folder to save in, and
+  This page allows to type in the name of a session, select a folder to save it in, and
   optionally use an existing <a href="@@session-templates">template</a>.
 </p>
 <p>
-  Under <dfn>Advanced Options</dfn>, you can select whether you wish to create
-  a Master Bus, or a Control Bus, and how many channels you wish either to have.
-  You can also decide whether you want Ardour to automatically connect all inputs
-  to the physical ports of your hardware. Ardour will do so
+  Under <dfn>Advanced Options</dfn>, some fine tuning can be done, like selecting
+  whether Ardour should create a Master Bus, or a Control Bus, and how many channels
+  the output should have.
+</p>
+<p>
+  Other options also decide whether Ardour should automatically connect all inputs
+  to the hardware's physical ports. Ardour will do so
   sequentially and in round-robin fashion, connecting the first track's
-  input to the first input of your hardware and so on. When Ardour has used
+  input to the first input of the hardware and so on. When Ardour has used
   all available hardware inputs, it will begin again with the first physical
   input.
-  You can limit the number of channels on your physical hardware that Ardour
-  uses.
+</p>
+<p>
+  The number of hardware channels used by Ardour can also be limited.
 </p>
 <p>
   By default Ardour will connect all tracks and busses to the Master Bus if
-  there is one. However you can also tell it to automatically connect each
-  output to the physical outputs of your interface or sound card, and limit
+  there is one. However, it can also be told to automatically connect each
+  output to the physical outputs of the interface or sound card, and limit
   the number of physical outputs used, as above.
 </p>
 
-<h2>Audio/MIDI Setup</h2>
+<h2 class="clear">Audio/MIDI Setup</h2>
 
-<figure>
-  <img src="/images/Audio-MIDI_Setup.png" alt="The Audio+MIDI Setup Dialog"/>
+<figure class="left">
+  <img class="mini" src="/images/Audio-MIDI_Setup.png" alt="The Audio/MIDI Setup Dialog"/>
   <figcaption>
-    The Audio+MIDI Setup Dialog
+    The Audio/MIDI Setup Dialog
   </figcaption>
 </figure>
 
@@ -67,46 +91,44 @@
     this will be either <kbd class="menu"><abbr title="Free Firewire Audio Driver fOr
     linux">FFADO</abbr></kbd>
     or <kbd class="menu"><abbr title="Advanced Linux Sound
-    Architecture">ALSA</abbr></kbd>, depending on whether or not you are
-    utilizing a firewire device. Advanced users on all platforms may also
+    Architecture">ALSA</abbr></kbd>, depending on whether or not a firewire device
+    is used. Advanced users on all platforms may also
     use <kbd class="menu">NetJack</kbd> which provides network audio I/O.
   </td></tr>
   <tr><th>Device</th>
   <td>The selector should show all availiable interfaces provided by the
   driver above and which are capable of duplex operation.
   <p class="warning">
-    If you are using an Intel Mac running OS X and the builtin audio
-    interface, you must
-    first <a href="@@using-more-than-one-audio-device">merge
-    its separate input and output devices into a single "aggregate
-    device"</a> before Ardour will be able to use it.
+    When using an Intel Mac running OS X and the builtin audio
+    interface, its separate input and output devices must be <a href="@@using-more-than-one-audio-device">
+    merged</a> first into a single "aggregate device" before Ardour will be able
+    to use it.
    </p>
   </td></tr>
   <tr><th>Sample Rate</th>
   <td>
-    The selector will allow you to select from any sample rate
-    supported by the device selected above it.
+    The selector will allow to select from any sample rate supported by the device
+    selected above it.
   </td></tr>
   <tr><th>Buffer Size</th>
   <td>
-    You can adjust the size of the buffer used by your audio interface
+    The size of the buffer used by the audio interface can be adjusted
     to allow for either lower latency, or lower CPU usage and higher
     latency.
   </td></tr>
   <tr><th>Input/Output Channels</th>
   <td>
-    Here you can specify the number of hardware channels to use. The
+    Specifies the number of hardware channels to use. The
     default is <kbd class="menu">all available channels</kbd>.</td></tr>
   <tr><th>Hardware Input/Output Latency</th>
   <td>Specify the hardware delay in samples for precise latency compensation.</td></tr>
   <tr><th>Calibrate</th>
   <td>
-    This button guides you through a semi-automated process to obtain
+    This button runs a semi-automated guided process to obtain
     precise hardware latency measurements for the above option.</td></tr>
   <tr><th>MIDI System</th>
   <td>
-    Select the MIDI driver to use. On Mac OS X, this will be <kbd
-    class="menu">CoreMIDI</kbd>. On Linux, you can change between two legacy
+    Selects the MIDI driver to use. On Mac OS X, this will be <kbd
+    class="menu">CoreMIDI</kbd>. On Linux, it can be changed between two legacy
     ALSA drivers or the (preferred) new JACK+ALSA implementation.</td></tr>
 </table>
-
