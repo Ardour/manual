@@ -23,6 +23,7 @@ import argparse
 cleanString = re.compile(r'[^a-zA-Z0-9 \._-]+')
 # This matches new 'unbreakable' links, up to the closing quote or anchor
 findLinks = re.compile(r'@@[^#"]*')
+githuburl = 'https://github.com/Ardour/manual/edit/master/include/'
 
 #
 # Create an all lowercase filename without special characters and with spaces
@@ -468,6 +469,7 @@ for header in fileStruct:
 	pLink = ''
 	uLink = ''
 
+
 	if pageNumber > 0:
 		pLink = '<li><a title="' + fileStruct[pageNumber - 1]['title'] + '" href="/' + fileStruct[pageNumber - 1]['filename'] + '/" class="previous"> &larr; Previous </a></li>'
 
@@ -479,7 +481,7 @@ for header in fileStruct:
 	else:
 		uLink = '<li><a title="Ardour Table of Contents" href="/toc/index.html" class="active"> &uarr; Up </a></li>'
 
-	prevnext = '<ul class=pager>' + pLink + uLink + nLink + '</ul>'
+	prevnext = '<ul class="pager">' + pLink + uLink + nLink + '</ul>'
 
 	# Make the BreadCrumbs
 	breadcrumbs = GetBreadCrumbs(fileStruct, pageNumber)
@@ -491,9 +493,11 @@ for header in fileStruct:
 	# Chapters, subchapters, sections & subsections can all have content,
 	# but the basic fundamental organizing unit WRT content is still the
 	# chapter.
+	githublink = ''
 	if level > 0:
 		if 'include' in header:
 			srcFile = open('include/' + header['include'])
+			githublink = '<div style="float:right;"><a title="Edit in GitHub" href="' + githuburl + header['include'] + '"><img src="/images/github.png"></a></div>'
 			content = srcFile.read()
 			srcFile.close()
 
@@ -534,6 +538,7 @@ for header in fileStruct:
 	page = page.replace('{{ page.title }}', header['title'])
 	page = page.replace('{% tree %}', sidebar)
 	page = page.replace('{% prevnext %}', prevnext)
+	page = page.replace('{% githublink %}', githublink)
 	page = page.replace('{% breadcrumbs %}', breadcrumbs)
 	page = page.replace('{{ content }}', content + more)
 
