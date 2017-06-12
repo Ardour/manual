@@ -48,16 +48,16 @@
 	<div class="span12" id="content">
     {% breadcrumbs %}
 		<div id="content-main">
-		<h1 class="title">{{ page.title }}</h1>
+			{% githubedit %}
+			<h1 class="title">{{ page.title }}</h1>
 
-{{ content }}
-{% githublink %}
-{% prevnext %}
-
+			{{ content }}
+			{% prevnext %}
 
 		</div>
 	</div>
 </div></div>
+
 
 <script type="text/javascript">
 // I'll go to hell for this

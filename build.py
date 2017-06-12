@@ -464,17 +464,16 @@ for header in fileStruct:
 
 	parent = GetParent(fileStruct, pageNumber)
 
-	# Make the 'Previous' & 'Next' content
+	# Make the 'Previous', 'Up' & 'Next' content
 	nLink = ''
 	pLink = ''
 	uLink = ''
 
-
 	if pageNumber > 0:
-		pLink = '<li><a title="' + fileStruct[pageNumber - 1]['title'] + '" href="/' + fileStruct[pageNumber - 1]['filename'] + '/" class="previous"> &larr; Previous </a></li>'
+		pLink = '<li class="previous"><a title="' + fileStruct[pageNumber - 1]['title'] + '" href="/' + fileStruct[pageNumber - 1]['filename'] + '/" class="previous"> &larr; Previous </a></li>'
 
 	if pageNumber < len(fileStruct) - 1:
-		nLink = '<li><a title="' + fileStruct[pageNumber + 1]['title'] + '" href="/' + fileStruct[pageNumber + 1]['filename'] + '/" class="next"> Next &rarr; </a></li>'
+		nLink = '<li class="next"><a title="' + fileStruct[pageNumber + 1]['title'] + '" href="/' + fileStruct[pageNumber + 1]['filename'] + '/" class="next"> Next &rarr; </a></li>'
 
 	if level > 0:
 		uLink = '<li><a title="' + fileStruct[parent]['title'] + '" href="/' + fileStruct[parent]['filename'] + '/" class="active"> &uarr; Up </a></li>'
@@ -493,11 +492,11 @@ for header in fileStruct:
 	# Chapters, subchapters, sections & subsections can all have content,
 	# but the basic fundamental organizing unit WRT content is still the
 	# chapter.
-	githublink = ''
+	githubedit = ''
 	if level > 0:
 		if 'include' in header:
 			srcFile = open('include/' + header['include'])
-			githublink = '<div style="float:right;"><a title="Edit in GitHub" href="' + githuburl + header['include'] + '"><img src="/images/github.png"></a></div>'
+			githubedit = '<span style="float:right;"><a title="Edit in GitHub" href="' + githuburl + header['include'] + '"><img src="/images/github.png"></a></span>'
 			content = srcFile.read()
 			srcFile.close()
 
@@ -538,7 +537,7 @@ for header in fileStruct:
 	page = page.replace('{{ page.title }}', header['title'])
 	page = page.replace('{% tree %}', sidebar)
 	page = page.replace('{% prevnext %}', prevnext)
-	page = page.replace('{% githublink %}', githublink)
+	page = page.replace('{% githubedit %}', githubedit)
 	page = page.replace('{% breadcrumbs %}', breadcrumbs)
 	page = page.replace('{{ content }}', content + more)
 
@@ -563,6 +562,7 @@ page = page.replace('{{ page.title }}', 'Ardour Table of Contents')
 page = page.replace('{% tree %}', sidebar)
 page = page.replace('{{ content }}', toc)
 page = page.replace('{% prevnext %}', '')
+page = page.replace('{% githubedit %}', '')
 page = page.replace('{% breadcrumbs %}', '')
 
 os.mkdir(siteDir + 'toc', 0o775)
