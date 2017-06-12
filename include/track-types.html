@@ -16,9 +16,8 @@
   would turn MIDI data into audio data.
 </p>
 <p>
-  Nevertheless, when adding tracks to a session, you typically have an idea
-  of what you need to use the new tracks for, and Ardour offers you three
-  choices:
+  Nevertheless, when adding tracks to a session, its content is typically
+  known, and Ardour offers three choices:
 </p>
 <table class="dl">
   <tr><th>Audio</th>
@@ -34,16 +33,16 @@
   of a MIDI track: add an instrument plugin to the track, connect the
   track to a software synthesizer, or connect it to external MIDI hardware.
   <p class="note">
-    If you add an instrument plugin, the MIDI track outputs audio alongside
+    If an instrument plugin is added, the MIDI track outputs audio alongside
     MIDI data.
   </p></td></tr>
   <tr><th>Audio/MIDI</th>
   <td>There are a few notable plugins that can usefully accept both <dfn>Audio
   and MIDI</dfn> data (Reaktor is one, and various "auto-tune" like plugins
-  are another).  It can be tricky to configure this type of track manually,
-  so Ardour allows you to select this type specifically for use with such
+  are another). It can be tricky to configure this type of track manually,
+  so Ardour allows to select this type specifically for use with such
   plugins. It is <em>not</em> generally the right choice when working normal
-  MIDI tracks, and a dialog will warn you of this.</td></tr>
+  MIDI tracks, and a dialog will warn of this.</td></tr>
 </table>
 
 <h2 id="trackmodes">Track Modes</h2>
@@ -69,8 +68,8 @@
   </td></tr>
   <tr><th>Tape</th>
   <td><dfn>Tape-mode</dfn> tracks do <strong>destructive</strong> recording:
-  all data is recorded to a single file and if you overdub a section of
-  existing data, the existing data is destroyed irrevocably&mdash;there is no
+  all data is recorded to a single file and if a section of
+  existing data is overdub, the existing data is destroyed irrevocably&mdash;there is no
   undo. Fixed crossfades are added at every punch in and out point. This mode
   can be useful for certain kinds of re-recording workflows, but it not
   suggested for normal
@@ -81,10 +80,14 @@
 <p>
   The screenshot on the right shows the subtle difference between an overdub
   in <dfn>normal mode</dfn> (upper track) and one in <dfn>non-layered mode</dfn>
-  (lower track). Both tracks were created using identical audio data. <br>
+  (lower track). Both tracks were created using identical audio data.
+</p>
+<p>
   The upper track shows a new region which has been <dfn>layered on
-  top</dfn> of the the existing (longer) region. You can see this if you look
-  carefully at the region name strips.<br>
+  top</dfn> of the the existing (longer) region. It can be seen by the region
+  name strips.
+</p>
+<p>
   The lower track has split the existing region in two, trimmed each new
   region to create space for the new overdub, and inserted the overdub region
   in between.
@@ -96,27 +99,31 @@
   number of either can be changed at any time (subject to restrictions caused by
   any plugins in a track). However it is useful to not have to configure this sort
   of thing for the most common cases, and so the
-  <a href="@@adding-tracks-busses-and-vcas">Add Tracks</a> dialog allows you to
-  select "Mono", "Stereo" and few other typical multichannel presets<br>
+  <a href="@@adding-tracks-busses-and-vcas">Add Tracks</a> dialog allows to
+  select "Mono", "Stereo" and few other typical multichannel presets
+</p>
+<p>
   The name of the preset describes the number of <dfn>input channels</dfn>
   of the track or bus.
 </p>
 <p>
-  If you have configured Ardour to automatically connect new tracks and
-  busses for you, the number of outputs will be determined by the number of
+  If Ardour is configured to automatically connect new tracks and
+  busses, the number of outputs will be determined by the number of
   inputs of the <dfn>master <a
   href="@@understanding-basic-concepts-and-terminology#busses">bus</a></dfn>,
-  to which the track outputs will be connected.<br>
-  For example, if you have a two-channel master bus, then a Mono track has one
+  to which the track outputs will be connected.
+</p>
+<p>
+  For example, with a two-channel master bus, a Mono track has one
   input and two outputs; a Stereo track has two inputs and two outputs.
 </p>
 <p class="note">
-  If you you set <kbd class="menu">Edit &gt; Preferences &gt; Audio
-  &gt; Connection of Tracks and Busses</kbd> to <kbd
+  If <kbd class="menu">Edit &gt; Preferences &gt; Audio
+  &gt; Connection of Tracks and Busses</kbd> is set to <kbd
   class="menu">manual</kbd>, then tracks will be left disconnected by default
-  and there will be as many outputs as there are inputs. It is up to you to connect
-  them as you wish. This is not a particularly useful way to work unless you are doing
-  something fairly unusual with signal routing and processing. It is almost always
-  preferable to leave Ardour to make connections automatically, even if you later
-  change some of them manually.
+  and there will be as many outputs as there are inputs. It is up to the user to connect
+  them as desired. This is not a particularly useful way to work unless something
+  fairly unusual is done with signal routing and processing. It is almost always
+  preferable to leave Ardour make connections automatically, even if some changes
+  are manually done later.
 </p>

@@ -952,14 +952,6 @@ part: subchapter
 ---
 
 ---
-title: Selecting Tracks
-include: selecting-tracks.html
-link: selecting-tracks
-uri: working-with-tracks/selecting-tracks
-part: subchapter
----
-
----
 title: Controlling Track Ordering
 include: controlling-track-ordering.html
 link: controlling-track-ordering
