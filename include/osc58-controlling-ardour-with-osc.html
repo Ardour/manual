@@ -79,10 +79,12 @@ here</em>"/&gt;</kbd>
 </p>
 <p>If /set_surface is not sent, the default values are used:
   <ul>
-	  <li><em>Bank Size</em>: 0&mdash;No banking (or infinite bank size).</li>
-	  <li><em>Strip Types</em>: All strip types except hidden and special.</li>
-	  <li><em>Feedback</em>: 0&mdash;All off.</li>
-	  <li><em>Fader Mode</em>: 0&mdash;gain in dB (not relevant with feedback off)</li>
+	  <li><em>Bank Size</em>: 0&mdash; No banking (or infinite bank size).</li>
+	  <li><em>Strip Types</em>: 0&mdash; All strip types except hidden and special.</li>
+	  <li><em>Feedback</em>: 0&mdash; All off.</li>
+	  <li><em>Fader Mode</em>: 0&mdash; gain in dB (not relevant with feedback off)</li>
+	  <li><em>Send Page Size</em>: 0&mdash; No Send Paging.</li>
+	  <li><em>Plugin Page Size</em>: 0&mdash; No Plugin Paging.</li>
   </ul>
 </p>
 <p>
@@ -90,11 +92,18 @@ here</em>"/&gt;</kbd>
 </p>
 <table class="dl">
   <tr><th><kbd class="osc">/set_surface <em>bank_size</em> <em>strip_types</em>
-  <em>feedback</em> <em>fadermode</em></kbd></th>
+  <em>feedback</em> <em>fadermode</em> <em>send_page_size</em> <em>plugin_page_size</em></kbd></th>
   <td>
 	  See below for an explanation of each parameter.
   </td></tr>
 </table>
+<p class="note">
+	The /set_surface message may have all values except the last in-line.
+</p>
+<p class="note">
+	The /set_surface message may have less than the full set of parameters.
+	those left out will remain as they were before.
+</p>
 <h3>bank_size</h3>
 <p>
   Bank Size is the number of channel strips the controller supports
@@ -167,6 +176,24 @@ here</em>"/&gt;</kbd>
 </p>
 <p class="note">
 	Gain mode can also be set with <em>/set_surface/gainmode gainmode.</em>
+</p>
+<h3>send_page_size</h3>
+<p>
+	Send_page_size is an int for the number of send channels that can be controlled
+	at one time. Each channel has a name, level and enable control.
+</p>
+<p class="note">
+	Send page size can also be set with <em>/set_surface/send_page_size send_page_size.</em>
+</p>
+<h3>plugin_page_size</h3>
+<p>
+	plugin_page_size is an int for the number of plugin controls that can be controlled
+	at one time. Each control has a name and level. As each plugin is different (as is each
+	parameter), the surface should expect to control the plugin parameters with a variable
+	control (pot or slider) with a float value from 0 to 1 (even on/off switches).
+</p>
+<p class="note">
+	Plugin page size can also be set with <em>/set_surface/plugin_page_size plugin_page_size.</em>
 </p>
 
 <h2>Querying Ardour for information</h2>
@@ -489,6 +516,12 @@ here</em>"/&gt;</kbd>
   ranging from 0 to 1 representing the desired position for the send as a fader</td></tr>
   <tr><th><kbd class="osc">/select/send_enable", <em>sendid</em> <em>state</em></kbd></th>
   <td>where <em>sendid</em> = nth_send, <em>state</em> is 1 for enabled and 0 for disabled</td></tr>
+  <tr><th><kbd class="osc">/select/send_page", <em>delta</em></kbd></th>
+  <td>where <em>delta</em> is an int or float selecting another send as a delta from the current send.</td></tr>
+  <tr><th><kbd class="osc">/select/plugin_page", <em>delta</em></kbd></th>
+  <td>where <em>delta</em> is an int or float selecting another plugin parameter as a delta from the current parameter.</td></tr>
+  <tr><th><kbd class="osc">/select/plugin/parameter", <em>plugin</em> <em>parameter</em> <em>value</em></kbd></th>
+  <td>where <em>plugin</em> = nth plugin, <em>parameter</em> = nth parameter and <em>value</em> is a float from 0 to 1</td></tr>
 </table>
 
 <h3>Menu actions</h3>
