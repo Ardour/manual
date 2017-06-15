@@ -14,17 +14,60 @@
   specifications that different DAWs support them only partially,
   differently, or not at all.
 </p>
-<h2>Moving an Ardour session to another DAW</h2>
-<p>To move an Ardour session to another DAW, you have 3 basic choices:</p>
+
+<h2>Transfering an Ardour session from / to another DAW</h2>
+
+<p>
+  To move a session from another DAW to Ardour, or from Ardour to another DAW,
+  there are two basic choices:
+</p>
 <ul>
-  <li>Stem exports</li>
-  <li>Copy the interchange folder</li>
-  <li>Use AATranslator</li>
-</ul>
-<h3>Moving another DAW session to Ardour</h3>
-<p>To move a session from another DAW to Ardour, you have 2 basic choices:</p>
-<ul>
-<li>Stem exports</li>
-<li>Use AATranslator</li>
+  <li><a href="@@stem-exports">Stem exports</a></li>
+  <li><a href="#using-aatranslator">Using AATranslator</a></li>
 </ul>
 
+<h2>Importing ProTools&reg; files</h2>
+<p>
+  Ardour provides a basic import tool for ProTools&reg; sessions, in the
+  <kbd class="menu">Session &gt; Import PT Session</kbd> menu.
+</p>
+<p>
+  Though incomplete, this import is intended for ptf and ptx files.
+  Protools&reg; 5, 8, 9, 10, 11 have been tested with varying degrees of success.
+  (versions 6 and 7 are not supported).
+</p>
+<p>
+  The elements of the files that are imported are:
+</p>
+<ul>
+  <li>Audio regions data &amp; position</li>
+  <li>MIDI notes (fused to a unique region).</li>
+</ul>
+
+<h2 id="using-aatranslator">Using AATranslator</h2>
+
+<p>
+  <dfn>AATranslator</dfn> is a Windows application that can convert
+  sessions/projects from many diffferent DAWs into other formats. At the present
+  time (December 2016), it can read and write Ardour 2.X sessions, and can read
+  Ardour 3 sessions.
+</p>
+
+<p> The program runs very well on Linux using <a href="http://www.winehq.org/">Wine</a>
+  (a Windows environment for Linux). There are equivalent solutions for running
+  Windows applications on OS X, but we have no experience with them at this time.
+  Ardour users have reported great results using AATranslator on Ardour 2.X
+  sessions.
+</p>
+
+<p>
+  The <a href="http://www.aatranslator.com.au/">AATranslator website</a> has
+  full details on supported formats and DAWs. The list includes ProTools, Live,
+  Reaper, OMF, AAF and many more.
+</p>
+
+<p class="warning">
+  AATranslator is closed-source, non-free software (as of this writing, June 2017,
+  the cost is 59 USD for the "Standard" version, and 199 USD for the "Enhanced"
+  version).
+</p>

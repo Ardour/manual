@@ -1,57 +1,62 @@
 
 <p>
-  Sometimes you will want to save a <dfn>snapshot</dfn> of the current state of a session for possible
-  use in the future. For example, you may be about to change the entire
-  arrangement of a piece, or drastically alter the signal processing, and
-  want a reference to come back to, should that not work out.
+  A <dfn>snapshot</dfn> is a backup of the current state of a session. It differs
+  from a simple save by allowing branching. It is a "frozen" version of the session
+  at a certain point in time.
 </p>
 <p>
-  This is easily accomplished using <kbd class="menu">Session &gt;
-  Snapshot</kbd>.
-  A small dialog will appear, allowing you to enter a name for the snapshot.
-  The default name is based on the current date and time.<br>
-  You can create any number of snapshots.
+  For example, creating a snapshot before changing the entire arrangement of a
+  piece, or drastically altering the signal processing provides  a reference to
+  come back to, should that not work out.
+</p>
+<p>
+  This is accomplished by using either of the <kbd class="menu">Session &gt;
+  Snapshot</kbd> menus. A small dialog will appear, allowing to enter a name for
+  the snapshot. The default name is based on the current date and time.
+</p>
+
+<p>
+  The difference between the two snapshot menus is:
+</p>
+<table>
+  <tr>
+    <td><kbd class="menu">Snapshot (& keep working on current version)...</kbd></td>
+    <td>Saves a snapshot of the session, but keeps the current session active, i.e. any
+      subsequent <kbd class="menu">Session &gt; Save</kbd> will overwrite the original
+      session, and the snapshot will remain unchanged.</td>
+  </tr>
+  <tr>
+    <td><kbd class="menu">Snapshot (& switch to new version)...</kbd></td>
+    <td>Saves a snapshot of the session, and uses this snapshot as the current
+      active session, i.e. any subsequent <kbd class="menu">Session &gt; Save</kbd>
+      will overwrite the snapshot, and the original session will remain unchanged.</td>
+  </tr>
+</table>
+
+<p>
+  Any number of snapshots can be created.
 </p>
 <p class="warning">
-  Creating a snapshot does <strong>not</strong> modify your session,
-  nor does it save your session. Instead, it saves an alternate version
+  Creating a snapshot does <strong>not</strong> modify the session,
+  nor does it save the session. Instead, it saves an alternate version
   of the session, within the session folder. The snapshot shares all data
   present in the session.
-</p>
-<p>
-  After creating a snapshot, you can continue working on the session and
-  save it normally using <kbd class="menu">Session &gt; Save</kbd> and any
-  existing snapshots will remain unchanged.
 </p>
 
 <h2>Switching to a Snapshot</h2>
 <p>
-  If you are already working on a session and want to to switch to an
-  existing snapshot, navigate the  <a href="@@the-snapshot-list">Snapshot List</a>.
-  Find the name of the snapshot in the list and click it. Ardour will switch
-  to the snapshot. If there are unsaved changes in the  current session, Ardour
-  will ask what you want to do.
+  Switching to an existing snapshot is done by navigating the
+  <a href="@@the-snapshot-list">Snapshot List</a> and clicking the the name of
+  the desired snapshot. Ardour will switch to the snapshot, and, if there are
+  unsaved changes in the current session, offer to save them.
 </p>
 
 <h2>Starting Ardour With a Snapshot</h2>
 <p>
   Since a snapshot is just another session file stored within the session
-  folder, you can specify that "version" when loading an existing session.
+  folder, that "version" can be chosen when loading an existing session.
   The browser in the "Open Session" dialog will show an expander arrow for
-  sessions that have more than 1 session file (i.e. snapshots)
-  present&mdash;click on it to see the list, and then click on the name of the
-  snapshot you want to load.
+  sessions that have more than one session file (i.e. snapshots)
+  present. Clicking on it shows the list, and then clicking on the name of the
+  snapshot loads it.
 </p>
-
-<h2>Saving and Switching to a Snapshot</h2>
-<p>
-  Sometimes you may want to create a snapshot and then have all future
-  edits and modifications saved to that snapshot rather than the main
-  session. This is easily done using <kbd class="menu">Session &gt; Save
-  As</kbd>. This does not create a new session folder,  but saves your
-  session as a new snapshot and then switches the "current snapshot"
-  to the newly created one. All subsequent saves of the session will
-  be stored in this new snapshot, and existing snapshots (and the main
-  session) will be left unaffected.
-</p>
-

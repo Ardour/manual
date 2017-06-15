@@ -1104,22 +1104,6 @@ part: subchapter
 ---
 
 ---
-title: Copying The Interchange Folder
-include: copying-the-interchange-folder.html
-link: copying-the-interchange-folder
-uri: working-with-sessions/interchange-with-other-daws/copying-the-interchange-folder
-part: subchapter
----
-
----
-title: Using AATranslator
-include: using-aatranslator.html
-link: using-aatranslator
-uri: working-with-sessions/interchange-with-other-daws/using-aatranslator
-part: subchapter
----
-
----
 title: Playback & Recording
 uri: recording
 part: part
