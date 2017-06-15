@@ -99,10 +99,19 @@ here</em>"/&gt;</kbd>
 </table>
 <p class="note">
 	The /set_surface message may have all values except the last in-line.
+	For example: <code>/set_surface/8/31/8403/0/8 i 16</code> would be valid.
+	Do be careful of switches which send a 0 on release, it may be necessary
+	to set the value as the release value rather than the press value.
 </p>
 <p class="note">
 	The /set_surface message may have less than the full set of parameters.
-	those left out will remain as they were before.
+	those left out will remain as they were before the /set_surface message was
+	sent. All parameters included must be valid. For example, setting send page
+	size would require also setting bank_size, strip_types, feedback and gain mode.
+	using only two parameters will set bank_size and strip_types. Sending /set_surface with
+	no parameters will result in Ardour returning a /set_surface message with the
+	current settings. Surfaces using /set_surface iiii b st fb gm as was the case
+	in versions of Ardour older than 5.10 will continue to work.
 </p>
 <h3>bank_size</h3>
 <p>
@@ -180,7 +189,7 @@ here</em>"/&gt;</kbd>
 <h3>send_page_size</h3>
 <p>
 	Send_page_size is an int for the number of send channels that can be controlled
-	at one time. Each channel has a name, level and enable control.
+	at one time. Each channel has a name, level and enable control. (added in Ardour 5.10)
 </p>
 <p class="note">
 	Send page size can also be set with <em>/set_surface/send_page_size send_page_size.</em>
@@ -190,7 +199,8 @@ here</em>"/&gt;</kbd>
 	plugin_page_size is an int for the number of plugin controls that can be controlled
 	at one time. Each control has a name and level. As each plugin is different (as is each
 	parameter), the surface should expect to control the plugin parameters with a variable
-	control (pot or slider) with a float value from 0 to 1 (even on/off switches).
+	control (pot or slider) with a float value from 0 to 1 (even on/off switches). (added in
+	Ardour 5.10)
 </p>
 <p class="note">
 	Plugin page size can also be set with <em>/set_surface/plugin_page_size plugin_page_size.</em>
@@ -523,7 +533,12 @@ here</em>"/&gt;</kbd>
   <tr><th><kbd class="osc">/select/plugin/parameter", <em>plugin</em> <em>parameter</em> <em>value</em></kbd></th>
   <td>where <em>plugin</em> = nth plugin, <em>parameter</em> = nth parameter and <em>value</em> is a float from 0 to 1</td></tr>
 </table>
-
+<p class="note">
+	<code>/select/send_page</code> and <code>/select/plugin_page</code> may be used
+	with a page up and page down switch by using a switch with a value of <code>1</code>
+	for page up and a switch with a value of <code>-1</code> for page down. An encoder
+	can be used as well. (these commands were added in Ardour version 5.10)
+</p>
 <h3>Menu actions</h3>
 <p>
   Every single menu item in Ardour's GUI is accessible via OSC. There is
