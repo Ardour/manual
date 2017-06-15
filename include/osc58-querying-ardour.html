@@ -23,6 +23,8 @@
   <td>Asks for a list of plug-ins for strip <em>ssid.</em></td></tr>
   <tr><th><kbd class="osc">/strip/plugin/descriptor <em>ssid</em> <em>piid</em></kbd></th>
   <td>Asks for a list of descriptors for plug-in <em>piid</em> on strip <em>ssid</em></td></tr>
+  <tr><th><kbd class="osc">/set_surface</kbd></th>
+  <td>Ask for the current surface setting. Reply is in the same form as setting the surface would be.</td></tr>
 </table>
 
 <h3>A list of strips</h3>
@@ -166,6 +168,8 @@
 </p>
 <p>
 	While this seems complex, it is really not that bad. Minimum,
-	maximum and value will in most cases give you all you need.
+	maximum and value will in most cases give you all you need. For simpler
+	access to plug-ins, the /select/plugin/ set of commands will handle most
+	needs.
 </p>
 
