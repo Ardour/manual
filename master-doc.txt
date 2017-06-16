@@ -1132,21 +1132,6 @@ part: subchapter
 ---
 
 ---
-title: Record Setup
-include: record-setup.html
-link: record-setup
-part: chapter
----
-
----
-title: Track Recording Modes
-include: track-recording-modes.html
-link: track-recording-modes
-uri: recording/track-recording-modes
-part: subchapter
----
-
----
 title: Audio Recording
 include: audio-recording.html
 link: audio-recording

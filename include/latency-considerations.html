@@ -5,7 +5,7 @@
   recorders have the same feature, but may impart some
   <a
   href="@@latency-and-latency-compensation"><dfn>latency</dfn></a>
-  (delay) between the time you make a noise and the time that you hear it
+  (delay) between the time a noise is made and the time that it will
   come back from the recorder.
 </p>
 <p>
@@ -16,8 +16,8 @@
   can have approximately 3&nbsp;ms of latency, due to the time the sound
   takes to travel from the instrument to the musician's ears. Latency below
   5&nbsp;ms should be suitable for a professional recording setup. Because
-  2&nbsp;ms are already used in the A/D/A process, you must use extremely low
-  <dfn>buffer sizes</dfn> in your workstation <abbr title="Input/Output">I/O</abbr>
+  2&nbsp;ms are already used in the A/D/A process, extremely low
+  <dfn>buffer sizes</dfn> must be used in the workstation <abbr title="Input/Output">I/O</abbr>
   setup to keep the overall latency below 5ms. Not all
   <a href="@@the-right-computer-system-for-digital-audio">computer audio systems</a>
   are able to work reliably at such low buffer sizes.
@@ -27,8 +27,10 @@
   through an external mixing console while recording, an approach taken by
   most if not all professional recording studios. Many computer I/O devices
   have a hardware mixer built in which can route the monitor signal "around"
-  the computer, avoiding the systemlatency.<br>
-  In either case, the monitoring hardware may be digital or analog.  And in
-  the digital case you will still have the A-D-A conversion latency of
+  the computer, avoiding the system latency.
+</p>
+<p>
+  In either case, the monitoring hardware may be digital or analog. And in
+  the digital case there will still be the A-D-A conversion latency of
   1&ndash;2&nbsp;ms.
 </p>
