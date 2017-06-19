@@ -1,14 +1,9 @@
 
-<p><dfn>Region names</dfn> are initially derived from either</p>
+<p><dfn>Region names</dfn> are initially derived from either:</p>
 <ul>
-  <li>the name of the playlist for which they were recorded,</li>
   <li>the name of the track for which they were recorded, or</li>
   <li>the name of the embedded/imported file they represent.</li>
 </ul>
-<p class="fixme">
-  It appears that recorded regions are always named after the track, not the
-  active playlist in that track.
-</p>
 
 <h2>Whole File Region Names</h2>
 <p>
@@ -20,7 +15,7 @@
 </p>
 <p>
   For <dfn>recorded regions</dfn>, the number will increase each time a new recording
-  is made. So, for example, if there is a playlist called
+  is made. So, for example, if there is a track called
   <samp>Didgeridoo</samp>, the
   first recorded whole file region for that playlist will be called
   <samp>Digderidoo-1</samp>. The next one will be <samp>Digeridoo-2</samp> and so on.
@@ -32,8 +27,8 @@
 <p>
   Normally, whole file regions are not inserted into tracks or playlists,
   but regions derived from them are. The whole-file versions live in the
-  editor region list where they act as an organizing mechanism for regions
-  that are derived from them.
+  <a href="@@the-region-list">Editor's region list</a> where they act as an
+  organizing mechanism for regions that are derived from them.
 </p>
 
 <h2>Normal Region Names</h2>
@@ -49,16 +44,21 @@
 
 <h2>Copied Region Names</h2>
 <p>
-  If you <dfn>copy a region</dfn>, it initially shares the same name as the original.
-  When you perform an operation modifies one of the copies, Ardour will
-  increment the version number on the particular copy that changed.
+  Duplicating or splitting a region creates new region(s) that
+  are based on the same original files. Hence, they share the same base name (in the
+  exemple above, <samp>Hang drum-1</samp>), but their version number will be incremented
+  each time. Duplicating <samp>Hang drum-1.4</samp> by <kbd class="mod1 mouse">left</kbd>
+  dragging it will create a new region called <samp>Hang drum-1.5</samp>. Splitting
+  <samp>Hang drum-1.5</samp> by hitting the <kbd>S</kbd> key will remove the
+  <samp>Hang drum-1.5</samp> region and create two shorter regions named
+  <samp>Hang drum-1.6</samp> and <samp>Hang drum-1.7</samp>.
 </p>
 
 <h2>Renaming Regions</h2>
 <p>
-  You can <dfn>rename a region</dfn> at any time. Use the region context menu to
-  pop up the <kbd class="menu">Rename</kbd> dialog. The new name does not need to
-  have a version number in it (in fact, it probably should not). Ardour will add a
-  version number in the future if needed (e.g. if you copy or split the region).
+  Regions can be renamed at any time using the region context menu : <kbd class="menu">
+  <kbd class="mouse">right</kbd> click &gt; <em>name_of_the_region</em> &gt; Rename... </kbd>.
+  The new name does not need to have a version number in it (in fact, it probably
+  should not). Ardour will add a version number in the future if needed (e.g.
+  if the region is copied or sliced).
 </p>
-
