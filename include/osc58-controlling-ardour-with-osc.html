@@ -361,8 +361,10 @@ here</em>"/&gt;</kbd>
   param should be a float even if an int is required below.
 </p>
 <table class="dl">
-  <tr><th><kbd class="osc">/bank_up </kbd></th>
+  <tr><th><kbd class="osc">/bank_up</kbd></th>
   <td>Change bank to the next higher bank.</td></tr>
+  <tr><th><kbd class="osc">/bank_up <em>delta</em></kbd></th>
+  <td>Where <em>delta</em> is a float of 1 to bank up and -1 is bank down for use with an encoder</td></tr>
   <tr><th><kbd class="osc">/bank_down </kbd></th>
   <td>Change bank to the next lower bank.</td></tr>
   <tr><th><kbd class="osc">/strip/mute <em>ssid</em> <em>mute_st</em></kbd></th>
@@ -388,6 +390,8 @@ here</em>"/&gt;</kbd>
   <td>where <em>gain</em> is a float ranging from -193 to 6 representing the desired gain of the track in dB.</td></tr>
   <tr><th><kbd class="osc">/strip/fader <em>ssid</em>  <em>position</em></kbd></th>
   <td>where <em>position</em> is a float ranging from 0 to 1 representing the fader control position.</td></tr>
+  <tr><th><kbd class="osc">/strip/db_delta <em>ssid</em>  <em>delta</em></kbd></th>
+  <td>where <em>delta</em> is a float that will increase or decrease the gain of a track by the amount of the delta.</td></tr>
   <tr><th><kbd class="osc">/strip/*/automation <em>ssid</em>  <em>mode</em></kbd></th>
   <td>where <em>mode</em> is an int ranging from 0 to 3 representing the desired automation mode for the control.
   <a href="@@osc58-automation">See OSC Automation.</a></td></tr>
