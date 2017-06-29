@@ -1,35 +1,36 @@
 
 <p>
-  To move or copy a region, make sure you are in object mode. If you are
-  using smart mode, the pointer must be in the lower half of the region
-  to begin a move or copy operation.
+  Moving or copying a region is done using the <a href="@@toolbox">Grab mouse mode</a>,
+  or the Smart mode with the pointer in the lower half of the region
+  to begin a move or <a href="@@copy-regions">copy</a> operation.
 </p>
 <p>
-  Move the pointer into the region, use a <kbd class="mouse">Left</kbd>-drag.
-  The region will follow the pointer as you move it around. By default,
+  With the pointer in the region, using a <kbd class="mouse">Left</kbd>-drag will
+  make the region follow the pointer as it is moved around. By default,
   the region can move freely along the timeline.
 </p>
 <p>
-  To move a region from one track to another, simply start a move as
-  described above, but move the pointer into the desired track. The
-  region will follow the pointer. Note that if you have other kinds of
-  tracks visible, the region will remain where it is as the pointer
-  moves across them, and will then jump to the new track. This serves as
-  a visual reminder that you cannot drag an audio region into an automation
+  To move a region from one track to another, the move must be started as
+  described above, but the pointer should end in the desired track. The
+  region will follow the pointer.
+</p>
+<p class="note">
+  if some other kinds of tracks are visible, the region will remain where it is
+  as the pointer moves across them, and will then jump to the new track. This
+  serves as a visual reminder that an audio region cannot be dragged into an automation
   track or a bus, for example.
 </p>
 
 <h2>Move Multiple Regions</h2>
 <p>
-  To move multiple regions, select them before moving. Then
-  <kbd class="mouse">Left</kbd>-drag one of the selected regions. All the
-  regions will move, keeping their positions relative to each other.
+  In order to move multiple regions, they should be selected before moving. Then
+  <kbd class="mouse">Left</kbd>-dragging one of the selected regions will move
+  all the regions, keeping their positions relative to each other.
 </p>
 
 <h2>Fixed-Time Motion</h2>
 <p>
-  Sometimes, you want to move a region to another track, but keeping its
-  position along the timeline exactly the same. To do this, use
+  Moving region(s) to other track(s) while keeping its at the
+  same exact position on the timeline is done by simply using a
   <kbd class="mouse">Middle</kbd>-drag instead.
 </p>
-

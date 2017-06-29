@@ -6,12 +6,11 @@
   <dfn>corresponding regions</dfn> of the other tracks in that group.
  </p>
 <p>
-  For example, let's assume you have used multiple microphones to record a
-  drum kit to multiple tracks. You have created a track group, added all the
-  drum tracks, enabled the group and enabled the Select property for the group.
-  When you select a region in one of the drum tracks, Ardour will select the
-  corresponding region in every other drum track, which in turn means that a
-  subsequent edit operation will affect all the drum tracks together.
+  This can be particularly useful when an instrument has been recorded using
+  multiple microphones (e.g. a drum kit): by enabling the <kbd class="option">Select</kbd>
+  property for the group, selecting a region in one of the tracks, Ardour will select
+  the corresponding region in every other track of the group, which in turn means
+  that a subsequent edit operation will affect all the tracks together.
 </p>
 
 <h2>How Ardour Decides Which Regions are "Corresponding"</h2>
@@ -20,24 +19,24 @@
   of sharing <dfn>selection</dfn> if they satisfy <em>all</em> the following criteria:
 </p>
 <ol>
-  <li>Each region starts at the <dfn>same offset</dfn> within its source file,</li>
+  <li>each region starts at the <dfn>same offset</dfn> within its source file,</li>
   <li>each region is located at the <dfn>same position</dfn> on the timeline, and</li>
   <li>each region has the <dfn>same length</dfn>.</li>
 </ol>
 
 <h2>Overlap Correspondence</h2>
 <p>
-  Sometimes, the rules outlined above are too strict to get Ardour to do what you
-  want. Regions may have been trimmed to slightly different lengths, or positioned
-  slightly differently, and this will cause Ardour to not select regions in other
-  grouped tracks.</p>
+  Sometimes, the rules outlined above are too strict to get Ardour to consider regions
+  as corresponding. Regions may have been trimmed to slightly different lengths,
+  or positioned slightly differently, and this will cause Ardour to not select
+  regions in other grouped tracks.
+</p>
 <p>
-  In this case, change
+  In this case, changing
   <kbd class="menu">Edit &gt; Preferences &gt; Editor &gt; Regions in
   active edit groups are edited together:</kbd> to <kbd
-  class="menu">whenever they overlap in time</kbd>. With this option enabled,
-  regions in different tracks will be considered equivalent for the purposes of selection if they
+  class="menu">whenever they overlap in time</kbd> will allow regions in different
+  tracks to be considered equivalent for the purposes of selection if they
   <dfn>overlap</dfn>. This is much more flexible and will cover almost all of the
   cases that the fixed rules above might make cumbersome.
 </p>
-
