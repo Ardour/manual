@@ -1,8 +1,8 @@
 
 <p>
   This section explains the rules used to decide which regions are affected
-  by editing operations. You don't really have to understand them&mdash;hopefully
-  things will Just Work&mdash;but it may be useful eventually to understand the rules.
+  by editing operations. They don't really have to be understood&mdash;hopefully
+  things will Just Work&mdash;but it may be useful eventually.
 </p>
 <p>
   Editing operations in Ardour either operate on a single point in time
@@ -17,14 +17,14 @@
   use based on the following rules:
 </p>
 <ul>
-  <li> If the edit point is `mouse', then
+  <li> If the <a href="@@edit-point-control">Edit Point</a> is <kbd class="menu">mouse</kbd>, then
     <ul>
      <li>if the mouse is over a selected region, or no region, use all selected
      regions, or</li>
      <li>if the mouse is over an unselected region, use just that region.</li>
     </ul>
   </li>
-  <li> For all other edit points
+  <li> For all other Edit Points
     <ul>
       <li>
         use the selected regions <em>and</em> those that are both
@@ -36,8 +36,8 @@
   </li>
 </ul>
 <p>
-  The rationale here for the two different rules is that the mouse edit point
+  The rationale here for the two different rules is that the mouse Edit Point
   is special in that its position indicates both a time and a track; the other
-  edit points (Playhead,Marker) indicate a time only.
+  edit points (<kbd class="menu">Playhead</kbd>,<kbd class="menu">Marker</kbd>)
+  indicate a time only.
 </p>
-
