@@ -496,7 +496,7 @@ for header in fileStruct:
 	if level > 0:
 		if 'include' in header:
 			srcFile = open('include/' + header['include'])
-			githubedit = '<span style="float:right;"><a title="Edit in GitHub" href="' + githuburl + header['include'] + '"><img src="/images/github.png"></a></span>'
+			githubedit = '<span style="float:right;"><a title="Edit in GitHub" href="' + githuburl + header['include'] + '"><img src="/images/github.png" alt="Edit on GitHub"/></a></span>'
 			content = srcFile.read()
 			srcFile.close()
 
