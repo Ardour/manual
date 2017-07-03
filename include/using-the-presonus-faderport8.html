@@ -224,18 +224,18 @@
     it stays in edit mode regardless of track selection). If there are more than
     eight parameters, the Pan/Param encoder allows to scroll through available
     control-parameters (hold <kbd>Shift</kbd> to bank by 8).<br/>
-    Pressing the Pan/Param encoder switches to the <strong>plugin-preset
-    display</strong>: Plugin preset names are displayed on the
-    scribble-displays, the <kbd>Select</kbd> button below each loads the preset.
-    The "Pan/Param" encoder can be used to scroll through presets if there are
-    more than seven (right-most, 8th, slot is reserved to unload/clear a loaded
-    preset, hold <kbd>Shift</kbd> to bank by 8). The <kbd>Select</kbd> button
-    color is used to indicate the currently loaded preset (if any) and blinks if
-    a parameter has been modified since loading the preset.  Loading a preset or
-    pressing the Pan/Param encoder again switches back to the Plugin Parameter
-    Edit Mode.<br/>
-    In Edit Mode, the "Open" (<kbd>Shift</kbd> + <kbd>Macro</kbd>) allows to
-    toggle the Plugin GUI visibility.<br/>
+    If the plugin has any presets, pressing the Pan/Param encoder switches to
+    the <strong>plugin-preset display</strong>: Plugin preset names are
+    displayed on the scribble-displays, the <kbd>Select</kbd> button below each
+    loads the preset.  The "Pan/Param" encoder can be used to scroll through
+    presets if there are more than seven (right-most, 8th, slot is reserved to
+    unload/clear a loaded preset, hold <kbd>Shift</kbd> to bank by 7). The
+    <kbd>Select</kbd> button color is used to indicate the currently loaded
+    preset (if any) and blinks if a parameter has been modified since loading
+    the preset.  Loading a preset or pressing the Pan/Param encoder again
+    switches back to the Plugin Parameter Edit Mode.<br/>
+    In Parameter Edit Mode, the "Open" (<kbd>Shift</kbd> + <kbd>Macro</kbd>)
+    allows to toggle the Plugin GUI visibility.<br/>
     Press the <kbd>Edit Plugins</kbd> button again to return to the Select
     Plugin Mode.
   </li>
@@ -266,7 +266,8 @@
     the fader-mode (see above).</li>
   <li><strong>Pan/Param</strong>: The encoder controls panning in Track and Pan
     mode. In Plugin and Send fader-modes, the encoder banks parameters. See
-    Fader modes above for details.</li>
+    Fader modes above for details. When "Link" is engaged, the encoder can
+    control any automatable parameter (see Miscellaneous below).</li>
   <li><kbd class="def">Mute</kbd>: Toggle the mute-control of the corresponding
     mixer-strip. Mute engages on press, and disengages on release. Press and
     hold the button for at least 0.5sec for momentary.</li>
@@ -398,9 +399,13 @@
 </figure>
 <ul class="inside">
   <li><kbd class="def">Solo Clear</kbd>: Reset all solo controls in the
-    session.</li>
+    session. If the FP8 was used to clear solo-state, pressing the button again
+    will restore the previous state (unless solo state was modified manually
+    since).</li>
   <li><kbd class="def">Mute Clear</kbd>: Unmute all mixer-strips in the
-    session.</li>
+    session. If the FP8 was used to clear mute-state, pressing the button again
+    will restore the previous mute state (unless mute-state was changed manually
+    since).</li>
   <li><kbd class="def">Bypass</kbd>: The behavior depends on the edit-mode:
     <ul class="inside">
       <li><strong>Track + Pan Mode</strong>: A/B bypass toggle any plugins on
@@ -413,16 +418,17 @@
   <li><kbd>Shift</kbd> + <kbd class="def">Bypass</kbd> <strong>Bypass
       All</strong>: A/B bypass toggle any plugins on all selected mixer-strips.</li>
 </ul>
-<p>
-  The labels of the following buttons have no direct corresponding action in
-  Ardour and are currently mapped to convenient functions:
-</p>
 <ul class="inside">
-  <li><kbd class="def">Macro</kbd>: Toggle Editor and Mixer Tabs.</li>
-  <li><kbd>Shift</kbd> + <kbd class="def">Macro</kbd> <strong>Open</strong>:
-    Show the Import Audio Dialog or toggle the currently edited Plugin GUI.</li>
+  <li><kbd class="def">Macro</kbd>: Toggle Editor and Mixer Windows/Tabs.</li>
+  <li><kbd>Shift</kbd> + <kbd class="def">Macro</kbd> <strong>Open</strong>: The
+    behavior depends on the edit-mode:
+    <ul class="inside">
+      <li><strong>Edit Plugin Parameter</strong>: Toggle Plugin GUI visibility
+        (if it has a GUI) of the plugin that is currently being edited.</li>
+      <li><strong>all other modes</strong>: Show the Import Audio Dialog.</li>
+    </ul>
   <li><kbd class="def">Link</kbd>: Activate Control-Link Mode (only available in
-    Track and Pan Fader modes).<br/>
+    Track and Pan modes).<br/>
     The Pan/Param encoder controls the element over which the mouse-cursor
     hovers in the GUI. One can access any parameter which can be automated.<br/>
     Pressing the Pan/Param encoder resets the control-parameter to the default
@@ -430,16 +436,16 @@
     The buttons color is used to indicate the link-state:
     <ul class="inside">
       <li><strong>orange</strong>: Link is enabled, but the mouse-cursor is not
-        over an element which can be controlled</li>
+        over an element which can be controlled.</li>
       <li><strong>yellow</strong>: Link is enabled, and the cursor is hovering
-        over a controllable element</li>
+        over a controllable element.</li>
       <li><strong>green</strong>: Link is locked to a given element (see
-        below)</li>
+        below).</li>
       <li><strong>turquoise</strong>: Link lock is possible (when pressing
-        <kbd>Shift</kbd> while link-mode is enabled)</li>
+        <kbd>Shift</kbd> while link-mode is enabled).</li>
       <li><strong>red</strong>: Link-lock is not possible (only when pressing
         <kbd>Shift</kbd> while link-mode is enabled without a valid element to
-        control</li>
+        control.</li>
     </ul>
   </li>
   <li><kbd>Shift</kbd> + <kbd class="def">Link</kbd> <strong>Lock</strong>:
@@ -449,7 +455,7 @@
     to prevent accidental changes.</li>
 </ul>
 <p>
-Link and Link-Lock mode will automatically terminate when entering
+Link and Link-Lock mode will automatically disengage when entering
 <kbd>Sends</kbd> or <kbd>Edit Plugins</kbd> mode.
 </p>
 <div class="clearer"></div>
