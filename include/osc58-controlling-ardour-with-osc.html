@@ -323,6 +323,8 @@ here</em>"/&gt;</kbd>
   <td>dB is a float indicating the desired gain in dB</td></tr>
   <tr><th><kbd class="osc">/master/fader  <em>position</em></kbd></th>
   <td>position is a float between 0 and 1 setting the desired position of the fader</td></tr>
+  <tr><th><kbd class="osc">/master/db_delta <em>delta</em></kbd></th>
+  <td>where <em>delta</em> is a float that will increase or decrease the gain of master by the amount of the delta. (Ardour 5.11+)</td></tr>
   <tr><th><kbd class="osc">/master/trimdB <em>dB</em></kbd></th>
   <td>dB is a float from -20 to +20 representing the desired trim gain in dB</td></tr>
   <tr><th><kbd class="osc">/master/pan_stereo_position <em>position</em></kbd></th>
@@ -333,6 +335,8 @@ here</em>"/&gt;</kbd>
   <td>dB is a float indicating the desired gain in dB</td></tr>
   <tr><th><kbd class="osc">/monitor/fader  <em>position</em></kbd></th>
   <td>position is a float between 0 and 1 setting the desired position of the fader</td></tr>
+  <tr><th><kbd class="osc">/monitor/db_delta <em>delta</em></kbd></th>
+  <td>where <em>delta</em> is a float that will increase or decrease the gain of monitor by the amount of the delta. (Ardour 5.11+)</td></tr>
   <tr><th><kbd class="osc">/monitor/mute  <em>state</em></kbd></th>
   <td>state is an int of 0 or 1 where 1 is muted</td></tr>
   <tr><th><kbd class="osc">/monitor/dim  <em>state</em></kbd></th>
@@ -504,6 +508,8 @@ here</em>"/&gt;</kbd>
   <td>Where <em>gain</em> is a float ranging from -193 to 6 representing the desired gain of the track in dB.</td></tr>
   <tr><th><kbd class="osc">/select/fader <em>position</em></kbd></th>
   <td>Where <em>position</em> is an float ranging from 0 to 1 representing the fader control position.</td></tr>
+  <tr><th><kbd class="osc">/select/db_delta <em>delta</em></kbd></th>
+  <td>where <em>delta</em> is a float that will increase or decrease the gain of the selected track by the amount of the delta. (Ardour 5.11+)</td></tr>
   <tr><th><kbd class="osc">/select/*/automation  <em>mode</em></kbd></th>
   <td>where <em>mode</em> is an int ranging from 0 to 3 representing the desired automation mode for the control.
   <a href="@@osc58-automation">See OSC Automation.</a></td></tr>
