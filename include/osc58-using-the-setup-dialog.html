@@ -12,13 +12,15 @@
   Many OSC devices get their IP from a DHCP making it difficult to set
   an IP in Ardour's OSC settings. Therefore, most of the settings are
   <em>default</em> settings. Values are set and the next OSC surface to
-  send a /set_surface* message to Ardour will use those settings. An OSC
+  send an OSC message to Ardour will use those settings. An OSC
   surface that has previously sent a message to Ardour will retain the
-  settings it already had. The <em>Clear OSC Devices</em> will reset all
-  device settings. A <em>/refresh</em> message will both reset the
-  device settings as well as set that device to any new settings. The
-  Use of <em>/set_surface</em> will override all settings except
-  <em>Port Mode</em>.
+  settings it already had. Any change to a setting will reset all
+  device settings. A <em>/refresh</em> message will set that device to
+  any new settings. The use of <em>/set_surface</em> will override all
+  settings except <em>Port Mode</em>. <em>Port Mode</em> affects all
+  connected surfaces and so all surfaces must use either the set manual
+  port or send OSC messages from the same port they expect to receive
+  feedback on.
 </p>
 <h2>Dialog settings</h2>
 <h3>OSC setup tab</h3>
@@ -30,8 +32,15 @@
 <p>
   This field is informational only. It shows where Ardour will receive
   OSC messages. The system Name and the Port are the most important parts.
+  Normally, Ardour will use 3819 as it's server port. However, if some
+  other server is already using this port, Ardour will try to use the next
+  port up and will keep trying up to 10 ports up.
 </p>
 <h4>Port Mode:</h4>
+<p>
+<img alt="Port Mode Dropdown"
+     src="/images/osc-portmode.png">
+</p>
 <p>
   This drop down allows the choice of Auto or Manual outbound port
   setting. The default Auto port mode, will send OSC messages back to
@@ -55,35 +64,67 @@
   This sets the default bank size for the next surface to send a
   <em>/set_surface/*</em> OSC message. Bank size 0 (the default) sets
   no banking and allows controlling all strips included in strip_types
-  at once.
+  at once. The entry area will be bright blue for a port that is not
+  valid (ports below 1024 or 3819).
+</p>
+<h4>Send Page Size:</h4>
+<p>
+	This allows setting the size of pages for sends. In the case there are
+	more sends than controls. A size of 0 is the same as no paging and
+	all sends are directly controllable.
+</p>
+<h4>Plugin Page Size:</h4>
+<p>
+	This allows setting the size of pages for plugin controls. Some
+	plugins have hundreds of controls and so it may be necessary to page
+	the plugin controls to a limited number of physical controls. A size
+	of 0 is the same as no paging and all plugin controls are directly
+	controllable.
 </p>
 <h4>Gain Mode:</h4>
+<p>
+<img alt="Gain Mode Dropdown"
+     src="/images/osc-gainmode.png">
+</p>
 <p>
   Sets the faders (and sends faders) feedback math to position where a
   value between 0 and 1 represents the fader position of the same fader
   in the mixer GUI or dB where the feedback from fader movement will be
   returned as a dB value. When the Gain Mode is set to position, the
   /*/name feedback for the channel will show dB values in text while the
-  fader is being adjusted and then return the the name text.
+  fader is being adjusted and then return the name text.
 </p>
 <h4>Debug:</h4>
 <p>
-  For debugging purposes this allows logging either good OSC messages
+<img alt="Debug Mode Dropdown"
+     src="/images/osc-debug.png">
+</p>
+<p>
+  For debugging purposes this allows logging either all OSC messages
   Ardour receives or invalid messages received or none.
 </p>
 <h4>Preset:</h4>
+<p>
+<img alt="Preset Loader"
+     src="/images/osc-preset.png">
+</p>
 <p>
   Ardour now allows the use of preset settings. The default settings
   used are the settings from the last session or the factory defaults
   the first time OSC is enabled. As soon as any of these settings are
   changed, the Preset will change to "User" and the new settings will be
-  save to the osc directory Ardour configuration directory as
+  save to the osc directory in the
+  <a href="@@files-and-directories">Ardour configuration directory</a> as
   <em>user.preset</em>. This preset file can be renamed for future use.
   It is suggested to also change the name value inside to avoid confusion
   in the preset listing. Ardour will ship with some of it's own presets
   that go with some popular OSC control and map combinations.
 </p>
 <h4>Clear OSC Devices</h4>
+<p class="note">
+	This button has been removed after Ardour 5.10. Instead this action
+	is triggered by any change in the settings.
+</p>
 <p>
   This button clears operating device profiles so that Ardour will reset
   all devices settings to use the new defaults from changed settings. a
