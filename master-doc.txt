@@ -229,6 +229,15 @@ uri: setting-up-your-system/using_more_than_one_audio_device
 part: subchapter
 ---
 
+---
+title: Monitor Setup in Ardour
+menu_title: Monitor Setup in Ardour
+include: monitor-setup-in-ardour.html
+link: monitor-setup-in-ardour
+uri: recording/monitoring/monitor-setup-in-ardour
+part: subchapter
+---
+
 
 ---
 title: Synchronization
@@ -1161,15 +1170,6 @@ menu_title: Signal Flow
 include: monitor-signal-flow.html
 link: monitor-signal-flow
 uri: recording/monitoring/monitor-signal-flow
-part: subchapter
----
-
----
-title: Monitor Setup in Ardour
-menu_title: Setup in Ardour
-include: monitor-setup-in-ardour.html
-link: monitor-setup-in-ardour
-uri: recording/monitoring/monitor-setup-in-ardour
 part: subchapter
 ---
 

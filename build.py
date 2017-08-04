@@ -22,7 +22,7 @@ import argparse
 # This matches all *non* letter/number, ' ', '.', '-', and '_' chars
 cleanString = re.compile(r'[^a-zA-Z0-9 \._-]+')
 # This matches new 'unbreakable' links, up to the closing quote or anchor
-findLinks = re.compile(r'@@[^#"]*')
+findLinks = re.compile(r'"@@[^#"]*"')
 githuburl = 'https://github.com/Ardour/manual/edit/master/include/'
 
 #
@@ -257,7 +257,7 @@ def FindInternalLinks(fs):
 
 	for hdr in fs:
 		if 'link' in hdr:
-			linkDict['@@' + hdr['link']] = '/' + hdr['filename'] + '/'
+			linkDict['"@@' + hdr['link'] + '"'] = '"/' + hdr['filename'] + '/"'
 
 	return linkDict
 
