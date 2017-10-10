@@ -24,7 +24,7 @@
 	    <div class="input-group">
 		      <input type="text" class="form-control" placeholder="Search &hellip;" name="q">
 		      <span class="input-group-btn">
-		        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+		        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 		      </span>
 		  </div>
 			<input type="hidden" name="sites" value="manual.ardour.org"><!-- domain -->
