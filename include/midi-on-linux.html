@@ -6,13 +6,13 @@
 
 <table class="dl">
   <tr><th>Systems using JACK 1, versions 0.124 or later</th>
-  <td>On these systems, simply start JACK with the <code>-X alsa_midi</code>
+  <td>On these systems, JACK must be started with the <code>-X alsa_midi</code>
   server argument. To support legacy control applications, the <code>-X
   seq</code> argument to the ALSA backend of JACK can also be used to get the
   exact same results.</td></tr>
   <tr><th>All others</th>
-  <td>Use a2jmidid to act as a bridge between ALSA MIDI and JACK. Do not use
-  the <code>-X seq</code> or <code>-X raw</code> arguments&mdash;the timing and
+  <td>Using a2jmidid acts as a bridge between ALSA MIDI and JACK. The <code>-X seq</code>
+  or <code>-X raw</code> arguments should <em>not</em> be used&mdash;the timing and
   performance of these options is unacceptable.</td></tr>
 </table>
 
@@ -26,28 +26,28 @@
 
 <p>
   First it must be ensured that there is no ALSA sequencer support enabled in
-  JACK. To check that, open QJackCtl's <kbd class="menu">Setup</kbd> window.
-  Set <kbd class="menu">Settings &gt; MIDI Driver</kbd> to <kbd
-  class="input">none</kbd>. Then uncheck the <kbd class="optoff">Misc &gt;
-  Enable ALSA Sequencer support</kbd> option. Now restart the jack server
+  JACK. To check that, one must open QJackCtl's <kbd class="menu">Setup</kbd> window
+  and set <kbd class="menu">Settings &gt; MIDI Driver</kbd> to <kbd
+  class="input">none</kbd>, then uncheck the <kbd class="optoff">Misc &gt;
+  Enable ALSA Sequencer support</kbd> option. The jack server must then be restarted
   before going on.
 </p>
 
-<h3>Check for a2jmidid availability</h3>
+<h3>Checking for a2jmidid availability</h3>
 
 <p>
-  Next, check whether a2jmidid is already installed. After starting the JACK
-  server, go to the command line and type:
+  Next, it must be checked whether a2jmidid is already installed. This is done
+  by starting the JACK server, then going to the command line and typing:
 </p>
 
 <kbd class="cmd lin">a2jmidid -e</kbd>
 
 <p>
-  If a2jmidid does not exist, install it with the software manager of the
-  Linux distribution in use and try again.
+  If a2jmidid does not exist, it must be installed with the software manager of the
+  Linux distribution in use until this command responds.
 </p>
 
-<h2>Check available MIDI ports</h2>
+<h2>Checking available MIDI ports</h2>
 
 <p>
   If JACK is correctly configured for MIDI, then the MIDI ports should appear
@@ -62,12 +62,11 @@
 </p>
 
 <ul>
-  <li>If a newer version of JACK 1 is in use, just make sure the <code>-X
+  <li>If a newer version of JACK 1 is in use, by just making sure the <code>-X
   alsa_midi</code> or <code>-X seq</code> options are enabled for whatever
   technique is being used to start JACK.</li>
-  <li>For other versions of JACK, add <code>a2jmidid -e &amp;</code> as an
+  <li>For other versions of JACK, by adding <code>a2jmidid -e &amp;</code> as an
   "after start-up" script in the <kbd class="menu">Setup &gt; Options</kbd> tab
   of QJackCtl, so that it is started automatically whenever JACK is
   started.</li>
 </ul>
-
