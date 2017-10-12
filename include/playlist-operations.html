@@ -1,67 +1,62 @@
 
 <p>
-  In the track header (editor window, left pane) is a button labelled <kbd
-  class="menu">p</kbd> (for "Playlist"). If you click on this button, Ardour
-  displays the following menu:
+  In the <a href="@@audio-track-controls">track header</a> (editor window, left pane) is a button labelled <kbd
+  class="menu">p</kbd> (for "Playlist"). A click on this button displays the
+  following menu:
 </p>
+
 <table class="dl">
   <tr><th>(Local Playlists)</th>
    <td>Shows all of the playlists associated with this track, and indicates
    the currently selected playlist</td></tr>
-  <tr><th>Rename</th>
+  <tr><th>Rename&hellip;</th>
   <td>Displays a dialog to rename the current playlist</td></tr>
-  <tr><th>New</th>
+  <tr><th>New&hellip;</th>
   <td>Creates a new empty playlist, and the track switches to the new playlist</td></tr>
-  <tr><th>New Copy</th>
+  <tr><th>New Copy&hellip;</th>
   <td>Creates a new playlist that is a copy of the current playlist; the track switches to the new playlist</td></tr>
   <tr><th>Clear Current</th>
   <td>Removes all regions from the current playlist</td></tr>
-  <tr><th>Select From All</th>
-  <td>Displays a playlist browser to manually choose which playlist this track should use. (You can even select playlists from other tracks here)</td></tr>
+  <tr><th>Select From All&hellip;</th>
+  <td>Displays a playlist browser to manually choose which playlist this track should use. (from this track or another one)</td></tr>
 </table>
 
 <h2>Renaming Playlists</h2>
 <p>
-  Playlists are created with the name of the track of which they are
-  associated, plus a version number. So, the first playlist for a track
-  called "Cowbell" will be called <samp>Cowbell.1</samp>. This name will
-  be used to define the names of any regions added to the playlist by
-  recording. You can change the name at any time, to anything you want.
-  Ardour does not require that your playlist names are all unique, but it
-  will make your life easier if they are. Suggested examples of user-assigned
-  names for a playlist might include <kbd class="input">Lead Guitar, 2nd
-  take</kbd>, <kbd class="input">vocals (quiet)</kbd>,
-  and <kbd class="input">downbeat cuica</kbd>. Notice how these might be
-  different from the associated track names, which for these examples might
-  be <kbd class="input">Lead Guitar</kbd>,
-  <kbd class="input">Vocals</kbd> and <kbd class="input">Cuica</kbd>. The
-  playlist name provides more information because it is about a specific
-  version of the material that may (or may not) end up in the final version
-  of the track.
+  Playlists are created by default with the name of the active playlist, plus a
+  version number, and the first playlist is named after the track with which it is
+  associated. So, the first playlist for a track called "Cowbell" will be called
+  "Cowbell.1", the next one "Cowbell.2", etc.  This name can be changed at any
+  time, to anything: Ardour does not require  playlist names to be unique,
+  although it will make the user's life easier if  they are.  Suggested examples
+  of user-assigned names for a playlist might include <kbd class="input"> Lead
+  Guitar, 2nd take</kbd>, <kbd class="input">vocals (quiet)</kbd>, and <kbd
+  class="input">downbeat cuica</kbd>. Notice how these might be different from the
+  associated track names, which for these examples might be <kbd
+  class="input">Lead Guitar</kbd>, <kbd class="input">Vocals</kbd> and  <kbd
+  class="input">Cuica</kbd>. The playlist name provides more information because
+  it is about a specific version of the material that may (or may not) end up in
+  the final version of the track.
 </p>
-<p>
-  If you are going to rename your playlists, do so before recording new
-  material to them.
-</p>
-<p class="fixme">
-  It appears that recorded regions are not named after the playlist, but
-  after the track.
+
+<p class="note">Using the fact that playlist names are based on the active one with
+  an incremented version number, one can rename a playlist "Cowbell take.1" so that
+  the next playlist crated is automatically named "Cowbell take.2" etc. This allows
+  for a quick way to label different takes.
 </p>
 
 <h2>Sharing Playlists</h2>
 <p>
   It is entirely possible to <dfn>share playlists</dfn> between tracks. The only
-  slightly unusual thing you may notice when sharing is that edits to the
-  playlist made in one track will magically appear in the other. If you
-  think about this for a moment, its an obvious consequence of sharing.
-  One application of this attribute is parallel processing, described
-  below.
+  slightly unusual thing that should be noted when sharing is that edits to the
+  playlist made in one track will magically appear in the other. It is an
+  obvious consequence of sharing. One application of this attribute is parallel
+  processing, described in <a href="@@playlist-usecases">Playlist Usecases</a>.
 </p>
 <p>
-  You might not want this kind of behaviour, even though you still want
-  two tracks to use the same (or substantially the same) playlist. To
-  accomplish this, select the chosen playlist in the second track, and
-  then use New Copy to generate an <dfn>independent copy</dfn> of it for
-  that track. You can then edit this playlist without affecting the original.
+  To avoid this kind of behaviour, and nevertheless use the same (or substantially
+  the same) playlist on two tracks, the desired playlist must be chosen in the
+  second track, and then the <kbd class="menu">New Copy&hellip;</kbd> button clicked.
+  This generates an <dfn>independent copy</dfn> of it for that track, which can
+  then be edited without affecting the original.
 </p>
-

@@ -1,7 +1,7 @@
 
 <p>
   A <dfn>playlist</dfn> is a list of regions ordered in time. It defines
-  which parts of which source files should be played and when.  Playlists
+  which parts of which source files should be played and when. Playlists
   are a fairly advanced topic, and can be safely ignored for many types
   of audio production. However, the use of playlists allows the audio
   engineer more flexibility for tasks like multiple takes of a single
@@ -15,8 +15,10 @@
   some way. Since a playlist is a list of regions, most of the
   modifications involve manipulating regions: their position, length
   and so forth. This is covered in the chapter
-  <a href="@@working-with-regions">Working With Regions</a>.<br>
-  Here, we cover some of the things you can do with playlists as objects
+  <a href="@@working-with-regions">Working With Regions</a>.
+</p>
+<p>
+  This page covers some of the things that can be done with playlists as objects
   in their own right.
 </p>
 
@@ -29,28 +31,26 @@
   playlist associated with it. When the track is used to record, that
   playlist will have one or more new regions added to it. When the track
   is used for playback, the contents of the playlist will be heard.
-  You can change the playlist associated with a track at (almost) any
-  time, and even share playlists between tracks.
+  The playlist associated with a track can be changed at (almost) any
+  time, and tracks can even share playlists.
 </p>
 <p>
-  If you have some experience of other
-  <abbr title="Digital Audio Workstation">DAW</abbr>s, then you might
-  have come across the term <dfn>"virtual track"</dfn>, normally defined as a track
-  that isn't actually playing or doing anything, but can be
-  mapped/assigned to a real track. This concept is functionally
-  identical to Ardour's playlists. We just like to be little more
+  Some other <abbr title="Digital Audio Workstation">DAW</abbr>s, us the term
+  <dfn>"virtual track"</dfn> to define a track that isn't actually playing or
+  doing anything, but can be mapped/assigned to a real track. This concept is
+  functionally identical to Ardour's playlists. We just like to be little more
   clear about what is actually happening rather than mixing old and
-  new terminology ("virtual" and "track"), which might be confusing.</p>
+  new terminology ("virtual" and "track"), which might be confusing.
+</p>
 
 <h2>Playlists are Cheap</h2>
 <p>
-  One thing you should be clear about is that playlists are cheap. They
-  don't cost anything in terms of CPU consumption, and they have very
-  minimal efforts on memory use. Don't be afraid of generating new
-  playlists whenever you want to. They are not equivalent to tracks,
+  One thing to bear in mind is that playlists are cheap. They
+  do not cost anything in terms of CPU consumption, and they have very
+  minimal efforts on memory use. So generating new playlists whenever needed
+  is recommendable. They are not equivalent to tracks,
   which require extra CPU time and significant memory space, or audio
   files, which use disk space, or plugins that require extra CPU time.
   If a playlist is not in use, it occupies a small amount of memory, and
   nothing more.
 </p>
-
