@@ -1,46 +1,43 @@
 
 <h3>Using Playlists for Parallel Processing</h3>
 <p>
-  One of the uses of playlists is to apply multiple effects to the same
-  audio stream. For example, let's say you would like to apply two
-  different non-linear effects such as distortion or compression to the
-  same audio source (for linear effects, you could just apply them one after
-  the other in the same track).<br>
-  Create a new track, apply the original track's playlist, and
-  then apply effects to both tracks independently.
+  One of the uses of playlists is to apply multiple effects to the same audio
+  stream. For example, applying two different non-linear effects such as
+  distortion or compression to the same audio source (linear effects can be just
+  applied one after the other in the same track) can be done by creating a new
+  track, applying the original track's playlist, and then applying effects to
+  both tracks independently.
 </p>
 <p class="note">
-  The same result could be achieved by feeding your track to multiple busses which
-  then contain the processing, but this increases the overall latency,
+  The same result could be achieved by feeding the track to multiple busses
+  which then contain the processing, but this increases the overall latency,
   complicates routing and uses more space in the Mixer window.
 </p>
 
 <h2>Using Playlists for "Takes"</h2>
 <p>
-  Using Playlists for <dfn>takes</dfn> is a good solution if you are going
-  to need the ability to edit individual takes, and select between them.
+  Using Playlists for <dfn>takes</dfn> is a good solution when one needs the
+  ability to edit individual takes, and select between them.
 </p>
 <p>
-  Each time you start a new take, create a new playlist with
-  <kbd class="menu">p &gt; New</kbd>
-  Later, you can Select your way back to previous or later takes as
-  desired.
+  Each time a new take is started, a new playlist should be created with <kbd
+  class="menu">p &gt; New</kbd>. Thus, later, any previous or later takes can be
+  selected as desired.
 </p>
 <p>
-  If you want to create a composite edit from multiple takes, create a new
-  track to assemble the final version, and "cherry pick" from the playlists
-  in the original track by copying regions over as required.<br>
-  Alternatively, record each successive take on top of the
-  others in "layers" and then edit them using the layer tools, explained
-  later.
+  Creating a composite edit from multiple takes, can be achieved either:
 </p>
+<ul>
+  <li>by creating a new track to assemble the final version, and "cherry picking" from
+   the playlists in the original track by copying regions over as required</li>
+  <li>by recording each successive take on top of the others in "layers" and then
+  editing them using the layer tools.</li>
+</ul>
 
 <h2>Using Playlists for Multi-Language Productions</h2>
 <p>
-  The same approach as for takes is useful when you are recording or
-  editing content in multiple versions, such as dubbed movie dialog in
-  several languages, and you want all versions on the same track, to
-  get the same processing. <br>
-  Select the appropriate language before exporting the session.
+  The same approach as for takes is useful when recording or editing content in
+  multiple versions, such as dubbed movie dialog in several languages : having
+  all versions on the same track allows to apply the same processing, making it
+  easy to switch language before exporting the session.
 </p>
-

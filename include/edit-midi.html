@@ -8,21 +8,21 @@
 <ul>
   <li>
     All editing is done in-place, in-window. There is no separate piano roll
-    window or pane. Edit notes right where you see them.
+    window or pane. Edit notes right where they appear.
   </li>
   <li>
     MIDI, just like audio, exists in regions. MIDI regions behave like audio
-    regions: they can be moved, trimmed, copied (cloned), or deleted. Ardour allows
-    either editing MIDI (or audio) regions, or MIDI region content (the notes), but
-    never both at the same time. The <kbd class="menu">e</kbd> key (by default)
-    toggles between region level and note level editing
+    regions: they can be moved, trimmed, copied (cloned), or deleted. Ardour
+    allows either editing MIDI (or audio) regions, or MIDI region content (the
+    notes), but never both at the same time. The <kbd class="menu">e</kbd> key
+    (by default) toggles between region level and note level editing
   </li>
   <li>
-    Editing note information in Ardour occurs in only a single region. There is no
-    way currently to edit in note data for multiple regions at the same time, so for
-    example notes cannot be selected in several regions and then all deleted, nor
-    can they be copied-and-pasted from one region to another. Region(s), though, can
-    be copy-pasted just as with audio.
+    Editing note information in Ardour occurs in only a single region. There is
+    no way currently to edit in note data for multiple regions at the same time,
+    so for example notes cannot be selected in several regions and then all
+    deleted, nor can they be copied-and-pasted from one region to another.
+    Region(s), though, can be copy-pasted just as with audio.
   </li>
   <li>
     All MIDI I/O is done via JACK for sample accurate timing and maximal
@@ -44,7 +44,7 @@
     data).
   </li>
   <li>
-    There is a Normal and a  Percussive mode for note data editing.
+    There is a Normal and a Percussive mode for note data editing.
   </li>
   <li>
     The <dfn>scroomer</dfn> is a combination scroll/zoom tool for altering
@@ -55,22 +55,21 @@
 <h2>Notable Differences</h2>
 <ul>
   <li>
-    Fader (volume) control currently operates on transmitted MIDI data, not by sending CC
-    #7.
+    Fader (volume) control currently operates on transmitted MIDI data, not by
+    sending CC #7.
   </li>
   <li>
-    All note/data editing is per-region. There are no cross-region operations at this
-    time.
+    All note/data editing is per-region. There are no cross-region operations at
+    this time.
   </li>
   <li>
     By default, copying a MIDI region creates a <dfn>deep link</dfn>&mdash;both
-    regions share the same data source, and edits to the contents of
-    one will affect the other. To break this link, select
-    <kbd class="menu">MIDI &gt; Unlink from other copies</kbd> from the region
+    regions share the same data source, and edits to the contents of one will
+    affect the other. Breaking this link is done by selecting <kbd
+    class="menu">MIDI &gt; Unlink from other copies</kbd> from the region
     context menu, after which the selected region(s) will have their own copies
-    of <em>only</em> the data that they visually display on screen. You will not
-    be able to trim the region back its original length after an Unlink operation,
-    and the operation cannot be undone.
+    of <em>only</em> the data that they visually display on screen. The region
+    will no longer be trimmable back to its original length after an Unlink
+    operation, and the operation cannot be undone.
   </li>
 </ul>
-
