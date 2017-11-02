@@ -37,31 +37,63 @@
   </figcaption>
 </figure>
 
+<figure class="right">
+  <img class="mini" src="/images/template_setup.png" alt="One of the Template Setup Dialogs">
+  <figcaption>
+    One of the Template Setup Dialogs
+  </figcaption>
+</figure>
+
 <p>
   This page allows to type in the name of a session, select a folder to save it in, and
   optionally use an existing <a href="@@session-templates">template</a>.
 </p>
 <p>
-  Under <dfn>Advanced Options</dfn>, some fine tuning can be done, like selecting
-  whether Ardour should create a Master Bus, or a Control Bus, and how many channels
-  the output should have.
+  The different templates, both the "factory" ones and the ones created by the user,
+  are easily available on the left-side panel. Depending on the chosen template,
+  a specific Template Settings window may be shown, allowing the user to fine-tune
+  the details of the template and/or choose between the different options of the
+  template.
+</p>
+
+<p>
+  Templates can be huge time savers when working on similar projects, or on
+  usual projects, as they allow to preset and tweak a lot of the <a
+  href="@@session-properties-dialog">session properties</a>, (like the
+  availability of a <a href="@@monitor-section">monitoring section</a>,
+  connection to a Master Bus, etc.), and handle the creation of <a
+  href="@@adding-tracks-busses-and-vcas">tracks</a> of any kind.
 </p>
 <p>
-  Other options also decide whether Ardour should automatically connect all inputs
-  to the hardware's physical ports. Ardour will do so
-  sequentially and in round-robin fashion, connecting the first track's
-  input to the first input of the hardware and so on. When Ardour has used
-  all available hardware inputs, it will begin again with the first physical
-  input.
+  The <kbd class="menu">Empty Template</kbd> preset allows to create a session
+  "from scratch". Everything a session template does can be done manually
+  &mdash;albeit more tediously&mdash; and the resulting sessions will not differ
+  whatsoever.
 </p>
 <p>
-  The number of hardware channels used by Ardour can also be limited.
+  As of Ardour 5.12, which introduced the new template dialog, the factory templates are:
+</p>
+
+<table class="dl">
+  <tr><th><kbd class="menu">Empty Template</kbd></th>
+      <td>Creates an empty session with no tracks and no monitoring. A stereo Master Bus is created, and any track created defaults to output on this bus.</td></tr>
+  <tr><th><kbd class="menu">Advanced Session</kbd></th>
+      <td>Like the Empty Template, but adds the ability to easily manage the Master bus (channels, hardware connection, and track autoconnection), and the creation of a monitoring section.</td></tr>
+  <tr><th><kbd class="menu">Recording Session</kbd></th>
+      <td>Like the Empty Template, but allows the fast creation of a number of tracks, optionnaly ready to record.</td></tr>
+  <tr><th><kbd class="menu">Live Band</kbd></th>
+      <td>Fast tracks the creation of usual tracks for a band setup (vocals, guitars, piano, ...), and optionnaly adds usual effects on these tracks.</td></tr>
+</table>
+
+<p>
+  Selecting a template will display its description in the right-side pannel, while
+  hovering over a template name will show a tooltip indicating if it is a factory
+  template, or, if it is a user-created one, which version of Ardour was used to
+  create it.
 </p>
 <p>
-  By default Ardour will connect all tracks and busses to the Master Bus if
-  there is one. However, it can also be told to automatically connect each
-  output to the physical outputs of the interface or sound card, and limit
-  the number of physical outputs used, as above.
+  Whether or not a template is used, and before the "Template Setup" dialog, the
+  Audio/MIDI Setup will be shown.
 </p>
 
 <h2 class="clear">Audio/MIDI Setup</h2>

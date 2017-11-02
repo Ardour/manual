@@ -1,6 +1,6 @@
 
-<figure class="right">
-    <img src="/images/add-track-or-bus.png" alt="the add-track dialog">
+<figure class="left">
+    <img class="mini" src="/images/add-track-or-bus.png" alt="the add-track dialog">
     <figcaption>
       The Add Track/Bus/VCA dialog.
     </figcaption>
@@ -18,23 +18,33 @@
 <p>
   Any of these actions will open the Add Track/Bus/VCA dialog.
 </p>
+
+<p>
+  The list of available track templates (both factory and user-created ones)
+  in the left panel allows to choose the <a href="@@track-types">track(s) type</a>
+  (e.g. Audio, MIDI, bus, VCA etc.). Some templates can do even more, like the
+  factory-provided <kbd class="menu">Live Band</kbd> that automatically creates
+  a number of usual tracks for a common band setup. See <a
+  href="@@newopen-session-dialog">New Session</a> for more information about
+  templates.
+</p>
+
+<p>
+  The common templates have parameters to tweak:
+</p>
+
 <table class="dl">
   <tr><th>Add</th>
-  <td>Selects the number of tracks, busses or VCAs to create, and their <a
-href="@@track-types">types</a>.</td></tr>
+  <td>Selects the number of tracks, busses or VCAs to create.</td></tr>
   <tr><th>Name</th>
   <td>Defines the name of the new track(s). If multiple tracks are created, or if
 a track with the same name already exists, a space and number will be happened
-at the end (e.g.: Audio 1, Audio 2&hellip;)</td></tr>
+at the end (e.g.: Audio 1, Audio 2&hellip;).</td></tr>
   <tr><th>Configuration</th>
   <td>This menu allows to choose from a number of route templates, which determine
 the number of input ports and optionally contain plugins and other mixer strip
 configuration. The most common choices here are <em>mono</em> and
 <em>stereo</em>.</td></tr>
-  <tr><th>Record mode</th>
-  <td>This option is only available for audio tracks and affects how it behaves
-when recording. See <a href="@@track-types#trackmodes">Track Modes</a> for
-details.</td></tr>
   <tr><th>Instrument</th>
   <td>This option is only available for MIDI tracks and busses and allows the
 selection of a default instrument from the list of available plugins.</td></tr>
@@ -43,19 +53,30 @@ selection of a default instrument from the list of available plugins.</td></tr>
   operations are applied to all members of a group at the same time (selecting
   record enable, or editing, for example). This option assigns the new track/bus
   to an existing group, or create a new group.</td></tr>
-  <tr><th>Insert</th>
+  <tr><th>Pin Mode</th>
+  <td>Defines how the number of output responds to adding a plugin with a
+  different number of outputs than the track itself. in <em>Strict I/O</em> mode,
+  the track will only use a few of the plugins I/O and will keep its own number of
+  output fixed, while in <em>Flexible I/O</em> mode, it will automatically adapt
+  to the I/O of its plugins. See <a href="@@trackbus-signal-flow">Signal flow</a>
+  to learn more about those options.</td></tr>
+  <tr><th>Record mode</th>
+  <td>This option is only available for audio tracks and affects how it behaves
+  when recording. See <a href="@@track-types#trackmodes">Track Modes</a> for
+  details.</td></tr>
+  <tr><th>Position</th>
   <td>Defines where in the track list is the track created. The default is
 <em>Last</em>, i.e. after all the tracks and busses, and can also be
 <em>First</em>, <em>Before Selection</em> (to place it just above the selected
 track) or <em>After selection</em>.</td></tr>
-  <tr><th>Output Ports</th>
-  <td>Defines how the number of output responds to adding a plugin with a
-different number of outputs than the track itself. in <em>Strict I/O</em> mode,
-the track will only use a few of the plugins I/O and will keep its own number of
-output fixed, while in <em>Flexible I/O</em> mode, it will automatically adapt
-to the I/O of its plugins. See <a href="@@trackbus-signal-flow">Signal flow</a>
-to learn more about those options.</td></tr>
 </table>
+
+<p>
+  Multiple tracks of different types can be created by using the <kbd
+  class="menu">Add selected items (and leave dialog open)</kbd> button, which, used
+  in conjunction with the <kbd class="menu">Add</kbd> field, allows for a very efficient
+  and fast way to create a base track setup. 
+</p>
 
 <p>
   New tracks appear in both the editor and mixer windows. The editor window
