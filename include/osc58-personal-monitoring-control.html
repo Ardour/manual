@@ -1,7 +1,7 @@
 
 <p>
 	Personal monitoring can allow a performer with a smart phone to set
-	their personal monitor mix for a floor wedge or inear monitoring.
+	their personal monitor mix for a floor wedge or in-ear monitoring.
 	In Ardour 5.6 OSC commands to allow this were added.
 </p>
 <h3>Setup</h3>
@@ -46,6 +46,15 @@
 	<em>/cue</em>. It is expected that a surface used as a personal
 	monitor control will use only <em>/cue</em> commands.
 </p>
+<p>
+	Most phone OSC applets (TouchOSC, Control) require manual port to be set.
+	There are certainly more controls than needed. Using send enables for
+	example, may lead to wasted time discovering why a send has no sound.
+	A good easy to use controler that fits on most phones while still
+	being controllable even with big fingers might look like:
+</p>
+<img alt="TouchOSC Screenshot"
+     src="/images/osc-cue-screen">
 <p class="note">
 	The send controls and feedback all have the send id (1 to n) in line
 	as part of the OSC path. So the path for the second send would be
@@ -55,19 +64,20 @@
 <h4>Commands</h4>
 <table class="dl">
   <tr><th><kbd class="osc">/cue/connect</kbd></th>
-  <td>Returns a list of aux busses.</td></tr>
+  <td>Returns a list of aux busses and connects to the first.</td></tr>
   <tr><th><kbd class="osc">/cue/aux <em>aux-number</em></kbd></th>
-  <td>where <em>aux-number</em> is an integer which is the aux bus
+  <td>where <em>aux-number</em> is an integer or float which is the aux bus
   number this surface will use.</td></tr>
   <tr><th><kbd class="osc">/cue/next_aux</kbd></th>
   <td>Sets the the aux bus to one bus higher.</td></tr>
   <tr><th><kbd class="osc">/cue/previous_aux</kbd></th>
-  <td>Sets the aux to one bus lower.</td></tr>
+  <td>Sets the aux to one bus lower. This can also be used as a "connect"
+  button to save space in a phone layout.</td></tr>
   <tr><th><kbd class="osc">/cue/fader <em>position</em></kbd></th>
   <td>where <em>position</em> is a float for the position of the fader
   between 0.0 and 1.0.</td></tr>
   <tr><th><kbd class="osc">/cue/mute <em>state</em></kbd></th>
-  <td>where <em>state</em> is a float of 0.0 for mute off and 1.0 for mute on.</td></tr>
+  <td>where <em>state</em> is a float of 0.0 for mute off and 1.0 for the Aux bus mute on.</td></tr>
   <tr><th><kbd class="osc">/cue/send/fader/<em>id</em> <em>position</em></kbd></th>
   <td>where <em>position</em> is a float for the position of the fader
   between 0.0 and 1.0.</td></tr>
