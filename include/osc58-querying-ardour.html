@@ -132,17 +132,17 @@
 
 <h3>A list of a plug-in's parameters</h3>
 <p>
-  <code>/plugin/descriptor <em>ssid</em> <em>piid</em></code> will
+  <code>/strip/plugin/descriptor <em>ssid</em> <em>piid</em></code> will
   return the plug-in parameters for ppid plug-in on the ssid strip. The
-  reply will contain the following information:
+  reply will be sent as a number of messages, one for each parameter.
+  Each message will contain the following information:
   <ul>
     <li>Ssid of the strip the plug-in is in</li>
     <li>The plug-in id for the plug-in</li>
-    <li>The plug-in's name</li>
-    <li>Information about each parameter</li>
+    <li>The plug-in parameter id for the plug-in</li>
+    <li>The plug-in parameter's name</li>
+    <li>Information about that parameter:</li>
     <ul>
-      <li>The parameter id</li>
-      <li>The parameter's name</li>
       <li>A bitset of flags (see below)</li>
       <li>Data type</li>
       <li>Minimum value</li>
@@ -154,17 +154,26 @@
   </ul>
 </p>
 <p>
+	After all the parameters have been sent this way, one final message"
+	<code>/strip/plugin/descriptor_end</code> is sent with these parameters:
+	<ul>
+	  <li>Ssid of the strip the pulgin is in</li>
+	  <li>The plug-in id for the plug-in</li>
+	</ul>
+</p>
+<p>
   The flag bitset above has been defined as (from lsb):
   <ul>
     <li>0&mdash;enumeration</li>
     <li>1&mdash;integer step</li>
     <li>2&mdash;logarithmic</li>
-    <li>3&mdash;max unbound</li>
-    <li>4&mdash;min unbound</li>
     <li>5&mdash;sample rate dependent</li>
     <li>6&mdash;toggled</li>
     <li>7&mdash;controllable</li>
+    <li>8&mdash;hidden</li>
   </ul>
+  Bits 3 and 4 are not used, they were max unbound and min unbound in
+  previous versions and always zero.
 </p>
 <p>
 	While this seems complex, it is really not that bad. Minimum,
