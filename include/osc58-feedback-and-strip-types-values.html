@@ -62,22 +62,22 @@
   Hidden strips. Using Hidden with other flags will allow Hidden strips
   to show inline with other strips.
 </p>
-<h3 id="use-group">Use Group</h3>
-<p class="note">
+<p class="note" id="use-group">
 	Use Group on will tell ardour that any control on a strip that is part
 	of a group will affect all strips within that group. Default is off
 	or the control should only affect the strip the control is applied to.
 	The <code>/use_group f state</code> command can be used to temporarily
 	change this on the fly.
 <p>
-  Some handy numbers to use might be: 15 (all tracks and busses), 31
-  (add VCAs to that). Master or Monitor strips are generally not useful
-  on a surface that has dedicated controls for these strips as there are
-  /master* and /monitor* commands already. However, on a surface with
-  just a bank of fader strips, adding master or monitor would allow
-  access to them within the banks. Selected would be useful for working
-  on a group or a set of user selected strips. Hidden shows strips the
-  GUI has hidden.
+  Some handy numbers to use might be: 15 (all tracks and busses -
+  1 + 2 + 4 + 8), 31
+  (add VCAs to that - 15 + 16). Master or Monitor strips are generally
+  not useful on a surface that has dedicated controls for these strips
+  as there are /master* and /monitor* commands already. However, on a
+  surface with just a bank of fader strips, adding master or monitor
+  would allow access to them within the banks. Selected would be useful
+  for working on a group or a set of user selected strips. Hidden shows
+  strips the GUI has hidden.
 </p>
 <p class-"note">
   Audio Aux? say what? I am sure most people will have noticed that they
@@ -95,7 +95,7 @@
   to enable both busses and auxes if they would prefer.
 </p>
 
-<h2>feedback</h2>
+<h2 id="feedback">feedback</h2>
 <p>Feedback is an integer made up of bits. The easy way to
   deal with this is to think of feedback items being worth a number and
   then adding all those numbers together for a value to send.
@@ -147,7 +147,7 @@
 	</li>
   </ul>
 <p>
-  So using a value of 19 would turn on feedback for strip and master
-  controls, but leave meters, timecode and bar/beat feedback off.
+  So using a value of 19 (1 + 2 + 16) would turn on feedback for strip
+  and master controls, but leave meters, timecode and bar/beat feedback off.
 </p>
 
