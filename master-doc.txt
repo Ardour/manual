@@ -238,7 +238,6 @@ uri: recording/monitoring/monitor-setup-in-ardour
 part: subchapter
 ---
 
-
 ---
 title: Synchronization
 include: working-with-synchronization.html
@@ -2193,7 +2192,6 @@ link: using-the-presonus-faderport
 uri: using-control-surfaces/Presonus_FaderPort
 part: chapter
 ---
-
 
 ---
 title: Using the PreSonus FaderPort 8
