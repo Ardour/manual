@@ -11,7 +11,7 @@
   numbers. Any one bit turned on will add a unique value to the
   number as a whole. So for each kind of feedback or strip type
   to be used, that number should be added to the total.</p>
-<h3>strip_types</h3>
+<h2>strip_types</h2>
 <p>
   strip_types is an integer made up of bits. The easy way to
   deal with this is to think of strip_types items being worth a number and
@@ -22,34 +22,37 @@
 </p>
   <ul>
 	<li>
-		1	- AudioTracks.
+		1: AudioTracks.
 	</li>
 	<li>
-		2	- MidiTracks.
+		2: MidiTracks.
 	</li>
 	<li>
-		4	- AudioBusses.
+		4: AudioBusses.
 	</li>
 	<li>
-		8	- MidiBusses.
+		8: MidiBusses.
 	</li>
 	<li>
-		16	- VCAs.
+		16: VCAs.
 	</li>
 	<li>
-		32	- Master.
+		32: Master.
 	</li>
 	<li>
-		64	- Monitor.
+		64: Monitor.
 	</li>
 	<li>
-		128	- Audio Aux.
+		128: Audio Aux.
 	</li>
 	<li>
-		256	- Selected.
+		256: Selected.
 	</li>
 	<li>
-		512	- Hidden.
+		512: Hidden.
+	</li>
+	<li>
+		1024: Use Group.
 	</li>
   </ul>
 <p class="note">
@@ -59,6 +62,13 @@
   Hidden strips. Using Hidden with other flags will allow Hidden strips
   to show inline with other strips.
 </p>
+<h3 id="use-group">Use Group</h3>
+<p class="note">
+	Use Group on will tell ardour that any control on a strip that is part
+	of a group will affect all strips within that group. Default is off
+	or the control should only affect the strip the control is applied to.
+	The <code>/use_group f state</code> command can be used to temporarily
+	change this on the fly.
 <p>
   Some handy numbers to use might be: 15 (all tracks and busses), 31
   (add VCAs to that). Master or Monitor strips are generally not useful
@@ -85,52 +95,55 @@
   to enable both busses and auxes if they would prefer.
 </p>
 
-<h3>feedback</h3>
+<h2>feedback</h2>
 <p>Feedback is an integer made up of bits. The easy way to
   deal with this is to think of feedback items being worth a number and
   then adding all those numbers together for a value to send.
 </p>
   <ul>
 	<li>
-		1&mdash;Button status for strips.
+		1: Button status for strips.
 	</li>
 	<li>
-		2&mdash;Variable control values for strips.
+		2: Variable control values for strips.
 	</li>
 	<li>
-		4&mdash;Send SSID as path extension.
+		4: Send SSID as path extension.
 	</li>
 	<li>
-		8&mdash;heartbeat to surface.
+		8: heartbeat to surface.
 	</li>
 	<li>
-		16&mdash;Enable master section feedback.
+		16: Enable master section feedback.
 	</li>
 	<li>
-		32&mdash;Send Bar and Beat.
+		32: Send Bar and Beat.
 	</li>
 	<li>
-		64&mdash;Send timecode.
+		64: Send timecode.
 	</li>
 	<li>
-		128&mdash;Send meter as dB (-193 to +6) or 0 to 1 depending on gainmode
+		128: Send meter as dB (-193 to +6) or 0 to 1 depending on gainmode
 	</li>
 	<li>
-		256&mdash;Send meter a 16 bit value where each bit is a level
+		256: Send meter a 16 bit value where each bit is a level
 		and all bits of lower level are on. For use in a LED strip. This
 		will not work if the above option is turned on.
 	</li>
 	<li>
-		512&mdash;Send signal present, true if level is higher than -40dB
+		512: Send signal present, true if level is higher than -40dB
 	</li>
 	<li>
-		1024&mdash;Send position in samples
+		1024: Send position in samples
 	</li>
 	<li>
-		2048&mdash;Send position in time, hours, minutes, seconds and milliseconds
+		2048: Send position in time, hours, minutes, seconds and milliseconds
 	</li>
  	<li>
-		8192&mdash;Turn on extra select channel feedback beyond what a /strip supports
+		8192: Turn on select channel feedback
+	</li>
+ 	<li>
+		16384: Use OSC 1.0 /reply instead of #reply
 	</li>
   </ul>
 <p>
