@@ -39,12 +39,13 @@
 <p>
   New values for the clock can be typed in after clicking on the relevant clock.
   Clicking on the clock will show a thin vertical cursor bar just to the right
-  of the next character to be overwritten. Time should be typed in the same order as the
-  current clock mode&mdash;if the clock is in Timecode mode, it should be
-  hours, minutes, seconds, frames. So, to change to a time of 12:15:20:15 one
-  would type <kbd class="input">1 2 1 5 2 0 1 5</kbd>. Each number typed will
-  appear in a different color, from right to left, overwriting the existing value.
-  Mid-edit, after typing <kbd class="input">3 2 2 2</kbd> the clock might look like this:
+  of the next character to be overwritten. Time should be typed in the same
+  order as the current clock mode&mdash;if the clock is in Timecode mode, it
+  should be hours, minutes, seconds, frames. So, to change to a time of
+  12:15:20:15 one would type
+  <kbd>1</kbd><kbd>2</kbd><kbd>1</kbd><kbd>5</kbd><kbd>2</kbd><kbd>0</kbd><kbd>1</kbd><kbd>5</kbd>.
+  Each number typed will appear in a different color, from right to left,
+  overwriting the existing value. Mid-edit, after typing <kbd>3</kbd><kbd>2</kbd><kbd>2</kbd><kbd>2</kbd> the clock might look like this:
 </p>
 
 <figure>
@@ -82,13 +83,15 @@
   possible to enter part of a full time value.
 </p>
 <p>
-  As an exemple, supposing that the clock is in BBT
-  mode, displaying <samp>024|03|0029</samp>, altering the value to
-  the first beat of the current bar can be done by clicking on the clock and typing
-  <kbd class="input">0 1 0 0 0 0</kbd>. Similarly, if it is in Minutes:Seconds
-  mode, displaying <samp>02:03:04.456</samp>, getting to exactly 2
-  hours can be achieved by clicking on the clock and typing <kbd class="input">0 0 0 0 0 0 0</kbd> to
-  reset the minutes, seconds and milliseconds fields.
+  As an exemple, supposing that the clock is in BBT mode, displaying
+  <samp>024|03|0029</samp>, altering the value to the first beat of the current
+  bar can be done by clicking on the clock and typing
+  <kbd>0</kbd><kbd>1</kbd><kbd>0</kbd><kbd>0</kbd><kbd>0</kbd><kbd>0</kbd>.
+  Similarly, if it is in Minutes:Seconds mode, displaying
+  <samp>02:03:04.456</samp>, getting to exactly 2 hours can be achieved by
+  clicking on the clock and typing
+  <kbd>0</kbd><kbd>0</kbd><kbd>0</kbd><kbd>0</kbd><kbd>0</kbd><kbd>0</kbd><kbd>0</kbd>
+  to reset the minutes, seconds and milliseconds fields.
 </p>
 
 <h2>Entering Delta Times</h2>
@@ -100,8 +103,8 @@
   key will add the entered value to the current value of the clock, minus will
   subtract it. For example, if the clock is in Samples mode and displays
   <samp>2917839</samp>, moving it back 2000 samples is done by typing
-  <kbd class="input">2 0 0 0</kbd> and <kbd>-</kbd>, rather than ending with
-  Enter or Tab.
+  <kbd>2</kbd><kbd>0</kbd><kbd>0</kbd><kbd>0</kbd> and <kbd>-</kbd>, rather than
+  ending with <kbd>Enter</kbd> or <kbd>Tab</kbd>.
 </p>
 
 <h2>Changing clock values with the mouse</h2>
@@ -124,4 +127,3 @@
   on the clock, dragging downwards decreases it, again with a step size equal to
   the unit of the field where the drag began on.
 </p>
-

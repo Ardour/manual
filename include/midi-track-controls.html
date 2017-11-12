@@ -22,6 +22,9 @@
   <li>The <dfn>Scroomer</dfn>, a zoom and scroll controller for the midi notes range</li>
   <li>When the track is tall enough, the External MIDI Device selection dropdown appears.</li>
 </ol>
+
+<h2>The Scroomer</h2>
+
 <p>
   The Scroomer performs a couple of functions:
 </p>
@@ -35,6 +38,18 @@
     visible pitches fit the actual content of the track.</li>
   <li>Clicking on the piano plays the corresponding MIDI note for reference.</li>
 </ul>
+
+<h2>Channel and patch selection</h2>
+
+<h3>The Channel Selector</h3>
+
+<figure class="right">
+    <img class="mini" src="/images/midi_channel_control.png" alt="The MIDI channel control window">
+    <figcaption>
+      The MIDI channel control window
+    </figcaption>
+</figure>
+
 <p>
   A MIDI track's data may span any number of the 16 available MIDI channels, and sometimes it is
   useful to view only a subset of those channels; different instruments may,
@@ -42,7 +57,43 @@
   the <kbd class="menu">Channel Selector</kbd> allows to control the <dfn>MIDI channel</dfn>(s)
   that will be visible in the editor.
 </p>
+
+<p>
+  This window also gives control over which channel(s) will be recorded, and which will be played back, choosing between:
+</p>
+
+<ul>
+  <li>All channels</li>
+  <li>Only selected channels &mdash;Ardour then proposes to choose amongst the 16 channels which are to be recorded/played</li>
+  <li>Force all to one channel &mdash;Ardour then 'routes' all the channels to one user selectable channel.</li>
+</ul>
+
+<h3 class="clear">The Patch Selector</h3>
+
+<figure class="left">
+    <img class="mini" src="/images/patch_selector.png" alt="The Patch Selector window">
+    <figcaption>
+      The Patch Selector window
+    </figcaption>
+</figure>
+
+<p>
+  The Patch Selector window is an easy way to set which instrument will be used on any of the MIDI channels.
+  Although patches can be changed at any time using a <a href="@@patch-change">patch change</a>, this dialog
+  provides an easy and convenient way to preview patches in software and hardware instruments. It
+  integrates fully with Ardour's support for MIDNAM (patch definition files), so Ardour can display named programs/patches
+  for both General MIDI synths and those with MIDNAM files.
+</p>
+<p>
+  The window itself makes it easy to choose a channel, a bank number, optionnaly choosing a bank number through its <dfn title="Most Significant Byte">MSB</dfn>
+  and <dfn title="Least Significant Byte">LSB</dfn> numbers (CC#00 and CC#32) for large banks, then choosing an instrument.
+</p>
+<p>
+  The keyboard at the bottom of the window allows for a quick preview of the selected instrument, either automatically
+  (using the buttons on top of the keyboard) or manually by either clicking a note or using the computer keyboard as a
+  piano keyboard.
+</p>
+
 <p>
   To edit the contents of a MIDI track see <a href="@@edit-midi">MIDI Editing</a>.
 </p>
-
