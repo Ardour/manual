@@ -31,11 +31,11 @@
 
 <h2>Making an existing copy of a MIDI region independent</h2>
 <p>
-  Context-click on the MIDI region you want to be
-  independent. From the context menu, select <kbd class="menu">MIDI &gt; Unlink From
-  Other Copies</kbd>. The copy is now using an independent version of
-  the data, and edits to the copy will affect only the copy. Other
-  copies will continue to share data.
+  <kbd class="mouse">Right</kbd> clicking on the MIDI region to be independent
+  then selecting <kbd class="menu">MIDI &gt; Unlink From Other Copies</kbd>
+  makes it independant: the copy is now using its own version of the data, and
+  edits to the copy will affect only the copy. Other copies will continue to
+  share data.
 </p>
 
 <p class="note">
@@ -43,7 +43,6 @@
   the copy is made. If the region was already trimmed and then a copy
   is made, an independent copy will have no access to data that is
   earlier or later than the bounds of the region it was copied
-  from. Put differently, if you make an independent copy of a trimmed
-  MIDI region, you cannot "untrim" it to a larger size.
+  from. Put differently, making an independent copy of a trimmed
+  MIDI region only retains the visible part of it.
 </p>
-
