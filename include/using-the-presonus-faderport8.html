@@ -285,7 +285,7 @@
       <li><strong>Any Not Selected Track</strong>: The select button is off
         (dimly showing the track's color).</li>
       <li><strong>Most Recently Selected Track</strong>: Only one track at a
-        time. The select button is blinks width the track's color.</li>
+        time. The select button is blinks with the track's color.</li>
     </ul>
     Operations such as <kbd>Edit Plugins</kbd> or <kbd>Sends</kbd> use the
     most-recently-selected (focused) track. To modify the selection, the
@@ -465,3 +465,19 @@ Link and Link-Lock mode will automatically disengage when entering
 </p>
 <div class="clearer"></div>
 
+<h3>Harrison Mixbus</h3>
+<p>
+The above also applies to Ardour-derivatives Harrison-Mixbus and Mixbus 32C with a few subtle differences:
+</p>
+<ul>
+  <li>
+    Mix Management <strong>Bus</strong> shows Mixbusses only, while <strong>FX</strong> spills Aux-busses.
+  </li>
+  <li>
+    The Mixbus built-in EQ and Compressor are present on every track and bus and always available. They are displayed as special plugins on right-side in <strong>Select Plugin Mode<strong>.
+    When editing those processors, the parameters follows track selection (for other plugins this is not possible since they may not be present).
+  </li>
+  <li>
+    Fader mode <strong>Sends</strong> shows mixbus-assigns first (before any optional aux-sends). The master-bus-assign is available on the "S"olo button of the right-most strip. 
+  </li>
+</ul>
