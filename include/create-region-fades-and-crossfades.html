@@ -18,7 +18,7 @@
 <h2>Crossfades</h2>
 
 <p>
-  <dfn>Crossfades</dfn> refer to the behavior of two audio regions transitionning
+  <dfn>Crossfades</dfn> refer to the behavior of two audio regions transitioning
   smoothly (mixing) from one to another on the same
   track. Historically, this was done by splicing two pieces of analog
   tape together, and this concept was carried forward into digital
@@ -26,14 +26,14 @@
   two regions are butted against each other, there needs to be a method
   to splice them smoothly together. The crossfade allows one region
   to fade smoothly out, while the next region fades smoothly in, like two
-  pieces of tape that have been cut at and angle, and overlapped.
+  pieces of tape that have been cut at an angle, and overlapped.
 </p>
 <p>
   But Ardour uses a more refined "layered" editing model, and
   therefore it is possible for multiple regions to be stacked on a single
   location with arbitrary overlaps between different layers. For
   this reason, crossfades must be implemented differently. It can't be
-  assumed that a crossfade is an entitry that exists between two regions;
+  assumed that a crossfade is an entity that exists between two regions;
   instead each region must have its own associated crossfades at each
   end, and the topmost region must always crossfade down to the
   underlying region(s), if any.
@@ -93,13 +93,13 @@
     transition.</td></tr>
   <tr><th><kbd class="menu">Constant power</kbd></th><td>The constant power
     curve starts fading slowly and then cuts off abruptly. When used as a
-    crossfade between 2 audio regions, the signals are symetrically attenuated,
+    crossfade between 2 audio regions, the signals are symmetrically attenuated,
     and they each reach -3dB at the midpoint. This is the correct crossfade to
     use when splicing audio in the general ( uncorrelated ) case.</td></tr>
   <tr><th><kbd class="menu">Symmetric</kbd></th><td>The Symmetric fade starts
     slowly, then attenuates significantly before transitioning to a slower
     fade-out near the end of the fade. When used as a crossfade, the Symmetric
-    curve is not mathematically correct like the Equal Power or Linear curves,
+    curve is not mathematically correct like the Constant Power or Linear curves,
     but it provides a slower fade-out at low volumes. This is sometimes useful
     when editing 2 entire music works together so that the transition is more
     gradual.</td></tr>

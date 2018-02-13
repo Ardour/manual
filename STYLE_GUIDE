@@ -120,7 +120,7 @@ signal to the build system that it is an internal link that needs to be fixed
 so that it points to the correct URL.
 
 
-4.1 Inline markups
+4.2 Inline markups
 ------------------
 
 <dfn>
@@ -156,7 +156,7 @@ spacing of sections. If you're unhappy with those, fix the CSS (which fixes the
 entire manual in one go!).
 
 
-4.2 Lists
+4.3 Lists
 ---------
 
 <ul>, <ol>
@@ -170,7 +170,7 @@ Definition lists are for technical terms <dt> and their definition <dd>. Do
 not abuse them for anything else.
 
 
-4.3 Quotations
+4.4 Quotations
 --------------
 
 <blockquote>
@@ -182,7 +182,7 @@ For inline citations, the <cite>W3C</cite> recommends to <q cite="http://
 www.w3.org/TR/xhtml1/dtds.html">use the cite and q elements</q>.
 
 
-4.4 Keyboard/Controller interaction
+4.5 Keyboard/Controller interaction
 -----------------------------------
 
 <kbd>
@@ -237,7 +237,7 @@ is only used for the textual output of any code, never for anything the user
 types or presses.
 
 
-4.5 Images
+4.6 Images
 ----------
 
 <img>
@@ -260,7 +260,7 @@ inside as well to describe to the reader what the image is.
 
 * Avoid any typographical quotation marks to highlight terms or express any
   kind of subtle inflection, use semantic markup instead.
-* The hyphen is used to for compound words such as this well-advised example.
+* The hyphen is used for compound words such as this well-advised example.
 * Do not hyphenate words at line breaks.
 * For breaks in thought&mdash;such as this splendid example&mdash;use the long
   em-dash. Note that the em-dash is snugged up against the text on both
