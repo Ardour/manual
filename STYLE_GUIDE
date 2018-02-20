@@ -50,6 +50,9 @@ Watch out for the ampersand "&" and angle brackets "<" and ">". They will
 render your XHTML invalid, and must be replaced by their named entities
 "&amp;", "&lt;", and "&gt;".
 
+Keep line lengths within 108 characters so that additions or changes are easy to view in github pull requests.
+Code examples that are supposed to be all one line are an exception in which case the <pre></pre> tag should be
+used to to tell the browser to display the code as one line.
 
 3. Custom classes
 =================
