@@ -10,11 +10,12 @@ This Documentation is Work in Progress and far from complete. Also the documente
 
 <h2 id="Preface">Preface</h2>
 <p>
-There are cases that Ardour cannot reasonably cater to with core functionality alone, either because they're session specific or user specific edge cases.
+There are cases that Ardour cannot reasonably cater to with core functionality alone, either because they're session specific
+or user specific edge cases.
 </p><p>
 Examples for these include voice-activate (record-arm specific tracks and roll transport depending on signal levels),
-rename all regions after a specific timecode, launch an external application when a certain track is soloed, generate automation curves
-or simply provide a quick shortcut for a custom batch operation.
+rename all regions after a specific timecode, launch an external application when a certain track is soloed, generate
+automation curves or simply provide a quick shortcut for a custom batch operation.
 </p><p>
 Cases like this call for means to extend the DAW without actually changing the DAW itself. This is where scripting comes in.
 </p><p>
@@ -24,15 +25,16 @@ Lua is a tiny and simple language which is easy to learn, yet allows for compreh
 Lua is also a glue language it allows to tie existing component in Ardour together in unprecedented ways,
 and most importantly Lua is one of the few scripting-languages which can be safely used in a real-time environment.
 </p><p>
-A good introduction to Lua is the book <a href="http://www.lua.org/pil/">Programming in Lua</a>. The first edition is available online,
-but if you have the means buy a copy of the book, it not only helps to support the Lua project,
-but provides for a much nicer reading and learning experience.
+A good introduction to Lua is the book <a href="http://www.lua.org/pil/">Programming in Lua</a>. The first edition is
+available online, but if you have the means buy a copy of the book, it not only helps to support the Lua project, but provides
+for a much nicer reading and learning experience.
 </p>
 
 <h2 id="Overview">Overview</h2>
 <p>
-The core of Ardour is a real-time audio engine that runs and processes audio. One interfaces with an engine by sending it commands.
-Scripting can be used to interact with or modify the active Ardour session, just like a user uses the Editor/Mixer GUI to modify the state or parameters of the session.
+The core of Ardour is a real-time audio engine that runs and processes audio. One interfaces with an engine by sending it
+commands. Scripting can be used to interact with or modify the active Ardour session, just like a user uses the Editor/Mixer
+GUI to modify the state or parameters of the session.
 </p><p>
 Doing this programmatically requires some knowledge about the objects used internally.
 Most Ardour C++ objects and their methods are directly exposed to Lua and one can call functions or modify variables:
@@ -56,19 +58,22 @@ Most Ardour C++ objects and their methods are directly exposed to Lua and one ca
 
 <p>
 You may notice that there is only a small syntactic difference in this case.
-While C++ requires recompiling the application for every change, Lua script can be loaded, written or modified while the application is running.
-Lua also abstracts away many of the C++ complexities such as object lifetime, type conversion and null-pointer checks.
+While C++ requires recompiling the application for every change, Lua script can be loaded, written or modified while the
+application is running. Lua also abstracts away many of the C++ complexities such as object lifetime, type conversion and
+null-pointer checks.
 </p><p>
 Close ties with the underlying C++ components is where the power of scripting comes from.
 A script can orchestrate interaction of lower-level components which take the bulk of the CPU time of the final program.
 </p>
 </p><p>
-At the time of writing Ardour integrates Lua 5.3.2: <a href="http://www.lua.org/manual/5.3/manual.html">Lua 5.3 reference manual</a>.
+At the time of writing Ardour integrates Lua 5.3.2: <a href="http://www.lua.org/manual/5.3/manual.html">Lua 5.3 reference
+manual</a>.
 </p>
 
 <h2 id="Integration">Integration</h2>
 <p>
-Like Control surfaces and the GUI, Lua Scripts are confined to certain aspects of the program. Ardour provides the framework and runs Lua (not the other way around).
+Like Control surfaces and the GUI, Lua Scripts are confined to certain aspects of the program. Ardour provides the framework
+and runs Lua (not the other way around).
 </p>
 <p>
 In Ardour's case Lua is available:
@@ -86,7 +91,8 @@ In Ardour's case Lua is available:
 There are is also a special mode:
 </p>
 <table class="dl">
-	<tr><th>Commandline Tool</th><td>Replaces the complete Editor GUI, direct access to libardour (no GUI) from the commandline.<br/>
+	<tr><th>Commandline Tool</th><td>Replaces the complete Editor GUI, direct access to libardour (no GUI) from the
+	commandline.<br/>
 	<em>Be aware that the vast majority of complex functionality is provided by the Editor UI.</em></td></tr>
 </table>
 
@@ -115,9 +121,11 @@ Apart from scripts included directly with Ardour, this includes</p>
 <h2 id="Script Layout">Script Layout</h2>
 <ul>
 	<li>Every script must include an <code>ardour</code> descriptor table. Required fields are "Name" and "Type".</li>
-	<li>A script must provide a <em>Factory method</em>: A function with optional instantiation parameters which returns the actual script.</li>
+	<li>A script must provide a <em>Factory method</em>: A function with optional instantiation parameters which returns the
+	actual script.</li>
 	<li>[optional]: list of parameters for the "factory".</li>
-	<li>in case of DSP scripts, an optional list of automatable parameters and possible audio/midi port configurations, and a <code>dsp_run</code> function, more on that later.</li>
+	<li>in case of DSP scripts, an optional list of automatable parameters and possible audio/midi port configurations, and a
+	<code>dsp_run</code> function, more on that later.</li>
 </ul>
 
 
@@ -138,10 +146,12 @@ Apart from scripts included directly with Ardour, this includes</p>
 </div>
 
 <p>
-The common part for all scripts is the "Descriptor". It's a Lua function which returns a table (key/values) with the following keys (the keys are case-sensitive):
+The common part for all scripts is the "Descriptor". It's a Lua function which returns a table (key/values) with the following
+keys (the keys are case-sensitive):
 </p>
 <table class="dl">
-	<tr><th>type [required]</th><td>one of "<code>DSP</code>", "<code>Session</code>", "<code>EditorHook</code>", "<code>EditorAction</code>" (the type is not case-sensitive)</td></tr>
+	<tr><th>type [required]</th><td>one of "<code>DSP</code>", "<code>Session</code>", "<code>EditorHook</code>",
+	"<code>EditorAction</code>" (the type is not case-sensitive)</td></tr>
 	<tr><th>name [required]</th><td>Name/Title of the script</td></tr>
 	<tr><th>author</th><td>Your Name</td></tr>
 	<tr><th>license</th><td>The license of the script (e.g. "GPL" or "MIT")</td></tr>
@@ -149,12 +159,15 @@ The common part for all scripts is the "Descriptor". It's a Lua function which r
 </table>
 
 <p class="note">
-Scripts that come with Ardour (currently mostly examples) can be found in the <a href="https://github.com/Ardour/ardour/tree/master/scripts">Source Tree</a>.
+Scripts that come with Ardour (currently mostly examples) can be found in the
+<a href="https://github.com/Ardour/ardour/tree/master/scripts">Source Tree</a>.
 </p>
 
 <h3 id="Action Scripts">Action Scripts</h3>
-<p>Action scripts are the simplest form. An anonymous Lua function is called whenever the action is triggered. A simple action script is shown above.</p>
-<p>There are 10 action script slots available, each of which is a standard GUI action available from the menu and hence can be bound to a keyboard shortcut.</p>
+<p>Action scripts are the simplest form. An anonymous Lua function is called whenever the action is triggered. A simple action
+script is shown above.</p>
+<p>There are 10 action script slots available, each of which is a standard GUI action available from the menu and hence can be
+bound to a keyboard shortcut.</p>
 
 <h3 id="Session Scripts">Session Scripts</h3>
 <p>Session scripts similar to Actions Scripts, except the anonymous function is called periodically every process cycle.
@@ -199,7 +212,8 @@ end
 </div>
 
 <h3 id="Action Hooks">Action Hooks</h3>
-<p>Action hook scripts must define an additional function which returns a <em>Set</em> of Signal that which trigger the callback (documenting available slots and their parameters remains to be done).</p>
+<p>Action hook scripts must define an additional function which returns a <em>Set</em> of Signal that which trigger the
+callback (documenting available slots and their parameters remains to be done).</p>
 <div>
 <pre><code class="lua">
 ardour {
@@ -247,53 +261,72 @@ end
 <p>See the scripts folder for examples for now.</p>
 <p>Some notes for further doc:</p>
 <ul>
-	<li>required function: <code>dsp_ioconfig ()</code>: return a list of possible audio I/O configurations - follows Audio Unit conventions.</li>
+	<li>required function: <code>dsp_ioconfig ()</code>: return a list of possible audio I/O configurations - follows Audio
+	Unit conventions.</li>
 	<li>optional function: <code>dsp_dsp_midi_input ()</code>: return true if the plugin can receive midi input</li>
 	<li>optional function: <code>dsp_params ()</code>: return a table of possible parameters (automatable)</li>
 	<li>optional function: <code>dsp_init (samplerate)</code>: called when instantiation the plugin with given samplerate.</li>
 	<li>optional function: <code>dsp_configure (in, out)</code>: called after instantiation with configured plugin i/o.</li>
-	<li>required function: <code>dsp_run (ins, outs, n_samples)</code> OR <code>dsp_runmap (bufs, in_map, out_map, n_samples, offset)</code>: DSP process callback. The former is a convenient abstraction that passes mapped buffers (as table). The latter is a direct pass-through matching Ardour's internal <code>::connect_and_run()</code> API, which requires the caller to map and offset raw buffers.</li>
+	<li>required function: <code>dsp_run (ins, outs, n_samples)</code> OR <code>dsp_runmap (bufs, in_map, out_map, n_samples,
+	offset)</code>: DSP process callback. The former is a convenient abstraction that passes mapped buffers (as table). The
+	latter is a direct pass-through matching Ardour's internal <code>::connect_and_run()</code> API, which requires the caller
+	to map and offset raw buffers.</li>
 	<li>plugin parameters are handled via the global variable <code>CtrlPorts</code>.</li>
-	<li>midi data is passed via the global variable <code>mididata</code> which is valid during <code>dsp_run</code> only. (dsp_runmap requires the script to pass raw data from the buffers according to in_map)</li>
-	<li>The script has access to the current session via the global variable Session, but access to the session methods are limited to realtime safe functions</li>
+	<li>midi data is passed via the global variable <code>mididata</code> which is valid during <code>dsp_run</code> only.
+	(dsp_runmap requires the script to pass raw data from the buffers according to in_map)</li>
+	<li>The script has access to the current session via the global variable Session, but access to the session methods are
+	limited to realtime safe functions</li>
 </ul>
 
 <h2 id="Accessing Ardour Objects">Accessing Ardour Objects</h2>
 <p>
 The top most object in Ardour is the <code>ARDOUR::Session</code>.
 Fundamentally, a Session is just a collection of other things:
-Routes (tracks, busses), Sources (Audio/Midi), Regions, Playlists, Locations, Tempo map, Undo/Redo history, Ports, Transport state and controls, etc.
+Routes (tracks, busses), Sources (Audio/Midi), Regions, Playlists, Locations, Tempo map, Undo/Redo history, Ports, Transport
+state and controls, etc.
 </p><p>
 Every Lua interpreter can access it via the global variable <code>Session</code>.
 </p><p>
-GUI context interpreters also have an additional object in the global environment: The Ardour <code>Editor</code>. The Editor provides access to high level functionality which is otherwise triggered via GUI interaction such as undo/redo, open/close windows, select objects, drag/move regions. It also holds the current UI state: snap-mode, zoom-range, etc.
-The Editor also provides complex operations such as "import audio" which under the hood, creates a new Track, adds a new Source Objects (for every channel) with optional resampling, creates both playlist and regions and loads the region onto the Track all the while displaying a progress information to the user.
+GUI context interpreters also have an additional object in the global environment: The Ardour <code>Editor</code>. The Editor
+provides access to high level functionality which is otherwise triggered via GUI interaction such as undo/redo, open/close
+windows, select objects, drag/move regions. It also holds the current UI state: snap-mode, zoom-range, etc.
+The Editor also provides complex operations such as "import audio" which under the hood, creates a new Track, adds a new
+Source Objects (for every channel) with optional resampling, creates both playlist and regions and loads the region onto the
+Track all the while displaying a progress information to the user.
 </p>
 
 <p class="note">
 Documenting the bound C++ methods and class hierarchy is somewhere on the ToDo list.
-Meanwhile <a href="https://github.com/Ardour/ardour/blob/master/libs/ardour/luabindings.cc">luabindings.cc</a> is the best we can offer.
+Meanwhile <a href="https://github.com/Ardour/ardour/blob/master/libs/ardour/luabindings.cc">luabindings.cc</a> is the best we
+can offer.
 </p>
 
 <h2 id="Concepts">Concepts</h2>
 <ul>
-	<li>There are no bound constructors: Lua asks Ardour to create objects (e.g. add a new track), then receives a reference to the object to modify it.</li>
-	<li>Scripts, once loaded, are saved with the Session (no reference to external files). This provides for portable Sessions.</li>
-	<li>Lua Scripts are never executed directly. They provide a "factory" method which can have optional instantiation parameters, which returns a Lua closure.</li>
-	<li>No external Lua modules/libraries can be used, scripts need to be self contained (portable across different systems (libs written in Lua can be used, and important c-libs/functions can be included with Ardour if needed).</li>
+	<li>There are no bound constructors: Lua asks Ardour to create objects (e.g. add a new track), then receives a reference
+	to the object to modify it.</li>
+	<li>Scripts, once loaded, are saved with the Session (no reference to external files). This provides for portable
+	Sessions.</li>
+	<li>Lua Scripts are never executed directly. They provide a "factory" method which can have optional instantiation
+	parameters, which returns a Lua closure.</li>
+	<li>No external Lua modules/libraries can be used, scripts need to be self contained (portable across different systems
+	(libs written in Lua can be used, and important c-libs/functions can be included with Ardour if needed).</li>
 </ul>
 <p>
-Ardour is a highly multithreaded application and interaction between the different threads, particularly real-time threads, needs to to be done with care.
-This part has been abstracted away by providing separate Lua interpreters in different contexts and restricting available interaction:
+Ardour is a highly multithreaded application and interaction between the different threads, particularly real-time threads,
+needs to to be done with care. This part has been abstracted away by providing separate Lua interpreters in different contexts
+and restricting available interaction:
 </p>
 <ul>
 	<li>Editor Actions run in a single instance interpreter in the GUI thread.</li>
-	<li>Editor Hooks connect to libardour signals. Every Callback uses a dedicated Lua interpreter which is in the GUI thread context.</li>
+	<li>Editor Hooks connect to libardour signals. Every Callback uses a dedicated Lua interpreter which is in the GUI thread
+	context.</li>
 	<li>All Session scripts run in a single instance in the main real-time thread (audio callback)</li>
 	<li>DSP scripts have a separate instance per script and run in one of the DSP threads.</li>
 </ul>
 <p>
-The available interfaces differ between contexts. For example, it is not possible to create new tracks or import audio from real-time context; while it is not possible to modify audio buffers from the GUI thread.
+The available interfaces differ between contexts. For example, it is not possible to create new tracks or import audio from
+real-time context; while it is not possible to modify audio buffers from the GUI thread.
 </p>
 
 <h2 id="Current State">Current State</h2>
@@ -305,7 +338,8 @@ Fully functional, yet still in a prototyping stage:
 	<li>Further planned work includes:
 		<ul>
 			<li>Built-in Script editor (customize/modify Scripts in-place)</li>
-			<li>convenience methods (wrap more complex Ardour actions into a library). e.g set plugin parameters, write automation lists from a Lua table</li>
+			<li>convenience methods (wrap more complex Ardour actions into a library). e.g set plugin parameters, write
+			automation lists from a Lua table</li>
 			<li>Add some useful scripts and more examples</li>
 			<li>Documentation (Ardour API), also usable for tab-exansion, syntax highlighting</li>
 			<li>bindings for GUI Widgets (plugin UIs, message boxes, etc)</li>
@@ -315,7 +349,8 @@ Fully functional, yet still in a prototyping stage:
 
 
 <h2 id="Examples">Examples</h2>
-<p>Apart from the <a href="https://github.com/Ardour/ardour/tree/master/scripts">scripts included with the source-code</a> here are a few examples without further comments...
+<p>Apart from the <a href="https://github.com/Ardour/ardour/tree/master/scripts">scripts included with the source-code</a>
+here are a few examples without further comments...
 
 <h3 id="Editor Console Examples">Editor Console Examples</h3>
 <div>
@@ -385,7 +420,8 @@ ARDOUR.LuaAPI.set_processor_param (proc, 2, 1.0)
 <p>The standalone tool <code>luasession</code> allows one to access an Ardour session directly from the commandline.
 Interaction is limited by the fact that most actions in Ardour are provided by the Editor GUI.
 </p><p>
-<code>luasession</code> provides only two special functions <code>load_session</code> and <code>close_session</code> and exposes the <code>AudioEngine</code> instance as global variable.
+<code>luasession</code> provides only two special functions <code>load_session</code> and <code>close_session</code> and
+exposes the <code>AudioEngine</code> instance as global variable.
 </p>
 
 <div>
