@@ -1,55 +1,55 @@
+<figure class="right">
+  <img src="/images/connection-manager.png" alt="An example patchbay">
+  <figcaption>
+    An example patchbay
+  </figcaption>
+</figure>
 
 <p>
   The <dfn>patchbay</dfn> is the main way to make connections to, from and
   within Ardour's mixer.
 </p>
 <p class="note">
-  Notable exceptions are internal aux sends and connections to the monitor bus (if
-  you are using one): these cannot be controlled from a patchbay, and are
+  Notable exceptions are internal aux sends and connections to the monitor bus
+  (when using one): these cannot be controlled from a patchbay, and are
   basically not under manual control at all.
 </p>
-<img class="right" src="/images/connection-manager.png" alt="an example patchbay" />
 <p>
   The patchbay presents two groups of ports; one set of <dfn>sources</dfn>
-  (which produce data), and one of <dfn>destinations</dfn> (which consume
-  data). Depending
-  on the relative number of each, the sources will be placed on the left
-  or the top of the dialogue, and the destinations on the right or the
-  bottom. Thus, in general, signal flow is from top or left to right or
-  bottom.
+  (which produce data), and one of <dfn>destinations</dfn> (which consume data).
+  Depending on the relative number of each, the sources will be placed on the
+  left or the top of the dialogue, and the destinations on the right or the
+  bottom. Thus, in general, signal flow is from top or left to right or bottom.
 </p>
 <p>
-  Both sources and destinations are divided up into groups, with each
-  group being given a tab:
+  Both sources and destinations are divided up into groups, with each group
+  being given a tab:
 </p>
+
 <table class="dl">
   <tr><th>Hardware</th>
-  <td>
-    These are ports which are connected to a physical piece of hardware
-    (a sound card or MIDI interface).</td></tr>
+      <td>These are ports which are connected to a physical piece of hardware
+      (a sound card or MIDI interface).</td></tr>
   <tr><th>Ardour Busses</th>
-  <td>All ports belonging to busses.</td></tr>
+      <td>All ports belonging to busses.</td></tr>
   <tr><th>Ardour Tracks</th>
-  <td>All ports belonging to tracks.</td></tr>
+      <td>All ports belonging to tracks.</td></tr>
   <tr><th>Ardour Misc</th>
-  <td>
-    These are other ports that do not fit into the previous two
-    categories; for example, the ports on which the metronome click
-    is output, and MIDI ports for things like control surfaces and
-    timecode.
-  </td></tr>
+      <td>These are other ports that do not fit into the previous two
+      categories; for example, the ports on which the metronome click
+      is output, and MIDI ports for things like control surfaces and
+      timecode.</td></tr>
   <tr><th>Other</th>
-  <td>
-    If you have other JACK clients running, their ports will be found
-    here. If there are no such ports, the tab will not exist (on one or
-    both axes of the grid).</td></tr>
+      <td>
+      If you there are other JACK clients running, their ports will be found
+      here. If there are no such ports, the tab will not exist (on one or
+      both axes of the grid).</td></tr>
 </table>
 <p>
-  The main part of the patchbay is a <dfn>matrix grid</dfn>. Within this
-  grid, green dots represent connections, and you can click in any of the
-  squares to make or break connections. You can also click and drag to
-  draw a line of connections, which is sometimes useful for making many
-  connections at once.
+  The main part of the patchbay is a <dfn>matrix grid</dfn>. Within this grid,
+  green dots represent connections, and any of the squares can be clicked on to
+  make or break connections. Clicking and dragging draws a line of connections,
+  which is sometimes useful for making many connections at once.
 </p>
 <p>
   In the example patchbay shown above we can note various things. We are
@@ -70,8 +70,8 @@
 <h2>Variants on the Patchbay</h2>
 <p>
   Slightly different versions of the patchbay are available from different
-  places in Ardour. For a global view of all JACK audio connections, use
-  <kbd class="menu">Window &gt Audio Patchbay</kbd>, or press
+  places in Ardour. A global view of all JACK audio connections is available, in
+  <kbd class="menu">Window &gt Audio Connections</kbd>, or by pressing
   <kbd class="mod2">P</kbd>. A corresponding MIDI Connection Manager can
   be opened using <kbd class="mod23">P</kbd>.</p>
 <p>
@@ -84,42 +84,43 @@
 
 <h2>Other patchbay features</h2>
 <p>
-  Context-clicking on a port name in the connection manager opens a menu
-  which provides a few handy options:
+  <kbd class="mouse">right</kbd>-clicking on a port name in the connection manager
+  opens a context menu which provides a few handy options:
 </p>
 <table class="dl">
   <tr><th><kbd class="menu">Add audio port</kbd> and <kbd class="menu">Add MIDI port</kbd></th>
   <td>
-    These options add audio or MIDI ports to the thing that you opened
-    the menu over, if this is possible. In this way, for example, tracks
-    and busses can be extended to have more inputs or outputs.
+    These options add audio or MIDI ports to the clicked source, if this is
+    possible. In this way, for example, tracks and busses can be extended to have
+    more inputs or outputs.
   </td></tr>
-  <tr><th><kbd class="menu">Remove</th>
+  <tr><th><kbd class="menu">Remove <em>port_name</em></th>
   <td>
     Removes the given port, if possible. <kbd class="mouse mod3">Right</kbd>-clicking
     a port will do the same.
   </td></tr>
-  <tr><th><kbd class="menu">Disconnect all from…</kbd></th>
+  <tr><th><kbd class="menu">Disconnect all from <em>port_name</em></kbd></th>
   <td>Disconnects everything from the given port.</td></tr>
   <tr><th><kbd class="menu">Rescan</kbd></th>
   <td>
     Ardour will try to keep abreast of any changes to the JACK ports on
-    your system, and reflect them in any connection managers which are open.
-    If for some reason this fails, use this to re-scan the list of ports and
+    the system, and reflect them in any connection managers which are open.
+    If for some reason this fails, this can be used to re-scan the list of ports and
     update the manager.
   </td></tr>
   <tr><th><kbd class="menu">Show individual ports</kbd></th>
   <td>
-    If you have a session which has lots of multi-channel tracks or busses,
-    it may be an unnecessary detail that you have to connect left to left and
-    right to right every time you make a connection. This obviously gets worse
-    with higher channel counts (such as for 5.1 or Ambisonics). To make life
-    easier with such sessions, you can untick Show individual ports. After that,
-    the channels of tracks and busses will be hidden, and any green dots you add
-    in the connection manager will automatically connect each channel of the source
-    to the corresponding channel of the destination (left to left, right to right
-    and so on). In this mode, a half-circle in the connection grid indicates that
-    some (but not all) of the source's ports are connected to the destination.
+    If a session has lots of multi-channel tracks or busses, it may be an
+    unnecessary detail that left has to be connected to left and right to right
+    every time a connection is made. This obviously gets worse with higher
+    channel counts (such as for 5.1 or Ambisonics). To make life easier with
+    such sessions, Show individual ports can be unticked. After that, the
+    channels of tracks and busses will be hidden, and any green dots added in
+    the connection manager will automatically connect each channel of the source
+    to the corresponding channel of the destination (left to left, right to
+    right and so on). In this mode, a half-circle in the connection grid
+    indicates that some (but not all) of the source's ports are connected to the
+    destination.
   </td></tr>
   <tr><th><kbd class="menu">Flip</kbd></th>
   <td>
@@ -127,8 +128,7 @@
     horizontal. If, for example, the top of the connection manager is showing
     <kbd class="menu">Ardour Busses</kbd> and the right is showing
     <kbd class="menu">Hardware</kbd>, flip will swap the view to the
-    opposite. You can also flip by pressing <kbd>f</kbd>. Note that if there are
-    no matching tabs on both axes, flipping will be impossible.
+    opposite. Flipping can also be done by pressing <kbd>f</kbd>. Note that if
+    there are no matching tabs on both axes, flipping will be impossible.
   </td></tr>
 </table>
-

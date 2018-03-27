@@ -1,28 +1,30 @@
 
 <h2>Overview</h2>
 
-<p>
-  In each individual Track or Bus the signal flow is top to bottom. Consider
-  the following diagram:
-</p>
-
-<figure class=center>
-<img width="360px" src="/images/track_signal_routing.png" alt="track signal routing" />
-<figcaption class=center>Typical signal routing in a channel strip.</figcaption>
+<figure class="right">
+  <img src="/images/track_signal_routing.png" alt="track signal routing">
+  <figcaption>Typical signal routing in a channel strip.</figcaption>
 </figure>
 
 <p>
-  Trim, Fader and Panner are provided by Ardour. The Processor Box can hold 3rd
-  Party Plugins or host-provided redirects (insert, aux-send, etc.).
+  In each individual Track or Bus the signal flow is top to bottom, as shown in
+  the diagram on the right.
+</p>
+
+<p>
+  Trim, Fader and Panner are provided by Ardour. The Processor Box can hold third
+  party plugins or host-provided redirects (insert, aux-send, etc.).
 </p>
 
 <p>
   An important aspect is that the signal flow is multi-channel and not fixed
-  throughout the track. For example, a Track can have a mono input, a mono to
+  throughout the track. For example, a track can have a mono input, a mono to
   stereo plugin (e.g. reverb) flowing into a surround panner with 6 outputs.
-  The design of Ardour is that width of the signal flow is defined by the
+</p>
+<p>
+  The design of Ardour is that the width of the signal flow is defined by the
   passage through plugins in the processor box, followed by panning. The number
-  of inputs to the panner is defined by the number outputs of the last plugin
+  of inputs to the panner is defined by the number of outputs of the last plugin
   in the chain. The number of panner outputs is equal to the track's outputs
   ports, which can be added and removed dynamically. This schema is called
   <em>Flexible I/O</em>. It is very powerful and a distinctive feature of
@@ -31,7 +33,7 @@
 
 <p class="note">
   The golden rule of processor signal flow: The number of outputs of one link
-  of the process chain defines the number inputs of the next, until the panner.
+  of the process chain defines the number of inputs of the next, until the panner.
 </p>
 
 <p>
@@ -43,13 +45,13 @@
 <h2>Strict I/O</h2>
 
 <p>
-  Strict I/O enforces a simple rule: Plugins have the same number of inputs as
+  Strict I/O enforces a simple rule: plugins have the same number of inputs as
   they have outputs. By induction the track will have as many output ports as
   there are input ports.
 </p>
 
 <p>
-  Adding a Plugin will not modify the signal flow. The number of plugin outputs
+  Adding a plugin will not modify the signal flow. The number of plugin outputs
   is forced to the number of inputs present at the point of insertion. If a
   plugin pin is missing, it is ignored. If a plugin pin is not connected, it is
   fed with silence. Non-connected plugin outputs are ignored.
@@ -183,4 +185,3 @@
   The sidechain ports can then be connected, as other inputs, to a pin of the
   plugin, or an output port as a "thru".
 </p>
-
