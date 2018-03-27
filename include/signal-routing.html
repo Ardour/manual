@@ -5,13 +5,15 @@
   inserts, which means they can be tapped into by other JACK clients.
   Only the signal flow inside a track or bus (i.e. from <a
   href="@@processor-box">processor to processor</a>) is
-  handled internally.<br>
-  By default, Ardour will create the following connections for you:
+  handled internally.
+</p>
+<p>
+  By default, Ardour will automatically create the following connections:
 </p>
 <ul>
   <li>
     <dfn>Track inputs</dfn> are optionally auto-connected to hardware inputs, in round robin
-    order, depending on the setting you chose in the
+    order, depending on the setting chosen in the
     <a href="@@newopen-session-dialog"><kbd
     class="menu">Session &gt; New Session</kbd> dialog</a>.
   </li>
@@ -31,13 +33,11 @@
 </ul>
 <p>
   This configuration is sufficient to do basic tracking and playback of many
-  sessions without any adjustment by the user. If you are using Ardour and
-  start to change these connections, be certain that you have a good reason
-  to do so&mdash;it is generally not necessary and often leads to problems.
+  sessions without any adjustment by the user. Changing these connections
+  is generally not necessary and often leads to problems.
 </p>
 <p>
   However, for many workflows during mixing, more complicated signal routing
-  is required. Ardour offers many possibilties for connecting things in the
-  way you may need or want them.
+  is required. Ardour offers many possibilties for connecting things to fit any
+  particular workflow.
 </p>
-
