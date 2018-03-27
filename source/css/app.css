@@ -492,7 +492,7 @@ samp:after {
 
 #content img.mini:hover {
   width: 100%;
-  transition: width .5s ease;
+  /*transition: width .5s ease; doesn't work on right-floated figures */ 
 }
 
 #content p.center {
