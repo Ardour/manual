@@ -8,7 +8,7 @@
   at a single meter.
 </p>
 <p>
-  Yet, if you want to work in or with the broadcast industry, it is
+  Yet, in order to work in or with the broadcast industry, it is
   usually unavoidable to use meters.
 </p>
 <p>
@@ -19,7 +19,7 @@
   <li>When tracking, meters are used to ensure that the input
   signal does not <dfn>overload</dfn> and maintains reasonable
   <dfn>headroom</dfn>.</li>
-  <li>Meters offer a <dfn>quick visual indication</dfn> of a
+  <li>Meters offer a <dfn>quick visual indication</dfn> of an
   activity when working with a large number of tracks.</li>
   <li>During mixing, meters provide an rough estimate of the
   <dfn>loudness</dfn> of each track.</li>
@@ -59,7 +59,7 @@
   exact specifications.
   <p>
   Various conventions for DPM fall-off times and dBFS line-up level can be
-  chosen in <kbd class="menu">Edit &gt; Preferences &gt; GUI</kbd>.
+  chosen in <kbd class="menu">Edit &gt; Preferences &gt; Metering</kbd>.
   </p>
   </td></tr>
 
@@ -75,7 +75,7 @@
     <li><dfn>K14</dfn>: Same as K20 with scale aligned to -14&nbsp;dBFS.</li>
     <li><dfn>K12</dfn>: Same as K20 with scale aligned to -12&nbsp;dBFS (since 3.5.143).</li>
     <li><dfn>Peak + RMS</dfn>: standard RMS, customizable via
-    <kbd class="menu">Edit &gt; Preferences &gt; GUI &gt; Metering</kbd></li>
+    <kbd class="menu">Edit &gt; Preferences &gt; Metering</kbd></li>
   </ul>
   </td></tr>
 
@@ -117,7 +117,13 @@
 
 <h2>Ardour Specifics</h2>
 
-<img class="right" src="/images/mixer-meter-context-menu.png" alt="mixer strip meter context menu" />
+<figure class="right">
+    <img src="/images/mixer-meter-context-menu.png" alt="mixer strip meter context menu">
+    <figcaption>
+      Mixer strip meter context menu
+    </figcaption>
+</figure>
+
 <p>
   Meters are available in various places in Ardour:
 </p>
@@ -132,38 +138,47 @@
   They all share the same configuration and color-theme which is available in
   preferences and the theme-manager. Settings for the Peak and RMS+Peak meters
   as well as VU meter standards are found in
-  <kbd class="menu">Edit &gt; Preferences &gt; GUI &gt; Metering</kbd>.
+  <kbd class="menu">Edit &gt; Preferences &gt; Metering</kbd>.
 </p>
+
 <p>
   The type of meter and the <dfn>metering point</dfn> (the place in the signal chain
   where the meter taps the signal) are configurable in the context menu of each meter.
-  Depending on the <kbd class="menu">Edit &gt; Preferences &gt; GUI &gt; Mixer
-  Strip</kbd> settings, the metering point is also accessible via a button in
-  each Mixer strip.
+  Depending on the <kbd class="menu">Edit &gt; Preferences &gt; Mixer</kbd> settings,
+  the metering point is also accessible via a button in each Mixer strip.
 </p>
-<img class="right" src="/images/meter-preferences.png" alt="" />
+
 <p>
   Regardless of meter type and standard the meter display will highlight red if
   the signal on the given channel exceeds the configured peak threshold.
 </p>
 <p>
-  <kbd class="mouse">Left</kbd> on the peak-indicator button resets the
+  <kbd class="mouse">Left</kbd> clicking on the peak-indicator button resets the
   <dfn>peak-hold indicator</dfn> of a single channel.<br>
-  <kbd class="mod1 mouse">Left</kbd> resets a whole <dfn>group</dfn>, and<br/>
-  <kbd class="mod13 mouse">Left</kbd> resets all meters.
+  <kbd class="mod1 mouse">Left</kbd> clicking resets a whole <dfn>group</dfn>, and<br/>
+  <kbd class="mod13 mouse">Left</kbd> clicking resets all meters.
 </p>
 
 <h2>Overview of meter types</h2>
+
+<figure class="left">
+  <img class="mini" src="/images/meter-types-18.png" alt="Bar-graph meters in Ardour">
+  <figcaption>
+    Bar-graph meters in Ardour
+  </figcaption>
+</figure>
+
+<figure class="right">
+  <img class="mini" src="/images/needle-meters-18.png" alt="Needle-style meters as external LV2 plugins">
+  <figcaption>
+    Needle-style meters as external LV2 plugins
+  </figcaption>
+</figure>
 
 <p>
   The figure on the left shows all available meter-types in Ardour 3.4 when fed with a
   -18&nbsp;dBFS 1&nbsp;kHz sine wave.
 </p>
-
-<img class="right" style="max-width:45%;height:400px;" src="/images/needle-meters-18.png"
-alt="Needle-style meters as external LV2 plugins" />
-<img style="max-width:45%; height:400px" src="/images/meter-types-18.png"
-alt="Bar-graph meters in Ardour" />
 
 <p>
   Due to layout concerns and consistent look and feel all meters available in
@@ -172,4 +187,3 @@ alt="Bar-graph meters in Ardour" />
   LV2 plugins (see image on the right):
   <a href="https://github.com/x42/meters.lv2/">meters.lv2</a>.
 </p>
-
