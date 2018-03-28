@@ -8,12 +8,12 @@
 
 <h2>Without a monitor bus</h2>
 <p>
-  If you are using Ardour without a monitor bus, there is only one way
+  When using Ardour without a monitor bus, there is only one way
   in which mute and solo will work:</p>
 <ul>
   <li>
     Mute on a track or bus will mute that track on the master bus,
-     so that it will not be heard.
+    so that it will not be heard.
   </li>
   <li>
     Solo on a track or bus will solo that track or bus and mute all
@@ -24,10 +24,10 @@
 
 <h2>With a monitor bus</h2>
 <p>
-  For setups with a monitor bus, you have more options, mostly
+  For setups with a monitor bus, more options are available, mostly
   governed by the setting of the
   <kbd class="option">Solo controls are Listen controls</kbd> option
-  in <kbd class="menu">Edit &gt; Preferences &gt; Solo / mute.
+  in <kbd class="menu">Edit &gt; Preferences &gt; Mixer.</kbd>
 </p>
 <p>
   With <kbd class="optoff">Solo controls are Listen controls</kbd>
@@ -36,11 +36,11 @@
   bus is fed from the master bus, so it sees the same thing.
 </p>
 <p>
-  With <kbc class="option">Solo controls are Listen controls</kbd>
+  With <kbd class="option">Solo controls are Listen controls</kbd>
   ticked, the master and monitor busses behave differently. In this
   mode, solo controls are more properly called <dfn>listen</dfn>
   controls, and Ardour's solo buttons will change their legend from
-  <samp>S</samp> to either <samp>A</samp> or <samp>P</samp> to
+  <kbd class="menu">S</kbd> to either <kbd class="menu">A</kbd> or <kbd class="menu">P</kbd> to
   reflect this.
 </p>
 <p>
@@ -69,7 +69,12 @@
 <p>
   The solo-mute arrangement with a monitor bus is shown below:
 </p>
-<img src="/images/solo-mute.png" alt="mute/solo signal flow" />
+
+<figure class="center">
+  <img src="/images/solo-mute.png" alt="mute/solo signal flow">
+  <figcaption>Mute/solo signal flow</figcaption>
+</figure>
+
 <p>
   Here we have a number of tracks or busses (in orange). Each one has an
   output which feeds the master bus. In addition, each has PFL and AFL
@@ -85,7 +90,7 @@
 
 <h2>Other solo options</h2>
 <p>
-  <kbd class="menu">Edit &gt; Preferences &gt;  Solo / Mute</kbd> has some
+  <kbd class="menu">Edit &gt; Preferences &gt;  Mixer</kbd> has some
   more solo options:
 </p>
 
@@ -100,31 +105,34 @@
   larger than -&infin;&nbsp;dB is sometimes called "Solo-In-Front" by other DAWs, because
   the listener has the sense that soloed material is "in front" of other
   material. In Ardour, this is not a distinct mode, but instead the mute cut
-  control offers any level of "in-front-ness" that you might want to use.
+  control offers any level of "in-front-ness" that is desired.
 </p>
+
 <h3>Exclusive solo</h3>
 <p>
   If this is enabled, only one track or bus will ever be soloed at once; soloing
   track B while track A is currently soloed will un-solo track A before soloing
   track B.
 </p>
+
 <h3>Show solo muting</h3>
 <p>
   If this is enabled, the mute button of tracks and busses will be drawn
   outlined to indicate that the track or bus is muted because something else
-  is soloed. This is enabled by default, and we recommend that you leave it
-  that way unless you are extremely comfortable with Ardour's mute/solo
+  is soloed. This is enabled by default, and it is recommended to leave it
+  that way unless extremely comfortable with Ardour's mute/solo
   behaviour.
 </p>
+
 <h3>Soloing overrides muting</h3>
 <p>
   If this is enabled, a track or bus that is both soloed and muted will behave
   as if it is soloed.
 </p>
-<h3>Mute affects…</h3>
+
+<h3>Mute affects&hellip;</h3>
 <p>
   These options dictate whether muting the track will affect various routes out
   of the track; through the sends, through the control outputs (to the monitor
   bus) and to the main outputs.
 </p>
-
