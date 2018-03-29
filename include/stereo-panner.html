@@ -5,16 +5,15 @@
   <dfn>position</dfn>. By default, the panner is centered at full width.
 </p>
 <p>
-  The stereo panner assumes that the signals
-  you wish to distribute are either uncorrelated (i.e. totally
-  independent), or that they contain a stereo image which is
+  The stereo panner assumes that the signals to distribute are either uncorrelated
+  (i.e. totally independent), or that they contain a stereo image which is
   <dfn>mono-compatible</dfn>, such as a co-incident microphone recording, or a
   sound stage that has been created with pan pots.<sup><a href="#caveat">*</a></sup>
 </p>
 <p class="note">
   With the default values it is not possible to alter the position,
   since the width is already spread entirely across both outputs. To
-  alter the position, you must first reduce the width.
+  alter the position, the width must first be reduced.
 </p>
 
 <h2>Stereo Panner User Interface</h2>
@@ -28,8 +27,8 @@
 
 <p>
   The <dfn>panner user interface</dfn> consists of three elements, divided between
-  the top and bottom half. Click and/or drag in the top half to
-  control position; click and/or drag in the bottom half to control
+  the top and bottom half. Clicking and/or dragging in the top half
+  controls position; clicking and/or dragging in the bottom half controls
   width (see below for details).
 </p>
 <p>
@@ -40,11 +39,11 @@
   the left, the stereo image collapses to just the left speaker.
 </p>
 <p>
-  In the bottom half are two signal indicators, one marked "L" and the
-  other "R". The distance between these two shows the width of the
+  In the bottom half are two signal indicators, one marked <kbd class="menu">L</kbd> and the
+  other <kbd class="menu">R</kbd>. The distance between these two shows the width of the
   stereo image. If the width is reduced to zero, there will only be a
-  single signal indicator marked "M" (for mono), whose color will
-  change to indicate the special state.
+  single signal indicator marked <kbd class="menu">M</kbd> (for mono), whose color will
+  change to indicate this special state.
 </p>
 <p>
   It is possible to invert the outputs (see below) so that whatever
@@ -65,10 +64,8 @@
 <tr><th>Position</th><th>L/R</th><th>English</th></tr>
 <tr><td>0</td><td>L=50% R=50%</td><td>signal image is midway between
     left and right speakers</td></tr>
-
 <tr><td>-1</td><td>L=100% R=0%</td><td>signal image is entirely
     at the left speaker</td></tr>
-
 <tr><td>1</td><td>L=0% R=100%</td><td>signal image is entirely
     at the right speaker</td></tr>
 </table>
@@ -104,16 +101,16 @@
   parameter, constrained by the current position setting.
 </p>
 <p>
-  To change the position smoothly, press the right button and drag
-  within the top half of the panner, then release. The position will
-  be limited by the current width setting. <em>Note: you do not need
+  The position can be changed smoothly, by pressing the right button and dragging
+  within the top half of the panner, then releasing. The position will
+  be limited by the current width setting. <em>Note: it is not necessary
   to grab the position indicator in order to drag.</em>
 </p>
 <p>
-  To change the width smoothly, press the right button and drag
-  within the lower half of the panner, then release. The width will be
-  limited by the current position setting. <em>Note: you do not need to
-  grab the L/R indicators in order to drag.</em>
+  The width can also be changed smoothly, by pressing the right button and dragging
+  within the lower half of the panner, then releasing. The width will be
+  limited by the current position setting. <em>Note: it is not necessary
+  to grab the L/R indicators in order to drag.</em>
 </p>
 
 <table class="dl">
@@ -165,7 +162,7 @@
   <tr><th><kbd>&larr;</kbd> / <kbd class="mod1">&larr;</kbd></th>
   <td>move position 1&deg; / 5&deg; to the left</td></tr>
   <tr><th><kbd>&rarr;</kbd> / <kbd class="mod1">&rarr;</kbd></th>
-  <td>move position 1&deg / 5&deg; to the right</td></tr>
+  <td>move position 1&deg; / 5&deg; to the right</td></tr>
   <tr><th><kbd>0</kbd></th>
   <td>reset position to center</td></tr>
   <tr><th><kbd class="mod2">&uarr;</kbd></th>
@@ -196,12 +193,12 @@
 The stereo panner will introduce unwanted side effects on
 material that includes a time difference between the channels, such
 as A/B, ORTF or NOS microphone recordings, or delay-panned mixes.<br>
-When you reduce the with, you are effectively summing two highly
-correlated signals with a delay, which will cause <dfn>comb filtering</dfn>.
+When the width is reduced, two highly correlated signals with a delay are
+effectively summed, which will cause <dfn>comb filtering</dfn>.
 </p>
 <p>
-Let's take a closer look at what happens when you record a source at 45° to the
-right side with an ORTF stereo microphone array and then manipulate the width.
+Let's take a closer look at what happens when a source is recorded at 45° to the
+right side with an ORTF stereo microphone array and then the width manipulated.
 </p>
 <p>
 For testing, we apply a <dfn>pink noise</dfn> signal to both inputs of an Ardour stereo
@@ -211,40 +208,52 @@ straight line, which would indicate that our signal chain does not color the
 sound:
 </p>
 
-<img src="/images/stereo-panner-with-ORTF-fullwidth.png" />
+<figure class="center">
+  <img src="/images/stereo-panner-with-ORTF-fullwidth.png" alt="Stereo panner
+    with ORTF fullwidth">
+  <figcaption>Stereo panner with ORTF full width</figcaption>
+</figure>
 
 <p>
-  To simulate an ORTF, we use Robin Gareus' stereo balance control LV2 to set the level difference and time delay. Ignore the Trim/Gain&mdash;its purpose is just to align the test signal with the 0dB line of the analyser.
+  An ORTF is simulated using Robin Gareus' stereo balance control LV2 to set the
+  level difference and time delay. The Trim/Gain can be ignored&mdash;its purpose
+  is just to align the test signal with the 0dB line of the analyser.
 </p>
 
 <p>
-Recall that an <dfn>ORTF</dfn> microphone pair consists of two cardioids spaced 17 cm
-apart, with an opening angle of 110°.
-For a far source at 45° to the right, the time difference between the capsules
-is 350 &mu;s or approximately 15 samples at 44.1 kHz. The level difference
-due to the directivity of the microphones is about 7.5 dB (indicated by the
-distance between the blue and red lines in the analyser).
+  An <dfn>ORTF</dfn> microphone pair consists of two cardioids spaced 17&nbsp;cm
+  apart, with an opening angle of 110&deg;. For a far source at 45&deg; to the
+  right, the time difference between the capsules is 350&nbsp;&mu;s or
+  approximately 15 samples at 44.1&nbsp;kHz. The level difference due to the
+  directivity of the microphones is about 7.5&nbsp;dB (indicated by the distance
+  between the blue and red lines in the analyser).
 </p>
 <p>
-Now for the interesting part: if we reduce the width of the signal to 50%,
-the time-delayed signals will be combined in the panner. Observe what
-happens to the frequency response of the left and right outputs:
+  Now for the interesting part: if the width of the signal is reduced to 50%,
+  the time-delayed signals will be combined in the panner. What happens to the
+  frequency response of the left and right outputs is shown in the following
+  picture:
 </p>
-<img src="/images/stereo-panner-with-ORTF-halfwidth.png" />
+
+<figure class="center">
+  <img src="/images/stereo-panner-with-ORTF-halfwidth.png" alt="Stereo panner
+    with ORTF halfwidth">
+  <figcaption>Stereo panner with ORTF half width</figcaption>
+</figure>
+
 <p>
-You may argue that all spaced microphone recordings will undergo comb
-filtering later, when the two channels recombine in the air between the speakers.
-Perceptually however, there is a huge of difference: our hearing system is
-very good at eliminating comb filters in the real world, where their component
-signals are spatially separated. But once you combine them
-inside your signal chain, this spatial separation is lost and the brain will
-no longer be able to sort out the timbral mess. As usual, you
-get to keep the pieces.
+  It can be argued that all spaced microphone recordings will undergo comb
+  filtering later, when the two channels recombine in the air between the
+  speakers. Perceptually however, there is a huge difference: our hearing
+  system is very good at eliminating comb filters in the real world, where their
+  component signals are spatially separated. But once they are combined inside
+  a signal chain, this spatial separation is lost and the brain will no
+  longer be able to sort out the timbral mess.
 </p>
 <p class="note">
-Depending on your material and on how much you need to manipulate the width,
-some degree of comb filtering may be acceptable. Then again, it may not. Listen
-carefully for artefacts if you manipulate unknown stereo signals&mdash;many
-orchestra sample libraries for example do contain time-delay components.
+  Depending on the material and on how much the width needs to be manipulated,
+  some degree of comb filtering may be acceptable. Then again, it may not.
+  It is advides to listen carefully for artefacts when manipulating unknown stereo
+  signals&mdash;many orchestra sample libraries for example do contain
+  time-delay components.
 </p>
-
