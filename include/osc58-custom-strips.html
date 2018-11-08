@@ -1,0 +1,142 @@
+
+<p>
+	It is sometimes desirable to work only with a set of strips out of the whole
+	list of available strips. This could be in any case where there is more than
+	one engineer and one of them is responsible for only a group of strips such
+	as all percussion, all sound effects, choir only, orchestra only, etc.
+</p>
+<p class="note">
+	New Ardour 6.0
+</p>
+<p>
+	After a strip is added to the custom strip list, it will retain the same
+	SSID for the life of the session so long as banking is not used. If a strip
+	is removed it will leave a gap in the SSID list. Custom strip lists do
+	not survive a session reload and need to be recreated at session start.
+</p>
+<p class="note">
+	A custom strip list will only affect the surface that sets it. Any
+	other surface will continue to operate on all strips or may have it's
+	own set of custom strips.
+</p>
+<p>
+	The commands below control the use of a custom strip set.
+</p>
+
+<table class="dl">
+  <tr><th><kbd class="osc">/strip/listen <em>ssid</em> <em>...</em></kbd></th>
+  <td>where <em>ssid</em> is an integer or list of integers representing
+  tracks to add to the custom track list</td></tr>
+  <tr><th><kbd class="osc">/strip/ignore <em>ssid</em>  <em>...</em></kbd></th>
+  <td>where <em>ssid</em> is an integer or list of integers representing
+  tracks to remove from the custom track list</td></tr>
+  <tr><th><kbd class="osc">/strip/custom/mode <em>mode</em></kbd></th>
+  <td>where <em>mode</em> is an integer representing the desired mode
+  of custom strips.</td></tr>
+  <tr><th><kbd class="osc">/strip/custom/clear </kbd></th>
+  <td>disables custom strips and clears the previously set custom strip list</td></tr>
+</table>
+
+<h2>Setting up a custom strip set</h2>
+<p>
+	The control surface may set up a custom strip list all at once or one
+	strip at a time. A control surface that uses banking would probably
+	be best served by setting up one strip at a time, while one that does
+	no banking (bank_size = 0) and uses <code>/strip/list</code> would
+	probably be best served by having them all selected at once.
+</p>
+<ul>
+ <li>
+	 <p>One at a time example:</p>
+	 <code>/strip/listen 2</code>
+	 <p>adds strip 2 to custom strip list</p>
+ </li>
+ <li>
+	 <p>Many at a time example:</p>
+	 <code>/strip/listen 2 4 6 8</code>
+	 <p>Adds strips 2, 4, 6 and 8 to the custom strip list</p>
+ </li>
+</ul>
+<p class="note">
+	<code>/strip/listen</code> will only work with custom enable turned off.
+	Using <code>/strip/listen</code> while in custom mode will have no effect.
+</p>
+<h2>Using the custom strip set</h2>
+<p>
+	Once the custom strip set has been set up as shown above, it must be enabled.
+	This is done from the control surface with the <code>/strip/custom/mode <em>mode</em></code>
+	OSC command. <em>Mode</em> may be <em>0</em>: Off, <em>1</em>: Use custom
+	strip set in selected order or <em>2</em>: Use custom strip set
+	in mixer order. <code>/strip/list</code> will now show the custom strip list
+	and and its SSIDs. No more strips may be added to the custom strip list while
+	in custom mode. To add more strips to the end of the list, first send the
+	<code>/strip/custom/mode 0</code> then more strips can be added to the end
+	of the list. After adding the next strips send the
+	<code>/strip/custom/mode <em>mode</em></code>
+	to re-enable custom mode. It is possible to switch back and forth between
+	normal and custom mode as desired.
+</p>
+<h3>Custom Strip ordering</h3>
+<p>
+	The ordering of strips in the custom strip set is affected by both the
+	custom <code>mode</code> and the <code>bank_size</code> setting for the
+	surface.
+</p>
+<p class="note">
+	A <code>bank_size</code> of <em>0</em> is also described as having
+	banking turned off. In such a case all strips are shown.
+</p>
+<ul>
+  <li>
+	<h4>Mode 0</h4>
+	<p>
+		Custom mode <em>Off</em>. All strips will be used as set by
+		<code>strip_types</code>.
+	</p>
+  </li>
+  <li>
+	<h4>Mode 1</h4>
+	<p>
+		If <code>mode</code> is set to <em>1</em> the custom strip ordering
+		is always "first come, first served". That is,
+		<code>/strip/listen 2 4</code> followed by <code>/strip/listen 1 3</code>
+		will result in strip 2 showing as SSID 1 , strip 4 as SSID 2, strip 1
+		as SSID 3 and strip 3 as SSID 4 when in custom mode <em>1</em>. Once these SSID are set
+		in this way, they will remain linked to this SSID with banking turned off and
+		will at least remain in the same order with banking on.
+	</p>
+  </li>
+  <li>
+	<h4>Mode 2</h4>
+	<p>
+		If <code>mode</code> is set to <em>2</em> the custom strip ordering
+		will be set to mixer order and any deleted strips will not leave
+		a blank strip in the set.
+	</p>
+  </li>
+  <li>
+	<h4>With banking on</h4>
+	<p>
+		If <code>bank_size</code> is set to greater than <em>0</em>, Then
+		banking is turned on. In this case <code>strip_types</code> will
+		be honored and only strips from the custom strip set that match
+		<code>strip_types</code> will be shown in a bank. However, the
+		order that the strips appear will still be affected by the
+		<code>mode</code>.
+	</p>
+  </li>
+</ul>
+<h2>Removing a strip from the custom strip list</h2>
+<p>
+	<code>/strip/ignore ssid</code> will remove that strip from the
+	custom strip list if custom strip use is enabled. In <code>mode</code>
+	<em>1</em> there will be a blank strip at that SSID and all other
+	SSIDs will remain the same for no banking. With banking
+	in use, <code>strip_types</code> are honored and so removed strips
+	which have no type, will not be shown.
+</p>
+<p>
+	<code>/strip/custom/clear</code> will remove
+	all strips and SSIDs allowing custom strip lists to be restarted from
+	SSID 1. Custom <code>mode</code> will be set to <em>0</em>.
+</p>

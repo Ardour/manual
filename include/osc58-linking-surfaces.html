@@ -1,0 +1,170 @@
+
+<p>
+	As of Ardour 6.0, Ardour provides the possibility of linking two or
+	more surface to work as one surface. This means that two surfaces,
+	one with 8 strips and one with 6 strips would look like a single 14
+	strip surface. A <code>/bank_up</code> or down on either surface with bank the two
+	so that they bank in 14 strip increments.
+</p>
+<p class="note">
+	Ardour 5.0 to 5.12 can use two surfaces as shown in <a href="#example3">Example 3</a>.
+</p>
+<h2>Surface Linking Concepts</h2>
+<p>
+	<ul>
+	  <li>A group of surfaces linked together are called a <code>Link Set</code>. A 
+	  <code>Link Set</code> is called by a positive integer number.</li>
+	  <li>There may be more than one <code>Link Set</code> at a time used
+	  with Ardour.</li>
+	  <li>Each surface inside a <code>Link Set</code> has a <code>Link Id</code>.</li>
+	  <li>The <code>Link ID</code> is a positive integer numbering consecutive
+	  surfaces starting from 1 for the left most and going up to the right. So
+	  if there are three surfaces in a <code>Link Set</code>, The left surface
+	  will have a <code>Link Id</code> of <em>1</em>, the middle surface will
+	  have a <code>Link Id</code> of <em>2</em> and the right surface will
+	  have a <code>Link Id</code> of <em>3</em>.</li>
+	  <li>There may not be skipped <code>Link Ids</code>. If there are a
+	  surface 1 and 3, there must also be a surface 2. Surface 1 must always
+	  exist. If any surface is missing, the track names will indicate the
+	  <code>Link Id</code> of the first device missing.</li>
+	  <li>In most things, surfaces are separate and can do things independently.
+		<ul>
+		  <li>Each surface can have a different <code>Gain Mode</code></li>
+		  <li>Each surface has it's own <code>Bank Size</code></li>
+		  <li>Each surface has it's own <code>Feedback</code></li>
+		  <li>Each surface has it's own <em>Expanded Strip</em></li>
+		</ul>
+		However, some things are shared by all surfaces in a <code>Link Set</code>:
+		<ul>
+		  <li>Banking is done as a unit and each surface bank start is 
+		  determined by the <code>Link Set</code>. Any surface can
+		  <em>Bank Up</em> or <em>Bank Down</em>.</li>
+		  <li>All surfaces share the same <em>strip types</em>. Setting
+		  <em>Strip Types</em> in any one surface sets it for the whole
+		  <code>Link Set</code>.</li>
+		</ul>
+	</li>
+	</ul>
+</p>
+<h2>Setting Up a Link Set</h2>
+<p>
+	There are only two OSC commands needed to set up a <code>Link Set</code>:
+</p>
+<table class="dl">
+  <tr><th><kbd class="osc">/link/set <em>linkset</em> <em>linkid</em></kbd></th>
+  <td>Where <em>linkset</em> is the Link Set this surface will be added to and
+  <em>linkid</em> is the Link Id of this surface.</td></tr>
+  <tr><th><kbd class="osc">/link/bank_size <em>linkset</em> <em>banksize</em></kbd></th>
+  <td>Where <em>linkset</em> is the Link Set this surface will be added to and
+  <em>banksize</em> is the target bank size for this Link Set. This Link Set
+  will not operate unless the total strip numbers is <em>banksize</em>.</td></tr>
+</table>
+<p>
+	It is also possible to send link set and ID values as part of a
+	<code>/set_surface</code> command.
+
+  <kbd class="osc">/set_surface <em>bank_size</em> <em>strip_types</em>
+  <em>feedback</em> <em>fadermode</em> <em>send_page_size</em> <em>plugin_page_size</em>
+  <em>port</em> <em>linkset</em> <em>linkid</em></kbd>
+
+</p>
+<p> The <code>/link/bank_size</code> command is optional. Ardour defaults
+	to linking with auto sizing banks where the <code>Link Set</code>
+	bank size is determined by adding the available surface bank sizes
+	together. So long as the <code>Link Ids</code> are consecutive, the
+	<code>Link Set</code> is considered ready. If the surface wants to make
+	sure all surfaces are present before the <code>Link Set</code> is
+	ready, the <code>/link/bank_size</code> command will not allow the
+	<code>Link Set</code> to be ready until the surface bank sizes add up
+	to the <code>Link Set's</code> bank size.
+</p>
+<p>
+	Setting up a linked set of surfaces is a simple as choosing a number
+	for the <code>Link Set</code>, <em>1</em> will work fine if there is
+	only one linked set of surfaces, and giving each surface a <code>
+	Link Id</code>. This can be done with the same method as the <code>
+	/set_surface</code> command is sent or by having each surface send
+	the <code>/link/set</code> command. As with other commands, the first
+	parameter (linkset) may be sent inline: <code>/link/set/1 <em>linkid</em></code>
+	for those surfaces unable to send multi parameter OSC messages.
+</p>
+<h2>Example Multi Device Surfaces</h2>
+<h3>Example 1</h3>
+<p>
+	Assuming two devices, the left device has 8 strips and very little
+	else on it's main page or tab. It may have secondary pages or tabs or
+	a physical control section to access the extra selected strip controls
+	like send levels or plugin controls. The right device has only 6
+	strips because it also has Master and Monitor channel as well as
+	transport controls. It also has a select section. As part of it's
+	Global controls it has a Bank up and a bank down button. (there is
+	nothing stopping the left surface from also having banking buttons)
+	The left surface will be linkid <em>1</em> and the right surface will be
+	linkid <em>2</em>. For this example the linkset will be <em>1</em>.
+</p>
+<p>
+	Device <em>1</em> will have a "Connect" button that will send:
+	<code>/set_surface iiiiiiiii 8 159 8323 0 0 0 0 1 1</code> and the second
+	device will have two buttons. One will be a "Connect" button that
+	sends: <code>/set_surface iiii 6 159 8403 0</code> and the other
+	will be a "Link" button that will send: <code>/link/set ii 1 2</code>.
+	These devices use two different methods of setup both to illustrate
+	their use and because this will allow them to be used unlinked. Device
+	<em>1</em> even as a linked device will operate on it's own as a one
+	device <code>Link Set</code>. However, device <em>2</em> would show
+	an error condition if device <em>1</em> is not present so we have a
+	seperate "Link" button. This is an optional way of doing things and
+	both could use just one "Connect" button or both could have a separate
+	"Link" button. Device <em>2</em> could also have an "Unlink" button
+	that sends: <code>/link/set ii 0 0</code> if desired.
+</p>
+<p>
+	To use these two devices as one, the "Connect" button on both devices and
+	the "Link" button on the second device are pressed in any order. The two
+	surfaces will now act as one surface with 14 bankable strips.
+</p>
+<h3>Example 2</h3>
+<p>
+	This example will be more complex and use a total of five devices. The
+	first three devices will form Link Set <em>1</em> and have 8 strips each.
+	They are similar to the left device above, but will only show "input"
+	strips. The last two devices will form Link Set <em>2</em>. Device <em>1</em>
+	will be similar to the first three devices with 8 strips and the other
+	will be similar to the 6 strip device in example 1 having Master and
+	transport controls as well. The devices in Link Set 2 will be set up
+	to only use bus and VCA strips and so don't need to include record
+	enable buttons etc. It is expected that all devices have
+	banking buttons, but at least one surface in each Link Set would have
+	to have them.
+</p>
+<p>
+	Devices 1 to 3 (from left to right) would each have a "Connect"
+	button that sends: <code>/set_surface iiiiiiiii 8 3 8323 0 0 0 0 1 n</code>
+	where <em>n</em> is the position or Link Id of that surface from 1 to
+	3, left to right. Device 4 would use: <code>/set_surface iiiiiiiii 8
+	156 8323 0 0 0 0 2 1</code> and device 5 would use: <code>/set_surface
+	iiiiiiiii 6 156 8403 0 0 0 0 2 2</code>.
+</p>
+<p>
+	As before, the "Connect" on each surface is pressed in any order and
+	the resulting surface would have 24 input strips where the banking
+	buttons on any of the first three surfaces would bank those three
+	surfaces 24 strips at a time through the input strips (assuming more
+	than 24 input strips are available). The last two strips would form
+	a master and bus section with 14 bus only strips that will bank through
+	the bus strips (assuming more than 14 bus strips). This combined
+	surface would have 38 strips (plus Master) all together.
+</p>
+<h2 id="example3">Example 3</h2>
+<p>
+	In this example there are two devices as in example 1. However, the
+	goal is to have only input strips on the left device and only bus strips,
+	Master and transport controls on the right device. In this case linking
+	is not needed. The left device would use a "Connect" button that sent:
+	<code>/set_surface iiii 8 3 8323 0</code> and the right device would
+	use a "Connect" button that sent: <code>/set_surface iiii 6 156 8403 0</code>.
+	The banking buttons on the left surface would bank through the input
+	channels and the banking buttons on the right surface would bank
+	through the buses and VCAs. As this example does not use Ardours OSC
+	linking commands, it will also work with Ardour versions 5.0 to 5.12.
+</p>

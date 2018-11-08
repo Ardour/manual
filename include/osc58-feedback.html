@@ -118,6 +118,9 @@
   <td><em>state</em> is true when transport is moving forward but not at speed 1.0</td></tr>
   <tr><th><kbd class="osc">/rewind <em>state</em></kbd></th>
   <td><em>state</em> is true when transport speed is less than 0.0</td></tr>
+  <tr><th><kbd class="osc">/marker <em>position</em></kbd></th>
+  <td><em>position</em> is a string in the form <kbd class="osc">previous &lt;-&gt; next</kbd>
+  or <kbd class="osc">current</kbd> (new Ardour 6.0)</td></tr>
   <tr><th><kbd class="osc">/loop_toggle <em>state</em></kbd></th>
   <td><em>state</em> is true when loop mode is true</td></tr>
   <tr><th><kbd class="osc">/cancel_all_solos <em>state</em></kbd></th>
@@ -183,9 +186,10 @@
   <td>where <em>LED</em> is a bool that indicates another bank_up operation is possible.</td></tr>
   <tr><th><kbd class="osc">/bank_down <em>LED</em></kbd></th>
   <td>where <em>LED</em> is a bool that indicates another bank_down operation is possible.</td></tr>
-  <tr><th><kbd class="osc">/strip/name <em>ssid</em> <em>track_name</em></kbd></th>
-  <td>where <em>track_name</em> is a string representing the name of the track
-  (note there is no corresponding command to set the track name)</td></tr>
+  <tr><th><kbd class="osc">/strip/name <em>ssid</em> <em>strip_name</em></kbd></th>
+  <td>where <em>strip_name</em> is a string representing the name of the strip</td></tr>
+  <tr><th><kbd class="osc">/strip/group <em>ssid</em> <em>group_name</em></kbd></th>
+  <td>where <em>group_name</em> is a string representing the name of the group the track belongs to</td></tr>
   <tr><th><kbd class="osc">/strip/mute <em>ssid</em> <em>mute_st</em></kbd></th>
   <td>where <em>mute_st</em> is a bool/int representing the actual mute state of the track</td></tr>
   <tr><th><kbd class="osc">/strip/solo <em>ssid</em> <em>solo_st</em></kbd></th>
@@ -241,8 +245,54 @@
   <tr><th><kbd class="osc">/select/send_name <em>sendid</em> <em>send_name</em></kbd></th>
   <td>where <em>send_name</em> is a string representing the name of the buss
   this send goes to.</td></tr>
+  <tr><th><kbd class="osc">/select/group/enable <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int representing the current enable state
+  of the group the selected strip is a part of</td></tr>
+  <tr><th><kbd class="osc">/select/group/gain <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which shows the gain sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/relative <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which shows relative state of thew
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/mute <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which shows the mute sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/solo <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which shows the solo sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/recenable <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which shows the recenable sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/select <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which shows the select sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/active <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which shows the route active sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/color <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which shows the color sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/monitoring <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which shows the monitoring sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/vcas <em>name</em> <em>state</em> ...</kbd></th>
+  <td>where <em>name</em> is a string with the name of the VCA, and
+  <em>state</em> is an int that determines if the named VCA will control
+  this strip. Note that this lists all VCAs in a session. (Ardour 6.0)</td></tr>
 </table>
 <h3>Menu actions</h3>
+<p class="note">
+	There is no feedback for Menu actions.
+</p>
 <p>
   Every single menu item in Ardour's GUI is accessible via OSC. However,
   there is no provision for returning the state of anything set this way.

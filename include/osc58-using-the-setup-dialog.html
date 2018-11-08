@@ -12,11 +12,9 @@
   Many OSC devices get their IP from a DHCP making it difficult to set
   an IP in Ardour's OSC settings. Therefore, most of the settings are
   <em>default</em> settings. Values are set and the next OSC surface to
-  send an OSC message to Ardour will use those settings. An OSC
-  surface that has previously sent a message to Ardour will retain the
-  settings it already had. Any change to a setting will reset all
-  device settings. A <em>/refresh</em> message will set that device to
-  any new settings. The use of <em>/set_surface</em> will override all
+  send an OSC message to Ardour will use those settings. Any change to a
+  setting will reset all
+  device settings. The use of <em>/set_surface</em> will override all
   settings except <em>Port Mode</em>. <em>Port Mode</em> affects all
   connected surfaces and so all surfaces must use either the set manual
   port or send OSC messages from the same port they expect to receive
@@ -102,9 +100,11 @@
   Sets the faders (and sends faders) feedback math to position where a
   value between 0 and 1 represents the fader position of the same fader
   in the mixer GUI or dB where the feedback from fader movement will be
-  returned as a dB value. When the Gain Mode is set to position, the
+  returned as a dB value. When the Gain Mode is set to position, there
+  are also options to send the gain in dB either to the channel name,
   /*/name feedback for the channel will show dB values in text while the
-  fader is being adjusted and then return the name text.
+  fader is being adjusted and then return the name text. It can also be
+  set to send both position and gain or just position.
 </p>
 <h4>Debug:</h4>
 
@@ -117,7 +117,10 @@
 
 <p>
   For debugging purposes this allows logging either all OSC messages
-  Ardour receives or invalid messages received or none.
+  Ardour receives or invalid messages received or none. The last option:
+  <kbd class="menu">Print surface information to Log window</kbd> prints
+  the internal information that Ardour uses to create feedback for all
+  surfaces Ardour knows about.
 </p>
 <h4>Preset:</h4>
 

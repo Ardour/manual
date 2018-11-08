@@ -1793,6 +1793,14 @@ part: subchapter
 ---
 
 ---
+title: OSC&#58; Linking Surfaces
+include: osc58-linking-surfaces.html
+link: osc58-linking-surfaces
+uri: using-control-surfaces/controlling-ardour-with-osc/linking-surfaces
+part: subchapter
+---
+
+---
 title: OSC&#58; Querying Ardour
 include: osc58-querying-ardour.html
 link: osc58-querying-ardour
@@ -1821,6 +1829,14 @@ title: OSC&#58; Jog Modes
 include: osc58-jog-modes.html
 link: osc58-jog-modes
 uri: using-control-surfaces/controlling-ardour-with-osc/jog-modes
+part: subchapter
+---
+
+---
+title: OSC&#58; Custom Strip Lists
+include: osc58-custom-strips.html
+link: osc58-custom-strips
+uri: using-control-surfaces/controlling-ardour-with-osc/custom-strips
 part: subchapter
 ---
 
