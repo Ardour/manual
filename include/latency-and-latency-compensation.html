@@ -83,7 +83,7 @@
   Low latency is <strong>not</strong> always a feature you want to have. It
   comes with a couple of drawbacks: the most prominent is increased power
   consumption because the CPU needs to process many small chunks of audio data,
-  it is constantly active and can not enter power-saving mode (think fan-noise).
+  it is constantly active and can not enter power-saving mode (think fan noise).
   Since each application that is part of the signal chain must run in every
   audio cycle, low-latency systems will undergo<dfn>context switches</dfn>
   between applications more often, which incur a significant overhead.
@@ -95,7 +95,7 @@
 <h3>Playing virtual instruments</h3>
 <p>
   A large delay between the pressing of the keys and the sound the instrument
-  produces will throw-off the timing of most instrumentalists (save church
+  produces will throw off the timing of most instrumentalists (save church
   organists, whom we believe to be awesome latency-compensation organic systems.)
 </p>
 <h3>Software audio monitoring</h3>
@@ -132,19 +132,19 @@
   played back is internally aligned with the sound that is being recorded.
 </p>
 <p>
-  This is where latency-compensation comes into play. There are two ways to
+  This is where latency compensation comes into play. There are two ways to
   compensate for latency in a DAW, <dfn>read-ahead</dfn> and
   <dfn>write-behind</dfn>. The DAW starts playing a bit early (relative to
   the playhead), so that when the sound arrives at the speakers a short time
   later, it is exactly aligned with the material that is being recorded.
-  Since we know that play-back has latency, the incoming audio can be delayed
+  Since we know that playback has latency, the incoming audio can be delayed
   by the same amount to line things up again.
 </p>
 <p>
   As you may see, the second approach is prone to various implementation
   issues regarding timecode and transport synchronization. Ardour uses read-ahead
   to compensate for latency. The time displayed in the Ardour clock corresponds
-  to the audio-signal that you hear on the speakers (and is not where Ardour
+  to the audio signal that you hear on the speakers (and is not where Ardour
   reads files from disk).
 </p>
 <p>
