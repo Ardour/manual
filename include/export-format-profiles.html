@@ -2,116 +2,143 @@
 <h2>Export Format Profiles</h2>
 
 <p>
-An Export Format Profile specifies the file format in which Ardour will export
-audio files, and also other audio file export options.
+  An Export Format Profile specifies the file format in which Ardour will export
+  audio files, and also other audio file export options.
 </p>
 
 <p>
-Export Format Profiles are edited via the 'Edit Export Format Profile' dialog.
+  Export Format Profiles are edited via the <kbd class="menu">Edit Export Format
+  Profile</kbd> dialog.
 </p>
 
-<img src="/images/edit-export-format-profile.png" />
-<p>
+<figure class="right">
+  <img src="/images/edit-export-format-profile.png" alt="The 'Edit Export Format Profile' dialog">
+  <figcaption>
+    The 'Edit Export Format Profile' dialog
+  </figcaption>
+</figure>
+
 <h3>Normalize</h3>
 <p>
-If enabled, peak levels of exported files will be normalized to the level chosen here.
+  If enabled, levels of exported files will be normalized to the level chosen here.
+  The normalization can be either:
 </p>
 
-<h3>Trim/Add silence at start/end</h3>
+<ul>
+  <li>Peak, which adjusts the gain to bring the highest signal peak to the
+    chosen level (in <acronym title="decibels relative to full scale">dBFS</acronym>),</li>
+  <li>Loudness, which adjusts the gain to bring the average amplitude to the
+    chosen level (in <acronym title="loudness units relative to full scale">LUFS</acronym>),
+    without exceeding the chosen true-peak value (in
+    <acronym title="decibels true peak">dBTP</acronym>).
+    EBU R128 is only available for mono or stereo sounds while true'peak works
+    for any channel layout.</li>
+</ul>
+
+<h3>Trim silence at start/end</h3>
 <p>
-
+  These checkboxes allow to remove any part Ardour considers silent (0dB),
+  at the beginning or/and end of each exported track.
 </p>
+
+<h3>Add silence at start/end</h3>
+<p>
+  These checkboxes allow to add silence at the beginning or/and end of each
+  exported track. The duration of the added silence can be manually fixed in the
+  adjascent 'timer' input fields.
 
 <h3>Compatibility/Quality/File format/Sample rate</h3>
+
 <h4>Compatibility</h4>
 <p>
-Selecting an item in the 'Compatibility' column will display options in the
-other columns that are incompatible with that item in red.
+  Selecting an item in the 'Compatibility' emphasizes the settinggs in the other
+  columns that are compatible with the selected standard, by turning incompatible
+  options red. When an incompatible quality/format/sample rate is selected, the
+  compatibility column checkbox disapears.
 </p>
 
 <h4>Quality</h4>
 <p>
-The appropriate item in the 'Quality' column will be highlighted when you
-choose a file format. Clicking on items in the 'Quality' column currently
-doesn't seem to do anything useful.
+  The appropriate item in the 'Quality' column will be highlighted a file format
+  is chosen. At the moment, selecting a Quality settings does not show the
+  compatible File formats.
 </p>
 
 <h4>File format</h4>
 <p>
-This column contains a list of Ardour's supported export file types. Click on
-the format you want to use.
+  This column contains a list of Ardour's supported export file types. Selecting
+  one updates the options underneath it.
 </p>
 
 <h4>Sample rate</h4>
 <p>
-You can explicitly choose the sample rate of your exported files here, or
-choose 'Session rate' to export in the current session's sample rate, without
-sample rate conversion.
+  A specific sample rate can be chosen for the exported files, or the current session's
+  sample rate (by choosing 'Session rate'), without sample rate conversion.
 </p>
 
 <h4>Sample rate conversion quality</h4>
 <p>
-If your chosen sample rate does not match the current session's sample rate,
-choose the sample rate conversion quality here. Better quality options are
-slower.
+  In case the chosen sample rate does not match the current session's sample rate,
+  the sample rate conversion quality can be chosen here. Better quality options are
+  slower.
+</p>
+
+<h3>Format Options</h3>
+<p>
+  Options relevant to the chosen file format will appear just under the
+  Compatibility/Quality/File format/Sample rate table.
+</p>
+
+<h4>Tag with session's metadata</h4>
+<p>
+  If the exported file format supports metadata (e.g. FLAC, Ogg Vorbis), use data
+  entered in the <a href="@@metadata">Session Metadata</a> window to tag the
+  exported files.
+</p>
+
+<h4>Sample Format and Dithering</h4>
+<p>
+  The <kbd class="menu">Sample Format</kbd> is the bit depth of exported files,
+  i.e. the numbers of values a sample can have. Increasing the sample format
+  results in a better defined audio file at the cost of increasing the file size.
+</p>
+<p>
+  If the exported files bit depth is less than Ardour's native bit depth
+  (32 bits floating point by default), the dithering algorithm, that chooses how
+  to compute the conversion can be chosen in the <kbd class="menu">Dithering</kbd>
+  column.
 </p>
 
 <h3>Options</h3>
 <p>
-Options relevant to the chosen file format will appear here.
-Categories of audio file format are:
-<ul>
-<li>Linear encoding</li>
-<li>Broadcast Wave</li>
-<li>Ogg Vorbis</li>
-<li>FLAC</li>
-</ul>
-
-<p>
-Available options include a selection of the following:</p>
-
-<h4>Sample Format</h4>
-<p>
-Choose the bit depth of exported files.
+  These options are presented whatever the chosen format is:
 </p>
 
-<h4>Dithering</h4>
+<h4>Create CUE/TOC/chapter mark file</h4>
 <p>
-If the exported files bit depth is less than Ardour's native bit depth,
-choose the dithering algorithm to use.
-</p>
-
-<h4>Create CUE file/Create TOC file</h4>
-<p>
-As well as exporting an audio file, create a file (in CUE or TOC format
-respectively) containing CD track information, as defined in the
-<a href="@@the-ranges-and-marks-lists">Ranges &amp; Marks List</a>.
-
-
-<h4>Tag with session's metadata</h4>
-<p>
-If the exported file format supports metadata, use data entered in the
-<a href="@@metadata">Session Metadata</a>
-window to tag the exported files.
-</p>
-
+  As well as exporting an audio file, Ardour can create a file (in CUE, TOC or MP4ch format
+  respectively) containing CD track information, as defined in the
+  <a href="@@the-ranges-and-marks-lists">Ranges &amp; Marks List</a>.
+  Those files can then be used to either burn a CD or DVD, or to create "chapters"
+  inside a compatible mp4 video container.
 
 <h3>Label</h3>
 <p>
-The 'Label' field lets you choose the name which will be shown for this format
-in the drop-down list of export formats in the 'File Formats' tab of the
-<a href="@@export-dialog">Export dialog</a>.
+  The <kbd class="menu">Label</kbd> field allows to choose the name which will be
+  shown for this format in the drop-down list of export formats in the
+  'File Formats' tab of the <a href="@@export-dialog">Export dialog</a>.
+</p>
 
 <h3>Command to run post-export</h3>
 <p>
-If this is not blank, it is considered as a command to be run after the export
-of each file. Either the command must exist in $PATH, or you can specify an
-absolute path to an executable file here.
+  If this is not blank, it is considered as a command to be run after the export
+  of each file. Either the command must exist in $PATH, or an absolute path to
+  an executable file can be specified here.
 </p>
 
 <p>
-Certain sequences are allowed here to stand for the exported file name and the
-like. Currently these are:
+  Certain sequences are allowed here to stand for the exported file name and
+  various parameters. Currently these are:
 <table class="dl">
 <tr><th><code>%f</code></th>
 <td>Full path and filename of the exported audio file</td></tr>
@@ -126,6 +153,13 @@ like. Currently these are:
 <tr><th><code>%%</code></th>
 <td>A literal percent sign</td></tr>
 </table>
-<p>
-Any part of the command-line enclosed in double-quotes (") will be used as-is.
 
+<p>
+  Any part of the command-line enclosed in double-quotes (") will be used as-is.
+</p>
+
+<p>
+  As an exemple, exporting an mp3 file can be done by inserting <code>lame -b320 %f</code>
+  which will convert the exported audio file ('%f') to a 320 kbs mp3 using the lame encoder
+  (provided lame is installed first on the system).
+</p>

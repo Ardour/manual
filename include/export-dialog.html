@@ -1,18 +1,11 @@
 
 <p>
-  When you have finished mixing your session, you probably want to export it to a sound
+  When a session is finished mixing, one probably wants to export it to a sound
   file to burn to a CD, upload to the web, or whatever. <kbd class="menu">Session &gt; Export &gt; Export to Audio file(s)&hellip;</kbd>
   shows the Export Dialog to do this.
 </p>
 
-<p>
-  You can also export the outputs of multiple tracks and busses all at once via
-  <kbd class="menu">Session &gt; Export &gt; Stem Export&hellip;</kbd>.
-</p>
-
-<h2>File Format</h2>
-
-<figure>
+<figure class="center">
   <img src="/images/export-dialog-file-format.png" alt="The Export window">
   <figcaption>
     The Export window
@@ -20,45 +13,57 @@
 </figure>
 
 <p>
-  This tab contains controls for the format of the exported audio file.
-  You can enable more than one format here, in which case each will be exported in turn.
+  The outputs of multiple tracks and busses all at once can also be exported via
+  <kbd class="menu">Session &gt; Export &gt; Stem Export&hellip;</kbd>.
+</p>
+
+<h2>File Format</h2>
+
+<p>
+  This tab contains controls for the format of the exported audio file(s).
+  More than one format can be enabled here, in which case each will be exported in turn.
   Ardour is supplied with a list of export formats, including:
 </p>
 
 <ul>
+<li>BWAV 32float</li>
 <li>CD (Red Book)</li>
 <li>DVD-A</li>
 <li>FLAC 24 bit </li>
 <li>FLAC 24 bit (tagged)</li>
-<li>Ogg_Vorbis</li>
-<li>Ogg_Vorbis (tagged)</li>
+<li>Ogg/Vorbis</li>
+<li>Ogg/Vorbis (tagged)</li>
 <li>Ring Tone</li>
 </ul>
 
 <p>
-  You can edit these formats, or create your own, with the <a href="@@export-format-profiles">"Edit Export Format Profile"</a> dialog, which
-  appears when you click the "Edit" or "New" button to the right of the drop-down list of formats.
+  These formats can be edited, or new ones created, with the <a
+  href="@@export-format-profiles">"Edit Export Format Profile"</a> dialog, which
+  appears when clicking the <kbd class="menu">Edit</kbd> or
+  <kbd class="menu">New</kbd> buttons to the right of the drop-down list of
+  formats.
 </p>
 
 <p>
-  You can also create a 'Preset' consisting of one or more formats. Ardour provides some ready-made presets, too:
+  Presets can also be created, consisting of one or more formats. Ardour
+  provides some ready-made presets, too:
 </p>
 
 <ul>
 <li>CD + DVD-A</li>
 <li>CD + FLAC</li>
 <li>CD + FLAC (tagged)</li>
-<li>CD + Ogg_Vorbis + FLAC (tagged)</li>
-<li>CD + Ogg_Vorbis</li>
-<li>CD + Ogg_Vorbis (tagged)</li>
+<li>CD + Ogg/Vorbis + FLAC (tagged)</li>
+<li>CD + Ogg/Vorbis</li>
+<li>CD + Ogg/Vorbis (tagged)</li>
 <li>CD only</li>
 <li>DVD-A only</li>
 <li>FLAC</li>
 <li>FLAC (tagged)</li>
-<li>Ogg_Vorbis + FLAC</li>
-<li>Ogg_Vorbis + FLAC (tagged)</li>
-<li>Ogg_Vorbis </li>
-<li>Ogg_Vorbis (tagged)</li>
+<li>Ogg/Vorbis + FLAC</li>
+<li>Ogg/Vorbis + FLAC (tagged)</li>
+<li>Ogg/Vorbis </li>
+<li>Ogg/Vorbis (tagged)</li>
 </ul>
 
 <h2>The location</h2>
@@ -83,29 +88,11 @@
   <li>A time (also in multiple format).</li>
 </ul>
 
-<h2>Soundcloud upload</h2>
-<p>
-  When 'Upload to Soundcloud' is ticked on in any format's tab, a pane containing fields
-  to enter in Soundcloud account details (email and password), and what should happen
-  to the uploaded files will become visible.
+<p class="note">
+  As in the screenshot above, when writing a file could erase a present file with
+  the same name, Ardour shows a yellow warning line in the bottom of the window, and
+  a button to list all the files that would be erased and replaced.
 </p>
-
-<figure>
-  <img src="/images/soundcloud-upload.png" alt="Exporting to Soundcloud">
-  <figcaption>
-    Exporting to Soundcloud
-  </figcaption>
-</figure>
-
-<table class="dl">
-  <tr><th>Make files public</th>
-      <td>Choose whether to make uploaded files available to anyone via the Soundcloud web site.</td></tr>
-  <tr><th>Open uploaded files in browser</th>
-      <td>Open each file on soundcloud in your browser after upload.
-      If you don't enable this, you can still see the URLs in the Log window.</td></tr>
-  <tr><th>Make files downloadable</th>
-      <td>Choose whether to allow downloading of files uploaded to Soundcloud.</td></tr>
-</table>
 
 <h2>Analyze exported audio</h2>
 
@@ -155,8 +142,16 @@
 </figure>
 
 <p>
-  This tab allows you to select the range (or ranges) of the timeline to export. By default, "session" is
+  This tab allows to select the range (or ranges) of the timeline to export. By default, "session" is
   enabled&mdash;this will export the whole session from the start marker to the end marker.
+  Any loop or range present in the session can be chosen, or a combination thereof.
+</p>
+<p>
+  The realtime checkboxes allow to export audio as it is played,
+  and not freewheeling to render the file as fast as Ardour can. This can prevent
+  odd behaviours from some plugins (reverbs, etc...). This can be chosen globally
+  (with the <kbd class="option">Realtime Export</kbd> checkbox at the top) or individually on a per time span basis, with
+  the <kbd class="option">RT</kbd> checkbox next to each time span.
 </p>
 
 <h2>Channels</h2>
@@ -169,7 +164,8 @@
 </figure>
 
 <p>
-  Here you can choose which outputs (tracks or busses) should be sent to the exported file.
+  This tab decides which outputs (tracks or busses) should be sent to the exported
+  file. By default, only the Master Bus is sent.
 </p>
 
 <h2>Stem Export</h2>
@@ -182,10 +178,16 @@
 </figure>
 
 <p>
-  If you chose 'Stem Export', the 'Channels' tab appears slightly differently:
-  in this case each chosen channel (track or bus) is exported to its own file,
-  instead of all channels being mixed together into a single file. You can
-  choose to export either the region contents or the track output here in this
-  case.
+  Stem exporting allows to transfer files between different systems and softwares
+  by exporting each track individually, including silence, to keep them in sync.
 </p>
-
+<p>
+  If 'Stem Export' is chosen, the 'Channels' tab appears slightly differently:
+  in this case each chosen channel (track or bus) is exported to its own file,
+  instead of all channels being mixed together into a single file.
+</p>
+<p>
+  The exported tracks or busses can, by checking <kbd class="option">Apply
+  track/bus processing</kbd>, be exported with the effects/processors applied,
+  so that the destination system does not need those effects plugins.
+</p>
