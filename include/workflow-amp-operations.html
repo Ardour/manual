@@ -21,15 +21,22 @@
 
 <h2>Adding Video</h2>
 <p>
-  Adding video is a two-step process: select a video file, and choose
-  import mode and optionally select an audio track to extract.
+  Adding video is a two-step process: selecting a video file, and choosing
+  import mode and optionally selecting an audio track to extract.
 </p>
 <p>
   The first step is rather straight-forward. The panel on the right side
   allows to seek through the video and displays basic file information.
   It is also useful to check if the video format/codec is supported:
 </p>
-<img src="/images/a3_video_open.png" alt="video-open-dialog" width="300" />
+
+<figure class="center">
+  <img src="/images/a3_video_open.png" alt="The video open dialog">
+  <figcaption>
+    The video open dialog
+  </figcaption>
+</figure>
+
 <p>
   The second step analyzes the video file in more detail and offers import options:
 </p>
@@ -42,31 +49,53 @@
   machine).</td></tr>
   <tr><th><kbd class="menu">Reference from Current Location</kbd></th>
   <td>Only useful for opening files that were previously encoded (are already
-  in a good format/codec). Use with care.</td></tr>
+  in a good format/codec). Should be used with care.</td></tr>
   <tr><th><kbd class="menu">Do not Import Video</kbd></th>
   <td>Useful for extracting audio only.</td></tr>
 </table>
 
-<img src="/images/a3_video_import.png" alt="Video Import Dialog" width="300" />
+
+<figure class="center">
+  <img src="/images/a3_video_import.png" alt="The Video Import dialog">
+  <figcaption>
+    The Video Import dialog
+  </figcaption>
+</figure>
 
 <p>
   By default the video is imported using the original width/height.
-  If it is a large video (e.g. full-HD) it makes sense to scale it down
+  If it is a large video (e.g. full-HD), it makes sense to scale it down
   to decrease the CPU load and disk I/O required to decode and play the
-  file.<br>
+  file.
+</p>
+<p>
   A small, low-quality representation of the image is usually sufficient
   for editing soundtracks. The default bitrate in kbit/sec is set to use
-  0.7 bits per pixel. (Compare: the average DVD medium uses 5000&nbsp;kbit/s;
-  at PAL resolution this is about 0.5 bits per pixel. But the DVD is
+  0.7 bits per pixel (in comparison, the average DVD medium uses 5000&nbsp;kbit/s;
+  at PAL resolution this is about 0.5 bits per pixel, but the DVD is
   using the <dfn>mpeg2</dfn>&mdash;a denser compression algorithm than the
-  <dfn>mjpeg</dfn> codec used by Ardour.)
+  <dfn>mjpeg</dfn> codec used by Ardour).
 </p>
 
 <h2>Working with A/V</h2>
 <p>
-  Well now,..
+  Working with A/V in Ardour is similar to working in a pure audio setup, except
+  for the presence of a video timeline in the <a href="@@ruler">ruler</a> zone,
+  and a Xjadeo video window, showing a preview of the result.
 </p>
-<img src="/images/a3_videotimeline.png" alt="Video Timeline" width="600" />
+
+<figure class="center">
+  <img class= "mini" src="/images/a3_videotimeline.png" alt="The Video Timeline">
+  <figcaption>
+    The Video Timeline
+  </figcaption>
+</figure>
+
+<p>
+  The Xjadeo window supports some user interactions, such as showing some OSD
+  information or changing the zoom level. Xjadeo's documentation is available
+  on its <a href="http://xjadeo.sourceforge.net/xjadeo.html#heading8">website</a>.
+</p>
 
 <h2 id="export">Exporting Video</h2>
 <p>
@@ -79,7 +108,7 @@
   original file (before it was imported into the timeline) should be used.
   This is the default behaviour if that file can be found. If not, Ardour
   will fall back to the imported proxy-video which is currently in use
-  on the timeline.  Any existing audio tracks on this video file are stripped.
+  on the timeline. Any existing audio tracks on this video file are stripped.
 </p>
 <p>
   The range selection allows to cut or extend the video. If the session is
@@ -94,22 +123,29 @@
 </p>
 
 <p>
-  The file format is determined by the extension that you choose for it
-  (.avi, .mov, .flv, .ogv, .webm,&hellip;)
+  The file format is determined by the extension chosen for it
+  (.avi, .mov, .flv, .ogv, .webm,&hellip;).
   Note: not all combinations of format, codec, and settings produce files
   which are according to specifications. For example, flv files require
   sample rates of 22.1&nbsp;kHz or 44.1&nbsp;kHz, mpeg containers can not
-  be used with ac3 audio-codec, etc. If in doubt, use one of the built-in
-  presets.
+  be used with ac3 audio-codec, etc. If in doubt, one of the built-in
+  presets should be used.
 </p>
 
-<img src="/images/a3_video_export.png" alt="Video Export Dialog" width="300" />
+<figure class="center">
+  <img src="/images/a3_video_export.png" alt="The Video Export Dialog">
+  <figcaption>
+    The Video Export Dialog
+  </figcaption>
+</figure>
 
 <p>
   Ardour video export is not recommended for mastering! While ffmpeg
   (which is used by Ardour) can produce high-quality files, this export
-  lacks the possibility to tweak many settings. We recommend using winff,
-  devede or dvdauthor to mux and master. Nevertheless this video-export comes in 
-  handy to do quick snapshots, intermediates, dailies or online videos.
+  lacks the possibility to tweak many settings. We recommend using
+  <a href="http://www.biggmatt.com/winff/">winff</a>,
+  <a href="http://www.rastersoft.com/programas/devede.html">devede</a> or
+  <a href="http://dvdauthor.sourceforge.net/">dvdauthor</a> to mux and master.
+  Nevertheless this video-export comes in handy to do quick snapshots,
+  intermediates, dailies or online videos.
 </p>
-
