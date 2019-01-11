@@ -260,6 +260,21 @@ def FindInternalLinks(fs):
 			linkDict['"@@' + hdr['link'] + '"'] = '"/' + hdr['filename'] + '/"'
 			linkDict['"@@' + hdr['link'] + '#'] = '"/' + hdr['filename'] + '/index.html#'
 
+
+	return linkDict
+
+#
+# Same as above, but create anchors (for the one-page version)
+#
+def FindInternalAnchors(fs):
+	linkDict = {}
+
+	for hdr in fs:
+		if 'link' in hdr:
+			linkDict['"@@' + hdr['link'] + '"'] = '"#' + hdr['link'] + '"'
+			linkDict['"@@' + hdr['link'] + '#'] = '"#' + hdr['link'] + '"'
+
+
 	return linkDict
 
 
@@ -323,18 +338,46 @@ def BuildList(lst, fs, pagePos, cList):
 
 	return content
 
+
+#
+# Builds the sidebar for the one-page version
+#
+def BuildOnePageSidebar(fs):
+	content = '\n\n<ul style="white-space:nowrap;">\n'
+	lvl = 0
+
+	for i in range(len(fs)):
+		if 'link' in fs[i]:
+			anchor = fs[i]['link']
+		else:
+			anchor = fs[i]['filename']
+
+		while lvl < fs[i]['level']:
+			content = content + '<ul style="white-space:nowrap;">\n'
+			lvl = lvl + 1
+		while lvl > fs[i]['level']:
+			content = content + '</ul>\n'
+			lvl = lvl - 1
+
+		content = content + '<li><a href="#' + anchor + '">' + fs[i]['title'] + '</a></li>\n'
+
+	content = content + '</ul>\n'
+
+	return content
+
+
 #
 # Create link sidebar given a position in the list.
 #
 def CreateLinkSidebar(fs, pos, childList):
 
 	# Build the list recursively from the top level nodes
+	#content = BuildList(FindTopLevelNodes(fs), fs, pos, childList)
 	content = BuildList(FindTopLevelNodes(fs), fs, pos, childList)
-	# Shove the TOC link in the top...
-	content = content[:7] + '<dt><a href="/toc/">Table of Contents</a></dt><dd></dd>\n' + content[7:]
+	# Shove the TOC link and one file link at the top...
+	content = content[:7] + '<dt><dt><a href="/toc/">Table of Contents</a></dt><dd></dd>\n' + content[7:]
 
 	return content
-
 
 # Preliminaries
 
@@ -356,6 +399,7 @@ fileCount = 0
 levelNums = [0]*6
 lastFile = ''
 page = ''
+onepage = ''
 toc = ''
 pageNumber = 0
 
@@ -381,6 +425,13 @@ temp.close()
 template = template.replace('{{page.bootstrap_path}}', '/bootstrap-3.3.7')
 template = template.replace('{{page.page_title}}', 'The Ardour Manual')
 
+# Same as above, but for the One-page version
+temp = open('onepage-template.txt')
+onepage = temp.read()
+temp.close()
+
+onepage = onepage.replace('{{page.bootstrap_path}}', '/bootstrap-3.3.7')
+onepage = onepage.replace('{{page.page_title}}', 'The Ardour Manual')
 
 # Parse out the master docuemnt's structure into a dictionary list
 fileStruct = GetFileStructure()
@@ -390,6 +441,7 @@ nodeChildren = FindChildren(fileStruct)
 
 # Create a dictionary for translation of internal links to real links
 links = FindInternalLinks(fileStruct)
+oplinks = FindInternalAnchors(fileStruct)
 
 if not quiet:
 	print('Found ' + str(len(links)) + ' internal link target', end='')
@@ -442,17 +494,31 @@ for header in fileStruct:
 
 		print(header['title'])
 
-	# Handle TOC scriblings...
+	# Handle TOC scriblings and one-page titles...
+	opl = ''
+	if 'link' in header:
+		opl = ' id="' + header['link'] + '"'
+	else:
+		opl = ' id="' + header['filename'] + '"'
+
 	if level == 0:
 		toc = toc + '<h2>Part ' + num2roman(levelNums[level]) + ': ' + header['title'] + '</h2>\n';
+		oph = '<h1' + opl +'>Part ' + num2roman(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
 	elif level == 1:
 		toc = toc + '  <p class="chapter">Ch. ' + str(levelNums[level]) + ':&nbsp;&nbsp;<a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
+		oph = '<h1' + opl +'>Chapter ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
 	elif level == 2:
 		toc = toc + '    <p class="subchapter"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
+		oph = '<h1' + opl +'>Subchapter ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
 	elif level == 3:
 		toc = toc + '      <p class="section"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
+		oph = '<h1' + opl +'>Section ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
 	elif level == 4:
 		toc = toc + '      <p class="subsection"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
+		oph = '<h1' + opl +'>Subsection ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
+
+
+
 
 	# Make the 'this thing contains...' stuff
 	if HaveChildren(fileStruct, pageNumber):
@@ -513,9 +579,6 @@ for header in fileStruct:
 			else:
 				content = '[something went wrong]'
 
-	# Fix up any internal links
-	content = FixInternalLinks(links, content, header['title'])
-
 	# Add header information to the page if in dev mode
 	if devmode:
 		devnote ='<aside style="background-color:indigo; color:white;">'
@@ -526,6 +589,23 @@ for header in fileStruct:
 		if 'link' in header:
 			devnote = devnote + 'link: ' + header['link'] + '<br>'
 		content = devnote + '</aside>' + content
+
+	# ----- One page version -----
+
+	# Fix up any internal links
+	opcontent = FixInternalLinks(oplinks, content, header['title'])
+
+	# Create the link sidebar
+	opsidebar = BuildOnePageSidebar(fileStruct)
+
+	# Set up the actual page from the template
+	onepage = onepage.replace('{% tree %}', opsidebar)
+	onepage = onepage.replace('{{ content }}', oph + '\n' + opcontent + '{{ content }}')
+
+	# ----- Normal version -----
+
+	# Fix up any internal links
+	content = FixInternalLinks(links, content, header['title'])
 
 	# Set up the actual page from the template
 	if 'style' not in header:
@@ -570,6 +650,12 @@ os.mkdir(siteDir + 'toc', 0o775)
 tocFile = open(siteDir + 'toc/index.html', 'w')
 tocFile.write(page)
 tocFile.close()
+
+# Create the one-page version of the documentation
+onepageFile = open(siteDir + 'ardourmanual.html', 'w')
+onepageFile.write(onepage)
+onepageFile.close()
+
 
 if not quiet:
 	print('Processed ' + str(fileCount) + ' files.')
