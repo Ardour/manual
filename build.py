@@ -503,19 +503,19 @@ for header in fileStruct:
 
 	if level == 0:
 		toc = toc + '<h2>Part ' + num2roman(levelNums[level]) + ': ' + header['title'] + '</h2>\n';
-		oph = '<h1' + opl +'>Part ' + num2roman(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
+		oph = '<h1 class="clear"' + opl +'>Part ' + num2roman(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
 	elif level == 1:
 		toc = toc + '  <p class="chapter">Ch. ' + str(levelNums[level]) + ':&nbsp;&nbsp;<a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1' + opl +'>Chapter ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
+		oph = '<h1 class="clear"' + opl +'>Chapter ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
 	elif level == 2:
 		toc = toc + '    <p class="subchapter"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1' + opl +'>Subchapter ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
+		oph = '<h1 class="clear"' + opl +'>Subchapter ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
 	elif level == 3:
 		toc = toc + '      <p class="section"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1' + opl +'>Section ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
+		oph = '<h1 class="clear"' + opl +'>Section ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
 	elif level == 4:
 		toc = toc + '      <p class="subsection"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1' + opl +'>Subsection ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
+		oph = '<h1 class="clear"' + opl +'>Subsection ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
 
 
 
