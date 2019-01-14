@@ -496,6 +496,7 @@ for header in fileStruct:
 
 	# Handle TOC scriblings and one-page titles...
 	opl = ''
+
 	if 'link' in header:
 		opl = ' id="' + header['link'] + '"'
 	else:
@@ -503,19 +504,19 @@ for header in fileStruct:
 
 	if level == 0:
 		toc = toc + '<h2>Part ' + num2roman(levelNums[level]) + ': ' + header['title'] + '</h2>\n';
-		oph = '<h1 class="clear"' + opl +'>Part ' + num2roman(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
+		oph = '<h1 class="clear"' + opl +'>' + num2roman(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
 	elif level == 1:
-		toc = toc + '  <p class="chapter">Ch. ' + str(levelNums[level]) + ':&nbsp;&nbsp;<a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1 class="clear"' + opl +'>Chapter ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
+		toc = toc + '\t<p class="chapter">Ch. ' + str(levelNums[level]) + ':&nbsp;&nbsp;<a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
+		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
 	elif level == 2:
-		toc = toc + '    <p class="subchapter"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1 class="clear"' + opl +'>Subchapter ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
+		toc = toc + '\t\t<p class="subchapter"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
+		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level-2]) + '.' + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
 	elif level == 3:
-		toc = toc + '      <p class="section"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1 class="clear"' + opl +'>Section ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
+		toc = toc + '\t\t\t<p class="section"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
+		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level-3]) + '.' + str(levelNums[level-2]) + '.' + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
 	elif level == 4:
-		toc = toc + '      <p class="subsection"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1 class="clear"' + opl +'>Subsection ' + str(levelNums[level]) + ': ' + header['title'] + '</h1>\n';
+		toc = toc + '\t\t\t\t<p class="subsection"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
+		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level-4]) + '.'  + str(levelNums[level-3]) + '.'  + str(levelNums[level-2]) + '.'  + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
 
 
 
@@ -653,6 +654,7 @@ tocFile.close()
 
 # Create the one-page version of the documentation
 onepageFile = open(siteDir + 'ardourmanual.html', 'w')
+onepage = onepage.replace('{{ content }}', '') # cleans up the last spaceholder
 onepageFile.write(onepage)
 onepageFile.close()
 

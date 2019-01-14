@@ -49,6 +49,11 @@ ul.inside li, ol.inside li {
   margin-left: 1em;
 }
 
+#tree ul {
+  padding-left: 1em;
+  list-style-type: none;
+}
+
 #tree h1.title a:hover {
   border-bottom: none;
 }
