@@ -36,7 +36,7 @@
   for changing a film soundtrack from one frame rate to another. The concept is
   beyond the scope of this manual, but Wikipedia's entry on
   <a href="http://en.wikipedia.org/wiki/Telecine">Telecine</a>
-  may get you started.
+  may be a good start.
 </p>
 
 <h2>Ardour Timecode Generator Configuration</h2>
@@ -182,7 +182,7 @@
 </p>
 <p>
   The checkbox <kbd class="option">External timecode is sync locked</kbd>
-  allows to select the behavior according to your setup. When enabled, it
+  allows to select the behavior according to the setup. When enabled, it
   indicates that the selected external timecode source shares sync (Black
   &amp; Burst, Wordclock, etc) with the audio interface.
 </p>
@@ -193,7 +193,7 @@
 </p>
 <p class="note">
   Note that vari-speed is unavailable when recording in Ardour, and all
-  tracking happens at speed 1.0. So if you want to record in sync with
+  tracking happens at speed 1.0. So in order to record in sync with
   external timecode it must be sample-locked or it will drift over time.
 </p>
 
@@ -229,8 +229,12 @@
   the video Frame boundaries.
 </p>
 
-<img src="/images/ltc-transport-alignment.png"  title="LTC frame alignment" alt="LTC frame alignment"/>
-<p><em>Figure: LTC frame alignment for the 525/60 TV standard</em></p>
+<figure class="center">
+  <img src="/images/ltc-transport-alignment.png" alt="LTC frame alignment"/>
+  <figcaption>
+    LTC frame alignment for the 525/60 TV standard
+  </figcaption>
+</figure>
 
 <p>
   Ardour supports vari-speed and backwards playback but will only follow
@@ -286,4 +290,3 @@
   <kbd class="option">Session &gt; Properties &gt; JACK Time Master</kbd>
   configures Ardour to act as translator from timecode to BBT information.
 </p>
-
