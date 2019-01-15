@@ -343,23 +343,49 @@ def BuildList(lst, fs, pagePos, cList):
 # Builds the sidebar for the one-page version
 #
 def BuildOnePageSidebar(fs):
+
 	content = '\n\n<ul style="white-space:nowrap;">\n'
 	lvl = 0
+	levelNums = [0]*6
 
 	for i in range(len(fs)):
+		# Handle Part/Chapter/subchapter/section/subsection numbering
+		level = fs[i]['level']
+		if level == 0:
+			levelNums[2] = 0
+			levelNums[3] = 0
+			levelNums[4] = 0
+		elif level == 1:
+			levelNums[2] = 0
+			levelNums[3] = 0
+			levelNums[4] = 0
+		elif level == 2:
+			levelNums[3] = 0
+			levelNums[4] = 0
+		elif level == 3:
+			levelNums[4] = 0
+		levelNums[level] = levelNums[level] + 1;
+		j = level
+		txtlevel = ''
+		while j > 0:  #level 0 is the part number which is not shown
+			txtlevel = str(levelNums[j]) + '.' + txtlevel
+			j = j-1
+		if len(txtlevel) > 0:
+			txtlevel = txtlevel[:-1] + ' - '
+
 		if 'link' in fs[i]:
 			anchor = fs[i]['link']
 		else:
 			anchor = fs[i]['filename']
 
-		while lvl < fs[i]['level']:
+		while lvl < level:
 			content = content + '<ul style="white-space:nowrap;">\n'
 			lvl = lvl + 1
-		while lvl > fs[i]['level']:
+		while lvl > level:
 			content = content + '</ul>\n'
 			lvl = lvl - 1
 
-		content = content + '<li><a href="#' + anchor + '">' + fs[i]['title'] + '</a></li>\n'
+		content = content + '<li><a href="#' + anchor + '">' + txtlevel + fs[i]['title'] + '</a></li>\n'
 
 	content = content + '</ul>\n'
 
@@ -472,10 +498,15 @@ for header in fileStruct:
 	# Handle Part/Chapter/subchapter/section/subsection numbering
 	if level == 0:
 		levelNums[2] = 0
+		levelNums[3] = 0
+		levelNums[4] = 0
 	elif level == 1:
 		levelNums[2] = 0
+		levelNums[3] = 0
+		levelNums[4] = 0
 	elif level == 2:
 		levelNums[3] = 0
+		levelNums[4] = 0
 	elif level == 3:
 		levelNums[4] = 0
 
@@ -504,19 +535,19 @@ for header in fileStruct:
 
 	if level == 0:
 		toc = toc + '<h2>Part ' + num2roman(levelNums[level]) + ': ' + header['title'] + '</h2>\n';
-		oph = '<h1 class="clear"' + opl +'>' + num2roman(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
+		oph = '<h1 class="clear"' + opl +'>Part ' + num2roman(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
 	elif level == 1:
 		toc = toc + '\t<p class="chapter">Ch. ' + str(levelNums[level]) + ':&nbsp;&nbsp;<a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
+		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
 	elif level == 2:
 		toc = toc + '\t\t<p class="subchapter"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level-2]) + '.' + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
+		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
 	elif level == 3:
 		toc = toc + '\t\t\t<p class="section"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level-3]) + '.' + str(levelNums[level-2]) + '.' + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
+		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level-2]) + '.' + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
 	elif level == 4:
 		toc = toc + '\t\t\t\t<p class="subsection"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level-4]) + '.'  + str(levelNums[level-3]) + '.'  + str(levelNums[level-2]) + '.'  + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
+		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level-3]) + '.'  + str(levelNums[level-2]) + '.'  + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
 
 
 
