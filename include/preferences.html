@@ -62,7 +62,7 @@
     <dfn>Tempo</dfn>
     <ul>
       <li>
-        <dfn>Allow non quarte-note pulse</dfn>: by default, Ardour understands the <a
+        <dfn>Allow non quarter-note pulse</dfn>: by default, Ardour understands the <a
         href="@@tempo-and-meter">tempo</a> as the number of quarter notes in a minute.
         Checking this option allows to set the tempo based on any division of the note,
         from whole to 1/128th. This is reflected in the <kbd class="menu">Edit
@@ -99,7 +99,7 @@
       <li>
 	       <strong>Save undo history</strong> sets how many commands are saved so
 	       they are available to be undone after reopening the session. This can
-         also be unckecked to keep all actions undoable, at the cost of bigger
+         also be unchecked to keep all actions undoable, at the cost of bigger
          session files.
       </li>
       <li>
@@ -182,7 +182,7 @@
       <li>
         <dfn>Limit zooming &amp; summary view to X minutes beyond session extents</dfn>
         prevents the zoom out both in the editor and the summary, to show anything past
-        the chosen time after the end marker, restraining the vision to only usefull
+        the chosen time after the end marker, restraining the vision to only useful
         content.
       </li>
       <li>
@@ -267,11 +267,11 @@
 
 <p>
   This page allows to choose how things are done in the editor. This is a very
-  flexible way for Ardour to match an existing workflow, or spped up the editing
+  flexible way for Ardour to match an existing workflow, or speed up the editing
   process based on the user's most used actions.
 </p>
 <p>
-  The <kbd class="menu">Reset to recommanded defaults</kbd> button at the bottom
+  The <kbd class="menu">Reset to recommended defaults</kbd> button at the bottom
   provides a way to revert any user made change to its default value.
 </p>
 
@@ -306,7 +306,7 @@
     	  available from the <strong>Mixer</strong> monitor section.
       </li>
       <li>
-        <dfn>Solo-in-place mute cut (dB):</dfn> sets the attenuation of the
+        <dfn>Solo-in-place mute cut (dB):</dfn> sets the attenuation of
     	  the other tracks when another track is soloed in place. This setting
     	  is also available from the <strong>Mixer</strong> monitor section. The
         default is "&minus;inf" for &minus;&infin;, meaning the other tracks are
@@ -474,7 +474,7 @@
       <li>
         <dfn>Replicate missing region channels</dfn>: if a track is N-channel,
         and the region has fewer channels, this option copies the existing
-        channel's data for this non-existant one. If left unckecked, the missing
+        channel's data for this non-existent one. If left unchecked, the missing
         channels will stay silent.
       </li>
     </ul>
@@ -601,7 +601,7 @@
       </li>
       <li>
         <dfn>VU Meter standard:</dfn> selects which standard to use for the zero
-        value of the vu-meters, i.e. how manu analog dBu are considered 0 on the
+        value of the vu-meters, i.e. the analog dBu value that will show as 0 on the
         VU-meter.
       </li>
       <li>
@@ -930,7 +930,7 @@
   both the platform and the build-time options can make Ardour support some types
   of plugins and not others. While this documentation tries to show all possible
   options, most systems will only show a subset of the options hereunder, e.g.
-  AudioUnits are MacOs only&hellip;
+  AudioUnits are macOS only&hellip;
 </p>
 
 <ul>
@@ -939,7 +939,7 @@
     <ul>
       <li>
         <dfn>Scan for Plugins</dfn> will initiate an immediate scan of the system
-        for available plugins. Usefull to get a newly installed plugin recognised
+        for available plugins. Useful to get a newly installed plugin recognised
         by Ardour.
       </li>
     </ul>
@@ -984,7 +984,7 @@
         only be shown when <kbd class="mouse">double clicking</kbd> it.
       </li>
       <li>
-        <dfn>Show Plugin Inline Display on Mixestrip by default</dfn> allows Ardour
+        <dfn>Show Plugin Inline Display on Mixer strip by default</dfn> allows Ardour
         to show, in the <a href="@@audiomidi-mixer-strips">mixer strips</a>, a
         visual rendering of the effect. These Inline Display are a special feature
         of Ardour, so not all plugins are able to show this display. Most of Ardour's
@@ -996,7 +996,7 @@
         <dfn>Don't automatically open the plugin GUI when the plugin has an inline
         display mode</dfn>: this option, available only if
         <kbd class="option">Automatically open the plugin GUI when adding a new plugin</kbd>
-        is checked, superseeds it and hides the plugin GUI at creation if it has an
+        is checked, supercedes it and hides the plugin GUI at creation if it has an
         Inline Display, like Ardour's own <code>a-*</code> plugins.
       </li>
     </ul>
@@ -1049,7 +1049,7 @@
       <li>
         <dfn>VST Cache:</dfn> Clicking the <kbd class="menu">Clear</kbd> button
         removes all VST plugins from the list of plugins available to be
-        inserted into the processor box. A new VST plugins scan is then required.
+        inserted into the processor box. A new VST plugin scan is then required.
       </li>
       <li>
         <dfn>VST Blacklist:</dfn> Clicking the <kbd class="menu">Clear</kbd>
@@ -1084,9 +1084,9 @@
     <ul>
       <li>
         <dfn>Scan for [new] AudioUnit Plugins on Application Start</dfn> When
-    	  enabled new AU plugins are searched, tested and added to the cache
-    	  index on application start. When disabled new plugins will only be
-    	  available after triggering a 'Scan' manually.
+        enabled, new AU plugins are searched, tested and added to the cache
+        index on application start. When disabled, new plugins will only be
+        available after triggering a 'Scan' manually.
       </li>
       <li>
         <dfn>AU Cache:</dfn> Clicking the <kbd class="menu">Clear</kbd> button
@@ -1147,8 +1147,8 @@
       <li>
         <dfn>Blink Alert indicators</dfn>: when enabled, the Alert indicators (like
         the <kbd class="menu">Error Log</kbd> or the <kbd class="menu">Feedback</kbd>
-        button) will blink when they are active (when resp. an error or a feedback
-        has been detected) When disabled, the indicators will turn red instead of
+        button) will blink when they are active (when an error or feedback
+        has been detected, respectively). When disabled, the indicators will turn red instead of
         blinking.
       </li>
       <li>
@@ -1169,12 +1169,12 @@
       <li>
         <dfn>Use name highlight bars in region displays (requires a restart)</dfn>:
         when enabled, the region name is displayed, in the editor, in its own opaque bar
-        at the bottom of the region. When disabled, the region name is overlayed
+        at the bottom of the region. When disabled, the region name is overlaid
         at the top of the region, possibly over audio waveforms or MIDI notes.
       </li>
       <li>
         <dfn>Region color follows track color</dfn>: when enabled,
-        the background color of regions in the editor will be displayed using the
+        the background color of regions in the editor will be displayed using
         the color assigned to the track. When disabled the default region
         background color will be used.
       </li>
@@ -1337,7 +1337,7 @@
       <li>
         <dfn>LED meter style</dfn> if checked, the bar meters in the editor and
         mixer will be styled to look like if they were made of LEDs, with a dotted
-        bar. Unckeking this option makes the bars flat and continuous.
+        bar. Unchecking this option makes the bars flat and continuous.
       </li>
       <li>
         <dfn>Waveforms color gradient depth:</dfn> determines how much gradient
@@ -1412,7 +1412,7 @@
       <li>
         <dfn>Use visibility information provided by your Window Manager/Desktop</dfn>
         allows the system window manager's rules for the windows visibility to
-        superseed Ardour's.
+        supercede Ardour's.
       </li>
       <li>
         <dfn>All floating windows are dialogs</dfn>: when enabled, Ardour will
@@ -1443,15 +1443,15 @@
     <ul>
       <li>
         <dfn>Show Video Export Info before export</dfn> Shows a warning message
-        when exporting a video about licencing and offers to open the
+        when exporting a video about licensing and offers to open the
         <a href="@@workflow-amp-operations#export">export video</a> section of
         this manual.
       </li>
       <li>
         <dfn>Show Video Server Startup Dialog</dfn>: when using video inside Ardour,
         this video is accessed via Xjadeo from a source file through a Video Server.
-        This options shows the server's startup dialog (usefull for degbugging a
-        malfunctionning video).
+        This options shows the server's startup dialog (useful for debugging a
+        malfunctioning video).
       </li>
       <li>
         <dfn>Advanced Setup (remote video server)</dfn> can be used when the setup
@@ -1463,7 +1463,7 @@
       </li>
       <li>
         <dfn>Video Server URL:</dfn> Base URL of the video server delivering the video
-        through the network (<code>http://IP-or-adress:port</code>).
+        through the network (<code>http://IP-or-address:port</code>).
       </li>
       <li>
         <dfn>Video folder</dfn> is the server's local path to the document-root,
