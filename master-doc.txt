@@ -1305,6 +1305,13 @@ part: subchapter
 ---
 
 ---
+title: Region Properties
+include: region-properties.html
+link: region-properties
+part: subchapter
+---
+
+---
 title: Fades and Crossfades
 include: create-region-fades-and-crossfades.html
 link: create-region-fades-and-crossfades

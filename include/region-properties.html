@@ -1,0 +1,119 @@
+
+<h2>Region properties</h2>
+
+<figure>
+  <img src="/images/region-properties.png" alt="The Region Propeties window">
+  <figcaption>
+    The Region Propeties window
+  </figcaption>
+</figure>
+
+<p>
+  The <dfn>Region properties</dfn> window brings information about the selected
+  regions, and allows to fine tune its sequencing. It is accessed through the
+  <kbd class="menu">Region &gt; Properties&hellip;</kbd> menu, or by
+  <kbd class="mouse">right</kbd> clicking the region,
+  <kbd class="menu"><i>Name_of_the_Region</i> &gt; Properties&hellip;</kbd>.
+</p>
+<p>
+  This window also allows to manually set the different values.
+</p>
+
+<table class="dl">
+  <thead>
+    <tr>
+      <th>Field</th>
+      <td>Meaning</td>
+      <td>Editable</td>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th>Name:</th>
+    <td>The <a href="@@region-naming">name of the region</a> in the editor</td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <th><kbd class="menu">Audition</kbd></th>
+    <td>This button allows to listen to the region and only the region, dry (with
+      no effects, regardless of the processors applied to the track). For MIDI,
+      the default MIDI synth, set in the <a href="@@preferences#midi">Preferences</a>,
+      is used to audition the region.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Position:</th>
+    <td>Position in time of the left-hand side of the region</td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <th>End:</th>
+    <td>Position in time of the right-hand side of the region</td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <th>Length:</th>
+    <td>Duration of the region (&equals;End&minus;Position)</td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <th>Sync point (relative to region):</th>
+    <td>Position in time of the <a href="@@grid-controls">Sync Point</a>, relative
+       to the beginning of the region. No manual sync point means the sync point is
+       the beginning of the region (&equals;Position), so will show as "0" in time
+       and <code>001|01|0000</code> in Bars:Beats notation.</td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <th>Sync point (absolute):</th>
+    <td>Position in time of the <a href="@@grid-controls">Sync Point</a>, relative
+       to the beginning of the session. No manual sync point means the sync point
+       is the beginning of the region, and will be equal to the Position.</td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <th>File start:</th>
+    <td>Position in time of the beginning of the region relative to the source
+        file start. If the region has not been trimmed on the left, then the regions
+        start is the file start and this value is 0.</td>
+    <td></td>
+  </tr>
+  <tr>
+    <th>Source:</th>
+    <td>Name of the source audio/MIDI file the region is exctracted from.
+      A region can be a part of or a whole audio/MIDI file, and multiple regions can
+      be based on the same source file.
+    </td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <th>Region gain:</th>
+    <td><em>(Audio files only)</em> Manual gain, in dB, applied constantly to the whole region,
+      regardless of the global track's gain, automation, etc&hellip;</td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <th>Peak amplitude:</th>
+    <td><em>(Audio files only)</em> Maximum level the signal reaches inside the region.
+      Expressed in dBFS (Full Scale), where 0 is the numeric maximum a signal can
+      reach.</td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
+
+<p>
+  All the fields maked as "editable" in the table above allow the user to manually
+  enter a value in the field, to manually set this value.
+</p>
+
+<p>
+  <kbd class="mouse">Right</kbd>-clicking on a field allow to switch between the
+  different <a href="@@editing-clocks">clock modes</a>.
+</p>
+
+<p>
+  The context menu that pops up also allows the relevant fields (Position, End,
+  and both Sync points) to be set from the playhead location, which can be used to
+  e.g. trim a region to the playhead or place a sync point exactly on a beat.
+</p>
