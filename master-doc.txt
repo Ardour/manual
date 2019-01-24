@@ -7,7 +7,6 @@ part: part
 
 ---
 title: Welcome to Ardour
-include: welcome-to-ardour.html
 link: welcome-to-ardour
 part: chapter
 ---
@@ -71,7 +70,6 @@ part: subchapter
 
 ---
 title: Ardour Basics
-include: ardour-basics.html
 link: ardour-basics
 uri: introducing-ardour
 part: chapter
@@ -112,7 +110,6 @@ part: subchapter
 
 ---
 title: Keyboard and Mouse Shortcuts
-include: keyboard-and-mouse-shortcuts.html
 link: keyboard-and-mouse-shortcuts
 part: chapter
 ---
@@ -206,7 +203,6 @@ part: subchapter
 
 ---
 title: I/O Setup
-include: io-setup.html
 link: io-setup
 part: chapter
 ---
@@ -240,7 +236,6 @@ part: subchapter
 
 ---
 title: Synchronization
-include: working-with-synchronization.html
 link: working-with-synchronization
 uri: synchronization
 part: chapter
@@ -546,7 +541,6 @@ part: chapter
 
 ---
 title: Controls
-include: controls.html
 link: controls
 part: chapter
 ---
@@ -673,7 +667,6 @@ part: chapter
 
 ---
 title: Mixer Strips
-include: mixer-strips.html
 link: mixer-strips
 part: chapter
 ---
@@ -712,7 +705,6 @@ part: subchapter
 
 ---
 title: Editor Tracks
-include: track-controls.html
 link: track-controls
 part: chapter
 ---
@@ -764,7 +756,6 @@ part: part
 
 ---
 title: Sessions
-include: sessions.html
 link: sessions
 uri: working-with-sessions
 part: chapter
@@ -820,7 +811,6 @@ part: subchapter
 
 ---
 title: Tracks
-include: tracks.html
 link: tracks
 uri: working-with-tracks
 part: chapter
@@ -901,7 +891,6 @@ part: subchapter
 ---
 title: Importing and Exporting Session Data
 menu_title: Import/Export Session Data
-include: importing-and-exporting-session-data.html
 link: importing-and-exporting-session-data
 part: chapter
 ---
@@ -957,7 +946,6 @@ part: subchapter
 ---
 title: File and Session Management and Compatibility
 menu_title: File/Session Mgmt &amp; Compat.
-include: file-and-session-management-and-compatibility.html
 link: file-and-session-management-and-compatibility
 part: chapter
 ---
@@ -1002,7 +990,6 @@ part: part
 
 ---
 title: Playing Back Track Material
-include: playing-back-track-material.html
 link: playing-back-track-material
 part: chapter
 ---
@@ -1024,7 +1011,6 @@ part: subchapter
 
 ---
 title: Audio Recording
-include: audio-recording.html
 link: audio-recording
 part: chapter
 ---
@@ -1057,7 +1043,6 @@ part: subchapter
 
 ---
 title: Punch Recording Modes
-include: punch-recording-modes.html
 link: punch-recording-modes
 part: chapter
 ---
@@ -1133,7 +1118,6 @@ part: chapter
 
 ---
 title: Editing Basics
-include: editing-basics.html
 link: editing-basics
 part: chapter
 ---
@@ -1213,7 +1197,6 @@ part: subchapter
 
 ---
 title: Edit Mode and Tools
-include: edit-mode-and-tools.html
 link: edit-mode-and-tools
 part: chapter
 ---
@@ -1237,7 +1220,6 @@ part: subchapter
 
 ---
 title: Making Selections
-include: making-selections.html
 link: making-selections
 part: chapter
 ---
@@ -1252,7 +1234,6 @@ part: subchapter
 
 ---
 title: Editing Regions and Selections
-include: editing-regions-and-selections.html
 link: editing-regions-and-selections
 part: chapter
 ---
@@ -1328,7 +1309,6 @@ part: chapter
 
 ---
 title: Playlists
-include: playlists.html
 link: playlists
 uri: working-with-playlists
 part: chapter
@@ -1510,7 +1490,6 @@ part: chapter
 
 ---
 title: MIDI Recording
-include: midi-recording.html
 link: midi-recording
 part: chapter
 ---
@@ -1530,7 +1509,6 @@ part: part
 
 ---
 title: Time, Tempo and Meter
-include: time-tempo-and-meter.html
 link: time-tempo-and-meter
 part: chapter
 ---
@@ -1578,7 +1556,6 @@ part: part
 
 ---
 title: Basic Mixing
-include: basic-mixing.html
 link: basic-mixing
 part: chapter
 ---
@@ -1714,7 +1691,6 @@ part: subchapter
 
 ---
 title: Plugin and Hardware Inserts
-include: plugin-and-hardware-inserts.html
 link: plugin-and-hardware-inserts
 part: chapter
 ---
@@ -1828,7 +1804,6 @@ part: subchapter
 
 ---
 title: Mixdown
-include: mixdown.html
 link: mixdown
 uri: exporting
 part: chapter
