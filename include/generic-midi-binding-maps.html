@@ -73,11 +73,8 @@ bindings"&gt;
   So, to start, create a file with that as the initial contents.
 </p>
 <p>
-  On OS X, Ardour loads midi maps from its binary-bundle folder in
-  <code>Ardour-&lt;version&gt;/midi_maps/</code> and checks
-  various other locations as well (defined by the ARDOUR_MIDIMAPS_PATH
-  environment variable). On GNU/Linux the easiest is to save the file to
-  <code>~/.config/ardour3/midi_maps/</code>.
+	The file should be located in the midi_maps sub directory located in
+	the <a href="@@files-and-directories-ardour-knows-about">Ardour configuration directory</a>
 </p>
 
 <h3>Finding out what your MIDI control surface sends</h3>
@@ -116,7 +113,7 @@ bindings"&gt;
   like this:
 </p>
 <code>
-   &lt;Binding channel="1" ctl="13" &hellip;.
+   &lt;Binding channel="1" ctl="13" &hellip;
 </code>
 <p>
   This defines a binding for a MIDI Continuous Controller message involving
@@ -134,6 +131,21 @@ bindings"&gt;
    <a href="@@generic-midi-and-encoders">
    Learn more about working with encoders
    </a>)
+</p>
+<p>
+	<ul>
+		<li><code>&lt;Binding channel="1" enc-r="13" &hellip;</code></li>
+		<li><code>&lt;Binding channel="1" enc-l="13" &hellip;</code></li>
+		<li><code>&lt;Binding channel="1" enc-2="13" &hellip;</code></li>
+		<li><code>&lt;Binding channel="1" enc-b="13" &hellip;</code></li>
+	</ul>
+	The <code>enc-*</code> value is the CC number used by the encoder.
+	Encoders only work with CC messages.
+</p>
+<p class="note">
+	Ardour 5.12 has a bug with the encoder detection where the first
+	encoder message resets the control to 0. Setting "Enable Feedback"
+	on allows encoders to work as expected.
 </p>
 <p>
   You can also bind sysex messages:
@@ -176,6 +188,9 @@ bindings"&gt;
 <p>
   A <dfn>control address</dfn> defines what the binding will actually control.
   There are quite a few different things that can be specified here:
+</p>
+<p class="note">
+	Enable Feeback applies to these "Control Addresses" only.
 </p>
 <table class="dl">
 <tr><th>/route/gain</th>
@@ -233,6 +248,9 @@ bindings"&gt;
 </p>
 
 <h4>Bindings to Ardour "functions"</h4>
+<p class="note">
+	There is currently no feedback available for functions.
+</p>
 <p>
   Rather than binding to a specific track/bus control, it may be useful to
   have a MIDI controller able to alter some part of Ardour's state. A
@@ -299,6 +317,10 @@ bindings"&gt;
 </table>
 
 <h4>Binding to Ardour "actions"</h4>
+<p class="note">
+	It is not possible to have feedback available actions because these
+	represent keyboard shortcuts which are send only.
+</p>
 <p>
   You can also bind a sysex or arbitrary message to any of the items
   that occur in Ardour's main menu (and its submenus). The <a
@@ -369,6 +391,9 @@ bindings"&gt;
 
   &lt;Binding channel="1" note="15"  uri="/route/mute B1" momentary="yes"/&gt;
   &lt;Binding channel="1" note="16"  uri="/route/mute B2" momentary="yes"/&gt;
+
+  &lt;Binding channel="1" enc-r="11"   uri="/route/pandirection B1"/&gt;
+  &lt;Binding channel="1" enc-r="12"   uri="/route/pandirection B2"/&gt;
 
   &lt;Binding sysex="f0 0 0 e 9 0 5b f7" function="transport-start"/&gt;
   &lt;Binding sysex="f0 7f 0 6 7 f7" function="rec-disable"/&gt;
