@@ -2,8 +2,14 @@
 <p>There are three basic ways to approach monitoring: </p>
 
 <h3>External Monitoring</h3>
-<img class="right"
-src="/images/external-monitoring.png" />
+
+<figure class="right">
+    <img src="/images/external-monitoring.png" alt="External monitoring">
+    <figcaption class="center">
+      External monitoring
+    </figcaption>
+</figure>
+
 <p>When using <dfn>external monitoring</dfn>, Ardour plays no role in
   monitoring at all. Perhaps the recording set-up has an external mixer which
   can be used to set up monitor mixes, or perhaps the sound-card being used
@@ -11,19 +17,33 @@ src="/images/external-monitoring.png" />
   latency.  On the other hand it requires external hardware, and the monitoring
   settings are less flexible and not saved with the session.</p>
 
-<h3>JACK-Based Hardware Monitoring</h3>
-<img class="right" src="/images/jack-monitoring.png" />
+<h3 class="clear">JACK-Based Hardware Monitoring</h3>
+
+<figure class="right">
+    <img src="/images/jack-monitoring.png" alt="Hardware Monitoring">
+    <figcaption class="center">
+      Hardware Monitoring
+    </figcaption>
+</figure>
+
 <p>Some sound cards have the ability
   to mix signals from their inputs to their outputs with very low or even zero
   latency, a feature called <dfn>hardware monitoring</dfn>.
-  Furthermore, on some cards this function can be controlled by JACK.  This is a nice arrangement,
+  Furthermore, on some cards this function can be controlled by JACK. This is a nice arrangement,
   if the sound card supports it, as it combines the convenience of having the
   monitoring controlled by Ardour with the low latency operation of doing it
   externally.
 </p>
 
-<h3>Software Monitoring</h3>
-<img class="right" src="/images/ardour-monitoring.png" />
+<h3 class="clear">Software Monitoring</h3>
+
+<figure class="right">
+    <img src="/images/ardour-monitoring.png" alt="Software Monitoring">
+    <figcaption class="center">
+      Software Monitoring
+    </figcaption>
+</figure>
+
 <p>With the <dfn>software monitoring</dfn> approach, all monitoring is
   performed by Ardour&mdash;it makes track inputs available at track
   outputs, governed by various controls. This approach will almost always have
