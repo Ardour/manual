@@ -1220,16 +1220,10 @@ part: subchapter
 
 ---
 title: Making Selections
-link: making-selections
-part: chapter
----
-
----
-title: Select Regions
 include: select-regions.html
 link: select-regions
 uri: editing-and-arranging/select-regions
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -1528,26 +1522,6 @@ link: techniques-for-working-with-tempo-and-meter
 part: subchapter
 ---
 
----
-title: Memory Locations
-include: memory-locations.html
-link: memory-locations
-part: chapter
----
-
----
-title: Arranging Regions
-include: arranging-regions.html
-link: arranging-regions
-part: chapter
----
-
----
-title: Region Loops and Groups
-include: region-loops-and-groups.html
-link: region-loops-and-groups
-part: chapter
----
 
 ---
 title: Mixing
