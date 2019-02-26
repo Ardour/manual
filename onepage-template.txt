@@ -13,36 +13,36 @@
 </head>
 
 <body>
-<div class="container-fluid">
-	<div class="row-fluid">
-		<div id="tree" class="navbar">
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div id="tree" class="navbar">
 				<h1 class="title"><a href="/"><img class="img-responsive" src="/images/logo.png" alt="The Ardour Manual" /></a></h1>
 
 				{% tree %}
 
-		</div>
+			</div> <!-- navbar -->
 
-		<div class="span12" id="content">
-			<div id="content-main">
+			<div class="span12" id="content">
+				<div id="content-main">
 
-				{{ content }}
+					{{ content }}
 
-			</div>
-		</div>
-	</div>
-</div>
+				</div> <!-- content-main -->
+			</div> <!-- content -->
+		</div> <!-- row-fluid -->
+	</div> <!-- container-fluid -->
 
 
-<script type="text/javascript">
-// I'll go to hell for this
-var isA = function(regex) { return navigator.userAgent.match(regex) };
-var isAbout = function(regex) { return document.getElementsByTagName('h1')[1].textContent.match(regex) };
+	<script type="text/javascript">
+		// I'll go to hell for this
+		var isA = function(regex) { return navigator.userAgent.match(regex) };
+		var isAbout = function(regex) { return document.getElementsByTagName('h1')[1].textContent.match(regex) };
 
-if ( (isA(/Mac/) || isAbout(/OS X/)) && (!isAbout(/Linux/)) ) {
-	var e = document.getElementsByTagName('body')[0];
-	e.className += ' mac';  // class magic for Cmd vs. Ctrl keys.
-}
-</script>
+		if ( (isA(/Mac/) || isAbout(/OS X/)) && (!isAbout(/Linux/)) ) {
+			var e = document.getElementsByTagName('body')[0];
+			e.className += ' mac';  // class magic for Cmd vs. Ctrl keys.
+		}
+	</script>
 
 </body>
 </html>
