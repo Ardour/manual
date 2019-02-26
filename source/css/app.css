@@ -13,14 +13,8 @@ body {
   line-height: 2ex;
 }
 
-div.clearer {
+.clear {
   clear:both;
-}
-
-ul.inside li, ol.inside li {
-	left: 1em;
-	position: relative;
-	padding-right: 1em;
 }
 
 #tree {
@@ -36,7 +30,7 @@ ul.inside li, ol.inside li {
   padding: 1em 1em 2em 1.5em;
 }
 
-#tree h1.title {
+#tree h1 {
   font-size: 1.75em;
   margin-bottom: 1em;
   font-weight: normal;
@@ -47,18 +41,12 @@ ul.inside li, ol.inside li {
   list-style-type: none;
 }
 
-#tree h1.title a:hover {
-  border-bottom: none;
-}
-
 #tree a {
   display: inline !important;
   font-size: 0.88em;
-  /*font-weight: normal;*/
   line-height: 2em;
   color: #E4E4E4;
   border-bottom: 1px solid transparent;
-  /*padding-bottom: .1ex;*/
 }
 
 #tree a:hover {
@@ -83,13 +71,6 @@ ul.inside li, ol.inside li {
 #content h4 {
   font-weight: normal;
   padding-bottom: .3ex;
-}
-
-#content h1.clear,
-#content h2.clear,
-#content h3.clear,
-#content h4.clear {
-	clear:both;
 }
 
 #content h1 {
@@ -151,11 +132,6 @@ ul.inside li, ol.inside li {
   font-weight: bold;
 }
 
-#content table td {
-  font-weight: normal;
-}
-
-
 #content table th.sub1 {
   padding-left: 2em;
 }
@@ -181,6 +157,11 @@ ul.inside li, ol.inside li {
   width: 100%;
 }
 
+#content ul,
+#content ol {
+	overflow: hidden;
+}
+
 #content figure {
   display: table;
 }
@@ -195,7 +176,6 @@ ul.inside li, ol.inside li {
 
 #content figcaption.center {
 	text-align: center;
-	caption-side: bottom;
 }
 
 #content figcaption.titleover {
@@ -367,7 +347,7 @@ samp:after {
 }
 
 #content img.mini {
-  width:200px;
+  width: 200px;
 }
 
 #content img.mini:hover {
