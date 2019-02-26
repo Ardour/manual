@@ -1,12 +1,14 @@
 
 <p>
   Since version 5.8-290, Ardour supports for the
-  <a href="https://www.presonus.com/products/FaderPort-8" rel="external">Presonus FaderPort&trade; 8</a>.
+  <a href="https://www.presonus.com/products/FaderPort-8" rel="external">Presonus
+  FaderPort&trade; 8</a>.
 </p>
 
 <p>
-  The FaderPort&trade; 8 is a production control surface with 8 touch-sensitive, motorized faders,
-  monochromatic digital scribble strips and more than 60 buttons with fixed labels.
+  The FaderPort&trade; 8 is a production control surface with 8 touch-sensitive,
+  motorized faders, monochromatic digital scribble strips and more than 60 buttons
+  with fixed labels.
 </p>
 
 <h2>Connecting the FaderPort 8</h2>
@@ -48,6 +50,7 @@
   saved, the connections will be made automatically in this and other
   future sessions.
 <p>
+
 <figure class="center">
   <img alt="FaderPort8 Control Surface Settings Dialog" src="/images/fp8_settings.png">
   <figcaption>
@@ -59,7 +62,8 @@
 <p>
   The FaderPort's controls can be divided into five groups:
 </p>
-<ul class="inside">
+
+<ul>
   <li>Transport buttons</li>
   <li>Session Navigation controls</li>
   <li>Fader modes</li>
@@ -79,13 +83,15 @@
 </p>
 
 <h3>Transport Buttons</h3>
+
 <figure class="left">
   <img alt="FaderPort8 Transport Buttons" src="/images/fp8_transport.png">
   <figcaption>
 		FaderPort8 Transport Buttons
   </figcaption>
 </figure>
-<ol class="inside">
+
+<ol>
   <li><kbd class="def">Stop</kbd>: Stops the transport. Press twice to return to
     session start.</li>
   <li><kbd class="def">Loop</kbd>: Toggles loop playback. A loop-range needs to
@@ -102,22 +108,23 @@
   <li><kbd class="def">Record</kbd>: Toggles the global record enable
     setting.</li>
 </ol>
-<div class="clearer"></div>
 
-<h3>Session Navigation</h3>
+<h3 class="clear">Session Navigation</h3>
 <p>
   Session Navigation allows quick navigation and provides access to
   session-wide controls. Each of the eight buttons alters the function
   of the push-button encoder and the <kbd>Prev</kbd>, <kbd>Next</kbd> buttons.
   With exception of <kbd>Click</kbd> the seven modes are exclusive (radio buttons).
 </p>
+
 <figure class="left">
   <img alt="FaderPort8 Navigation Buttons" src="/images/fp8_navigation.png">
   <figcaption>
 		FaderPort8 Navigation Buttons
   </figcaption>
 </figure>
-<ol class="inside">
+
+<ol>
   <li><kbd class="def">Channel</kbd>: The <kbd>Prev</kbd> / <kbd>Next</kbd>
     buttons select the previous/next mixer-strip. If no strip is selected,
     <kbd>Next</kbd> selects the first, <kbd>Prev</kbd> the last mixer-strip in
@@ -173,9 +180,8 @@
   <tr><th>Marker</th><td>Move to prev/next marker</td><td>Scroll the timeline (move playhead)</td><td>Drop a new marker</td></tr>
   <tr><th>Press and hold <kbd>Click</kbd></th><td> (mode dependent) </td><td>Adjust metronome Level </td><td>Reset metronome level to 0dBFS</td></tr>
 </table>
-<div class="clearer"></div>
 
-<h3>Shift Button</h3>
+<h3 class="clear">Shift Button</h3>
 <figure class="left">
   <img alt="The FaderPort8 Shift Button" src="/images/fp8_shift_large.png">
   <figcaption>
@@ -195,22 +201,23 @@
   The <kbd>Shift</kbd> button engages directly on press. Activating an action
   while the button is held will void the shift-lock mode.
 </p>
-<div class="clearer"></div>
 
-<h3>Fader Modes</h3>
+<h3 class="clear">Fader Modes</h3>
 <p>
   The eight faders on the FP8 can be assigned to various automatable
   controls present in the current session. The four fader-mode buttons
   change the behavior of the mixer-strip and scribble strip displays.
   (Note: with the 1.01 firmware these buttons always act on press.)
 </p>
+
 <figure class="left">
   <img alt="FaderPort8 Fader Mode Buttons" src="/images/fp8_fadermode.png">
   <figcaption>
 		FaderPort8 Fader Mode Buttons
   </figcaption>
 </figure>
-<ol class="inside">
+
+<ol>
   <li><kbd class="def">Track</kbd>: In Track-mode, the motorized faders display
     and control a mixer-strip's signal level. The Pan/Param encoder modifies the
     azimuth of the panner (hold <kbd>Shift</kbd> to control the width, if the
@@ -259,21 +266,24 @@
     will display and control the panner's azimuth. The Pan/Param controls the
     pan-width of the selected mixer-strip.</li>
 </ol>
+
 <p>
   <kbd>Shift</kbd> + <kbd>Track</kbd> toggles timecode display on/off (middle
   row of the scribble-strip). The timecode format can be configured in the
   Control Surface Preference Dialog (Timecode, musical-time: bar/beat/tick).
 </p>
-<div class="clearer"></div>
 
-<h3>Channel Strip</h3>
+
+<h3 class="clear">Channel Strip</h3>
+
 <figure class="left">
   <img alt="The FaderPort8 Channel Strip" src="/images/fp8_strip.png">
   <figcaption>
 		The FaderPort8 Channel Strip
   </figcaption>
 </figure>
-<ul class="inside">
+
+<ul>
   <li><strong>Touch-Sensitive Fader</strong>: The fader can be used to control
     volume levels, aux send levels, panning, or plugin parameters, depending on
     the fader-mode (see above).</li>
@@ -292,7 +302,7 @@
     <br/>
     Since selection is not limited to a single mixer-strip, the button acts in
     tri-state. A mixer-strip light indicates selection:
-    <ul class="inside">
+    <ul>
       <li><strong>Any Selected Track</strong>: The select button is lit with the
         track's color.</li>
       <li><strong>Any Not Selected Track</strong>: The select button is off
@@ -303,7 +313,7 @@
     Operations such as <kbd>Edit Plugins</kbd> or <kbd>Sends</kbd> use the
     most-recently-selected (focused) track. To modify the selection, the
     button's action depends on the current selection:
-    <ol class="inside">
+    <ol>
       <li><strong><kbd>Select</kbd></strong>: The track is exclusively selected
         and also becomes the most-recently selected.</li>
       <li><strong><kbd>Shift</kbd> + <kbd>Select</kbd> any selected
@@ -328,20 +338,21 @@
 <p>
   <kbd>Shift</kbd> + <kbd>ARM</kbd> record-arms all tracks in the session.
 </p>
-<div class="clearer"></div>
 
-<h3>Mix Management</h3>
+<h3 class="clear">Mix Management</h3>
 <p>
   These buttons allows to select which mixer-strips are spilled on the FP8
   channel-strips.
 </p>
+
 <figure class="left">
   <img alt="FaderPort8 Mix Management Buttons" src="/images/fp8_mixmanage.png">
   <figcaption>
 		FaderPort8 Mix Management Buttons
   </figcaption>
 </figure>
-<ol class="inside">
+
+<ol>
   <li><kbd class="def">Audio</kbd>: View Audio Tracks only.</li>
   <li><kbd class="def">VI</kbd>: Show tracks with virtual instrument
     plugins.</li>
@@ -354,7 +365,7 @@
   In combination with the <kbd>Shift</kbd> modifier ten total
   filters are available:
 </p>
-<ul class="inside">
+<ul>
   <li><kbd>Shift</kbd> + <kbd class="def">Audio</kbd> <strong>Inputs</strong>:
     shows all record-armed tracks (Audio and MIDI).</li>
   <li><kbd>Shift</kbd> + <kbd class="def">VI</kbd> <strong>MIDI</strong>: View
@@ -366,9 +377,9 @@
   <li><kbd>Shift</kbd> + <kbd class="def">All</kbd> <strong>User</strong>:
     Display all currently selected mixer-strips only.</li>
 </ul>
-<div class="clearer"></div>
 
-<h3>Automation Controls</h3>
+
+<h3 class="clear">Automation Controls</h3>
 <p>
   The Automation Controls provide access to the currently selected mixer-strips.
   The automation enable lights indicates the mode of the most recently selected
@@ -377,13 +388,15 @@
   <kbd>Track</kbd> and <kbd>Pan</kbd> fader modes where they affect the fader
   and pan automation modes respectively.
 </p>
+
 <figure class="left">
   <img alt="FaderPort8 Automation Buttons" src="/images/fp8_automation.png">
   <figcaption>
 		FaderPort8 Automation Buttons
   </figcaption>
 </figure>
-<ol class="inside">
+
+<ol>
   <li><kbd class="def">Latch</kbd>: Currently not available in Ardour.</li>
   <li><kbd class="def">Trim</kbd>: Currently not available in Ardour.</li>
   <li><kbd class="def">Off</kbd>: Select "Manual" automation mode.</li>
@@ -393,12 +406,12 @@
     mode.</li>
   <li><kbd class="def">Touch</kbd> Select "Touch" automation mode.</li>
 </ol>
-<div class="clearer"></div>
+
 <p>
   The Automation Controls also double as session state controls
   when combined with <kbd>Shift</kbd>.
 </p>
-<ol class="inside">
+<ol>
   <li><kbd>Shift</kbd> + <kbd class="def">Latch</kbd> <strong>Save</strong>:
     Save the session. The button lights up red if the session is modified.</li>
   <li><kbd>Shift</kbd> + <kbd class="def">Trim</kbd> <strong>Redo</strong>: Redo
@@ -412,16 +425,17 @@
   With <kbd>Shift</kbd>, the bottom row allows to bind three custom user
   actions.
 </p>
-<div class="clearer"></div>
 
-<h3>Miscellaneous</h3>
+<h3 class="clear">Miscellaneous</h3>
+
 <figure class="left">
   <img alt="FaderPort8 Misc Buttons" src="/images/fp8_misc.png">
   <figcaption>
 		FaderPort8 Misc Buttons
   </figcaption>
 </figure>
-<ul class="inside">
+
+<ul>
   <li><kbd class="def">Solo Clear</kbd>: Reset all solo controls in the
     session. If the FP8 was used to clear solo-state, pressing the button again
     will restore the previous state (unless solo state was modified manually
@@ -431,7 +445,7 @@
     will restore the previous mute state (unless mute-state was changed manually
     since).</li>
   <li><kbd class="def">Bypass</kbd>: The behavior depends on the edit-mode:
-    <ul class="inside">
+    <ul>
       <li><strong>Track + Pan Mode</strong>: A/B bypass toggle any plugins on
         all selected mixer-strips.</li>
       <li><strong>Edit Plugin Parameter</strong>: Toggle bypass of of the plugin
@@ -442,11 +456,11 @@
   <li><kbd>Shift</kbd> + <kbd class="def">Bypass</kbd> <strong>Bypass
       All</strong>: A/B bypass toggle any plugins on all selected mixer-strips.</li>
 </ul>
-<ul class="inside">
+<ul>
   <li><kbd class="def">Macro</kbd>: Toggle Editor and Mixer Windows/Tabs.</li>
   <li><kbd>Shift</kbd> + <kbd class="def">Macro</kbd> <strong>Open</strong>: The
     behavior depends on the edit-mode:
-    <ul class="inside">
+    <ul>
       <li><strong>Edit Plugin Parameter</strong>: Toggle Plugin GUI visibility
         (if it has a GUI) of the plugin that is currently being edited.</li>
       <li><strong>all other modes</strong>: Show the Import Audio Dialog.</li>
@@ -458,7 +472,7 @@
     Pressing the Pan/Param encoder resets the control-parameter to the default
     value.<br/>
     The buttons color is used to indicate the link-state:
-    <ul class="inside">
+    <ul>
       <li><strong>orange</strong>: Link is enabled, but the mouse-cursor is not
         over an element which can be controlled.</li>
       <li><strong>yellow</strong>: Link is enabled, and the cursor is hovering
@@ -482,9 +496,8 @@
 Link and Link-Lock mode will automatically disengage when entering
 <kbd>Sends</kbd> or <kbd>Edit Plugins</kbd> mode.
 </p>
-<div class="clearer"></div>
 
-<h3>Harrison Mixbus</h3>
+<h3 class="clear">Harrison Mixbus</h3>
 <p>
 The above also applies to Ardour-derivatives Harrison-Mixbus and Mixbus 32C with a few subtle differences:
 </p>
