@@ -312,15 +312,15 @@ def FixInternalLinks(links, content, title):
 # looking at currently
 #
 def BuildList(lst, fs, pagePos, cList):
-	content = '\n\n<dl>\n'
+	content = '\n\n<ul>\n'
 
 	for i in range(len(lst)):
 		curPos = lst[i]
-		nextPos = lst[i + 1] if i + 1 < len(lst)  else len(fs)
+		nextPos = lst[i + 1] if i + 1 < len(lst) else len(fs)
 
 		active = ' class=active' if curPos == pagePos else ''
 		menuTitle = fs[curPos]['menu_title'] if 'menu_title' in fs[curPos] else fs[curPos]['title']
-		content = content + '<dt' + active + '><a href="/' + fs[curPos]['filename'] + '/">' + menuTitle + '</a></dt><dd' + active + '>'
+		content = content + '<li' + active + '><a href="/' + fs[curPos]['filename'] + '/">' + menuTitle + '</a></li>'
 
 		# If the current page is our page, and it has children, enumerate them
 		if curPos == pagePos:
@@ -332,9 +332,7 @@ def BuildList(lst, fs, pagePos, cList):
 		elif (pagePos > curPos) and (pagePos < nextPos):
 			content = content + BuildList(cList[curPos], fs, pagePos, cList)
 
-		content = content + '</dd>\n'
-
-	content = content + '</dl>\n'
+	content = content + '</ul>\n'
 
 	return content
 
