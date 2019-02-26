@@ -51,20 +51,16 @@
 			<div class="span12" id="content">
 
 				{% breadcrumbs %}
+				{% githubedit %}
 
-				<div id="content-main">
+				<h1 class="title">{{ page.title }}</h1>
 
-					{% githubedit %}
+				{{ content }}
 
-					<h1 class="title">{{ page.title }}</h1>
+				<div class="clearer"></div>
 
-					{{ content }}
+				{% prevnext %}
 
-					<div class="clearer"></div>
-
-					{% prevnext %}
-
-				</div> <!-- content-main -->
 			</div> <!-- content -->
 		</div> <!-- row-fluid -->
 	</div> <!-- container-fluid -->

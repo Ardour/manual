@@ -332,7 +332,7 @@ def BuildList(lst, fs, pagePos, cList):
 		elif (pagePos > curPos) and (pagePos < nextPos):
 			content = content + BuildList(cList[curPos], fs, pagePos, cList)
 
-	content = content + '</ul>\n'
+	content = content + '\n</ul>\n'
 
 	return content
 
@@ -396,10 +396,10 @@ def BuildOnePageSidebar(fs):
 def CreateLinkSidebar(fs, pos, childList):
 
 	# Build the list recursively from the top level nodes
-	#content = BuildList(FindTopLevelNodes(fs), fs, pos, childList)
 	content = BuildList(FindTopLevelNodes(fs), fs, pos, childList)
 	# Shove the TOC link and one file link at the top...
-	content = content[:7] + '<dt><dt><a href="/toc/">Table of Contents</a></dt><dd></dd>\n' + content[7:]
+	active = ' class=active' if pos<0 else ''
+	content = content.replace('<ul>','<ul><li' + active + '><a href="/toc/">Table of Contents</a></li>\n',1)
 
 	return content
 
