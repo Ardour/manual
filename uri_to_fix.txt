@@ -24,3 +24,4 @@ http://www.manual.ardour.org/ardours-interface/introducing-the-editor-window/the
 http://www.manual.ardour.org/working-with-markers/getting-to-know-the-rangesmarks-list/
 http://www.manual.ardour.org/working-with-markers/the-punch-range/
 http://www.manual.ardour.org/signal-routing/role-of-jack/
+http://www.manual.ardour.org/editing-and-arranging/move-regions/move-regions-with-the-mouse

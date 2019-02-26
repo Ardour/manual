@@ -1172,18 +1172,10 @@ part: subchapter
 ---
 
 ---
-title: Move Regions
-include: move-regions.html
-link: move-regions
-uri: editing-and-arranging/move-regions
-part: subchapter
----
-
----
 title: Move Regions With the Mouse
 include: move-regions-with-the-mouse.html
 link: move-regions-with-the-mouse
-uri: editing-and-arranging/move-regions/move-regions-with-the-mouse
+uri: editing-and-arranging/move-regions
 part: subchapter
 ---
 
