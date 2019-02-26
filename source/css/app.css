@@ -33,9 +33,6 @@ ul.inside li, ol.inside li {
   bottom: 0;
   left: 0;
   width: 20em;
-}
-
-#tree-inner {
   padding: 1em 1em 2em 1.5em;
 }
 
@@ -45,10 +42,6 @@ ul.inside li, ol.inside li {
   font-weight: normal;
 }
 
-#tree dl {
-  margin-left: 1em;
-}
-
 #tree ul {
   padding-left: 1em;
   list-style-type: none;
@@ -56,26 +49,6 @@ ul.inside li, ol.inside li {
 
 #tree h1.title a:hover {
   border-bottom: none;
-}
-
-#tree dd.other {
-  display: none;
-}
-
-#tree .level-1,
-#tree .parent,
-#tree .child,
-#tree .parent *,
-#tree .child * {
-  display: inherit;
-  color: inherit;
-}
-
-#tree dd.child-1,
-#tree .child-2,
-#tree .child-3,
-#tree .child-4 {
-  display: none;
 }
 
 #tree a {
@@ -102,21 +75,12 @@ ul.inside li, ol.inside li {
 #content {
   padding: 1em 2em 2ex 21em;
   margin-left: 0;
+  line-height: 2em;
 }
 
 #content-main {
   padding-top: 1ex;
   padding-left: .5em;
-}
-
-
-#content p,
-#content li,
-#content dt,
-#content dd,
-#content td,
-#content th{
-  line-height: 2em;
 }
 
 #content h1,
@@ -159,14 +123,12 @@ ul.inside li, ol.inside li {
   border-bottom: 1px solid #eee;
 }
 
-#content table,
-#content table.dl {
+#content table {
   width:100%;
   margin: 1em 0;
   padding: 0;
   font-weight: normal;
   text-align: left;
-  line-height: 2ex;
 }
 
 #content table tr {
@@ -225,54 +187,6 @@ ul.inside li, ol.inside li {
   width: 100%;
 }
 
-#content dl
-{
-  float:none;
-  clear:both;
-  width:100%;
-  margin: 1em 0;
-  padding: 0;
-  display:inline-block;
-}
-
-#content dl:after {
-  content:' ';
-  display:block;
-  clear:both;
-}
-
-#content dt,
-#content dd {
-  border-top: 2px solid #eee;
-  float: left;
-  margin: 0;
-  padding: .5em;
-  font-weight: normal;
-}
-
-#content dt {
-  clear: left;
-  width: 25%;
-}
-
-#content dd {
-  width: 65%;
-}
-
-#content dt.sub1 {
-  padding-left: 2em;
-}
-
-#content dt.sub2 {
-  padding-left: 4em;
-}
-
-#content dt:first-child,
-#content dd:nth-child(2) {
-  border-top: none;
-}
-
-
 #content figure {
   display: table;
 }
@@ -310,20 +224,6 @@ ul.inside li, ol.inside li {
 #content figure.center {
   margin: 1em auto 1em auto;
   clear: both;
-}
-
-.multicol2 {
-  width: 48%;
-	float:left;
-	padding:0 0 0 2%;
-	margin:0;
-}
-
-.multicol3 {
-  width: 31%;
-	float:left;
-	padding:0 0 0 2%;
-	margin:0;
 }
 
 kbd {
