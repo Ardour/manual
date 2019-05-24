@@ -2,65 +2,105 @@
 <h2>Overview of Operations</h2>
 
 <table class="dl">
-  <tr><th><kbd class="menu">Session &gt; Open Video</kbd></th>
+  <tr><th><kbd class="menu">Session &gt; Open Video&hellip;</kbd></th>
   <td>Add/replace a video to/on the timeline</td></tr>
-  <tr><th><kbd class="menu">Window &gt; View Monitor</kbd></th>
+  <tr><th><kbd class="menu">Window &gt; Video Monitor</kbd></th>
   <td>Open/close external video monitor window</td></tr>
-  <tr><th><kbd class="menu">View &gt; Video Monitor &gt; …</kbd></th>
+  <tr><th><kbd class="menu">View &gt; Video Monitor &gt; &hellip;</kbd></th>
   <td>Various settings of the video monitor</td></tr>
-  <tr><th><kbd class="menu">Session &gt; Export &gt; Video</kbd></th>
+  <tr><th><kbd class="menu">Session &gt; Export &gt; Export to Video File&hellip;</kbd></th>
   <td>Export session and multiplex with video-file</td></tr>
   <tr><th><kbd class="mouse">Left</kbd>-drag the video in the timeline</th>
   <td>Re-align video and move 'locked' audio-regions along</td></tr>
-  <tr><th>Context-menu on the video-timeline: <kbd class="menu"> &#039;lock&#039;</kbd></th>
+  <tr><th>Context-menu on the video-timeline: <kbd class="optoff">Lock</kbd></th>
   <td>Prevent accidental drags</td></tr>
-  <tr><th>Audio region context menu: <kbd class="menu">Position &gt; Lock to video</kbd></th>
+  <tr><th>Audio region context menu: <kbd class="menu"><em>Name_Of_The_Region</em> &gt; Position &gt; Lock to video</kbd></th>
   <td>Mark audio region(s) to be moved along with the video.</td></tr>
 </table>
 
 
-<h2>Adding Video</h2>
+<h2>Adding a video</h2>
+
 <p>
-  Adding video is a two-step process: selecting a video file, and choosing
-  import mode and optionally selecting an audio track to extract.
-</p>
-<p>
-  The first step is rather straight-forward. The panel on the right side
-  allows to seek through the video and displays basic file information.
-  It is also useful to check if the video format/codec is supported:
+  Adding a video is a two-step process: selecting a video file, and choosing
+  import mode and optionally selecting an audio track to extract. Only one video
+  can be present in the session, so opening a video when one is already opened
+  results in replacing the video.
 </p>
 
-<figure class="center">
-  <img src="/images/a3_video_open.png" alt="The video open dialog">
+<h3 class="clear">Launching the video server (optionnal)</h3>
+
+<figure class="right">
+  <img class="mini" src="/images/launch_video_server.png" alt="The Launch Video Server dialog">
+  <figcaption>
+    The Launch Video Server dialog
+  </figcaption>
+</figure>
+
+<p>
+	Importing a video makes Ardour start the video server automatically. If
+	the <kbd class="option">Show video Server Startup Dialog</kbd> option in the
+	<kbd class="menu">Video</kbd> section of the
+	<a href="@@preferences#video">preferences</a> is checked, the
+	<kbd class="menu">Launch Video Server</kbd> window is shown, allowing more
+	complex operations, e.g. connecting to a remote video server instead of a local
+	one.
+</p>
+
+<h3 class="clear">Selecting a file</h3>
+
+<figure class="right">
+  <img class="mini" src="/images/set_video_track.png" alt="The video open dialog">
   <figcaption>
     The video open dialog
   </figcaption>
 </figure>
 
 <p>
-  The second step analyzes the video file in more detail and offers import options:
+  This step is rather straight-forward. The panel on the right side
+  allows to seek through the video and displays basic file information.
+  It is also useful to check if the video format/codec is supported.
+</p>
+<p>
+	The lower part of the window shows some options:
+</p>
+<ul>
+	<li><kbd class="option">Open Video Monitor Window</kbd> to automatically show
+	the video monitor (Harvid). This can also be done later by using the
+	<kbd class="menu">Window > Video Monitor</kbd> menu which is binded to
+	<kbd class="mod2">V</kbd> by default.</li>
+	<li><kbd class="option">Adjust Session Framerate to Match Video Framerate</kbd>
+	which can also be set later with the <a href="@@session-properties-dialog">Session Properties</a>.
+	Having the session and video framerate at the same value allows their sync not to
+	drift off.</li>
+</ul>
+
+<h3 class="clear">Import options</h3>
+
+<figure class="right">
+  <img class="mini" src="/images/transcode-import_video_file.png" alt="The Transcode/Import Video dialog">
+  <figcaption>
+    The Transcode/Import Video dialog
+  </figcaption>
+</figure>
+
+<p>
+  This step analyzes the video file in more detail and offers import options:
 </p>
 <table class="dl">
-  <tr><th><kbd class="menu">Import/Transcode to Session</kbd></th>
+  <tr><th><kbd class="menu">Import/Transcode Video to Session</kbd></th>
   <td>This is the default. The video will be imported in a suitable
   video format/codec for the timeline and video monitor and saved inside the
   session folder.  A location other than the session folder can also be
   chosen (external disk, or network storage of the video server on a different
-  machine).</td></tr>
-  <tr><th><kbd class="menu">Reference from Current Location</kbd></th>
+  machine) by using the <kbd class="menu">Output File:</kbd> field.</td></tr>
+  <tr><th><kbd class="menu">Reference from Current Location (Previously Transcoded
+  Files Only)</kbd></th>
   <td>Only useful for opening files that were previously encoded (are already
-  in a good format/codec). Should be used with care.</td></tr>
-  <tr><th><kbd class="menu">Do not Import Video</kbd></th>
+  in a good format/codec for Ardour). Should be used with care.</td></tr>
+  <tr><th><kbd class="menu">Do not Import Video (Audio Import Only)</kbd></th>
   <td>Useful for extracting audio only.</td></tr>
 </table>
-
-
-<figure class="center">
-  <img src="/images/a3_video_import.png" alt="The Video Import dialog">
-  <figcaption>
-    The Video Import dialog
-  </figcaption>
-</figure>
 
 <p>
   By default the video is imported using the original width/height.
@@ -77,6 +117,17 @@
   <dfn>mjpeg</dfn> codec used by Ardour).
 </p>
 
+<p>
+  The <kbd class="menu">Extract Audio:</kbd> offers options regarding the Audio
+  part of the stream, allowing to either not extract audio, or to choose which audio
+  stream to add to the session.
+</p>
+<p>
+	When extracting any audio, if it includes <a href="@@timecode-generators-and-slaves">
+	LTC timecodes</a>, those can be extracted and used to sync the video by checking
+	the option below.
+</p>
+
 <h2>Working with A/V</h2>
 <p>
   Working with A/V in Ardour is similar to working in a pure audio setup, except
@@ -85,7 +136,7 @@
 </p>
 
 <figure class="center">
-  <img class= "mini" src="/images/a3_videotimeline.png" alt="The Video Timeline">
+  <img class= "mini" src="/images/video_timeline.png" alt="The Video Timeline">
   <figcaption>
     The Video Timeline
   </figcaption>
@@ -98,6 +149,14 @@
 </p>
 
 <h2 id="export">Exporting Video</h2>
+
+<figure class="right">
+  <img src="/images/export_video_file.png" alt="The Video Export Dialog">
+  <figcaption>
+    The Video Export Dialog
+  </figcaption>
+</figure>
+
 <p>
   The video export will take audio from the current Ardour session and
   multiplex it with a video file. The soundtrack of the video is taken from
@@ -131,13 +190,6 @@
   be used with ac3 audio-codec, etc. If in doubt, one of the built-in
   presets should be used.
 </p>
-
-<figure class="center">
-  <img src="/images/a3_video_export.png" alt="The Video Export Dialog">
-  <figcaption>
-    The Video Export Dialog
-  </figcaption>
-</figure>
 
 <p>
   Ardour video export is not recommended for mastering! While ffmpeg
