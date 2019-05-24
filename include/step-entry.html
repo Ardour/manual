@@ -6,10 +6,10 @@
   comes from using a custom note entry dialog.
 </p>
 <p>
-  The step entry dialog is accessed via a right click context menu on the
-  rec-enable button, because step entry is related to <em>recording</em> MIDI
-  data. Step editing and recording MIDI via the track's MIDI port cannot happen
-  simultaneously.
+  The step entry dialog is accessed via a <kbd class="mouse">right click</kbd>
+  context menu on the <kbd>rec-enable</kbd> button, because step entry is related
+  to <em>recording</em> MIDI data. Step editing and recording MIDI via the
+  track's MIDI port cannot happen simultaneously.
 </p>
 
 <figure>
@@ -57,117 +57,50 @@
   The default key bindings for this (configured in <tt>step_editing.bindings</tt>) are:
 </p>
 
-<dl>
-  <dt><tt>grave</tt></dt>
-  <dd>octave-0</dd>
-  <dt><tt>1</tt></dt>
-  <dd>octave-1</dd>
-  <dt><tt>2</tt></dt>
-  <dd>octave-2</dd>
-  <dt><tt>3</tt></dt>
-  <dd>octave-3</dd>
-  <dt><tt>4</tt></dt>
-  <dd>octave-4</dd>
-  <dt><tt>5</tt></dt>
-  <dd>octave-5</dd>
-  <dt><tt>6</tt></dt>
-  <dd>octave-6</dd>
-  <dt><tt>7</tt></dt>
-  <dd>octave-7</dd>
-  <dt><tt>8</tt></dt>
-  <dd>octave-8</dd>
-  <dt><tt>9</tt></dt>
-  <dd>octave-9</dd>
-  <dt><tt>0</tt></dt>
-  <dd>octave-10</dd>
-</dl>
-<dl>
-  <dt><tt>F1</tt></dt>
-  <dd>note-length-whole</dd>
-  <dt><tt>F2</tt></dt>
-  <dd>note-length-half</dd>
-  <dt><tt>F3</tt></dt>
-  <dd>note-length-third</dd>
-  <dt><tt>F4</tt></dt>
-  <dd>note-length-quarter</dd>
-  <dt><tt>F5</tt></dt>
-  <dd>note-length-eighth</dd>
-  <dt><tt>F6</tt></dt>
-  <dd>note-length-sixteenth</dd>
-  <dt><tt>F7</tt></dt>
-  <dd>note-length-thirtysecond</dd>
-  <dt><tt>F8</tt></dt>
-  <dd>note-length-sixtyfourth</dd>
-</dl>
-<dl>
-  <dt><tt>a</tt></dt>
-  <dd>insert-c</dd>
-  <dt><tt>w</tt></dt>
-  <dd>insert-csharp</dd>
-  <dt><tt>s</tt></dt>
-  <dd>insert-d</dd>
-  <dt><tt>e</tt></dt>
-  <dd>insert-dsharp</dd>
-  <dt><tt>d</tt></dt>
-  <dd>insert-e</dd>
-  <dt><tt>f</tt></dt>
-  <dd>insert-f</dd>
-  <dt><tt>t</tt></dt>
-  <dd>insert-fsharp</dd>
-  <dt><tt>g</tt></dt>
-  <dd>insert-g</dd>
-  <dt><tt>y</tt></dt>
-  <dd>insert-gsharp</dd>
-  <dt><tt>h</tt></dt>
-  <dd>insert-a</dd>
-  <dt><tt>u</tt></dt>
-  <dd>insert-asharp</dd>
-  <dt><tt>j</tt></dt>
-  <dd>insert-b</dd>
-</dl>
-<dl>
-  <dt><tt>Tab</tt></dt>
-  <dd>insert-rest</dd>
-  <dt><tt>Primary-Tab</tt></dt>
-  <dd>insert-snap-rest</dd>
-  <dt><tt>BackSpace</tt></dt>
-  <dd>back</dd>
-</dl>
-<dl>
-  <dt><tt>z</tt></dt>
-  <dd>note-velocity-ppp</dd>
-  <dt><tt>x</tt></dt>
-  <dd>note-velocity-pp</dd>
-  <dt><tt>c</tt></dt>
-  <dd>note-velocity-p</dd>
-  <dt><tt>v</tt></dt>
-  <dd>note-velocity-mp</dd>
-  <dt><tt>b</tt></dt>
-  <dd>note-velocity-mf</dd>
-  <dt><tt>n</tt></dt>
-  <dd>note-velocity-f</dd>
-  <dt><tt>m</tt></dt>
-  <dd>note-velocity-ff</dd>
-  <dt><tt>comma</tt></dt>
-  <dd>note-velocity-fff</dd>
-</dl>
-<dl>
-  <dt><tt>Up</tt></dt>
-  <dd>next-note-velocity</dd>
-  <dt><tt>Down</tt></dt>
-  <dd>prev-note-velocity</dd>
-  <dt><tt>Primary-Up</tt></dt>
-  <dd>next-note-length</dd>
-  <dt><tt>Primary-Down</tt></dt>
-  <dd>prev-note-length</dd>
-</dl>
-<dl>
-  <dt><tt>apostrophe</tt></dt>
-  <dd>toggle-triplet</dd>
-  <dt><tt>period</tt></dt>
-  <dd>toggle-dotted</dd>
-  <dt><tt>Primary-period</tt></dt>
-  <dd>no-dotted</dd>
-  <dt><tt>bar</tt></dt>
-  <dd>toggle-chord</dd>
-</dl>
+<table>
+	<tr><td><kbd>grave</kbd></td><td>octave 0</td></tr>
+	<tr><td><kbd>1</kbd> to <kbd>9</kbd></td><td>octave 1 to 9</td></tr>
+	<tr><td><kbd>0</kbd></td><td>octave 10</td></tr>
+
+  <tr><td><kbd>F1</kbd></td><td>note length whole</td></tr>
+  <tr><td><kbd>F2</kbd></td><td>note length half</td></tr>
+  <tr><td><kbd>F3</kbd></td><td>note length third</td></tr>
+  <tr><td><kbd>F4</kbd> to <kbd>F8</kbd></td><td>note length quarter to sixtyfourth</td></tr>
+
+  <tr><td><kbd>a</kbd></td><td>insert C</td></tr>
+  <tr><td><kbd>w</kbd></td><td>insert C &sharp;</td></tr>
+  <tr><td><kbd>s</kbd></td><td>insert D</td></tr>
+  <tr><td><kbd>e</kbd></td><td>insert D &sharp;</td></tr>
+  <tr><td><kbd>d</kbd></td><td>insert E</td></tr>
+  <tr><td><kbd>f</kbd></td><td>insert F</td></tr>
+  <tr><td><kbd>t</kbd></td><td>insert F &sharp;</td></tr>
+  <tr><td><kbd>g</kbd></td><td>insert G</td></tr>
+  <tr><td><kbd>y</kbd></td><td>insert G &sharp;</td></tr>
+  <tr><td><kbd>h</kbd></td><td>insert A</td></tr>
+  <tr><td><kbd>u</kbd></td><td>insert A &sharp;</td></tr>
+  <tr><td><kbd>j</kbd></td><td>insert B</td></tr>
+
+  <tr><td><kbd>Tab</kbd></td><td>insert rest</td></tr>
+  <tr><td><kbd>Primary Tab</kbd></td><td>insert snap rest</td></tr>
+  <tr><td><kbd>BackSpace</kbd></td><td>back</td></tr>
+
+  <tr><td><kbd>z</kbd></td><td>note velocity &#119183;&#119183;&#119183;</td></tr>
+  <tr><td><kbd>x</kbd></td><td>note velocity &#119183;&#119183;</td></tr>
+  <tr><td><kbd>c</kbd></td><td>note velocity &#119183;</td></tr>
+  <tr><td><kbd>v</kbd></td><td>note velocity &#119184;&#119183;</td></tr>
+  <tr><td><kbd>b</kbd></td><td>note velocity &#119184;&#119185;</td></tr>
+  <tr><td><kbd>n</kbd></td><td>note velocity &#119185;</td></tr>
+  <tr><td><kbd>m</kbd></td><td>note velocity &#119185;&#119185;</td></tr>
+  <tr><td><kbd>comma</kbd></td><td>note velocity &#119185;&#119185;&#119185;</td></tr>
+
+  <tr><td><kbd>Up</kbd></td><td>next note velocity</td></tr>
+  <tr><td><kbd>Down</kbd></td><td>prev note velocity</td></tr>
+  <tr><td><kbd>Primary Up</kbd></td><td>next note length</td></tr>
+  <tr><td><kbd>Primary Down</kbd></td><td>prev note length</td></tr>
+
+  <tr><td><kbd>apostrophe</kbd></td><td>toggle triplet</td></tr>
+  <tr><td><kbd>period</kbd></td><td>toggle dotted</td></tr>
+  <tr><td><kbd>Primary period</kbd></td><td>no dotted</td></tr>
+  <tr><td><kbd>bar</kbd></td><td>toggle chord</td></tr>
+
+</table>
