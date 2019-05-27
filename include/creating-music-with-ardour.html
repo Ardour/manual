@@ -48,12 +48,10 @@
 </p>
 
 <p>
-  Ardour uses the <dfn>JACK Audio Connection Kit</dfn> for all audio and MIDI
-  I/O, which means that recording audio/MIDI from other applications is
-  fundamentally identical to recording audio/MIDI from audio/MIDI hardware.
+  Ardour can use the <dfn>JACK Audio Connection Kit</dfn> for all audio and MIDI
+  I/O, making recording audio/MIDI from other applications fundamentally identical
+  to recording audio/MIDI from audio/MIDI hardware.
 </p>
-
-<p class=fixme>Sanity check: is this true anymore? Does Ardour's ALSA backend make this statement not exactly true?</p>
 
 <h2>Stage 3: Editing and Arranging</h2>
 
@@ -75,11 +73,15 @@
 
 <p>
   Many <dfn>transformations</dfn> can be done to the contents of regions, again
-  without altering anything on disk. It is possible to alter, move, and delete
-  MIDI notes, and remove silence from audio regions, for example.
+  without altering anything on disk. It is possible to alter, move, delete and
+  remove silence from audio regions, for example.
 </p>
 
-<p class=fixme>Sanity check: deleting MIDI notes doesn't change them on disk? Isn't anything done to MIDI a destructive operation?</p>
+<p>
+	MIDI regions can also be copied, moved, shortened, or deleted without altering
+	the MIDI files, though any edit like adding, suppressing or moving <em>notes</em>
+	inside a region results in a modification of the underlying MIDI file.
+</p>
 
 <h2>Stage 4: Mixing and Adding Effects</h2>
 
