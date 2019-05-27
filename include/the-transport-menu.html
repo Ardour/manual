@@ -8,7 +8,7 @@
 	<tr><th>Play</th>
 		<tr><th class="sub1">Play Selection</th><td>Only plays the selected part of the session, be it a range or selected regions</td></tr>
 		<tr><th class="sub1">Play Selection w/Preroll</th><td>As the previous menu, except it starts the playback a few bars or seconds before the beginning of the selection (the amount of time can be set in the <a href="@@preferences#transport">Preferences</a>)</td></tr>
-		<tr><th class="sub1">Start/Continue/Stop</th><td>FIXME</td></tr>
+		<tr><th class="sub1">Start/Continue/Stop</th><td>Leaves loop play or range play mode but without stopping the transport</td></tr>
 		<tr><th class="sub1">Play from Edit Point and Return</th><td>Starts the playback at the <a href="@@edit-point-control">Edit point</a>, and when stopped, goes back to the original location</td></tr>
 		<tr><th class="sub1">Play Loop Range</th><td>If a <a href="@@the-loop-range">Loop range</a> is defined, play it and loop until stopped</td></tr>
 	<tr><th>Start Recording</th><td>This is a shortcut to trigger the global recording, and start playback at once</td></tr>
@@ -21,10 +21,10 @@
 	<tr><th>Set Punch from Selection</th><td>Same thing, for <a href="@@punch-range">Punch</a></td></tr>
 	<tr><th>Set Session Start/End from Selection</th><td>Same thing, for the start and end markers of the session, defining the session's length</td></tr>
 
-	<tr><th>Forward</th><td>FIXME</td></tr>
-	<tr><th>Rewind</th><td>Plays the audio backwards from the playhead on</td></tr>
-	<tr><th>Transition to Roll</th><td>FIXME</td></tr>
-	<tr><th>Transition to Reverse</th><td>FIXME</td></tr>
+	<tr><th>Forward</th><td>Plays the audio forwards from the playhead on. If the audio is already playing forwards, increment its speed by 50&percnt;.</td></tr>
+	<tr><th>Rewind</th><td>Plays the audio backwards from the playhead on. If the audio is already playing backwards, increment its speed by 50&percnt;.</td></tr>
+	<tr><th>Transition to Roll</th><td>Plays the audio forwards, with a speed of 1 (real time)</td></tr>
+	<tr><th>Transition to Reverse</th><td>Plays the audio backwards, with a speed of 1 (real time)</td></tr>
 
 	<tr><th>Playhead</th><td></td></tr>
 		<tr><th class="sub1">Playhead to Mouse</th><td>Set the position of the playhead at the current position of the mouse cursor</td></tr>
