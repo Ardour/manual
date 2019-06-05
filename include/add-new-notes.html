@@ -1,18 +1,13 @@
 
 <h2>Adding new notes</h2>
 <p>
-  In general, most MIDI editing will probably be done with the mouse in object
-  mode. This allows to select notes, copy, move or delete them and alter their
-  properties (see below). But at some point, <em>adding</em> notes to a  MIDI
-  region using the mouse will mean dragging with the mouse. Since this would
-  normally be a selection operation if the mouse is in object mode, there needs
-  to be some way to tell Ardour that the user is trying to <dfn>draw</dfn> new
-  notes within a MIDI region. Ardour provides two ways do this. One is to leave
-  the mouse in object mode and <kbd class="mouse mod1">Left</kbd>-drag. The
-  other, useful to enter a lot of notes for a while, is to switch the mouse into
-  <kbd class="menu">Draw Notes</kbd> mode, which will now interpret any drags
-  and clicks as requests to add a new note. For obvious reasons, Draw Notes mode
-  can not be used while using region-level editing.
+  For light MIDI editing, you can use the Internal Edit Mode. 
+  This mode lets you select notes, copy, move or delete them and alter their
+  properties (see below). To <em>add</em> notes using the mouse, <kbd class="mouse mod1">Left</kbd>-drag. 
+  
+  For more extensive MIDI editing, you may prefer <kbd class="menu">Draw Mode</kbd>. 
+  You can click or drag to add a new note, without having to hold down Ctrl. However, 
+  Draw Mode doesn't offer region-level editing.
 </p>
 
 <p>So, to summarize:</p>
