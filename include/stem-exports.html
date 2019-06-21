@@ -1,12 +1,28 @@
 
+<figure class="right">
+  <img src="/images/export-dialog-stem-export.png" alt="Stem export">
+  <figcaption>
+    The Stem Export dialog
+  </figcaption>
+</figure>
+
 <p>
-  <dfn>Stem exports</dfn> are covered fully in the <a href="@@mixdown">Export</a>
-  chapter. A stem export creates one file per track, starting at the beginning of
-  the session. Each track can then be  imported into another DAW.
-</p>
-<p>
-  All data will be lost except the actual audio/MIDI (no plugins, no automation).
+  <dfn>Stem exporting</dfn> allows to transfer files between different systems and
+  softwares by exporting each track individually, including silence, to keep them
+  in sync. All data will be lost except the actual audio/MIDI.
   This is one of the most common methods of interchange because it works between
   all DAWs.
+</p>
+<p>
+	The Stem Export window, accessed via the <kbd class="menu">Session &gt;
+  Export &gt; Stem Export&hellip;</kbd> menu, is very similar to the
+  <a href="@@export-dialog">Export dialog</a>, except the 'Channels' tab appears
+  slightly differently: in this case each chosen channel (track or bus) is exported
+  to its own file, instead of all channels being mixed together into a single file.
+</p>
+<p>
+  The exported tracks or busses can, by checking <kbd class="option">Apply
+  track/bus processing</kbd>, be exported with the effects/processors applied,
+  so that the destination system does not need those effects plugins.
 </p>
 
