@@ -802,6 +802,30 @@ part: subchapter
 ---
 
 ---
+title: Session Templates
+include: session-templates.html
+link: session-templates
+uri: working-with-sessions/session-templates
+part: subchapter
+---
+
+---
+title: Snapshots
+include: snapshots.html
+link: snapshots
+uri: working-with-sessions/snapshots
+part: subchapter
+---
+
+---
+title: Cleaning Up Sessions
+include: cleaning-up-sessions.html
+link: cleaning-up-sessions
+uri: working-with-sessions/cleaning_up
+part: subchapter
+---
+
+---
 title: Backup and Sharing of Sessions
 include: backup-and-sharing-of-sessions.html
 link: backup-and-sharing-of-sessions
@@ -892,100 +916,6 @@ title: Track Context Menu
 include: track-context-menu.html
 link: track-context-menu
 uri: working-with-tracks/track-context-menu
-part: subchapter
----
-
----
-title: Importing and Exporting Session Data
-menu_title: Import/Export Session Data
-link: importing-and-exporting-session-data
-part: chapter
----
-
----
-title: Import Dialog
-include: import-dialog.html
-link: import-dialog
-uri: adding-pre-existing-material/import-dialog
-part: subchapter
----
-
----
-title: Supported File Formats
-include: supported-file-formats.html
-link: supported-file-formats
-uri: adding-pre-existing-material/supported-file-formats
-part: subchapter
----
-
----
-title: Adding Pre-existing Material
-include: adding-pre-existing-material.html
-link: adding-pre-existing-material
-uri: adding-pre-existing-material
-part: subchapter
----
-
----
-title: Copying Versus Linking
-include: copying-versus-linking.html
-link: copying-versus-linking
-uri: adding-pre-existing-material/copying-versus-linking
-part: subchapter
----
-
----
-title: Searching for Files Using Tags
-include: searching-for-files-using-tags.html
-link: searching-for-files-using-tags
-uri: adding-pre-existing-material/searching-for-files-using-tags
-part: subchapter
----
-
----
-title: Stem Exports
-include: stem-exports.html
-link: stem-exports
-uri: working-with-sessions/interchange-with-other-daws/stem-exports
-part: subchapter
----
-
----
-title: File and Session Management and Compatibility
-menu_title: File/Session Mgmt &amp; Compat.
-link: file-and-session-management-and-compatibility
-part: chapter
----
-
----
-title: Session Templates
-include: session-templates.html
-link: session-templates
-uri: working-with-sessions/session-templates
-part: subchapter
----
-
----
-title: Snapshots
-include: snapshots.html
-link: snapshots
-uri: working-with-sessions/snapshots
-part: subchapter
----
-
----
-title: Cleaning Up Sessions
-include: cleaning-up-sessions.html
-link: cleaning-up-sessions
-uri: working-with-sessions/cleaning_up
-part: subchapter
----
-
----
-title: Interchange with other DAWs
-include: interchange-with-other-daws.html
-link: interchange-with-other-daws
-uri: working-with-sessions/interchange-with-other-daws
 part: subchapter
 ---
 
@@ -1107,6 +1037,99 @@ title: Punch Range
 include: punch-range.html
 link: punch-range
 uri: working-with-markers/punch-range
+part: subchapter
+---
+
+---
+title: Importing and Exporting
+menu_title: Importing and Exporting
+link: importing-and-exporting-session-data
+part: part
+---
+
+---
+title: Importing
+link: importing
+uri: importing
+part: chapter
+---
+
+---
+title: Import Dialog
+include: import-dialog.html
+link: import-dialog
+uri: adding-pre-existing-material/import-dialog
+part: subchapter
+---
+
+---
+title: Supported File Formats
+include: supported-file-formats.html
+link: supported-file-formats
+uri: adding-pre-existing-material/supported-file-formats
+part: subchapter
+---
+
+---
+title: Adding Pre-existing Material
+include: adding-pre-existing-material.html
+link: adding-pre-existing-material
+uri: adding-pre-existing-material
+part: subchapter
+---
+
+---
+title: Copying Versus Linking
+include: copying-versus-linking.html
+link: copying-versus-linking
+uri: adding-pre-existing-material/copying-versus-linking
+part: subchapter
+---
+
+---
+title: Searching for Files Using Tags
+include: searching-for-files-using-tags.html
+link: searching-for-files-using-tags
+uri: adding-pre-existing-material/searching-for-files-using-tags
+part: subchapter
+---
+
+---
+title: Exporting
+link: mixdown
+uri: exporting
+part: chapter
+---
+
+---
+title: Export Dialog
+include: export-dialog.html
+link: export-dialog
+uri: exporting/export-dialog
+part: subchapter
+---
+
+---
+title: Export Format Profiles
+include: export-format-profiles.html
+link: export-format-profiles
+uri: exporting/edit-export-format-profile
+part: subchapter
+---
+
+---
+title: Stem Exports
+include: stem-exports.html
+link: stem-exports
+uri: working-with-sessions/interchange-with-other-daws/stem-exports
+part: subchapter
+---
+
+---
+title: Interchange with other DAWs
+include: interchange-with-other-daws.html
+link: interchange-with-other-daws
+uri: working-with-sessions/interchange-with-other-daws
 part: subchapter
 ---
 
@@ -1772,29 +1795,6 @@ title: Controlling a Track with Automation
 menu_title: Track Automation
 include: track-automation.html
 link: track-automation
-part: subchapter
----
-
----
-title: Mixdown
-link: mixdown
-uri: exporting
-part: chapter
----
-
----
-title: Export Dialog
-include: export-dialog.html
-link: export-dialog
-uri: exporting/export-dialog
-part: subchapter
----
-
----
-title: Export Format Profiles
-include: export-format-profiles.html
-link: export-format-profiles
-uri: exporting/edit-export-format-profile
 part: subchapter
 ---
 
