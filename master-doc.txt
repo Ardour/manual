@@ -817,14 +817,6 @@ part: chapter
 ---
 
 ---
-title: Track Types
-include: track-types.html
-link: track-types
-uri: working-with-tracks/track-types
-part: subchapter
----
-
----
 title: Adding Tracks, Busses and VCAs
 include: adding-tracks-busses-and-vcas.html
 link: adding-tracks-busses-and-vcas
@@ -833,34 +825,41 @@ part: subchapter
 ---
 
 ---
-title: Controlling Track Ordering
-include: controlling-track-ordering.html
-link: controlling-track-ordering
-uri: working-with-tracks/controlling-track-ordering
+title: Track Types
+include: track-types.html
+link: track-types
+uri: working-with-tracks/track-types
 part: subchapter
 ---
 
 ---
-title: Track Context Menu
-include: track-context-menu.html
-link: track-context-menu
-uri: working-with-tracks/track-context-menu
+title: Track Modes
+include: track-modes.html
+link: track-modes
+uri: working-with-tracks/track-modes
 part: subchapter
 ---
 
 ---
-title: Controlling Track Appearance
-include: controlling-track-appearance.html
-link: controlling-track-appearance
-uri: working-with-tracks/controlling-track-appearance
-part: chapter
----
-
----
-title: Layering Display
+title: Track Layering
 include: layering-display.html
 link: layering-display
 uri: working-with-tracks/controlling-track-appearance/layering-display
+part: subchapter
+---
+
+---
+title: Channel Configuration
+include: channel-configuration.html
+link: channel-configuration
+part: subchapter
+---
+
+---
+title: Track Ordering
+include: controlling-track-ordering.html
+link: controlling-track-ordering
+uri: working-with-tracks/controlling-track-ordering
 part: subchapter
 ---
 
@@ -885,6 +884,14 @@ title: Waveform display
 include: waveform-display.html
 link: waveform-display
 uri: working-with-tracks/controlling-track-appearance/waveform-display
+part: subchapter
+---
+
+---
+title: Track Context Menu
+include: track-context-menu.html
+link: track-context-menu
+uri: working-with-tracks/track-context-menu
 part: subchapter
 ---
 

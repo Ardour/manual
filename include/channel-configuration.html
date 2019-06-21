@@ -1,0 +1,34 @@
+<p>
+  Ardour tracks can have any number of inputs and any number of outputs, and the
+  number of either can be changed at any time (subject to restrictions caused by
+  any plugins in a track). However it is useful to not have to configure this sort
+  of thing for the most common cases, and so the
+  <a href="@@adding-tracks-busses-and-vcas">Add Tracks</a> dialog allows to
+  select "Mono", "Stereo" and few other typical multichannel presets
+</p>
+<p>
+  The name of the preset describes the number of <dfn>input channels</dfn>
+  of the track or bus.
+</p>
+<p>
+  If Ardour is configured to automatically connect new tracks and
+  busses, the number of outputs will be determined by the number of
+  inputs of the <dfn>master <a
+  href="@@understanding-basic-concepts-and-terminology#busses">bus</a></dfn>,
+  to which the track outputs will be connected.
+</p>
+<p>
+  For example, with a two-channel master bus, a Mono track has one
+  input and two outputs; a Stereo track has two inputs and two outputs.
+</p>
+<p class="note">
+  If <kbd class="menu">Edit &gt; Preferences &gt; Signal Flow
+  &gt; Track and Bus Connections</kbd> is set to <kbd
+  class="menu">manual</kbd>, then tracks will be left disconnected by default
+  and there will be as many outputs as there are inputs. It is up to the user to connect
+  them as desired. This is not a particularly useful way to work unless something
+  fairly unusual is done with signal routing and processing. It is almost always
+  preferable to leave Ardour make connections automatically, even if some changes
+  are manually done later.
+</p>
+
