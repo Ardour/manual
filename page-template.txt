@@ -57,7 +57,7 @@
 
 				{{ content }}
 
-				<div class="clearer"></div>
+				<div class="clear"></div>
 
 				{% prevnext %}
 
