@@ -7,11 +7,13 @@
 </figure>
 
 <p>
-  The <dfn>Monitor section</dfn> is an optional feature that provides Control Room/Monitor Speaker outputs. It can be activated for the current session in the
+  The <dfn>Monitor section</dfn> is an optional feature that provides Control Room/Monitor Speaker outputs.
+  It can be activated for the current session in the
   <a href="@@monitoring-tab">
   <kbd class="menu">Session &gt; Properties</kbd> window</a> by enabling the
   <kbd class="option">Use monitor section in this session</kbd> option in the
-  <kbd class="menu">Monitoring</kbd> tab. By default the Monitor Section is fed with audio from the Master Bus, but depending on solo mode and other functions such as Auditioning, other audio sources may be temporarily heard instead.
+  <kbd class="menu">Monitoring</kbd> tab. By default the Monitor Section is fed with audio from the Master Bus,
+  but depending on solo mode and other functions such as Auditioning, other audio sources may be temporarily heard instead.
 </p>
 <p>
   When you click the "Mon" button on the Master bus, the Monitor section appears on the right hand side. It comprises:
@@ -32,18 +34,26 @@
 <h2>Status Indicators</h2>
 
 <p>
-  The Status indicators, two of which also appear in <a href="@@about-ardours-interface">the Transport tool bar</a>, flash to indicate when that function is in operation:
+  The Status indicators, two of which also appear in <a href="@@about-ardours-interface">the Transport tool bar</a>,
+  flash to indicate when that function is in operation:
 </p>
 <ul>
-  <li><dfn>Soloing</dfn>: This indicates when one or more tracks or busses are currently being soloed. See <a href="@@muting-and-soloing">Muting and Soloing</a>. Clicking on this indicator cancels all currently soloed channels or busses</li>
-  <li><dfn>Auditioning</dfn>: This indicates when an audio file is being listened to directly, e.g. when using the import dialogue, or using the <kbd class="menu">Audition</kbd> context menu in the <a href="@@the-region-list">Regions List</a>. Clicking this indicator cancels the current audition</li>
-  <li><dfn>Isolated</dfn>: This indicates when one or more tracks or busses are solo isolated. See <a href="@@muting-and-soloing">Muting and Soloing</a>. Clicking on this indicator cancels any current isolation.</li>
+  <li><dfn>Soloing</dfn>: This indicates when one or more tracks or busses are currently being soloed.
+  See <a href="@@muting-and-soloing">Muting and Soloing</a>. Clicking on this indicator cancels all
+  currently soloed channels or busses</li>
+  <li><dfn>Auditioning</dfn>: This indicates when an audio file is being listened to directly, e.g.
+  when using the import dialogue, or using the <kbd class="menu">Audition</kbd> context menu in the
+  <a href="@@the-region-list">Regions List</a>. Clicking this indicator cancels the current audition</li>
+  <li><dfn>Isolated</dfn>: This indicates when one or more tracks or busses are solo isolated.
+  See <a href="@@muting-and-soloing">Muting and Soloing</a>. Clicking on this indicator cancels any current isolation.</li>
 </ul>
 
 <h2>Solo behaviour selection</h2>
 
 <p>
-  The SiP, PFL and AFL controls inter-cancel with each other and select the desired Solo mode. Excl. Solo and Solo Mute then modify the modes behaviour. See <a href="@@muting-and-soloing">Muting and Soloing</a>. The current mode is indicated by the illuminated 'LED' on the button.
+  The SiP, PFL and AFL controls inter-cancel with each other and select the desired Solo mode. Excl.
+  Solo and Solo Mute then modify the modes behaviour. See <a href="@@muting-and-soloing">Muting and Soloing</a>.
+  The current mode is indicated by the illuminated 'LED' on the button.
 </p>
 <table class="dl">
   <tr><th>SiP</th><td>This selects <em>Solo In Place</em> as the current solo mode and cancels the previous mode.</td></tr>
@@ -60,11 +70,14 @@
 <h2>The Processors button</h2>
 
 <p>
-  Clicking the <dfn>Processors</dfn> button show or hides the Monitor Sections processor box. This is used in the same way as processor boxes present in <a href="@@audiomidi-mixer-strips">tracks</a> and
-  <a href="@@audiomidi-busses-mixer-strips">busses</a>. It can be used to insert plugins, e.g. a room correction EQ or a specific metering type.
+  Clicking the <dfn>Processors</dfn> button show or hides the Monitor Sections processor box.
+  This is used in the same way as processor boxes present in <a href="@@audiomidi-mixer-strips">tracks</a> and
+  <a href="@@audiomidi-busses-mixer-strips">busses</a>. It can be used to insert plugins, e.g.
+  a room correction EQ or a specific metering type.
 </p>
 <p>
-  As this processing is local to the Monitor Section it is only applied to audio that is ultimately available at the monitor outputs.
+  As this processing is local to the Monitor Section it is only applied to audio that is ultimately
+  available at the monitor outputs.
 </p>
 
 
@@ -74,20 +87,30 @@
   These controls set the level of the audio when a channel or bus solo is engaged.
 </p>
 <table class="dl">
-  <tr><th>Solo Boost</th><td>This is the level that will be added to the current main monitor level when a track or bus is soloed, providing a convenient boost in level for the isolated signal. The rotary control has a range of 0dB to +10dB and can be set at any point between these two values. A drop down menu with pre-defined values is also provided for convenience.</td></tr>
-  <tr><th>SiP Cut</th><td>Only relevant to Solo in Place mode. This sets the level that all muted tracks or busses will be muted by. By default it is -&infin; i.e. the non soloed tracks are totally inaudible. The level can be raised to make the other tracks audible, though dimmed. This is also sometimes referred to <em>Solo in Front</em>. The rotary control has a range of -inf to +0dB and can be set at any point between these two values. A drop down menu with pre-defined values is also provided for convenience.</td></tr>
+  <tr><th>Solo Boost</th><td>This is the level that will be added to the current main monitor
+  level when a track or bus is soloed, providing a convenient boost in level for the isolated signal.
+  The rotary control has a range of 0dB to +10dB and can be set at any point between these two values.
+  A drop down menu with pre-defined values is also provided for convenience.</td></tr>
+  <tr><th>SiP Cut</th><td>Only relevant to Solo in Place mode. This sets the level that all muted tracks
+  or busses will be muted by. By default it is -&infin; i.e. the non soloed tracks are totally inaudible.
+  The level can be raised to make the other tracks audible, though dimmed. This is also sometimes referred
+  to <em>Solo in Front</em>. The rotary control has a range of -inf to +0dB and can be set at any point
+  between these two values. A drop down menu with pre-defined values is also provided for convenience.</td></tr>
 </table>
 
 <h2>Dim level control</h2>
 
 <p>
-  The Dim level control sets the amount by which the monitoring will be reduced when a Dim button is engaged. The rotary control has a range of -20dB to 0dB and can be set at any point between these two values. A drop down menu with pre-defined values is also provided for convenience.
+  The Dim level control sets the amount by which the monitoring will be reduced when a Dim button is engaged.
+  The rotary control has a range of -20dB to 0dB and can be set at any point between these two values.
+  A drop down menu with pre-defined values is also provided for convenience.
 </p>
 
 <h2>Monitor path controls</h2>
 
 <p>
-  Each of the individual paths through the Monitor Section, (e.g. <kbd class="menu">L</kbd> and <kbd class="menu">R</kbd> for stereo), can be controlled individually. Four functions are available:
+  Each of the individual paths through the Monitor Section, (e.g. <kbd class="menu">L</kbd> and <kbd class="menu">R</kbd>
+  for stereo), can be controlled individually. Four functions are available:
 </p>
 <table class="dl">
   <tr><th>Mute</th><td>Mutes the selected path(s)</td></tr>
@@ -110,13 +133,17 @@
 <h2>Global Monitor level</h2>
 
 <p>
-  This control sets the level for Monitor Section output. The rotary control has a range of -&infin; to +6dB and can be set at any point between these two values. A drop down menu with pre-defined values is also provided for convenience.
+  This control sets the level for Monitor Section output. The rotary control has a range of -&infin;
+  to +6dB and can be set at any point between these two values. A drop down menu with pre-defined values
+  is also provided for convenience.
 </p>
 
 <h2>Monitoring Output routing</h2>
 
 <p>
-  Clicking on this button shows a menu that allows quick and convenient routing of the Monitor Section's outputs to audio hardware outputs, e.g. to feed control room monitors.
-  It also has an option to open Ardour's routing matrix, where more detailed connectivity is available if routing to something other than hardware is required.
+  Clicking on this button shows a menu that allows quick and convenient routing of the Monitor Section's
+  outputs to audio hardware outputs, e.g. to feed control room monitors.
+  It also has an option to open Ardour's routing matrix, where more detailed connectivity is available if
+  routing to something other than hardware is required.
 </p>
 
