@@ -1,0 +1,252 @@
+@font-face {
+    font-family: 'junge-regular';
+    src: url('junge-regular-webfont.woff2') format('woff2'),
+         url('junge-regular-webfont.woff') format('woff'),
+         url('junge-regular-webfont.ttf')  format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  font-family: 'junge-regular';
+  font-size: 16px;
+  line-height: 2ex;
+}
+
+.clear {
+  clear:both;
+}
+
+#tree {
+  background-color: #212A30;
+  line-height: 1.8ex;
+  height: 100%;
+  overflow: scroll;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 20em;
+  padding: 1em 1em 2em 1.5em;
+}
+
+#tree h1 {
+  font-size: 1.75em;
+  margin-bottom: 1em;
+  font-weight: normal;
+}
+
+#tree ul {
+  padding-left: 1em;
+  list-style-type: none;
+}
+
+#tree a {
+  display: inline !important;
+  font-size: 0.88em;
+  line-height: 2em;
+  color: #E4E4E4;
+  border-bottom: 1px solid transparent;
+}
+
+#tree a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid #aaa;
+}
+
+#tree .active > a {
+  display: inline;
+  color: #FF8080;
+}
+
+#content {
+  padding: 1em 2em 2ex 21em;
+  margin-left: 0;
+  line-height: 2em;
+}
+
+#content h1,
+#content h2,
+#content h3,
+#content h4 {
+  font-weight: normal;
+  padding-bottom: .3ex;
+}
+
+#content h1 {
+  font-size: 1.8em;
+  margin: 0 0 2ex 0;
+  padding-bottom: .8ex;
+  border-bottom: 2px solid #ccc;
+}
+
+#content h2 {
+  font-size: 1.3em;
+  margin: 2ex 0 1ex 0;
+  border-bottom: 2px solid #ddd;
+}
+
+#content h3 {
+  font-size: 1.2em;
+  margin: 1.5ex 0 1ex 0;
+  border-bottom: 1px solid #eee;
+}
+
+#content h4 {
+  font-size: 1.1em;
+  margin: 1.5ex 0 .5ex 0;
+  border-bottom: 1px solid #eee;
+}
+
+#content table {
+  width:100%;
+  margin: 1em 0;
+  padding: 0;
+  font-weight: normal;
+  text-align: left;
+}
+
+#content table tr {
+  border-bottom: 2px solid #eeeeee;
+}
+
+#content table tr:nth-child(odd){
+  background-color: white;
+}
+
+#content table tr:nth-child(even){
+  background-color: #f5f5f5;
+}
+
+#content table tr:hover {
+  background-color: #F2F9FF;
+}
+
+#content table td,
+#content table th {
+  margin: 0;
+  padding: .5em;
+}
+
+#content table th {
+  font-weight: bold;
+}
+
+#content table th.sub1 {
+  padding-left: 2em;
+}
+
+#content table th.sub2 {
+  padding-left: 4em;
+}
+
+#content table thead {
+  font-weight:bold;
+}
+
+#content table.dl th {
+  /* dl class (definition list) is for 2-columns tables that describe properties:
+  maximmizes the width of the 2nd (description) column */
+  vertical-align: top;
+  min-width: 20%;
+  white-space:nowrap
+}
+
+#content table.dl td {
+  vertical-align: top;
+  width: 100%;
+}
+
+#content ul,
+#content ol {
+	overflow: hidden;
+}
+
+#content figure {
+  display: table;
+}
+
+#content figcaption {
+	display: table-caption;
+	caption-side: bottom;
+	font-style: italic;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+}
+
+#content figcaption.center {
+	text-align: center;
+}
+
+#content figcaption.titleover {
+  text-align: center;
+	caption-side: top ;
+}
+
+#content figure.right {
+  margin: 0 0 1em 1em;
+  float: right;
+  clear: right;
+}
+
+#content figure.left {
+  margin: 0 1em 1em 0;
+  float: left;
+  clear: left;
+}
+
+#content figure.center {
+  margin: 1em auto 1em auto;
+  clear: both;
+}
+
+#content img.mini {
+  width: 200px;
+}
+
+#content img.mini:hover {
+  width: 100%;
+}
+
+kbd {
+  text-shadow: 0 0 2px rgb(255, 255, 255);
+  box-shadow: inset 0 0 1px rgb(255, 255, 255), inset 0 0 .4em rgb(200, 200, 200), 0 .1em 0 rgb(130, 130, 130), 0 .11em 0 rgba(0, 0, 0, .4), 0 .1em .11em rgba(0, 0, 0, .9);
+}
+
+
+kbd.cmd {
+  text-shadow: none;
+  box-shadow: none;
+}
+
+#content p.center {
+	text-align:center;
+}
+
+@media (max-width: 800px) {
+  #tree {
+    position: relative;
+    height: 250px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  #content {
+    padding-left: 20px;
+    margin-top: 0px;
+  }
+}
+
+/* for the TOC */
+#content p.chapter,
+#content p.subchapter,
+#content p.section,
+#content p.subsection {
+  line-height:1em;
+}
+#content p.chapter { padding-top: 1em; padding-left: 1em; padding-bottom:1em; }
+#content p.subchapter { padding-left: 4em; }
+#content p.section { padding-left: 6em; }
+#content p.subsection { padding-left: 8em; }
+
+/* for images sliced in divs, as in http://manual.ardour.org/ardours-interface/about/ */
+.hoverimg:hover{ z-index:100; box-shadow: 0 0 .2em .2em lightgreen; }

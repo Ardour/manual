@@ -1,0 +1,151 @@
+/* this stylesheet is used when generating a PDF */
+/* define a page */
+@page {
+   size: A4;
+   margin: 1.5cm 1.5cm 1.5cm 1.5cm;
+}
+
+@page :first {
+	size: A4;
+	margin: 1.5cm 1.5cm 1.5cm 1.5cm;
+  background: url("../images/ardour_logo.svg") no-repeat center;
+  background-size: contain;
+}
+
+img {
+  max-width: 100%;
+}
+
+div.frontcover {
+  page-break-after: always;
+}
+
+/* styles for the right hand spread
+	Bottom left we display the title of the book, bottom right the page using a CSS
+  counter, top right the content of the current chapter
+*/
+@page:right {
+   @bottom-left {
+       margin: 10pt 0 30pt 0;
+       /*border-top: .25pt solid #666;*/
+	     content: "The Ardour Manual";
+       font-size: 7pt;
+       color: #333;
+   }
+   @bottom-right {
+       margin: 10pt 0 30pt 0;
+       /*border-top: .25pt solid #666;*/
+       content: counter(page);
+       font-size: 7pt;
+   }
+   @top-right {
+   	   content: string(doctitle);
+   	   margin: 30pt 0 10pt 0;
+   	   font-size: 7pt;
+   	   color: #333;
+   }
+}
+
+/* styles for the left hand spread
+	Bottom right book title, bottom left current page
+*/
+@page:left {
+   @bottom-right {
+       margin: 10pt 0 30pt 0;
+       /*border-top: .25pt solid #666;*/
+	     content: "The Ardour Manual";
+       font-size: 7pt;
+       color: #333;
+   }
+   @bottom-left {
+       margin: 10pt 0 30pt 0;
+       /*border-top: .25pt solid #666;*/
+       content: counter(page);
+       font-size: 7pt;
+   }
+}
+
+/* first page */
+@page:first {
+  @bottom-right {
+    content: normal;
+    margin: 0;
+  }
+
+  @bottom-left {
+    content: normal;
+    margin: 0;
+  }
+}
+
+/* reset chapter and figure counters on the body */
+body {
+	counter-reset: chapternum figurenum;
+	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+	line-height: 1.2;
+	font-size: 9pt;
+}
+
+/* get the title of the current chapter - this will be the content of the h1
+reset figure counter as figures start from 1 in each chapter */
+h1 {
+  string-set: doctitle content();
+  page-break-before: always;
+  counter-reset: figurenum;
+  line-height: 1.3;
+  counter-increment: chapternum;
+}
+
+h1:first-of-type { /* the ToC should not count...*/
+  content: none;
+  counter-reset: chapternum;
+}
+
+/* increment and display figure counter */
+figcaption:before {
+	counter-increment: figurenum;
+	content: counter(chapternum) "-" counter(figurenum) ". ";
+}
+
+h1,h2,h3,h4,h5 {
+	font-weight: bold;
+	page-break-after: avoid;
+	page-break-inside:avoid;
+}
+
+h1+p, h2+p, h3+p {
+	page-break-before: avoid;
+}
+
+table, figure {
+	page-break-inside: avoid;
+}
+
+ul.toc {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* create page numbers using target-counter in the TOC */
+ul.toc a::after {
+  content: target-counter(attr(href), page);
+  float: right;
+}
+
+ul.toc li {
+	line-height: 2;
+}
+
+ul.toc li a {
+	text-decoration: none;
+}
+
+a {
+	color: #000;
+}
+
+/* add page number to cross references */
+a.xref:after {
+  content: " (page " target-counter(attr(href, url), page) ")";
+}

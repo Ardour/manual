@@ -1,0 +1,209 @@
+kbd {
+  display: inline-block;
+  min-width: 1em;
+  padding: .2em .3em;
+  font: normal .8em/1 sans-serif;
+  text-align: center;
+  text-decoration: none;
+  border-radius: .3em;
+  background: rgb(250, 250, 250);
+  background: linear-gradient(to top, rgb(210, 210, 210), rgb(255, 255, 255));
+  color:  rgb(50, 50, 50);
+  white-space:nowrap;
+  text-transform:capitalize;
+}
+
+kbd.def {
+  font-weight:bolder;
+	margin-right:.2em;
+}
+
+kbd.input,
+kbd.cmd,
+kbd.osc {
+  font-family:mono;
+  border-width:0;
+  text-transform:none;
+}
+
+kbd.input {
+  background:none;
+  border-radius: 0;
+}
+
+kbd.cmd {
+  display:block;
+  width:100%;
+  margin-bottom:1ex;
+  text-transform:none;
+  background: rgb(220, 220, 220);
+  text-align:left;
+}
+
+kbd.cmd.lin:before {
+  content: 'user@linux:~ ';
+  color:#999999;
+}
+
+kbd.cmd.mac:before {
+  content: 'MacBook:~/Desktop User\$ ';
+  color:#999999;
+}
+
+kbd.cmd.win:before {
+  content: 'C:\\Users\\myAccount> ';
+  color:#999999;
+}
+
+kbd.optoff,
+kbd.option {
+  border:none;
+  background:none;
+}
+
+kbd.optoff:before {
+  content:url('/images/checkbox-unchecked.png');
+  margin: 0 1em 0 0;
+  vertical-align:middle;
+}
+
+kbd.option:before {
+  content:url('/images/checkbox-checked.png');
+  margin: 0 1em 0 0;
+  vertical-align:middle;
+}
+
+kbd.menu {
+  border:none;
+  background:none;
+  font-weight:bold;
+  font-stretch:extra-condensed;
+  white-space:normal;
+}
+
+kbd.osc {
+  border:none;
+  background: rgb(208, 208, 243);
+  font-stretch:extra-condensed;
+  white-space: nowrap;
+  text-align:left;
+}
+
+kbd.fader,
+kbd.knob,
+kbd.button {
+  background: rgb(174, 174, 217);
+  background: linear-gradient(to top, rgb(174, 174, 217), rgb(221, 221, 255));
+  color:#000044;
+}
+
+kbd.fader {
+  border-width: 1px 1px 9px 9px;
+}
+
+kbd.knob {
+  border-radius:12px;
+  border-width: 1px 1px 9px 9px;
+}
+
+kbd.button {
+  border-radius:8px;
+  border-width: 1px 1px 3px 3px;
+}
+
+kbd.mouse {
+  border-radius:10px;
+}
+
+samp {
+  font-family:mono;
+  color:#666666;
+  background-color:#EBEBEB;
+  margin-left: .5em;
+  margin-right: .5em;
+}
+
+#content dfn {
+  font-weight: bold;
+  font-style: normal;
+}
+
+.note,
+.warning,
+.fixme {
+  min-height: 1.5ex;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-style: solid;
+  border-width: 1px 1px 1px 8px;
+}
+
+code {
+  font-size: .9em;
+  color: #555;
+}
+
+.note {
+  border-color: #e3e3e3;
+  background-color: #f5f5f5;
+}
+
+.warning {
+  border-color: #995555;
+  background-color: #ffeeee;
+}
+
+.fixme {
+  border-color: #999944;
+  background-color: #f0f0e0;
+  font-weight:bold;
+}
+
+.fixme:before {
+  content:'FIXME: ';
+  font-style: italic;
+  font-size:2em;
+}
+
+
+/* Keyboard modifiers */
+.mod1:before {        content: "Ctrl ";}
+.mod2:before {        content: "Alt ";}
+.mod3:before {        content: "Shift ";}
+.mod4:before {        content: "Win ";}
+.mod12:before {       content: "Ctrl Alt ";}
+.mod13:before {       content: "Ctrl Shift ";}
+.mod14:before {       content: "Ctrl Win ";}
+.mod23:before {       content: "Alt Shift ";}
+.kp:before {          content: "Keypad ";}
+/* Variants *without* space after them (yes, these are needed!) */
+.mod1n:before {       content: "Ctrl";}
+.mod2n:before {       content: "Alt";}
+.mod3n:before {       content: "Shift";}
+.mod4n:before {       content: "Win";}
+.mod12n:before {      content: "Ctrl Alt";}
+.mod13n:before {      content: "Ctrl Shift";}
+.mod14n:before {      content: "Ctrl Win";}
+.mod23n:before {      content: "Alt Shift";}
+/* Automagic translation for Mac based display */
+.mac .mod1:before {   content: "Cmd ";}
+.mac .mod2:before {   content: "Ctrl ";}
+.mac .mod3:before {   content: "Shift ";}
+.mac .mod4:before {   content: "Opt ";}
+.mac .mod12:before {  content: "Cmd Ctrl ";}
+.mac .mod13:before {  content: "Cmd Shift ";}
+.mac .mod14:before {  content: "Cmd Opt ";}
+.mac .mod23:before {  content: "Ctrl Shift ";}
+/* No space variants (Mac based) */
+.mac .mod1n:before {  content: "Cmd";}
+.mac .mod2n:before {  content: "Ctrl";}
+.mac .mod3n:before {  content: "Shift";}
+.mac .mod4n:before {  content: "Opt";}
+.mac .mod12n:before { content: "Cmd Ctrl";}
+.mac .mod13n:before { content: "Cmd Shift";}
+.mac .mod14n:before { content: "Cmd Opt";}
+.mac .mod23n:before { content: "Ctrl Shift";}
+
+/* for images sliced in divs, as in http://manual.ardour.org/ardours-interface/about/ */
+.container { position: relative; border: none; }
+.hoverimg { position: absolute; border: none; }

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>{{page.page_title}}</title>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+	<meta name="description" content="{{page.page_title}}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="{{page.bootstrap_path}}/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/common.css" rel="stylesheet">
+	<link href="/css/screen.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div id="tree" class="navbar">
+				<h1><a href="/"><img class="img-responsive" src="/images/logo.png" alt="The Ardour Manual" /></a></h1>
+
+				{% tree %}
+
+			</div> <!-- tree -->
+
+			<div class="span12" id="content">
+
+				{{ content }}
+
+			</div> <!-- content -->
+		</div> <!-- row-fluid -->
+	</div> <!-- container-fluid -->
+
+
+	<script type="text/javascript">
+		// I'll go to hell for this
+		var isA = function(regex) { return navigator.userAgent.match(regex) };
+		var isAbout = function(regex) { return document.getElementsByTagName('h1')[1].textContent.match(regex) };
+
+		if ( (isA(/Mac/) || isAbout(/OS X/)) && (!isAbout(/Linux/)) ) {
+			var e = document.getElementsByTagName('body')[0];
+			e.className += ' mac';  // class magic for Cmd vs. Ctrl keys.
+		}
+	</script>
+
+</body>
+</html>
