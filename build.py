@@ -6,6 +6,8 @@
 # by James Hammons
 # (C) 2017 Underground Software
 #
+# Contributors: Ed Ward
+#
 
 # Remnants (could go into the master document as the first header)
 
@@ -83,7 +85,7 @@ def PartToLevel(s):
 
 
 #
-# Converts a integer to a roman number
+# Converts a integer to a Roman numeral
 #
 def num2roman(num):
 	num_map = [(1000, 'M'), (900, 'CM'), (500, 'D'), (400, 'CD'), (100, 'C'), (90, 'XC'), (50, 'L'), (40, 'XL'), (10, 'X'), (9, 'IX'), (5, 'V'), (4, 'IV'), (1, 'I')]
@@ -200,6 +202,7 @@ def GetParent(fs, pos):
 
 	return pos
 
+
 #
 # Change the hierarchy of titles : h1->hn, h2->hn+1, etc... n being delta-1
 #
@@ -208,6 +211,7 @@ def reheader(txt, delta):
 		txt = txt.replace('<h' + str(i),'<h' + str(i+delta))
 		txt = txt.replace('</h' + str(i),'</h' + str(i+delta))
 	return txt
+
 
 #
 # Creates the BreadCrumbs
@@ -265,7 +269,6 @@ def FindInternalLinks(fs):
 			linkDict['"@@' + hdr['link'] + '"'] = '"/' + hdr['filename'] + '/"'
 			linkDict['"@@' + hdr['link'] + '#'] = '"/' + hdr['filename'] + '/index.html#'
 
-
 	return linkDict
 
 #
@@ -278,7 +281,6 @@ def FindInternalAnchors(fs):
 		if 'link' in hdr:
 			linkDict['"@@' + hdr['link'] + '"'] = '"#' + hdr['link'] + '"'
 			linkDict['"@@' + hdr['link'] + '#'] = '"#' + hdr['link'] + '"'
-
 
 	return linkDict
 
@@ -404,10 +406,12 @@ parser = argparse.ArgumentParser(description='A build script for the Ardour Manu
 parser.add_argument('-v', '--verbose', action='store_true', help='Display the high-level structure of the manual')
 parser.add_argument('-q', '--quiet', action='store_true', help='Suppress all output (overrides -v)')
 parser.add_argument('-d', '--devmode', action='store_true', help='Add content to pages to help developers debug them')
+parser.add_argument('-n', '--nopdf', action='store_true', help='Do not automatically generate PDF from content')
 args = parser.parse_args()
 verbose = args.verbose
 quiet = args.quiet
 devmode = args.devmode
+nopdf = args.nopdf
 
 if quiet:
 	verbose = False
@@ -567,6 +571,7 @@ for header in fileStruct:
 	# but the basic fundamental organizing unit WRT content is still the
 	# chapter.
 	githubedit = ''
+
 	if level > 0:
 		if 'include' in header:
 			srcFile = open('include/' + header['include'])
@@ -589,12 +594,16 @@ for header in fileStruct:
 	# Add header information to the page if in dev mode
 	if devmode:
 		devnote ='<aside style="background-color:indigo; color:white;">'
+
 		if 'filename' in header:
 			devnote = devnote + 'filename: ' + header['filename'] + '<br>'
+
 		if 'include' in header:
 			devnote = devnote + 'include: ' + header['include'] + '<br>'
+
 		if 'link' in header:
 			devnote = devnote + 'link: ' + header['link'] + '<br>'
+
 		content = devnote + '</aside>' + content
 
 	# ----- One page and PDF version -----
@@ -664,18 +673,21 @@ onepage = onepage.replace('{{ content }}', '') # cleans up the last spaceholder
 onepageFile.write(onepage)
 onepageFile.close()
 
-if not quiet:
-	print('Generating the PDF...')
-# Create the PDF version of the documentation
-pdfpageFile = open(global_site_dir + 'pdf.html', 'w')
-pdfpage = pdfpage.replace('{% tree %}', opsidebar) # create the TOC
-pdfpage = pdfpage.replace('{{ content }}', '') # cleans up the last spaceholder
-pdfpageFile.write(pdfpage)
-pdfpageFile.close()
+if not nopdf:
+	if not quiet:
+		print('Generating the PDF...')
 
-from weasyprint import HTML
-doc = HTML(filename = global_site_dir + 'pdf.html') #, base_url = os.path.dirname(os.path.realpath(__file__)))
-doc.write_pdf(global_site_dir + 'manual.pdf')
+	# Create the PDF version of the documentation
+	pdfpageFile = open(global_site_dir + 'pdf.html', 'w')
+	pdfpage = pdfpage.replace('{% tree %}', opsidebar) # create the TOC
+	pdfpage = pdfpage.replace('{{ content }}', '') # cleans up the last spaceholder
+	pdfpageFile.write(pdfpage)
+	pdfpageFile.close()
+
+	from weasyprint import HTML
+	doc = HTML(filename = global_site_dir + 'pdf.html')
+	doc.write_pdf(global_site_dir + 'manual.pdf')
 
 if not quiet:
 	print('Processed ' + str(fileCount) + ' files.')
+

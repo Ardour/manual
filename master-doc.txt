@@ -1696,13 +1696,6 @@ part: subchapter
 ---
 
 ---
-title: Automation Modes
-include: automation-modes.html
-link: automation-modes
-part: subchapter
----
-
----
 title: Automation Lanes
 include: automation-lanes.html
 link: automation-lanes
@@ -1713,6 +1706,13 @@ part: subchapter
 title: Automation Curves
 include: automation-curves.html
 link: automation-curves
+part: subchapter
+---
+
+---
+title: Automation Modes
+include: automation-modes.html
+link: automation-modes
 part: subchapter
 ---
 

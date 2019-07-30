@@ -6,13 +6,27 @@
 
 <p>
   An <dfn>automation curve</dfn> is a series of lines connected by <dfn>control
-  points</dfn> that defines a continuous line. As the curve is traversed from
-  left to right, the line defines the level of the parameter controlled by the
-  automation lane.
+  points</dfn> that typically defines a continuous line. As the curve is
+  traversed from left to right, the line defines the level of the parameter
+  controlled by the automation lane.
 </p>
 
 <p>
+  There are two types of automation curves: <kbd class=menu>Linear</kbd> and
+  <kbd class=menu>Discrete</kbd>. The most common type is <kbd
+  class=menu>Linear</kbd>, in which the space between any two contiguous
+  control points is continuously interpolated; in other words, the values
+  between any two contiguous control points at any given time is given by the
+  straight line connecting them. The second type of automation curve is <kbd
+  class=menu>Discrete</kbd>, in which no interpolation between control points
+  is done; whatever value the control point is set at is the value it will
+  yield until it reaches the next control point, at which point it will give
+  that value until the next control point, and so on until there are no more
+  control points.
+</p>
+
+<p class=note>
   The curve by itself does nothing; it will <em>only</em> control playback if
-  the lane it is in is in <kbd class=menu>Play</kbd> mode.
+  the lane it resides in is in <kbd class=menu>Play</kbd> mode.
 </p>
 

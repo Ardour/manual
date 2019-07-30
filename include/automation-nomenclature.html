@@ -10,10 +10,11 @@
   control that allows setting the amount or position of a certain
   <dfn>parameter</dfn> associated with the lane. Parameters are things that can
   be controlled on a track's automation lane, such as volume, panning, muting,
-  trim, etc. <dfn>Automation curves</dfn> consist of lines connected by
+  trim, etc. <dfn>Automation curves</dfn> typically consist of lines connected by
   <dfn>control points</dfn>, that live within the confines of a lane; these
   tell Ardour how to change a given parameter over time. <dfn>Automation
-	modes</dfn> specify whether the control points are connected by lines or
-	stair steps. <dfn>Automation states</dfn> govern how a given automation lane
-	will behave during playback. 
+  modes</dfn> define how Ardour creates the values in between the control
+  points of a given automation curve, either by connecting them with continuous
+  lines or not. <dfn>Automation states</dfn> govern how a given automation lane
+  will behave during playback.
 </p>

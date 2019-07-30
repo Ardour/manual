@@ -1,27 +1,25 @@
 
-<p>
-  Ardour offers two modes for connecting automation control points: <kbd
-  class=menu>Discrete</kbd> and <kbd class=menu>Linear</kbd>. The mode is
-  changed by a right click on the automation lane header and choosing the
-  mode from the mode menu.
+<p class=fixme>
+ADD IMAGES PLEASE
 </p>
 
 <p>
-  <kbd class=menu>Discrete</kbd> mode has stair steps between each point on the
-  automation track. This is useful for on-off automation like mute or sustain
-  pedal (on a piano MIDI track).
+  Ardour offers two modes for interpolating automation control points: <kbd
+  class=menu>Linear</kbd> and <kbd class=menu>Discrete</kbd>. The mode is
+  changed by a <kbd class=mouse>Right</kbd> click on the automation lane header
+  and choosing the mode from the mode menu.
 </p>
 
 <p>
-  When recording automation via MIDI (for example a pitch bend from a keyboard),
-  Ardour always uses discreet mode.
+  <kbd class=menu>Linear</kbd> mode interpolates values between control points in a given automation curve by connecting them with straight lines; the values played back are derived from the points that lie on the lines thus defined. Typically, this is what is desired and is the default mode for all automation lanes.
 </p>
 
 <p>
-  <kbd class=menu>Linear</kbd> mode has straight lines betwen each point on the
-  automation track. This is useful for gradual shifts in automation lanes,
-  such as gradual increase in volume on the fader.
-
-  Linear is the default mode for most automation lanes created via mouse input
-  (versus recording via MIDI).
+  <kbd class=menu>Discrete</kbd> mode does <em>no</em> interpolation between control points in a given automation curve. The values set by the control points do not change until the following control point is reached at which time the value is then set to its value; this continues on until there are no more control points. Typically this is used for parameters such as mute or sustain pedal (e.g., on a MIDI piano track).
 </p>
+
+<p class=note>
+  When recording automation via MIDI (e.g., pitch bend from a MIDI keyboard),
+  Ardour always uses discrete mode.
+</p>
+
