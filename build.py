@@ -9,9 +9,6 @@
 
 # Remnants (could go into the master document as the first header)
 
-#bootstrap_path: /bootstrap-3.3.7
-#page_title: The Ardour Manual
-
 import os
 import re
 import shutil
@@ -19,11 +16,19 @@ import argparse
 
 
 # Global vars
+global_bootstrap_path = '/bootstrap-3.3.7'
+global_page_title = 'The Ardour Manual'
+global_site_dir = './website/'
+global_githuburl = 'https://github.com/Ardour/manual/edit/master/include/'
+global_screen_template = 'page-template.html'
+global_onepage_template = 'onepage-template.html'
+global_pdf_template = 'pdf-template.html'
+global_master_doc = 'master-doc.txt'
+
 # This matches all *non* letter/number, ' ', '.', '-', and '_' chars
 cleanString = re.compile(r'[^a-zA-Z0-9 \._-]+')
 # This matches new 'unbreakable' links, up to the closing quote or anchor
 findLinks = re.compile(r'"@@[^#"]*[#"]')
-githuburl = 'https://github.com/Ardour/manual/edit/master/include/'
 
 #
 # Create an all lowercase filename without special characters and with spaces
@@ -70,19 +75,12 @@ def ParseHeader(fileObj):
 #
 def PartToLevel(s):
 	level = -1
+	lvl = {'part': 0, 'chapter': 1, 'subchapter': 2}
+	if s in lvl:
+		return lvl[s]
+	else:
+		return -1
 
-	if s == 'part':
-		level = 0
-	elif s == 'chapter':
-		level = 1
-	elif s == 'subchapter':
-		level = 2
-	elif s == 'section':
-		level = 3
-	elif s == 'subsection':
-		level = 4
-
-	return level
 
 #
 # Converts a integer to a roman number
@@ -107,7 +105,7 @@ def GetFileStructure():
 	fnames = [None]*6
 	content = ''
 	grab = False
-	mf = open('master-doc.txt')
+	mf = open(global_master_doc)
 
 	for ln in mf:
 		if ln.startswith('---'):
@@ -202,12 +200,19 @@ def GetParent(fs, pos):
 
 	return pos
 
+#
+# Change the hierarchy of titles : h1->hn, h2->hn+1, etc... n being delta-1
+#
+def reheader(txt, delta):
+	for i in range(6, 0, -1):
+		txt = txt.replace('<h' + str(i),'<h' + str(i+delta))
+		txt = txt.replace('</h' + str(i),'</h' + str(i+delta))
+	return txt
 
 #
 # Creates the BreadCrumbs
 #
 def GetBreadCrumbs(fs, pos):
-	# The <span class="divider">&gt;</span> is for Bootstrap pre-3.0
 	breadcrumbs = '<li class="active">'+ fs[pos]['title'] + '</li>'
 
 	while pos >= 0:
@@ -342,26 +347,15 @@ def BuildList(lst, fs, pagePos, cList):
 #
 def BuildOnePageSidebar(fs):
 
-	content = '\n\n<ul style="white-space:nowrap;">\n'
+	content = '\n\n<ul class="toc" style="white-space:nowrap;">\n'
 	lvl = 0
-	levelNums = [0]*6
+	levelNums = [0]*3
 
 	for i in range(len(fs)):
 		# Handle Part/Chapter/subchapter/section/subsection numbering
 		level = fs[i]['level']
-		if level == 0:
+		if level < 2:
 			levelNums[2] = 0
-			levelNums[3] = 0
-			levelNums[4] = 0
-		elif level == 1:
-			levelNums[2] = 0
-			levelNums[3] = 0
-			levelNums[4] = 0
-		elif level == 2:
-			levelNums[3] = 0
-			levelNums[4] = 0
-		elif level == 3:
-			levelNums[4] = 0
 		levelNums[level] = levelNums[level] + 1;
 		j = level
 		txtlevel = ''
@@ -420,44 +414,49 @@ if quiet:
 
 level = 0
 fileCount = 0
-levelNums = [0]*6
+levelNums = [0]*3
 lastFile = ''
 page = ''
 onepage = ''
+pdfpage = ''
 toc = ''
 pageNumber = 0
 
-siteDir = './website/'
+
 
 if not quiet and devmode:
 	print('Devmode active: scribbling extra junk to the manual...')
 
-if os.access(siteDir, os.F_OK):
+if os.access(global_site_dir, os.F_OK):
 	if not quiet:
 		print('Removing stale HTML data...')
 
-	shutil.rmtree(siteDir)
+	shutil.rmtree(global_site_dir)
 
-shutil.copytree('./source', siteDir)
+shutil.copytree('./source', global_site_dir)
 
 
 # Read the template, and fix the stuff that's fixed for all pages
-temp = open('page-template.txt')
+temp = open(global_screen_template)
 template = temp.read()
 temp.close()
-
-template = template.replace('{{page.bootstrap_path}}', '/bootstrap-3.3.7')
-template = template.replace('{{page.page_title}}', 'The Ardour Manual')
+template = template.replace('{{page.bootstrap_path}}', global_bootstrap_path)
+template = template.replace('{{page.page_title}}', global_page_title)
 
 # Same as above, but for the One-page version
-temp = open('onepage-template.txt')
+temp = open(global_onepage_template)
 onepage = temp.read()
 temp.close()
+onepage = onepage.replace('{{page.bootstrap_path}}', global_bootstrap_path)
+onepage = onepage.replace('{{page.page_title}}', global_page_title)
 
-onepage = onepage.replace('{{page.bootstrap_path}}', '/bootstrap-3.3.7')
-onepage = onepage.replace('{{page.page_title}}', 'The Ardour Manual')
+# Same as above, but for the PDF version
+temp = open(global_pdf_template)
+pdfpage = temp.read()
+temp.close()
+pdfpage = pdfpage.replace('{{page.page_title}}', global_page_title)
 
-# Parse out the master docuemnt's structure into a dictionary list
+# Parse out the master document's structure into a dictionary list
 fileStruct = GetFileStructure()
 
 # Build a quasi-tree structure listing children at level + 1 for each node
@@ -472,7 +471,7 @@ if not quiet:
 	print('.') if len(links) == 1 else print('s.')
 
 if not quiet:
-	master = open('master-doc.txt')
+	master = open(global_master_doc)
 	firstLine = master.readline().rstrip('\r\n')
 	master.close()
 
@@ -493,21 +492,9 @@ for header in fileStruct:
 	lastLevel = level
 	level = header['level']
 
-	# Handle Part/Chapter/subchapter/section/subsection numbering
-	if level == 0:
+	# Handle Part/Chapter/subchapter numbering
+	if level < 2:
 		levelNums[2] = 0
-		levelNums[3] = 0
-		levelNums[4] = 0
-	elif level == 1:
-		levelNums[2] = 0
-		levelNums[3] = 0
-		levelNums[4] = 0
-	elif level == 2:
-		levelNums[3] = 0
-		levelNums[4] = 0
-	elif level == 3:
-		levelNums[4] = 0
-
 	levelNums[level] = levelNums[level] + 1;
 
 	# This is totally unnecessary, but nice; besides which, you can capture
@@ -525,7 +512,6 @@ for header in fileStruct:
 
 	# Handle TOC scriblings and one-page titles...
 	opl = ''
-
 	if 'link' in header:
 		opl = ' id="' + header['link'] + '"'
 	else:
@@ -536,19 +522,10 @@ for header in fileStruct:
 		oph = '<h1 class="clear"' + opl +'>Part ' + num2roman(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
 	elif level == 1:
 		toc = toc + '\t<p class="chapter">Ch. ' + str(levelNums[level]) + ':&nbsp;&nbsp;<a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
+		oph = '<h2 class="clear"' + opl +'>' + str(levelNums[level]) + ' - ' + header['title'] + '</h3>\n';
 	elif level == 2:
 		toc = toc + '\t\t<p class="subchapter"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
-	elif level == 3:
-		toc = toc + '\t\t\t<p class="section"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level-2]) + '.' + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
-	elif level == 4:
-		toc = toc + '\t\t\t\t<p class="subsection"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h1 class="clear"' + opl +'>' + str(levelNums[level-3]) + '.'  + str(levelNums[level-2]) + '.'  + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
-
-
-
+		oph = '<h3 class="clear"' + opl +'>' + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h3>\n';
 
 	# Make the 'this thing contains...' stuff
 	if HaveChildren(fileStruct, pageNumber):
@@ -593,7 +570,7 @@ for header in fileStruct:
 	if level > 0:
 		if 'include' in header:
 			srcFile = open('include/' + header['include'])
-			githubedit = '<span style="float:right;"><a title="Edit in GitHub" href="' + githuburl + header['include'] + '"><img src="/images/github.png" alt="Edit on GitHub"/></a></span>'
+			githubedit = '<span style="float:right;"><a title="Edit in GitHub" href="' + global_githuburl + header['include'] + '"><img src="/images/github.png" alt="Edit in GitHub"/></a></span>'
 			content = srcFile.read()
 			srcFile.close()
 
@@ -620,17 +597,15 @@ for header in fileStruct:
 			devnote = devnote + 'link: ' + header['link'] + '<br>'
 		content = devnote + '</aside>' + content
 
-	# ----- One page version -----
+	# ----- One page and PDF version -----
 
 	# Fix up any internal links
 	opcontent = FixInternalLinks(oplinks, content, header['title'])
-
-	# Create the link sidebar
-	opsidebar = BuildOnePageSidebar(fileStruct)
+	opcontent = reheader(opcontent, 2)
 
 	# Set up the actual page from the template
-	onepage = onepage.replace('{% tree %}', opsidebar)
-	onepage = onepage.replace('{{ content }}', oph + '\n' + opcontent + '{{ content }}')
+	onepage = onepage.replace('{{ content }}', oph + '\n' + opcontent + '\n{{ content }}')
+	pdfpage = pdfpage.replace('{{ content }}', oph + '\n' + opcontent + '\n{{ content }}')
 
 	# ----- Normal version -----
 
@@ -654,10 +629,10 @@ for header in fileStruct:
 
 	# Create the directory for the index.html file to go into (we use makedirs,
 	# because we have to in order to accomodate the 'uri' keyword)
-	os.makedirs(siteDir + header['filename'], 0o775, exist_ok=True)
+	os.makedirs(global_site_dir + header['filename'], 0o775, exist_ok=True)
 
 	# Finally, write the file!
-	destFile = open(siteDir + header['filename'] + '/index.html', 'w')
+	destFile = open(global_site_dir + header['filename'] + '/index.html', 'w')
 	destFile.write(page)
 	destFile.close()
 
@@ -676,17 +651,31 @@ page = page.replace('{% prevnext %}', '')
 page = page.replace('{% githubedit %}', '')
 page = page.replace('{% breadcrumbs %}', '')
 
-os.mkdir(siteDir + 'toc', 0o775)
-tocFile = open(siteDir + 'toc/index.html', 'w')
+os.mkdir(global_site_dir + 'toc', 0o775)
+tocFile = open(global_site_dir + 'toc/index.html', 'w')
 tocFile.write(page)
 tocFile.close()
 
 # Create the one-page version of the documentation
-onepageFile = open(siteDir + 'ardourmanual.html', 'w')
+onepageFile = open(global_site_dir + 'ardourmanual.html', 'w')
+opsidebar = BuildOnePageSidebar(fileStruct) # create the link sidebar
+onepage = onepage.replace('{% tree %}', opsidebar)
 onepage = onepage.replace('{{ content }}', '') # cleans up the last spaceholder
 onepageFile.write(onepage)
 onepageFile.close()
 
+if not quiet:
+	print('Generating the PDF...')
+# Create the PDF version of the documentation
+pdfpageFile = open(global_site_dir + 'pdf.html', 'w')
+pdfpage = pdfpage.replace('{% tree %}', opsidebar) # create the TOC
+pdfpage = pdfpage.replace('{{ content }}', '') # cleans up the last spaceholder
+pdfpageFile.write(pdfpage)
+pdfpageFile.close()
+
+from weasyprint import HTML
+doc = HTML(filename = global_site_dir + 'pdf.html') #, base_url = os.path.dirname(os.path.realpath(__file__)))
+doc.write_pdf(global_site_dir + 'manual.pdf')
 
 if not quiet:
 	print('Processed ' + str(fileCount) + ' files.')
