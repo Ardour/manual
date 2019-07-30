@@ -404,10 +404,12 @@ parser = argparse.ArgumentParser(description='A build script for the Ardour Manu
 parser.add_argument('-v', '--verbose', action='store_true', help='Display the high-level structure of the manual')
 parser.add_argument('-q', '--quiet', action='store_true', help='Suppress all output (overrides -v)')
 parser.add_argument('-d', '--devmode', action='store_true', help='Add content to pages to help developers debug them')
+parser.add_argument('-n', '--nopdf', action='store_true', help='Do not generate the PDF version')
 args = parser.parse_args()
 verbose = args.verbose
 quiet = args.quiet
 devmode = args.devmode
+nopdf = args.nopdf
 
 if quiet:
 	verbose = False
@@ -664,18 +666,19 @@ onepage = onepage.replace('{{ content }}', '') # cleans up the last spaceholder
 onepageFile.write(onepage)
 onepageFile.close()
 
-if not quiet:
-	print('Generating the PDF...')
-# Create the PDF version of the documentation
-pdfpageFile = open(global_site_dir + 'pdf.html', 'w')
-pdfpage = pdfpage.replace('{% tree %}', opsidebar) # create the TOC
-pdfpage = pdfpage.replace('{{ content }}', '') # cleans up the last spaceholder
-pdfpageFile.write(pdfpage)
-pdfpageFile.close()
+if not nopdf:
+	if not quiet:
+		print('Generating the PDF...')
+	# Create the PDF version of the documentation
+	pdfpageFile = open(global_site_dir + 'pdf.html', 'w')
+	pdfpage = pdfpage.replace('{% tree %}', opsidebar) # create the TOC
+	pdfpage = pdfpage.replace('{{ content }}', '') # cleans up the last spaceholder
+	pdfpageFile.write(pdfpage)
+	pdfpageFile.close()
 
-from weasyprint import HTML
-doc = HTML(filename = global_site_dir + 'pdf.html') #, base_url = os.path.dirname(os.path.realpath(__file__)))
-doc.write_pdf(global_site_dir + 'manual.pdf')
+	from weasyprint import HTML
+	doc = HTML(filename = global_site_dir + 'pdf.html') #, base_url = os.path.dirname(os.path.realpath(__file__)))
+	doc.write_pdf(global_site_dir + 'manual.pdf')
 
 if not quiet:
 	print('Processed ' + str(fileCount) + ' files.')

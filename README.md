@@ -126,3 +126,5 @@ The `build.py` script that builds the manual accepts the following options:
 - '-q', or '--quiet', to suppress all output (overrides -v)
 - '-d', or '--devmode', to add content to pages to help developers debug them
 (link, file name, URL)
+- '-n', or '--nopdf', to prevent the system from building the PDF version of the
+manual
