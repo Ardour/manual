@@ -121,6 +121,10 @@ table, figure {
 	page-break-inside: avoid;
 }
 
+td, th {
+	vertical-align: top;
+}
+
 ul.toc {
 	list-style: none;
 	margin: 0;
