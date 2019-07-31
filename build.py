@@ -454,11 +454,12 @@ temp.close()
 onepage = onepage.replace('{{page.bootstrap_path}}', global_bootstrap_path)
 onepage = onepage.replace('{{page.page_title}}', global_page_title)
 
-# Same as above, but for the PDF version
-temp = open(global_pdf_template)
-pdfpage = temp.read()
-temp.close()
-pdfpage = pdfpage.replace('{{page.page_title}}', global_page_title)
+if not nopdf:
+	# Same as above, but for the PDF version
+	temp = open(global_pdf_template)
+	pdfpage = temp.read()
+	temp.close()
+	pdfpage = pdfpage.replace('{{page.page_title}}', global_page_title)
 
 # Parse out the master document's structure into a dictionary list
 fileStruct = GetFileStructure()
@@ -614,7 +615,8 @@ for header in fileStruct:
 
 	# Set up the actual page from the template
 	onepage = onepage.replace('{{ content }}', oph + '\n' + opcontent + '\n{{ content }}')
-	pdfpage = pdfpage.replace('{{ content }}', oph + '\n' + opcontent + '\n{{ content }}')
+	if not nopdf:
+		pdfpage = pdfpage.replace('{{ content }}', oph + '\n' + opcontent + '\n{{ content }}')
 
 	# ----- Normal version -----
 
@@ -681,6 +683,8 @@ if not nopdf:
 	pdfpageFile = open(global_site_dir + 'pdf.html', 'w')
 	pdfpage = pdfpage.replace('{% tree %}', opsidebar) # create the TOC
 	pdfpage = pdfpage.replace('{{ content }}', '') # cleans up the last spaceholder
+	pdfpage = pdfpage.replace('src="/images/', 'src="images/') # makes images links relative
+	pdfpage = pdfpage.replace('url(\'/images/', 'url(\'images/') # CSS images links relative
 	pdfpageFile.write(pdfpage)
 	pdfpageFile.close()
 
