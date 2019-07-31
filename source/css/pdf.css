@@ -141,6 +141,10 @@ ul.toc li a {
 	text-decoration: none;
 }
 
+ol {
+	list-style-position: inside;
+}
+
 a {
 	color: #000;
 }
