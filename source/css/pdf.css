@@ -5,26 +5,23 @@
    margin: 1.5cm 1.5cm 1.5cm 1.5cm;
 }
 
-@page :first {
-	size: A4;
-	margin: 1.5cm 1.5cm 1.5cm 1.5cm;
-  background: url("../images/ardour_logo.svg") no-repeat center;
-  background-size: contain;
-}
-
 img {
   max-width: 100%;
 }
 
 div.frontcover {
   page-break-after: always;
+	margin: auto;
+	width: 80%;
+	font-size: 4em;
+	text-align: center;
 }
 
 /* styles for the right hand spread
 	Bottom left we display the title of the book, bottom right the page using a CSS
   counter, top right the content of the current chapter
 */
-@page:right {
+@page :right {
    @bottom-left {
        margin: 10pt 0 30pt 0;
        /*border-top: .25pt solid #666;*/
@@ -49,7 +46,7 @@ div.frontcover {
 /* styles for the left hand spread
 	Bottom right book title, bottom left current page
 */
-@page:left {
+@page :left {
    @bottom-right {
        margin: 10pt 0 30pt 0;
        /*border-top: .25pt solid #666;*/
@@ -66,7 +63,7 @@ div.frontcover {
 }
 
 /* first page */
-@page:first {
+@page :first {
   @bottom-right {
     content: normal;
     margin: 0;
@@ -78,39 +75,57 @@ div.frontcover {
   }
 }
 
-/* reset chapter and figure counters on the body */
 body {
-	counter-reset: chapternum figurenum;
-	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
-	line-height: 1.2;
-	font-size: 9pt;
+	counter-reset: partnum chapternum subchapternum figurenum; /* resets all counters */
+	/*font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;*/
+	font-size: 10pt;
+	line-height: 1.25em;
+
 }
 
-/* get the title of the current chapter - this will be the content of the h1
-reset figure counter as figures start from 1 in each chapter */
 h1 {
-  string-set: doctitle content();
+  string-set: doctitle content(); /* get the title of the current chapter */
   page-break-before: always;
-  counter-reset: figurenum;
-  line-height: 1.3;
-  counter-increment: chapternum;
 }
 
-h1:first-of-type { /* the ToC should not count...*/
+#toc::before { /* the ToC should not count...*/
   content: none;
-  counter-reset: chapternum;
+  counter-reset: partnum;
+  /*counter-increment: partnum -1;*/
 }
 
-/* increment and display figure counter */
-figcaption:before {
-	counter-increment: figurenum;
-	content: counter(chapternum) "-" counter(figurenum) ". ";
+h1::before { /* parts */
+  counter-increment: partnum;
+	content: "Part " counter(partnum) " - ";
 }
+
+h2::before {	/* chapter */
+	counter-increment: chapternum;
+	content: "Chapter " counter(chapternum) " - ";
+}
+
+h3::before {	/* subchapter */
+  counter-increment: subchapternum;
+  content: counter(chapternum) "." counter(subchapternum) " - " ;
+}
+
+figcaption::before {
+	counter-increment: figurenum;
+	content: "Fig. " counter(chapternum) "." counter(figurenum) " - ";
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 2.25em; counter-reset: subchapternum figurenum; }
+h3 { font-size: 1.75em; }
+h4 { font-size: 1.4em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1.1em; }
 
 h1,h2,h3,h4,h5 {
 	font-weight: bold;
 	page-break-after: avoid;
 	page-break-inside:avoid;
+  line-height: 1.25em;
 }
 
 h1+p, h2+p, h3+p {
@@ -154,6 +169,6 @@ a {
 }
 
 /* add page number to cross references */
-a.xref:after {
+a.xref::after {
   content: " (page " target-counter(attr(href, url), page) ")";
 }

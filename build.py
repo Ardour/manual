@@ -354,7 +354,7 @@ def BuildOnePageSidebar(fs):
 	levelNums = [0]*3
 
 	for i in range(len(fs)):
-		# Handle Part/Chapter/subchapter/section/subsection numbering
+		# Handle Part/Chapter/subchapter numbering
 		level = fs[i]['level']
 		if level < 2:
 			levelNums[2] = 0
@@ -515,22 +515,22 @@ for header in fileStruct:
 
 		print(header['title'])
 
-	# Handle TOC scriblings and one-page titles...
+	# Handle TOC scriblings...
+	if level == 0:
+		toc = toc + '<h2>Part ' + num2roman(levelNums[level]) + ': ' + header['title'] + '</h2>\n';
+	elif level == 1:
+		toc = toc + '\t<p class="chapter">Ch. ' + str(levelNums[level]) + ':&nbsp;&nbsp;<a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
+	elif level == 2:
+		toc = toc + '\t\t<p class="subchapter"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
+
+	# Handle one-page and PDF titles...
 	opl = ''
 	if 'link' in header:
 		opl = ' id="' + header['link'] + '"'
 	else:
 		opl = ' id="' + header['filename'] + '"'
+	oph = '<h' + str(level+1) + ' class="clear"' + opl +'>' + header['title'] + '</h' + str(level+1) + '>\n';
 
-	if level == 0:
-		toc = toc + '<h2>Part ' + num2roman(levelNums[level]) + ': ' + header['title'] + '</h2>\n';
-		oph = '<h1 class="clear"' + opl +'>Part ' + num2roman(levelNums[level]) + ' - ' + header['title'] + '</h1>\n';
-	elif level == 1:
-		toc = toc + '\t<p class="chapter">Ch. ' + str(levelNums[level]) + ':&nbsp;&nbsp;<a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h2 class="clear"' + opl +'>' + str(levelNums[level]) + ' - ' + header['title'] + '</h3>\n';
-	elif level == 2:
-		toc = toc + '\t\t<p class="subchapter"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-		oph = '<h3 class="clear"' + opl +'>' + str(levelNums[level-1]) + '.' + str(levelNums[level]) + ' - ' + header['title'] + '</h3>\n';
 
 	# Make the 'this thing contains...' stuff
 	if HaveChildren(fileStruct, pageNumber):
@@ -680,17 +680,21 @@ if not nopdf:
 		print('Generating the PDF...')
 
 	# Create the PDF version of the documentation
-	pdfpageFile = open(global_site_dir + 'pdf.html', 'w')
 	pdfpage = pdfpage.replace('{% tree %}', opsidebar) # create the TOC
 	pdfpage = pdfpage.replace('{{ content }}', '') # cleans up the last spaceholder
 	pdfpage = pdfpage.replace('src="/images/', 'src="images/') # makes images links relative
 	pdfpage = pdfpage.replace('url(\'/images/', 'url(\'images/') # CSS images links relative
+	# Write it to disk (optional, can be removed)
+	pdfpageFile = open(global_site_dir + 'pdf.html', 'w')
 	pdfpageFile.write(pdfpage)
 	pdfpageFile.close()
 
+	# Generating the actual PDF with weasyprint (https://weasyprint.org/)
 	from weasyprint import HTML
-	doc = HTML(filename = global_site_dir + 'pdf.html')
-	doc.write_pdf(global_site_dir + 'manual.pdf')
+	#from weasyprint.fonts import FontConfiguration
+	#html_font_config = FontConfiguration()
+	doc = HTML(string = pdfpage, base_url = global_site_dir)
+	doc.write_pdf(global_site_dir + 'manual.pdf')#, font_config = html_font_config)
 
 if not quiet:
 	print('Processed ' + str(fileCount) + ' files.')
