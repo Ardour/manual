@@ -17,6 +17,11 @@ div.frontcover {
 	text-align: center;
 }
 
+.frontcover #generationdate {
+	font-size: .25em;
+	text-align: right;
+}
+
 /* styles for the right hand spread
 	Bottom left we display the title of the book, bottom right the page using a CSS
   counter, top right the content of the current chapter

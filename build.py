@@ -15,7 +15,7 @@ import os
 import re
 import shutil
 import argparse
-
+import datetime
 
 # Global vars
 global_bootstrap_path = '/bootstrap-3.3.7'
@@ -26,6 +26,8 @@ global_screen_template = 'page-template.html'
 global_onepage_template = 'onepage-template.html'
 global_pdf_template = 'pdf-template.html'
 global_master_doc = 'master-doc.txt'
+from datetime import datetime
+global_today = datetime.today().strftime('%Y-%m-%d')
 
 # This matches all *non* letter/number, ' ', '.', '-', and '_' chars
 cleanString = re.compile(r'[^a-zA-Z0-9 \._-]+')
@@ -319,7 +321,7 @@ def FixInternalLinks(links, content, title):
 # looking at currently
 #
 def BuildList(lst, fs, pagePos, cList):
-	content = '\n\n<ul>\n'
+	content = '<ul>\n'
 
 	for i in range(len(lst)):
 		curPos = lst[i]
@@ -327,7 +329,7 @@ def BuildList(lst, fs, pagePos, cList):
 
 		active = ' class=active' if curPos == pagePos else ''
 		menuTitle = fs[curPos]['menu_title'] if 'menu_title' in fs[curPos] else fs[curPos]['title']
-		content = content + '<li' + active + '><a href="/' + fs[curPos]['filename'] + '/">' + menuTitle + '</a></li>'
+		content = content + '\t<li' + active + '><a href="/' + fs[curPos]['filename'] + '/">' + menuTitle + '</a></li>\n'
 
 		# If the current page is our page, and it has children, enumerate them
 		if curPos == pagePos:
@@ -339,7 +341,7 @@ def BuildList(lst, fs, pagePos, cList):
 		elif (pagePos > curPos) and (pagePos < nextPos):
 			content = content + BuildList(cList[curPos], fs, pagePos, cList)
 
-	content = content + '\n</ul>\n'
+	content = content + '</ul>\n'
 
 	return content
 
@@ -395,7 +397,7 @@ def CreateLinkSidebar(fs, pos, childList):
 	content = BuildList(FindTopLevelNodes(fs), fs, pos, childList)
 	# Shove the TOC link and one file link at the top...
 	active = ' class=active' if pos<0 else ''
-	content = content.replace('<ul>','<ul><li' + active + '><a href="/toc/">Table of Contents</a></li>\n',1)
+	content = content.replace('<ul>','<ul><li' + active + '><a href="/toc/">Table of Contents</a></li>',1)
 
 	return content
 
@@ -682,6 +684,7 @@ if not nopdf:
 	# Create the PDF version of the documentation
 	pdfpage = pdfpage.replace('{% tree %}', opsidebar) # create the TOC
 	pdfpage = pdfpage.replace('{{ content }}', '') # cleans up the last spaceholder
+	pdfpage = pdfpage.replace('{{ today }}', global_today)
 	pdfpage = pdfpage.replace('src="/images/', 'src="images/') # makes images links relative
 	pdfpage = pdfpage.replace('url(\'/images/', 'url(\'images/') # CSS images links relative
 	# Write it to disk (optional, can be removed)
