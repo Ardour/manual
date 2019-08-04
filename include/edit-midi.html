@@ -25,14 +25,15 @@
     Region(s), though, can be copy-pasted just as with audio.
   </li>
   <li>
-    All MIDI I/O is done via JACK for sample accurate timing and maximal
-    efficiency when communicating with external software synthesizers.
+	When using jackd as the audio server for Ardour, all MIDI I/O is done
+	via JACK for sample accurate timing and maximal efficiency when communicating
+	with external software synthesizers. Otherwise, Ardour connects to midi
+	via the existing OS MIDI system.
   </li>
   <li>
-    Every MIDI track has its own JACK MIDI port for input; it may have an
+    Every MIDI track has its own MIDI port for input; it may have an
     arbitrary combination of audio and MIDI outputs, depending on the signal
-    processing in the track; the full flexibility of JACK connectivity is
-    present for MIDI just as it is for audio.
+    processing in the track.
   </li>
   <li>
     Full automation for MIDI tracks, integrated with the handling of all MIDI

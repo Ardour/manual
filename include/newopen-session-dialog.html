@@ -161,7 +161,9 @@
   <tr><th>MIDI System</th>
   <td>
     Selects the MIDI driver to use. On Mac OS X, this will be <kbd
-    class="menu">CoreMIDI</kbd>. On Linux, it can be changed between two legacy
+    class="menu">CoreMIDI</kbd>. On Linux, this will follow the audio backend.
+    If the Audio backend is ALSA, midi will be alsa also. If the backend is
+    JACK, it can be changed between two legacy
     ALSA drivers or the (preferred) new JACK+ALSA implementation.</td></tr>
 </table>
 

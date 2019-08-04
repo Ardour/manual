@@ -41,7 +41,8 @@
       timecode.</td></tr>
   <tr><th>Other</th>
       <td>
-      If there are other JACK clients running, their ports will be found
+      If the Jack backend is being used and if there are other JACK clients
+      running, their ports will be found
       here. If there are no such ports, the tab will not exist (on one or
       both axes of the grid).</td></tr>
 </table>
@@ -70,7 +71,7 @@
 <h2>Variants on the Patchbay</h2>
 <p>
   Slightly different versions of the patchbay are available from different
-  places in Ardour. A global view of all JACK audio connections is available, in
+  places in Ardour. A global view of all audio connections is available, in
   <kbd class="menu">Window &gt Audio Connections</kbd>, or by pressing
   <kbd class="mod2">P</kbd>. A corresponding MIDI Connection Manager can
   be opened using <kbd class="mod23">P</kbd>.</p>
@@ -103,7 +104,8 @@
   <td>Disconnects everything from the given port.</td></tr>
   <tr><th><kbd class="menu">Rescan</kbd></th>
   <td>
-    Ardour will try to keep abreast of any changes to the JACK ports on
+    If Ardour is using the JACK backend, Ardour will try to keep abreast
+    of any changes to the JACK ports on
     the system, and reflect them in any connection managers which are open.
     If for some reason this fails, this can be used to re-scan the list of ports and
     update the manager.

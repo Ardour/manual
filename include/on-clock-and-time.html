@@ -11,7 +11,8 @@
   <a href="https://en.wikipedia.org/wiki/Word_clock" title="https://en.wikipedia.org/wiki/Word_clock">Word Clock</a>.
   It does not carry any absolute reference to a point in time: A clock is
   used to keep a system's sample rate regular and accurate.
-  Word clock is usually at the frequency of the sample rate&mdash;at 48&nbsp;kHz, its period is about 20&nbsp;μs. Word Clock is the most
+  Word clock is usually at the frequency of the sample rate&mdash;at 48&nbsp;kHz,
+  its period is about 20&nbsp;μs. Word Clock is the most
   common sample rate based clock but other clocks do exist such as Black and
   Burst, Tri-Level and DARS. Sample rates can be derived from these clocks as well.
 </p>
@@ -34,11 +35,12 @@
 </p>
 
 <p>
-  JACK provides clock synchronization and is not concerned with time code
+  JACK (Ardour does this internally if using the ALSA backend) provides
+  clock synchronization and is not concerned with time code
   (this is not entirely true, more on jack-transport later).
   On the software side, jackd provides sample-accurate synchronization
   between all JACK applications.
-  On the hardware side, JACK uses the clock of the audio-interface.
+  On the hardware side, JACK and Ardour use the clock of the audio-interface.
   Synchronization of multiple interfaces requires hardware support to sync
   the clocks.
   If two interfaces run at different clocks the only way to align the

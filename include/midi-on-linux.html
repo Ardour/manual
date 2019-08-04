@@ -1,5 +1,13 @@
 
 <p>
+  It is no longer nessessary to use jackd as a backend for Ardour in Linux.
+  In fact with the spread of LV2 plugins, almost all workflows in Ardour work
+  well with the ALSA backend. When using the ALSA backend for Ardour, Ardour
+  will see all MIDI ports that ALSA sees without any user setup. However, should jackd
+  need to be used, the rest of this page is valid.
+</p>
+
+<p>
   The right approach for using MIDI on Linux depends on which version of JACK
   is in use. The world divides into:
 </p>

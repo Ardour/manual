@@ -530,7 +530,7 @@
     <ul>
       <li>
         <dfn>Initial program change:</dfn> Ardour will send a MIDI program
-        change message on the <code>ardour:MMC out</code> JACK port when a session
+        change message on the <code>ardour:MMC out</code> MIDI port when a session
         is loaded and whenever this field is changed. A value of -1 means don't
         send any program change message.
       </li>
@@ -839,7 +839,7 @@
       <li>
         <dfn>Enable Mclk generator</dfn> when enabled Ardour will generate a
         (tempo dependant) beat clock at a rate of 24 pulses per quarter note on
-        the <code>ardour:MIDI clock out</code> JACK port.
+        the <code>ardour:MIDI clock out</code> port.
       </li>
     </ul>
   </li>
@@ -849,7 +849,7 @@
     <ul>
       <li>
         <dfn>Enable MTC Generator</dfn> when enabled Ardour will generate MIDI
-        time code on the <code>ardour:MTC out</code> JACK port.
+        time code on the <code>ardour:MTC out</code> MIDI port.
       </li>
       <li>
         <dfn>Percentage either side of normal transport speed to transmit MTC:</dfn>
@@ -866,17 +866,17 @@
       <li>
         <dfn>Respond to MMC commands</dfn> when enabled Ardour will respond
         to MIDI Machine Control commands received on the <code>ardour:MMC in</code>
-        JACK port.
+        MIDI port.
       </li>
       <li>
         <dfn>Send MMC commands</dfn> when enabled Ardour will send MIDI Machine
         Control commands on the <code>ardour:MMC out</code>
-        JACK port.
+        MIDI port.
       </li>
       <li>
         <dfn>Inbound MMC device ID:</dfn> is the only device ID Ardour will
         respond to when an MMC command is received on the <code>ardour:MMC in</code>
-        JACK port.
+        MIDI port.
       </li>
       <li>
         <dfn>Outbound MMC device ID:</dfn> is the MIDI device ID Ardour will

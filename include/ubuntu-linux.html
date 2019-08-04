@@ -46,69 +46,6 @@
   <li>Follow the prompts.</li>
 </ol>
 
-<h2>Problems with the interaction between PulseAudio and JACK</h2>
-
-<h3>Background Info</h3>
-
-<p>
-  Like many distributions, Ubuntu has decided to use <dfn>PulseAudio</dfn> as
-  the default audio system. PulseAudio is a rich and capable system that
-  provides excellent services for typical users of Linux on the desktop.
-  However, it is not capable of the type of performance that tools like Ardour
-  require and in particular does not offer the possibility of sending audio
-  between applications that can make the Linux audio environment a very
-  interesting one.
-</p>
-
-<p>
-  This would not be a problem if it were not for the fact that JACK will not
-  run correctly (if at all) if it needs to use the same soundcard/audio
-  interface that PulseAudio is using. And since, PulseAudio on Ubuntu is
-  configured by default to always use the (typically single) audio interface on
-  the computer, this is a bit of a problem.
-</p>
-
-<p>
-  The developers of JACK and PulseAudio got together in 2009 and agreed upon a
-  mechanism by which PulseAudio and JACK could cooperate in their use of a
-  single soundcard. Whether or not PulseAudio is running by default, when JACK
-  starts up it sends out a request to use the soundcard. If PulseAudio is
-  running, it will give up its use of the soundcard to allow JACK to take over
-  (and can optionally be told to route its own audio through JACK). When JACK
-  finishes, it sends out another message, and PulseAudio can once again use the
-  soundcard directly.
-</p>
-
-<h3>What is the problem?</h3>
-
-<p>
-  The specific issues known at this time for all flavors of Ubuntu 12.04 and
-  12.10 are:
-</p>
-
-<ul>
-  <li>a bug in PulseAudio that causes it not to give up the soundcard when JACK
-  asks (<a
-  href="https://bugs.launchpad.net/ubuntu/+source/pulseaudio/+bug/1163638">LP:
-  #1163638</a>, fixed in Ubuntu 13.04).</li>
-</ul>
-
-<h3>Symptoms</h3>
-
-<p>
-  A message like <samp>Cannot start JACK</samp> in the output from JACK as it
-  starts up (though see the next section for other causes of this). This output
-  may be hidden in the Messages window of QJackCtl (aka JACK Control), so one
-  should check there.
-</p>
-
-<h3>How to fix</h3>
-
-<p>
-  These bugs do not affect releases from 13.04, and earlier releases (12.04 and
-  12.10) are in the process of being fixed.
-</p>
-
 <h2>Problems with JACK configuration</h2>
 
 <h3>What is the problem?</h3>

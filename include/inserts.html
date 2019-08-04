@@ -4,10 +4,15 @@
   inside a channel strip. Unlike Auxes, they will interrupt the signal flow,
   feeding the signal from before the insert point to its <dfn>Insert
   send(s)</dfn>, and connecting the remainder of the channel strip to the
-  <dfn>Insert return(s)</dfn>, both of which are JACK ports which are
-  visible to other JACK applications.<br>
-  Inserts are the JACK equivalents of normalized switching jacks on an
-  analog console.
+  <dfn>Insert return(s)</dfn>, both of which are either audio device or JACK ports.
+  While jack ports are visible to other JACK applications, ALAS ports are only
+  useful for patching in audio equipment external to the computer. If inserting
+  a software processor is required, a plugin would be the first choice. If a plugin
+  is not available then the jackd audio backend would have to be used. This is
+  not very common any more but there are some older jack clients that require
+  using jack.<br>
+  Inserts work the same as the inserts on analog consoles except they are not
+  normalled like most jacks on an analog console.
 </p>
 <p>
   An insert allows to either use a special external DSP JACK
@@ -25,6 +30,6 @@
   connections to the insert ports are made!
 </p>
 <p class="note">
-  Inserts will incur an additional JACK period of latency, which can be
+  Inserts will incur an additional period of latency, which can be
   measured and compensated for during mixing, but not during tracking!
 </p>

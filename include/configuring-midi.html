@@ -14,8 +14,9 @@
 <h2>MIDI Handling Frameworks</h2>
 
 <p>
-  MIDI input and output for Ardour are handled by the same "engine" that
-  handles audio input and output.
+  MIDI input and output for Ardour are handled internally by the same "engine" that
+  handles audio input and output. However, Ardour can use as many MIDI devices
+  as the system can see as there are no syncing difficulties as there would be with audio.
 </p>
 
 <table class="dl">
@@ -33,12 +34,17 @@
   On Linux systems, <dfn>QJackCtl</dfn> control software displays ALSA MIDI
   ports under its "ALSA" tab (it does not currently display CoreMIDI ports).
   By contrast, JACK MIDI ports show up under the <kbd class="menu">MIDI</kbd>
-  tab in QJackCtl.
+  tab in QJackCtl. However, when Ardour is using jackd for audio in and out
+  the alsa MIDI ports are not accessable. When Ardour is using ALSA for audio
+  in and out then only alsa MIDI ports are accessable.
 </p>
 
 <h2>JACK MIDI Configuration</h2>
 
 <p>
-  By default, JACK will <strong>not</strong> automatically detect and use existing MIDI ports. One of several ways of <dfn>bridging</dfn> between the native MIDI frameworks (e.g. CoreMIDI or ALSA) and JACK MIDI must be chosen, as described in the following sections.
+  By default, JACK will <strong>not</strong> automatically detect and use
+  existing MIDI ports. One of several ways of <dfn>bridging</dfn> between
+  the native MIDI frameworks (e.g. CoreMIDI or ALSA) and JACK MIDI must be
+  chosen, as described in the following sections.
 </p>
 

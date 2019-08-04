@@ -45,6 +45,11 @@
 </p>
 
 <h2>The Latency chain</h2>
+
+<p class="note">
+  Note! the rest of this document assumes the use of jackd for the audio
+  backend. While many of the concepts are true, the specifics may be different.
+</p>
 <figure>
   <img src="/images/latency-chain.png" alt="Latency chain">
   <figcaption>
@@ -66,7 +71,7 @@
   processed and played back.
 </p>
 <p class="note">
-  It is important to note that processing latency in a jackd is a matter of
+  It is important to note that processing latency in Ardour is a matter of
   choice. It can be lowered within the limits imposed by the hardware (audio
   device, CPU and bus speed) and audio driver. Lower latencies increase the
   load on the system because it needs to process the audio in smaller chunks
@@ -156,7 +161,7 @@
   The second approach is prone to various implementation
   issues regarding timecode and transport synchronization. Ardour uses read-ahead
   to compensate for latency. The time displayed in the Ardour clock corresponds
-  to the audio signal that is heared on the speakers (and is not where Ardour
+  to the audio signal that is heard on the speakers (and is not where Ardour
   reads files from disk).
 </p>
 <p>
