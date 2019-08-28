@@ -1995,6 +1995,7 @@ title: Lua Bindings Class Reference
 style: luadoc
 include: class-reference.html
 exclude: yes
+pdf-exclude: yes
 link: class-reference
 uri: lua-scripting/class_reference
 part: chapter

@@ -21,6 +21,7 @@ import datetime
 global_bootstrap_path = '/bootstrap-3.3.7'
 global_page_title = 'The Ardour Manual'
 global_site_dir = './website/'
+global_manual_url = 'http://manual.ardour.org'
 global_githuburl = 'https://github.com/Ardour/manual/edit/master/include/'
 global_screen_template = 'page-template.html'
 global_onepage_template = 'onepage-template.html'
@@ -619,7 +620,10 @@ for header in fileStruct:
 	# Set up the actual page from the template
 	onepage = onepage.replace('{{ content }}', oph + '\n' + opcontent + '\n{{ content }}')
 	if not nopdf:
-		pdfpage = pdfpage.replace('{{ content }}', oph + '\n' + opcontent + '\n{{ content }}')
+		if not 'pdf-exclude' in header:
+			pdfpage = pdfpage.replace('{{ content }}', oph + '\n' + opcontent + '\n{{ content }}')
+		else:
+			pdfpage = pdfpage.replace('{{ content }}', oph + '\n' + 'Please refer to the <a href="' + global_manual_url + '/' + header['filename'] + '/">online manual</a>.\n{{ content }}')
 
 	# ----- Normal version -----
 
