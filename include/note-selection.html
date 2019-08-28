@@ -1,41 +1,38 @@
-
-<h2>Selecting/Navigating note-by-note</h2>
-<p>
-  <kbd>Tab</kbd> selects the next note. <kbd class="mod1">Tab</kbd> selects the previous
-  note. <kbd class="mod3">Tab</kbd> or <kbd class="mod13">Tab</kbd> adds
-  the next/previous note to the selection.
-</p>
-
 <h2>Selecting notes with the mouse</h2>
 <p>
-  While in mouse object mode, any note can be clicked to select it. Once a note
-  has been selected, <kbd class="mouse mod3">Left</kbd>-clicking on another
-  selects all notes between them. Adding or removing a note to/from the
-  selection is done by <kbd class="mouse mod1">Left</kbd> clicking it. Clicking and
-  dragging outside of a note <dfn>rubberband selects</dfn> a series of notes.
+	While in Draw mode or Internal Edit mode, any note can be clicked to select
+	it. Once a note has been selected, <kbd class="mouse
+	mod3">Left</kbd>-clicking on another selects all notes between them. Adding
+	or removing a note to/from the selection is done by <kbd class="mouse
+	mod1">Left</kbd> clicking it.
 </p>
 <p>
-  Three different selection operations are possible while in mouse range mode:
+	In any mode, <kbd class="mod3 mouse">left</kbd> clicking on a note on the
+	Scroomer (the piano header of the track, see <a
+	href="@@midi-track-controls">MIDI Track Controls</a>) will add all
+	occurrences of that note to the selection, while <kbd
+	class="mouse">middle</kbd> clicking will only select/deselect all occurences
+	of that note, clearing the selection. These Scroomer selections works on all
+	MIDI regions of the track at once.
 </p>
-<ul>
-  <li>
-    Vertical drags within the MIDI region will select all notes within the
-    spanned note range.
-  </li>
-  <li>
-    Clicks on the piano header of the track (if visible&mdash;the track must
-    be tall enough to display it) will select all occurrences of that note.
-  </li>
-  <li>
-    Drags on the piano header of the track will select all notes within the
-    spanned note range.
-  </li>
-</ul>
 
-<h2>Listening to Selected Notes</h2>
+<p>
+  In Internal Edit mode only, <kbd class="mouse">left</kbd> clicking and dragging
+  outside of a note <dfn>rubberband selects</dfn> a series of notes.
+  <kbd class="mod3n"></kbd> rubberband selecting adds the notes to the selection.
+</p>
+
+<h2>Selecting/navigating note-by-note</h2>
+<p>
+  <kbd>Tab</kbd> selects the next note as defined by their starting time.
+  <kbd class="mod1">Tab</kbd> selects the previous note. <kbd class="mod3">Tab</kbd>
+  or <kbd class="mod13">Tab</kbd> adds the next/previous note to the selection.
+</p>
+
+<h2>Listening to selected notes</h2>
 <p>
   If <kbd class="menu">Edit &gt; Preferences &gt; MIDI &gt; Sound MIDI notes
-  as they are selected</kbd> is enabled, Ardour will send a pair of
+  as they are selected in the editor</kbd> is enabled, Ardour will send a pair of
   NoteOn/NoteOff messages through the track, which will typically allow to
   hear each note as it is selected.
 </p>
