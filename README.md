@@ -42,10 +42,11 @@ Here are the keywords you can put in, and a brief description of what they do:
 | ------- | -------- |
 | title   | Sets the title for the content that follows |
 | menu_title | Sets the title for the content that follows which will appear in the menu link sidebar. If this is not specified, it defaults to the value of the `title` keyword |
-| part    | Sets the hierarchy for the content that follows. It must be one of the following (listed in order of lowering hierarchy): part, chapter, subchapter, section, subsection.  |
+| part    | Sets the hierarchy for the content that follows. It must be one of the following (listed in order of lowering hierarchy): part, chapter, subchapter  |
 | link    | Sets the unbreakable link to the content that follows. Links in the *content* should be prefixed with a double at-sign (@@) to tell the build system that the link is an internal one |
 | include | Tells the build system that the content lives in an external file; these normally live in the `include/` directory. Note that the filename should **not** be prefixed with `include/` |
 | exclude | Tells the `implode` and `explode` scripts that file referred to by the `include` keyword should be ignored. Note that the value of this keyword is ignored |
+| pdf-exclude | Does not include the content in the generated PDF, but links to its online contents. The value is also ignored. |
 | style   | Sets an alternate CSS stylesheet; the name should match the one referred to (sans the `.css` suffix) in the `source/css` directory |
 | uri     | Sets an absolute URI where this page will go in the hierachy of the created website. It does *not* change the document structure |
 
@@ -63,9 +64,14 @@ Adding `source/images/horse.png` makes it available at the url
 ### CSS
 
 The manual uses [Bootstrap](http://getbootstrap.com/) for its global layout, and
-a custom CSS (`source/css/app.css`) that contains classes used for keys, menus,
+a few custom CSS files that contains classes used for keys, menus,
 tables, etc... so it is recommanded to have a look at it first, or at least see
-how other pages are made to keep the manual consistent in its appearance.
+how other pages are made to keep the manual consistent in its appearance:
+
+- `source/css/common.css` contains shared classes between all media and is included everywhere
+- `source/css/screen.css` adds classes used for screen display (html)
+- `source/css/pdf.css` adds classes used for print (pdf)
+- `source/css/luadocs.css` adds classes used in the Lua script documentation
 
 ## More Advanced Stuff
 
