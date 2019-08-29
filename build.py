@@ -353,7 +353,7 @@ def BuildList(lst, fs, pagePos, cList):
 #
 def BuildOnePageSidebar(fs):
 
-	content = '\n\n<ul class="toc" style="white-space:nowrap;">\n'
+	content = '\n\n<ul class="toc">\n'
 	lvl = 0
 	levelNums = [0]*3
 
@@ -377,7 +377,7 @@ def BuildOnePageSidebar(fs):
 			anchor = fs[i]['filename']
 
 		while lvl < level:
-			content = content + '<ul style="white-space:nowrap;">\n'
+			content = content + '<ul class="toc">\n'
 			lvl = lvl + 1
 		while lvl > level:
 			content = content + '</ul>\n'
