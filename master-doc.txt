@@ -623,6 +623,14 @@ part: subchapter
 ---
 
 ---
+title: Foldback Section
+include: foldback-strip.html
+link: foldback-strip
+uri: ardours-interface/foldback-strip
+part: chapter
+---
+
+---
 title: Editor Tracks
 link: track-controls
 part: chapter
