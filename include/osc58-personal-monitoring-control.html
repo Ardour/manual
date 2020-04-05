@@ -2,12 +2,15 @@
 <p>
 	Personal monitoring can allow a performer with a smart phone to set
 	their personal monitor mix for a floor wedge or in-ear monitoring.
-	In Ardour 5.6 OSC commands to allow this were added.
+	In Ardour 5.6 OSC commands to allow this were added for use with aux
+	buses. Ardour 6.0 added Foldback buses for this purpose and these
+	commands work directly for those.
 </p>
 <h3>Setup</h3>
 <p>
-	Some setup needs to be done in the GUI mixer window before this can
-	work.
+	Foldback buses can be added from the GUI
+	(see: <a href="@@foldback-strip">Foldback section</a>)
+	or using the <kbd class="osc">/cue/new_bus</kbd> OSC command.
 </p>
 	<ul>
 		<li>
@@ -17,23 +20,21 @@
 		</li>
 		<li>
 			Connect the output of that bus to one of the audio
-			interface's playback ports that is not otherwise used. OSC
-			will now include this bus in its list of aux busses as it
-			no longer has its output connected to the Master bus.
+			interface's playback ports that is not otherwise used.
 		</li>
 		<li>
-			Add an aux send to each channel the performer needs to hear
+			Add a foldback send to each channel the performer needs to hear
 			in their personal mix. Many performers only need three or
 			four sources to be mixed. If the performer needs to hear a
 			a set of inputs that are combined into a bus, adding the
-			aux send to that bus may make more sense than adding ten
+			foldback send to that bus may make more sense than adding ten
 			drum channels for example.
 		</li>
 		<li>
 			If the performer wishes to hear effects in their monitor,
-			an extra send from the send bus, placing the performers aux
-			send after the effect or a plugin can be added in line in
-			the aux bus itself.
+			an extra send from the effects bus or a plugin can be added in line in
+			the foldback bus itself. Foldback sends are always just before the
+			Fader.
 		</li>
 	</ul>
 <p>
@@ -44,7 +45,10 @@
 <p>
 	All of the personal monitoring commands and feedback start with a
 	<em>/cue</em>. It is expected that a surface used as a personal
-	monitor control will use only <em>/cue</em> commands.
+	monitor control will use only <em>/cue</em> commands. 
+</p>
+<p class="note"> There is one OSC command apart from the <code>/cue</code>
+	commands: <a href="#select-fldbck"><code>/select/add_fldbck_send</code></a>
 </p>
 <p>
 	Most phone OSC applets (TouchOSC, Control) require manual port to be set.
@@ -75,7 +79,7 @@
 <p>
 	Ardour is not limited to talking to one personal monitor controller
 	at a time, but is able to deal with many simultaneously, each controlling
-	its own Aux bus.
+	its own foldback bus.
 </p>
 <p class="note">
 	The send controls and feedback all have the send id (1 to n) in line
@@ -86,23 +90,38 @@
 <h4>Commands</h4>
 <table class="dl">
   <tr><th><kbd class="osc">/cue/connect</kbd></th>
-  <td>Returns a list of aux busses and connects to the first.</td></tr>
-  <tr><th><kbd class="osc">/cue/aux <em>aux-number</em></kbd></th>
-  <td>where <em>aux-number</em> is an integer or float which is the aux bus
-  number this surface will use.</td></tr>
-  <tr><th><kbd class="osc">/cue/next_aux</kbd></th>
-  <td>Sets the the aux bus to one bus higher.</td></tr>
-  <tr><th><kbd class="osc">/cue/previous_aux</kbd></th>
-  <td>Sets the aux to one bus lower. This can also be used as a "connect"
-  button to save space in a phone layout.</td></tr>
+  <td>Returns a list of foldback busses and connects to the first.</td></tr>
+  <tr><th><kbd class="osc">/cue/bus <em>index</em></kbd></th>
+  <td>where <em>index</em> is an integer or float which is the
+  foldback bus number this surface will use.</td></tr>
+  <tr><th><kbd class="osc">/cue/next_bus</kbd></th>
+  <td>Sets the the foldback bus to one bus higher.</td></tr>
+  <tr><th><kbd class="osc">/cue/previous_bus</kbd></th>
+  <td>Sets the foldback bus to one bus lower. This can also be used as a
+  "connect" button to save space in a phone layout.</td></tr>
+  <tr><th><kbd class="osc">/cue/connect_output <em>output</em></kbd></th>
+  <td>where <em>output</em> is a string that is the name of an output port
+  or the number of the output port if the port is a system:playback port
+  to connect the foldback bus to.</td></tr>
+  <tr><th><kbd class="osc">/cue/new_bus <em>name</em> <em>l-output</em>
+  <em>r-output</em></kbd></th> <td>where <em>name</em> is the name for
+  the new foldback bus as a string, <em>l-output</em> (optional) is the name
+  of the output port to connect to. And <em>r-output</em> (if present) will
+  make the new foldback bus stereo and connect the right output port to the
+  named port. All parameters are string type.
+  <tr><th><kbd class="osc">/cue/new_send <em>strip</em></kbd></th>
+  <td>where <em>strip</em> is a string with the name of the strip to add
+  a foldback send to that sends to the current foldback bus.
+
   <tr><th><kbd class="osc">/cue/fader <em>position</em></kbd></th>
   <td>where <em>position</em> is a float for the position of the fader
   between 0.0 and 1.0.</td></tr>
   <tr><th><kbd class="osc">/cue/mute <em>state</em></kbd></th>
-  <td>where <em>state</em> is a float of 0.0 for mute off and 1.0 for the Aux bus mute on.</td></tr>
+  <td>where <em>state</em> is a float of 0.0 for mute off and 1.0 for
+  the foldback bus mute on.</td></tr>
   <tr><th><kbd class="osc">/cue/send/fader/<em>id</em> <em>position</em></kbd></th>
-  <td>where <em>position</em> is a float for the position of the fader
-  between 0.0 and 1.0.</td></tr>
+  <td>where <em>position</em> is a float for the position of the send
+  fader between 0.0 and 1.0.</td></tr>
   <tr><th><kbd class="osc">/cue/send/enable/<em>id</em> <em>state</em></kbd></th>
   <td>where <em>state</em> is a float of 0.0 for disable and 1.0 for enable.</td></tr>
 </table>
@@ -110,19 +129,19 @@
 <table class="dl">
   <tr><th><kbd class="osc">/cue/name <em>name</em></kbd></th>
   <td>where <em>name</em> is a string that is the name of the currently
-  selected aux bus.</td></tr>
+  selected foldback bus.</td></tr>
   <tr><th><kbd class="osc">/cue/name/<em>id</em> <em>name</em></kbd></th>
-  <td>where <em>name</em> is a string that is the name of the aux bus
+  <td>where <em>name</em> is a string that is the name of the foldback bus
   that <em>id</em> belongs to.</td></tr>
   <tr><th><kbd class="osc">/cue/fader <em>position</em></kbd></th>
   <td>where <em>position</em> is a float from 0.0 to 1.0 that shows the
-  fader position for the selected aux bus.</td></tr>
+  fader position for the selected foldback bus.</td></tr>
   <tr><th><kbd class="osc">/cue/mute <em>state</em></kbd></th>
   <td>where <em>state</em> is a float of 0.0 or 1.0 that shows the state
-  of the mute for the selected aux bus.</td></tr>
+  of the mute for the selected foldback bus.</td></tr>
   <tr><th><kbd class="osc">/cue/signal <em>activity</em></kbd></th>
   <td>where <em>activity</em> is a float of 0.0 or 1.0 that shows audio
-  activity for the selected aux bus.</td></tr>
+  activity for the selected foldback bus.</td></tr>
   <tr><th><kbd class="osc">/cue/send/name/<em>id</em> <em>name</em></kbd></th>
   <td>where <em>name</em> is a string that is the name of the channel
   that send <em>id</em> belongs to.</td></tr>
@@ -137,4 +156,13 @@
 	While a fader is being adjusted, the corresponding <em>/*/name</em>
 	text will give the level in db.
 </p>
-
+<h2 id="select-fldbck">Setting up a Foldback bus from a selected strip</h2>
+<p>
+	A selected or expanded strip can create a foldback send and create
+	a foldback bus at the same time using:
+	<kbd class="osc">/select/add_fldbck_send <em>name</em></kbd>
+	where <em>name</em> is a string with the name of the desired foldback
+	bus. If the name matches an existing foldback bus the new send will
+	be added to the selected or expanded strip that feeds that bus. If there
+	is no strip of that name, one will be created.
+</p>
