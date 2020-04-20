@@ -66,7 +66,7 @@ Close ties with the underlying C++ components is where the power of scripting co
 A script can orchestrate interaction of lower-level components which take the bulk of the CPU time of the final program.
 </p>
 </p><p>
-At the time of writing Ardour integrates Lua 5.3.2: <a href="http://www.lua.org/manual/5.3/manual.html">Lua 5.3 reference
+At the time of writing Ardour integrates Lua 5.3.5: <a href="http://www.lua.org/manual/5.3/manual.html">Lua 5.3 reference
 manual</a>.
 </p>
 
@@ -204,7 +204,7 @@ function factory (params)
     end
     a = a + n_samples
     if (a &gt; timeout * Session:frame_rate()) then
-      Session:request_transport_speed(0.0, true)
+      Session:request_transport_speed (0.0, true, ARDOUR.TransportRequestSource.TRS_UI)
     end
   end
 end
@@ -347,77 +347,13 @@ Fully functional, yet still in a prototyping stage:
 		<li>
 </ul>
 
+-<h2 id="Examples">Examples</h2>
+-<p>Please see the example <a href="https://github.com/Ardour/ardour/tree/master/share/scripts">scripts included with the source-code</a>.
+All the files that start with a leading underscore are not inlcluded with releases, but are intended as example snippets.</p>
 
-<h2 id="Examples">Examples</h2>
-<p>Apart from the <a href="https://github.com/Ardour/ardour/tree/master/scripts">scripts included with the source-code</a>
-here are a few examples without further comments...
-
-<h3 id="Editor Console Examples">Editor Console Examples</h3>
-<div>
-<pre><code class="lua">
-print (Session:route_by_remote_id(1):name())
-
-a = Session:route_by_remote_id(1);
-print (a:name());
-
-print(Session:get_tracks():size())
-
-for i, v in ipairs(Session:unknown_processors():table()) do print(v) end
-for i, v in ipairs(Session:get_tracks():table()) do print(v:name()) end
-
-for t in Session:get_tracks():iter() do print(t:name()) end
-for r in Session:get_routes():iter() do print(r:name()) end
-
-
-Session:tempo_map():add_tempo(ARDOUR.Tempo(100,4), Timecode.BBT_TIME(4,1,0))
-
-
-Editor:set_zoom_focus(Editing.ZoomFocusRight)
-print(Editing.ZoomFocusRight);
-Editor:set_zoom_focus(1)
-
-
-files = C.StringVector();
-files:push_back("/home/rgareus/data/coding/ltc-tools/smpte.wav")
-pos = -1
-Editor:do_import(files, Editing.ImportDistinctFiles, Editing.ImportAsTrack, ARDOUR.SrcQuality.SrcBest, pos, ARDOUR.PluginInfo())
-
-#or in one line:
-Editor:do_import(C.StringVector():add({"/path/to/file.wav"}), Editing.ImportDistinctFiles, Editing.ImportAsTrack, ARDOUR.SrcQuality.SrcBest, -1, ARDOUR.PluginInfo())
-
-# called when a new session is loaded:
-function new_session (name) print("NEW SESSION:", name) end
-
-
-# read/set/describe a plugin parameter
-route = Session:route_by_remote_id(1)
-processor = route:nth_plugin(0)
-plugininsert = processor:to_insert()
-
-plugin = plugininsert:plugin(0)
-print (plugin:label())
-print (plugin:parameter_count())
-
-x = ARDOUR.ParameterDescriptor ()
-_, t = plugin:get_parameter_descriptor(2, x) -- port #2
-paramdesc = t[2]
-print (paramdesc.lower)
-
-ctrl = Evoral.Parameter(ARDOUR.AutomationType.PluginAutomation, 0, 2)
-ac = plugininsert:automation_control(ctrl, false)
-print (ac:get_value ())
-ac:set_value(1.0, PBD.GroupControlDisposition.NoGroup)
-
-# the same using a convenience wrapper:
-route = Session:route_by_remote_id(1)
-proc = t:nth_plugin (i)
-ARDOUR.LuaAPI.set_processor_param (proc, 2, 1.0)
-
-</code></pre>
-</div>
-
-<h3 id="Commandline Session">Commandline Session</h3>
+<h2 id="Commandline Session">Commandline Session</h2>
 <p>The standalone tool <code>luasession</code> allows one to access an Ardour session directly from the commandline.
+It can also be used as #! interpreter for scripted sessions.
 Interaction is limited by the fact that most actions in Ardour are provided by the Editor GUI.
 </p><p>
 <code>luasession</code> provides only two special functions <code>load_session</code> and <code>close_session</code> and
@@ -433,16 +369,23 @@ print (AudioEngine:current_backend_name())
 
 for i,_ in backend:enumerate_devices():iter() do print (i.name) end
 
-backend:set_input_device_name("HDA Intel PCH")
-backend:set_output_device_name("HDA Intel PCH")
+backend:set_device_name("HDA Intel PCH")
+backend:set_buffer_size(1024)
 
 print (backend:buffer_size())
 print (AudioEngine:get_last_backend_error())
 
 s = load_session ("/home/rgareus/Documents/ArdourSessions/lua2/", "lua2")
-s:request_transport_speed (1.0)
+
+assert (s)
+
+s:request_transport_speed (1.0, true, ARDOUR.TransportRequestSource.TRS_UI)
 print (s:transport_rolling())
+
 s:goto_start()
+
+ARDOUR.LuaAPI.usleep (10 * 1000000) -- 10 seconds
+
 close_session()
 
 </code></pre>
