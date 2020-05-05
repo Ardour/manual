@@ -81,7 +81,7 @@ notes just in case you decide to anyway.
 ### Run it locally
 
 You may want the manual available on a machine that doesn't have constant
-internet access. You will need `git`, and `python3` installed.
+internet access. You will need `git`, `python3` and `cherrypy` python module installed.
 
 1. Download code and build manual
 
@@ -91,29 +91,14 @@ internet access. You will need `git`, and `python3` installed.
   ./build.py
   ```
 
-2. Install and configure a web server on your machine. Any web server should
-work,  Apache, nginx, etc... The following steps are for nginx, using another
-server means following the same procedure for the server you decide to use.
-
-3. Install [nginx](http://wiki.nginx.org/Install)
-
-4. Configure nginx server block in `/etc/nginx/sites-available/default`
-
+2. Run the following:
   ```
-  server {
-      listen 80;
-      server_name localhost;
-
-      root ...path_to_.../ardour-manual/website;
-      index index.html;
-  }
+  ./servit.py
   ```
 
-5. Restart nginx server
+3. The manual will now be available at http://127.0.0.1:8080
 
-        service nginx restart
-
-6. The manual will now be available at http://localhost
+  (Ctrl-c to quit the server).
 
 ### Helper scripts: `implode` and `explode`
 
