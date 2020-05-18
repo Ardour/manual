@@ -1,87 +1,95 @@
 
-<p>
-	Considering the numerical nature of MIDI events, it can be tempting to apply
-  mathematical transformations to our MIDI regions by using mathematical
-  operations. Ardour makes it very easy and powerful with the Transform tool.
-</p>
-
-<figure>
-	<img src="/images/MIDI_transform.png" alt="MIDI transformation">
-	<figcaption>MIDI transformation</figcaption>
+<figure class="right">
+  <img src="/images/MIDI_transform.png" alt="MIDI transformation">
+  <figcaption>The MIDI transformation dialog</figcaption>
 </figure>
 
-<p>To access the Transform tool, right click the MIDI region &gt; <em>name_of_the_region</em> &gt; MIDI &gt; Transform&hellip;</p>
-
-<p>First, select the property you want to modify in the 'Set' field, then change the target value using the 2 following fields. If you want to add more operands, click the "+" sign to create new lines. You can remove a superfluous line using the "-" sign on the right of the newly created line.</p>
+<p>
+  Considering the numerical nature of MIDI events, it can be useful to
+  transform a MIDI region by applying mathematical operations to it. Ardour
+  makes this kind of powerful transformation very easy with the Transform tool. The tool makes possible things such as humanizing (randomizing the velocity, start time and duration of all the notes), creating arpeggios, automating tedious tasks, transposing, etc.
+</p>
 
 <p>
-	In the picture above, the Transform tool has been used to add a bit of
-	humanisation, by slightly changing the velocity of each note of the region, by
-	a random number between -19 and +19 from its original velocity. So
-	three operations are applied:
+  To access the Transform tool, right click the MIDI region &gt;
+  <em>name_of_the_region</em> &gt; MIDI &gt; Transform&hellip;.
+</p>
+
+<p>
+  First, the property to be modified in the <kbd class="menu">Set</kbd> field
+  is selected, then the target value is changed using the two fields that
+  follow. If more operands are desired, the <kbd class="menu">+</kbd> button is
+  clicked to create new lines. Any superfluous line can be removed by clicking
+  on the <kbd class="menu">-</kbd> button on the right side of the line to be
+  removed. Finally, once everything is set as desired, the <kbd
+  class=menu>Transform</kbd> button is pressed to apply the transformation.
+</p>
+
+<p>
+  In the image above, the Transform tool has been used to add a bit of
+  humanization, by slightly changing the velocity of each note of the region by
+  a random number between -19 and +19 from its original velocity. So the
+  following three operations are applied:
 </p>
 
 <ul>
-	<li>Set velocity to this note's velocity</li>
-	<li>+ a random number from 1 to 20</li>
-	<li>- a random number from 1 to 20</li>
+  <li>Set velocity to this note's velocity</li>
+  <li>+ a random number from 1 to 20</li>
+  <li>- a random number from 1 to 20</li>
 </ul>
 
 <p>
-	Each note will trigger a calculation of its own, so its velocity will be
-	increased by a random number between 1 and 20, then decreased by a random
-	number between 1 and 20.
+  Each note will trigger a unique calculation, where its velocity will be
+  increased by a random number between 1 and 20, then decreased by a random
+  number between 1 and 20. This will result in a new velocity being applied to
+  the note, which will be the original velocity plus or minus 19.
 </p>
 
 <p>
-	The properties that can be computed are:
+  The parameters that can be transformed are:
 </p>
 
 <ul>
-	<li>note number (e.g. C2 is note number 24, C#2 is 25 and <a href="@@midi-notes-ref">so on</a>)</li>
-	<li>velocity (the global intensity of the note, between 0 and 127)</li>
-	<li>start time (in beats)</li>
-	<li>length (in beats)</li>
-	<li>channel</li>
+  <li>MIDI note number (e.g. <a href="@@midi-notes-ref">C2 is note number 24,
+  C#2 is 25, etc.</a>)</li>
+  <li>MIDI velocity (the volume of the note, between 0 and 127)</li>
+  <li>start time (in beats)</li>
+  <li>length (in beats)</li>
+  <li>MIDI channel</li>
 </ul>
 
 <p>
-	and the calculation may be based on the following properties:
+  and the transformation can be based on any of the following:
 </p>
 
 <ul>
-	<li>this note's</li>
-	<li>the previous note's</li>
-	<li>this note's index (number of the note, i.e. the first one is 0, the second
-		is 1, etc.)</li>
-	<li>exactly (for a constant value, between 1 and 127)</li>
-	<li>a random number from <em>lower</em> to <em>higher</em> (<em>lower</em> and
-		<em>higher</em> being constant values between 1 and 127)</li>
-	<li>equal steps from <em>lower</em> to <em>higher</em> (<em>lower</em> and
-		<em>higher</em> being constant values between 1 and 127)</li>
+  <li>this note's</li>
+  <li>the previous note's</li>
+  <li>this note's index (number of the note, i.e. the first one is 0, the second
+  is 1, etc.)</li>
+  <li>exactly (for a constant value, between 1 and 127)</li>
+  <li>a random number from <em>lower</em> to <em>higher</em> (<em>lower</em> and
+  <em>higher</em> being constant values between 1 and 127)</li>
+  <li>equal steps from <em>lower</em> to <em>higher</em> (<em>lower</em> and
+  <em>higher</em> being constant values between 1 and 127)</li>
 </ul>
 
 <p>
-	The mathematical operators can be:
+  The mathematical operators are:
 </p>
 
 <ul>
-	<li>+ (addition)</li>
-	<li>- (subtraction)</li>
-	<li>* (multiplication)</li>
-	<li>/ (euclidian division)</li>
-	<li>mod (remainder of the euclidian division).</li>
+  <li>+ (addition)</li>
+  <li>- (subtraction)</li>
+  <li>* (multiplication)</li>
+  <li>/ (euclidian division)</li>
+  <li>mod (remainder of the euclidian division)</li>
 </ul>
 
 <p class="note">
-	All these operations can be very handy, as long as there is a mathematical way
-	to achieve the targeted goal. Beware though of odd "border cases": division by
-	zero (which does nothing), using the note's index and forgetting it starts at
-	0 and not 1, etc.
+  Keep in mind that while the Transform tool is powerful, it is not infallible.
+  Things like division by zero (which does nothing), using the note's index and
+  thinking that it starts at one (instead of zero), etc. can yield
+  unexpected results.
 <p>
 
-<p>
-	Very interesting results can nevertheless be created, like humanizing
-	(randomizing the velocity, start time and duration of all the notes), creating
-	arpeggios, automating tedious tasks, transposing, etc.
-</p>

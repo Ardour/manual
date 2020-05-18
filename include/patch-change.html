@@ -1,110 +1,91 @@
 
 <figure class="right">
-  <img src="/images/patch_change.png" alt="A patch change in a MIDI region"/>
-  <figcaption>A patch change in a MIDI region</figcaption>
+<img src="/images/patch_change.png" alt="A patch change in a MIDI region"/>
+<figcaption class="center">A patch change in a MIDI region</figcaption>
 </figure>
 
 <p>
-  A <dfn>patch change</dfn> is Ardour's description for a combination
-  of MIDI program change and bank select messages, that (typically)
-  instruct a synthesizer or sampler to select a different sound to use
-  on a particular channel.
-</p>
-<p>
-  Patch changes are shown within MIDI regions as small rectangles or
-  <dfn>flags</dfn>, with a vertical line showing where in the region
-  (hence "when") this patch change happens.
+  A <dfn>Patch Change</dfn> is Ardour's description for a combination of MIDI
+  program change and bank select messages, that typically instruct a
+  synthesizer or sampler to select a sound to use on any given channel. Patch
+  changes are shown within MIDI regions as small rectangles or
+  <dfn>flags</dfn>, with a vertical line showing where in the region the patch
+  change will occur.
 </p>
 
 <h2>Inserting Patch Changes</h2>
+
+<figure class="right">
+<img src="/images/region-midi-r-click-menu.png" alt="Region > MIDI context menu"/>
+<figcaption class="center">MIDI context menu</figcaption>
+</figure>
+
+<figure class="right">
+<img src="/images/patch-change-dlg.png" alt="Patch Change dialog"/>
+<figcaption class="center">Patch Change dialog</figcaption>
+</figure>
+
+<figure class="right">
+<img src="/images/patch-r-click-menu.png" alt="Patch Change context menu"/>
+<figcaption class="center">Patch Change context menu</figcaption>
+</figure>
+
 <p>
-  To insert a patch change, the <a href="@@edit-point-control">edit point</a>
-  should be located where the patch change should be (within an existing MIDI
-  region). When <kbd class="mouse">right</kbd> clicking, and from the MIDI
-  region's context menu, selecting <kbd class="menu">MIDI &gt; Insert Patch
-  Change</kbd>, a dialog appears allowing to set the bank and program values.
+  A patch change is inserted by first ensuring that the mouse is in <a
+  href="@@toolbox">Grab Mode</a>, then <kbd class="mouse">right</kbd>-clicking
+  on the MIDI region where the patch changed is desired, then selecting <kbd
+  class="menu">&lt;Region Name&gt; &gt; MIDI &gt; Insert Patch Change...</kbd>.
+  The desired patch is then chosen from the dialog that appears.
+<p>
+
+<p class="note">
+  Inserted patch changes always appear in the selected region at the <a
+  href="@@edit-point-control">Edit Point</a>.
 </p>
 
 <h2>Modifying Patch Changes</h2>
+
 <p>
-  Context-clicking on a patch change will bring up the same dialog that
-  was used to create it, allowing to modify the program and/or bank
-  numbers.
-</p>
-<p>
-  The mouse wheel can also be used: <kbd class="mouse">&uArr;</kbd>/<kbd
-  class="mouse">&dArr;</kbd> on the patch change will alter the program
-  number, <kbd class="mouse mod1">&uArr;</kbd>/<kbd
-  class="mouse mod1">&dArr;</kbd> will modify the bank number.
+  A patch change can be modified by <kbd class="mouse">right</kbd>-clicking on
+  it, then selecting the desired patch from the menu that appears. A patch
+  change can also be modified by hovering the mouse pointer over the patch
+  change to be modified and moving the mouse wheel until the desired program
+  number is selected. The bank number can be modified similarly by holding down
+  the <kbd class="mod3"></kbd> key while moving the mouse wheel until the
+  desired bank is selected.
 </p>
 
 <h2>Moving Patch Changes</h2>
+
 <p>
-  Just <kbd class="mouse">Left</kbd>-dragging the patch change moves it
-  around.
+  A patch change can be moved, within the region in which it resides, by <kbd
+  class="mouse">left</kbd>-clicking it and dragging it to the desired location.
 </p>
 
 <h2>Removing Patch Changes</h2>
+
 <p>
-  Pressing <kbd>Del</kbd> with the mouse pointer into the rectangular area, or
-  using the <kbd class="menu">delete</kbd> mouse button operation will remove the
-  patch change (the operation can be undone).
+  A patch change can be removed by holding down the <kbd class="mod3"></kbd> key
+  and then <kbd class="mouse">right</kbd>-clicking on it.
 </p>
 
-<h2>Names for Patch Numbers: MIDNAM files</h2>
+<h2 id="midnam">Names for Patch Numbers: MIDNAM files</h2>
+
 <p>
-  MIDNAM files assign human-redable names to the "coordinates" (MSB, LSB, pc) of
-  instruments and controls of MIDI-devices. A number of MIDNAM files come already pre-bundled
-  with Ardour. Should this not be the case for your device, you can add your own (see below).
+  MIDNAM files assign human-readable names to the "sound coordinates" (Program
+  Change, Bank Select) of MIDI synthesizers and devices. A number of MIDNAM
+  files come bundled with Ardour; if the MIDNAM for a device is not included
+  with Ardour, <a href="@@midnam-ref">a custom MIDNAM file can be created</a>
+  for device in question.
 </p>
 
 <h3>Selecting a device</h3>
+
 <p>
-  For the proper names to show up in the "Patch Selector"-dialog, you have to assign a
-  device to your current track. To do so, hover the lower border of the tracks header
-  (the mouse-cursor will change to a "resize-cursor") and expand it.
-  You'll see dropdown menus. Select your device in the menu.
+  Selecting a MIDNAM is only possible if there is no MIDI synth on the track in
+  question or the MIDI synth does not have a MIDNAM associated with it. In this
+  case, it is possible to select the desired MIDNAM from a combobox in the MIDI
+  track's header, usually directly below the track's fader. See <a
+  href="@@midi-track-controls">MIDI Track Controls</a> for more details.
 </p>
 
-<h3>Adding a custom MIDNAM-file</h3>
-<p>
-  MIDNAM-files are XML-Files. You can edit them using your favorite text-editor. When
-  doing so, please ensure to change the "Model" of the device, as Ardour will only load
-  each model once (i.e. it will skip files, if there are clashes).
-</p>
-<p>
-  After you have done modifications to a file, it is a good idea to validate it. This can
-  be done using the tool <i>xmllint</i> as shown below:
-</p>
-<pre><code class="bash">
-$ xmllint --valid --noout myfile.midnam
-$ wget http://www.midi.org/dtds/MIDINameDocument10.dtd
-$ xmllint --dtdvalid MIDINameDocument10.dtd myfile.midnam
-</code></pre>
-<p>
-  Once you are satisfied with your file, you have to put it at a location where Ardour
-  picks it up. The best place would be the (hidden) directory
-  <a href="@@files-and-directories-ardour-knows-about">Ardour configuration directory</a>
-  subdirectory patchfiles.
-  in your home-folder. Should the sub-directory <i>patchfiles</i> not exist yet, just
-  create it. The path and file-names are case-sensitive. The file should end with
-  "<i>.midnam</i>".
-</p>
-<p>
-  After restarting Ardour, hit the small Log-button in the upper right corner of the
-  main window. It should say something like
-  (this is Linux, Macos or Windows will be different):
-</p>
-<pre>[INFO]: Loading 3 MIDI patches from /home/username/.config/ardour5/patchfiles</pre>
-<p>
-  The added device should now show up in the dropdown mentioned in the previous paragraph.
-</p>
-<p>
-  Should the MIDNAM-file be useful for the general public, it would be nice to share it:
-  Fork the Ardour-project on <a href="https://github.com/Ardour/ardour">gitHub</a> by
-  hitting the "Fork"-Button. Go to the <a>patchfiles</a>-directory (and read the README).
-</p>
-<p>
-  You can upload the file using the Web-Interface. Be sure to select
-  "<i>Create a new branch for this commit and start a pull request</i>".
-</p>

@@ -1,38 +1,35 @@
+
+<h2>Navigating/Selecting notes with the keyboard</h2>
+
+<p>
+  <kbd>tab</kbd> selects the next note in a MIDI region, while <kbd
+  class="mod1">tab</kbd> selects the previous note. Holding down the <kbd
+  class="mod3"></kbd> key as well prevents previously visited notes from being
+  deselected.
+</p>
+
 <h2>Selecting notes with the mouse</h2>
+
 <p>
-	While in Draw mode or Internal Edit mode, any note can be clicked to select
-	it. Once a note has been selected, <kbd class="mouse
-	mod3">Left</kbd>-clicking on another selects all notes between them. Adding
-	or removing a note to/from the selection is done by <kbd class="mouse
-	mod1">Left</kbd> clicking it.
-</p>
-<p>
-	In any mode, <kbd class="mod3 mouse">left</kbd> clicking on a note on the
-	Scroomer (the piano header of the track, see <a
-	href="@@midi-track-controls">MIDI Track Controls</a>) will add all
-	occurrences of that note to the selection, while <kbd
-	class="mouse">middle</kbd> clicking will only select/deselect all occurences
-	of that note, clearing the selection. These Scroomer selections works on all
-	MIDI regions of the track at once.
+  While in <a href="@@toolbox">Object Mode</a>, any note can be clicked on to select it. Once a note has been selected, <kbd class="mouse mod3">left</kbd>-clicking on another note selects all notes between the first note selected and the second one. Adding or removing a note to or from the selection is done by <kbd class="mouse mod1">left</kbd>-clicking it. Clicking and dragging outside of a note will <dfn>rubberband select</dfn> any notes enclosed by the selection rectangle; holding down the <kbd class="mod3n"></kbd> key will prevent any previously selected notes from being deselected.
 </p>
 
 <p>
-  In Internal Edit mode only, <kbd class="mouse">left</kbd> clicking and dragging
-  outside of a note <dfn>rubberband selects</dfn> a series of notes.
-  <kbd class="mod3n"></kbd> rubberband selecting adds the notes to the selection.
+  In any mode, <kbd class="mod3 mouse">left</kbd>-clicking on a note on the
+  Scroomer (the piano header of the track, see <a
+  href="@@midi-track-controls">MIDI Track Controls</a>) will add all
+  occurrences of that note to the selection, while <kbd
+  class="mouse">middle</kbd>-clicking will only select/deselect all occurances
+  of that note, clearing the previous selection. Scroomer selections work on
+  all MIDI regions of a track at once.
 </p>
 
-<h2>Selecting/navigating note-by-note</h2>
-<p>
-  <kbd>Tab</kbd> selects the next note as defined by their starting time.
-  <kbd class="mod1">Tab</kbd> selects the previous note. <kbd class="mod3">Tab</kbd>
-  or <kbd class="mod13">Tab</kbd> adds the next/previous note to the selection.
-</p>
+<h2>Listening to Selected Notes</h2>
 
-<h2>Listening to selected notes</h2>
 <p>
-  If <kbd class="menu">Edit &gt; Preferences &gt; MIDI &gt; Sound MIDI notes
-  as they are selected in the editor</kbd> is enabled, Ardour will send a pair of
-  NoteOn/NoteOff messages through the track, which will typically allow to
-  hear each note as it is selected.
+  If <kbd class="menu">Edit &gt; Preferences &gt; MIDI &gt; Sound MIDI notes as
+  they are selected</kbd> is enabled, Ardour will send a pair of NoteOn/NoteOff
+  messages through the track as notes are selected. Assuming there is an
+  appropriate device or synthesizer attached to the track, these should be
+  audible.
 </p>

@@ -1,16 +1,16 @@
 
+<p class="fixme">Requires sanity checking; the section on Internal Edit mode is wrong in a few places. It seems the description of Audition Mode is incorrect with respect to scrubbing; it seems to work but not in any predictable manner.</p>
+
 <figure>
-  <img src="/images/toolbar-tools.png" alt="Editor toolbar's tools, aka toolbox">
-  <figcaption>
-    Editor toolbar's tools, aka toolbox
-  </figcaption>
+<img src="/images/toolbar-tools.png" alt="Editor toolbar's tools, aka toolbox">
+<figcaption>Editor toolbar's tools, AKA toolbox.</figcaption>
 </figure>
 
 <h2>Global Edit mode</h2>
 
 <p>
-  Ardour has a global <dfn>edit mode</dfn> selector at the left of the
-  Editing toolbar, which affect how regions are moved or copied:
+  Ardour has a global <dfn>Edit Mode</dfn> selector at the left side of the
+  Editing toolbar, which affects how regions are moved or copied:
 </p>
 
 <table class="dl">
@@ -23,7 +23,7 @@
 </table>
 
 <p>
-  Ripple Edit mode provides the following conveniences:
+  Ripple Edit mode provides the following:
   <ul>
     <li>Deleting a range will move later regions to compensate for the deleted time</li>
     <li>Deleting a region will move later regions to compensate for the deleted region's length</li>
@@ -36,76 +36,100 @@
   If <kbd class="menu">Snap To Grid</kbd> is enabled, then regions can
   only move so that they align with locations determined by the current
   snap settings (beats, or seconds, or other region boundaries, etc).
-  See <a href="@@grid-controls">Snap To the Grid</a>
-  for details.
+  See <a href="@@grid-controls">Snap To the Grid</a> for details.
 </p>
 
-<h2>The <em>Smart</em> switch</h2>
+<h2>The <em>Smart</em> mode toggle switch</h2>
 
 <p>
-  The <dfn>Smart Mode</dfn> button to the left of the mouse mode buttons
-  modifies the <dfn>Grab Mode</dfn>. When enabled, the mouse behaves as if it
-  is in "Range Mode" in the upper half of a region, and in "Grab Mode" in the
-  lower half. This allows avoiding constant switching between these two modes.
+  The <dfn>Smart Mode</dfn> toggle button (shortcut: <kbd>y</kbd>) to the left
+  of the mouse mode buttons modifies the behavior of <dfn>Grab Mode</dfn>: when
+  enabled, the mouse behaves as if it is in <dfn>Range Mode</dfn> in the upper
+  half of a region, while behaving as if it is in <dfn>Grab Mode</dfn> in the
+  lower half. This makes it possible to avoid constant switching between these
+  two modes.
 </p>
 
 <h2>Mouse Modes</h2>
 
-<table class="dl">
-  <tr><th id="object">Grab Mode</th>
-  <td>The <dfn>Grab Mode</dfn> is used for selecting, moving, deleting and
-  copying objects. When in object mode, the mouse pointer appears as a hand
-  whenever it is over the track canvas or the rulers. The mouse can now be
-  used to select and perform operations on objects such as regions, markers etc.
-  This is the most common mode to work in, as it allows you to select and move regions,
-  as well as modify automation points on the automation tracks.</td></tr>
+<p>
+  Editing <a href="@@working-with-regions">regions</a> and their contents is very complex and, by virtue of this, requires different <dfn>Mouse Modes</dfn> in order to be able to perform typical editing chores in a way that is powerful and makes sense.
+</p>
 
-  <tr><th>Range Mode</th>
-  <td>When in <dfn>Range Mode</dfn>, the mouse pointer appears as a vertical line
-  whenever it is over the track canvas or the rulers. The mouse will now be
-  able to select a point or range of time. Time ranges can be selected over
-  one or several tracks, depending on the selection of your tracks.<br>
-  If none of your tracks are selected, the Range Tool will operate on all the
-  session track visualized in the Editor.<br>
-  If you want to edit only particular tracks, select them before you apply
-  the range tool.</td></tr>
-
-  <tr><th>Cut Tool Mode</th>
-  <td>When in <dfn>Cut Tool Mode</dfn>, the mouse pointer appears as a pair of scissors
-  whenever it is over the track canvas or the rulers. This tools allows to cut
-  any region into 2 regions at the mouse cursor, regardless of the Edit Point.<br>
-  If one or more track(s) is selected, then all the regions on these tracks will
-  be split at the mouse cursor position.<br>
-  If no track is selected, then only the region hovered by the mouse cursor will
-  be split.</td></tr>
-
-  <tr><th>Stretch Mode</th>
-  <td>When in <dfn>time fx</dfn> mode, the mouse pointer appears as a
-  distinctive expanding square symbol whenever it is over the track canvas or
-  the rulers. This mode is used to resize regions using a timestretch
-  algorithm. Click on an edge of a region of audio and drag it one way or the other to
-  stretch or shrink the region.</td></tr>
-
-  <tr><th>Audition Tool</th>
-  <td>Clicking a region using the <dfn>audition tool</dfn> will play this
-  region to the control room outputs.<br>
-  You can also <dfn>scrub</dfn> with this tool by clicking and dragging in
-  the direction you wish to listen.  The amount you drag in one direction or
-  the other will determine the playback speed.</td></tr>
-
-  <tr><th>Draw Tool</th>
-  <td>When in <dfn>Draw Tool</dfn> mode, the mouse pointer will change to
-  a pencil. You can then click within an audio region to change the <dfn>gain
-  envelope</dfn> for that region. This curve is separate from fader automation
-  for individual tracks. It will remain locked to the region's time, so if the
-  region is moved, the region gain envelope is moved along with it.<br>
-  The draw tool works on automation too, allowing the creation and modification
-  of control points on the automation curves.<br>
-  Last, it is used on a MIDI region to edit the notes.</td></tr>
-
-  <tr><th>Internal/Region Edit Mode</th>
-  <td>When in <dfn>Internal Edit</dfn> mode, the mouse pointer will change to
-  cross-hairs. This tool acts on region gain and automation as the Draw tool.<br>
-  On a MIDI region, it allows to lasso-select multiple notes at a time.</td></tr>
+<table>
+  <tr><th><strong>Mode</strong></th><td><strong>Keyboard Shortcut</strong></td></tr>
+  <tr><th>Grab</th><td><kbd>g</kbd></td></tr>
+  <tr><th>Range</th><td><kbd>r</kbd></td></tr>
+  <tr><th>Cut</th><td><kbd>c</kbd></td></tr>
+  <tr><th>Stretch</th><td><kbd>t</kbd></td></tr>
+  <tr><th>Audition</th><td>None</td></tr>
+  <tr><th>Draw</th><td><kbd>d</kbd></td></tr>
+  <tr><th>Internal Edit</th><td><kbd>e</kbd></td></tr>
 </table>
+
+<p class="note">
+  Changes to the mouse pointer only occur when hovering over the track canvas;
+  the mouse pointer <em>always</em> changes to a hand in the ruler area
+  regardless of what mode is selected, and always moves the <a
+  href="@@controlling-playback">playhead</a> to the position <kbd
+  class="mouse">left</kbd>-clicked on&mdash;as long as there is no marker or other tag under the mouse position clicked on.
+</p>
+
+<h3 id="object">Grab Mode</h3>
+
+<p>
+  <dfn>Grab Mode</dfn> is used for selecting, moving, deleting and copying
+  objects. In this mode, the mouse pointer appears as a hand and can be used to select and perform various operations on objects such as regions, markers and etc. This is the most common mode to work in, as it allows the for selection and moving of <a href="@@working-with-regions">regions</a>, as well as the modification of control points in <a href="@@automation-lanes">automation lanes</a>.
+</p>
+
+<h3 id="range">Range Mode</h3>
+
+<p>
+  In <dfn>Range Mode</dfn>, the mouse pointer appears as a vertical line; <kbd class="mouse">left</kbd>-clicking on the track canvas will display the time at the position clicked on. <kbd class="mouse">left</kbd>-clicking and dragging on the track canvas will create a time range for the track clicked and dragged on; adjacent tracks can be selected as well by dragging the mouse into them. Once a time range has been defined, it can be resized by <kbd class="mouse">left</kbd>-clicking on either the left-hand or right-hand side of the range and dragging the mouse to the desired position.
+</p>
+
+<h3 id="cut">Cut Tool Mode</h3>
+
+<p>
+  In <dfn>Cut Tool Mode</dfn>, the mouse pointer appears as a pair of scissors and allows for the separation of any region into two distinct regions by <kbd class="mouse">left</kbd>-clicking at the desired point of separation. If more than one track is selected, then all the regions on the selected tracks will be split at the point clicked on. If no track is selected, then only the region hovered by the mouse cursor will be split.
+</p>
+
+<h3 id="stretch">Stretch Mode</h3>
+
+<p>
+  In <dfn>Stretch Mode</dfn>, the mouse pointer appears as an expanding square symbol and is used to resize regions using a timestretch algorithm. Resizing a region is done by <kbd class="mouse">left</kbd>-clicking on the right-hand side of the region and dragging the edge to the desired position; once the button is released a <kbd class="menu">Time Stretch Audio</kbd> dialog will appear.
+</p>
+
+<h3 id="audition">Audition Mode</h3>
+
+<p>
+  <kbd class="mouse">left</kbd>-clicking on a given region using <dfn>Audition Mode</dfn> will play the contents of that region (along with all other non-muted tracks). The regions can also be <dfn>scrubbed</dfn> by <kbd class="mouse">left</kbd>-clicking and dragging in the direction desired; the amount dragged in one direction or the other will determine the playback speed.
+</p>
+
+<h3 id="draw">Draw Mode</h3>
+
+<p>
+  In <dfn>Draw Mode</dfn>, the mouse pointer will change to a pencil; the effect it will have depends on the type of track or region it is utilized in.
+</p>
+
+<p>
+  In an <a href="@@audio-track-controls">audio track</a>, a green line will appear in the region which is that region's <a href="@@gain-envelopes"><dfn>gain envelope</dfn></a>. <kbd class="mouse">left</kbd>-clicking anywhere in a given region between two existing <dfn>control points</dfn> will add one to the region at the X-coordinate clicked on with the Y-coordinate being on the line connecting the control points on either side of the new one. <kbd class="mouse">left</kbd>-clicking on a control point will allow it to be moved to any point in the region in between the control points that bound it on either side of itself. And finally, <kbd class="mouse">left</kbd>-clicking on a control point and pressing the <kbd>delete</kbd> key or holding down the <kbd class="mod3n"></kbd> key while <kbd class="mouse">right</kbd>-clicking on it will delete the control point.
+</p>
+
+<p>
+  In an <a href="@@automation-lanes">automation lane</a>, if any automation is defined in it, a green line connecting its control points will appear in the lane. Control points in the lane are manipulated in exactly the same way as they are in a region's gain envelope (see previous paragraph for details).
+</p>
+
+<p>
+  In a <a href="@@midi-track-controls">MIDI track</a>, if the mouse is <kbd class="mouse">left</kbd>-clicked in a part of the track that has no region, a region one bar long will be created. If the mouse is dragged after being <kbd class="mouse">left</kbd>-clicked in a part of the track that has no region, a region of arbitrary length will be created by releasing the mouse at the desired length.
+  l-click in region depends on note mode, sustained inserts note with length of snap grid(?) while percussive enters a diamond; l-click & drag draws note of arb. length in sustained while percussive draws a succession of diamonds in the dragged area, # & type depend on grid & divisions.
+</p>
+
+<h3 id="edit-internal">Internal Edit Mode</h3>
+
+<p>
+  In <dfn>Internal Edit Mode</dfn>, the mouse pointer will change to
+  cross-hairs. This tool acts on region gain and automation as the Draw tool.
+  On a MIDI region, it allows to lasso-select multiple notes at a time.
+</p>
 

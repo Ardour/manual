@@ -1,5 +1,5 @@
 
-<figure>
+<figure class="right">
   <img src="/images/midi-list-editor.png" alt="The MIDI List Editor window">
   <figcaption>
     The MIDI List Editor window
@@ -9,38 +9,43 @@
 <p>
   The <dfn>List Editor</dfn> is a way to look at the MIDI data of a region, not
   graphically as they are displayed in the Editor, but in a tabular form.
-  This way of seeing the MIDI data allows for a quicker "debugging" of a MIDI region,
-  and for a fast <em>non-graphical</em> (i.e. no mouse involved) editing. This
-  list has a vertical flow, i.e. the first events (in time) are on the top
-  of the window, and the latest are at its bottom.
+  This way of seeing the MIDI data allows for quicker "debugging" of a MIDI
+  region, and for fast <em>non-graphical</em> (i.e. no mouse involved)
+  editing. The list has a vertical flow, i.e. the first events (in time) are
+  at the top of the window, and the last are at the bottom.
 </p>
+
 <p>
-  It is accessed by selecting the <kbd class="menu">Region &gt; MIDI &gt; List Editor&hellip;</kbd>
-  menu while having one MIDI region selected, or by <kbd class="mouse">Right</kbd>
-  clicking the MIDI region and choosing <kbd class="menu"><em>Name_Of_The_Region</em>
-  &gt; MIDI &gt; List Editor&hellip;</kbd>
+  It is accessed by selecting the <kbd class="menu">Region &gt; MIDI &gt; List
+  Editor&hellip;</kbd> menu while having one MIDI region selected, or by <kbd
+  class="mouse">Right</kbd> clicking the MIDI region and choosing <kbd
+  class="menu"><em>Name_Of_The_Region</em> &gt; MIDI &gt; List
+  Editor&hellip;</kbd>.
 </p>
+
 <p>
   The window displays the following MIDI data:
 </p>
+
 <table class="dl">
   <tr><th>Start</th><td>the timestamp of the start of the note</td></tr>
   <tr><th>Channel</th><td>the MIDI channel of the event</td></tr>
   <tr><th>Num</th><td>The <a href="@@midi-notes-ref">MIDI number</a> of the note</td></tr>
   <tr><th>Name</th><td>The MIDI name of the note, made of its English name and octave (e.g. "C4")</td></tr>
-  <tr><th>Vel</th><td>the velocity of the note (i.e. its intensity, between 0 and 127)</td></tr>
+  <tr><th>Vel</th><td>the velocity of the note, i.e. its volume, between 0 (silent) and 127 (full)</td></tr>
   <tr><th>Length</th><td>duration of the note, either expressed as a number (in ticks, related to the tempo) or as a text
   (fraction of a beat, also related to the tempo)</td></tr>
 </table>
 
 <p>
-  At the top of the window is a <kbd class="menu">Sound Selected MIDI Notes</kbd>,
-  which is a toggle button allowing to listen to a note as it is selected.
+  At the top of the window is a <kbd class="menu">Sound Selected MIDI
+  Notes</kbd> button, which toggles playing a note as it is selected.
 </p>
 
 <p>
-  Each value can be manually modified, by <kbd class="mouse">Left</kbd> clicking it.
-  The Name field is related to the Number one, and cannot be edited. To change a
-  note, its number must be changed, which will be reflected in the Name field.
+  Each value can be manually modified, by <kbd class="mouse">left</kbd>
+  clicking it. However, the <em>Name</em> field is derived from the
+  <em>Number</em> field, and cannot be edited. To change a note, its number
+  must be changed, which will be reflected in the <em>Name</em> field.
 </p>
 

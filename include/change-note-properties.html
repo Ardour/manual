@@ -1,23 +1,20 @@
 
 <p>
-  All the details about a selected note can be viewed by context-clicking on
-  it. The dialog that pops up will also allow to modify all the properties
-  of the selected note(s). Individual properties can also be modified more efficiently
-  using the techniques described below.
+  All details about selected notes can be viewed by context-clicking on them. The dialog that pops up also allows for the modification of all properties of the selected notes. Individual properties can also be modified more efficiently using the techniques described below:
 </p>
 
 <table class="dl">
   <tr><th>Moving notes</th>
   <td>
-    Right arrow and Left arrow move the selected note(s) early and later in time.
+    <kbd>&larr;</kbd> and <kbd>&rarr;</kbd> move selected notes earlier and later in time.
   </td></tr>
   <tr><th>Changing pitch values</th>
   <td>
-    <kbd>&uarr;</kbd> increases the pitch of the selected notes.<br>
-    <kbd>&darr;</kbd> reduces the pitch of the selected notes.<br>
-    If any of the selected notes are already at the maximum or minimum value,
-    no changes will be made to any of the notes, to preserve relative pitches.
-    This can be overrode with <kbd class="mod2"> </kbd>. The default shift
+    <kbd>&uarr;</kbd> raises the pitch of the selected notes.<br>
+    <kbd>&darr;</kbd> lowers the pitch of the selected notes.<br>
+    If any of the selected notes are already at their minimum or maximum values,
+    no changes will be made to any them, to preserve their relative pitches.
+    This can be overridden with <kbd class="mod2"> </kbd>. The default shift
     distance is one semitone. <kbd class="mod3"> </kbd> alters this to
     one octave.
   </td></tr>
@@ -27,24 +24,23 @@
     <br/>
     <kbd class="mod1">&darr;</kbd> reduces the velocity of the selected
     notes.<br>
-    If any of the selected notes are already at the maximum or minimum value,
-    no changes will be made to any of the notes, to preserve relative velocities.
-    This can be overrode with <kbd class="mod2"> </kbd>.
-    Also, pressing <kbd>v</kbd> pops up a dialog that will allow to set
-    the absolute velocity value of each selected note. Finally, the scroll wheel
+    If any of the selected notes are already at their minimum or maximum values,
+    no changes will be made to them, to preserve their relative velocities. This can be overridden with <kbd class="mod2"> </kbd>.
+    Also, pressing <kbd>v</kbd> pops up a dialog that allows setting
+    the absolute velocity value of all selected notes. Finally, the scroll wheel
     <kbd class="mouse">&uArr;</kbd> <kbd class="mouse">&dArr;</kbd> will also
-    adjust notes in the same way as the arrow keys (note that like the arrow keys
-    it only affects selected notes, not the note the pointer is over).
+    adjust notes in the same way as the arrow keys (note that, like the arrow keys,
+    it only affects selected notes&mdash;not the note the pointer is over).
   </td></tr>
   <tr><th>Changing channel</th>
   <td>
-    Pressing <kbd>c</kbd> brings up a dialog that allows to see and alter the
+    Pressing <kbd>c</kbd> brings up a dialog that allows viewing and/or altering the
     MIDI channel of the selected notes. If the selected notes use different
     channels, they will all be forced to the newly selected channel.
   </td></tr>
   <tr><th>Changing start/end/duration</th>
   <td>
-    <kbd>,</kbd> (comma) will alter the start time of the note. <br>
+    <kbd>,</kbd> (comma) will alter the start time of the note.<br>
     <kbd>.</kbd> (period) will alter the end time of the note. Both keys will by
     default make the note longer (either by moving the start earlier or the end
     later). For the opposite effect, <kbd class="mod1">,</kbd>/<kbd
@@ -57,12 +53,12 @@
     <kbd>q</kbd> will quantize the selected notes using the current quantize
     settings. If the quantize settings have not been set for this session yet,
     the quantize dialog will appear. <kbd class="mod2">q</kbd> will display the
-    quantize dialog to allow to reset the quantize settings, and then
-    quantizes the selected notes. The default quantize settings are: quantize
+    quantize dialog to allow editing the current quantize settings, and then
+    will quantize the selected notes. The default quantize settings are: quantize
     note starts to the current grid setting, no swing, no threshold, full
     strength.
   </td></tr>
-  <tr><th>Step Entry, Quantize etc.</th>
+  <tr><th>Step Entry, Quantize, etc.</th>
     <td>Refer to the <a href="@@step-entry">Step Entry</a>, <a
     href="@@quantize-midi">Quantizing MIDI</a>, etc. specific pages.</td></tr>
 </table>

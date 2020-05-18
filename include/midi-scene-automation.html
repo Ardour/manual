@@ -1,4 +1,6 @@
 
+<p class=fixme>ADD IMAGES PLEASE</p>
+
 <p>
   Ardour is capable of being used to both record and deliver MIDI "scene"
   automation. These are MIDI messages typically used to switch presets or
@@ -7,12 +9,14 @@
   presets between songs or to change lighting conditions based on a specific
   position on the timeline.
 </p>
+
 <p>
   Each change from one scene to another is represented by a marker in
   the "Marker" bar.
 </p>
+
 <p>
-  Technically, scene changes are delivered as a combination of bank and
+  Typically, scene changes are delivered as a combination of bank and
   program change MIDI messages. MIDI allows for 16384 banks, each with
   128 programs.
 </p>
@@ -24,16 +28,19 @@
   be done by connecting this port to whatever source(s) of MIDI scene (bank/program
   change) messages should be recorded.
 </p>
+
 <p>
   Whenever the global record enable button is engaged and Ardour's
   transport is rolling, a new marker will be created for each scene
   change message received via the "Scene In" port.
 </p>
+
 <p>
   If two different scene changes are received within a certain time
   period, only the later one will be recorded as a new marker. The
   default threshold for this is 1 millisecond.
 </p>
+
 <p>
   If a scene change message is received while the playhead is close to
   an existing marker with an associated scene change, the recording
@@ -55,6 +62,7 @@
   changes can be done by connecting this port to whatever target(s) of MIDI
   scene (bank/program change) messages should be sent to.
 </p>
+
 <p>
   When the global record enable button is <em>not</em> enabled, the relevant
   message(s) will be sent via the "Scene Out" port as the playhead rolls past
@@ -72,3 +80,4 @@
 <p>
   This feature is not currently implemented.
 </p>
+
