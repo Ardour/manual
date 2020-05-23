@@ -6,27 +6,44 @@
 	</figcaption>
 </figure>
 
-<p>
-  Ardour's editor utilizes a <dfn>grid</dfn> to assist in the placement of regions
-  on the timeline, or with editing functions that need to happen at a specific
-  point in time. This <dfn>snapping</dfn> of the cursor and various objects to the
-  grid can be toggled on or off, as does its behaviour, and grid units.
-</p>
+
+
+
+<h2> What is “Snap” and “Grid”?</h2>
+
+“Snap” will cause drags and other mouse-driven operations to jump to
+positions determined by the nearest snap setting.  Snap can be set to
+multiple options: markers, region start/ends, and the grid. ( those
+are all enabled by default. change them in prefs )
+
+Grid can be enabled, and it will draw lines at selected intervals;
+which can be musical, like 16th notes, or can be timecode based
+(minutes and seconds) . You can leave the Grid enabled, but snap
+disabled, if you just want to see the lines but not snap to them.
+
+For example: if the Grid is set to “beats” and Snap-to-grid is
+enabled, then any operations such as split, paste, or range-select
+will happen exactly on a beat, according to the musical timeline and
+tempo.
+
+Alternatively, you can leave “Snap” enabled (so your mouse actions
+can snap to Markers, or region edges) but disable the Grid.
 
 <h2>About Snapping</h2>
 
 <p>
-  There are two ways to think about aligning material to a grid. The first and
-  most obvious one is where an object's position is clamped to grid lines. In
-  Ardour, this is called <dfn>absolute snap</dfn> and is commonly used when
-  working with sampled material where audio begins exactly at the beginning of a
-  file, note or region.
+  There are two ways to think about aligning material. The first and
+  most obvious one is where an object's position is clamped to the
+  snap positions. In Ardour, this is called <dfn>absolute snap</dfn>
+  and is commonly used when working with sampled material where audio
+  begins exactly at the beginning of a file, note or region.
 </p>
 
 <p>
-  The second, <dfn>relative snap</dfn>, is used when an object's position relative
-  to the grid lines is important. In music, this allows to move objects around
-  without changing the "feel" (or timing) of a performance.
+  The second, <dfn>relative snap</dfn>, is used when an object's
+  position relative to the snap positions is important. In music, this
+  allows to move objects around without changing the "feel" (or
+  timing) of a performance.
 </p>
 
 <p>
@@ -63,6 +80,18 @@
   otherwise unused key. For example, the snap modifier may be chosen to be the
   <kbd class="mod2n"></kbd> key and the relative snap modifier to be the <kbd
   class="mod2n"></kbd> and <kbd class="mod4n"></kbd> keys.
+</p>
+
+
+<h2>A Warning, of sorts</h2>
+
+<p class="warning">
+The grid consist of lines running vertically in the edit canvas. If
+you zoom too far out, you might see a coarser grid than you
+expect. Ardour tries not to show “too many” or “too few” grid lines
+depending on the zoom level. You might find that items snap in-between
+the grid lines sometimes. That’s expected behavior. If you can’t see
+or snap to the grid you’d like to use, you may have to zoom in or out.
 </p>
 
 <h2>Snap Modes</h2>
