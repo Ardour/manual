@@ -123,6 +123,29 @@ bindings"&gt;
   <code>pgm</code>  (to create a binding for a Program Change message).
 </p>
 <p>
+	Continous Controlers (CCs) have coninued to evolve for different controlers.
+	The use of Encoders, RPN, NRPN, and controller buttons that give a 0 value
+	when released instead of toggling are now supported. These all have their
+	own type. The whole list of CC types are:
+</p>
+<p>
+	<ul>
+		<li>ctl - sets as CC to the value sent (works the same as
+		<code>note</code> with the <code>momentary</code>parameter set)</li>
+		<li>ctl-toggle - for CC controls that send a 127 for button press
+		and 0 for button release. The release is ignored and the value is
+		toggled with each press. (works the same as <code>note</code>)</li>
+		<li>ctl-dial - passes the CC value to the controlled object</li>
+		<li>rpn - The CC value may be a 14 bit value</li>
+		<li>nrpn - The CC number and the value may both be 14 bit values</li>
+		<li>rpn-delta - The value is expected to be a signed 14bit value
+		that is added to the current value. For use with encoders</li>
+		<li>nrpn-delta - The value is expected to be a signed 14bit value
+		that is added to the current value. For use with encoders</li>
+		<li>enc-r, enc-l, enc-2 and enc-b - See below</li>
+	</ul>
+</p>
+<p>
   As of Ardour 4.2, <code>enc-r</code>, <code>enc-l</code>, <code>enc-2</code> and
   <code>enc-b</code> may be used for surfaces that have encoders that send
   offsets rather than values. These accept Continuous Controller messages
