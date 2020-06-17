@@ -80,7 +80,6 @@ def ParseHeader(fileObj):
 # Turn a "part" name into an int
 #
 def PartToLevel(s):
-	level = -1
 	lvl = {'part': 0, 'chapter': 1, 'subchapter': 2}
 	if s in lvl:
 		return lvl[s]
@@ -362,7 +361,7 @@ def BuildOnePageSidebar(fs):
 		level = fs[i]['level']
 		if level < 2:
 			levelNums[2] = 0
-		levelNums[level] = levelNums[level] + 1;
+		levelNums[level] = levelNums[level] + 1
 		j = level
 		txtlevel = ''
 		while j > 0:  #level 0 is the part number which is not shown
@@ -504,7 +503,7 @@ for header in fileStruct:
 	# Handle Part/Chapter/subchapter numbering
 	if level < 2:
 		levelNums[2] = 0
-	levelNums[level] = levelNums[level] + 1;
+	levelNums[level] = levelNums[level] + 1
 
 	# This is totally unnecessary, but nice; besides which, you can capture
 	# the output to a file to look at later if you like :-)
@@ -521,7 +520,7 @@ for header in fileStruct:
 
 	# Handle TOC scriblings...
 	if level == 0:
-		toc = toc + '<h2>Part ' + num2roman(levelNums[level]) + ': ' + header['title'] + '</h2>\n';
+		toc = toc + '<h2>Part ' + num2roman(levelNums[level]) + ': ' + header['title'] + '</h2>\n'
 	elif level == 1:
 		toc = toc + '\t<p class="chapter">Ch. ' + str(levelNums[level]) + ':&nbsp;&nbsp;<a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
 	elif level == 2:
@@ -533,7 +532,7 @@ for header in fileStruct:
 		opl = ' id="' + header['link'] + '"'
 	else:
 		opl = ' id="' + header['filename'] + '"'
-	oph = '<h' + str(level+1) + ' class="clear"' + opl +'>' + header['title'] + '</h' + str(level+1) + '>\n';
+	oph = '<h' + str(level+1) + ' class="clear"' + opl +'>' + header['title'] + '</h' + str(level+1) + '>\n'
 
 
 	# Make the 'this thing contains...' stuff
@@ -576,11 +575,12 @@ for header in fileStruct:
 	# but the basic fundamental organizing unit WRT content is still the
 	# chapter.
 	githubedit = ''
+	themechanger = '<span style="float:right;padding: 0 5px 5px 5px;"><button class="theme-changer" onclick="changetheme()" title="Change Theme"></button></span>'
 
 	if level > 0:
 		if 'include' in header:
 			srcFile = open('include/' + header['include'])
-			githubedit = '<span style="float:right;"><a title="Edit in GitHub" href="' + global_githuburl + header['include'] + '"><img src="/images/github.png" alt="Edit in GitHub"/></a></span>'
+			githubedit = '<span style="float:right;padding:5px;"><a class="github-link" title="Edit in GitHub" href="' + global_githuburl + header['include'] + '"></a></span>'
 			content = srcFile.read()
 			srcFile.close()
 
@@ -642,6 +642,7 @@ for header in fileStruct:
 	page = page.replace('{% tree %}', sidebar)
 	page = page.replace('{% prevnext %}', prevnext)
 	page = page.replace('{% githubedit %}', githubedit)
+	page = page.replace('{% themechanger %}', themechanger)
 	page = page.replace('{% breadcrumbs %}', breadcrumbs)
 	page = page.replace('{{ content }}', content + more)
 
@@ -667,6 +668,7 @@ page = page.replace('{% tree %}', sidebar)
 page = page.replace('{{ content }}', toc)
 page = page.replace('{% prevnext %}', '')
 page = page.replace('{% githubedit %}', '')
+page = page.replace('{% themechanger %}', themechanger)
 page = page.replace('{% breadcrumbs %}', '')
 
 os.mkdir(global_site_dir + 'toc', 0o775)

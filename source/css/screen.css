@@ -236,3 +236,95 @@ kbd.cmd {
 
 /* for images sliced in divs, as in http://manual.ardour.org/ardours-interface/about/ */
 .hoverimg:hover{ z-index:100; box-shadow: 0 0 .2em .2em lightgreen; }
+
+.for-green {
+  color:darkgreen;
+}
+
+.for-red {
+  color:darkred;
+}
+
+.github-link {
+  background-image: url(/images/github.png);
+  background-size: 32px 32px;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+}
+
+.theme-changer {
+  background:none;
+  background-image: url(/images/contrast.png);
+  background-size: 32px 32px;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  border:none;
+  margin-left: -5px;
+}
+
+/* dark theme */
+body.dark-theme #content {
+  background-color: #222222;
+  color: #f7f1ff;
+  min-height: 100vh;;
+}
+
+body.dark-theme #content #luaref table.classmembers td.doc div.dox,
+body.dark-theme #content div.note,
+body.dark-theme #content p.well,
+body.dark-theme #content p.note {
+  background-color: #323132;
+}
+
+body.dark-theme #content #luaref h3.pointerclass,
+body.dark-theme #content #luaref h3.class,
+body.dark-theme #content #luaref h3.array,
+body.dark-theme #content #luaref h3.enum  {
+  color: black;
+}
+
+body.dark-theme #content figure img,
+body.dark-theme #content kbd.menu,
+body.dark-theme #content kbd.option,
+body.dark-theme #content kbd.optoff,
+body.dark-theme #content kbd.input {
+  background-color: white;
+}
+
+body.dark-theme #content .warning {
+background-color: #995555;
+}
+
+body.dark-theme #content table tr:nth-child(2n+1) {
+  background-color: #191919;
+}
+
+body.dark-theme #content table tr:nth-child(2n) {
+  background-color: #222222;
+}
+
+body.dark-theme #content kbd.cmd.lin::before {
+  color: darkgreen;
+}
+
+body.dark-theme #content .github-link {
+  background-image: url(/images/github-light.png);
+}
+
+body.dark-theme #content .theme-changer {
+  background-image: url(/images/contrast-light.png);
+}
+
+body.dark-theme #content .for-green {
+  color:lightgreen;
+}
+
+body.dark-theme #content .for-red {
+  color:lightcoral;
+}
+
+body.dark-theme #content .fixme {
+  background-color: rebeccapurple;
+}
