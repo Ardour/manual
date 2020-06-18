@@ -43,7 +43,7 @@
 		64: Monitor.
 	</li>
 	<li>
-		128: Audio Aux.
+		128: FoldbackBusses.
 	</li>
 	<li>
 		256: Selected.
@@ -68,6 +68,7 @@
 	or the control should only affect the strip the control is applied to.
 	The <code>/use_group f state</code> command can be used to temporarily
 	change this on the fly.
+</p>
 <p>
   Some handy numbers to use might be: 15 (all tracks and busses -
   1 + 2 + 4 + 8), 31
@@ -77,24 +78,71 @@
   surface with just a bank of fader strips, adding master or monitor
   would allow access to them within the banks. Selected would be useful
   for working on a group or a set of user selected strips. Hidden shows
-  strips the GUI has hidden.
-</p>
-<p class-"note">
-  Audio Aux? say what? I am sure most people will have noticed that they
-  can find no <em>Aux</em> strips in the Ardour mixer. There are none.
-  There are busses that can be used a number of ways. From analog days,
-  in OSC, a bus is something that gets used as a sub mix before ending up
-  going to Master. An auxiliary bus is used like a separate mixer and
-  its output goes outside the program or computer to be used as:
-  a monitor mix, a back up recording, or what have you. In OSC where
-  controller strips may be limited, it may be useful not to use up a
-  strip for an aux that is not really a part of the mix. It is also
-  useful to get a list of only aux busses if the control surface is a
-  phone used to provide talent monitor mix control on stage. Each
-  performer would be able to mix their own monitor. The user is free
-  to enable both busses and auxes if they would prefer.
-</p>
+  strips the GUI has hidden. As such, a control surface will likely have
+  a number of buttons with different strip_types for convenience.
+  <ul>
+	  <li>
+		Mixer - All strip types <kbd class="osc">/set_surface/strip_types 159</kbd>
+	  </li>
+	  <li>
+		Audio Tracks - Just Audio tracks that can record <kbd class="osc">/set_surface/strip_types 1</kbd>
+	  </li>
+	  <li>
+		MIDI Tracks - Tracks with at least 1 MIDI input that can record
+		<kbd class="osc">/set_surface/strip_types 2</kbd>
+	  </li>
+	  <li>
+		Busses - A mix of all busses, possibly including VCAs
+		<kbd class="osc">/set_surface/strip_types 156</kbd>
+	  </li>
+	  <li>
+		Selected - All strips that are currently selected
+		<kbd class="osc">/set_surface/strip_types 256</kbd>
+	  </li>
+	  <li>
+		Hidden - All hidden strips <kbd class="osc">/set_surface/strip_types 512</kbd>
+	  </li>
+	  <li>
+		Custom - see <a href="@@osc58-custom-strips">
+		Making a user selected strip list.</a>
+		<kbd class="osc">/strip/custom/mode 1</kbd>
+	  </li>
 
+  </ul>
+</p>
+<h3 id="hidden">Using hidden strips</h3>
+<p>
+	Ardour allows any of it's strips to be hidden so that they do not show
+	up on the GUI mixer or editor. OSC follows the GUI by default and will
+	not show hidden strips. As of Ardour 6.0 the OSC commands include
+	<kbd class="osc">/select/hide <em>y/n</em></kbd> for the selected
+	strip and <kbd class="osc">/strip/hide <em>ssid</em> <em>y/n</em></kbd>
+	for any strip. This allows the control surface to hide or unhide a strip.
+	What may not be obvious is that hiding a strip makes it disappear and
+	become unselected. So if a selected strip is hidden, it is no longer
+	selected and the select channel will show the default select strip
+	(Master). In order to show a hidden strip, the hidden strips need to
+	be shown first using the <kbd class="osc">/set_surface/strip_types 512</kbd>
+	command to show only hidden strips. Then use the
+	<kbd class="osc">/strip/hide <em>SSID</em> 0</kbd> or
+	<kbd class="osc">/select/hide 0</kbd>
+	to show that strip. Of course, because only hidden strips are showing,
+	the strip you have set to no long hide will seem to vanish. A
+	<kbd class="osc">/set_surface/strip_types 159</kbd> will then show
+	the default strip types or replace the 159 with the desired strip_types.
+</p>
+<p class="note">
+	When hiding more than one strip in a row, check the strip name before
+	hiding as the strips will move as each strip is hidden just as it does
+	with the GUI mixer. So to hide strips 5, 6 and 7, the hide button
+	for <code>ssid</code> 5 is pressed 3 times. A more intuitive method
+	would be to hide strips from right to left (7, 6 and 5) which will
+	work as expected.
+<p>
+	In short, shown strips can only be hidden when they are viewable and
+	hidden strip can only shown (or un-hid) when strip_types include hidden
+	strips.
+</p>
 <h2 id="feedback">feedback</h2>
 <p>Feedback is an integer made up of bits. The easy way to
   deal with this is to think of feedback items being worth a number and

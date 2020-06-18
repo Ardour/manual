@@ -1,47 +1,53 @@
 
-<p>A typical <dfn>MIDI track header</dfn> looks like this:</p>
+<p class=fixme>Item #3 below does not hold in all cases; check to make sure the rest of the content is sane as well</p>
+
 <figure>
-    <img src="/images/typical-midi-track-controls.png" alt="A MIDI track header">
-    <figcaption>
-      A MIDI track header
-    </figcaption>
+<img src="/images/typical-midi-track-controls.png" alt="A MIDI track header">
+<figcaption class="center">MIDI track header, stretched to show normally hidden controls.</figcaption>
 </figure>
 
 <p>
-  To show the full set of MIDI track controls, the <a href="@@track-height">track height</a>
-  must be increased beyond the default. MIDI tracks show only a few of the control elements
-  when there is insufficient vertical space.
+  A MIDI track has the same basic controls as an <a
+  href="@@audio-track-controls">audio track</a>, with the following
+  differences:
 </p>
-<p>
-  A MIDI track has the same basic controls as an <a href="@@audio-track-controls">audio track</a>,
-  with the addition of three extra elements:
-</p>
+
 <ol>
-  <li>Some meters for the track's outputs (MIDI in <span style="color:red;">red</span>,
-    Audio in <span style="color:green;">green</span>)</li>
-  <li>The <dfn>Scroomer</dfn>, a zoom and scroll controller for the midi notes range</li>
-  <li>When the track is tall enough, the External MIDI Device selection dropdown appears.</li>
+  <li>The level meters for the track's outputs show MIDI output in <span
+  style="color:red;">red</span>, on the left; Audio output in <span
+  style="color:green;">green</span>, on the right</li>
+  <li>The <dfn>Scroomer</dfn>, a combined scroll and zoom widget for
+  controlling MIDI notes display range, is unique to MIDI tracks</li>
+  <li>An External MIDI Device combobox can appear, for selecting <a
+  href="@@patch-change#midnam">MIDNAMs</a></li>
+  <li>An External Device Mode combobox can appear, for selecting an external
+  device's mode</li>
 </ol>
 
-<p>
-	Also, <kbd class="mouse">right</kbd> clicking the <kbd style="color:red;">&#9679;</kbd>
-	(record) button shows the <a href="@@step-entry">Step Entry</a> dialog instead of
-	controlling the rec-safe.
+<p class="note">
+  To show the full set of MIDI track controls, the <a
+  href="@@track-height">track height</a> must be increased beyond the default
+  height. MIDI tracks will show only a few of the control elements when there
+  is insufficient vertical space. Further, the External MIDI Device and
+  External Device Mode comboboxes will <strong>not</strong> appear if there is
+  a synth plugin on the track that comes with an associated <a
+  href="@@patch-change#midnam">MIDNAM</a>.
 </p>
 
 <h2>The Scroomer</h2>
 
 <p>
-  The Scroomer performs a couple of functions:
+  The Scroomer performs the following functions:
 </p>
+
 <ul>
   <li>The scrollbar controls the range of pitches that are visible on the
-    track, as visualized by the piano keyboard. Dragging the body of the scrollbar up
-    and down displays higher or lower pitches.</li>
-  <li>Dragging the scrollbar handles zooms in and out and increases or decreases the
-    range of visible pitches.</li>
+  track, as visualized by the piano keyboard. Dragging the body of the
+  scrollbar up and down displays higher or lower pitches.</li>
+  <li>Dragging the scrollbar handles zooms in and out and increases or
+  decreases the range of visible pitches.</li>
   <li>Double clicking the scrollbar auto-adjusts the zooms to make the range of
-    visible pitches fit the actual content of the track.</li>
+  visible pitches fit the actual content of the track.</li>
   <li>Clicking on the piano plays the corresponding MIDI note for reference.</li>
   <li><kbd class="mouse mod3">left</kbd> clicking on a note adds the note to the
 		selection (for all regions on the track). See <a href="@@note-selection">Note
@@ -50,61 +56,93 @@
 		only the note.</li>
 </ul>
 
-<h2>Channel and patch selection</h2>
+<h2>Channel and Patch Selection</h2>
 
 <h3>The Channel Selector</h3>
 
 <figure class="right">
-    <img class="mini" src="/images/midi_channel_control.png" alt="The MIDI channel control window">
-    <figcaption>
-      The MIDI channel control window
-    </figcaption>
+<img src="/images/midi-chan-sel-dlg.png" alt="The MIDI channel control window">
+<figcaption class="center">The MIDI channel control window.</figcaption>
 </figure>
 
 <p>
-  A MIDI track's data may span any number of the 16 available MIDI channels, and sometimes it is
-  useful to view only a subset of those channels; different instruments may,
-  for example, be put on different channels. In the context menu (<kbd class="mouse">right</kbd> click),
-  the <kbd class="menu">Channel Selector</kbd> allows to control the <dfn>MIDI channel</dfn>(s)
-  that will be visible in the editor.
+  A MIDI track's data may utilize any number of the 16 available <dfn>MIDI channels</dfn>, and it is useful to be able to filter out a subset of those or force the input or output to utilize only certain channels. The Channel Selector dialog allows for filtering or modification of both the input and output of any given MIDI track.
 </p>
 
 <p>
-  This window also gives control over which channel(s) will be recorded, and which will be played back, choosing between:
+  The Channel Selector dialog is activated by <kbd class="mouse">right</kbd>-clicking on a MIDI track's header and selecting <kbd class="menu">Channel Selector...</kbd> from the menu that appears. Filtering or modification of Inbound MIDI events for the given MIDI track is done by selecting among:
 </p>
 
 <ul>
-  <li>All channels</li>
-  <li>Only selected channels &mdash;Ardour then proposes to choose amongst the 16 channels which are to be recorded/played</li>
-  <li>Force all to one channel &mdash;Ardour then 'routes' all the channels to one user selectable channel.</li>
+  <li><kbd class=menu>Record only selected channels</kbd></li>
+  <li><kbd class=menu>Force all channels to 1 channel</kbd></li>
 </ul>
+
+<p class="note">
+  Selecting <kbd class=menu>Record all channels</kbd> does no filtering of inbound MIDI events.
+</p>
+
+<p>
+  If simple filtering of incoming MIDI events is desired, <kbd class=menu>Record only selected channels</kbd> should be selected. A 1-by-16 grid of squares with numbers in them will become sensitive to mouse clicks, and the desired channels to be allowed through the filter can then be selected by clicking on them. Channels that are allowed to pass through will be highlighted in green.
+</p>
+
+<p>
+  <kbd class=menu>Force all channels to 1 channel</kbd> will rewrite the channel number of all incoming events of the selected MIDI track to whichever channel is highlighted in the 1-by-16 grid of squares. When this option is chosen, one and only one channel can be selected.
+</p>
+
+<p>
+  Filtering or modification of outbound MIDI events is done by selecting among:
+</p>
+
+<ul>
+  <li><kbd class=menu>Play only selected channels</kbd></li>
+  <li><kbd class=menu>Use a single fixed channel for all playback</kbd></li>
+</ul>
+
+<p class="note">
+  Selecting <kbd class=menu>Playback all channels</kbd> does no filtering of outbound MIDI events.
+</p>
+
+<p>
+  Simple filtering of outgoing MIDI events is done similarly to simple filtering of incoming MIDI events, and is done by selecting <kbd class=menu>Play only selected channels</kbd>. Also similarly to the incoming case, <kbd class=menu>Use a single fixed channel for all playback</kbd> will rewrite the channel number of all outgoing events of the selected MIDI track to whichever channel is selected.
+</p>
+
+<p>
+  When either <kbd class=menu>Record only selected channels</kbd> or <kbd class=menu>Playback only selected channels</kbd> is selected, a group of three buttons, each appearing below their respective 1-by-16 grids, will become sensitive to mouse clicks. They perform the following functions:
+</p>
+
+<table>
+<tr>
+  <th>All</th>
+  <td>Selects all the channels in the 1-by-16 grid above it; all the squares become lit with green</td>
+</tr>
+<tr>
+  <th>None</th>
+  <td>Deselects all the channels in the 1-by-16 grid above it; all the squares become unlit</td>
+</tr>
+<tr>
+  <th>Invert</th>
+  <td>Any channel in the 1-by-16 grid that is lit green becomes unlit, and any unlit channel becomes lit with green</td>
+</tr>
+</table>
 
 <h3 class="clear">The Patch Selector</h3>
 
 <figure class="left">
-    <img class="mini" src="/images/patch_selector.png" alt="The Patch Selector window">
-    <figcaption>
-      The Patch Selector window
-    </figcaption>
+<img class="mini" src="/images/midi-patch-selector.png" alt="The Patch Selector window">
+<figcaption class="center">The Patch Selector window.</figcaption>
 </figure>
 
+<a href="@@patch-change"></a>
 <p>
-  The Patch Selector window is an easy way to set which instrument will be used on any of the MIDI channels.
-  Although patches can be changed at any time using a <a href="@@patch-change">patch change</a>, this dialog
-  provides an easy and convenient way to preview patches in software and hardware instruments. It
-  integrates fully with Ardour's support for MIDNAM (patch definition files), so Ardour can display named programs/patches
-  for both General MIDI synths and those with MIDNAM files.
-</p>
-<p>
-  The window itself makes it easy to choose a channel, a bank number, optionally choosing a bank number through its <dfn title="Most Significant Byte">MSB</dfn>
-  and <dfn title="Least Significant Byte">LSB</dfn> numbers (CC#00 and CC#32) for large banks, then choosing an instrument.
-</p>
-<p>
-  The keyboard at the bottom of the window allows for a quick preview of the selected instrument, either automatically
-  (using the buttons on top of the keyboard) or manually by either clicking a note or using the computer keyboard as a
-  piano keyboard.
+  The Patch Selector window is an easy way to set which instrument will be used on any of the MIDI channels. Although patches can be changed at any time using a <a href="@@patch-change">patch change</a>, this dialog provides an easy and convenient way to preview patches in software and hardware instruments. It integrates fully with Ardour's support for MIDNAM (patch definition files), so Ardour can display named programs/patches for both General MIDI synths and those with MIDNAM files.
 </p>
 
 <p>
-  To edit the contents of a MIDI track see <a href="@@edit-midi">MIDI Editing</a>.
+  The window itself makes it easy to choose a channel, a bank number, optionally choosing a bank number through its <dfn title="Most Significant Byte">MSB</dfn> and <dfn title="Least Significant Byte">LSB</dfn> numbers (CC#00 and CC#32) for large banks, then choosing an instrument.
 </p>
+
+<p>
+  The keyboard at the bottom of the window allows for a quick preview of the selected instrument, either automatically (using the buttons on top of the keyboard) or manually by either clicking a note or using the computer keyboard as a piano keyboard.
+</p>
+

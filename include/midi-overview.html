@@ -1,0 +1,72 @@
+
+<p>
+  MIDI (or Musical Instrument Digital Interface) is a method of representing
+  musical concepts in a form suitable for use in computers. MIDI defines 16
+  different <dfn>channels</dfn>, along which messages are passed to instruments
+  or synthesizers that understand the MIDI protocol; notes are played by
+  sending appropriately crafted <dfn>NoteOn</dfn> messages that are followed
+  by <dfn>NoteOff</dfn> messages. MIDI channels can be manipulated with
+  special <dfn>controller</dfn> messages to alter the pitch of instruments, or
+  their volume or timbre, and they can also tell the instrument or synthesizer
+  what sound to play using <dfn>Program Change</dfn> and <dfn>Bank Select</dfn>
+  messages.
+</p>
+
+<p class="note">
+  Typically Program Change and Bank Select messages are collectively referred to by the singular term <dfn>Patch Change</dfn>.
+</p>
+
+<h2>Key features of Ardour MIDI handling</h2>
+
+<ul>
+  <li>
+    MIDI, just like audio, exists in regions. MIDI regions behave like audio
+    regions: they can be moved, trimmed, copied (cloned), or deleted. Ardour
+    allows either editing MIDI (or audio) regions, or MIDI region content (the
+    notes), but never both at the same time. The <kbd>e</kbd> key
+    (by default) sets <a href="@@toolbox#edit-internal">Internal Edit</a> Mode,
+    which allows the editing of MIDI data in a given region.
+  </li>
+  <li>
+    All MIDI I/O is done either by ALSA or JACK (depending on which backend was chosen when starting Ardour), for sample accurate timing and maximal efficiency when communicating with external software synthesizers.
+  </li>
+  <li>
+    Every MIDI track has its own JACK MIDI port for input; it may have an
+    arbitrary combination of audio and MIDI outputs, depending on the signal
+    processing in the track; the full flexibility of JACK connectivity is
+    present for MIDI just as it is for audio.
+  </li>
+  <li>
+    Full automation for MIDI tracks, integrated with the handling of all MIDI
+    <abbr title="Continuous Controller">CC</abbr> data for each track.
+  </li>
+  <li>
+    Controllers (CC data) can be set to discrete or continuous modes; the
+    latter will linearly interpolate between control points and send additional
+    data.
+  </li>
+</ul>
+
+<h2>Notable differences compared to other DAWs and sequencers</h2>
+
+<ul>
+  <li>
+    Fader (volume) control currently operates on transmitted MIDI data, not by
+    sending CC #7.
+  </li>
+  <li>
+    All note/data editing is per-region. There are no cross-region operations at
+    this time.
+  </li>
+  <li>
+    By default, copying a MIDI region creates a <dfn>deep link</dfn>&mdash;both
+    regions share the same data source, and edits to the contents of one will
+    affect the other. Breaking this link is done by selecting <kbd
+    class="menu">MIDI &gt; Unlink from other copies</kbd> from the region
+    context menu, after which the selected region(s) will have their own copies
+    of <em>only</em> the data that they visually display on screen. The region
+    will no longer be trimmable back to its original length after an Unlink
+    operation, and the operation cannot be undone.
+  </li>
+</ul>
+

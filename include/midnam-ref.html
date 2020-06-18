@@ -1,0 +1,40 @@
+
+<p class=fixme>Add information of how these files are defined instead of telling the user to go modify an existing file, also, remove the &ldquo;you&rdquo; language!</p>
+
+<h2>Adding a custom MIDNAM file</h2>
+
+<p>
+  MIDNAM files are <abbr title="eXtensible Markup Language">XML</abbr>, and can be edited using any text editor. When doing so, please ensure to change the "Model" of the device, as Ardour will only load each model once (i.e. it will skip files, if there are clashes).
+</p>
+
+<p>
+  After you have done modifications to a file, it is a good idea to validate it. This can be done using the tool <em>xmllint</em> as shown below:
+</p>
+
+<pre><code class="bash">$ xmllint --valid --noout myfile.midnam
+$ wget http://www.midi.org/dtds/MIDINameDocument10.dtd
+$ xmllint --dtdvalid MIDINameDocument10.dtd myfile.midnam
+</code></pre>
+
+<p>
+  Once you are satisfied with your file, you have to put it at a location where Ardour picks it up. The best place would be the (hidden) directory <a href="@@files-and-directories-ardour-knows-about">Ardour configuration directory</a> subdirectory patchfiles. in your home-folder. Should the sub-directory <em>patchfiles</em> not exist yet, just create it. The path and file-names are case-sensitive. The file should end with "<em>.midnam</em>".
+</p>
+
+<p>
+  After restarting Ardour, hit the small Log-button in the upper right corner of the main window. It should say something like (this is Linux, MacOS or Windows will be different):
+</p>
+
+<pre>[INFO]: Loading 3 MIDI patches from /home/username/.config/ardour6/patchfiles</pre>
+
+<p>
+  The added device should now show up in the dropdown mentioned in the previous paragraph.
+</p>
+
+<p>
+  Should the MIDNAM-file be useful for the general public, it would be nice to share it: Fork the Ardour-project on <a href="https://github.com/Ardour/ardour">gitHub</a> by hitting the "Fork"-Button. Go to the <a>patchfiles</a>-directory (and read the README).
+</p>
+
+<p>
+  You can upload the file using the Web-Interface. Be sure to select "<em>Create a new branch for this commit and start a pull request</em>".
+</p>
+

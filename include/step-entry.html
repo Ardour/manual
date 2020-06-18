@@ -1,27 +1,25 @@
 
+<p class="fixme">step_editing.bindings doesn't seem to exist anywhere discoverable by an average user; also, what does "Insert Snap-Rest" mean? And what key is the "bar" key and why doesn't it work?</p>
+
 <p>
-  Editing MIDI can be a tedious task. Ardour allows using a connected
-  MIDI device like a music keyboard or pad controller, or use the mouse.
-  A third option, providing fine-grain control, precision and speed of entry
-  comes from using a custom note entry dialog.
-</p>
-<p>
-  The step entry dialog is accessed via a <kbd class="mouse">right click</kbd>
-  context menu on the <kbd>rec-enable</kbd> button, because step entry is related
-  to <em>recording</em> MIDI data. Step editing and recording MIDI via the
-  track's MIDI port cannot happen simultaneously, so the track should <em>not</em>
-  be rec-armed.
+  Entering notes in Ardour can be done by using a connected MIDI device like a MIDI keyboard or pad controller, or by using the mouse. A third option, which provides for fine-grained control, precision and speed comes from using Ardour's Step Entry dialog.
 </p>
 
 <figure>
-    <img src="/images/step_entry.png" alt="Ardour's Step Entry dialog">
-    <figcaption>
-      Ardour's Step Entry dialog
-    </figcaption>
+<img class="fit" src="/images/step_entry.png" alt="Ardour's Step Entry dialog">
+<figcaption class="center">Ardour's Step Entry dialog.</figcaption>
 </figure>
 
 <p>
-  The dialog (quite closely modelled on Logic's) contains:
+  The step entry dialog is accessed by <kbd class="mouse">right</kbd>-clicking  on the <kbd class="menu" style="color:red;">&#9679;</kbd> (Rec-Enable) button of the <a href="@@midi-track-controls">MIDI track</a> to be edited and selecting <kbd class="menu">Step Entry</kbd> from the menu that appears.
+</p>
+
+<p class="note">
+  Step editing and recording MIDI via the track's MIDI port cannot happen simultaneously.
+</p>
+
+<p>
+  The dialog (closely modelled on Logic's) contains:
 </p>
 
 <ul>
@@ -37,7 +35,7 @@
      <li>Insert a rest of the current grid step size</li>
      <li>Move back to the last inserted note</li>
      <li>Move forward to the next beat, or bar</li>
-     <li>Move forward to the edit point</li>
+     <li>Move to the edit point</li>
     </ul>
   </li>
   <li>Dynamics controls from pianississimo to fortississimo</li>
@@ -50,58 +48,59 @@
 </ul>
 
 <p>
-  More or less all actions in the step entry dialog can be driven directly from
-  the keyboard, so that moving back and forth from the keyboard to the mouse is
-  not necessary even for complex data insertion.
+  Almost all actions in the step entry dialog can be driven directly from the
+  keyboard, so that moving back and forth from the keyboard to the mouse is
+  typically not necessary&mdash;even for complex data entry.
 </p>
+
 <p>
   The default key bindings for this (configured in <tt>step_editing.bindings</tt>) are:
 </p>
 
 <table>
-	<tr><td><kbd>grave</kbd></td><td>octave 0</td></tr>
-	<tr><td><kbd>1</kbd> to <kbd>9</kbd></td><td>octave 1 to 9</td></tr>
-	<tr><td><kbd>0</kbd></td><td>octave 10</td></tr>
+  <tr><td><kbd>`</kbd> (grave accent)</td><td>Set octave 0</td></tr>
+  <tr><td><kbd>1</kbd> to <kbd>9</kbd></td><td>Set octave 1 to 9</td></tr>
+  <tr><td><kbd>0</kbd></td><td>Set octave 10</td></tr>
 
-  <tr><td><kbd>F1</kbd></td><td>note length whole</td></tr>
-  <tr><td><kbd>F2</kbd></td><td>note length half</td></tr>
-  <tr><td><kbd>F3</kbd></td><td>note length third</td></tr>
-  <tr><td><kbd>F4</kbd> to <kbd>F8</kbd></td><td>note length quarter to sixtyfourth</td></tr>
+  <tr><td><kbd>f1</kbd></td><td>Set note length whole</td></tr>
+  <tr><td><kbd>f2</kbd></td><td>Set note length half</td></tr>
+  <tr><td><kbd>f3</kbd></td><td>Set note length third</td></tr>
+  <tr><td><kbd>f4</kbd> to <kbd>f8</kbd></td><td>Set note length quarter to sixtyfourth</td></tr>
 
-  <tr><td><kbd>a</kbd></td><td>insert C</td></tr>
-  <tr><td><kbd>w</kbd></td><td>insert C &sharp;</td></tr>
-  <tr><td><kbd>s</kbd></td><td>insert D</td></tr>
-  <tr><td><kbd>e</kbd></td><td>insert D &sharp;</td></tr>
-  <tr><td><kbd>d</kbd></td><td>insert E</td></tr>
-  <tr><td><kbd>f</kbd></td><td>insert F</td></tr>
-  <tr><td><kbd>t</kbd></td><td>insert F &sharp;</td></tr>
-  <tr><td><kbd>g</kbd></td><td>insert G</td></tr>
-  <tr><td><kbd>y</kbd></td><td>insert G &sharp;</td></tr>
-  <tr><td><kbd>h</kbd></td><td>insert A</td></tr>
-  <tr><td><kbd>u</kbd></td><td>insert A &sharp;</td></tr>
-  <tr><td><kbd>j</kbd></td><td>insert B</td></tr>
+  <tr><td><kbd>a</kbd></td><td>Insert C</td></tr>
+  <tr><td><kbd>w</kbd></td><td>Insert C&sharp;</td></tr>
+  <tr><td><kbd>s</kbd></td><td>Insert D</td></tr>
+  <tr><td><kbd>e</kbd></td><td>Insert D&sharp;</td></tr>
+  <tr><td><kbd>d</kbd></td><td>Insert E</td></tr>
+  <tr><td><kbd>f</kbd></td><td>Insert F</td></tr>
+  <tr><td><kbd>t</kbd></td><td>Insert F&sharp;</td></tr>
+  <tr><td><kbd>g</kbd></td><td>Insert G</td></tr>
+  <tr><td><kbd>y</kbd></td><td>Insert G&sharp;</td></tr>
+  <tr><td><kbd>h</kbd></td><td>Insert A</td></tr>
+  <tr><td><kbd>u</kbd></td><td>Insert A&sharp;</td></tr>
+  <tr><td><kbd>j</kbd></td><td>Insert B</td></tr>
 
-  <tr><td><kbd>Tab</kbd></td><td>insert rest</td></tr>
-  <tr><td><kbd>Primary Tab</kbd></td><td>insert snap rest</td></tr>
-  <tr><td><kbd>BackSpace</kbd></td><td>back</td></tr>
+  <tr><td><kbd>tab</kbd></td><td>Insert rest</td></tr>
+  <tr><td><kbd class="mod1">tab</kbd></td><td>Insert snap rest (?)</td></tr>
+  <tr><td><kbd>backspace</kbd></td><td>Set insert cursor back one note length</td></tr>
 
-  <tr><td><kbd>z</kbd></td><td>note velocity &#119183;&#119183;&#119183;</td></tr>
-  <tr><td><kbd>x</kbd></td><td>note velocity &#119183;&#119183;</td></tr>
-  <tr><td><kbd>c</kbd></td><td>note velocity &#119183;</td></tr>
-  <tr><td><kbd>v</kbd></td><td>note velocity &#119184;&#119183;</td></tr>
-  <tr><td><kbd>b</kbd></td><td>note velocity &#119184;&#119185;</td></tr>
-  <tr><td><kbd>n</kbd></td><td>note velocity &#119185;</td></tr>
-  <tr><td><kbd>m</kbd></td><td>note velocity &#119185;&#119185;</td></tr>
-  <tr><td><kbd>comma</kbd></td><td>note velocity &#119185;&#119185;&#119185;</td></tr>
+  <tr><td><kbd>z</kbd></td><td>Set note velocity &#119183;&#119183;&#119183;</td></tr>
+  <tr><td><kbd>x</kbd></td><td>Set note velocity &#119183;&#119183;</td></tr>
+  <tr><td><kbd>c</kbd></td><td>Set note velocity &#119183;</td></tr>
+  <tr><td><kbd>v</kbd></td><td>Set note velocity &#119184;&#119183;</td></tr>
+  <tr><td><kbd>b</kbd></td><td>Set note velocity &#119184;&#119185;</td></tr>
+  <tr><td><kbd>n</kbd></td><td>Set note velocity &#119185;</td></tr>
+  <tr><td><kbd>m</kbd></td><td>Set note velocity &#119185;&#119185;</td></tr>
+  <tr><td><kbd>,</kbd> (comma)</td><td>Set note velocity &#119185;&#119185;&#119185;</td></tr>
 
-  <tr><td><kbd>Up</kbd></td><td>next note velocity</td></tr>
-  <tr><td><kbd>Down</kbd></td><td>prev note velocity</td></tr>
-  <tr><td><kbd>Primary Up</kbd></td><td>next note length</td></tr>
-  <tr><td><kbd>Primary Down</kbd></td><td>prev note length</td></tr>
+  <tr><td><kbd>&uarr;</kbd></td><td>Set next note velocity</td></tr>
+  <tr><td><kbd>&darr;</kbd></td><td>Set prev note velocity</td></tr>
+  <tr><td><kbd class="mod1">&uarr;</kbd></td><td>Set next note length</td></tr>
+  <tr><td><kbd class="mod1">&darr;</kbd></td><td>Set prev note length</td></tr>
 
-  <tr><td><kbd>apostrophe</kbd></td><td>toggle triplet</td></tr>
-  <tr><td><kbd>period</kbd></td><td>toggle dotted</td></tr>
-  <tr><td><kbd>Primary period</kbd></td><td>no dotted</td></tr>
-  <tr><td><kbd>bar</kbd></td><td>toggle chord</td></tr>
-
+  <tr><td><kbd>'</kbd></td><td>Toggle triplet</td></tr>
+  <tr><td><kbd>.</kbd></td><td>Set single dotted</td></tr>
+  <tr><td><kbd class="mod1">.</kbd></td><td>Clear dotted</td></tr>
+  <tr><td><kbd>bar (?)</kbd></td><td>Toggle chord</td></tr>
 </table>
+

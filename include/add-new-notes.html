@@ -1,44 +1,51 @@
 
-<h2>Adding new notes</h2>
-<p>
-	For light MIDI editing, the Internal Edit Mode can be used. This mode allows
-	to select notes, copy, move or delete them and alter their properties. Adding
-	new notes in this mode is done by <kbd class="mouse
-	mod1">Left</kbd> dragging.
+<p class=fixme>WTH is &ldquo;Note Level Editing&rdquo;? (See table below, &ldquo;So, to summarize&hellip;&rdquo;.)</p>
 
-  For more extensive MIDI editing, the <kbd class="menu">Draw Mode</kbd>.
-  allows to <kbd class="mouse">Left</kbd> click or drag to add a new note, without
-  having to hold down <kbd class="mod1n"></kbd>. However, Draw Mode doesn't offer
-  region-level editing nor rubberband selection.
+<h2>Adding new notes</h2>
+
+<p>
+  For light MIDI editing, Internal Edit Mode can be used. This mode allows
+  selecting, copying, moving and deleting notes, and also allows altering
+  notes&rsquo; properties. To <em>add</em> notes using the mouse, <kbd
+  class="mouse mod1">Left</kbd>-drag. For more extensive MIDI editing, <kbd
+  class="menu">Draw Mode</kbd> may be preferred. New notes can be added with
+  a click or drag, without having to hold down <kbd class=mod1n></kbd>.
+  However, <kbd class="menu">Draw Mode</kbd> doesn't allow region-level
+  editing.
 </p>
 
+<p class=fixme>Not sure if the following paragraph is true.</p>
 <p>
-	In both modes, a mouse <em>click</em> creates a note at the pointer location
-	(or the nearest grid point if grid is enabled), and its duration is one <a
-	href="@@grid-controls">Grid unit</a>, even if the grid is disabled. A mouse
-	<em>drag</em> creates the note like a click does, but allows to set the
-	duration of the note until the mouse button is released.
+  In both modes, a mouse <em>click</em> creates a note at the pointer location
+  (or the nearest grid point if grid is enabled), and its duration is one <a
+  href="@@grid-controls">Grid unit</a>, even if the grid is disabled. A mouse
+  <em>drag</em> creates the note like a click does, but allows continuously
+  setting the duration of the note until the mouse button is released.
 </p>
 
 <p>So, to summarize:</p>
+
 <table class="dl">
-    <tr><th>Selecting, moving, copying, trimming, deleting <em>regions</em></th>
-        <td><kbd class="menu">Note Level Editing</kbd> disabled, using Grab,
-        Range or other mouse modes</td></tr>
-    <tr><th>Selecting, moving, copying trimming, deleting <em>notes</em></th>
-        <td><kbd class="menu">Note Level Editing</kbd> enabled, and using Internal
-        Edit mode</td></tr>
-    <tr><th>Adding new notes</th>
-        <td>enabling "Note Level Editing" and then either
-          <ul>
-						<li>using Draw mode and <kbd class="mouse">Left</kbd>
-						clicking/dragging, or</li>
-						<li>using Internal Edit mode and <kbd
-						class="mouse mod1">Left</kbd> clicking/dragging.</li>
-          </ul>
-        </td></tr>
+  <tr>
+    <th>Selecting, moving, copying, trimming, deleting <em>regions</em></th>
+    <td><kbd class="menu">Note Level Editing</kbd> disabled, using object, range or other mouse modes</td>
+  </tr>
+  <tr>
+    <th>Selecting, moving, copying trimming, deleting <em>notes</em></th>
+    <td><kbd class="menu">Note Level Editing</kbd> enabled, and using mouse object mode</td>
+  </tr>
+  <tr>
+    <th>Adding new notes</th>
+    <td>Enabling "Note Level Editing" and then either
+      <ul>
+        <li>using mouse object mode and <kbd class="mouse mod1">Left</kbd>-drag, or</li>
+        <li>using mouse draw mode.</li>
+      </ul>
+    </td>
+  </tr>
 </table>
-<p>
-  There is also <a href="@@step-entry">a step entry editor</a> allowing to enter
-  notes from a virtual keyboard and lots more besides.
+
+<p class="note">
+  There is also <a href="@@step-entry">a step entry editor</a> that allows the
+  entry of notes from a virtual keyboard.
 </p>

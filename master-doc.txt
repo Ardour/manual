@@ -623,8 +623,17 @@ part: subchapter
 ---
 
 ---
+title: Foldback Section
+include: foldback-strip.html
+link: foldback-strip
+uri: ardours-interface/foldback-strip
+part: chapter
+---
+
+---
 title: Editor Tracks
 link: track-controls
+uri: ardours-interface/editor-tracks
 part: chapter
 ---
 
@@ -1286,10 +1295,9 @@ part: part
 ---
 
 ---
-title: MIDI Editing
-include: edit-midi.html
-link: edit-midi
-uri: working-with-midi
+title: MIDI Overview
+include: midi-overview.html
+link: midi-overview
 part: chapter
 ---
 
@@ -1298,7 +1306,7 @@ title: Creating MIDI Tracks
 include: create-midi-tracks.html
 link: create-midi-tracks
 uri: working-with-midi/create-midi-tracks
-part: chapter
+part: subchapter
 ---
 
 ---
@@ -1306,6 +1314,14 @@ title: Creating MIDI Regions
 include: create-midi-regions.html
 link: create-midi-regions
 uri: working-with-midi/create-midi-regions
+part: subchapter
+---
+
+---
+title: MIDI Editing
+include: edit-midi.html
+link: edit-midi
+uri: working-with-midi
 part: chapter
 ---
 
@@ -1314,15 +1330,7 @@ title: Adding New Notes
 include: add-new-notes.html
 link: add-new-notes
 uri: working-with-midi/add-new-notes
-part: chapter
----
-
----
-title: Changing Note Properties
-include: change-note-properties.html
-link: change-note-properties
-uri: editing-and-arranging/editing-midi/changing-note-properties
-part: chapter
+part: subchapter
 ---
 
 ---
@@ -1331,15 +1339,7 @@ menu_title: Overlapping Notes
 include: handling-overlapping-notes.html
 link: handling-overlapping-notes
 uri: working-with-midi/handle-overlapping-notes
-part: chapter
----
-
----
-title: Note Cut, Copy and Paste
-include: note-cut-copy-and-paste.html
-link: note-cut-copy-and-paste
-uri: working-with-midi/note-cut-copy-and-paste-
-part: chapter
+part: section
 ---
 
 ---
@@ -1347,23 +1347,23 @@ title: Note Selection
 include: note-selection.html
 link: note-selection
 uri: editing-and-arranging/edit-midi/note-selection
-part: chapter
+part: subchapter
 ---
 
 ---
-title: Quantizing MIDI
-include: quantize-midi.html
-link: quantize-midi
-uri: working-with-midi/quantize-midi
-part: chapter
+title: Note Cut, Copy and Paste
+include: note-cut-copy-and-paste.html
+link: note-cut-copy-and-paste
+uri: working-with-midi/note-cut-copy-and-paste-
+part: subchapter
 ---
 
 ---
-title: Step Entry
-include: step-entry.html
-link: step-entry
-uri: working-with-midi/step-entry
-part: chapter
+title: Changing Note Properties
+include: change-note-properties.html
+link: change-note-properties
+uri: editing-and-arranging/editing-midi/changing-note-properties
+part: subchapter
 ---
 
 ---
@@ -1371,7 +1371,7 @@ title: Patch Change
 include: patch-change.html
 link: patch-change
 uri: working-with-midi/patch-change
-part: chapter
+part: subchapter
 ---
 
 ---
@@ -1380,7 +1380,15 @@ menu_title: Copy MIDI Region
 include: independent-and-dependent-midi-region-copies.html
 link: independent-and-dependent-midi-region-copies
 uri: working-with-midi/copy-midi-region
-part: chapter
+part: subchapter
+---
+
+---
+title: Quantizing MIDI
+include: quantize-midi.html
+link: quantize-midi
+uri: working-with-midi/quantize-midi
+part: subchapter
 ---
 
 ---
@@ -1388,45 +1396,53 @@ title: Transposing MIDI
 include: transposing-midi.html
 link: transposing-midi
 uri: working-with-midi/transpose-midi
-part: chapter
----
-
----
-title: Automating MIDI-Pitch bending and aftertouch
-menu_title: Automating MIDI
-include: automating-midi---pitch-bending-and-aftertouch.html
-link: automating-midi---pitch-bending-and-aftertouch
-uri: working-with-midi/automation-midi
-part: chapter
----
-
----
-title: Transforming MIDI-Mathematical operations
-menu_title: Transforming MIDI
-include: transforming-midi---mathematical-operations.html
-link: transforming-midi---mathematical-operations
-uri: working-with-midi/transformation-midi
-part: chapter
+part: subchapter
 ---
 
 ---
 title: MIDI List Editor
 include: midi-list-editor.html
 link: midi-list-editor
-part: chapter
+part: subchapter
 ---
 
 ---
-title: MIDI Tracer
-include: midi-tracer.html
-link: midi-tracer
-part: chapter
+title: Transforming MIDI&mdash;Mathematical Operations
+menu_title: Transforming MIDI
+include: transforming-midi---mathematical-operations.html
+link: transforming-midi---mathematical-operations
+uri: working-with-midi/transformation-midi
+part: subchapter
 ---
 
 ---
 title: MIDI Recording
+include: midi-recording.html
 link: midi-recording
 part: chapter
+---
+
+---
+title: Step Entry
+include: step-entry.html
+link: step-entry
+uri: working-with-midi/step-entry
+part: subchapter
+---
+
+---
+title: MIDI Automation
+include: midi-automation.html
+link: midi-automation
+part: chapter
+---
+
+---
+title: Pitch Bend &amp; Aftertouch
+include: automating-midi---pitch-bending-and-aftertouch.html
+link: automating-midi---pitch-bending-and-aftertouch
+uri: working-with-midi/automation-midi
+part: subchapter
 ---
 
 ---
@@ -1434,6 +1450,13 @@ title: MIDI Scene Automation
 include: midi-scene-automation.html
 link: midi-scene-automation
 uri: automation/midi-scenes
+part: subchapter
+---
+
+---
+title: MIDI Tracer
+include: midi-tracer.html
+link: midi-tracer
 part: chapter
 ---
 
@@ -1577,7 +1600,7 @@ title: Mono Panner
 include: mono-panner.html
 link: mono-panner
 uri: mixing/panning/mono_panner
-part: subchapter
+part: section
 ---
 
 ---
@@ -1585,7 +1608,7 @@ title: Balance Control
 include: balance-control.html
 link: balance-control
 uri: mixing/panning/balance_control
-part: subchapter
+part: section
 ---
 
 ---
@@ -1593,7 +1616,7 @@ title: Stereo Panner
 include: stereo-panner.html
 link: stereo-panner
 uri: mixing/panning/stereo_panner
-part: subchapter
+part: section
 ---
 
 ---
@@ -1601,7 +1624,7 @@ title: VBAP Panner
 include: vbap-panner.html
 link: vbap-panner
 uri: mixing/panning/vbap_panner
-part: subchapter
+part: section
 ---
 
 ---
@@ -1777,7 +1800,7 @@ part: chapter
 ---
 
 ---
-title: OSC&#58; Controlling Ardour with OSC
+title: Controlling Ardour with OSC
 include: osc58-controlling-ardour-with-osc.html
 link: osc58-controlling-ardour-with-osc
 uri: using-control-surfaces/controlling-ardour-with-osc/osc-control
@@ -1785,7 +1808,7 @@ part: subchapter
 ---
 
 ---
-title: OSC&#58; Using the Setup Dialog
+title: Using the Setup Dialog
 include: osc58-using-the-setup-dialog.html
 link: osc58-using-the-setup-dialog
 uri: using-control-surfaces/controlling-ardour-with-osc/osc-setup-dialog
@@ -1793,7 +1816,15 @@ part: subchapter
 ---
 
 ---
-title: OSC&#58; Querying Ardour
+title: Linking Surfaces
+include: osc58-linking-surfaces.html
+link: osc58-linking-surfaces
+uri: using-control-surfaces/controlling-ardour-with-osc/linking-surfaces
+part: subchapter
+---
+
+---
+title: Querying Ardour
 include: osc58-querying-ardour.html
 link: osc58-querying-ardour
 uri: using-control-surfaces/controlling-ardour-with-osc/querying-ardour-with-osc
@@ -1801,7 +1832,7 @@ part: subchapter
 ---
 
 ---
-title: OSC&#58; Feedback
+title: Feedback
 include: osc58-feedback.html
 link: osc58-feedback
 uri: using-control-surfaces/controlling-ardour-with-osc/feedback-in-osc
@@ -1809,7 +1840,7 @@ part: subchapter
 ---
 
 ---
-title: OSC&#58; Feedback and Strip-types Values
+title: Feedback and Strip-types Values
 include: osc58-feedback-and-strip-types-values.html
 link: osc58-feedback-and-strip-types-values
 uri: using-control-surfaces/controlling-ardour-with-osc/calculating-feedback-and-strip-types-values
@@ -1817,7 +1848,7 @@ part: subchapter
 ---
 
 ---
-title: OSC&#58; Jog Modes
+title: Jog Modes
 include: osc58-jog-modes.html
 link: osc58-jog-modes
 uri: using-control-surfaces/controlling-ardour-with-osc/jog-modes
@@ -1825,7 +1856,15 @@ part: subchapter
 ---
 
 ---
-title: OSC&#58; Automation
+title: Custom Strip Lists
+include: osc58-custom-strips.html
+link: osc58-custom-strips
+uri: using-control-surfaces/controlling-ardour-with-osc/custom-strips
+part: subchapter
+---
+
+---
+title: Automation
 include: osc58-automation.html
 link: osc58-automation
 uri: using-control-surfaces/controlling-ardour-with-osc/automation
@@ -1833,7 +1872,7 @@ part: subchapter
 ---
 
 ---
-title: OSC&#58; Personal Monitoring Control
+title: Personal Monitoring Control
 include: osc58-personal-monitoring-control.html
 link: osc58-personal-monitoring-control
 uri: using-control-surfaces/controlling-ardour-with-osc/osc-personal-monitoring
@@ -1841,7 +1880,7 @@ part: subchapter
 ---
 
 ---
-title: OSC&#58; Parameter Types
+title: Parameter Types
 include: osc58-parameter-types.html
 link: osc58-parameter-types
 uri: using-control-surfaces/controlling-ardour-with-osc/parameter-types-in-osc
@@ -1849,7 +1888,7 @@ part: subchapter
 ---
 
 ---
-title: OSC&#58; Selection and Expansion Considerations
+title: Selection and Expansion Considerations
 include: osc58-selection-and-expansion-considerations.html
 link: osc58-selection-and-expansion-considerations
 uri: using-control-surfaces/controlling-ardour-with-osc/selection-considerations-in-osc
@@ -2032,8 +2071,16 @@ part: chapter
 ---
 
 ---
-title: MIDI notes reference
+title: MIDI Notes Reference
 include: midi-notes-ref.html
 link: midi-notes-ref
 part: chapter
 ---
+
+---
+title: MIDNAM Reference
+include: midnam-ref.html
+link: midnam-ref
+part: chapter
+---
+

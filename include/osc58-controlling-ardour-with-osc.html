@@ -10,13 +10,44 @@
   <em>Note:</em> OSC control has changed dramatically since Ardour 4.7.
   The Path structure has been completely redone, Banking has been introduced,
   The controller is now able to tell Ardour what kind of feedback it can
-  work with (including bank size) and two new math styles have been added
-  to gain controls. If you are using an Ardour version of 4.7 or less,
+  work with (including bank size) and the gain controls have new math
+  calculations. If you are using an Ardour version of 4.7 or less,
   please read <a
   href="@@osc-control-for-ardour-4.7-and-prior">
   Osc control in Ardour 4.7 and prior.</a>
 </p>
-
+<ul>
+  <li>
+	<a href="#set-up">Control Surface Set</a>
+  </li>
+  <li>
+	<a href="#global">Master or Global messages</a>
+  </li>
+  <li>
+	<a href="#transport">Transport Control</a>
+  </li>
+  <li>
+	<a href="#recording">Recording control</a>
+  </li>
+  <li>
+	<a href="#information">Transport Information</a>
+  </li>
+  <li>
+	<a href="#editing">Editing-related</a>
+  </li>
+  <li>
+	<a href="#Master-strip">Master and Monitor strip control</a>
+  </li>
+  <li>
+    <a href="#strips">Track specific operations</a>
+  </li>
+  <li>
+    <a href="#select">Selected Strip Operations</a>
+  </li>
+  <li>
+    <a href="#menu">Menu actions</a>
+  </li>
+</ul>
 <p>
   Ardour is probably one of the most OSC-controllable audio applications
   around, but as with all OSC-controllable apps, you can't do much without
@@ -39,7 +70,8 @@ here</em>"/&gt;</kbd>
 
 <p>
   Ardour sends any feedback to the port and address that sent any
-  feedback request. The port does not have to match Ardour's port. In
+  feedback request or to a port set manually in the setup dialog.
+  The port does not have to match Ardour's port. In
   fact it is better not to. This means that Ardour can deal with more
   than one controller at a time. The two controllers can bank
   independently and even use different math for faders. This could be
@@ -50,7 +82,7 @@ here</em>"/&gt;</kbd>
   OSC feedback In Ardour.</a>
 </p>
 
-<h2>Control Surface Set Up</h2>
+<h2 id="set-up">Control Surface Set Up</h2>
 
 <p>
   Control surface set up allows the controller to tell Ardour about its
@@ -65,9 +97,6 @@ here</em>"/&gt;</kbd>
   strip's controls are sent (or refreshed) as well. This will also
   refresh the Master feedback setup.
 </p>
-<p class="note">
-  Surface Port Setting is available in the OSC GUI.
-</p>
 <p>
   As of Ardour 5.1, There is now a GUI setup in response to those using
   tablets with applications such as touchOSC or AndrOSC who need to be
@@ -79,24 +108,27 @@ here</em>"/&gt;</kbd>
 </p>
 <p>If /set_surface is not sent, the default values are used:
   <ul>
-	  <li><em>Bank Size</em>: 0&mdash; No banking (or infinite bank size).</li>
-	  <li><em>Strip Types</em>: 0&mdash; All strip types except hidden and special.</li>
-	  <li><em>Feedback</em>: 0&mdash; All off.</li>
-	  <li><em>Fader Mode</em>: 0&mdash; gain in dB (not relevant with feedback off)</li>
-	  <li><em>Send Page Size</em>: 0&mdash; No Send Paging.</li>
-	  <li><em>Plugin Page Size</em>: 0&mdash; No Plugin Paging.</li>
+	  <li><em>Bank Size</em>: 0 &mdash; No banking (or infinite bank size).</li>
+	  <li><em>Strip Types</em>: 159 &mdash; All strip types except hidden and special.</li>
+	  <li><em>Feedback</em>: 0 &mdash; All off.</li>
+	  <li><em>Fader Mode</em>: 0 &mdash; gain in dB (not relevant with feedback off)</li>
+	  <li><em>Send Page Size</em>: 0 &mdash; No Send Paging.</li>
+	  <li><em>Plugin Page Size</em>: 0 &mdash; No Plugin Paging.</li>
+	  <li><em>reply port</em>: 8000 &mdash; control surface will receive feedback on port 8000</li>
+	  <li><em>Link set</em>: 0 &mdash; no linking for this control surface</li>
+	  <li><em>Link ID</em>: 0 &mdash; no link ID</li>
   </ul>
 </p>
 <p>
   These values give the same behaviour as prior versions of Ardour. (or the closest possible)
 </p>
-<table class="dl">
-  <tr><th><kbd class="osc">/set_surface <em>bank_size</em> <em>strip_types</em>
-  <em>feedback</em> <em>fadermode</em> <em>send_page_size</em> <em>plugin_page_size</em></kbd></th>
-  <td>
-	  See below for an explanation of each parameter.
-  </td></tr>
-</table>
+
+  <kbd class="osc">/set_surface <em>bank_size</em> <em>strip_types</em>
+  <em>feedback</em> <em>fadermode</em> <em>send_page_size</em>
+  <em>plugin_page_size</em> <em>port</em> <em>linkset</em> <em>linkid</em></kbd>
+<p>
+	See below for an explanation of each parameter.
+</p>
 <p class="note">
 	The /set_surface message may have all values except the last in-line.
 	For example: <code>/set_surface/8/31/8403/0/8 i 16</code> would be valid.
@@ -166,13 +198,23 @@ here</em>"/&gt;</kbd>
 
 <h3>gainmode</h3>
 <p>
-  Gainmode is a an int that acts as a bool:
+  Gainmode is an int:
   <ul>
-	  <li><em>0 (or false)</em> dB value as a float from -193 to +6. Sent as
-	  /strip/gain SSID value. (-193 or below are the same as -inf)</li>
-	  <li><em>1 (or true)</em> A positional fader based on the same math
-	  as Ardour's GUI.  An Float from 0 to 1. Sent as
-	  /strip/fader SSID value</li>
+	  <li><em>0:</em> dB value as a float from -193 to +6. Sent as
+	  <kbd class="osc">/strip/gain SSID value</kbd>. (-193 or below are the same as -inf)</li>
+	  <li><em>1:</em> A positional fader based on the same math
+	  as Ardour's GUI.  A Float from 0 to 1. Sent as
+	  <kbd class="osc">/strip/fader SSID value</kbd>. At the same time the
+	  gain value in dB is sent to the channel name as text. The name
+	  will be restored after a short timeout.</li>
+	  <li><em>2:</em> A positional fader based on the same math
+	  as Ardour's GUI.  A Float from 0 to 1. Sent as
+	  <kbd class="osc">/strip/fader SSID value</kbd>. At the same time
+	  the gain value in dB is sent as <kbd class="osc">/strip/gain SSID
+	  value</kbd>.</li>
+	  <li><em>3:</em> A positional fader based on the same math
+	  as Ardour's GUI.  A Float from 0 to 1. Sent as
+	  <kbd class="osc">/strip/fader SSID value</kbd>.</li>
   </ul>
 </p>
 <p>
@@ -205,7 +247,43 @@ here</em>"/&gt;</kbd>
 <p class="note">
 	Plugin page size can also be set with <em>/set_surface/plugin_page_size plugin_page_size.</em>
 </p>
-
+<h3>port</h3>
+<p>
+	The port the controller would like to receive it's feedback on. Starting
+	with Ardour 6.0, the surface can directly set the manual port or set
+	it's host to <code>auto</code> port mode.
+</p>
+<p>
+	The value for <code>port</code> can be 0 for <code>auto</code> port mode or any
+	port value above 1024. It is suggested not to use Ardour's port number
+	of 3819 as controllers on the same machine that try to use the same
+	port will fail.
+</p>
+<p>
+	If the surface does not
+	tell Ardour which port to use, the default is 8000 or the setting
+	set up in the OSC setup GUI. There can only be one port setting per
+	host. If that setting is <code>auto</code>, than more than one
+	controller can be run on that host, but if a manual port is set there
+	can only be one. In the case of <code>auto</code> mode, the control
+	surface must set it's receive port to be the same as it's send port.
+	If that is not possible, then manual port mode must be used. This
+	allows a smart controller to use a number of ports on the same ip while
+	a smartphone set up as a personal monitor control can use the default
+	manual port.
+</p>
+<p class="note">
+	The host's port can also be set with <em>/set_surface/port port.</em>
+</p>
+<p class="note">
+	Changing the port will remove feedback from a device on the same host
+	using a different port.
+</p>
+<h3>Link set and Link ID</h3>
+<p>
+	Please see <a href="@@osc58-linking-surfaces">Linking Surfaces</a>
+	For more information.
+</p>
 <h2>Querying Ardour for information</h2>
 <p>
   The control Surface may wish to control the type a frequency of
@@ -213,7 +291,14 @@ here</em>"/&gt;</kbd>
   href="@@osc58-querying-ardour">
   Querying Ardour with OSC.</a>
 </p>
-
+<h2>Using more than one surface</h2>
+<p>
+	Ardour can use more than one surface at a time that both control the
+	same controls in Ardour. It is also possible to use two surfaces in
+	concert with each other. See: <a
+  href="@@osc58-linking-surfaces">
+  Linking Surfaces</a> for more information.
+</p>
 <h2>List of OSC messages</h2>
 <p class="note">
 	Parameter types show how the value will be used. However, they may
@@ -221,9 +306,9 @@ here</em>"/&gt;</kbd>
 	href="@@osc58-parameter-types">
 	Parameter Types in OSC.</a>
 </p>
-<h3>Master or Global messages</h3>
+<h3 id="global">Master or Global messages</h3>
 
-<h4>Transport Control</h4>
+<h4  id="transport">Transport Control</h4>
 <table class="dl">
   <tr><th><kbd class="osc">/transport_stop</kbd></th>
   <td>Stops a rolling transport</td></tr>
@@ -249,6 +334,11 @@ here</em>"/&gt;</kbd>
   <td>Where <em>seconds</em> is a float (+/-) of the number of seconds to jump</td></tr>
   <tr><th><kbd class="osc">/toggle_click</kbd></th>
   <td>Toggle metronome click on and off</td></tr>
+  <tr><th><kbd class="osc">/marker <em>marker</em></kbd></th>
+  <td>Where <em>marker</em> may be a float or int of the nth marker or a
+  string with the marker name to locate to (new Ardour 6.0). If the playhead
+  is at a marker and the <em>marker</em> is unique, the marker at the playhead
+  will be renamed to the string sent</td></tr>
   <tr><th><kbd class="osc">/add_marker</kbd></th>
   <td>(adds marker to the current transport position)</td></tr>
   <tr><th><kbd class="osc">/remove_marker</kbd></th>
@@ -277,7 +367,7 @@ here</em>"/&gt;</kbd>
 <table class="dl">
   <tr><th><kbd class="osc">/scrub <em>delta</em></kbd></th>
   <td>Where <em>delta</em> is a float indicating forward or reverse movement.
-  See <a href="@@osc58-jog-modes#scrub">OSC Scrub Modes</a></td></tr> <!--#scrub-->
+  See <a href="@@osc58-jog-modes#scrub">OSC Scrub Modes</a></td></tr>
   <tr><th><kbd class="osc">/jog <em>delta</em></kbd></th>
   <td>Where <em>delta</em> is a float indicating forward or reverse movement</td></tr>
   <tr><th><kbd class="osc">/jog/mode <em>mode</em></kbd></th>
@@ -286,7 +376,7 @@ here</em>"/&gt;</kbd>
   OSC Jog Modes</a></td></tr>
 </table>
 
-<h4>Recording control</h4>
+<h4 id="recording">Recording control</h4>
 <table class="dl">
   <tr><th><kbd class="osc">/toggle_punch_in</kbd></th>
   <td></td></tr>
@@ -296,7 +386,7 @@ here</em>"/&gt;</kbd>
   <td>Toggles master record enable</td></tr>
 </table>
 
-<h4>Transport Information</h4>
+<h4 id="information">Transport Information</h4>
 <table class="dl">
   <tr><th><kbd class="osc">/transport_frame</kbd></th>
   <td>Ardour sends /transport_frame <em>current_frame</em></td></tr>
@@ -306,7 +396,7 @@ here</em>"/&gt;</kbd>
   <td>Ardour sends /record_enabled <em>recordenable_status</em></td></tr>
 </table>
 
-<h4>Editing-related</h4>
+<h4 id="editing">Editing-related</h4>
 <table class="dl">
   <tr><th><kbd class="osc">/undo</kbd></th>
   <td></td></tr>
@@ -315,9 +405,11 @@ here</em>"/&gt;</kbd>
   <tr><th><kbd class="osc">/save_state</kbd></th>
   <td>(this is the regular <kbd class="menu">Session &gt; Save</kbd>
   operation)</td></tr>
+  <tr><th><kbd class="osc">/session_name <em>new_name</em></kbd></th>
+  <td>Set session name to <em>new_name</em> (if new_name is legal and unique)</td></tr>
 </table>
 
-<h4>Master and Monitor strip control</h4>
+<h4 id="Master-strip">Master and Monitor strip control</h4>
 <table class="dl">
   <tr><th><kbd class="osc">/master/gain <em>dB</em></kbd></th>
   <td>dB is a float indicating the desired gain in dB</td></tr>
@@ -347,9 +439,14 @@ here</em>"/&gt;</kbd>
   <td>state is an int of 0 or 1 where 1 is mono mode</td></tr>
 </table>
 
-<h3>Track specific operations</h3>
+<h3 id="strips">Track specific operations</h3>
 <p>
   For each of the following, <em>ssid</em> is the Surface Strip ID for the track
+</p>
+<p>
+  As of Ardour 6.0, the user may use a subset all available strips. See:
+  <a href="@@osc58-custom-strips">
+  Making a user selected strip list.</a>
 </p>
 <p class="note">
   SSID has a different meaning than RID in Ardour version 4.7 and before.
@@ -376,6 +473,19 @@ here</em>"/&gt;</kbd>
   <tr><th><kbd class="osc">/use_group <em>state</em></kbd></th>
   <td>Where <em>state</em> is a float of 1 to use group or 0 to not use group.
   <a href="@@osc58-feedback-and-strip-types-values#use-group">more info on use_group</a></td></tr>
+  <tr><th><kbd class="osc">/strip/spill <em>ssid</em></kbd></th>
+  <td> Use strips this strip is grouped with or those that feed this bus
+  (if this strip is a bus) or that this vca (if this is a VCA) controls.
+  See <a href="#spill">Spill Strips</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/strip/hide <em>ssid</em> <em>y/n</em></kbd></th>
+  <td>Where <em>y/n</em> = 1 hide this strip, 0 for show this track.
+  <a href="@@osc58-feedback-and-strip-types-values#hidden">
+  Hiding strips.</a></td></tr>
+  <tr><th><kbd class="osc">/strip/name <em>ssid</em> <em>strip_name</em></kbd></th>
+  <td>where <em>strip_name</em> is a string representing the desired name for the strip</td></tr>
+  <tr><th><kbd class="osc">/strip/group <em>ssid</em> <em>group_name</em></kbd></th>
+  <td>where <em>group_name</em> is a string representing the name of the group desired.
+  See <a href="#groups">groups</a> for more details</td></tr>
   <tr><th><kbd class="osc">/strip/mute <em>ssid</em> <em>mute_st</em></kbd></th>
   <td>where <em>mute_st</em> is a bool/int representing the desired mute state of the track</td></tr>
   <tr><th><kbd class="osc">/strip/solo <em>ssid</em> <em>solo_st</em></kbd></th>
@@ -448,7 +558,7 @@ here</em>"/&gt;</kbd>
   <tr><th><kbd class="osc">/strip/name <em>ssid</em> <em>name</em></kbd></th>
   <td>where <em>name</em> is a string for the desired name of the track</td></tr>
 </table>
-<h3>Selected Strip Operations</h3>
+<h3 id="select">Selected Strip Operations</h3>
 <p>
   New for Ardour 5, A whole set of operations that work on the selected
   or expanded strip.
@@ -491,6 +601,56 @@ here</em>"/&gt;</kbd>
   Expanded. Setting to 0 resets the expansion to follow selection.</td></tr>
   <tr><th><kbd class="osc">/select/expand <em>y/n</em></kbd></th>
   <td>Where <em>y/n</em> = 1 for expanded mode, 0 for Select mode.</td></tr>
+  <tr><th><kbd class="osc">/select/hide <em>y/n</em></kbd></th>
+  <td>Where <em>y/n</em> = 1 hide this strip, 0 for show this track.
+  <a href="@@osc58-feedback-and-strip-types-values#hidden">
+  Hiding strips.</a></td></tr>
+  <tr><th><kbd class="osc">/select/name <em>strip_name</em></kbd></th>
+  <td>where <em>strip_name</em> is a string representing the desired name for the strip</td></tr>
+  <tr><th><kbd class="osc">/select/comment <em>comment</em></kbd></th>
+  <td>where <em>comment</em> is a string representing the desired comment for the strip</td></tr>
+  <tr><th><kbd class="osc">/select/group <em>group_name</em></kbd></th>
+  <td>where <em>group_name</em> is a string representing the name of the group desired.
+  See <a href="#groups">groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/enable <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int representing the desired enable state
+  of the group the selected strip is a part of</td></tr>
+  <tr><th><kbd class="osc">/select/group/gain <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which sets the gain sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/relative <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which sets relative state of thew
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/mute <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which sets the mute sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/solo <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which sets the solo sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/recenable <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which sets the recenable sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/select <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which sets the select sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/active <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which sets the route active sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/color <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which sets the color sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
+  <tr><th><kbd class="osc">/select/group/monitoring <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int which sets the monitoring sharing of the
+  group the strip belongs to. See <a href="@@track-and-bus-groups">
+  Track and Bus Groups</a> for more details</td></tr>
   <tr><th><kbd class="osc">/select/recenable <em>y/n</em></kbd></th>
   <td>Where <em>y/n</em> is 1 for enabled and 0 for disabled</td></tr>
   <tr><th><kbd class="osc">/select/record_safe <em>y/n</em></kbd></th>
@@ -514,7 +674,20 @@ here</em>"/&gt;</kbd>
   <tr><th><kbd class="osc">/select/fader <em>position</em></kbd></th>
   <td>Where <em>position</em> is an float ranging from 0 to 1 representing the fader control position.</td></tr>
   <tr><th><kbd class="osc">/select/db_delta <em>delta</em></kbd></th>
-  <td>where <em>delta</em> is a float that will increase or decrease the gain of the selected track by the amount of the delta. (Ardour 5.11+)</td></tr>
+  <td>where <em>delta</em> is a float that will increase or decrease the
+  gain of the selected track by the amount of the delta. (Ardour 5.11+)</td></tr>
+  <tr><th><kbd class="osc">/select/vca <em>name</em> <em>state</em></kbd></th>
+  <td>where <em>name</em> is a string with the name of the VCA, and
+  <em>state</em> is an int that determines if the named VCA will control
+  this strip. (Ardour 6.0)</td></tr>
+  <tr><th><kbd class="osc">/select/vca/toggle <em>name</em></kbd></th>
+  <td>where <em>name</em> is a string with the name of the VCA. This toggles the
+  use of the named vca with this strip. Any trailing "[_]" will be ignored.
+  (Ardour 6.0)</td></tr>
+  <tr><th><kbd class="osc">/select/spill</kbd></th>
+  <td> show only strips this strip is grouped with or
+  those that feed this bus or that this vca controls.
+  See <a href="#spill">Spill Strips</a> for more details</td></tr>
   <tr><th><kbd class="osc">/select/*/automation  <em>mode</em></kbd></th>
   <td>where <em>mode</em> is an int ranging from 0 to 3 representing the desired automation mode for the control.
   <a href="@@osc58-automation">See OSC Automation.</a></td></tr>
@@ -533,19 +706,21 @@ here</em>"/&gt;</kbd>
   <td>where <em>position</em> is a float ranging from 0 to 1 representing the desired front to back position of the track</td></tr>
   <tr><th><kbd class="osc">/select/pan_lfe_control <em>value</em></kbd></th>
   <td>where <em>value</em> is a float ranging from 0 to 1 representing the desired LFE control value for the track</td></tr>
-  <tr><th><kbd class="osc">/select/send_gain", <em>sendid</em> <em>send_gain</em></kbd></th>
+  <tr><th><kbd class="osc">/select/send_gain, <em>sendid</em> <em>send_gain</em></kbd></th>
   <td>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
   ranging from -193 to +6 representing the desired gain in dB for the send</td></tr>
-  <tr><th><kbd class="osc">/select/send_fader", <em>sendid</em> <em>send_gain</em></kbd></th>
+  <tr><th><kbd class="osc">/select/send_fader, <em>sendid</em> <em>send_gain</em></kbd></th>
   <td>where <em>sendid</em> = nth_send, <em>send_gain</em> is a float
   ranging from 0 to 1 representing the desired position for the send as a fader</td></tr>
-  <tr><th><kbd class="osc">/select/send_enable", <em>sendid</em> <em>state</em></kbd></th>
+  <tr><th><kbd class="osc">/select/send_enable, <em>sendid</em> <em>state</em></kbd></th>
   <td>where <em>sendid</em> = nth_send, <em>state</em> is 1 for enabled and 0 for disabled</td></tr>
-  <tr><th><kbd class="osc">/select/send_page", <em>delta</em></kbd></th>
+  <tr><th><kbd class="osc">/select/send_page, <em>delta</em></kbd></th>
   <td>where <em>delta</em> is an int or float selecting another send as a delta from the current send.</td></tr>
-  <tr><th><kbd class="osc">/select/plugin_page", <em>delta</em></kbd></th>
+  <tr><th><kbd class="osc">/select/plugin_page, <em>delta</em></kbd></th>
   <td>where <em>delta</em> is an int or float selecting another plugin parameter as a delta from the current parameter.</td></tr>
-  <tr><th><kbd class="osc">/select/plugin/parameter", <em>plugin</em> <em>parameter</em> <em>value</em></kbd></th>
+  <tr><th><kbd class="osc">/select/plugin/activate, <em>state</em></kbd></th>
+  <td>where <em>state</em> is an int or float with the desired state of the current plugin activation.(new Ardour 6.0)</td></tr>
+  <tr><th><kbd class="osc">/select/plugin/parameter, <em>plugin</em> <em>parameter</em> <em>value</em></kbd></th>
   <td>where <em>plugin</em> = nth plugin, <em>parameter</em> = nth parameter and <em>value</em> is a float from 0 to 1</td></tr>
 </table>
 <p class="note">
@@ -554,7 +729,85 @@ here</em>"/&gt;</kbd>
 	for page up and a switch with a value of <code>-1</code> for page down. An encoder
 	can be used as well. (these commands were added in Ardour version 5.10)
 </p>
-<h3>Menu actions</h3>
+<h4 id="groups">Using groups with strip and select (new for Ardour 6.0)</h4>
+<p class="note">
+	No grouping will occure unless <code>use_group</code> is set either
+	by using <kbd class="osc">/set_surface/strip_types</kbd> with the use groups bit set
+	or by using <kbd class="osc">/use_group i 1</kbd>.
+</p>
+	<p>
+		The result for <kbd class="osc">/strip/group</kbd> or
+		<kbd class="osc">/select/group</kbd> is determined by the parameter
+		passed in the command and the current group and available list of
+		groups. The group name the control surface sends may be:
+	</p>
+	<ul>
+		<li>
+			"none", "" or " " will remove this strip from this group. If this
+			was the only strip in this group, the group is deleted. Some
+			OSC controllers have trouble sending an empty string and a
+			list of groups contains "none" as well so a dropdown can just
+			send a text item and work.
+		</li>
+		<li>
+			The name of a group this strip does not belong to will remove
+			this strip from it's current group and add it to the named group.
+			If this strip was the only strip in the group it was removed from,
+			that group will be deleted.
+		</li>
+		<li>
+			An unused name when this strip is not part of a group will create
+			a new group with the group name sent and add this strip to that
+			group
+		</li>
+		<li>
+			An unused name when this strip is already a part of a group will
+			rename this group to the name sent.
+		</li>
+	</ul>
+	<p>To create a new group from a strip that is already joined to a group,
+	the strip must first remove itself from the current group.
+	</p>
+<h4 id="spill">Spill Strips</h4>
+<p><kbd class="osc">/select/spill</kbd> or <kbd class="osc">/strip/spill</kbd>
+	will:</p>
+	<ul>
+		<li>
+			set the current set of strips in use to include only the strips
+			that are a part of the group the strip is a part of so long
+			as that strip is a track.</li>
+		<li>
+			set the current set of strips to the set of strips that feed
+			this strip if it is a bus. In the case where this strip is
+			being fed by sends rather than strip outputs, the strips that
+			feed this bus will have their names set to the name of the strip
+			with <em>-send</em> appended to it and the fader, pan and mute will
+			control the send rather than the strip. The other strip controls
+			will be disabled in this mode. This only happens when the strip
+			that calls spill is a bus. In the case where a strip that is part
+			of a group is chosen as above where the group all sends to a common
+			bus this will not happen. This can be useful for a group that uses
+			"Add New Aux Bus" to switch from sends to faders.</li>
+		<li>
+			set the current set of strips to the set of strips that are
+			controled by the VCA if this strip is a VCA.</li>
+	</ul>
+	<p>spill/group, spill/bus or spill/vca can also be used to force
+	the type of spilling that is done. This may be useful if the strip
+	is a bus that is a part of a group and the group variation is required.</p>
+	<p>In all cases, if there is a bus or VCA attached to the group of strips
+	it will be included as well.</p>
+	<P>What is less obvious, is how to return to the normal set of strips.
+	There are a number of ways of doing so depending on the operator's wishes.
+	The most obvious way is to use <kbd class="osc">/set_surface/strip_types</kbd>
+	to set the strip list as desired. It is expected that a control surface
+	may have more than one strip types button in any case to see only
+	inputs or only busses etc and of course one to give a full mix. Another
+	option is to reselect the custom set of strips with
+	<kbd class="osc">/strip/custom/mode <em>mode</em></kbd>.
+</p>
+
+<h3 id="menu">Menu actions</h3>
 <p>
   Every single menu item in Ardour's GUI is accessible via OSC. There is
   a single common syntax to trigger the action as if it was selected

@@ -166,7 +166,7 @@
 
 #content figcaption.titleover {
   text-align: center;
-	caption-side: top ;
+	caption-side: top;
 }
 
 #content figure.right {
@@ -192,6 +192,10 @@
 
 #content img.mini:hover {
   width: 100%;
+}
+
+#content img.fit {
+	width: 100%;
 }
 
 kbd {

@@ -4,7 +4,7 @@
 # finished manual/website.
 #
 # by James Hammons
-# (C) 2017 Underground Software
+# (C) 2020 Underground Software
 #
 # Contributors: Ed Ward
 #
@@ -80,11 +80,12 @@ def ParseHeader(fileObj):
 # Turn a "part" name into an int
 #
 def PartToLevel(s):
-	lvl = {'part': 0, 'chapter': 1, 'subchapter': 2}
+	lvl = {'part': 0, 'chapter': 1, 'subchapter': 2, 'section': 3, 'subsection': 4 }
+
 	if s in lvl:
 		return lvl[s]
-	else:
-		return -1
+
+	return -1
 
 
 #
@@ -107,7 +108,7 @@ def num2roman(num):
 #
 def GetFileStructure():
 	fs = []
-	fnames = [None]*6
+	fnames = [None] * 6
 	content = ''
 	grab = False
 	mf = open(global_master_doc)
@@ -211,8 +212,9 @@ def GetParent(fs, pos):
 #
 def reheader(txt, delta):
 	for i in range(6, 0, -1):
-		txt = txt.replace('<h' + str(i),'<h' + str(i+delta))
-		txt = txt.replace('</h' + str(i),'</h' + str(i+delta))
+		txt = txt.replace('<h' + str(i), '<h' + str(i + delta))
+		txt = txt.replace('</h' + str(i), '</h' + str(i + delta))
+
 	return txt
 
 
@@ -273,6 +275,7 @@ def FindInternalLinks(fs):
 			linkDict['"@@' + hdr['link'] + '#'] = '"/' + hdr['filename'] + '/index.html#'
 
 	return linkDict
+
 
 #
 # Same as above, but create anchors (for the one-page version)
@@ -354,19 +357,23 @@ def BuildOnePageSidebar(fs):
 
 	content = '\n\n<ul class="toc">\n'
 	lvl = 0
-	levelNums = [0]*3
+	levelNums = [0] * 5
 
 	for i in range(len(fs)):
-		# Handle Part/Chapter/subchapter numbering
+		# Handle Part/Chapter/subchapter/section/subsection numbering
 		level = fs[i]['level']
+
 		if level < 2:
 			levelNums[2] = 0
+
 		levelNums[level] = levelNums[level] + 1
 		j = level
 		txtlevel = ''
+
 		while j > 0:  #level 0 is the part number which is not shown
 			txtlevel = str(levelNums[j]) + '.' + txtlevel
-			j = j-1
+			j = j - 1
+
 		if len(txtlevel) > 0:
 			txtlevel = txtlevel[:-1] + ' - '
 
@@ -378,6 +385,7 @@ def BuildOnePageSidebar(fs):
 		while lvl < level:
 			content = content + '<ul class="toc">\n'
 			lvl = lvl + 1
+
 		while lvl > level:
 			content = content + '</ul>\n'
 			lvl = lvl - 1
@@ -397,10 +405,11 @@ def CreateLinkSidebar(fs, pos, childList):
 	# Build the list recursively from the top level nodes
 	content = BuildList(FindTopLevelNodes(fs), fs, pos, childList)
 	# Shove the TOC link and one file link at the top...
-	active = ' class=active' if pos<0 else ''
-	content = content.replace('<ul>','<ul><li' + active + '><a href="/toc/">Table of Contents</a></li>',1)
+	active = ' class=active' if pos < 0 else ''
+	content = content.replace('<ul>', '<ul><li' + active + '><a href="/toc/">Table of Contents</a></li>\n', 1)
 
 	return content
+
 
 # Preliminaries
 
@@ -409,19 +418,20 @@ parser = argparse.ArgumentParser(description='A build script for the Ardour Manu
 parser.add_argument('-v', '--verbose', action='store_true', help='Display the high-level structure of the manual')
 parser.add_argument('-q', '--quiet', action='store_true', help='Suppress all output (overrides -v)')
 parser.add_argument('-d', '--devmode', action='store_true', help='Add content to pages to help developers debug them')
-parser.add_argument('-n', '--nopdf', action='store_true', help='Do not automatically generate PDF from content')
+parser.add_argument('-p', '--pdf', action='store_true', help='Automatically generate PDF from content')
 args = parser.parse_args()
 verbose = args.verbose
-quiet = args.quiet
+noisy = not args.quiet
 devmode = args.devmode
-nopdf = args.nopdf
+pdf = args.pdf
 
-if quiet:
+# --quiet overrides --verbose, so tell it to shut up if user did both
+if not noisy:
 	verbose = False
 
 level = 0
 fileCount = 0
-levelNums = [0]*3
+levelNums = [0] * 5
 lastFile = ''
 page = ''
 onepage = ''
@@ -429,19 +439,16 @@ pdfpage = ''
 toc = ''
 pageNumber = 0
 
-
-
-if not quiet and devmode:
+if noisy and devmode:
 	print('Devmode active: scribbling extra junk to the manual...')
 
 if os.access(global_site_dir, os.F_OK):
-	if not quiet:
+	if noisy:
 		print('Removing stale HTML data...')
 
 	shutil.rmtree(global_site_dir)
 
 shutil.copytree('./source', global_site_dir)
-
 
 # Read the template, and fix the stuff that's fixed for all pages
 temp = open(global_screen_template)
@@ -450,14 +457,14 @@ temp.close()
 template = template.replace('{{page.bootstrap_path}}', global_bootstrap_path)
 template = template.replace('{{page.page_title}}', global_page_title)
 
-# Same as above, but for the One-page version
+# Same as above, but for the "One-Page" version
 temp = open(global_onepage_template)
 onepage = temp.read()
 temp.close()
 onepage = onepage.replace('{{page.bootstrap_path}}', global_bootstrap_path)
 onepage = onepage.replace('{{page.page_title}}', global_page_title)
 
-if not nopdf:
+if pdf:
 	# Same as above, but for the PDF version
 	temp = open(global_pdf_template)
 	pdfpage = temp.read()
@@ -474,11 +481,11 @@ nodeChildren = FindChildren(fileStruct)
 links = FindInternalLinks(fileStruct)
 oplinks = FindInternalAnchors(fileStruct)
 
-if not quiet:
+if noisy:
 	print('Found ' + str(len(links)) + ' internal link target', end='')
 	print('.') if len(links) == 1 else print('s.')
 
-if not quiet:
+if noisy:
 	master = open(global_master_doc)
 	firstLine = master.readline().rstrip('\r\n')
 	master.close()
@@ -500,9 +507,10 @@ for header in fileStruct:
 	lastLevel = level
 	level = header['level']
 
-	# Handle Part/Chapter/subchapter numbering
+	# Handle Part/Chapter/subchapter/section/subsection numbering
 	if level < 2:
 		levelNums[2] = 0
+
 	levelNums[level] = levelNums[level] + 1
 
 	# This is totally unnecessary, but nice; besides which, you can capture
@@ -525,15 +533,10 @@ for header in fileStruct:
 		toc = toc + '\t<p class="chapter">Ch. ' + str(levelNums[level]) + ':&nbsp;&nbsp;<a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
 	elif level == 2:
 		toc = toc + '\t\t<p class="subchapter"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
-
-	# Handle one-page and PDF titles...
-	opl = ''
-	if 'link' in header:
-		opl = ' id="' + header['link'] + '"'
-	else:
-		opl = ' id="' + header['filename'] + '"'
-	oph = '<h' + str(level+1) + ' class="clear"' + opl +'>' + header['title'] + '</h' + str(level+1) + '>\n'
-
+	elif level == 3:
+		toc = toc + '<p class="section"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
+	elif level == 4:
+		toc = toc + '<p class="subsection"><a href="/' + header['filename'] + '/">' + header['title'] + '</a></p>\n'
 
 	# Make the 'this thing contains...' stuff
 	if HaveChildren(fileStruct, pageNumber):
@@ -617,9 +620,13 @@ for header in fileStruct:
 	opcontent = FixInternalLinks(oplinks, content, header['title'])
 	opcontent = reheader(opcontent, 2)
 
+	# Create "one page" header
+	oph = '<h' + str(level+1) + ' class="clear" id="' + header[('link' if 'link' in header else 'filename')] +'">' + header['title'] + '</h' + str(level+1) + '>\n'
+
 	# Set up the actual page from the template
 	onepage = onepage.replace('{{ content }}', oph + '\n' + opcontent + '\n{{ content }}')
-	if not nopdf:
+
+	if pdf:
 		if not 'pdf-exclude' in header:
 			pdfpage = pdfpage.replace('{{ content }}', oph + '\n' + opcontent + '\n{{ content }}')
 		else:
@@ -684,8 +691,8 @@ onepage = onepage.replace('{{ content }}', '') # cleans up the last spaceholder
 onepageFile.write(onepage)
 onepageFile.close()
 
-if not nopdf:
-	if not quiet:
+if pdf:
+	if noisy:
 		print('Generating the PDF...')
 
 	# Create the PDF version of the documentation
@@ -707,6 +714,6 @@ if not nopdf:
 	doc = HTML(string = pdfpage, base_url = global_site_dir)
 	doc.write_pdf(global_site_dir + 'manual.pdf', font_config = html_font_config)
 
-if not quiet:
+if noisy:
 	print('Processed ' + str(fileCount) + ' files.')
 

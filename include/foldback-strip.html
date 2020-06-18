@@ -1,0 +1,201 @@
+
+<figure class="right">
+    <img src="/images/foldback-gui.png" alt="The Foldback strip">
+    <figcaption>
+      The Foldback strip
+    </figcaption>
+</figure>
+
+<p>
+  The <dfn>Foldback section</dfn> is an optional feature that provides stage monitoring mixes.
+  Many times the main mix is used for this purpose is a setup with only the control room. However,
+  for a separate studio and multiple monitor mixes for in-ear use, a separate set of Foldback
+  buses provides that flexibility.
+</p>
+<p class=note>
+	The Foldback bus was added in Ardour Version 6.0.
+</p>
+<p>
+	These foldback buses may be mono for a stage monitor wedge or stereo to allow
+	in-ear or headphones to have different mixes for each ear, such as one's self in one
+	ear and the rest of the music in the other.
+</p>
+<p>
+  A Foldback bus can be created in the same manner as any other bus is created, from the
+  <kbd class="menu">Track &gt; Add Track, Bus or VCA</kbd> Window. Once at least one
+  Foldback bus has been created, the Foldback strip will appear in the mixer window.
+</p>
+<p>
+	Foldback sends can be created From the processor box context menu by selecting
+	<kbd class="menu">New Foldback Send</kbd> and then the Foldback bus desired.
+</p>
+<p>
+	<img alt="create send" src="/images/foldbacksend.png">
+</p>
+<p>
+	A second method is to select all the source channels and then use the Foldback
+	bus sendbox context menu and select either <kbd class="menu">Assign Selected Tracks</kbd>
+	or <kbd class="menu">Assign Selected Tracks and Buses</kbd>.
+</p>
+<p>
+  The <kbd class="menu">View &gt; Mixer: Show Foldback Strip</kbd> checkbox will determine if the
+  Foldback strip is visible. The Foldback strip appears Just to the left of the Master strip in the
+  Mixer window. It comprises:
+</p>
+<ol>
+  <li>Previous and Next buttons</li>
+  <!--li>Detach/attach control. This separates the Foldback strip into its own floating window</li-->
+  <li>Hide button</li>
+  <li>Foldback bus name button</li>
+  <li>Invert button</li>
+  <li>Show sends button</li>
+  <li>Send controls</li>
+  <li>Bus pan control</li>
+  <li>Processor box</li>
+  <li>Listen button</li>
+  <li>Foldback bus level control</li>
+  <li>Foldback bus output routing</li>
+  <li>Comments button</li>
+</ol>
+
+<h2>Previous and Next</h2>
+
+<p>
+	The Previous button shows the previous Foldback bus in the Foldback strip.
+	The Next button shows the next Foldback strip. The button will be disabled
+	if there are no more Foldback buses in that direction.
+</p>
+
+<h2>Hide</h2>
+<p>
+	The hide button hides the Foldback strip when not being adjusted.
+	The Foldback strip can be shown again from the main menu
+	<kbd class="menu">View &gt; Mixer: Show Foldback Strip</kbd> item.
+</p>
+
+<h2>Name button</h2>
+<p>
+	The name button shows the name of the current Foldback bus. It has two
+	menus the Foldback bus selection menu, activated with a mouse button 1
+	click and the context menu, activated with a mouse button 3 click. The
+	context menu has these items in it:
+</p>
+<ul>
+  <li><kbd class="menu">Comments</kbd> is the same as the Comments button
+  at the bottom of the strip</li>
+  <li><kbd class="menu">Outputs</kbd> shows the output routing grid</li>
+  <li><kbd class="menu">Save as a template</kbd> opens the template save
+  dialog. The template saved has the same number of channels and the same
+  processors but does not have any sends selected.</li>
+  <li><kbd class="menu">Rename</kbd> shows a rename dialog that allows the Foldback
+  bus name to be renamed</li>
+  <li><kbd class="menu">Active</kbd> toggles The active status of the current
+  Foldback bus</li>
+  <li><kbd class="menu">Protect Against Denormals</kbd> turns on denormal
+  protection for the current Foldback bus</li>
+  <li><kbd class="menu">Remove</kbd> will remove the current Foldback bus</li>
+</ul>
+
+<h2>Invert Buttons</h2>
+<p>
+	The invert buttons (one for each channel) invert the audio signal. This
+	may be useful in some situations for controlling feedback. However,
+	proper microphone and monitor placement or the use of head phones
+	or in ear monitoring will be more effective.
+</p>
+
+<h2>Show Sends</h2>
+<p>
+	Show sends allows the send levels and pan to be controlled from the
+	originating track by using the main fader for the track. The fader and
+	pan controls will change color to indicate this mode and the show sends
+	button will flash to indicate this mode. Changing the current Foldback
+	bus will disable this mode.
+</p>
+
+<h2>The Send Box</h2>
+<p>
+	The send box shows controls for each send. There is a context menu available
+	by clicking mouse button 3 anywhere in the send box.
+</p>
+<ul>
+  <li><kbd class="menu">Assign Selected Tracks</kbd> creates Foldback sends on each
+  selected track that feed the current Foldback bus</li>
+  <li><kbd class="menu">Assign Selected Tracks and Buses</kbd> creates Foldback sends on each
+  selected track and bus that feed the current Foldback bus</li>
+  <li><kbd class="menu">Copy track/bus gains to sends</kbd> Sets the gain on the send to be the
+  same as the gain of the track or bus the send comes from for the current
+  Foldback bus</li>
+  <li><kbd class="menu">Set sends gain to -inf</kbd> sets the gain on all sends
+  for the current Foldback bus to -inf (the lowest gain possible)</li>
+  <li><kbd class="menu">Set sends gain to 0dB</kbd> sets the gain on all sends
+  for the current Foldback bus to 0dB</li>
+</ul>
+
+<h3>The Send Control Block</h3>
+<p>
+	<img src="/images/foldback-send.png" alt="The Foldback send">
+</p>
+<p>
+	There is a send control block for every send to the current Foldback
+	bus. The Send control block features three controls:
+</p>
+<ul>
+	<li>The button which shows the Foldback bus' name, has an active "LED"
+	indicator that can be clicked to enable or disable that send and has
+	a menu (mouse button 1) with items for that send:
+	<ul>
+		<li><kbd class="menu">Copy track/bus gain to send</kbd> Sets the gain
+		on the send to be the same as the gain of the track or bus the send
+		comes from for the current Foldback bus</li>
+		<li><kbd class="menu">Set send gain to -inf</kbd> sets the send gain
+		for the current Foldback bus to -inf (the lowest gain possible)</li>
+		<li><kbd class="menu">Set send gain to 0dB</kbd> sets the send gain
+		for the current Foldback bus to 0dB</li>
+		<li><kbd class="menu">Remove This Send</kbd> removes the send from the
+		sending track or bus.</li>
+	</ul></li>
+	<li>The knob, only present on a stereo Foldback bus, which controls
+	the pan azimuth</li>
+	<li>The horizontal slider which control the level input from that channel</li>
+</ul>
+
+<h2>The Pan Control</h2>
+<p>
+	This is just like every other track or bus strip and works the same way.
+</p>
+
+<h2>The Processor Box</h2>
+<p>
+	This processor box is the same as on the other tracks and buses and allows
+	for adding things like reverb to the Foldback mix without writing it to the track.
+	It would also be possible to add in sound from a reverb bus instead.
+</p>
+
+<h2>The Listen Button</h2>
+<p>
+	This is only available in PFL or AFL mode as it uses the same code as
+	the solo on other tracks and buses. It allows the control room monitor
+	or headphones to hear what the performer will hear in their monitor.
+</p>
+
+<h2>The Foldback Level Knob</h2>
+<p>
+	This controls the output level being sent to the stage monitor.
+</p>
+
+<h2>The Output Port Selector</h2>
+<p>
+	This is similar to the output selectors on the tracks and buses. It
+	differs in only a few ways. First it is never automatically connected.
+	A Foldback bus is always meant to be directly connected to an output
+	device and never to master or the monitor bus. The choices shown
+	Therefore reflect this.
+</p>
+<h2>The Comment Button</h2>
+<p>
+	Just like the track and bus comment button, this allows opening a
+	window to type in notes about the current Foldback bus for future
+	reference.
+</p>
+

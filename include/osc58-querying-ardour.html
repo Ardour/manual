@@ -25,6 +25,8 @@
   <td>Asks for a list of descriptors for plug-in <em>piid</em> on strip <em>ssid</em></td></tr>
   <tr><th><kbd class="osc">/set_surface</kbd></th>
   <td>Ask for the current surface setting. Reply is in the same form as setting the surface would be.</td></tr>
+  <tr><th><kbd class="osc">/surface/list</kbd></th>
+  <td>Print a list of known surfaces and Link Sets to the log window.</td></tr>
 </table>
 
 <h3>A list of strips</h3>
@@ -40,7 +42,7 @@
 		<li>MT - MIDI Track</li>
 		<li>B - Audio Bus</li>
 		<li>MB - MIDI bus</li>
-		<li>AX - Aux bus</li>
+		<li>FB - Foldback bus</li>
 		<li>V - VCA</li>
     </ul>
     <li>Strip name</li>
@@ -180,5 +182,22 @@
 	maximum and value will in most cases give you all you need. For simpler
 	access to plug-ins, the /select/plugin/ set of commands will handle most
 	needs.
+</p>
+<h3>Obtaining a list of surfaces Ardour knows about</h3>
+<p>
+	Ardour can work with more than one OSC control surface at a time.
+	Sometimes it is useful to know the information stored about all
+	surfaces. Sending <code>/surface/list</code> from any surface or selecting:
+	<kbd class="menu">Print surface information to Log window</kbd> from
+	the <kbd class="menu">Debug</kbd> dropdown in the OSC setup dialog,
+	will list all the information Ardour uses to calculate the feedback
+	it sends. The Log window can be opened from the menu with
+	<kbd class="option">Window &gt; Log</kbd>.
+	This would be useful information to include with any OSC
+	related Bug report. The output is printed in this format:
+</p>
+<p>
+<img alt="Surface Output"
+     src="/images/osc-surface-log.png">
 </p>
 
