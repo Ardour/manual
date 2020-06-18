@@ -332,3 +332,32 @@ body.dark-theme #content .for-red {
 body.dark-theme #content .fixme {
   background-color: rebeccapurple;
 }
+
+body.dark-theme #content a {
+  color: #49abff;
+}
+
+body.dark-theme #content .pager li > a,
+body.dark-theme #content .pager li > span {
+  background-color: #202020;
+}
+
+body.dark-theme #content .breadcrumb {
+  background-color: #212a30;
+}
+
+body.dark-theme #content .breadcrumb > .active {
+  color: #b7b7b7;
+}
+
+body.dark-theme #content #luaref div.code samp {
+  color: #007900;
+}
+
+body.dark-theme #content code a {
+  color: #006ac6
+}
+
+body.dark-theme #content div.luafooter {
+  color: white;
+}
