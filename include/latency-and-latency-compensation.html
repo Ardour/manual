@@ -261,3 +261,10 @@
   <li>Make the appropriate connections between the jack ports so the loop is closed.</li>
   <li>Adjust the playback and capture levels in the mixer.</li>
 </ol>
+<p class="warning">
+  On Linux, the latency of USB audio interfaces is not constant. It may
+  change when the interface is reconnected, on reboot and even when xruns
+  occur. This is due the buffer handling in the Linux USB stack. As a
+  workaround, it is possible to recalibrate the latency at the start of each
+  session and each time an xrun occurs.
+</p>
