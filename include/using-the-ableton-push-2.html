@@ -28,6 +28,27 @@
   system, and will appear in any of the lists of possible MIDI ports
   in both Ardour and other similar software.
 </p>
+<div class="note">
+  <p>
+    Linux does not provide normal users access to arbitrary USB
+    devices by default (this is a security measure). To give yourself
+    access to the Push2, you need to create a file in
+    the <code>/etc/udev/rules.d</code> folder (directory). The name of
+    the should be something like "50-Ableton-Push2.rules" (the only
+    critical parts are that it ends in ".rules" and is unique). The
+    file should contain the following single line:
+  </p>
+  <p>
+  <verb>
+    SUBSYSTEM=="usb", ATTR{idVendor}=="2982", ATTR{idProduct}=="1967", MODE="0666", GROUP="audio"
+  </verb>
+  </p>
+  <p>
+  Note that you will need to be member of the group named in the
+  "GROUP" property ("audio" in the example above). 
+  </p>
+</div>
+
 <p>
   To connect the Push 2 to Ardour, open the Preferences dialog, and
   then click on "Control Surfaces". Click on the "Enable" button
