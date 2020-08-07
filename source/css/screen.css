@@ -361,3 +361,12 @@ body.dark-theme #content code a {
 body.dark-theme #content div.luafooter {
   color: white;
 }
+
+body.dark-theme #tree {
+  background-color: black;
+}
+
+body.dark-theme #tree a {
+  color: white;
+  text-shadow: 0 0 0 white;
+}
