@@ -102,16 +102,18 @@ bindings"&gt;
 <p>
   There are two basic kinds of bindings you can make between a MIDI message
   and something inside Ardour. The first is a binding to a specific parameter
-  of a track or bus. The second is a binding to a function that will change
-  Ardour's state in some way.
+  of a track or bus. The second is a binding to something that will change
+  Ardour's state in some way (the "something" could either be called a
+  function or an action, see below).
 </p>
 <h4>Binding to Track/Bus controls</h4>
 <p>
-  A track/bus binding has one of two basic structures
+  A track/bus binding has one of three basic structures
 </p>
 <code>
   &lt;Binding <em>msg specification</em>  uri="<em>&hellip; control address &hellip;</em>"/&gt;</br>
   &lt;Binding <em>msg specification</em>  function="<em>&hellip; function name &hellip;</em>"/&gt;
+  &lt;Binding <em>msg specification</em>  action="<em>&hellip; action name &hellip;</em>"/&gt;
 </code>
 
 <h4>Message specifications</h4>
@@ -280,19 +282,28 @@ bindings"&gt;
 
 <h4>Bindings to Ardour "functions"</h4>
 <p class="note">
-	There is currently no feedback available for functions.
+  There is currently no feedback available for functions.
 </p>
 <p>
-  Rather than binding to a specific track/bus control, it may be useful to
-  have a MIDI controller able to alter some part of Ardour's state. A
-  binding definition that does this looks like this:
+  Rather than binding to a specific track/bus/plugin control, it may be useful to
+  have a MIDI controller able to alter some part of Ardour's
+  state. Ardour's Generic MIDI support provides a small number of
+  easily-used "functions" to do the most common operations, using a
+  binding that looks like this:
 </p>
 <code>
   &lt;Binding channel="1" note="13" function="transport-roll"/&gt;
 </code>
 <p>
   In this case, a NoteOn message for note number 13 (on channel 1) will
-  start the transport rolling. The following function names are available:
+  start the transport rolling. 
+</p>
+<p>
+  Note that a much greater number of operations are possible using
+  actions, described below.
+</p>
+<p>
+  The following function names are available:
 </p>
 <table class="dl">
 <tr><th>
@@ -349,8 +360,8 @@ bindings"&gt;
 
 <h4>Binding to Ardour "actions"</h4>
 <p class="note">
-	It is not possible to have feedback available for actions because
-	these represent keyboard shortcuts which are input only.
+  It is not possible to have feedback available for actions because
+  these represent keyboard shortcuts which are input only.
 </p>
 <p>
   You can also bind a sysex or arbitrary message to any of the items
