@@ -19,13 +19,15 @@
   Using the Draw tool, as for all the automation, allows to create a gradual
   change from one drawn point to another. A line in the center produces no
   change to the pitch, while a line above the center will bend the pitch to a
-  higher note (up to 4 semitones) and a line going under the middle will bend
-  the pitch to a lower note.
+  higher note and a line going under the middle will bend the pitch to a lower note.
 </p>
 
 <p>
-  The values can be anything between 0 (-4 semitones) to 16383 (+4 semitones). No
-  automation or a value of 8192 means no pitch shifting.
+  The pitch change depends on the synth-plugin used. Common ranges are an
+	change of either &plusmn; 1, &plusmn; 2 or &plusmn; 4 semitones
+	for the range 0 to 16383. The range is usually defined by the soundfont
+	for each instrument.
+	A value of 8192, which is also the default, means no pitch change.
 </p>
 
 <p>
