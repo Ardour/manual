@@ -39,6 +39,16 @@
   aggregated so that 16 channels can be recorded in Ardour.
 </p>
 
+<p>
+  Another example is using Soundflower to route audio to Ardour. To output the
+  audio through the speakers you will have to create an aggregate device to specify
+  Soundflower as the input and Built-in-Output as the output. In the Audio/MIDI Setup
+  in Ardour specify the aggregate device as both the Input and Output devices. And then
+  on the master track ensure you have specified the correct output channels. For example,
+  if you are using Soundflower(64) as input, Channels 65/66 will be the output
+  channels on your master track.
+</p>
+
 <div class="note">
 <p>
   When using a <em>single</em> typical 3rd party audio interface (such as those
