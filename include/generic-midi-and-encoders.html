@@ -2,8 +2,7 @@
 <p>
   Encoders are showing up more frequently on controllers. However, they use
   the same MIDI events as Continuous Controllers and they have no standard
-  way of sending that information as MIDI events. Ardour 4.2 has implemented
-  4 of the more common ways of sending encoder information.
+  way of sending that information as MIDI events.
 </p>
 <p>
   Encoders that send the same continuous values as a pot would are not
@@ -14,30 +13,34 @@
   DAW will add to or subtract from the current value.
 </p>
 <p>
-  The 4 kinds of encoder supported are:
+  The 4 kinds of 7 bit encoders supported are:
 </p>
 <ul>
 <li>
-  enc-r:  On the bcr/bcf2000 this is called "Relative Signed Bit". The most
-  significant bit sets positive and the lower 6 significant bits are the
-  offset.
+  enc-r:  Relative Signed Bit. If the most sign bit is set, Then
+  the offset is positive. The lower 6 significant bits are the
+  offset. <code>&lt;Binding channel="1" enc-r="13" &hellip;</code>
+  The offset value is formed as <code>0svvvvvv</code>. Where s is the
+  sign or direction and vvvvvv is the number of ticks turned.
 </li>
 <li>
-  enc-l: The bcr2000 calls this "Relative Signed Bit 2". The most
-  significant bit sets negative and the lower 6 significant bits are the
-  offset. If you are using one of these two and the values are right but
-  reversed, use the other. This one is the one the Mackie Control Protocol
-  uses.
+  enc-l: Relative Signed Bit 2". If the most sign bit is unset,
+  Then the offset is positive. The lower 6 significant bits are the
+  offset. This is the same as enc-r but with the direction of turn
+  reversed. This is the method the Mackie Control Protocol
+  uses. <code>&lt;Binding channel="1" enc-l="13" &hellip;</code>
+  The offset value is formed as <code>0svvvvvv</code>. Where s is the
+  sign or direction and vvvvvv is the number of ticks turned.</li>
+<li>
+  enc-2: Relative 2s Complement. Positive offsets are sent as normal
+  from 1 to 64 and negative offsets are sent as 2s complement negative
+  numbers. This is a signed 7 bit int.
+  <code>&lt;Binding channel="1" enc-2="13" &hellip;</code>
 </li>
 <li>
-  enc-2: The bcr2000 calls this one "Relative 2s Complement". Positive
-  offsets are sent as normal from 1 to 64 and negative offsets are sent as
-  2s complement negative numbers.
-</li>
-<li>
-  enc-b: The bcr2000 calls this one "Relative Binary Offset". Positive
-  offsets are sent as offset plus 64 and negative offsets are sent as 64
-  minus offset.
+  enc-b: Relative Binary Offset. Positive offsets are sent as offset
+  plus 64 and negative offsets are sent as 64 minus offset. 64 is zero,
+  65 is +1, 63 is -1. <code>&lt;Binding channel="1" enc-b="13" &hellip;</code>
 </li>
 </ul>
 <p>
@@ -51,3 +54,10 @@
   the surface.
 </p>
 
+14 bit encoders are also supported with:
+<ul>
+	<li>rpn-delta - The value is expected to be a signed 14bit value
+		that is added to the current value. For use with encoders</li>
+	<li>nrpn-delta - The value is expected to be a signed 14bit value
+		that is added to the current value. For use with encoders</li>
+</ul>

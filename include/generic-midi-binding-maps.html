@@ -152,29 +152,12 @@ bindings"&gt;
 		that is added to the current value. For use with encoders</li>
 		<li>nrpn-delta - The value is expected to be a signed 14bit value
 		that is added to the current value. For use with encoders</li>
-		<li>enc-r, enc-l, enc-2 and enc-b - For 7 bit encoders. See below</li>
+		<li>enc-r, enc-l, enc-2 and enc-b - For 7 bit encoders.
+		<a href="@@generic-midi-and-encoders"> Learn more about working
+		with encoders </a></li>
 	</ul>
 </p>
-<p>
-  As of Ardour 4.2, <code>enc-r</code>, <code>enc-l</code>, <code>enc-2</code> and
-  <code>enc-b</code> may be used for surfaces that have encoders that send
-  offsets rather than values. These accept Continuous Controller messages
-  but treat them as offsets. These are good for banked controls as they are
-  always at the right spot to start adjusting. (
-   <a href="@@generic-midi-and-encoders">
-   Learn more about working with encoders
-   </a>)
-</p>
-<p>
-	<ul>
-		<li><code>&lt;Binding channel="1" enc-r="13" &hellip;</code></li>
-		<li><code>&lt;Binding channel="1" enc-l="13" &hellip;</code></li>
-		<li><code>&lt;Binding channel="1" enc-2="13" &hellip;</code></li>
-		<li><code>&lt;Binding channel="1" enc-b="13" &hellip;</code></li>
-	</ul>
-	The <code>enc-*</code> value is the CC number used by the encoder.
-	Encoders only work with CC messages.
-</p>
+
 <p class="note">
 	Ardour 5.12 has a bug with the encoder detection where the first
 	encoder message resets the control to 0. Setting "Enable Feedback"
