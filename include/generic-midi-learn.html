@@ -5,19 +5,6 @@ There are no "best" ways to map an arbitrary MIDI controller for
 controlling Ardour. There may be very legitimate reasons for different
 users to prefer quite different mappings.
 </p>
-<p>
-<kbd class="menu">Window &gt; MIDI Connections</kbd> opens the
-MIDI Connection Manager to help routing MIDI in and out.
-Along with that, on every platform that Ardour runs on, there are excellent
-free-of-charge tools for making connections between MIDI hardware and
-"virtual" MIDI ports like the ones that Ardour creates and
-uses. Rather than waste precious developer time replicating these
-connection/patch managers, we prefer to leverage their existence by
-having users rely on them to actually connect Ardour to other MIDI
-devices and software. On OS X, we recommend Pete Yandell's MIDI
-Patchbay. On Linux, a wide variety of tools are available including
-QJackCtl, aconnect, Patchage, and more.
-</p>
 
 <h2>Basics</h2>
 
@@ -32,6 +19,26 @@ QJackCtl, aconnect, Patchage, and more.
   <li>Move the hardware knob or fader, or press the note/key.</li>
   <li>The binding is complete. Moving the hardware should control the Ardour fader etc. </li>
 </ol>
+
+<p>
+There's a complication to this story, however. You cannot use MIDI
+learn with the GUI provided by the plugin. This is true no matter what
+the plugin format or platform is. When we refer to "whatever on-screen
+fader ..." above, we are referring to an “Ardour-owned” control of
+some sort. You can get access to that in one of 3 ways:
+
+<ul>
+  <li>right click on the processor element in the mixer strip, and choose “Edit with Generic GUI”</li>
+  <li>right click on the processor element in the mixer strip, and from “Controls”, make the desired parameter visible inline in the mixer strip</li>
+  <li>in the editor, click on the “A” (automation) button for the
+  track, find the desired parameter. This will make the automation
+  lane for that parameter visible, and it comes with a fader you can
+    use for MIDI learn.</li>
+</ul>
+
+You can’t just “click the GUI” because the plugin owns the GUI, and
+cannot (and should not) be a part of the MIDI learn process.
+</p>
 
 <h2>Cancelling a Learned MIDI Binding</h2>
 
