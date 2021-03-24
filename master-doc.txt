@@ -124,7 +124,7 @@ part: subchapter
 ---
 
 ---
-title: Mnemonic Bindings for Linux
+title: Mnemonic Bindings for Linux &amp; Windows
 menu_title: Linux &amp; Windows Bindings
 include: mnemonic-bindings-for-linux.html
 link: mnemonic-bindings-for-linux
