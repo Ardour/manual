@@ -189,6 +189,7 @@ code {
 .mod13:before {       content: "Ctrl Shift ";}
 .mod14:before {       content: "Ctrl Win ";}
 .mod23:before {       content: "Alt Shift ";}
+.mod123:before {       content: "Ctrl Alt Shift ";}
 .kp:before {          content: "Keypad ";}
 /* Variants *without* space after them (yes, these are needed!) */
 .mod1n:before {       content: "Ctrl";}
@@ -199,6 +200,7 @@ code {
 .mod13n:before {      content: "Ctrl Shift";}
 .mod14n:before {      content: "Ctrl Win";}
 .mod23n:before {      content: "Alt Shift";}
+.mod123n:before {       content: "Ctrl Alt Shift";}
 /* Automagic translation for Mac based display */
 .mac .mod1:before {   content: "Cmd ";}
 .mac .mod2:before {   content: "Ctrl ";}
@@ -208,6 +210,7 @@ code {
 .mac .mod13:before {  content: "Cmd Shift ";}
 .mac .mod14:before {  content: "Cmd Opt ";}
 .mac .mod23:before {  content: "Ctrl Shift ";}
+.mac .mod123:before {  content: "Cmd Ctrl Shift ";}
 /* No space variants (Mac based) */
 .mac .mod1n:before {  content: "Cmd";}
 .mac .mod2n:before {  content: "Ctrl";}
@@ -217,6 +220,7 @@ code {
 .mac .mod13n:before { content: "Cmd Shift";}
 .mac .mod14n:before { content: "Cmd Opt";}
 .mac .mod23n:before { content: "Ctrl Shift";}
+.mac .mod123n:before { content: "Cmd Ctrl Shift";}
 
 /* for images sliced in divs, as in http://manual.ardour.org/ardours-interface/about/ */
 .container { position: relative; border: none; }
