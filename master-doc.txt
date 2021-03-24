@@ -125,7 +125,7 @@ part: subchapter
 
 ---
 title: Mnemonic Bindings for Linux
-menu_title: Linux Bindings
+menu_title: Linux &amp; Windows Bindings
 include: mnemonic-bindings-for-linux.html
 link: mnemonic-bindings-for-linux
 uri: default-keyboard-bindings/mnemonic-bindings-for-linux
