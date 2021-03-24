@@ -133,8 +133,8 @@ part: subchapter
 ---
 
 ---
-title: Mnemonic Bindings for OS X
-menu_title: OS X Bindings
+title: Mnemonic Bindings for macOS
+menu_title: macOS Bindings
 include: mnemonic-bindings-for-os-x.html
 link: mnemonic-bindings-for-os-x
 uri: default-keyboard-bindings/mnemonic-bindings-for-os-x
