@@ -7,12 +7,15 @@
 <p>
   Considering the numerical nature of MIDI events, it can be useful to
   transform a MIDI region by applying mathematical operations to it. Ardour
-  makes this kind of powerful transformation very easy with the Transform tool. The tool makes possible things such as humanizing (randomizing the velocity, start time and duration of all the notes), creating arpeggios, automating tedious tasks, transposing, etc.
+  makes this kind of powerful transformation very easy with the Transform tool. 
+  The tool makes possible things such as humanizing (randomizing the velocity,
+  start time and duration of all the notes), creating arpeggios, automating
+  tedious tasks, transposing, etc.
 </p>
 
 <p>
-  To access the Transform tool, right click the MIDI region &gt;
-  <em>name_of_the_region</em> &gt; MIDI &gt; Transform&hellip;.
+  The Transform tool is accessed by <kbd class="mouse">right</kbd>-clicking
+  the MIDI region &gt; <em>name_of_the_region</em> &gt; MIDI &gt; Transform&hellip;.
 </p>
 
 <p>
@@ -42,7 +45,7 @@
   Each note will trigger a unique calculation, where its velocity will be
   increased by a random number between 1 and 20, then decreased by a random
   number between 1 and 20. This will result in a new velocity being applied to
-  the note, which will be the original velocity plus or minus 19.
+  the note, which will be the original velocity plus or minus a value &lt;19.
 </p>
 
 <p>
@@ -87,7 +90,7 @@
 </ul>
 
 <p class="note">
-  Keep in mind that while the Transform tool is powerful, it is not infallible.
+  While the Transform tool is powerful, it is not infallible.
   Things like division by zero (which does nothing), using the note's index and
   thinking that it starts at one (instead of zero), etc. can yield
   unexpected results.
