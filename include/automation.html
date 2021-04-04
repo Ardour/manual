@@ -1,10 +1,20 @@
 
+<figure class="center">
+<img src="/images/automation-lane1.png">
+<figcaption class="center">A typical automation lane.</figcaption>
+</figure>
+
 <p>
   <dfn>Automation</dfn> is the ability to dynamically control various aspects
   of a track's innate attributes and the attributes of any processors attached
   to it. In Ardour, automation can be used to make dynamic changes to a
   track's:
 </p>
+
+<figure class="right">
+  <img src="/images/automation-menu1.png">
+  <figcaption class=center>The automation menu.</figcaption>
+</figure>
 
 <ul>
   <li>Fader (Volume)</li>
@@ -21,10 +31,18 @@
 </p>
 
 <p>
-  To activate automation for a track, click the <kbd class=menu>A</kbd> icon on the track head and check the
-  type of automation you need.
-</p>  
-<figure class=left>
-  <img src="/images/automation-menu1.png">
-  <figcaption class=center>The automation menu.</figcaption>
-</figure>
+  Activating automation for a track is done by clicking the <kbd class="menu">A</kbd> icon on the
+  <a href="@@audio-track-controls">track head</a> and checking the
+  type of automation needed. A new "pseudo-track" will appear, showing the 
+  waveform in the background, called an "automation lane", where the value
+  of the parameter can be edited : the x axis is the time, and the y axis is
+  the value of the parameter.
+</p>
+<p>
+  If the <kbd class="option">Edit &gt; Show Automation Lane on Touch</kbd>
+  is checked, clicking any parameter in a plugin window, a hardware controller, etc...
+  will result in this parameter's automation lane being temporarily shown, 
+  and clicking another parameter will hide this lane to show the new one.
+</p>
+
+
