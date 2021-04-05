@@ -13,9 +13,10 @@
 	<tr><th>Copy</th><td>Copies the current selection to memory</td></tr>
 	<tr><th>Paste</th><td>Pastes the memory at the <a href="@@edit-point-control">edit point</a>, after a Cut or Copy operation</td></tr>
 
-	<tr><th>Select</th>
+	<tr><th colspan="2">Select</th></tr>
 		<tr><th class="sub1">Select All Objects</th><td>Selects all the regions and automation points in the session</td></tr>
 		<tr><th class="sub1">Select All Tracks</th><td>Selects all the tracks, busses and control masters in the session</td></tr>
+		<tr><th class="sub1">Select All Visible Lanes</th><td>Selects all the visible tracks, busses and control masters, i.e. those marked <kbd class="check">v</kbd> in the <a href="@@editor-lists">Editor List</a></td></tr>
 		<tr><th class="sub1">Deselect All</th><td>Deselects all objects or tracks, nothing is selected</td></tr>
 		<tr><th class="sub1">Invert Selection</th><td>Select the previously unselected regions, and deselect the previously selected ones</td></tr>
 
@@ -44,61 +45,47 @@
 	<tr><th>Delete</th><td>Deletes all that is currently selected</td></tr>
 	<tr><th>Crop</th><td>Cuts the parts of the regions that are outside the range boundaries. Only applies on the regions that belong at least in part to the range.</td></tr>
 	<tr><th>Split/Separate</th><td>Cuts the selected regions at the Edit point, separating them in two regions</td></tr>
-	<tr><th>Separate</th>
+	<tr><th colspan="2">Separate</th></tr>
 		<tr><th class="sub1">Separate Under</th><td>Removes all the parts of the regions that are under the selected one. Once done, the selected region is alone on its part of the track.</td></tr>
 		<tr><th class="sub1">Separate Using Loop Range</th><td>Cuts the selected regions or the regions on the selected tracks along the Loop range's start and end markers. If nothing is selected, acts on all tracks at once.</td></tr>
 		<tr><th class="sub1">Separate Using Punch Range</th><td>Same as above, with the Punch range markers</td></tr>
-	<tr><th>Align</th>
+	<tr><th colspan="2">Align</th></tr>
 		<tr><th class="sub1">Align Start</th><td>Moves the selected regions to align the beginning of the regions to the Edit point</td></tr>
 		<tr><th class="sub1">Align Start Relative</th><td>When multiple regions are selected, moves all the regions together as a block to align the beginning of the earliest one to the Edit point.</td></tr>
 		<tr><th class="sub1">Align End</th><td>Moves the selected regions to align the end of the regions to the Edit point</td></tr>
 		<tr><th class="sub1">Align End Relative</th><td>When multiple regions are selected, moves all the regions together as a block to align the end of the latest one to the Edit point.</td></tr>
 		<tr><th class="sub1">Align Sync</th><td>Moves the selected regions to align the Sync point of the regions to the Edit point</td></tr>
 		<tr><th class="sub1">Align Sync Relative</th><td>When multiple regions are selected, moves all the regions together as a block to align the earliest Sync point to the Edit point.</td></tr>
-	<tr><th>Fade</th>
+	<tr><th colspan="2">Fade</th></tr>
 		<tr><th class="sub1">Fade Range Selection</th><td>For all the regions that either begin or end in the range, create a fade in or out on the regions length.</td></tr>
 		<tr><th class="sub1">Set Fade In Length</th><td>If the edit point is withing the region boundaries, adjusts selected audio regions' fade in to end at the edit point.</td></tr>
-		<tr><th class="sub1">[] Fade In</th><td>Toggles the fade in on the selected region on or off</td></tr>
+		<tr><th class="sub1">&square; Fade In</th><td>Toggles the fade in on the selected region on or off</td></tr>
 		<tr><th class="sub1">Set Fade Out Length</th><td>Same as above, for the fade out</td></tr>
-		<tr><th class="sub1">[] Fade Out</th><td>Toggles the fade out on the selected region on or off</td></tr>
+		<tr><th class="sub1">&square; Fade Out</th><td>Toggles the fade out on the selected region on or off</td></tr>
 
+	<tr><th>Tag Last Capture</th><td>Prompts for a text to tag the last record, this tag is visible in the <a href="@@the-region-list">Region list</a></td></tr>
 	<tr><th>Remove Last Capture</th><td>Destroy the last recording. A prompt reminds the user this <em>cannot</em> be undone.</td></tr>
 
-	<tr><th>Edit point</th>
+	<tr><th colspan="2">Edit point</th></tr>
 		<tr><th class="sub1">Change Edit Point</th><td>Toggles between the mouse and the playhead as the Edit point</td></tr>
 		<tr><th class="sub1">Change Edit Point Including Marker</th><td>Toggles between the mouse, the playhead and marker as the Edit point</td></tr>
-	<tr><th>Snap Mode</th>
-		<tr><th class="sub1">() No Grid</th><td>Disables <a href="@@grid-controls">snapping</a>, i.e. allows free movement of regions and boundaries</td></tr>
-		<tr><th class="sub1">() Grid</th><td>Forces snapping, so any move of region boundary will be lined to the grid as chosen</td></tr>
-		<tr><th class="sub1">() Magnetic</th><td>If the movement of the region or boundary happens near a grid line, snaps, otherwise, allow free movement</td></tr>
-
-		<tr><th class="sub1">Next Snap Mode</th><td>Toggles between the No Grid, Grid and Magnetic snap modes</td></tr>
-		<tr><th class="sub1">Next Snap Choice</th><td>Circles through the snap choices, as detailed below</td></tr>
-		<tr><th class="sub1">Previous Snap Choice</th><td>Circles through the snap choices, as detailed below, in reverse order</td></tr>
-		<tr><th class="sub1">Next Musical Snap Choice</th><td>Circles through the musical snap choices, e.g. those expressed in bars and beats</td></tr>
-		<tr><th class="sub1">Previous Musical Snap Choice</th><td>Same as previous, but in reverse order</td></tr>
-	<tr><th>Snap To</th>
-		<tr><th class="sub1">Snap to CD Frame</th><td>The grid unit will be 1/75th of a second</td></tr>
-		<tr><th class="sub1">Snap to Timecode Frame/Second/Minute</th><td>The grid unit will be based on the timecode settings for the session</td></tr>
-		<tr><th class="sub1">Snap to Second/Minute</th><td>The grid unit will be based on absolute times</td></tr>
-		<tr><th class="sub1">Snap to <em>n</em>th</th><td>The grid unit will be 1/<em>n</em> beats and will depend on the tempo and meter in effect at that point in the timeline.</td></tr>
-		<tr><th class="sub1">Snap to Beat</th><td>Same as above, whole beat</td></tr>
-		<tr><th class="sub1">Snap to Bar</th><td>Same as above, whole bar</td></tr>
-		<tr><th class="sub1">Snap to Mark</th><td>The grid will be made of markers</td></tr>
-		<tr><th class="sub1">Snap to Region Start</th><td>No grid, the regions will snap to the closest region start on any track</td></tr>
-		<tr><th class="sub1">Snap to Region End</th><td>Same as above with the regions' ends</td></tr>
-		<tr><th class="sub1">Snap to Regions Sync</th><td>Same as above, with the Sync points (by default, start of the region)</td></tr>
-		<tr><th class="sub1">Snap to Region Boundaries</th><td>Same as above, for both the starts and ends of regions</td></tr>
-
-	<tr><th>Tempo</th><td></td></tr>
+	<tr><th>Toggle Snap</th><td>Activates/deactivates snapping, which aligns region boundaries to the closest selected time marker when moved</td></tr>
+	<tr><th colspan="2">Snap &amp; Grid</th></tr>
+		<tr><th class="sub1">Previous Quantize Grid Choice</th><td>Changes the snap quantization to the previous one in the list below</td></tr>
+		<tr><th class="sub1">Next Quantize Grid Choice</th><td>Changes the snap quantization to the next one in the list below</td></tr>
+			
+		<tr><th class="sub1">&cir; No Grid</th><td>Disables <a href="@@grid-controls">snapping</a>, i.e. allows free movement of regions and boundaries</td></tr>
+		<tr><th class="sub1">&cir; Bar</th><td>Snaps to the next musical bar, bars can be set and seen in the <a href="@@ruler">Ruler</a></td></tr>
+		<tr><th class="sub1">&cir; 1/4 Note &rarr; 1/28 (32nd septuplet)</th><td>Selects the division of musical time to snap to</td></tr>
+	<tr><th colspan="2">Tempo</th></tr>
 		<tr><th class="sub1">Set Tempo from Region = Bar</th><td>Computes the tempo so that the duration of the first selected region is 1 bar. Ardour prompts if the user wants it to be the global tempo, or a tempo marker at the beginning of the region used</td></tr>
 		<tr><th class="sub1">Set Tempo from Edit Range = Bar</th><td>Same thing, with the current Range instead of a region</td></tr>
-	<tr><th>[] Smart Object Mode</th><td>Toggles the Smart Mode, allowing the mouse to be in Range Mode in the upper half of a region, and in Grab Mode in the lower half</td></tr>
+	<tr><th>&square; Smart Mode</th><td>Toggles the Smart Mode, allowing the mouse to be in Range Mode in the upper half of a region, and in Grab Mode in the lower half</td></tr>
+	<tr><th>&square; Show Automation Lane on Touch</th><td>When toggled on, clicking on a plugin parameter, hardware controller, etc&hellip; makes Ardour show the relevant <a href="@@automation">automation</a> lane</td></tr>
 
-	<tr><th>Scripted Actions</th><td></td></tr>
-		<tr><th class="sub1">[] Script Manager</th><td>Shows the <a href="@@lua-scripting">Script manager</a>, allowing to use and manage the Lua scripts in the session</td></tr>
-
-		<tr><th class="sub1">Unset #<em>n</em></th><td>Deactivate the <em>n</em>th script</td></tr>
+	<tr><th colspan="2">Lua Scripts</th></tr>
+		<tr><th class="sub1">&square; Script Manager</th><td>Shows the <a href="@@lua-scripting">Script manager</a>, allowing to use and manage the Lua scripts in the session</td></tr>
+		<tr><th class="sub1"><em>Action script #n</em></th><td>Executes the <em>n</em>th script. The script list is defined in the Script Manager.</td></tr>
 
 	<tr><th>Preferences</th><td>Displays the <a href="@@preferences">Preferences</a> panels, allowing to change Ardour's behaviour</td></tr>
 </table>
