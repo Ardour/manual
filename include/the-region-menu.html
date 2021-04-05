@@ -5,17 +5,17 @@
 
 <table class="dl">
 	<tr><th>Insert Region from Region List</th><td>If a region is selected in the Editor List, add it at the Edit point</td></tr>
-	<tr><th>Play</th><td>Starts playback at the beginning of the selected region(s), and stops at its(their) end</td></tr>
+	<tr><th>Play Selected Regions</th><td>Starts playback at the beginning of the selected region(s), and stops at its(their) end</td></tr>
+	<tr><th>Tag Selected Regions</th><td>Prompts for a text to tag all the selected regions, this tag is visible in the <a href="@@the-region-list">Region list</a></td></tr>
 	<tr><th>Loop</th><td>Creates a loop range on the selected region's boundaries, and starts the looped playback</td></tr>
 	<tr><th>Rename&hellip;</th><td>Changes the name of the region, that appears in its top left area</td></tr>
 	<tr><th>Properties&hellip;</th><td>Shows the <kbd class="menu">Region properties</kbd> window, that displays detailed information about the region and allow for some modifications</td></tr>
 	<tr><th>Loudness Analysis&hellip;</th><td>Shows the <kbd class="menu">Audio Report/Analysis</kbd> window, that displays detailed <a href="@@metering-in-ardour">dBFS information</a> as well as a spectrogram (dBFS of frequency against time)</td></tr>
 	<tr><th>Spectral Analysis&hellip;</th><td>Shows the <kbd class="menu">Audio Report/Analysis</kbd> window, that displays a integrated spectral view of the region (dBFS against frequency)</td></tr>
-	<tr><th>Edit</th>
+	<tr><th colspan="2">Edit</th></tr>
 		<tr><th class="sub1">Combine</th><td>Creates a new region by joining the selected audio regions in the same track, and replaces those region with the newly created compound. The same rules are applied to create the compound as for playback regarding e.g. layering</td></tr>
 		<tr><th class="sub1">Uncombine</th><td>Splits back the compound created by <em>combining</em> into its original audio regions</td></tr>
 		<tr><th class="sub1">Pitch Shift&hellip;</th><td>Changes the tune of the audio region, by octave, semitones or percentage, based on spectral analysis. Optionally, and if they have been set for the region, preserves the formants</td></tr>
-		<tr><th class="sub1">Split/Separate</th><td>Cuts the selected regions at the Edit point, separating them in two regions</td></tr>
 		<tr><th class="sub1">Split at Percussion Onset</th><td>Allows splitting the selected regions on its Percussion Onsets marker as set by the Rhythm Ferret (Not usable as of 5.5)</td></tr>
 		<tr><th class="sub1">Make Mono Regions</th><td>Creates mono regions out of a stereo or multichannel region by splitting it into its discrete channels. The created regions are added to the Editor List</td></tr>
 		<tr><th class="sub1">Close Gaps</th><td>Extends (or reduces) the selected regions to be perfectly aligned. Optionally, sets up a crossfade duration, or a pull-back (spacing between regions)</td></tr>
@@ -23,12 +23,12 @@
 		<tr><th class="sub1">Rhythm Ferret&hellip;</th><td>Opens the <kbd class="menu">Rhythm Ferret</kbd> which is a powerful tool to sequence audio files</td></tr>
 		<tr><th class="sub1">Strip Silence&hellip;</th><td>Opens the <kbd class="menu">Strip Silence</kbd> window which is a very handy tool to remove all audio under a user-chosen threshold (with a preview)</td></tr>
 		<tr><th class="sub1">Reverse</th><td>Mirrors the audio horizontally</td></tr>
-	<tr><th>Layering</th>
+	<tr><th colspan="2">Layering</th></tr>
 		<tr><th class="sub1">Raise to Top</th><td>On overlapping regions, puts the selected one(s) on top</td></tr>
 		<tr><th class="sub1">Raise</th><td>On overlapping region, makes the selected one(s) one layer higher</td></tr>
 		<tr><th class="sub1">Lower</th><td>Makes the selected region(s) one layer lower</td></tr>
 		<tr><th class="sub1">Lower to Bottom</th><td>Sends the selected region to the background</td></tr>
-	<tr><th>MIDI</th>
+	<tr><th colspan="2">MIDI</th></tr>
 		<tr><th class="sub1">Transpose&hellip;</th><td>On a MIDI region, shows the <a href="@@transposing-midi"><kbd class="menu">Transpose MIDI</kbd> window</a>, allowing to shift the pitch of the whole MIDI region by &plusmn; <em>n</em> semitones or octaves</td></tr>
 		<tr><th class="sub1">Insert Patch Change&hellip;</th><td>Inserts a patch change at the Edit Point, allowing a change of patch, channel, program and/or bank</td></tr>
 		<tr><th class="sub1">Quantize&hellip;</th><td>Shows the <a href="@@quantize-midi"><kbd class="menu">Quantize</kbd> window</a>, allowing to perfectly align the MIDI notes to the musical grid</td></tr>
@@ -37,20 +37,21 @@
 		<tr><th class="sub1">Transform&hellip;</th><td><a href="@@transforming-midi---mathematical-operations"><kbd class="menu">Transform</kbd> window</a>, that allows for mathematical operations on the midi notes</td></tr>
 		<tr><th class="sub1">Unlink from Other copies</th><td>Makes the selected MIDI region independent, e.g. editing this region won't affect any other one.</td></tr>
 		<tr><th class="sub1">List Editor&hellip;</th><td>Shows the <a href="@@midi-list-editor"><kbd class="menu">List Editor</kbd></a> which sequentially lists all the MIDI events in the region, and allows for precise modifications</td></tr>
-	<tr><th>Gain</th>
-		<tr><th class="sub1">[] Opaque</th><td>When checked, makes the region opaque audio-wise, i.e., the underlying regions won't be audible</td></tr>
-		<tr><th class="sub1">[] Mute</th><td>When checked, mutes <em>only</em> the selected region on the track, without muting the track. The muted regions will have <em>!!</em> prepended to their name and will be semi-transparent</td></tr>
+	<tr><th colspan="2">Gain</th></tr>
+		<tr><th class="sub1">&square; Opaque</th><td>When checked, makes the region opaque audio-wise, i.e., the underlying regions won't be audible</td></tr>
+		<tr><th class="sub1">&square; Mute</th><td>When checked, mutes <em>only</em> the selected region on the track, without muting the track. The muted regions will have <em>!!</em> prepended to their name and will be semi-transparent</td></tr>
 		<tr><th class="sub1">Normalize&hellip;</th><td>Shows the <kbd class="menu">Normalize region</kbd> dialog, which allows to scale the region level by setting its maximum level, optionally constraining the RMS</td></tr>
 		<tr><th class="sub1">Boost Gain</th><td>Increases the gain on the selected region by boosting the audio, without touching the envelope or automation</td></tr>
 		<tr><th class="sub1">Cut Gain</th><td>Reduces the gain without touching the envelope or automation</td></tr>
+		<tr><th class="sub1">Reset Gain</th><td>If the gain has been edited, revert to its initial value</td></tr>
 		<tr><th class="sub1">Reset Envelope</th><td>If the gain envelope has been edited, resets it to its initial value (constant at 0 dB)</td></tr>
-		<tr><th class="sub1">[] Envelope Active</th><td>When unchecked, disables any envelope editing that has been made. The envelope will be displayed in yellow instead of green.</td></tr>
-	<tr><th>Position</th>
+		<tr><th class="sub1">&square; Envelope Active</th><td>When unchecked, disables any envelope editing that has been made. The envelope will be displayed in yellow instead of green.</td></tr>
+	<tr><th colspan="2">Position</th></tr>
 		<tr><th class="sub1">Move to Original Position</th><td>Moves the region where it was initially recorded or inserted in the session</td></tr>
 		<tr><th class="sub1">Snap Position to Grid</th><td>If the Grid Mode is set to <em>Grid</em>, snaps the region to the nearest grid line</td></tr>
-		<tr><th class="sub1">[] Lock</th><td>Locks the selected regions at their current positions in time and tracks, avoiding any movement on the timeline. The region name will be surrounded by <em>&gt;</em> and <em>&lt;</em> brackets</td></tr>
-		<tr><th class="sub1">[] Glue to Bars and Beats</th><td>Locks the region position to relative to the musical grid, i.e. a change of tempo will move the region to keep it on the same bar/beat</td></tr>
-		<tr><th class="sub1">[] Lock to Video</th><td>Same as above, relative to the position in the video</td></tr>
+		<tr><th class="sub1">&square; Lock</th><td>Locks the selected regions at their current positions in time and tracks, avoiding any movement on the timeline. The region name will be surrounded by <em>&gt;</em> and <em>&lt;</em> brackets</td></tr>
+		<tr><th class="sub1">&square; Glue to Bars and Beats</th><td>Locks the region position to relative to the musical grid, i.e. a change of tempo will move the region to keep it on the same bar/beat</td></tr>
+		<tr><th class="sub1">&square; Lock to Video</th><td>Same as above, relative to the position in the video</td></tr>
 		<tr><th class="sub1">Set Sync Position</th><td>Creates or move the Sync position, i.e. the point of the region that will be aligned or snapped to the grid, and that is (by default) the beginning of the region.</td></tr>
 		<tr><th class="sub1">Remove Sync</th><td>Removes any user defined Sync point, and resets the sync position to the beginning of the region</td></tr>
 		<tr><th class="sub1">Nudge Later</th><td>Moves the region to the right by the amount shown in the <a href="@@nudge-controls">nudge timer</a></td></tr>
@@ -58,24 +59,24 @@
 		<tr><th class="sub1">Nudge Later by Capture Offset</th><td>Moves the region to the right by the capture latency computed by Ardour based on the user's settings regarding latency</td></tr>
 		<tr><th class="sub1">Nudge Earlier by Capture Offset</th><td>Same as above, to the left</td></tr>
 		<tr><th class="sub1">Sequence Regions</th><td>Puts the selected regions one after the other, so that the end of one region is the beginning of the next one, removing any overlap or silence. The reference point is the earliest region.</td></tr>
-	<tr><th>Trim</th>
+	<tr><th colspan="2">Trim</th></tr>
 		<tr><th class="sub1">Trim Start at Edit Point</th><td>If the Edit Point is within the region boundaries, shortens the region to align its start with the Edit Point</td></tr>
 		<tr><th class="sub1">Trim End at Edit Point</th><td>Same as above, for the end of the region</td></tr>
 		<tr><th class="sub1">Trim to Loop</th><td>Uses both the start and end Loop markers to shorten the region</td></tr>
 		<tr><th class="sub1">Trim to Punch</th><td>Same as above with the Punch markers</td></tr>
 		<tr><th class="sub1">Trim to Previous</th><td>On overlapping regions, shortens the selected one so that the previous region is complete, i.e. the new start point for the selected region is the end point of the previous region on the timeline</td></tr>
 		<tr><th class="sub1">Trim to Next</th><td>Same as above, with the end of the selected region aligned to the start of the following one.</td></tr>
-	<tr><th>Ranges</th>
+	<tr><th colspan="2">Ranges</th></tr>
 		<tr><th class="sub1">Set Loop Range</th><td>Creates a Loop range based on the selected regions, i.e. the start of the loop range is the start of the earliest region, and the end of the loop is the end of the latest region.</td></tr>
 		<tr><th class="sub1">Set Punch</th><td>Same as above, for the Punch range</td></tr>
 		<tr><th class="sub1">Add Single Range Marker</th><td>Same as above, for the Edit range</td></tr>
 		<tr><th class="sub1">Add Range Marker Per Region</th><td>For each selected region, creates its own Edit range based on the boundaries of each region</td></tr>
 		<tr><th class="sub1">Set Range Selection</th><td>Creates a range selection based on the boundaries of the selected regions</td></tr>
-	<tr><th>Fades</th>
-		<tr><th class="sub1">[] Fade In</th><td>Activates/deactivates the Fade In at the start of the region</td></tr>
-		<tr><th class="sub1">[] Fade Out</th><td>Same as above, for the Fade out at the end of the region</td></tr>
-		<tr><th class="sub1">[] Fades</th><td>Shortcut to activate/deactivate both the fade in and fade out</td></tr>
-	<tr><th>Duplicate</th>
+	<tr><th colspan="2">Fades</th></tr>
+		<tr><th class="sub1">&square; Fade In</th><td>Activates/deactivates the Fade In at the start of the region</td></tr>
+		<tr><th class="sub1">&square; Fade Out</th><td>Same as above, for the Fade out at the end of the region</td></tr>
+		<tr><th class="sub1">&square; Fades</th><td>Shortcut to activate/deactivate both the fade in and fade out</td></tr>
+	<tr><th colspan="2">Duplicate</th></tr>
 		<tr><th class="sub1">Duplicate</th><td>Creates a copy of the selected region(s) and appends it to the original</td></tr>
 		<tr><th class="sub1">Multi-Duplicate&hellip;</th><td>Shows the <kbd class="menu">Duplicate</kbd> dialog, allowing to create multiple copies, or a not-integer number of copies (the last one will then be truncated)</td></tr>
 		<tr><th class="sub1">Fill Track</th><td>Creates duplicates until it fills the session, i.e. reaches the End marker of the session. The last duplicate may be truncated to fit in</td></tr>
