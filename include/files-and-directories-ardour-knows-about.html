@@ -95,13 +95,14 @@
 
 <h4>LV2</h4>
 <p>
-  LADSPA plugins should be found in  <code>/usr/lib/lv2/</code>,
+  LV2 plugins should be found in  <code>/usr/lib/lv2/</code>,
   <code>/usr/local/lib/lv2/</code>
   or in a directory mentioned in your LV2_PATH environment variable.
   The most common mistake made by distro packagers, is to use a path
-  like <code>/usr/lib/$ARCH/lv2/</code> and find that Ardour will not find that by
-  default. The user can either add a link from this actual directory to
-  the standard directory or add this path to LV2_PATH.
+  like <code>/usr/lib/$ARCH/lv2/</code>, <code>/usr/lib64/lv2</code>
+  or <code>/usr/local/lib64/lv2</code> and find that Ardour will not find
+  that by default. The user can either add a link from this actual directory
+  to the standard directory or add this path to LV2_PATH.
 </p>
 
 <h4>Linux VST or lxvst</h4>
