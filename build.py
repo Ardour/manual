@@ -27,6 +27,7 @@ global_screen_template = 'page-template.html'
 global_onepage_template = 'onepage-template.html'
 global_pdf_template = 'pdf-template.html'
 global_master_doc = 'master-doc.txt'
+global_pdflink = '<button class="btn btn-default" type="button" onclick="window.location.href=\'/manual.pdf\'"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></button>'
 from datetime import datetime
 global_today_iso = datetime.today().strftime('%Y-%m-%dT%H%M%S')
 global_today = datetime.today().strftime('%Y-%m-%d')
@@ -456,6 +457,11 @@ template = temp.read()
 temp.close()
 template = template.replace('{{page.bootstrap_path}}', global_bootstrap_path)
 template = template.replace('{{page.page_title}}', global_page_title)
+if pdf:
+	template = template.replace('{{page.page_pdflink}}', global_pdflink)
+else:
+	template = template.replace('{{page.page_pdflink}}', '')
+
 
 # Same as above, but for the "One-Page" version
 temp = open(global_onepage_template)
