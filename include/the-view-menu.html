@@ -4,80 +4,86 @@
 </p>
 
 <table class="dl">
-	<tr><th>[] Maximise Editor Space</th><td>Puts the Editor window in full screen mode</td></tr>
-	<tr><th>[] Maximize Mixer Space</th><td>Puts the Mixer window in full screen mode</td></tr>
+	<tr><th>&square; Maximise Editor Space</th><td>Puts the Editor window in full screen mode</td></tr>
+	<tr><th>&square; Maximize Mixer Space</th><td>Puts the Mixer window in full screen mode</td></tr>
 
-	<tr><th>Primary Clock</th>
+	<tr><th colspan="2">Automation</th></tr>
+		<tr><th class="sub1">Toggle All Existing Automation</th><td>Show or hides all the <a href="@@automation">automation lanes</a> that have been edited by the user</td></tr>
+		
+	<tr><th>Toggle Layer Display</th><td>Toggles all the track(s) visual <a href="@@layering-display">layering display</a> between <em>overlaid</em> and <em>stacked</em></td></tr>
+	<tr><th colspan="2">Primary Clock</th></tr>
 		<tr><th class="sub1">Focus On Clock</th><td>Sets the focus on the <a href="@@transport-clocks">main clock</a>, allowing to type in numbers directly to change the playhead position</td></tr>
 		<tr><th class="sub1">Timecode</th><td>Sets the main clock in timecode mode, so it displays time in the Hours:Minutes:Seconds:Frames format</td></tr>
 		<tr><th class="sub1">Bars &amp; Beats</th><td>Sets the main clock in musical time mode, so it displays time in the Bars:Beats:Ticks format</td></tr>
 		<tr><th class="sub1">Minutes &amp; Seconds</th><td>Sets the main clock in absolute time mode, so it displays time in the Hours:Minutes:Seconds.Milliseconds format</td></tr>
 		<tr><th class="sub1">Samples</th><td>Sets the main clock in samples time mode, so the time is displayed in samples from the absolute start</td></tr>
-	<tr><th>Secondary Clock</th>
+	<tr><th colspan="2">Secondary Clock</th></tr>
 		<tr><th class="sub1">Timecode</th><td>Same as for the main clock (see above)</td></tr>
 		<tr><th class="sub1">Bars &amp; Beats</th><td>Same as for the main clock</td></tr>
 		<tr><th class="sub1">Minutes &amp; Seconds</th><td>Same as for the main clock</td></tr>
 		<tr><th class="sub1">Samples</th><td>Same as for the main clock</td></tr>
 
-	<tr><th>Zoom</th>
+	<tr><th colspan="2">Zoom</th></tr>
 		<tr><th class="sub1">Zoom In</th><td>Zooms in, focusing the <em>Zoom Focus</em> (see below)</td></tr>
 		<tr><th class="sub1">Zoom Out</th><td>Zooms out</td></tr>
 		<tr><th class="sub1">Zoom to Session</th><td>Adjust the zoom value so that all the session (as defined by its start and end markers) fit in the window</td></tr>
+		<tr><th class="sub1">Zoom to Extents</th><td>Adjust the zoom value so that all objects (markers, regions, etc&hellip;) fit in the window</td></tr>
 		<tr><th class="sub1">Zoom to Selection</th><td>Adjust the zoom value so that all the selected regions fit in the window</td></tr>
+		<tr><th class="sub1">Zoom to Selection (Horizontal)</th><td>Adjust the horizontal zoom value so that all the selected regions fit in the window, without changing the vertical zoom</td></tr>
 		<tr><th class="sub1">Fit Selection (Vertical)</th><td>Fits the selected track(s) in the window. If too many tracks are selected, they'll be reduced to their minimum height.</td></tr>
 		<tr><th class="sub1">Toggle Zoom State</th><td>Reverts to last zoom state (kind of "undo" for zoom, even if edits have been made in-between)</td></tr>
 		<tr><th class="sub1">Expand Track Height</th><td>Increases the height of the selected tracks. If no track is selected, then all the tracks are expanded</td></tr>
 		<tr><th class="sub1">Shrink Track Height</th><td>Same as above, but reduces the height of the tracks</td></tr>
-	<tr><th>Zoom Focus</th>
-		<tr><th class="sub1">Zoom Focus Left</th><td>Sets the screen's left side as the zoom target, i.e. when zooming in, the left side of the screen will stay at the same place in the timeline</td></tr>
-		<tr><th class="sub1">Zoom Focus Right</th><td>Same, with the right of the screen</td></tr>
-		<tr><th class="sub1">Zoom Focus Center</th><td>Same, with the center of the screen</td></tr>
-		<tr><th class="sub1">Zoom Focus Playhead</th><td>Sets the playhead as the focus point of the zoom, i.e. the point in time that will stay fixed</td></tr>
-		<tr><th class="sub1">Zoom Focus Mouse</th><td>Same as above, with the mouse pointer</td></tr>
-		<tr><th class="sub1">Zoom Focus Edit Point</th><td>Same as above, with the Edit Point</td></tr>
+	<tr><th colspan="2">Zoom Focus</th></tr>
+		<tr><th class="sub1">&cir; Zoom Focus Left</th><td>Sets the screen's left side as the zoom target, i.e. when zooming in, the left side of the screen will stay at the same place in the timeline</td></tr>
+		<tr><th class="sub1">&cir; Zoom Focus Right</th><td>Same, with the right of the screen</td></tr>
+		<tr><th class="sub1">&cir; Zoom Focus Center</th><td>Same, with the center of the screen</td></tr>
+		<tr><th class="sub1">&cir; Zoom Focus Playhead</th><td>Sets the playhead as the focus point of the zoom, i.e. the point in time that will stay fixed</td></tr>
+		<tr><th class="sub1">&cir; Zoom Focus Mouse</th><td>Same as above, with the mouse pointer</td></tr>
+		<tr><th class="sub1">&cir; Zoom Focus Edit Point</th><td>Same as above, with the Edit Point</td></tr>
 		<tr><th class="sub1">Next Zoom Focus</th><td>Circles between the previous modes</td></tr>
-	<tr><th>Rulers</th>
-		<tr><th class="sub1">[] Min:Sec</th><td>Shows (when checked) or hides a line in <a href="@@ruler">the Ruler</a> with the time formatted as Hours:Minutes:Seconds.Milliseconds</td></tr>
-		<tr><th class="sub1">[] Timecode</th><td>Same as above, with the time formatted as Hours:Minutes:Seconds:Frames</td></tr>
-		<tr><th class="sub1">[] Samples</th><td>Same as the above, with the time displayed in samples from the absolute start</td></tr>
-		<tr><th class="sub1">[] Bars &amp; Beats</th><td>Same as the above, with the time formatted as Bars:Beats:Ticks</td></tr>
+	<tr><th colspan="2">Rulers</th></tr>
+		<tr><th class="sub1">&square; Min:Sec</th><td>Shows (when checked) or hides a line in <a href="@@ruler">the Ruler</a> with the time formatted as Hours:Minutes:Seconds.Milliseconds</td></tr>
+		<tr><th class="sub1">&square; Timecode</th><td>Same as above, with the time formatted as Hours:Minutes:Seconds:Frames</td></tr>
+		<tr><th class="sub1">&square; Samples</th><td>Same as the above, with the time displayed in samples from the absolute start</td></tr>
+		<tr><th class="sub1">&square; Bars &amp; Beats</th><td>Same as the above, with the time formatted as Bars:Beats:Ticks</td></tr>
 
-		<tr><th class="sub1">[] Meter</th><td>Shows / hides the Meter line in the ruler, where the signature can be adjusted along the playline</td></tr>
-		<tr><th class="sub1">[] Tempo</th><td>Shows / hides the Tempo line, where the BPM can be changed with markers</td></tr>
-		<tr><th class="sub1">[] Ranges</th><td>Shows / hides the Range line, where ranges can be defined</td></tr>
-		<tr><th class="sub1">[] Loop/Punch</th><td>Shows / hides the Loop/Punch line, where loops and Punches can be defined</td></tr>
-		<tr><th class="sub1">[] CD Markers</th><td>Shows / hides the Range line, where CD Markers can be defined</td></tr>
-		<tr><th class="sub1">[] Markers</th><td>Shows / hides the Markers line, where custom markers can be defined</td></tr>
+		<tr><th class="sub1">&square; Meter</th><td>Shows / hides the Meter line in the ruler, where the signature can be adjusted along the playline</td></tr>
+		<tr><th class="sub1">&square; Tempo</th><td>Shows / hides the Tempo line, where the BPM can be changed with markers</td></tr>
+		<tr><th class="sub1">&square; Ranges</th><td>Shows / hides the Range line, where ranges can be defined</td></tr>
+		<tr><th class="sub1">&square; Loop/Punch</th><td>Shows / hides the Loop/Punch line, where loops and Punches can be defined</td></tr>
+		<tr><th class="sub1">&square; CD Markers</th><td>Shows / hides the Range line, where CD Markers can be defined</td></tr>
+		<tr><th class="sub1">&square; Markers</th><td>Shows / hides the Markers line, where custom markers can be defined</td></tr>
 
-		<tr><th class="sub1">[] Video</th><td>Shows / hides the Video timeline, where frames of the video are shown for syncing purposes</td></tr>
-	<tr><th>Video Monitor</th>
+		<tr><th class="sub1">&square; Video</th><td>Shows / hides the Video timeline, where frames of the video are shown for syncing purposes</td></tr>
+	<tr><th colspan="2">Video Monitor</th></tr>
 		<tr><th class="sub1">Original Size</th><td>When the <a href="@@video-timeline-and-monitoring">Video Monitor</a> is active, resets its size to the original size, i.e. 1 pixel in the video is 1 pixel on screen</td></tr>
-		<tr><th class="sub1">[] Letterbox</th><td>When checked, forces the ratio (width/height) to be the one of the original video. If unchecked, the video will be stretched to fit the window</td></tr>
+		<tr><th class="sub1">&square; Letterbox</th><td>When checked, forces the ratio (width/height) to be the one of the original video. If unchecked, the video will be stretched to fit the window</td></tr>
 
-		<tr><th class="sub1">[] Always on Top</th><td>Stays above all other windows, enabling to work in Ardour without the video windows to be hidden in the background</td></tr>
-		<tr><th class="sub1">[] Fullscreen</th><td>Sets the Xjadeo window to be fullscreen. Can be useful in a dual monitor setup</td></tr>
+		<tr><th class="sub1">&square; Always on Top</th><td>Stays above all other windows, enabling to work in Ardour without the video windows to be hidden in the background</td></tr>
+		<tr><th class="sub1">&square; Fullscreen</th><td>Sets the Xjadeo window to be fullscreen. Can be useful in a dual monitor setup</td></tr>
 
-		<tr><th class="sub1">[] Timecode</th><td>When checked, displays a Timecode over the video, in the Hours:Minutes:Seconds:Frames format</td></tr>
-		<tr><th class="sub1">[] Frame number</th><td>When checked, shows the absolute frame number inside the video, i.e. this image is the <em>n</em>th of the video</td></tr>
-		<tr><th class="sub1">[] Timecode Background</th><td>Adds a black background to the timecode for readability</td></tr>
-	<tr><th>Scroll</th>
+		<tr><th class="sub1">&square; Timecode</th><td>When checked, displays a Timecode over the video, in the Hours:Minutes:Seconds:Frames format</td></tr>
+		<tr><th class="sub1">&square; Frame number</th><td>When checked, shows the absolute frame number inside the video, i.e. this image is the <em>n</em>th of the video</td></tr>
+		<tr><th class="sub1">&square; Timecode Background</th><td>Adds a black background to the timecode for readability</td></tr>
+	<tr><th colspan="2">Scroll</th></tr>
 		<tr><th class="sub1">Scroll Tracks Down</th><td>Scrolls the view toward the bottom of the session from one screen (vertically, so along tracks)</td></tr>
 		<tr><th class="sub1">Scroll Tracks Up</th><td>Same as above, towards the top</td></tr>
 		<tr><th class="sub1">Scroll Forward</th><td>Scrolls the view toward the right of the session from one screen (horizontally, so along time)</td></tr>
 		<tr><th class="sub1">Scroll Backward</th><td>Same as above, to the left</td></tr>
-	<tr><th>Views</th>
+	<tr><th colspan="2">Views</th></tr>
 		<tr><th class="sub1">Save View <em>n</em></th><td>Saves the position on the timeline in the memory, horizontally and vertically (along time and tracks)</td></tr>
 		<tr><th class="sub1">Go to View <em>n</em></th><td>Loads and displays a saved position (see above)</td></tr>
 
-	<tr><th>[] Show Editor Mixer</th><td>When checked, the selected tracks' mixer strip is displayed on the left of the editor window, allowing for a quick access to e.g. effects and routing</td></tr>
-	<tr><th>[] Show Editor List</th><td>In the Editor window, shows the <a href="@@editor-lists">Editor List</a>, giving access to a number of handy lists (regions, tracks, &hellip;)</td></tr>
-	<tr><th>[] Show Summary</th><td>If checked, in the Editor, shows the <a href="@@summary">Summary</a>, allowing a faster navigation in the session</td></tr>
-	<tr><th>[] Show Group Tabs</th><td>If checked, makes the groups visible as tabs on the left in the Editor, and on the top in the mixer</td></tr>
-	<!--tr><th>[] Show Measure Lines</th><td>If checked, in the Editor, shows a vertical white line at each measure start</td></tr-->
-	<tr><th>[] Show Marker Lines</th><td>If checked, each marker is extended across all the tracks in the editor with a line of the same color</td></tr>
-	<tr><th>[] Mixer: Show Mixer List</th><td>In the Mixer view, shows the Mixer list, giving access to some handy lists (<a href="@@favorite-plugins-window">Favorite plugins</a>, <a href="@@strips-list">The Strip list</a>,&hellip;)</td></tr>
-	<tr><th>[] Mixer: Show VCAs</th><td>In the Mixer view, shows the VCA Strips if there are any</td></tr>
-	<tr><th>[] Mixer: Show Monitor Section</th><td>If the <kbd class="option">Use monitoring section on this session</kbd> has been checked in the <a href="@@session-properties#properties-monitoring">Session Properties window</a>, shows or hides the Monitor Section in the Mixer</td></tr>
-	<tr><th>[] Mixer: Show Foldback Strip</th><td>In the Mixer view, shows the Foldback Strip if there are any</td></tr>
+	<tr><th>&square; Show Editor Mixer</th><td>When checked, the selected tracks' mixer strip is displayed on the left of the editor window, allowing for a quick access to e.g. effects and routing</td></tr>
+	<tr><th>&square; Show Editor List</th><td>In the Editor window, shows the <a href="@@editor-lists">Editor List</a>, giving access to a number of handy lists (regions, tracks, &hellip;)</td></tr>
+	<tr><th>&square; Show Summary</th><td>If checked, in the Editor, shows the <a href="@@summary">Summary</a>, allowing a faster navigation in the session</td></tr>
+	<tr><th>&square; Show Group Tabs</th><td>If checked, makes the groups visible as tabs on the left in the Editor, and on the top in the mixer</td></tr>
+	<tr><th>&square; Show Marker Lines</th><td>If checked, each marker is extended across all the tracks in the editor with a line of the same color</td></tr>
+	
+	<tr><th>&square; Mixer: Show Mixer List</th><td>In the Mixer view, shows the Mixer list, giving access to some handy lists (<a href="@@favorite-plugins-window">Favorite plugins</a>, <a href="@@strips-list">The Strip list</a>,&hellip;)</td></tr>
+	<tr><th>&square; Mixer: Show VCAs</th><td>In the Mixer view, shows the VCA Strips if there are any</td></tr>
+	<tr><th>&square; Mixer: Show Monitor Section</th><td>If the <kbd class="option">Use monitoring section on this session</kbd> has been checked in the <a href="@@session-properties#properties-monitoring">Session Properties window</a>, shows or hides the Monitor Section in the Mixer</td></tr>
+	<tr><th>&square; Mixer: Show Foldback Strip</th><td>In the Mixer view, shows the Foldback Strip if there are any</td></tr>
 </table>
 
