@@ -1,0 +1,100 @@
+
+<figure class="right">
+  <img src="/images/virtual_keyboard.png" alt="The Virtual Keyboard window">
+  <figcaption class="center">
+    The Virtual Keyboard window
+  </figcaption>
+</figure>
+
+<p>
+  The <dfn>Virtual Keyboard</dfn> is a software MIDI instrument, similar to
+  <a href="https://vmpk.sourceforge.io/">VMPK</a> that can be used like an
+  hardware musical keyboard would, to emit MIDI events.
+</p>
+
+<p>
+  It can be used to test or record MIDI notes or events, as the computer 
+  keyboard can be (and is, by default) mapped to the virtual MIDI keyboard.
+  The keyboard layout can be chosen in the 
+  <a href="@@preferences#preferences-midi">MIDI Preferences</a>.
+</p>
+
+<p>
+  The lower part of the window is a piano keyboard. The current keyboard
+  mapping is overlaid on the notes, as are the different <em>C</em> notes,
+  indicating what octaves are shown.
+</p>
+
+<p>
+  The upper part comprises (from left to right):
+</p>
+
+<ul>
+	<li>
+		A channel selector to choose on which MIDI channel the events are generated
+	</li>
+	<li>
+		A pitch bend that can bend &plusmn;2 semtones up or down. The controls are:
+		<ul>
+			<li>Mousewheel up/down : persistent bend up/down</li>
+			<li>Mouse-drag up/down (by <kbd class="mouse">left</kbd>-clicking
+			anywhere in the slider) : sprung-mode bend up/down (returns to
+			&plus;0 semitone when the mouse button is released)</li>
+			<li><kbd>F1</kbd> : abruptly &minus;2 semitones</li>
+			<li><kbd>F2</kbd> : abruptly &minus;1 semitone</li>
+			<li><kbd>F3</kbd> : abruptly &plus;1 semitone</li>
+			<li><kbd>F4</kbd> : abruptly &plus;2 semitones</li>
+			<li><kbd>&darr;</kbd> : ramps to &minus;2 semitones</li>
+			<li><kbd>&uarr;</kbd> : ramps to &plus;2 semitones.</li>
+		</ul>
+	</li>
+	<li>
+		A modulator, with a modulation depth between 0 and 127, 127 being
+		a modulation of &plusmn; 1 semitone, so 2 semtones peak-to-peak.
+	</li>
+	<li>
+		Four assignable knobs. By default, they are:
+		<ul>
+			<li>CC-7 (Channel Volume)</li>
+			<li>CC-8 (Balance)</li>
+			<li>CC-91 (Reverb)</li>
+			<li>CC-7 (Chorus)</li>
+		</ul>
+		These controls can be assigned as needed by clicking the button under
+		each knob and selecting a different Control Number.
+	</li>
+	<li>
+		<em>Octave</em> : a selector to choose where on the keyboard (on which
+		octave) the keyboard view is. The chosen octave will be the second one
+		displayed, i.e. if "Octave" is set to 3, the leftmost displayed octave
+		will be 2.<br>
+		The selected octave is also where the keyboard mapping is set, so
+		if the octave is set to 3, in a QWERTY setup, the leftmost (lowest) note,
+		<kbd>Z</kbd>, is mapped to C3.<br>
+		The controls are:
+		<ul>
+			<li><kbd>&larr;</kbd> : decrease Octave by one (i.e., scroll the view to the left)</li>
+			<li><kbd>&rarr;</kbd> : increase Octave by one (i.e., scroll the view to the right)</li>
+		</ul>
+	</li>
+	<li>
+		<em>Range</em> determines how many octaves are displayed.
+	</li>
+	<li>
+		<em>Velocity</em> sets the intensity of the note, which contributes 
+		to its audio volume, and can, depending on the virtual instrument,
+		play a role in the sample selection.<br>
+		Although the drop down menu only lists a few values, scrolling the mouse
+		over the control, as with the other selectors, allows to change its
+		value with a finer in/decrement.
+	</li>
+	<li>
+		A <em>Transpose</em> selector, that shifts the notes played by its value
+		in semitones, either up or down, effectively tuning the whole keyboard.
+	</li>
+	<li>
+		A <em>Panic</em> button, to immediately stop all MIDI sound.
+	</li>
+
+</ul>
+

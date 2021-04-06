@@ -1431,6 +1431,13 @@ part: subchapter
 ---
 
 ---
+title: The Virtual MIDI Keyboard
+include: virtual-keyboard.html
+link: virtual-keyboard
+part: subchapter
+---
+
+---
 title: MIDI Automation
 include: midi-automation.html
 link: midi-automation
