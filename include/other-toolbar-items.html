@@ -24,6 +24,35 @@
 	<li>When recording, on rec-enabled tracks: In and on non rec-enabled ones: Disk</li>
 </ul>
 
+<h2 id="latency-compensation-info">The Latency Compensation Info</h2>
+
+<figure>
+	<img alt="The Latency Compensation Info" src="/images/latency-compensation-info.png">
+	<figcaption>
+		Latency Compensation Info
+	</figcaption>
+</figure>
+
+<p>
+  This section show information about the latency compensation Ardour sets
+  to align all signals in time whatever their route (and processing applied).
+</p>
+
+<p>
+  The only button <kbd class="menu">Disable PDC</kbd> allows to enable/disable
+  the <em>P</em>lugin <em>D</em>elay <em>C</em>ompensation. Enabling it will
+  make all signal perfectly aligned, while disabling it will reduce the delay,
+  at the expense of slightly misaligned signals for tracks that have plugins introducing
+  latency.
+</p>
+
+<p>
+	The two infos are:
+</p>
+<ul>
+	<li>the worst route latency</li>
+	<li>the I/O latency, i.e. the worst latency pre-roll</li>
+</ul>
 
 
 <h2 id="playhead_options">The Playhead Options</h2>
@@ -61,6 +90,32 @@
   <tr><th>Audition</th><td>Blinks when some audio is auditioned, e.g. by using the import dialog, or using the <kbd class="menu">Audition</kbd> context menu in the <a href="@@the-region-list">Regions List</a>. Clicking this button stops the auditioning.</td></tr>
   <tr><th>Feedback</th><td>Blinks when Ardour detects a <dfn>feedback loop</dfn>, which happens when the output of an audio signal chain is plugged back to its input. This is probably not wanted and can be dangerous for the hardware and the listener.</td></tr>
 </table>
+
+<h2 id="monitor_section_info">The Monitor Section Info</h2>
+
+<figure>
+	<img alt="Monitor Section Info" src="/images/monitor-section-info.png">
+	<figcaption>
+		Monitor Section Info
+	</figcaption>
+</figure>
+
+<p>
+  This section is only useful and active if the session has a
+  <a href="@@monitor-section">Monitor section</a>. The three buttons are
+  exactly linked to their counterparts in the Monitor slice of the mixer,
+  but as they sit in the toolbar, remain visible even in Editor mode.
+</p>
+
+<p>
+	The three buttons are:
+</p>
+<ul>
+  <li><dfn>Mono</dfn>: sums all of the paths to a single mono signal and applies it to all Monitor Section outputs.</li>
+  <li><dfn>Dim All</dfn>: Reduces overall monitor level by the amount set with the Dim level control.</li>
+  <li><dfn>Mute All</dfn>: Mutes all monitoring.</li>
+</ul>
+
 
 <h2 id="mode_selector">The Mode Selector</h2>
 
