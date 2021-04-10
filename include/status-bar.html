@@ -6,35 +6,62 @@
   </figcaption>
 </figure>
 
-<p>The status bar is an informative bar at the top of the window, showing:</p>
+<p>
+	The status bar is an informative bar at the top of the window. Right
+	clicking anywhere on the Status Bar allows to choose which of this
+	information is displayed, through a checkbox menu, among:</p>
 
 <table class="dl">
-	<tr><th>File:</th><td>the file format used in the session, including when recording</td></tr>
-	<tr><th>TC:</th><td>is the timecode, i.e. the number of frames per second used by the session (for videos)</td></tr>
+	<tr><th>Path to Session:</th><td>the folder where the session files are</td></tr>
+	<tr><th>Snapshot Name and Modified Indicator:</th><td>the name of the snapshot being worked on. If the session has been modified since last save, the name is prefixed with an asterisk (&ast;).</td></tr>
+	<tr><th>Active Peak-file work:</th><td><em>(only shows up while creating peaks)</em> displays the number of peak files left to create</td></tr>
+	<tr><th>File Format:</th><td>the file format used in the session, including when recording</td></tr>
+	<tr><th>Timecode Format:</th><td>is the timecode, i.e. the number of frames per second used by the session (for videos)</td></tr>
 	<tr><th>Audio:</th><td>gives the sample rate used in the session, and the latency computed from the buffer size</td></tr>
-	<tr><th>Buffers:</th><td>describe how much data is buffered, see below</td></tr>
-	<tr><th>DSP:</th><td>for Digital Sound Processing, shows how much of the CPU is used by Ardour and its plugins</td></tr>
-	<tr><th>PkBld:</th><td><em>(only shows up while creating peaks)</em> displays the number of peak files left to create</td></tr>
-	<tr><th>X:</th><td>shows the number of xruns since Ardour's launch, see below</td></tr>
-	<tr><th>Disk:</th><td>reports the remaining hard disk space as the time that can be recorded with the current session setting</td></tr>
-	<tr><th>Wall Clock</th><td>showing the system time (especially useful in full screen mode)</td></tr>
+	<tr><th>Disk Space:</th><td>reports the remaining hard disk space as the time that can be recorded with the current session setting</td></tr>
+	<tr><th>DSP:</th><td>for <em>D</em>igital <em>S</em>ound <em>P</em>rocessing, shows how much of the CPU is used by Ardour and its plugins</td></tr>
+	<tr><th>Wall Clock</th><td>showing the system time (especially useful in full screen mode)</td></tr>	
 	<tr><th>Log button</th><td>that indicates if Ardour has encountered any warning or error.</td></tr>
 </table>
 
 <p>
-  Right clicking anywhere on the Status Bar allows to choose which of this information we want displayed, through a checkbox menu.
-</p>
-<p>
-  The buffers are labelled as <kbd class="menu">p</kbd> for playback and <kbd class="menu">c</kbd> for capture. If the
-  system is fast enough, these buffers should be 100% full at all times, showing the system has time to precompute
-  all the data before delivering it to the audio system. A buffer constantly under 20% is a sign of an underpowered
-  computer system or of too much processing.
-</p>
-<p>
-  An Xrun (short for buffer over- or under-run) happens when the system has been forced to skip audio frames, e.g. if the latency
-  asked is too short for the computing power of the machine. It usually results in clicks, pops and crackles if it happens while recording.
-</p>
-<p>
-  The log button turns yellow when a warning is shown, and red when an error occurs. Clicking the log button gives access to the log.
+	Some of these indicators also double as a shortcut to a relevant 
+	action, triggered by double clicking the info field:
 </p>
 
+<table class="dl">
+	<tr><th>Path to Session / Snapshot Name and Modified Indicator</th>
+		<td>
+			opens the session path in the file explorer
+		</td>
+	</tr>
+	<tr>
+		<th>File Format:</th>
+		<td>
+			opens the <em>Media</em> section of the <a href="@@session-properties#properties-media">
+			Session Properties</a>
+		</td>
+	</tr>
+	<tr>
+		<th>Timecode Format:</th>
+		<td>
+			opens the <em>Media</em> section of	the <a href="@@session-properties#properties-timecode">
+			Session Properties</a>
+		</td>
+	</tr>
+	<tr>
+		<th>Audio:</th>
+		<td>
+			opens the <a href="@@newopen-session-dialog">Audio MIDI Setup</a>
+			window.
+		</td>
+	</tr>
+	<tr>
+		<th>Log button</th>
+		<td>
+			The log button turns yellow when a warning is shown, and red
+			when an error occurs. Clicking the log button gives access to
+			the log.
+		</td>
+	</tr>
+</table>
