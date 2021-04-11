@@ -177,13 +177,6 @@ code {
   font-size: 2em;
 }
 
-figcaption {
-  font-size: .9em;
-  font-style: italic;
-  line-height: .9em; 
-}
-
-
 /* Keyboard modifiers */
 .mod1:before {        content: "Ctrl ";}
 .mod2:before {        content: "Alt ";}
