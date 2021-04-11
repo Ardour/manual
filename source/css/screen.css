@@ -48,7 +48,7 @@
 #content {
   padding: 1em 2em 2ex 21em;
   margin-left: 0;
-  line-height: 2em;
+  line-height: 1.8em;
 }
 
 #content h1,
@@ -145,7 +145,7 @@
 
 #content ul,
 #content ol {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 #content figure {
@@ -153,20 +153,23 @@
 }
 
 #content figcaption {
-	display: table-caption;
-	caption-side: bottom;
-	font-style: italic;
-  padding-top: 0.5em;
+  display: table-caption;
+  caption-side: bottom;
+  font-style: italic;
+  padding-top: 0.4em;
   padding-bottom: 1em;
+  font-size: .9em;
+  line-height: .9em; 
+}
 }
 
 #content figcaption.center {
-	text-align: center;
+  text-align: center;
 }
 
 #content figcaption.titleover {
   text-align: center;
-	caption-side: top;
+  caption-side: top;
 }
 
 #content figure.right {
@@ -195,7 +198,7 @@
 }
 
 #content img.fit {
-	width: 100%;
+  width: 100%;
 }
 
 kbd {
