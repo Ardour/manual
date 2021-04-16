@@ -1635,6 +1635,13 @@ part: section
 ---
 
 ---
+title: Loudness Analyzer & Normalizer
+include: loudness-analyzer.html
+link: loudness-analyzer
+part: subchapter
+---
+
+---
 title: Plugin and Hardware Inserts
 link: plugin-and-hardware-inserts
 part: chapter

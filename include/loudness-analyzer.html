@@ -1,0 +1,145 @@
+<p>
+  The Loudness Analyzer &amp; Normalizer is a tool that is useful at the
+  end of the mixing process to make the final audio file comply with
+  different specs regarding loudness.
+</p>
+
+<p>
+  It is enabled by checking
+  <kbd class="option">Enable master-bus output gain control</kbd> in the 
+  <a href="@@preferences#preferences-mixer">Preferences</a>.
+  The <a href="@@master-bus-strip">Master Bus strip</a> then shows a <kbd class="menu">LAN</kbd>
+  button to start the analysis, and a volume slider that is the global gain
+  that can be set either manually or by the loudness normalizer.
+</p>
+<p>
+  The LAN can also be started from the <kbd class="menu">Session &gt; Loudness
+  assistant&hellip;</kbd> menu. If the option above is not enabled, Ardour
+  will link to the relevant page of the Preferences.
+</p>
+
+<p>Either method show the following window:</p>
+
+<figure>
+  <img src="/images/pre_loudness.png" alt="The Loudness Analyzer realtime selector">
+  <figcaption>
+    The Loudness Analyzer realtime selector
+  </figcaption>
+</figure>
+
+<p>
+	This window allows to start the loudness analysis. A choice is offered
+	between freewheeling (i.e. Ardour renders the session as fast as possible
+	to measure the loudness), by default, or Realtime, for cases where freewheeling would
+	not accurately render the session, e.g. if a hardware or JACK effect
+	is used in the session, by clicking on the <kbd class="menu">Realtime</kbd>
+	toggle button.
+</p>
+
+<p>
+	After the analysis is over, the Loudness Analyzer and Normalizer is shown:
+</p>
+
+<figure>
+  <img src="/images/loudness_analyzer.png" alt="The Loudness Analyzer and Normalizer">
+  <figcaption>
+    The Loudness Analyzer and Normalizer
+  </figcaption>
+</figure>
+
+<p>
+	As loudness is a perceived sonic energy, and depends on the level, frequency,
+	duration and nature of the sound, this window allows to base the calculation
+	of the loudness normalization on different parameters : 
+</p>
+<ul>
+	<li><dfn>Peak :</dfn> is the highest signal level value</li>
+	<li><dfn>True Peak :</dfn> is the highest signal level value where the
+		signal has been oversampled to figure out more in-between values
+		between the samples (interpolation)</li>
+	<li><dfn>Integrated Loudness :</dfn> is the loudness computed from the
+		whole session or range</li>
+	<li><dfn>Max Short Loudness :</dfn> is the maximum loudness computed
+		on short time ranges (3 seconds)</li>
+	<li><dfn>Max Momentary Loudness :</dfn> is the maximum momentary loudness</li>
+</ul>
+<p>
+	Any combination of these parameters can be taken into account when determining 
+	the gain normalization, by checking its momentary button, and setting a 
+	<em>Target</em> value.
+</p>
+<p>
+	Ardour shows both the <em>Measured</em> value of the parameters, and the
+	<em>Delta</em> value, i.e. the difference between the <em>Target</em>
+	and <em>Measured</em> values, hence the gain correction.
+</p>
+<p>
+	The maximum <em>Delta</em> value is the Gain correction to apply to fit
+	all the Target values.
+</p>
+<p>
+	Ardour shows, under the parameters, a summary of the calculation :
+</p>
+<ul>
+	<li><dfn>Gain to normalize:</dfn> is the max <em>Delta</em> value</li>
+	<li><dfn>Previous output gain:</dfn> is the current Master track gain</li>
+	<li><dfn>Total Gain:</dfn> is the difference between these two values,
+		hence the correction to apply</li>
+</ul>
+
+<p>
+	At the top of the window, a <kbd>Show Graphical Analysis</kbd> button
+	allows to visually represent the analysis with a graph in a very similar
+	window to the one in the Post-<a href="@@export-dialog">Export</a> analysis.
+</p>
+
+<p>
+	A selection of presets is offered to simplify the normalization. These
+	presets apply the relevant parameters and their target values. Below
+	is a table of these presets:
+</p>
+<table>
+	<thead>
+		<tr><th>Parameter name: </th><th>dbFS </th><th>dBTP </th><th>LUFS </th><th>short</th><th>mom. </th><th>FS</th><th>TP  </th><th>int</th><th>sht </th><th>mom</th><th>maxIntg</th><th>notes</th></tr>
+	</thead>
+	<tbody>
+		<tr><th>-Analysis Only-	</th><td>false</td><td>false</td><td>false</td><td>false</td><td>false</td><td> 0</td><td> 0.0</td><td>  0</td><td>  0</td><td>  0</td><td>  0.0</td><td>-200.0</td></tr>
+		<tr><th>EBU R128		</th><td>false</td><td> true</td><td> true</td><td>false</td><td>false</td><td> 0</td><td>-1.0</td><td>-23</td><td>  0</td><td>  0</td><td>-22.5</td><td> -23.5</td></tr>
+		<tr><th>EBU R128 S1		</th><td>false</td><td> true</td><td> true</td><td> true</td><td>false</td><td> 0</td><td>-1.0</td><td>-23</td><td>-18</td><td>  0</td><td>-22.5</td><td> -23.5</td></tr>
+		<tr><th>ATSC A/85		</th><td>false</td><td> true</td><td> true</td><td> true</td><td>false</td><td> 0</td><td>-2.0</td><td>-24</td><td>  0</td><td>  0</td><td>-22.0</td><td> -26.0</td></tr>
+		<tr><th>AES Streaming	</th><td>false</td><td> true</td><td> true</td><td>false</td><td>false</td><td> 0</td><td>-1.0</td><td>-18</td><td>  0</td><td>  0</td><td>-16.0</td><td> -20.0</td></tr>
+		<tr><th>ASWG-R001 HOME	</th><td>false</td><td> true</td><td> true</td><td> true</td><td>false</td><td> 0</td><td>-1.0</td><td>-24</td><td>  0</td><td>  0</td><td>-22.0</td><td> -26.0</td></tr>
+		<tr><th>Digital Peak	</th><td> true</td><td>false</td><td>false</td><td>false</td><td>false</td><td> 0</td><td> 0.0</td><td>  0</td><td>  0</td><td>  0</td><td>  0.0</td><td>-200.0</td></tr>
+		<tr><th>CD				</th><td> true</td><td> true</td><td> true</td><td>false</td><td>false</td><td> 0</td><td>-0.1</td><td> -9</td><td>  0</td><td>  0</td><td>  0.0</td><td>-200.0</td></tr>
+
+		<tr><th>Amazon Music	</th><td>false</td><td> true</td><td> true</td><td>false</td><td>false</td><td> 0</td><td>-2.0</td><td>-14</td><td>  0</td><td>  0</td><td> -9.0</td><td> -19.0</td></tr>
+		<tr><th>Apple Music		</th><td>false</td><td> true</td><td> true</td><td>false</td><td>false</td><td> 0</td><td>-1.0</td><td>-16</td><td>  0</td><td>  0</td><td>-15.0</td><td> -17.0</td></tr>
+		<tr><th>Deezer			</th><td>false</td><td> true</td><td> true</td><td>false</td><td>false</td><td> 0</td><td>-1.0</td><td>-15</td><td>  0</td><td>  0</td><td>-14.0</td><td> -16.0</td></tr>
+		<tr><th>Soundcloud		</th><td>false</td><td> true</td><td> true</td><td>false</td><td>false</td><td> 0</td><td>-1.0</td><td>-10</td><td>  0</td><td>  0</td><td> -8.0</td><td> -13.0</td></tr>
+		<tr><th>Spotify			</th><td>false</td><td> true</td><td> true</td><td>false</td><td>false</td><td> 0</td><td>-1.0</td><td>-14</td><td>  0</td><td>  0</td><td> -8.0</td><td> -20.0</td></tr>
+		<tr><th>Spotify Loud	</th><td>false</td><td> true</td><td> true</td><td>false</td><td>false</td><td> 0</td><td>-2.0</td><td>-11</td><td>  0</td><td>  0</td><td> -5.0</td><td> -17.0</td></tr>
+		<tr><th>Youtube			</th><td>false</td><td> true</td><td> true</td><td>false</td><td>false</td><td> 0</td><td>-1.0</td><td>-14</td><td>  0</td><td>  0</td><td>-13.0</td><td> -15.0</td></tr>
+	</tbody>
+</table>
+
+<p>
+	At the lower end of the window is a <em>Conformity Analysis</em> folding
+	info panel that is opened by clicking its title, and indicating, for each
+	of the presets above, if the corrected gain would fit the required values:
+</p>
+<ul>
+	<li><span style="color:red;">&#10006;</span>: the signal is too loud</li>
+	<li><span style="color:orange;">&#10004;</span>: the signal is too quiet, but satisfies the max. loudness spec</li>
+	<li><span style="color:green;">&#10004;</span>: signal loudness is within the spec.</li>
+</ul>
+
+<p>
+	Lastly, the gain correction is, by default, applied after all the processors
+	of the master bus. This can also be changed, either by checking the 
+	<kbd>Custom Amplifier Position</kbd> temporaty button in this window, or in the Master
+	strip, by <kbd class="mouse">Right</kbd>-clicking the gain slider and
+	checking <kbd class="option">Custom LAN Amp Position</kbd>. The gain
+	normalizer then becomes a processor in the processors box of the Master
+	strip, that can be moved as needed like any processor/effect.
+</p>
+
