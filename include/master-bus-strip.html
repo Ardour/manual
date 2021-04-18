@@ -6,18 +6,65 @@
 </figure>
 
 <p>
-  The <dfn>Master strip</dfn> in Ardour is very similar to the other busses mixer strips.
-  The list of differences is (from top to bottom):
+  The <dfn>Master strip</dfn> in Ardour is very similar to the other 
+  <a href="@@audiomidi-busses-mixer-strips">busses mixer strips</a>.
+  There are nevertheless a few differences due to the nature of the 
+  Master strip, that is being the last point of treatment before the 
+  output or rendering:
 </p>
 
 <ul>
-  <li>There is no color affected to the master strip</li>
-  <li>The master strip cannot be hidden, so there is not <kbd class="menu">X</kbd> in the top right</li>
-  <li>It is by definition always solo, so no <kbd class="menu">Solo</kbd>, <kbd class="menu">Iso</kbd> or <kbd class="menu">Lock</kbd> buttons. It is replaced by a button to show the Monitoring section if <a href="@@session-properties#properties-monitoring">the session has one</a></li>
-  <li>It cannot belong to a mix group, so the button is removed.</li>
+  <li>
+	There is no color affected to the master strip
+  </li>
+  <li>
+	There is exactly one and only one Master Bus Strip for a session, so
+	it cannot be saved as a template, duplicated or removed in the context
+	menu, although it can be renamed.
+  </li>
+  <li>
+	The master strip cannot be hidden or disabled, so there is not 
+	<kbd>X</kbd> in the top right, nor an
+	<kbd class="option">Active</kbd> checkbox in the context menu.
+  </li>
+  <li>
+	It is by definition always solo, so there is no <kbd >Solo</kbd> button,
+	and <kbd>Iso</kbd> and <kbd>Lock</kbd> are disabled.
+  </li>
+  <li>
+	If the <a href="@@loudness-analyzer">Master bus output gain control</a>
+	is enabled, two controls are visible:
+	<ul>
+		<li>
+			a <kbd>LAN</kbd> button, to start the Loudness Analyzer &amp; Normalizer,
+		</li>
+		<li>
+			a volume slider to that can be controlled manually or set by
+			the Normalizer.
+		</li>
+	</ul>
+  </li>
+  <li>
+	If the session has a <a href="@@session-properties#properties-monitoring">Monitoring section</a>,
+	two buttons are visible:
+	<ul>
+		<li>
+			<kbd>Mute</kbd> to mute the Master bus while the monitoring 
+			is still active,
+		</li>
+		<li>
+			<kbd>Mon</kbd> to show/hide the monitoring section in the Mixer
+			view.
+		</li>
+	</ul>
+  </li>
+  <li>
+	It cannot belong to a mix group, so the <kbd>Grp</kbd> button is missing.
+  </li>
 </ul>
 
 <p class="note">
-  The Master bus strip is <em>always</em> fixed, at the right end of the mixer, regardless of the scrolling position.
+  The Master bus strip is <em>always</em> fixed, at the right end of the
+  mixer, regardless of the scrolling position.
 </p>
 
