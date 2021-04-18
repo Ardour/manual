@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'junge-regular';
+    src: url('../css/junge-regular-webfont.ttf')  format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+  font-family: 'junge-regular';
+  font-size: 16px;
+}
+
 
 .clear {
   clear:both;

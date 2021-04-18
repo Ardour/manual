@@ -1808,6 +1808,7 @@ part: part
 ---
 title: Controlling Ardour with OSC
 include: controlling-ardour-with-osc.html
+pdf-exclude: yes
 link: controlling-ardour-with-osc
 uri: using-control-surfaces/controlling-ardour-with-osc
 part: chapter

@@ -5,21 +5,34 @@
    margin: 1.5cm 1.5cm 1.5cm 1.5cm;
 }
 
+@font-face {
+    font-family: 'lora';
+    src: url('../css/Lora-Regular.ttf')  format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: 'lora';
+	font-size: 12px;
+}
+
 img {
-  max-width: 100%;
+	max-width: 100%;
 }
 
 div.frontcover {
-  page-break-after: always;
+	page-break-after: always;
 	margin: auto;
 	width: 80%;
-	font-size: 4em;
+	font-size: 3em;
 	text-align: center;
 }
 
 .frontcover #generationdate {
 	font-size: .25em;
 	text-align: right;
+	bottom: 3cm;
 }
 
 /* styles for the right hand spread
@@ -30,7 +43,7 @@ div.frontcover {
    @bottom-left {
        margin: 10pt 0 30pt 0;
        /*border-top: .25pt solid #666;*/
-	     content: "The Ardour Manual";
+	   content: "The Ardour Manual";
        font-size: 7pt;
        color: #333;
    }
@@ -55,7 +68,7 @@ div.frontcover {
    @bottom-right {
        margin: 10pt 0 30pt 0;
        /*border-top: .25pt solid #666;*/
-	     content: "The Ardour Manual";
+	   content: "The Ardour Manual";
        font-size: 7pt;
        color: #333;
    }
@@ -88,7 +101,7 @@ body {
 
 }
 
-h1 {
+h1, h2 {
   string-set: doctitle content(); /* get the title of the current chapter */
   page-break-before: always;
 }
@@ -100,7 +113,7 @@ h1 {
 }
 
 h1::before { /* parts */
-  counter-increment: partnum;
+	counter-increment: partnum;
 	content: "Part " counter(partnum) " - ";
 }
 
@@ -130,7 +143,7 @@ h1,h2,h3,h4,h5 {
 	font-weight: bold;
 	page-break-after: avoid;
 	page-break-inside: avoid;
-  line-height: 1.25em;
+	line-height: 1.25em;
 }
 
 h1+p, h2+p, h3+p {
