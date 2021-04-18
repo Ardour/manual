@@ -29,7 +29,6 @@ global_pdf_template = 'pdf-template.html'
 global_master_doc = 'master-doc.txt'
 global_pdflink = '<button class="btn btn-default" type="button" onclick="window.location.href=\'/manual.pdf\'"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></button>'
 from datetime import datetime
-global_today_iso = datetime.today().strftime('%Y-%m-%dT%H%M%S')
 global_today = datetime.today().strftime('%Y-%m-%d')
 
 # This matches all *non* letter/number, ' ', '.', '-', and '_' chars
@@ -697,12 +696,14 @@ onepageFile.close()
 if pdf:
 	if noisy:
 		print('Generating the PDF...')
+		import logging
+		logger = logging.getLogger('weasyprint')
+		logger.addHandler(logging.StreamHandler())
 
 	# Create the PDF version of the documentation
 	pdfpage = pdfpage.replace('{% tree %}', opsidebar) # create the TOC
 	pdfpage = pdfpage.replace('{{ content }}', '') # cleans up the last spaceholder
 	pdfpage = pdfpage.replace('{{ today }}', global_today)
-	pdfpage = pdfpage.replace('{{ today_iso }}', global_today_iso)
 	pdfpage = pdfpage.replace('src="/images/', 'src="images/') # makes images links relative
 	pdfpage = pdfpage.replace('url(\'/images/', 'url(\'images/') # CSS images links relative
 	# Write it to disk (optional, can be removed)
@@ -713,6 +714,7 @@ if pdf:
 	# Generating the actual PDF with weasyprint (https://weasyprint.org/)
 	from weasyprint import HTML
 	from weasyprint.fonts import FontConfiguration
+	
 	html_font_config = FontConfiguration()
 	doc = HTML(string = pdfpage, base_url = global_site_dir)
 	doc.write_pdf(global_site_dir + 'manual.pdf', font_config = html_font_config)
