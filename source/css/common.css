@@ -219,6 +219,3 @@ code {
 .mac .mod23n:before { content: "Ctrl Shift";}
 .mac .mod123n:before {content: "Cmd Ctrl Shift";}
 
-/* for images sliced in divs, as in http://manual.ardour.org/ardours-interface/about/ */
-.container { position: relative; border: none; }
-.hoverimg { position: absolute; border: none; }

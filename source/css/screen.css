@@ -241,5 +241,3 @@ kbd.cmd {
 #content p.section { padding-left: 6em; }
 #content p.subsection { padding-left: 8em; }
 
-/* for images sliced in divs, as in http://manual.ardour.org/ardours-interface/about/ */
-.hoverimg:hover{ z-index:100; box-shadow: 0 0 .2em .2em lightgreen; }
