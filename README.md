@@ -42,7 +42,7 @@ Here are the keywords you can put in, and a brief description of what they do:
 | ------- | -------- |
 | title   | Sets the title for the content that follows |
 | menu_title | Sets the title for the content that follows which will appear in the menu link sidebar. If this is not specified, it defaults to the value of the `title` keyword |
-| part    | Sets the hierarchy for the content that follows. It must be one of the following (listed in order of lowering hierarchy): part, chapter, subchapter  |
+| part    | Sets the hierarchy for the content that follows. It must be one of the following (listed in order of lowering hierarchy): part, chapter, subchapter, section, subsection  |
 | link    | Sets the unbreakable link to the content that follows. Links in the *content* should be prefixed with a double at-sign (@@) to tell the build system that the link is an internal one |
 | include | Tells the build system that the content lives in an external file; these normally live in the `include/` directory. Note that the filename should **not** be prefixed with `include/` |
 | exclude | Tells the `implode` and `explode` scripts that file referred to by the `include` keyword should be ignored. Note that the value of this keyword is ignored |
