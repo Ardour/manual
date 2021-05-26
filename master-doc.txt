@@ -714,6 +714,13 @@ part: subchapter
 ---
 
 ---
+title: Audio/MIDI Setup
+include: audio-midi-setup.html
+link: audio-midi-setup
+part: subchapter
+---
+
+---
 title: Renaming a Session
 include: renaming-a-session.html
 link: renaming-a-session

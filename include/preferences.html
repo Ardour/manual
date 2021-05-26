@@ -1,9 +1,3 @@
-<figure class="right">
-  <img src="/images/preferences.png" alt="The Preferences window">
-  <figcaption>
-    The Preferences window
-  </figcaption>
-</figure>
 
 <p>
   Global <dfn>preferences</dfn> control general workflow and system
@@ -12,92 +6,151 @@
   configuration file</dfn> in the user's home directory.
 </p>
 
+<figure class="right">
+  <img src="/images/preferences.png" alt="The Preferences window">
+  <figcaption>
+    The Preferences window
+  </figcaption>
+</figure>
+
 <p>
 	Preferences are conveniently grouped by category:
 </p>
 
 <ul>
 	<li><a href="#preferences-general">General</a></li>
-	<li><a href="#preferences-editor">Editor</a></li>
-	<li><a href="#preferences-mixer">Mixer</a></li>
-	<li><a href="#preferences-signal_flow">Signal Flow</a></li>
-	<li><a href="#preferences-audio">Audio</a></li>
-	<li><a href="#preferences-midi">MIDI</a></li>
-	<li><a href="#preferences-metronome">Metronome</a></li>
-	<li><a href="#preferences-metering">Metering</a></li>
-	<li><a href="#preferences-transport">Transport</a></li>
-	<li><a href="#preferences-control_surfaces">Control Surfaces</a></li>
-	<li><a href="#preferences-plugins">Plugins</a></li>
 	<li><a href="#preferences-appearance">Appearance</a></li>
+	<ul>
+		<li><a href="#preferences-appearance-recorder">Recorder</a></li>
+		<li><a href="#preferences-appearance-editor">Editor</a></li>
+		<li><a href="#preferences-appearance-mixer">Mixer</a></li>
+		<li><a href="#preferences-appearance-toolbar">Toolbar</a></li>
+		<li><a href="#preferences-appearance-size-and-scale">Size and Scale</a></li>
+		<li><a href="#preferences-appearance-colors">Colors</a></li>
+		<li><a href="#preferences-appearance-quirks">Quirks</a></li>
+		<li><a href="#preferences-appearance-translation">Translation</a></li>
+	</ul>
+	<li><a href="#preferences-editor">Editor</a></li>
+	<ul>
+		<li><a href="#preferences-editor-snap">Snap</a></li>
+		<li><a href="#preferences-editor-modifiers">Modifiers</a></li>
+	</ul>
+	<li><a href="#preferences-midi">MIDI</a></li>
+	<li><a href="#preferences-transport">Transport</a></li>
+	<ul>
+		<li><a href="#preferences-transport-chase">Chase</a></li>
+		<li><a href="#preferences-transport-generate">Generate</a></li>
+	</ul>
+	<li><a href="#preferences-plugins">Plugins</a></li>
+	<ul>
+		<li><a href="#preferences-plugins-vst">VST</a></li>
+		<li><a href="#preferences-plugins-audio_unit">Audio Unit</a></li>
+	</ul>
+	<li><a href="#preferences-monitoring">Monitoring</a></li>
+	<li><a href="#preferences-signal_flow">Signal Flow</a></li>
+	<li><a href="#preferences-metronome">Metronome</a></li>
+	<li><a href="#preferences-control_surfaces">Control Surfaces</a></li>
+	<li><a href="#preferences-metering">Metering</a></li>
+	<li><a href="#preferences-performance">Performance</a></li>
 	<li><a href="#preferences-video">Video</a></li>
 </ul>
 
-<h2 id="preferences-general">General</h2>
+<h2 class="clear" id="preferences-general">General</h2>
 
-<ul>
+<ul>  
   <li>
-    <dfn>DSP CPU Utilization</dfn>
+    <dfn>Audio/MIDI Setup</dfn>
     <ul>
-      <li>
-        <dfn>Signal processing uses:</dfn> sets how many cpu processors can be
-          used to do signal processing. It can be set to use one up to all
-          processors.
+	  <li>
+        <dfn>Show Audio/MIDI Setup window</dfn> Shows the
+        <a href="@@audio-midi-setup">Audio/MIDI Setup</a> dialog.
       </li>
-    </ul>
-  </li>
-  <li>
-    <dfn>Memory Usage</dfn>
-    <ul>
-      <li>
-        <dfn>Waveform image cache (megabytes):</dfn> sets the maximum amount of ram that
-        can be used to store the images representing the waveforms in the editor. Past
-        this amount, the images will be regenerated when needed, which can significantly
-        decrease the system's performance.
-      </li>
-    </ul>
-  </li>
-  <li>
-    <dfn>Engine</dfn>
-    <ul>
       <li>
         <dfn>Try to auto-launch audio/midi engine</dfn> allows Ardour to try to
         automatically launch the audio and MIDI system, driver and device, thus not
-        showing the <a href="@@newopen-session-dialog">Audio/MIDI Setup</a> dialog. This
+        showing the <a href="@@audio-midi-setup">Audio/MIDI Setup</a> dialog. This
         can save a little time if the system is always used the same way.
       </li>
     </ul>
   </li>
   <li>
-    <dfn>Automation</dfn>
+    <dfn>Editor Undo</dfn> defines the behaviour of the Undo operations:
     <ul>
       <li>
-    	  <strong>Thinning factor</strong> ranges from 0 to 1000 with larger
-    	  values sending fewer automation changes. Thinning is like lossy
-    	  audio compression, removing data that is less likely to be noticed,
-    	  although the more is removed, the more likely the loss will be noticed.
-    	  The advantage to thinning is reduced CPU usage.
-	    </li>
+         <strong>Limit undo history</strong> sets how many commands can be
+	     undone using <kbd class="mod1">Z</kbd> or <kbd class="menu">Edit &gt; Undo</kbd>.
+         Unchecking will keep an endless memory of operations to undo, at the
+         expense of memory.
+      </li>
       <li>
-	  	  <strong>Automation sampling interval</strong> ranges from 1 to
-    	  1000&nbsp;ms. Determines how frequently the automation input is
-    	  sampled. The shorter the interval the higher the accuracy but also
-    	  the higher the CPU requirements.
+	     <strong>Save undo history</strong> sets how many commands are saved so
+	     they are available to be undone after reopening the session. This can
+         also be unchecked to keep all actions undoable, at the cost of bigger
+         session files.
+      </li>
+      <li>
+	     <strong>Verify removal of last capture</strong> when enabled prompts to
+	     verify removal the last recording capture when
+	     <kbd class="menu">Edit &gt; Remove Last Capture</kbd> is executed.
       </li>
     </ul>
   </li>
   <li>
-    <dfn>Tempo</dfn>
+    <dfn>Session Management</dfn>:
     <ul>
       <li>
-        <dfn>Allow non quarter-note pulse</dfn>: by default, Ardour understands the <a
-        href="@@tempo-and-meter">tempo</a> as the number of quarter notes in a minute.
-        Checking this option allows to set the tempo based on any division of the note,
-        from whole to 1/128th. This is reflected in the <kbd class="menu">Edit
-        Tempo</kbd> window (accessed by double clicking a tempo marker) that shows a
-        "Pulse" menu when this option is checked.
+        <strong>Make periodic backups of the session file</strong> will create
+        a backup session file after changes to the timeline. The backup file is
+        the session name followed by <em>.ardour.bak</em>. The backup can be
+        used to recover from crashes when the session had not been explicitly
+        saved.
+      </li>
+      <li>
+        <strong>Default folder for new sessions:</strong> defaults the folder
+    	where Ardour will create new session folders. This is used in the
+    	<em>Session&nbsp;Setup</em> dialog displayed by
+    	<kbd class="menu">Session &gt; New</kbd>.
+      </li>
+      <li>
+        <strong>Maximum number of recent sessions:</strong> determines how 
+        many of the last opened sessions shows in the <em>Recent&nbsp;Sessions</em>
+        dialog displayed by <kbd class="menu">Session &gt; Recent</kbd>.
       </li>
     </ul>
   </li>
+  <li>
+    <dfn>Import</dfn>:
+    <ul>
+      <li>
+        <strong>Drag and drop import always copies files to session</strong>
+        selects, and then disables changes to, the <em>Copy files to session</em>
+        option in the <a href="@@import-dialog">Add Existing Media</a> dialog.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Export</dfn>
+    <ul>
+      <li>
+        <dfn>Save loudness analysis as image file after export</dfn> allows, when the
+        <kbd class="option">Analyze Exported Audio</kbd> is checked in the
+        <a href="@@export-dialog">Export dialog</a>, to save the analysis graph
+        as a file named <code>session.png</code> alongside the exported audio
+        file(s) (in the same folder).
+      </li>
+      <li>
+        <dfn>Save Mixer screenshot after export</dfn> creates and exports
+        a graphical image of the Mixer window as a file named
+        <code>session-mixer.png</code> alongside the exported audio file(s)
+        (in the same folder).
+      </li>
+    </ul>
+  </li>
+</ul>
+  
+<h2 id="preferences-appearance">Appearance</h2>
+
+<ul>
   <li>
     <dfn>GUI Lock</dfn>
     <ul>
@@ -115,65 +168,406 @@
       </li>
     </ul>
   </li>
-</ul>
-
-<h3 id="session">Session</h3>
+  <li>
+    <dfn>Theme</dfn>
+    <ul>
+      <li>
+        <dfn>Draw &quot;flat&quot; buttons</dfn>: when enabled, button controls
+        in the user interface will be drawn with a flat look. When disabled button
+        controls will have a slight 3D appearance.
+      </li>
+      <li>
+        <dfn>Draw &quot;boxy&quot; buttons</dfn>: when enabled, button controls
+        in the user interface will have square corners instead of being slightly
+        rounded.
+      </li>
+      <li>
+        <dfn>LED meter style</dfn> if checked, the bar meters in the editor and
+        mixer will be styled to look like if they were made of LEDs, with a dotted
+        bar. Unchecking this option makes the bars flat and continuous.
+      </li>
+      <li>
+        <dfn>Icon Set:</dfn> Changes the mouse cursor icons used to indicate
+        different tool modes in the editor. An example would be the icons used to
+        indicate whether the cursor will select a region or change the length of a
+        region.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Graphical User Interface</dfn>
+    <ul>
+      <li>
+        <dfn>Highlight widgets on mouseover</dfn>, when checked, makes Ardour's
+        widgets (buttons, sliders, &hellip;) slightly change color when the mouse
+        hovers them, visually indicating what a mouse action would interact with.
+      </li>
+      <li>
+        <dfn>Show tooltips if mouse hovers over a control</dfn> when checked,
+        displays a little help bubble about the control the mouse hovers. The mouse
+        pointer needs to stay idle for about 1 sec for the tooltip to appear.
+      </li>
+      <li>
+        <dfn>Update clocks at TC Frame rate</dfn>: Ardour updates its clocks every
+        100&nbsp;ms. Checking this will make the clock refresh at every TimeCode
+        frame which is more responsive, at the cost of a bit more system stress.
+      </li>
+      <li>
+        <dfn>Blink Rec-Arm buttons</dfn>: when enabled, the record-armed
+        buttons on tracks will blink when they are armed but not currently recording.
+        When disabled, the record-armed buttons on tracks will be outlined in red
+        instead of blinking. The global record-arm button in the
+        <a href="@@transport-bar">Transport bar</a> is unaffected.
+      </li>
+      <li>
+        <dfn>Blink Alert indicators</dfn>: when enabled, the Alert indicators (like
+        the <kbd class="menu">Error Log</kbd> or the <kbd class="menu">Feedback</kbd>
+        button) will blink when they are active (when an error or feedback
+        has been detected, respectively). When disabled, the indicators will turn red instead of
+        blinking.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Graphics Acceleration</dfn>
+    <ul>
+	  <li>
+        <dfn>Disable Graphics Hardware Acceleration (requires restart)</dfn>
+        Ardour uses hardware accelerated UI rendering by default for speed.
+        Sometimes though, a buggy driver can cause this to make the system slow or
+        unstable. Checking this will make Ardour draw its UI without
+        hardware acceleration, in software, improving stability and responsiveness
+        on those buggy systems at the expense of speed.
+      </li>	
+      <li>
+        <dfn>Possibly improve slow graphical performance (requires restart)</dfn>
+        Wherever gradients appear in the UI, Ardour uses hardware accelerated
+        gradients creation. Checking this will make Ardour draw its own gradients without
+        hardware acceleration for stability on systems with buggy drivers.
+      </li>
+    </ul>
+  </li>
+</ul>  
+  
+<h3 id="preferences-appearance-recorder">Recorder</h2>
 
 <ul>
   <li>
-    <dfn>Undo</dfn> defines the behaviour of the Undo operations:
+    <dfn>Input Meter Layout</dfn>
     <ul>
       <li>
-         <strong>Limit undo history</strong> sets how many commands can be
-	       undone using <kbd class="mod1">Z</kbd> or <kbd class="menu">Edit &gt; Undo</kbd>.
-         Unchecking will keep an endless memory of operations to undo, at the
-         expense of memory.
+        <dfn>Input Meter Layout:</dfn>In Recorder mode, determines if audio
+        inputs are displayed horizontally or vertically.
+      </li>  
+	</ul>
+  </li>
+</ul>
+  
+<h3 id="preferences-appearance-editor">Editor</h2>
+
+<ul>
+  <li>
+    <dfn>General</dfn>
+    <ul>
+      <li>
+        <dfn>Use name highlight bars in region displays (requires a restart)</dfn>:
+        when enabled, the region name is displayed, in the editor, in its own opaque bar
+        at the bottom of the region. When disabled, the region name is overlaid
+        at the top of the region, possibly over audio waveforms or MIDI notes.
       </li>
       <li>
-	       <strong>Save undo history</strong> sets how many commands are saved so
-	       they are available to be undone after reopening the session. This can
-         also be unchecked to keep all actions undoable, at the cost of bigger
-         session files.
+        <dfn>Region color follows track color</dfn>: when enabled,
+        the background color of regions in the editor will be displayed using
+        the color assigned to the track. When disabled the default region
+        background color will be used.
       </li>
       <li>
-	       <strong>Verify removal of last capture</strong> when enabled prompts to
-	       verify removal the last recording capture when
-	       <kbd class="menu">Edit &gt; Remove Last Capture</kbd> is executed.
+        <dfn>Show Region Names</dfn>: when enabled, overlays the name of
+        the region over its waveform representation, in the top-left. 
+      </li>
+       <li>
+        <dfn>Waveforms color gradient depth:</dfn> determines how much gradient
+        effect is applied to the inner of audio waveforms displayed in the editor.
+        Values range from 0.0, no gradient effect, to 1.0, maximum effect.
+      </li>
+      <li>
+        <dfn>Timeline item gradient depth:</dfn> Determines how much
+        gradient effect is applied to the backgrounds of regions displayed in the
+        editor. Values range from 0.0, no gradient effect, to 1.0, maximum effect.
+      </li>
+      <li>
+        <dfn>Track name ellipsis mode:</dfn> when the track header is not 
+        wide enough to display the track's name in full, selects how the
+        name will be shorten between:
+        <ul>
+		  <li><em>Ellipsize start of name</em> will show only the end of the name</li>
+		  <li><em>Ellipsize middle of name</em> will show only the start and end of the name</li>
+		  <li><em>Ellipsize end of name</em> will show only the start of the name</li>
+        </ul>
+      </li>
+      <li>
+        <dfn>Add a visual gap below Audio Regions:</dfn> selects whether or
+        not the audio regions fit the height of the track or leave a gap at
+        the bottom, either small or large.
       </li>
     </ul>
   </li>
   <li>
-    <dfn>Session Management</dfn>:
+    <dfn>Waveforms</dfn>
     <ul>
       <li>
-        <strong>Make periodic backups of the session file</strong> will create
-        a backup session file after changes to the timeline. The backup file is
-        the session name followed by <em>.ardour.bak</em>. The backup can be
-        used to recover from crashes when the session had not been explicitly
-        saved.
+        <dfn>Show waveforms in regions</dfn> when enabled shows a visual
+        representation of the region's audio waveform.
       </li>
       <li>
-        <strong>Drag and drop import always copies files to session</strong>
-        selects, and then disables changes to, the <em>Copy files to session</em>
-        option in the <a href="@@import-dialog">Add Existing Media</a> dialog.
+        <dfn>Show waveform while recording</dfn> when
+        enabled, will draw the audio waveform in regions being recorded, in near
+        real time. When disabled, only a region block will be drawn while recording,
+        reducing CPU requirements.
       </li>
       <li>
-        <strong>Default folder for new sessions:</strong> defaults the folder
-    	  where Ardour will create new session folders. This is used in the
-    	  <em>Session&nbsp;Setup</em> dialog displayed by
-    	  <kbd class="menu">Session &gt; New</kbd>.
+        <dfn>Show waveform clipping</dfn>: when enabled the waveform
+        displayed will show peaks marked in red if they exceed the clip level.
       </li>
       <li>
-        <strong>Maximum number of recent sessions:</strong> determines how many
-    	  of the last opened sessions shows in the
-    	  <em>Recent&nbsp;Sessions</em> dialog displayed by
-    	  <kbd class="menu">Session &gt; Recent</kbd>.
+        <dfn>Waveform Clip Level (dBFS):</dfn> sets the level at which the
+        waveform shown in an audio region will be drawn in red to indicate
+        clipping. Setting lower than 0.0&nbsp;dBFS can be useful if any tool in
+        the audio chain has problems near 0.0&nbsp;dBFS.
+      </li>
+      <li>
+        <dfn>Waveform scale:</dfn> when waveforms are shown in audio regions,
+        they can be displayed using a <em>linear</em> or a <em>logarithmic</em>
+        scale. See <a href="@@waveform-display">Waveform display</a>.
+      </li>
+      <li>
+        <dfn>Waveform shape:</dfn> when waveforms are shown in audio regions,
+        they can be displayed using a <em>traditional</em> or a <em>rectified</em>
+        shape. See <a href="@@waveform-display">Waveform display</a>.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Editor Meters</dfn>
+    <ul>
+      <li>
+        <dfn>Show meters in track headers</dfn>, when enabled, shows
+        a small meter in the Editor's <a href="@@audio-track-controls">track headers</a>.
+        The meter is shown on the right side area of the header and provides an
+        instant, if unprecise, view of the levels on this track/bus.
+      </li>
+      <li>
+        <dfn>Limit track header meters to stereo</dfn>: if a track has more than
+        two outputs (e.g. with a drum plugin), limits the number of meters in the
+        track header to the first two ones. Only affects audio meters, not MIDI.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>MIDI Regions</dfn>
+    <ul>
+      <li>
+        <dfn>Display first MIDI bank/program as 0</dfn>: when patches and bank changes
+        are displayed in the editor, if this option is checked, the numbering will
+        be zero-based instead of one-based, i.e. banks/programs will be numbered
+        O, 1 ,2&hellip; instead of 1, 2, 3&hellip;
+      </li>
+      <li>
+        <dfn>Don't display periodic (MTC, MMC) SysEx messages in MIDI Regions</dfn>:
+        if checked, will hide these control messages from the MIDI regions for better
+        legibility.
+      </li>
+      <li>
+        <dfn>Show velocity horizontally inside notes</dfn>: when on, each note
+        of a MIDI region (in <em>Sustained</em> mode) displays its velocity
+        (0-127) with a darker fill proportional to its value.
+      </li>
+      <li>
+        <dfn>Use colors to show note velocity</dfn>: if checked, makes the
+        saturation of the notes color proportional to its velocity, hence making
+        a more veloce note more intense in color.
       </li>
     </ul>
   </li>
 </ul>
+  
+<h3 id="preferences-appearance-mixer">Mixer</h3>
 
-<h3 id="translation">Translation</h3>
+<ul>
+  <li>
+    <dfn>Mixer Strip</dfn>
+    <ul>
+      <li>
+        This table enables (checked) or disables (unchecked) the display of controls
+        in the <a href="@@audiomidi-mixer-strips">mixer strip</a>. Controls whose
+        display can be toggled are:
+        <strong>Input</strong>, <strong>Phase&nbsp;Invert</strong>,
+        <strong>Record&nbsp;&amp;&nbsp;Monitor</strong>, <strong>Solo&nbsp;Iso/Lock</strong>,
+        <strong>Output</strong>, <strong>Comments</strong> and VCA Assigns.
+      </li>
+      <li>
+        <dfn>Use narrow strips in the mixer for new strips by default</dfn> When
+        enabled, new mixer strips are created in narrow format. When disabled,
+        they are created in wide format. Existing mixer strips width can be toggled
+        with the width control at the top left of the mixer strip.
+      </li>
+      <li>
+        <dfn>Limit inline-mixer-strip controls per plugin :</dfn> Whether or
+        not, and how many, controls each plugin can show in the mixer strip.
+        These mixer-strip controls are added by checking <em>plugin context-menu
+        &gt; Controls &gt; &square; control parameter</em>.
+      </li>
+    </ul>
+  </li>
+</ul> 
+  
+<h3 id="preferences-appearance-toolbar">Toolbar</h3>
+
+<ul>
+  <li>
+    <dfn>Main Transport Toolbar Items</dfn>: this section allows to toggle the
+    visibility of some elements of the main toolbar:
+    <ul>
+      <li>
+        <dfn>Display Record/Punch Options</dfn> toggles the visibility of the
+        <a href="@@selection-and-punch-clocks#punch_controls">punch and record</a> slice of
+        the main toolbar.
+      </li>
+      <li>
+        <dfn>Display Latency Compensation Info</dfn> toggles the visibility of the
+        Latency Compensation slice of the main toolbar.
+      </li>
+      <li>
+        <dfn>Display Secondary Clock</dfn> toggles the visibility of the
+        <a href="@@transport-clocks">secondary clocks</a> slice of
+        the main toolbar.
+      </li>
+      <li>
+        <dfn>Display Selection Clock</dfn> toggles the visibility of the
+        <a href="@@selection-and-punch-clocks#selection_clocks">selection clocks</a> slice of
+        the main toolbar.
+      </li>
+      <li>
+        <dfn>Display Monitor Section Info</dfn> toggles the visibility of the
+       Monitor Info slice of the main toolbar.
+      </li>
+      <li>
+        <dfn>Display Navigation Timeline</dfn> toggles the visibility of the
+        <a href="@@mini-timeline">navigation/mini timeline</a> slice of
+        the main toolbar.
+      </li>
+      <li>
+        <dfn>Display Master Level Meter</dfn> toggles the visibility of the
+        <a href="@@other-toolbar-items#mode_selector">selection clocks</a> slice of
+        the main toolbar.
+      </li>
+    </ul>
+  </li>
+  <li>
+	<dfn>Display Action-Buttons</dfn>
+	  <ul>
+	    <li>
+		  <dfn>Column <em>n</em></dfn> enables or disables the visibility
+	      of the six possible columns of <a href="@@other-toolbar-items#mode_selector">Lua script buttons</a>.
+          Each columns contains two user-assignable buttons.
+        </li>
+      </ul>
+  </li>
+</ul>  
+  
+<h3 id="preferences-appearance-size-and-scale">Size and Scale</h3>
+
+<ul>
+  <li>
+    <dfn>User Interface Size and Scale</dfn>
+    <ul>
+	  <li>
+	    <dfn>GUI and Font scaling:</dfn> allows the display size of most of the
+	    text and buttons in the user interface to be scaled up or down. May
+	    require a restart to take effect.
+      </li>
+    </ul>
+  </li>
+</ul>
+  
+<h3 id="preferences-appearance-colors">Colors</h3>
+ 
+<ul>
+  <li>
+    <dfn>Colors</dfn>
+    <ul>
+      <li>
+        <dfn>Color Theme</dfn> allows to switch between some presets bundled with
+        Ardour, changing both the palette and items colors, hence styling Ardour
+        all at once.
+      </li>
+      <li>
+        The table allows to change the color settings in Ardour by acting on three
+        parameters:
+        <ul>
+          <li>
+            <dfn>Items</dfn> that allow to choose any color from the palette (see below)
+            to color a UI element. Clicking on a color sample in the <strong>Color</strong>
+            column bring up the Palette, to choose from.
+          </li>
+          <li>
+            <dfn>Palette</dfn> that allows to create a set of colors that will be used
+            in the UI. Using a palette allows for better consistency, instead of
+            picking "free" colors for each UI element. Clicking on a color patch brings
+            up a full color selector, to assign this color to this patch of the palette.
+          </li>
+          <li>
+            <dfn>Transparency</dfn> where possible, allows to select, with a slider,
+            the transparency of the UI element, with 0 (slider to the left) being
+            fully opaque.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <dfn>Restore Defaults</dfn> turns all the palette, item colors and transparency
+        back to Ardour's default base setting, in case Ardour's appearance has turned
+        into a toddler's toy.
+      </li>
+    </ul>
+  </li>
+</ul>
+ 
+<h3 id="preferences-appearance-quirks">Quirks</h3>
+
+<ul>
+  <li>
+    <dfn>Various Workarounds for Windowing Systems</dfn>: As Ardour is available
+    on a number of platforms and windowing systems, some specific workarounds are
+    sometimes required to provide a smooth experience to the user.
+    <ul>
+      <li>
+        <dfn>Use visibility information provided by your Window Manager/Desktop</dfn>
+        allows the system window manager's rules for the windows visibility to
+        supersede Ardour's.
+      </li>
+      <li>
+        <dfn>All floating windows are dialogs</dfn>: when enabled, Ardour will
+        use type &quot;Dialog&quot; for all floating windows instead of using type
+        &quot;Utility&quot; for some of them. This may help usability with some
+        window managers. This setting requires a restart of Ardour to take effect.
+      </li>
+      <li>
+        <dfn>Transient windows follow front window.</dfn>: when enabled,
+        transient windows will follow the front window when toggling between the
+        editor and mixer. This setting requires a restart of Ardour to take effect.
+      </li>
+      <li>
+        <dfn>Float detached monitor-section window</dfn>: as the <a href="@@monitor-section">
+        monitor section</a> can be detached from the mixer, this option makes it a
+        floating window, which may be handled differently by the windowing system
+        and easier to access.
+      </li>
+    </ul>
+  </li>
+</ul>  
+ 
+<h3 id="preferences-appearance-translation">Translation</h3>
+
 <ul>
   <li>
     <dfn>Internationalization</dfn>
@@ -186,28 +580,33 @@
       </li>
     </ul>
   </li>
-</ul>
-
+</ul>    
+      
 <h2 id="preferences-editor">Editor</h2>
+     
 <ul>
   <li>
-    <dfn>General</dfn>
-    <ul>
+	<dfn>Region Information</dfn>      
+	<ul>
+	  <li>
+        <dfn>Show xrun markers in regions</dfn> puts a marker on the region(s)
+        while recording, when a buffer over/underflow happens.
+      </li>      
       <li>
-        <dfn>Prompt for new marker names</dfn> when enabled, popup a dialog
-        when a new <a href="@@working-with-markers">marker</a> is created. This allows
-        markers to be named as they are created.
-      </li>
+        <dfn>Show cue markers in regions</dfn> determines if cue markers,
+        that are bounded to regions, are displayed or not.
+      </li>  
       <li>
-        <dfn>Auto-scroll speed when dragging playhead:</dfn> chooses how fast the canvas
-        scrolls when dragging the playhead outside of the visible canvas.
+        <dfn>Show gain envelopes in audio regions:</dfn> sets in which
+        <a href="@@toolbox">modes</a> the gain envelope is displayed in audio regions.
+        The gain envelope is superimposed over the region in the selected modes, and
+        hidden otherwise for a better legibility.
       </li>
-      <li>
-        <dfn>Limit zooming &amp; summary view to X minutes beyond session extents:</dfn>
-        prevents the zoom out both in the editor and the summary, to show anything past
-        the chosen time after the end marker, restraining the vision to only useful
-        content.
-      </li>
+    </ul>   
+  </li>
+  <li>
+	<dfn>Scroll and Zoom Behaviors</dfn>      
+	<ul>   
       <li>
         <dfn>Zoom to mouse position when zooming with scroll wheel</dfn>: by default,
         Ardour zooms to the <a href="@@edit-point-control">edit point</a>. When this
@@ -237,24 +636,23 @@
         <dfn>Auto-scroll editor window when dragging near its edges</dfn>
         when enabled will scroll the editor window automatically when dragging a
         region. This can make it easier to see where to position the region.
+      </li>    
+      <li>
+        <dfn>Auto-scroll speed when dragging playhead:</dfn> chooses how fast the canvas
+        scrolls when dragging the playhead outside of the visible canvas.
       </li>
       <li>
-        <dfn>Show gain envelopes in audio regions:</dfn> sets in which
-        <a href="@@toolbox">modes</a> the gain envelope is displayed in audio regions.
-        The gain envelope is superimposed over the region in the selected modes, and
-        hidden otherwise for a better legibility.
-      </li>
-      <li>
-        <dfn>Show xrun markers in regions</dfn> puts a marker on the region(s)
-        while recording, when a buffer over/underflow happens.
+        <dfn>Limit zooming &amp; summary view to X minutes beyond session extents:</dfn>
+        prevents the zoom out both in the editor and the summary, to show anything past
+        the chosen time after the end marker, restraining the vision to only useful
+        content.
       </li>
     </ul>
   </li>
-
   <li>
-    <dfn>Editor Behavior</dfn>
-    <ul>
-      <li>
+	<dfn>Editor Behaviour</dfn>      
+	<ul>
+	  <li>
         <dfn>Move relevant automation when audio regions are moved</dfn>,
         when enabled, causes automation data to stay with a region when the
         region is moved inside the playlist. When disabled, the automation is
@@ -265,6 +663,12 @@
         allows to create new automation points at the x-position of the mouse, without
         using the Y-position as the value, hence creating a new automation point at
         its present value.
+      </li>
+      <li>
+		<dfn>Automation edit cancels auto hide</dfn> determines wether automation
+		lanes that have been automatically shown because of the 
+		<kbd class="option">Edit &gt; Show Automation Lane on Touch</kbd>
+		option should be kept visible if the automation has been touched.
       </li>
       <li>
         <dfn>Default fade shape:</dfn> sets which <a href="@@create-region-fades-and-crossfades">
@@ -282,7 +686,6 @@
       </li>
     </ul>
   </li>
-
   <li>
     <dfn>Split/Separate</dfn>
     <ul>
@@ -317,7 +720,64 @@
   </li>
 </ul>
 
-<h3 id="modifiers">Modifiers</h3>
+<h3 id="preferences-editor-snap">Snap</h3>
+
+<ul>
+  <li>
+	<dfn>General Snap options:</dfn>      
+	<ul>
+	  <li>
+        <dfn>Snap Threshold (pixels):</dfn> is the maximum distance between
+        a snap anchor and an object for Ardour to force the object to be
+        placed precisely at that anchor.
+      </li> 
+	  <li>
+        <dfn>Approximate Grid/Ruler granularity (pixels):</dfn> Ardour tries
+        to show a reasonable number of grid lines at the current zoom level
+        and in the available screen estate. This value tells Ardour what the
+        approximate absolute distance between two closest grid lines should
+        be, so that it displays the most relevant grid scale to approximately
+        fit this distance.
+      </li> 
+	  <li>
+        <dfn>Show "snapped cursor"</dfn> If the Edit point is not the playhead,
+        shows the currently selected Edit point as a blue line, to indicate
+        where the next editing operation will occur.
+      </li>
+      <li>
+        <dfn>Snap rubberband selection to grid</dfn> makes the highlighted 
+        zone created by an area selection also snap to grid, i.e. the beginning
+        and end of the resulting selecting box will both be grid anchors.
+      </li>
+      <li>
+        <dfn>Grid switches to alternate selection for Internal Edit Tools</dfn>
+        Two levels of grid mode can coexist in Ardour, one for global regions
+        manipulations, and one for finer, in-region editing (e.g. for placing
+        MIDI events in a MIDI region). When this option is checked, entering
+        Internal Edit mode makes the grid mode switch from one mode to the other.
+      </li>
+      <li>
+        <dfn>Rulers automatically change to follow the Grid mode selection</dfn>
+        If enabled, changing the Grid mode also makes the relevant
+        <a href="@@ruler">ruler</a> visible, while hiding the other ones.
+      </li>
+    </ul>
+  </li>
+  <li>
+	<dfn>When "Snap" is enabled, snap to:</dfn>      
+	Lists the different possible anchors to which an object should snap to, among:
+	<ul>
+	  <li>Markers</li>
+	  <li>Region Sync points</li>
+	  <li>Region Starts</li>
+	  <li>Region Ends</li>
+	  <li>Grid</li>
+	</ul>
+  </li>
+</ul>
+      
+<h3 id="preferences-editor-modifiers">Modifiers</h3>
+
 <p>
   This page allows to choose how things are done in the editor. This is a very
   flexible way for Ardour to match an existing workflow, or speed up the editing
@@ -327,10 +787,522 @@
   The <kbd class="menu">Reset to recommended defaults</kbd> button at the bottom
   provides a way to revert any user made change to its default value.
 </p>
-
-<h2 id="preferences-mixer">Mixer</h2>
+      
+<h2 id="preferences-midi">MIDI</h2>
 
 <ul>
+  <li>
+    <dfn>Session</dfn>
+    <ul>
+	  <li>
+        <dfn>Allow non quarter-note pulse</dfn>: by default, Ardour understands the <a
+        href="@@tempo-and-meter">tempo</a> as the number of quarter notes in a minute.
+        Checking this option allows to set the tempo based on any division of the note,
+        from whole to 1/128th. This is reflected in the <kbd class="menu">Edit
+        Tempo</kbd> window (accessed by double clicking a tempo marker) that shows a
+        "Pulse" menu when this option is checked.
+      </li>	
+      <li>
+        <dfn>Initial program change:</dfn> Ardour will send a MIDI program
+        change message on the <code>ardour:MMC out</code> MIDI port when a session
+        is loaded and whenever this field is changed. A value of -1 means don't
+        send any program change message.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Audition</dfn>
+    <ul>
+      <li>
+        <dfn>Sound MIDI notes as they are selected in the editor</dfn> will play
+        any selected or added MIDI note when in Draw or Internal Edit modes. The
+        note is sent as MIDI as if Ardour was playing it withe the session, so the
+        processors and signal routing will be applied.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Virtual Keyboard</dfn>
+    <ul>
+      <li>
+        <dfn>Virtual Keyboard Layout:</dfn> selects which (if any) computer
+        keyboard layout is used to be mapped on the keys of the musical
+        keyboard of the Virtual Keyboard (<kbd class="menu">Window &gt; Virtual Keyboard</kbd>).
+      </li>
+
+    </ul>
+  </li>
+  <li>
+    <dfn>MIDI Port Options</dfn>
+    <ul>
+      <li>
+        <dfn>MIDI input follows MIDI track selection</dfn> allows Ardour to automatically
+        connect the MIDI input to the selected track. Selecting a different MIDI
+        track results in Ardour disconnecting the MIDI device from the former track
+        and connecting it to the newly selected one, so that the MIDI device is
+        always connected to the selected track. Which MIDI device will follow
+        selection can be chosen below.
+      </li>
+    </ul>
+  </li>
+</ul>      
+  
+<h2 id="preferences-transport">Transport</h2>
+
+<ul>
+  <li>
+    <dfn>General</dfn>
+    <ul>
+      <li>
+        <dfn>Prompt for new marker names</dfn> when enabled, popup a dialog
+        when a new <a href="@@working-with-markers">marker</a> is created. This allows
+        markers to be named as they are created.
+      </li>		
+      <li>
+        <dfn>Stop at the end of the session</dfn> causes the transport to
+        stop during playback when it reaches the end marker. Behavior during
+        recording is not changed.
+      </li>
+      <li>
+        <dfn>Keep record-enable engaged on stop</dfn> leaves the global
+        record-enable engaged after transport is stopped.  Does not affect track
+        level record-enable which is never changed on stop.
+      </li>
+      <li>
+        <dfn>Reset default speed on stop</dfn> when the 
+        <a href="@@transport-bar">Shuttle speed control</a> is in <em>wheel</em>
+        mode, i.e. the transport speed can be constantly changed, enabling this
+        option makes these changes temporary, and the transport speed reset
+        each time the transport is stopped.      
+      </li>
+      <li>
+        <dfn>Disable per-track record disarm while rolling</dfn>, when
+        enabled, will not allow the any track's record-enable to be disarmed
+        during record, preventing accidentally stopping the recording of a take.
+      </li>
+      <li>
+        <dfn>12dB gain reduction during fast-forward and fast-rewind</dfn>
+        when enabled will reduce the unpleasant increase in perceived volume
+        that occurs when fast-forwarding or rewinding through some kinds of audio.
+      </li>
+      <li>
+        <dfn>Rewind/Fast-forward buttons change direction immediately</dfn>
+        sets wether Rewind and Fast-forward transport operations
+        (<kbd class="menu">Transport &gt; Forward/Rewind</kbd>) changes the 
+        playback direction and speed abruptly, or gradually.
+      </li>
+      <li>
+        <dfn>Allow auto-return after rewind/ffwd operations</dfn>
+        if <a href="@@other-toolbar-items#playhead_options">Auto return</a>is engaged, sets wether
+        it applies to rewind and fast-forward operations.
+      </li>
+      <li>
+        <dfn>Preroll:</dfn> sets the duration of the preroll for playing and
+        recording when using a preroll. Can be a musical duration (in bars) or a
+        duration in seconds.
+      </li>
+    </ul>
+  </li>  
+  <li>
+    <dfn>Looping</dfn>
+    <ul>
+      <li>
+        <dfn>Play loop is a transport mode</dfn> changes the behavior of the
+        loop button, turning it into a toggle. When enabled, the loop button does
+        not start playback but forces playback to always play the loop. Looping
+        stays engaged when the transport is stopped. Playback continues where the
+        transport stopped and continues to loop. When disabled, the loop button
+        starts playing the loop but stop then cancels loop playback.
+      </li>
+      <li>
+        <dfn>Loop Fades:</dfn> when the transport moves from the end of the loop
+        range back to the beginning, clicks might be audible. This parameter
+        allows for adding fades (in, out or cross-) to prevent those clicks.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Dropout (xrun) Handling</dfn>
+    <ul>
+      <li>
+        <dfn>Stop recording when an xrun occurs</dfn> will stop the transport
+        when an xrun occurs during recording, ensuring no audible glitches are
+        recorded.
+      </li>
+      <li>
+        <dfn>Create markers where xruns occur</dfn> will create a new
+        <a href="@@working-with-markers">marker</a> when an xrun occurs during
+        recording at the location of the xrun. This marks where possible xruns
+        might produce audible glitches.
+      </li>
+      <li>
+        <dfn>Reset x-runs counter when starting to record</dfn>, when enabled,
+        sets the x-run counter in the <a href="@@status-bar">Status bar</a>
+        to 0 each time a recording is started, hence showing only the relevant
+        number of x-run while recording.
+      </li>
+    </ul>
+  </li>
+  <li>
+	<dfn>Plugins</dfn>
+    <ul>  
+	  <li>
+        <dfn>Silence plugins when the transport is stopped</dfn> when stopping
+        playback or recording, if this option is checked, the plugins that still
+        emit sound (reverbs, etc&hellip;) will be stopped. If unchecked, the plugins
+        will continue playing after the transport stop.
+      </li>
+	</ul>
+  </li>
+</ul>  
+  
+<h3 id="preferences-transport-chase">Chase</h3>
+
+<ul>
+  <li>
+    <dfn>MIDI Machine Control (MMC)</dfn>
+    <ul>
+      <li>
+        <dfn>Respond to MMC commands</dfn> when enabled Ardour will respond
+        to MIDI Machine Control commands received on the <code>ardour:MMC in</code>
+        MIDI port.
+      </li>  
+      <li>
+        <dfn>Inbound MMC device ID:</dfn> is the only device ID Ardour will
+        respond to when an MMC command is received on the <code>ardour:MMC in</code>
+        MIDI port.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Transport Masters</dfn>
+    <ul>
+	  <li>
+		<dfn>Show Transport Master Window</dfn> Opens the Transport masters
+		window, where all the timecode sources are shown to be selected
+		and/or synchronized; same as clicking <kbd class="menu">Window &gt;
+		Transport Masters</kbd>
+	  </li>
+      <li>
+		<dfn>Match session video frame rate to external timecode</dfn>
+		controls the value of the video frame rate <em>while chasing</em>
+		an external timecode source. When enabled, the session video frame rate will be
+		changed to match that of the selected external timecode source. When disabled,
+		the session video frame rate will not be changed to match that of the selected
+		external timecode source. Instead, the frame rate indication in the main clock
+		will flash red and Ardour will convert between the external timecode standard
+		and the session standard.
+	  </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="preferences-transport-generate">Generate</h3>
+
+<ul>
+  <li>
+    <dfn>Linear Timecode (LTC) Generator</dfn>
+    <ul>
+      <li>
+        <dfn>Enable LTC generator</dfn> when enabled Ardour will
+        output an LTC timecode signal on its <em>LTC-out</em> port.
+        If this option is checked, the two options below are active:
+      </li>
+      <li>
+        <dfn>Send LTC while stopped</dfn>, (only available when the previous
+        <em>Enable LTC generator</em> is on) when enabled Ardour will
+        continue to send LTC information even while the transport (playhead)
+        is not moving.
+      </li>
+      <li>
+        <dfn>LTC generator level [dBFS]:</dfn> specifies the peak volume of
+        the generated LTC signal in dbFS. A good value is 0dBu&equals;&minus;18dbFS
+        in an EBU calibrated system.
+      </li>
+      <li>
+        <dfn>LTC Output Port:</dfn> selects to which port (if any) the
+        LTC generator will be connected by default.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>MIDI Time Code (MTC) Generator</dfn>
+    <ul>
+      <li>
+        <dfn>Enable MTC Generator</dfn> when enabled Ardour will generate MIDI
+        time code on the <code>ardour:MTC out</code> MIDI port.
+      </li>
+      <li>
+        <dfn>Max MTC varispeed (%):</dfn>
+        MIDI time code generation will be disabled when the transport speed is
+        greater than normal speed plus this percentage or less than normal minus
+        this percentage.
+      </li>
+    </ul>
+  </li>
+  <li>
+	<dfn>MIDI Machine Control (MMC)</dfn>
+	<ul>
+	  <li>
+        <dfn>Send MMC commands</dfn> when enabled Ardour will send MIDI Machine
+        Control commands on the <code>ardour:MMC out</code>
+        MIDI port.
+      </li>
+	  <li>
+        <dfn>Outbound MMC device ID:</dfn> is the MIDI device ID Ardour will
+        use when it sends MMC commands.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>MIDI Beat Clock (Mclk) Generator</dfn>
+    <ul>
+      <li>
+        <dfn>Enable Mclk generator</dfn> when enabled Ardour will generate a
+        (tempo dependant) beat clock at a rate of 24 pulses per quarter note on
+        the <code>ardour:MIDI clock out</code> port.
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="preferences-plugins">Plugins</h2>
+
+<p class="note">
+  The content of this preference page varies heavily between versions or Ardour:
+  both the platform and the build-time options can make Ardour support some types
+  of plugins and not others. While this documentation tries to show all possible
+  options, most systems will only show a subset of the options hereunder, e.g.
+  AudioUnits are macOS only&hellip;
+</p>
+
+<ul>
+  <li>
+    <dfn>Scan/Discover</dfn>
+    <ul>
+      <li>
+        <dfn>Scan for Plugins</dfn> will initiate an immediate scan of the system
+        for available plugins. Useful to get a newly installed plugin recognised
+        by Ardour.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>General</dfn>
+    <ul>
+      <li>
+        <dfn>Always Display Plugin Scan Progress</dfn> When enabled a
+        popup window showing plugin scan progress is displayed for indexing
+        (cache load) and discovery (detect new plugins).
+      </li>
+      <li>
+        <dfn>Make new plugins active</dfn> when enabled, any plugin added to a track
+        will be in active mode. If unchecked, the plugins will be added in inactive
+        mode by default, hence have no processing effect on the track/bus.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>LV1/LV2</dfn>
+    <ul>
+      <li>
+        <dfn>Conceal LADSPA (LV1) Plugins if matching LV2 exists</dfn> When 
+        enabled, gives precedence to the LV2 (more up-to-date) version of
+        a plugin over its LV1 version, if both exists.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Plugin GUI</dfn>
+    <ul>
+      <li>
+        <dfn>Automatically open the plugin GUI when adding a new plugin</dfn>
+        shows the plugins GUI as soon as it is added to the processing box. If
+        unchecked, the plugin will be added in the processor box but the GUI will
+        only be shown when <kbd class="mouse">double clicking</kbd> it.
+      </li>
+      <li>
+        <dfn>Show Plugin Inline Display on Mixer strip by default</dfn> allows Ardour
+        to show, in the <a href="@@audiomidi-mixer-strips">mixer strips</a>, a
+        visual rendering of the effect. These Inline Display are a special feature
+        of Ardour, so not all plugins are able to show this display. Most of Ardour's
+        <a href="@@plugins-bundled-with-ardour">own plugins</a> have an Inline Display.
+        At any time, the plugin's Inline Display can be toggled on or off by
+        <kbd class="mod3n"></kbd>double-clicking it.
+      </li>
+      <li>
+        <dfn>Don't automatically open the plugin GUI when the plugin has an inline
+        display mode</dfn>: this option, available only if
+        <kbd class="option">Automatically open the plugin GUI when adding a new plugin</kbd>
+        is checked, supercedes it and hides the plugin GUI at creation if it has an
+        Inline Display, like Ardour's own <code>ACE *</code> plugins.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Instrument</dfn>
+    <ul>
+      <li>
+        <dfn>Ask to replace existing instrument plugin</dfn>: if a MIDI track already
+        has an instrument (i.e. MIDI to audio converter of some sort) and this
+        option is checked, Ardour will detect it and offer to replace the existing
+        instrument with the newly added one, avoiding a possible conflict.
+      </li>
+      <li>
+        <dfn>Interactively configure instrument plugins on insert</dfn>: when inserting
+        a multichannel instrument plugin, if this option is checked, prompts the
+        user for the channel configuration for this plugin.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Statistics</dfn>
+    <ul>
+      <li>
+        <dfn>Reset Statistics</dfn>: clears the statistics used to determine
+        the most used and most recently used plugins.
+      </li>
+      <li> 
+        <dfn>Plugin chart (use-count) length:</dfn> In the Mixer view's
+        <a href="@@favorite-plugins-window">favorite plugins</a> section,
+        determines how many plugins are displayed when in <em>Top-10 Plugins</em>
+        mode. 
+      </li>
+      <li> 
+        <dfn>Plugin recent list length:</dfn> Same as above,
+        when in <em>Recent Plugins</em> mode. 
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="preferences-plugins-vst">VST</h3>
+
+<ul>
+  <li>
+    <dfn>VST</dfn>
+    <ul>
+      <li>
+        <dfn>Enable Mac VST support (requires restart or re-scan)</dfn> makes a
+        MacOs system able to run VST-Mac plugins. As stated, a new scan for plugins
+        is required, be it manually or by restarting Ardour.
+      </li>
+      <li>
+        <dfn>Scan for [new] VST Plugins on Application Start</dfn> When
+    	  enabled new VST plugins are searched, tested and added to the cache
+    	  index on application start. When disabled new plugins will only be
+    	  available after triggering a 'Scan' manually.
+      </li>
+      <li>
+        <dfn>Verbose Plugin Scan</dfn>: adds information about the plugin in the
+        <a href="@@status-bar">Log window</a>.
+      </li>
+      <li>
+        <dfn>Scan Time Out</dfn> Specifies the default timeout for plugin
+    	  instantiation. Plugins that require more time to load will be
+        blacklisted. A value of &infin; disables the timeout.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>VST 2.x</dfn>
+    <ul>
+      <li>
+        <dfn>VST 2 Cache:</dfn> Clicking the <kbd class="menu">Clear</kbd> button
+        removes all VST plugins from the list of plugins available to be
+        inserted into the processor box. A new VST plugin scan is then required.
+      </li>
+      <li>
+        <dfn>VST 2 Blacklist:</dfn> Clicking the <kbd class="menu">Clear</kbd>
+        button makes blacklisted VST plugins available to be added to the processor
+        box.
+      </li>
+      <li>
+        <dfn>Linux VST2 Path:</dfn> Clicking the <kbd class="menu">Edit</kbd> button
+        pops up a dialog to manage the directories that will be searched for Linux
+        VST plugins. When modified, Ardour will offer to scan those paths for plugins.
+      </li>
+      <li>
+        <dfn>Path:</dfn> are the paths chosen above.
+      </li>
+      <li>
+        <dfn>Windows VST Path:</dfn> Clicking the <kbd class="menu">Edit</kbd> button
+        pops up a dialog to manage the directories that will be searched for Windows
+        VST plugins. When modified, Ardour will offer to scan those paths for plugins.
+      </li>
+      <li>
+        <dfn>Path:</dfn> are the paths chosen above.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>VST 3</dfn>
+    <ul>
+	  <li>
+        <dfn>VST 3 Cache:</dfn> Same as above, for VST 3
+      </li>
+      <li>
+        <dfn>VST 3 Blacklist:</dfn> Same as above, for VST 3
+      </li>
+      <li>
+        <dfn>Additional VST3 Path:</dfn> The VST 3 specs clearly define where
+        the host application should look for plugins. Although Ardour provides a
+        way to search other directories for plugin, it is out of spec and not
+        recommanded.
+      </li>
+      <li>
+        <dfn>Conceal VST2 Plugin if matching LV3 exists</dfn> When 
+        enabled, gives precedence to the VST3 (more up-to-date) version of
+        a plugin over its VST2 version, if both exists.
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="preferences-plugins-audio_unit">Audio Unit</h3>
+
+<ul>
+  <li>
+    <dfn>Audio Unit</dfn>
+    <ul>
+      <li>
+        <dfn>Scan for [new] AudioUnit Plugins on Application Start</dfn> When
+        enabled, new AU plugins are searched, tested and added to the cache
+        index on application start. When disabled, new plugins will only be
+        available after triggering a 'Scan' manually.
+      </li>
+      <li>
+        <dfn>AU Cache:</dfn> Clicking the <kbd class="menu">Clear</kbd> button
+        removes all AU plugins from the list of plugins available to be
+        inserted into the processor box. A new AU plugins scan is then required.
+      </li>
+      <li>
+        <dfn>AU Blacklist:</dfn> Clicking the <kbd class="menu">Clear</kbd>
+        button makes blacklisted AU plugins available to be added to the processor
+        box.
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="preferences-monitoring">Monitoring</h2>
+
+<ul>
+  <li>
+    <dfn>Monitoring</dfn>
+    <ul>
+      <li>
+        <dfn>Record monitoring handled by:</dfn> determines whether Ardour provides
+        monitoring of incoming audio or whether monitoring is provided by hardware.
+        See <a href="@@monitoring">Monitoring</a> for more information.
+      </li>
+      <li>
+        <dfn>Auto Input does 'Talkback'</dfn> when enabled, the 
+        <kbd class="option">Transport > Auto Input</kbd> option also sets
+        the tracks to monitor its audio input when transport is not rolling.
+      </li>
+    </ul>
+  </li>
   <li>
     <dfn>Solo</dfn> contains settings that affect the use of
     <a href="@@muting-and-soloing">solo, muting</a>, and
@@ -381,7 +1353,11 @@
       </li>
     </ul>
   </li>
+</ul>
 
+<h2 id="preferences-signal_flow">Signal Flow</h2>
+
+<ul>
   <li>
     <dfn>Master</dfn> 
     <ul>
@@ -393,7 +1369,6 @@
       </li>
     </ul>
   </li>
-    
   <li>
     <dfn>Default Track / Bus Muting Options</dfn> sets the muting options
     for a newly created tracks or bus. The mute options for an existing track
@@ -417,7 +1392,6 @@
       </li>
     </ul>
   </li>
-
   <li>
     <dfn>Send Routing</dfn> affects <a href="@@aux-sends">aux and external sends</a>.
     <ul>
@@ -430,28 +1404,17 @@
       </li>
     </ul>
   </li>
-
-</ul>
-
-<h2 id="preferences-signal_flow">Signal Flow</h2>
-
-<ul>
   <li>
-    <dfn>Monitoring</dfn>
+    <dfn>Audio Regions</dfn>
     <ul>
-      <li>
-        <dfn>Record monitoring handled by:</dfn> determines whether Ardour provides
-        monitoring of incoming audio or whether monitoring is provided by hardware.
-        See <a href="@@monitoring">Monitoring</a> for more information.
+	  <li>
+        <dfn>Replicate missing region channels</dfn>: if a track is N-channel,
+        and the region has fewer channels, this option copies the existing
+        channel's data for this non-existent one. If left unchecked, the missing
+        channels will stay silent.
       </li>
-      <li>
-        <dfn>Auto Input does 'Talkback'</dfn> when enabled, the 
-        <kbd class="option">Transport > Auto Input</kbd> option also sets
-        the tracks to monitor its audio input when transport is not rolling.
-      </li>
-    </ul>
+	</ul>
   </li>
-
   <li>
     <dfn>Track and Bus Connections</dfn>
     <ul>
@@ -478,124 +1441,6 @@
         choice for the <a href="@@trackbus-signal-flow">signal flow</a> of a newly created track or bus.
         This can be overridden in the <a href="@@adding-tracks-busses-and-vcas">
         Add Track/Bus/VCA</a> dialog
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="preferences-audio">Audio</h2>
-
-<ul>
-  <li>
-    <dfn>Buffering</dfn> settings determine how many seconds of audio off of disk
-    will be buffered in memory. Longer settings reduce the risk of buffer
-    under-runs but consume more memory.
-    <ul>
-      <li>
-	      <dfn>Preset:</dfn> will automatically choose the values for the playback
-        and recording buffer based on the chosen size of the session. The
-        <strong>Custom</strong> option allows to manually select the buffers with
-        the two sliders below.
-      </li>
-      <li>
-	      <dfn>Playback (seconds of buffering):</dfn> sets how many seconds of
-        audio Ardour will buffer during playback.
-      </li>
-      <li>
-	       <dfn>Recording (seconds of buffering):</dfn> sets how many seconds of
-         audio Ardour will buffer during recording.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>Denormals</dfn> are a specific type of very small numbers that
-    can cause issues with CPU consumption when using some plugins in some
-    circumstances.
-    Ardour provides two methods of handling the issue. Trying different
-    combinations of these settings may minimize CPU consumption.
-    <ul>
-      <li>
-	       <dfn>Use DC bias to protect against denormals</dfn> adds a small
-	       constant value to numbers to move the numbers away from zero.
-	    </li>
-      <li>
-		     <dfn>Processor handling:</dfn>, if the computer's hardware
-	       supports it, offers two methods that can be used individually or
-	       combined. Flush to zero and denormals are zero.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>Regions</dfn>
-    <ul>
-      <li>
-        <dfn>Enable automatic analysis of audio</dfn> generates the transient
-        values (used in e.g. the <a href="@@rhythm-ferret">Rhythm Ferret</a>)
-        automatically. When unchecked, the transient values will be generated
-        on demand.
-      </li>
-      <li>
-        <dfn>Replicate missing region channels</dfn>: if a track is N-channel,
-        and the region has fewer channels, this option copies the existing
-        channel's data for this non-existent one. If left unchecked, the missing
-        channels will stay silent.
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="preferences-midi">MIDI</h2>
-
-<ul>
-  <li>
-    <dfn>Session</dfn>
-    <ul>
-      <li>
-        <dfn>Initial program change:</dfn> Ardour will send a MIDI program
-        change message on the <code>ardour:MMC out</code> MIDI port when a session
-        is loaded and whenever this field is changed. A value of -1 means don't
-        send any program change message.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>Audition</dfn>
-    <ul>
-      <li>
-        <dfn>Sound MIDI notes as they are selected in the editor</dfn> will play
-        any selected or added MIDI note when in Draw or Internal Edit modes. The
-        note is sent as MIDI as if Ardour was playing it withe the session, so the
-        processors and signal routing will be applied.
-      </li>
-
-    </ul>
-  </li>
-  
-  <li>
-    <dfn>Virtual Keyboard</dfn>
-    <ul>
-      <li>
-        <dfn>Virtual Keyboard Layout:</dfn> selects which (if any) computer
-        keyboard layout is used to be mapped on the keys of the musical
-        keyboard of the Virtual Keyboard (<kbd class="menu">Window &gt; Virtual Keyboard</kbd>).
-      </li>
-
-    </ul>
-  </li>
-  
-  <li>
-    <dfn>MIDI Port Options</dfn>
-    <ul>
-      <li>
-        <dfn>MIDI input follows MIDI track selection</dfn> allows Ardour to automatically
-        connect the MIDI input to the selected track. Selecting a different MIDI
-        track results in Ardour disconnecting the MIDI device from the former track
-        and connecting it to the newly selected one, so that the MIDI device is
-        always connected to the selected track. Which MIDI device will follow
-        selection can be chosen below.
       </li>
     </ul>
   </li>
@@ -633,7 +1478,6 @@
       </li>
     </ul>
   </li>
-
   <li>
     <dfn>Options</dfn>
     <ul>
@@ -644,6 +1488,20 @@
     </ul>
   </li>
 </ul>
+
+
+<h2 id="preferences-control_surfaces">Control Surfaces</h2>
+
+<p>
+  This tab contains settings for <a href="@@control-surfaces">control surfaces</a>.
+</p>
+<p>
+  It lists all the Control Surface protocols Ardour knows. To enable a
+  <dfn>Control Surface Protocol</dfn>, the <kbd class="option">Enable</kbd> checkbox
+  next to its name should be ticked. Editing the settings related to this protocol
+  can be done by double-clicking its name or clicking the <kbd class="menu">Show
+  protocol settings</kbd> (only for Generic MIDI and Open Sound Control).
+</p>
 
 <h2 id="preferences-metering">Metering</h2>
 
@@ -685,7 +1543,6 @@
       </li>
     </ul>
   </li>
-
   <li>
     <dfn>Default Meter Types</dfn> sets the default meters when creating a session
     or track. These meters can be changed afterwards by
@@ -706,859 +1563,108 @@
       </li>
     </ul>
   </li>
-
   <li>
-    <dfn>Post Export Analysis</dfn>
+    <dfn>Region Analysis</dfn>
     <ul>
       <li>
-        <dfn>Save loudness analysis as image file after export</dfn> allows, when the
-        <kbd class="option">Analyze Exported Audio</kbd> is checked in the
-        <a href="@@export-dialog">Export dialog</a>, to save the analysis graph
-        as a file named <code>session.png</code> alongside the exported audio
-        file(s) (in the same folder).
-      </li>
-      <li>
-        <dfn>Save Mixer screenshot after export</dfn> creates and exports
-        a graphical image of the Mixer window as a file named
-        <code>session-mixer.png</code> alongside the exported audio file(s)
-        (in the same folder).
-      </li>
+        <dfn>Enable automatic analysis of audio</dfn> generates the transient
+        values (used in e.g. the <a href="@@rhythm-ferret">Rhythm Ferret</a>)
+        automatically. When unchecked, the transient values will be generated
+        on demand.
+      </li>  
     </ul>
   </li>
 </ul>
 
-<h2 id="preferences-transport">Transport</h2>
+<h2 id="preferences-performance">Performance</h2>
 
-<ul>
+<ul>  
   <li>
-    <dfn>General</dfn>
+    <dfn>DSP CPU Utilization</dfn>
     <ul>
       <li>
-        <dfn>Stop at the end of the session</dfn> causes the transport to
-        stop during playback when it reaches the end marker. Behavior during
-        recording is not changed.
-      </li>
-      <li>
-        <dfn>Keep record-enable engaged on stop</dfn> leaves the global
-        record-enable engaged after transport is stopped.  Does not affect track
-        level record-enable which is never changed on stop.
-      </li>
-      <li>
-        <dfn>Reset default speed on stop</dfn> when the 
-        <a href="@@transport-bar">Shuttle speed control</a> is in <em>wheel</em>
-        mode, i.e. the transport speed can be constantly changed, enabling this
-        option makes these changes temporary, and the transport speed reset
-        each time the transport is stopped.      
-      </li>
-      <li>
-        <dfn>Disable per-track record disarm while rolling</dfn>, when
-        enabled, will not allow the any track's record-enable to be disarmed
-        during record, preventing accidentally stopping the recording of a take.
-      </li>
-      <li>
-        <dfn>12dB gain reduction during fast-forward and fast-rewind</dfn>
-        when enabled will reduce the unpleasant increase in perceived volume
-        that occurs when fast-forwarding or rewinding through some kinds of audio.
-      </li>
-      <li>
-        <dfn>Preroll:</dfn> sets the duration of the preroll for playing and
-        recording when using a preroll. Can be a musical duration (in bars) or a
-        duration in seconds.
+        <dfn>Signal processing uses:</dfn> sets how many cpu processors can be
+          used to do signal processing. It can be set to use one up to all
+          processors.
       </li>
     </ul>
   </li>
-
   <li>
-    <dfn>Looping</dfn>
+    <dfn>CPU/FPU Denormals</dfn> are a specific type of very small numbers that
+    can cause issues with CPU consumption when using some plugins in some
+    circumstances. Ardour provides two methods of handling the issue.
+    Trying different combinations of these settings may minimize CPU consumption.
     <ul>
       <li>
-        <dfn>Play loop is a transport mode</dfn> changes the behavior of the
-        loop button, turning it into a toggle. When enabled, the loop button does
-        not start playback but forces playback to always play the loop. Looping
-        stays engaged when the transport is stopped. Playback continues where the
-        transport stopped and continues to loop. When disabled, the loop button
-        starts playing the loop but stop then cancels loop playback.
-      </li>
-      <li>
-        <dfn>Loop Fades:</dfn> when the transport moves from the end of the loop
-        range back to the beginning, clicks might be audible. This parameter
-        allows for adding fades (in, out or cross-) to prevent those clicks.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>Dropout (xrun) Handling</dfn>
-    <ul>
-      <li>
-        <dfn>Stop recording when an xrun occurs</dfn> will stop the transport
-        when an xrun occurs during recording, ensuring no audible glitches are
-        recorded.
-      </li>
-      <li>
-        <dfn>Create markers where xruns occur</dfn> will create a new
-        <a href="@@working-with-markers">marker</a> when an xrun occurs during
-        recording at the location of the xrun. This marks where possible xruns
-        might produce audible glitches.
-      </li>
-      <li>
-        <dfn>Reset x-runs counter when starting to record</dfn>, when enabled,
-        sets the x-run counter in the <a href="@@status-bar">Status bar</a>
-        to 0 each time a recording is started, hence showing only the relevant
-        number of x-run while recording.
-      </li>
-    </ul>
-  </li>
-  
-  <li>
-    <dfn>Transport Masters</dfn>
-    <p>
-		This section defines which time source(s) Ardour should use (LTC, MTC, JACK or MIDI),
-		and the options linked to this transport master. 
-    </p>
-    
-    <ul>
-	  <li>
-		<dfn>Keep rolling if sync is lost</dfn>, when checked, forces Ardour to
-		keep its transport speed even if a transport master signal is lost. 
-		Unchecking this option makes Ardour stop transport if it looses the
-		signal.
+	    <dfn>Use DC bias to protect against denormals</dfn> adds a small
+	    constant value to numbers to move the numbers away from zero.
 	  </li>
       <li>
-		<dfn>Match session video frame rate to external timecode</dfn>
-		controls the value of the video frame rate <em>while chasing</em>
-		an external timecode source. When enabled, the session video frame rate will be
-		changed to match that of the selected external timecode source. When disabled,
-		the session video frame rate will not be changed to match that of the selected
-		external timecode source. Instead, the frame rate indication in the main clock
-		will flash red and Ardour will convert between the external timecode standard
-		and the session standard.
+		<dfn>Processor handling:</dfn>, if the computer's hardware
+	    supports it, offers two methods that can be used individually or
+	    combined. Flush to zero and denormals are zero.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Disk I/O Buffering</dfn> settings determine how many seconds of
+    audio off of disk will be buffered in memory. Longer settings reduce
+    the risk of buffer under-runs but consume more memory.
+    <ul>
+      <li>
+	    <dfn>Preset:</dfn> will automatically choose the values for the playback
+        and recording buffer based on the chosen size of the session. The
+        <strong>Custom</strong> option allows to manually select the buffers with
+        the two sliders below.
+      </li>
+      <li>
+	    <dfn>Playback (seconds of buffering):</dfn> sets how many seconds of
+        audio Ardour will buffer during playback.
+      </li>
+      <li>
+	     <dfn>Recording (seconds of buffering):</dfn> sets how many seconds of
+         audio Ardour will buffer during recording.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Memory Usage</dfn>
+    <ul>
+      <li>
+        <dfn>Waveform image cache (megabytes):</dfn> sets the maximum amount of ram that
+        can be used to store the images representing the waveforms in the editor. Past
+        this amount, the images will be regenerated when needed, which can significantly
+        decrease the system's performance.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Automation</dfn>
+    <ul>
+      <li>
+	    <strong>Thinning factor</strong> ranges from 0 to 1000 with larger
+	    values sending fewer automation changes. Thinning is like lossy
+	    audio compression, removing data that is less likely to be noticed,
+	    although the more is removed, the more likely the loss will be noticed.
+	    The advantage to thinning is reduced CPU usage.
 	  </li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="ltc">LTC</h3>
-
-<ul>
-
-  <li>
-    <dfn>Linear Timecode (LTC) Generator</dfn>
-    <ul>
       <li>
-        <dfn>Enable LTC generator</dfn> when enabled Ardour will
-        output an LTC timecode signal on its <em>LTC-out</em> port.
-        If this option is checked, the two options below are active:
-      </li>
-      <li>
-        <dfn>Send LTC while stopped</dfn>, when enabled Ardour will
-        continue to send LTC information even while the transport (playhead) is
-        not moving.
-      </li>
-      <li>
-        <dfn>LTC generator level [dBFS]:</dfn> specifies the peak volume of
-        the generated LTC signal in dbFS. A good value is 0dBu&equals;&minus;18dbFS
-        in an EBU calibrated system.
-      </li>
-      <li>
-        <dfn>LTC Output Port:</dfn> selects to which port (if any) the
-        LTC generator will be connected by default.
+	  	<strong>Automation sampling interval</strong> ranges from 1 to
+    	1000&nbsp;ms. Determines how frequently the automation input is
+    	sampled. The shorter the interval the higher the accuracy but also
+    	the higher the CPU requirements.
       </li>
     </ul>
   </li>
-</ul>
-
-<h3 id="sync_midi">MIDI</h3>
-
-<ul>
   <li>
-    <dfn>MIDI Beat Clock (Mclk) Generator</dfn>
+	<dfn>Automatables</dfn>
     <ul>
-      <li>
-        <dfn>Enable Mclk generator</dfn> when enabled Ardour will generate a
-        (tempo dependant) beat clock at a rate of 24 pulses per quarter note on
-        the <code>ardour:MIDI clock out</code> port.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>MIDI Time Code (MTC) Generator</dfn>
-    <ul>
-      <li>
-        <dfn>Enable MTC Generator</dfn> when enabled Ardour will generate MIDI
-        time code on the <code>ardour:MTC out</code> MIDI port.
-      </li>
-      <li>
-        <dfn>Percentage either side of normal transport speed to transmit MTC:</dfn>
-        MIDI time code generation will be disabled when the transport speed is
-        greater than normal speed plus this percentage or less than normal minus
-        this percentage.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>MIDI Machine Control (MMC)</dfn>
-    <ul>
-      <li>
-        <dfn>Respond to MMC commands</dfn> when enabled Ardour will respond
-        to MIDI Machine Control commands received on the <code>ardour:MMC in</code>
-        MIDI port.
-      </li>
-      <li>
-        <dfn>Send MMC commands</dfn> when enabled Ardour will send MIDI Machine
-        Control commands on the <code>ardour:MMC out</code>
-        MIDI port.
-      </li>
-      <li>
-        <dfn>Inbound MMC device ID:</dfn> is the only device ID Ardour will
-        respond to when an MMC command is received on the <code>ardour:MMC in</code>
-        MIDI port.
-      </li>
-      <li>
-        <dfn>Outbound MMC device ID:</dfn> is the MIDI device ID Ardour will
-        use when it sends MMC commands.
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="preferences-control_surfaces">Control Surfaces</h2>
-
-<p>
-  This tab contains settings for <a href="@@control-surfaces">control surfaces</a>.
-</p>
-<p>
-  It lists all the Control Surface protocols Ardour knows. To enable a
-  <dfn>Control Surface Protocol</dfn>, the <kbd class="option">Enable</kbd> checkbox
-  next to its name should be ticked. Editing the settings related to this protocol
-  can be done by double-clicking its name or clicking the <kbd class="menu">Show
-  protocol settings</kbd> (only for Generic MIDI and Open Sound Control).
-</p>
-
-
-<h2 id="preferences-plugins">Plugins</h2>
-
-<p class="note">
-  The content of this preference page varies heavily between versions or Ardour:
-  both the platform and the build-time options can make Ardour support some types
-  of plugins and not others. While this documentation tries to show all possible
-  options, most systems will only show a subset of the options hereunder, e.g.
-  AudioUnits are macOS only&hellip;
-</p>
-
-<ul>
-  <li>
-    <dfn>Scan/Discover</dfn>
-    <ul>
-      <li>
-        <dfn>Scan for Plugins</dfn> will initiate an immediate scan of the system
-        for available plugins. Useful to get a newly installed plugin recognised
-        by Ardour.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>General</dfn>
-    <ul>
-      <li>
-        <dfn>Always Display Plugin Scan Progress</dfn> When enabled a
-        popup window showing plugin scan progress is displayed for indexing
-        (cache load) and discovery (detect new plugins).
-      </li>
-      <li>
-        <dfn>Silence plugins when the transport is stopped</dfn> when stopping
-        playback or recording, if this option is checked, the plugins that still
-        emit sound (reverbs, etc&hellip;) will be stopped. If unchecked, the plugins
-        will continue playing after the transport stop.
-      </li>
-      <li>
-        <dfn>Make new plugins active</dfn> when enabled, any plugin added to a track
-        will be in active mode. If unchecked, the plugins will be added in inactive
-        mode by default, hence have no processing effect on the track/bus.
-      </li>
-      <li>
+	  <li>	  
         <dfn>Limit automatable parameters per plugin</dfn>: as some plugins
         (synthesizers, &hellip;) have a lot of parameters, and those parameters
         can be automated by Ardour, checking this will limit the number of parameters
         that are listed as automatable, hence making the lists shorter and the GUI
         more responsive.
-      </li>
-    </ul>
-  </li>
-  
-  <li>
-    <dfn>LV1/LV2</dfn>
-    <ul>
-      <li>
-        <dfn>Conceal LADSPA (LV1) Plugins if matching LV2 exists</dfn> When 
-        enabled, gives precedence to the LV2 (more up-to-date) version of
-        a plugin over its LV1 version, if both exists.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>Plugin GUI</dfn>
-    <ul>
-      <li>
-        <dfn>Automatically open the plugin GUI when adding a new plugin</dfn>
-        shows the plugins GUI as soon as it is added to the processing box. If
-        unchecked, the plugin will be added in the processor box but the GUI will
-        only be shown when <kbd class="mouse">double clicking</kbd> it.
-      </li>
-      <li>
-        <dfn>Show Plugin Inline Display on Mixer strip by default</dfn> allows Ardour
-        to show, in the <a href="@@audiomidi-mixer-strips">mixer strips</a>, a
-        visual rendering of the effect. These Inline Display are a special feature
-        of Ardour, so not all plugins are able to show this display. Most of Ardour's
-        <a href="@@plugins-bundled-with-ardour">own plugins</a> have an Inline Display.
-        At any time, the plugin's Inline Display can be toggled on or off by
-        <kbd class="mod3n"></kbd>double-clicking it.
-      </li>
-      <li>
-        <dfn>Don't automatically open the plugin GUI when the plugin has an inline
-        display mode</dfn>: this option, available only if
-        <kbd class="option">Automatically open the plugin GUI when adding a new plugin</kbd>
-        is checked, supercedes it and hides the plugin GUI at creation if it has an
-        Inline Display, like Ardour's own <code>ACE *</code> plugins.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>Instrument</dfn>
-    <ul>
-      <li>
-        <dfn>Ask to replace existing instrument plugin</dfn>: if a MIDI track already
-        has an instrument (i.e. MIDI to audio converter of some sort) and this
-        option is checked, Ardour will detect it and offer to replace the existing
-        instrument with the newly added one, avoiding a possible conflict.
-      </li>
-      <li>
-        <dfn>Interactively configure instrument plugins on insert</dfn>: when inserting
-        a multichannel instrument plugin, if this option is checked, prompts the
-        user for the channel configuration for this plugin.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>Statistics</dfn>
-    <ul>
-      <li>
-        <dfn>Reset Statistics</dfn>: clears the statistics used to determine
-        the most used and most recently used plugins.
-      </li>
-      <li> 
-        <dfn>Plugin chart (use-count) length:</dfn> In the Mixer view's
-        <a href="@@favorite-plugins-window">favorite plugins</a> section,
-        determines how many plugins are displayed when in <em>Top-10 Plugins</em>
-        mode. 
-      </li>
-      <li> 
-        <dfn>Plugin recent list length:</dfn> Same as above,
-        when in <em>Recent Plugins</em> mode. 
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="vst">VST</h3>
-
-<ul>
-  <li>
-    <dfn>VST</dfn>
-    <ul>
-      <li>
-        <dfn>Enable Mac VST support (requires restart or re-scan)</dfn> makes a
-        MacOs system able to run VST-Mac plugins. As stated, a new scan for plugins
-        is required, be it manually or by restarting Ardour.
-      </li>
-      <li>
-        <dfn>Scan for [new] VST Plugins on Application Start</dfn> When
-    	  enabled new VST plugins are searched, tested and added to the cache
-    	  index on application start. When disabled new plugins will only be
-    	  available after triggering a 'Scan' manually.
-      </li>
-      <li>
-        <dfn>Verbose Plugin Scan</dfn>: adds information about the plugin in the
-        <a href="@@status-bar">Log window</a>.
-      </li>
-      <li>
-        <dfn>Scan Time Out</dfn> Specifies the default timeout for plugin
-    	  instantiation. Plugins that require more time to load will be
-        blacklisted. A value of &infin; disables the timeout.
-      </li>
-    </ul>
-  </li>
-  
-  <li>
-    <dfn>VST 2.x</dfn>
-    <ul>
-      <li>
-        <dfn>VST 2 Cache:</dfn> Clicking the <kbd class="menu">Clear</kbd> button
-        removes all VST plugins from the list of plugins available to be
-        inserted into the processor box. A new VST plugin scan is then required.
-      </li>
-      <li>
-        <dfn>VST 2 Blacklist:</dfn> Clicking the <kbd class="menu">Clear</kbd>
-        button makes blacklisted VST plugins available to be added to the processor
-        box.
-      </li>
-      <li>
-        <dfn>Linux VST2 Path:</dfn> Clicking the <kbd class="menu">Edit</kbd> button
-        pops up a dialog to manage the directories that will be searched for Linux
-        VST plugins. When modified, Ardour will offer to scan those paths for plugins.
-      </li>
-      <li>
-        <dfn>Path:</dfn> are the paths chosen above.
-      </li>
-      <li>
-        <dfn>Windows VST Path:</dfn> Clicking the <kbd class="menu">Edit</kbd> button
-        pops up a dialog to manage the directories that will be searched for Windows
-        VST plugins. When modified, Ardour will offer to scan those paths for plugins.
-      </li>
-      <li>
-        <dfn>Path:</dfn> are the paths chosen above.
-      </li>
-    </ul>
-  </li>
-  
-  <li>
-    <dfn>VST 3</dfn>
-    <ul>
-	  <li>
-        <dfn>VST 3 Cache:</dfn> Same as above, for VST 3
-      </li>
-      <li>
-        <dfn>VST 3 Blacklist:</dfn> Same as above, for VST 3
-      </li>
-      <li>
-        <dfn>Additional VST3 Path:</dfn> The VST 3 specs clearly define where
-        the host application should look for plugins. Although Ardour provides a
-        way to search other directories for plugin, it is out of spec and not
-        recommanded.
-      </li>
-      <li>
-        <dfn>Conceal VST2 Plugin if matching LV3 exists</dfn> When 
-        enabled, gives precedence to the VST3 (more up-to-date) version of
-        a plugin over its VST2 version, if both exists.
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="audio_unit">Audio Unit</h3>
-
-<ul>
-  <li>
-    <dfn>Audio Unit</dfn>
-    <ul>
-      <li>
-        <dfn>Scan for [new] AudioUnit Plugins on Application Start</dfn> When
-        enabled, new AU plugins are searched, tested and added to the cache
-        index on application start. When disabled, new plugins will only be
-        available after triggering a 'Scan' manually.
-      </li>
-      <li>
-        <dfn>AU Cache:</dfn> Clicking the <kbd class="menu">Clear</kbd> button
-        removes all AU plugins from the list of plugins available to be
-        inserted into the processor box. A new AU plugins scan is then required.
-      </li>
-      <li>
-        <dfn>AU Blacklist:</dfn> Clicking the <kbd class="menu">Clear</kbd>
-        button makes blacklisted AU plugins available to be added to the processor
-        box.
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h2 id="preferences-appearance">Appearance</h2>
-
-<ul>
-  <li>
-    <dfn>Graphics Acceleration</dfn>
-    <ul>
-	  <li>
-        <dfn>Disable Graphics Hardware Acceleration (requires restart)</dfn>
-        Ardour uses hardware accelerated UI rendering by default for speed.
-        Sometimes though, a buggy driver can cause this to make the system slow or
-        unstable. Checking this will make Ardour draw its UI without
-        hardware acceleration, in software, improving stability and responsiveness
-        on those buggy systems at the expense of speed.
-      </li>	
-      <li>
-        <dfn>Possibly improve slow graphical performance (requires restart)</dfn>
-        Wherever gradients appear in the UI, Ardour uses hardware accelerated
-        gradients creation. Checking this will make Ardour draw its own gradients without
-        hardware acceleration for stability on systems with buggy drivers.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>Graphical User Interface</dfn>
-    <ul>
-      <li>
-        <dfn>Highlight widgets on mouseover</dfn>, when checked, makes Ardour's
-        widgets (buttons, sliders, &hellip;) slightly change color when the mouse
-        hovers them, visually indicating what a mouse action would interact with.
-      </li>
-      <li>
-        <dfn>Show tooltips if mouse hovers over a control</dfn> when checked,
-        displays a little help bubble about the control the mouse hovers. The mouse
-        pointer needs to stay idle for about 1 sec for the tooltip to appear.
-      </li>
-      <li>
-        <dfn>Update clocks at TC Frame rate</dfn>: Ardour updates its clocks every
-        100&nbsp;ms. Checking this will make the clock refresh at every TimeCode
-        frame which is more responsive, at the cost of a bit more system stress.
-      </li>
-      <li>
-        <dfn>Blink Rec-Arm buttons</dfn>: when enabled, the record-armed
-        buttons on tracks will blink when they are armed but not currently recording.
-        When disabled, the record-armed buttons on tracks will be outlined in red
-        instead of blinking. The global record-arm button in the
-        <a href="@@transport-bar">Transport bar</a> is unaffected.
-      </li>
-      <li>
-        <dfn>Blink Alert indicators</dfn>: when enabled, the Alert indicators (like
-        the <kbd class="menu">Error Log</kbd> or the <kbd class="menu">Feedback</kbd>
-        button) will blink when they are active (when an error or feedback
-        has been detected, respectively). When disabled, the indicators will turn red instead of
-        blinking.
-      </li>
-      <li>
-        <dfn>GUI and Font scaling:</dfn> allows the display size of most of the
-        text and buttons in the user interface to be scaled up or down. May
-        require a restart to take effect.
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="appearance_editor">Editor</h3>
-
-<ul>
-  <li>
-    <dfn>General</dfn>
-    <ul>
-      <li>
-        <dfn>Use name highlight bars in region displays (requires a restart)</dfn>:
-        when enabled, the region name is displayed, in the editor, in its own opaque bar
-        at the bottom of the region. When disabled, the region name is overlaid
-        at the top of the region, possibly over audio waveforms or MIDI notes.
-      </li>
-      <li>
-        <dfn>Region color follows track color</dfn>: when enabled,
-        the background color of regions in the editor will be displayed using
-        the color assigned to the track. When disabled the default region
-        background color will be used.
-      </li>
-      <li>
-        <dfn>Show Region Names</dfn>: when enabled, overlays the name of
-        the region over its waveform representation, in the top-left. 
-      </li>
-      <li>
-        <dfn>Track name ellipsis mode:</dfn> when the track header is not 
-        wide enough to display the track's name in full, selects how the
-        name will be shorten between:
-        <ul>
-		  <li><em>Ellipsize start of name</em> will show only the end of the name</li>
-		  <li><em>Ellipsize middle of name</em> will show only the start and end of the name</li>
-		  <li><em>Ellipsize end of name</em> will show only the start of the name</li>
-        </ul>
-      </li>
-      <li>
-        <dfn>Add a visual gap below Audio Regions:</dfn> selects whether or
-        not the audio regions fit the height of the track or leave a gap at
-        the bottom, either small or large.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>Waveforms</dfn>
-    <ul>
-      <li>
-        <dfn>Show waveforms in regions</dfn> when enabled shows a visual
-        representation of the region's audio waveform.
-      </li>
-      <li>
-        <dfn>Show waveform while recording</dfn> when
-        enabled, will draw the audio waveform in regions being recorded, in near
-        real time. When disabled, only a region block will be drawn while recording,
-        reducing CPU requirements.
-      </li>
-      <li>
-        <dfn>Show waveform clipping</dfn>: when enabled the waveform
-        displayed will show peaks marked in red if they exceed the clip level.
-      </li>
-      <li>
-        <dfn>Waveform Clip Level (dBFS):</dfn> sets the level at which the
-        waveform shown in an audio region will be drawn in red to indicate
-        clipping. Setting lower than 0.0&nbsp;dBFS can be useful if any tool in
-        the audio chain has problems near 0.0&nbsp;dBFS.
-      </li>
-      <li>
-        <dfn>Waveform scale:</dfn> when waveforms are shown in audio regions,
-        they can be displayed using a <em>linear</em> or a <em>logarithmic</em>
-        scale. See <a href="@@waveform-display">Waveform display</a>.
-      </li>
-      <li>
-        <dfn>Waveform shape:</dfn> when waveforms are shown in audio regions,
-        they can be displayed using a <em>traditional</em> or a <em>rectified</em>
-        shape. See <a href="@@waveform-display">Waveform display</a>.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>Editor Meters</dfn>
-    <ul>
-      <li>
-        <dfn>Show meters in track headers</dfn>, when enabled, shows
-        a small meter in the Editor's <a href="@@audio-track-controls">track headers</a>.
-        The meter is shown on the right side area of the header and provides an
-        instant, if unprecise, view of the levels on this track/bus.
-      </li>
-      <li>
-        <dfn>Limit track header meters to stereo</dfn>: if a track has more than
-        two outputs (e.g. with a drum plugin), limits the number of meters in the
-        track header to the first two ones. Only affects audio meters, not MIDI.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>MIDI Regions</dfn>
-    <ul>
-      <li>
-        <dfn>Display first MIDI bank/program as 0</dfn>: when patches and bank changes
-        are displayed in the editor, if this option is checked, the numbering will
-        be zero-based instead of one-based, i.e. banks/programs will be numbered
-        O, 1 ,2&hellip; instead of 1, 2, 3&hellip;
-      </li>
-      <li>
-        <dfn>Don't display periodic (MTC, MMC) SysEx messages in MIDI Regions</dfn>:
-        if checked, will hide these control messages from the MIDI regions for better
-        legibility.
-      </li>
-      <li>
-        <dfn>Show velocity horizontally inside notes</dfn>: when on, each note
-        of a MIDI region (in <em>Sustained</em> mode) displays its velocity
-        (0-127) with a darker fill proportional to its value.
-      </li>
-      <li>
-        <dfn>Use colors to show note velocity</dfn>: if checked, makes the
-        saturation of the notes color proportional to its velocity, hence making
-        a more veloce note more intense in color.
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="appearance_mixer">Mixer</h3>
-
-<ul>
-  <li>
-    <dfn>Mixer Strip</dfn>
-    <ul>
-      <li>
-        This table enables (checked) or disables (unchecked) the display of controls
-        in the <a href="@@audiomidi-mixer-strips">mixer strip</a>. Controls whose
-        display can be toggled are:
-        <strong>Input</strong>, <strong>Phase&nbsp;Invert</strong>,
-        <strong>Record&nbsp;&amp;&nbsp;Monitor</strong>, <strong>Solo&nbsp;Iso/Lock</strong>,
-        <strong>Output</strong>, <strong>Comments</strong> and VCA Assigns.
-      </li>
-      <li>
-        <dfn>Use narrow strips in the mixer for new strips by default</dfn> When
-        enabled, new mixer strips are created in narrow format. When disabled,
-        they are created in wide format. Existing mixer strips width can be toggled
-        with the width control at the top left of the mixer strip.
-      </li>
-      <li>
-        <dfn>Limit inline-mixer-strip controls per plugin :</dfn> Whether or
-        not, and how many, controls each plugin can show in the mixer strip.
-        These mixer-strip controls are added by checking <em>plugin context-menu
-        &gt; Controls &gt; &square; control parameter</em>.
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="toolbar">Toolbar</h3>
-
-<ul>
-  <li>
-    <dfn>Main Transport Toolbar Items</dfn>: this section allows to toggle the
-    visibility of some elements of the main toolbar:
-    <ul>
-      <li>
-        <dfn>Display Record/Punch Options</dfn> toggles the visibility of the
-        <a href="@@selection-and-punch-clocks#punch_controls">punch and record</a> slice of
-        the main toolbar.
-      </li>
-      <li>
-        <dfn>Display Monitoring Options</dfn> toggles the visibility of the
-        <a href="@@other-toolbar-items#monitor-options">monitor options</a> slice of
-        the main toolbar.
-      </li>
-      <li>
-        <dfn>Display Latency Compensation Info</dfn> toggles the visibility of the
-        Latency Compensation slice of the main toolbar.
-      </li>
-      <li>
-        <dfn>Display Secondary Clock</dfn> toggles the visibility of the
-        <a href="@@transport-clocks">secondary clocks</a> slice of
-        the main toolbar.
-      </li>
-      <li>
-        <dfn>Display Selection Clock</dfn> toggles the visibility of the
-        <a href="@@selection-and-punch-clocks#selection_clocks">selection clocks</a> slice of
-        the main toolbar.
-      </li>
-      <li>
-        <dfn>Display Monitor Section Info</dfn> toggles the visibility of the
-       Monitor Info slice of the main toolbar.
-      </li>
-      <li>
-        <dfn>Display Navigation Timeline</dfn> toggles the visibility of the
-        <a href="@@mini-timeline">navigation/mini timeline</a> slice of
-        the main toolbar.
-      </li>
-      <li>
-        <dfn>Display Master Level Meter</dfn> toggles the visibility of the
-        <a href="@@other-toolbar-items#mode_selector">selection clocks</a> slice of
-        the main toolbar.
-      </li>
-    </ul>
-  </li>
-
-  <li>
-    <dfn>Display Action-Buttons</dfn> enables or disables the visibility
-    of the six possible columns of <a href="@@other-toolbar-items#mode_selector">Lua script buttons</a>.
-    Each columns contains two user-assignable buttons.
-  </li>
-</ul>
-
-<h3 id="theme">Theme</h3>
-
-<ul>
-  <li>
-    <dfn>Theme</dfn>
-    <ul>
-      <li>
-        <dfn>Draw &quot;flat&quot; buttons</dfn>: when enabled, button controls
-        in the user interface will be drawn with a flat look. When disabled button
-        controls will have a slight 3D appearance.
-      </li>
-      <li>
-        <dfn>Draw &quot;boxy&quot; buttons</dfn>: when enabled, button controls
-        in the user interface will have square corners instead of being slightly
-        rounded.
-      </li>
-      <li>
-        <dfn>LED meter style</dfn> if checked, the bar meters in the editor and
-        mixer will be styled to look like if they were made of LEDs, with a dotted
-        bar. Unchecking this option makes the bars flat and continuous.
-      </li>
-      <li>
-        <dfn>Waveforms color gradient depth:</dfn> determines how much gradient
-        effect is applied to the inner of audio waveforms displayed in the editor.
-        Values range from 0.0, no gradient effect, to 1.0, maximum effect.
-      </li>
-      <li>
-        <dfn>Timeline item gradient depth:</dfn> Determines how much
-        gradient effect is applied to the backgrounds of regions displayed in the
-        editor. Values range from 0.0, no gradient effect, to 1.0, maximum effect.
-      </li>
-      <li>
-        <dfn>Icon Set:</dfn> Changes the mouse cursor icons used to indicate
-        different tool modes in the editor. An example would be the icons used to
-        indicate whether the cursor will select a region or change the length of a
-        region.
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="colors">Colors</h3>
-
-<ul>
-  <li>
-    <dfn>Colors</dfn>
-    <ul>
-      <li>
-        <dfn>Color Theme</dfn> allows to switch between some presets bundled with
-        Ardour, changing both the palette and items colors, hence styling Ardour
-        all at once.
-      </li>
-      <li>
-        The table allows to change the color settings in Ardour by acting on three
-        parameters:
-        <ul>
-          <li>
-            <dfn>Items</dfn> that allow to choose any color from the palette (see below)
-            to color a UI element. Clicking on a color sample in the <strong>Color</strong>
-            column bring up the Palette, to choose from.
-          </li>
-          <li>
-            <dfn>Palette</dfn> that allows to create a set of colors that will be used
-            in the UI. Using a palette allows for better consistency, instead of
-            picking "free" colors for each UI element. Clicking on a color patch brings
-            up a full color selector, to assign this color to this patch of the palette.
-          </li>
-          <li>
-            <dfn>Transparency</dfn> where possible, allows to select, with a slider,
-            the transparency of the UI element, with 0 (slider to the left) being
-            fully opaque.
-          </li>
-        </ul>
-      </li>
-      <li>
-        <dfn>Restore Defaults</dfn> turns all the palette, item colors and transparency
-        back to Ardour's default base setting, in case Ardour's appearance has turned
-        into a toddler's toy.
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="quirks">Quirks</h3>
-
-<ul>
-  <li>
-    <dfn>Various Workarounds for Windowing Systems</dfn>: As Ardour is available
-    on a number of platforms and windowing systems, some specific workarounds are
-    sometimes required to provide a smooth experience to the user.
-    <ul>
-      <li>
-        <dfn>Use visibility information provided by your Window Manager/Desktop</dfn>
-        allows the system window manager's rules for the windows visibility to
-        supercede Ardour's.
-      </li>
-      <li>
-        <dfn>All floating windows are dialogs</dfn>: when enabled, Ardour will
-        use type &quot;Dialog&quot; for all floating windows instead of using type
-        &quot;Utility&quot; for some of them. This may help usability with some
-        window managers. This setting requires a restart of Ardour to take effect.
-      </li>
-      <li>
-        <dfn>Transient windows follow front window.</dfn>: when enabled,
-        transient windows will follow the front window when toggling between the
-        editor and mixer. This setting requires a restart of Ardour to take effect.
-      </li>
-      <li>
-        <dfn>Float detached monitor-section window</dfn>: as the <a href="@@monitor-section">
-        monitor section</a> can be detached from the mixer, this option makes it a
-        floating window, which may be handled differently by the windowing system
-        and easier to access.
       </li>
     </ul>
   </li>
@@ -1600,7 +1706,6 @@
       </li>
     </ul>
   </li>
-
   <li>
     <dfn>Video Monitor</dfn>
     <ul>
@@ -1613,3 +1718,4 @@
     </ul>
   </li>
 </ul>
+
