@@ -1671,9 +1671,9 @@ part: subchapter
 ---
 
 ---
-title: Plugin Manager
+title: Plugin Selector
 include: plugin-manager.html
-link: plugin-manager
+link: plugin-selector
 uri: working-with-plugins/plugin-manager
 part: subchapter
 ---
