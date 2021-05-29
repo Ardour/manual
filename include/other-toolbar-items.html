@@ -117,30 +117,60 @@
 </ul>
 
 
+<h2 id="mode_selector">The Master Level Meter</h2>
+
+<figure>
+	<img alt="The Master Level Meter" src="/images/master-level-meter.png">
+	<figcaption>
+		The Master Level Meter
+	</figcaption>
+</figure>
+<p>
+  The global meter shows the levels of the master's output. Its the same
+  meter that sits in the <a href="@@master-bus-strip">Master's Mixer strip</a>,
+  and also shows a peak indicator, that turns red when  any level exceeds
+  0dB. It can be reset by a <kbd class="mouse">Left</kbd> click.
+</p>
+
+<h2 id="mode_selector">Script/Shortcut buttons</h2>
+
+<figure>
+	<img alt="The Script buttons" src="/images/script-buttons.png">
+	<figcaption>
+		The Script/shortcuts buttons
+	</figcaption>
+</figure>
+
+<p>
+  The buttons in between the Mode Selector and the Master Level Meter are
+  script or shortcuts buttons, which are user-definable buttons to attach
+  any session <a href="@@lua-scripting">lua-script</a> to, or any action
+  shortcut (e.g. for tasks that are used often and buried deep inside
+  nested menus).
+</p>
+<p>
+  The number of buttons (precisely, the number of columns of two buttons)
+  can be set in the <a href="@@preferences#preferences-appearance-toolbar">Preferences</a>.
+</p>
+<p>
+  <kbd class="mouse">Left</kbd>-clicking an affected button launches the
+  script or shortcut, while <kbd class="mouse">right</kbd>-clicking or 
+  clicking an unaffected button allows change the script/shortcut 
+  the button should execute.
+</p>
+
+
 <h2 id="mode_selector">The Mode Selector</h2>
 
 <figure>
-	<img alt="The Mode Selector" src="/images/mode-selector_scripts_meter.png">
+	<img alt="The Mode Selector" src="/images/mode_selector.png">
 	<figcaption>
 		The Mode Selector
 	</figcaption>
 </figure>
 
 <p>
-  The Mode Selector allows switching between the Editor and Mixer windows.
-  If a window is detached, the corresponding button is lit in blue. Clicking the button
-  switches the detached window visibility.
+  The Mode Selector allows switching between the Editor, Mixer or Recording
+  windows. If a window is detached, the corresponding button is lit.
+  Clicking the button switches the detached window visibility.
 </p>
-
-<p>
-  The global meter shows the levels of the master's output. Its the same meter that sits
-  in the <a href="@@master-bus-strip">Master's Mixer strip</a>,
-  and also shows a peak indicator, that turns red when  any level exceeds 0dB. It can
-  be reset by a <kbd class="mouse">Left</kbd> click.
-</p>
-
-<p>
-  The buttons in between the Mode Selector and the global meter are script buttons,
-  which are user-definable buttons to attach any session <a href="@@lua-scripting">lua-script</a> to.
-</p>
-
