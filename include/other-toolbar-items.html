@@ -127,20 +127,40 @@
 </figure>
 
 <p>
-  The Mode Selector allows switching between the Editor and Mixer windows.
-  If a window is detached, the corresponding button is lit in blue. Clicking the button
-  switches the detached window visibility.
+	The Mode Selector section comprises of three sections:
+	<ol>
+		<li>Global Meter</li>
+		<li>Action-Buttons</li>
+		<li>Mode Selectors</li>
+	</ol>
 </p>
 
 <p>
-  The global meter shows the levels of the master's output. Its the same meter that sits
+  The <dfn>Global Meter</dfn> shows the levels of the master's output. Its the same meter that sits
   in the <a href="@@master-bus-strip">Master's Mixer strip</a>,
   and also shows a peak indicator, that turns red when  any level exceeds 0dB. It can
   be reset by a <kbd class="mouse">Left</kbd> click.
 </p>
 
 <p>
-  The buttons in between the Mode Selector and the global meter are script buttons,
-  which are user-definable buttons to attach any session <a href="@@lua-scripting">lua-script</a> to.
+  The <dfn>Action-Buttons</dfn> in between the Mode Selector and the global meter are
+  user-definable buttons to attach any session <a href="@@lua-scripting">lua-script</a> to.
+  You may configure the number of button columns in the toolbar section in the 
+  <a href="@@preferences#preferences-appearance-toolbar">preferences</a> by
+  <kbd class="menu">Edit &gt; Preferences &gt; Toolbar</kbd>.
+  You may even attach keyboard shortcuts to the action buttons via 
+  <kbd class="menu">Window &gt; Keyboard Shortcuts &gt; Editor &gt; LuaAction</kbd>.
 </p>
 
+<p>
+  The <dfn>Mode Selectors</dfn> allows switching between the <def>Recorder</def>, <def>Editor</def>
+  and <def>Mixer</def> mode of Ardour.
+  You can either switch Ardour's main window to the desired mode (default behaviour) or you can
+  detach any of these mode views into a separate window, that you may then e.g. drag to a second
+  monitor.<br>
+  You detach a mode window by either left-click dragging it to the desktop or by the right-click 
+  context menu of the corresponding mode button and choosing <kbd class="menu">Detach</kbd>.<br>
+  If a window is detached, the corresponding button is lit in green. Clicking the button
+  switches the detached window visibility. You may re-attach any mode window by right-clicking 
+  the corresponding mode button and choosing <kbd class="menu">Attach</kbd>.
+</p>
