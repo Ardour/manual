@@ -888,6 +888,13 @@ part: chapter
 ---
 
 ---
+title: The Recorder
+include: recorder.html
+link: recorder
+part: subchapter
+---
+
+---
 title: Monitoring
 include: monitoring.html
 link: monitoring

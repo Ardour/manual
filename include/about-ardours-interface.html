@@ -1,7 +1,8 @@
 
 <p>
   In Ardour, work is done in two main windows: the <dfn>Editor</dfn> and the
-  <dfn>Mixer</dfn>.
+  <dfn>Mixer</dfn>. A third view, the <dfn>Recorder</dfn>, is dedicated to
+  the recording process.
 </p>
 
 <figure style="width:100%;">
@@ -11,8 +12,7 @@
 		<area shape="rect" coords="336,0,600,8" href="@@status-bar" />
 		<area shape="rect" coords="0,8,68,28" href="@@transport-bar" />
 		<area shape="rect" coords="68,8,108,28" href="@@selection-and-punch-clocks" />
-		<area shape="rect" coords="108,8,144,28" href="@@other-toolbar-items#monitor-options" />
-		<area shape="rect" coords="144,8,196,28" href="@@other-toolbar-items#latency-compensation-info" />
+		<area shape="rect" coords="108,8,196,28" href="@@other-toolbar-items#latency-compensation-info" />
 		<area shape="rect" coords="196,8,228,28" href="@@other-toolbar-items#playhead_options" />
 		<area shape="rect" coords="228,8,348,28" href="@@transport-clocks" />
 		<area shape="rect" coords="348,8,368,28" href="@@other-toolbar-items#status_indicators" />
@@ -44,8 +44,7 @@
 		<area shape="rect" coords="336,0,600,8" href="@@status-bar" />
 		<area shape="rect" coords="0,8,68,28" href="@@transport-bar" />
 		<area shape="rect" coords="68,8,108,28" href="@@selection-and-punch-clocks" />
-		<area shape="rect" coords="108,8,144,28" href="@@other-toolbar-items#monitor-options" />
-		<area shape="rect" coords="144,8,196,28" href="@@other-toolbar-items#latency-compensation-info" />
+		<area shape="rect" coords="108,8,196,28" href="@@other-toolbar-items#latency-compensation-info" />
 		<area shape="rect" coords="196,8,228,28" href="@@other-toolbar-items#playhead_options" />
 		<area shape="rect" coords="228,8,348,28" href="@@transport-clocks" />
 		<area shape="rect" coords="348,8,368,28" href="@@other-toolbar-items#status_indicators" />
@@ -62,31 +61,38 @@
 		<area shape="rect" coords="432,28,474,324" href="@@control-masters-mixer-strips" />
 		<area shape="rect" coords="263,33,333,324" href="@@audiomidi-busses-mixer-strips" />
 		<area shape="rect" coords="121,33,263,324" href="@@audiomidi-mixer-strips" />
-		<area shape="rect" coords="474,28,514,324" href="foldback-strip" />
-		<area shape="rect" coords="333,33,343,324" href="adding-tracks-busses-and-vcas" />
+		<area shape="rect" coords="474,28,514,324" href="@@foldback-strip" />
+		<area shape="rect" coords="333,33,343,324" href="@@adding-tracks-busses-and-vcas" />
 	</map>
 
   <figcaption>
-		The Editor and Mixer windows. Click on a section to access its description.
+		The Editor and Mixer windows. Clicking on a section accesses its
+		description.
 	</figcaption>
 </figure>
 
 <p>
-  The Editor and the Mixer share the same toolbar (the top of the window). The sections displayed in this toolbar can be customized to the user's workflow, by checking options in <kbd class="menu">Preferences &gt; Appearance &gt; Toolbar</kbd>.
+  The Editor, Mixer and Recorder share the same toolbar (the top of the 
+  window). The sections displayed in this toolbar can be customized to 
+  the user's workflow, by checking options in <kbd class="menu">Preferences
+  &gt; Appearance &gt; Toolbar</kbd>.
 </p>
 
 <p>
   Switching between the Editor and the Mixer windows is done:
 </p>
 <ul>
-	<li>with the <a href="@@other-toolbar-items#mode_selector">Mode Selector buttons</a> in the upper right</li>
+	<li>with the <a href="@@other-toolbar-items#mode_selector">Mode Selector
+		buttons</a> in the upper right</li>
 	<li>with the <kbd class="mod2">M</kbd> shortcut</li>
-	<li>with the menu <kbd class="menu">Window &gt; Editor <em>(or Mixer)</em> &gt; Show</kbd>.</li>
+	<li>with the menu <kbd class="menu">Window &gt; Editor <em>(or Mixer)</em>
+		&gt; Show</kbd>.</li>
 </ul>
 
 <p>
   Both windows can be visible at the same time (e.g. for a multi-monitor
-  setup) using <kbd class="menu">Window &gt; Editor <em>(or Mixer)</em> &gt; Detach</kbd> option in the same submenu.
+  setup) using <kbd class="menu">Window &gt; Editor <em>(or Mixer)</em>
+  &gt; Detach</kbd> option in the same submenu.
 </p>
 
 <h2>The Editor</h2>
@@ -119,5 +125,20 @@
 </p>
 <p>
   To learn more about the process of mixing, see <a href="@@basic-mixing">Mixing</a>.
+</p>
+
+<h2>The Recorder</h2>
+
+<p>
+  The <dfn>Recorder</dfn> window is a very specialized view that provides
+  a compact view of all track's record and monitor status, and a simplified
+  timeline that keeps everything in view at once. Most of the information
+  that is shown in this mode is already available in Mixer or Editor mode,
+  but the Recorder aims at having everything in sight and under control 
+  while tracking a performance. 
+</p>
+<p>
+  The Recorder is covered in great detail in <a href="@@recorder">its own
+  page</a>.
 </p>
 

@@ -1,0 +1,341 @@
+
+<figure class="center">
+  <img style="width:50%;" src="/images/record_window.png" alt="The Recorder window">
+  <figcaption>
+		The Recorder window. <i>(<a href="/images/record_window.png">full-size image</a>)</i>
+	</figcaption>
+</figure>
+
+<p>
+  Although all the process of recording an audio or MIDI performance can
+  be done in any mode, the <dfn>Recorder</dfn> provides a synoptic view of
+  most parameters and actions related to capturing this performance, hence
+  giving more confidence in the final result.
+</p>
+<p class="note">
+  The Recorder is another view on settings, parameters, and actions
+  that can be set or called in other modes. Any change done in the Recorder
+  is instantly reflected in e.g. the Editor, and vice versa.
+</p>
+<p>
+  The Recorder, being a mode, sports the same <a href="@@main-menu">main
+  menu</a>, <a href="@@status-bar">status bar</a>, and <a href="@@transport-bar">
+  toolbar</a> as the Editor and Mixer. It adds a secondary toolbar, a
+  simplified session view, reminiscent of the Editor, and a global input
+  panel.
+</p>
+
+<h2>The Secondary Toolbar</h2>
+
+<p>
+  The subsections below describe the secondary toolbar from left to right.
+</p>
+
+<h3>Last Take Manager</h3>
+
+<figure class="left">
+	<img alt="The Last Take Manager" src="/images/recorder_last-take.png">
+	<figcaption>
+		The Last Take Manager
+	</figcaption>
+</figure>
+
+<p>
+  This manager displays information about the last (or current) take :
+</p>
+<ul>
+  <li>
+	A <em>duration display</em>, that shows the duration of the last (or
+	current) recording. It is always displayed as <samp>hours:minutes:seconds:tenths</samp>,
+	regardless of the <a href="@@transport-clocks">Transport clocks</a>
+	display settings.
+  </li>
+  <li>
+		An x-run counter, an x-run being a buffer under(or over)flow. Each
+		time such an x-run occurs, an artifact is recording, that can be
+		audible or not, but is a red flag for the recording quality.
+  </li>
+  <li>
+		A <kbd>Discard Last Take</kbd> button, that deletes the last
+		finished recording(s), effectively removing the audio file(s) from
+		the hard drive, hence destructive.
+  </li>
+</ul>
+<p>
+  This last button cannot be used while recording, the transport must be
+  stopped. It also has no concept of history, and repeatedly
+  clicking it wont discard previous takes from last to first, in order to
+  prevent destroying good takes. Lastly, it does not reset the playhead
+  position, as the <kbd class="menu">Transport &gt; Stop and Forget
+  Capture</kbd> menu would.
+</p>
+
+<h3>Global Arm</h3>
+
+<figure class="left">
+	<img alt="The Global Arm options" src="/images/recorder_global-arm.png">
+	<figcaption>
+		The Global Arm options
+	</figcaption>
+</figure>
+
+<p>
+  Like the <em>Monitor Options</em> below, these buttons apply to all
+  the tracks at once.
+</p>
+<p>
+  It is a convenient shortcut to arm (<kbd>All</kbd>)/disarm (<kbd>None</kbd>)
+  all the tracks for recording.
+</p>
+
+<h3 class="clear">Monitoring Options</h3>
+
+<figure class="left">
+	<img alt="The Monitoring options" src="/images/input-mode-buttons.png">
+	<figcaption>
+		The Monitoring options
+	</figcaption>
+</figure>
+
+<p>
+  These buttons allow switching the monitoring mode globally, for all the
+  tracks at once. The monitoring mode allows to decide what the user wants
+  to be listening to, between:
+</p>
+<ul>
+	<li>
+		<dfn>All In</dfn>: all the tracks play what is on their <em>In</em>puts,
+	</li>
+	<li>
+		<dfn>All Disk</dfn>: all the tracks play the actual content of the
+		playlist on <em>Disk</em>,
+	</li>
+	<li>
+		or <dfn>both</dfn>: also called "cue monitoring" if both buttons are
+		engaged, a combination of the two modes above, where all the track
+		play existing data from disk while also listening to the input
+		signal. This is particularly useful for MIDI tracks, where one can
+		hear a performance/new material while listening to the playback of
+		existing material in the track.
+	</li>
+</ul>
+<p>
+  The <kbd class="menu">Auto Input</kbd> switch allows Ardour to auto-select
+  what is played, which is:
+</p>
+<ul>
+  <li>When not playing: all tracks are on <em>In</em> (to listen to any connected source)</li>
+  <li>When playing, all tracks are on <em>Disk</em> (to play whatever was recorded on those tracks)</li>
+  <li>When recording, on rec-enabled tracks: <em>In</em> and on non rec-enabled ones: <em>Disk</em></li>
+</ul>
+
+	 If Auto Input is disabled, then you will hear the Input being
+	 monitored whenever a track is armed, even if you aren't actually
+	 recording.  If Auto Input is _enabled_, then you will hear playback
+	 when the transport is rolling, and the tracks will only switch to
+	 Input when the master-record arm is engaged (so you are actually
+	 recording).
+
+<h3>Disk space and Reset Peaks</h3>
+
+<figure class="left">
+	<img alt="Disk space & Reset Peaks" src="/images/recorder_disk-and-reset.png">
+	<figcaption>
+		Disk space & Reset Peaks
+	</figcaption>
+</figure>
+
+<ul>
+  <li>
+		<em>Disk space</em> shows how many time or recoding is available on
+		the current hard drive (i.e. the hard drive where the session is
+		located), by accounting the bit depth, sampling rate, and number of
+		armed tracks. The result is either an duration, or
+		<samp>&gt;24h</samp> if it exceeds 24 hours.
+  </li>
+  <li>
+	<em>Reset Peak Hold</em> clears the memory of the highest recording level
+	in the meters located in the bottom input panel, and displayed with a
+	green line.
+  </li>
+</ul>
+
+<h2>Tracks</h2>
+
+<p>
+	The Simplified Session View is a view of the session, specifically
+	tailored for the purpose of recording, that is similar to the Editor
+	(or the <a href="@@summary">Summary</a>) with notable differences,
+	among which:
+</p>
+<ul>
+	<li>
+		it always encompasses the whole session in the time axis,
+	</li>
+	<li>
+		the regions are displayed as blocks, not waveforms,
+	</li>
+	<li>
+		no editing, like moving or resizing regions, is possible 
+	</li>
+	<li>
+		each track (or lane) has a fixed and narrow height
+	</li>
+</ul>
+<p>
+	All those differences are consequences of the aim of this view, which
+	is to keep thing not too busy and clear in a recording context. The
+	most important settings related to the recording process are easily
+	available and to facilitate the work of the operator.
+</p>
+
+<h3>Simplified Session View</h3>
+
+<figure>
+	<img alt="A track in the Recorder" src="/images/recorder_lane.png">
+	<figcaption>
+		A track in the Recorder
+	</figcaption>
+</figure>
+
+<p>
+	Each lane is made of (from left to right):
+</p>
+<ul>
+	<li>
+		A zone showing <a href="@@track-and-bus-groups">grouping</a>, as in the
+		Editor, with the same functions and menus. 
+	</li>
+	<li>
+		A <kbd style="color:red;">&#9679;</kbd> rec-arm button. When armed,
+		the entire button will turn pink, and change to bright red as soon
+		as the transport is rolling and the track is recording. <kbd
+		class="mouse">Right</kbd>-clicking will allow to en/disable
+		<em>Rec-safe</em>, protecting the track against accidental
+		recording.
+	</li>
+	<li>
+		An <kbd>Input</kbd> button displaying the connected input(s) of the
+		track. It is the same button as the <em>Input</em> button shown in
+		the <a href="@@audiomidi-mixer-strips">Mixer strip</a>, and behaves
+		exactly the same way (<kbd class="mouse">Left</kbd>-clicking to
+		show the input menu, <kbd class="mouse">Right</kbd>-clicking shows
+		the input connection matrix).
+	</li>
+	<li>
+		A <kbd>P</kbd> playlist button displaying the connected input(s) of
+		the track. Again, it is the same button as the one shown in the <a
+		href="@@audio-track-controls">Editor's track header</a>, and
+		behaves exactly the same way (<kbd
+		class="mouse">Left</kbd>-clicking to show the playlist menu).
+	</li>
+	<li>
+		A <kbd>Track Name</kbd> label, displaying the track's name.<kbd
+		class="mouse">Double</kbd>-clicking allows to edit (rename) the
+		track.
+	</li>
+	<li>
+		Two <kbd>In</kbd> and <kbd>Disk</kbd> buttons allowing to set this
+		particular track's monitoring option, as described above.
+	</li>
+	<li>
+		<em>N</em> level meters showing the input level of the track, as in
+		the <a href="@@audio-track-controls">Editor's track header</a>,
+		<em>N</em> being the number of input channels of the track.
+	</li>
+	<li>
+		A <kbd style="background:yellow;"><em>n</em></kbd> numbered
+		button, using the <a href="@@track-color">track's color</a> as
+		background color. Numbering can be useful when using OSC, a MIDI
+		controller, or when recording multiple performances at once.
+	</li>
+	<li>
+		An overview of the track's content, with solid blocks representing
+		regions. The region's color is the track color, except while
+		recording where the recorded regions are displayed in red.
+	</li>
+</ul>
+<p>
+	Like in the Editor or Mixer, a <a
+	href="@@adding-tracks-busses-and-vcas">new track, bus or VCA</a> can
+	be created by either <kbd class="mouse">double</kbd> or <kbd
+	class="mouse">right</kbd>-clicking on an empty place in the track
+	list.
+</p>
+
+<h3>The Global Input Panel</h3>
+
+<p>
+	This panel lists all the audio and MIDI system inputs.
+</p>
+
+<figure>
+	<img alt="An audio input" src="/images/recorder_input-panel.png">
+	<figcaption>
+		An audio input
+	</figcaption>
+</figure>
+
+<p>
+	The inputs are displayed either vertically or horizontally based on the
+	<a href="@@preferences#preferences-appearance-recorder">Preferences</a>.
+</p>
+<p>
+	If an input is used by a track that is armed for recording, it sports
+	a red frame.
+</p>
+<p>
+	The controls on each input are:
+</p>
+<ul>
+	<li>
+		a <kbd>(1)</kbd> button indicating how many tracks are fed by this
+		input. Clicking this button will show only those tracks.
+	</li>
+	<li>
+		a <kbd>&plus;</kbd> button, allowing to create a track that will be
+		automatically connected to this input. The type of track (MIDI or
+		aurio) depends on the input type.
+	</li>
+	<li>
+		a <kbd>PFL</kbd> button, or <em>Pre-Fader Listen</em>, active only
+		if <kbd class="option">Use monitor section in this session</kbd> is
+		checked in the <a
+		href="@@session-properties#properties-monitoring">Session
+		Properties</a>. When active, sends the soloed signal to the <a
+		href="@@monitor-section">Monitor</a>.
+	</li>
+	<li>
+		a <kbd>Input's Name</kbd> button. Inputs can be named or renamed at
+		will, to ease the recognition of e.g. one microphone in a
+		multi-track recording, like a multi-instrumentalist performance, by
+		clicking the button. Ardour stores this name for the device, so any
+		later session using this input will show this label.
+	</li>
+</ul>
+
+<p>
+	The right hand side of the input depends on the kind of input, either
+	audio or MIDI. For an audio track:
+</p>
+<ul>
+	<li>
+		a live level-meter for this input that shows the current level of
+		the audio signal. A green line marks the <em>Peak Hold</em>, i.e.
+		the maximum level reached on this input.
+	</li>
+	<li>
+		a continuous waveform, showing the input state during the last 5 seconds.
+	</li>
+</ul><p>
+	For an MIDI track:
+</p>
+<ul>
+	<li>
+		a channel indicator, the channel numbers lighting up as events come
+		in to show channel activity.
+	</li>
+	<li>
+		a MIDI monitor, showing the last four MIDI events.
+	</li>
+</ul>
