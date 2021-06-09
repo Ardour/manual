@@ -855,15 +855,9 @@ part: subchapter
 ---
 
 ---
-title: Playback & Recording
-uri: recording
+title: Playback
+uri: playback
 part: part
----
-
----
-title: Playing Back Track Material
-link: playing-back-track-material
-part: chapter
 ---
 
 ---
@@ -871,27 +865,29 @@ title: Controlling Playback
 include: controlling-playback.html
 link: controlling-playback
 uri: controlling-playback
-part: subchapter
+part: chapter
 ---
 
 ---
 title: Using Key Bindings
 include: using-key-bindings.html
 link: using-key-bindings
-part: subchapter
----
-
----
-title: Audio Recording
-link: audio-recording
 part: chapter
 ---
+
+
+---
+title: Recording
+uri: recording
+part: part
+---
+
 
 ---
 title: The Recorder
 include: recorder.html
 link: recorder
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -899,16 +895,16 @@ title: Monitoring
 include: monitoring.html
 link: monitoring
 uri: recording/monitoring
-part: subchapter
+part: chapter
 ---
 
 ---
 title: Latency Considerations
-menu_title: Latency
+menu_title: Latency Considerations
 include: latency-considerations.html
 link: latency-considerations
 uri: recording/monitoring/latency-considerations
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -917,7 +913,7 @@ menu_title: Signal Flow
 include: monitor-signal-flow.html
 link: monitor-signal-flow
 uri: recording/monitoring/monitor-signal-flow
-part: subchapter
+part: chapter
 ---
 
 ---
