@@ -1,194 +1,137 @@
 
-<h2> What is “Snap” and “Grid”?</h2>
 
-<figure class="left">
-	<img src="/images/toolbar-grid.png" alt="Editor toolbar's grid">
+<figure>
+	<img src="/images/toolbar-grid.png" alt="Snap & Grid">
 	<figcaption>
-		Editor toolbar's grid.
+		Snap & Grid
 	</figcaption>
 </figure>
 
-<p>
-“Snap” will cause drags and other mouse-driven operations to jump to
-positions determined by the nearest snap setting.  Snap can be set to
-multiple options: markers, region start/ends, and the grid (those
-are all enabled by default. change them in prefs).
-</p>
-<p>
-Grid can be enabled, and it will draw lines at selected intervals;
-which can be musical, like 16th notes, or can be timecode based
-(minutes and seconds). You can leave the Grid enabled, but snap
-disabled, if you just want to see the lines but not snap to them.
-</p>
-<p>
-For example: if the Grid is set to “beats” and Snap-to-grid is
-enabled, then any operations such as split, paste, or range-select
-will happen exactly on a beat, according to the musical timeline and
-tempo.
-</p>
-<p>
-Alternatively, you can leave “Snap” enabled (so your mouse actions
-can snap to Markers, or region edges) but disable the Grid.
-</p>
-
-<h2>A Warning, of sorts</h2>
-
-<p class="warning">
-The grid consist of lines running vertically in the edit canvas. If
-you zoom too far out, you might see a coarser grid than you
-expect. Ardour tries not to show “too many” or “too few” grid lines
-depending on the zoom level. You might find that items snap in-between
-the grid lines sometimes. That’s expected behavior. If you can’t see
-or snap to the grid you’d like to use, you may have to zoom in or out.
-</p>
-
-<h2>About Snapping</h2>
+<h2 id="grid_controls-snap">Snap</h2>
 
 <p>
-  There are two ways to think about aligning material. The first and
-  most obvious one is where an object's position is clamped to the
-  snap positions. In Ardour, this is called <dfn>absolute snap</dfn>
-  and is commonly used when working with sampled material where audio
-  begins exactly at the beginning of a file, note or region.
+  <dfn>Snap</dfn> will cause region drags and other mouse-driven
+  operations to jump to positions determined by the nearest snap
+  setting when the mouse is close enough to this snap point. Snapping
+  is sometimes (improperly) referred to as magnetism.
+</p>
+<p>
+  The Snap options are set in the <a
+  href="@@preferences#preferences-editor-snap">Preferences</a>. Those
+  include the Snap Threshold which determines how close the mouse has
+  to be to a snap anchor to induce a snap, and the snap anchors
+  themselves, among:
+</p>
+<ul>
+  <li>Markers</li>
+  <li>Region Sync points</li>
+  <li>Region Starts</li>
+  <li>Region Ends</li>
+  <li>Grid.</li>
+</ul>
+
+<h2 id="grid_controls-grid">Grid</h2>
+<p>
+  The <em>Grid</em> helps visually placing items in time. It will draw
+  lines at selected intervals as chosen in the drop-down selector.
+  Musical grid settings (<em>Bar</em> to <em>Sextuplets</em>) obviously
+  depend on the <a href="@@tempo-and-meter">tempo and meter</a>, so
+  changing the tempo or meter will rescale the grid, while absolute grid
+  settings (<em>Timecode</em>, etc&hellip;) won't be affected.
 </p>
 
-<p>
-  The second, <dfn>relative snap</dfn>, is used when an object's
-  position relative to the snap positions is important. In music, this
-  allows to move objects around without changing the "feel" (or
-  timing) of a performance.
+<p class="note">
+  A word about time signature in this context: a time signature
+  consists of 2 numbers. The upper one determines how many beats are in
+  a bar, the lower one, what division of a note a beat represents (e.g.
+  : <em>4</em> stands for a quarter note). At e.g. 80 <abbr
+  title="beats per minute">bpm</abbr>, one beat lasts 1/80th min, so
+  0.75 sec. If the time signature is 3/4, there are 3 beats in a bar so
+  a bar lasts for 3 &times; 0.75 = 2.25 sec. Choosing <em>1/8 Note</em>
+  as the grid setting will draw grid lines every 0.75 &divide; 1/4
+  &times; 1/8 = 0.375 sec.
 </p>
 
 <p>
-  Absolute snap is the default method of snapping in Ardour.
-</p>
-
-<p>
-  While dragging objects, pressing the absolute snap modifier key(s) switches
-  from absolute to relative snap.
-</p>
-
-<p>
-  The snap can also be entirely disabled by using the snap modifier (see below).
-</p>
-
-<p>
-  Note that in relative snap mode the reference point is taken to be the distance
-  to the nearest grid line.
-</p>
-
-<p>
-  Note also that when an object lies exactly on a grid line, there will be no
-  difference between relative and absolute snap modes.
-</p>
-
-<p>
-  The relative snap and snap modifiers (along with other modifier keys) may be set
-  in <kbd class="menu">Edit &gt; Preferences &gt; User Interaction</kbd>
-</p>
-
-<p>
-  For common use patterns, it is recommended to assign a unique key for one
-  snap modifier and two keys for the other in such a way that they share an
-  otherwise unused key. For example, the snap modifier may be chosen to be the
-  <kbd class="mod2n"></kbd> key and the relative snap modifier to be the <kbd
-  class="mod2n"></kbd> and <kbd class="mod4n"></kbd> keys.
-</p>
-
-<h2>Snap Modes</h2>
-
-<p>
-  Using the above modifications, Ardour supports three different modes of snapping
-  to the grid:
-</p>
-
-<table class="dl">
-  <tr><th><kbd class="menu">No Grid</kbd></th>
-    <td>disables the grid. All objects move freely in this mode.</br>
-    In <kbd class="menu">No Grid</kbd> mode, the grid may be temporarily activated
-    by pressing the snap modifier (for absolute snap) or switch to relative snap
-    by pressing the relative snap modifier.</td></tr>
-  <tr><th><kbd class="menu">Grid</kbd></th>
-    <td>activates normal snapping. All positions of objects snap to the grid. (See
-    <a href="#gridunits">Grid Units</a> below to change the grid).
-    Moving an object in "Grid"-mode, does not change its position until
-    the mouse is far enough for the object to reach the next grid line.</br>
-    To maintain an objects' position relative to the grid line, the "snap relative"
-    modifier can be used. When holding down this
-    modifier during a drag, the dragged object will jump while maintaining its
-    original distance from the line.</br>
-    New objects will always be created at grid
-    points.</br>
-    Holding down the snap modifier will disable the current grid
-    setting and allow moving the object freely.</td></tr>
-  <tr><th><kbd class="menu">Magnetic</kbd></th>
-    <td>is a less strict type of snapping. Objects can still be moved to any
-    position, but positions close to the relative or absolute grid points will snap.
-    In order to move an object very close to a snap point, it may be necessary to
-    zoom in to prevent snapping to that point, or to use the snap modifier to
-    disable snap completely.</br> As with Grid mode, the snap modifier will disable
-    snap completely while the absolute snap modifier will move the "notch" of
-    Magnetic snap to the grid lines.</td></tr>
-</table>
-
-<h2>Syncing Regions to the Grid</h2>
-
-<p>
-  By default, a region's beginning will be used as the reference for both types of
-  snapping, this behaviour can be changed by setting a <dfn>sync point</dfn>
-  in the region, by selecting the region(s) and pressing <kbd>V</kbd>. This will set the
-  sync point to the current <a href="@@edit-point-control">edit point</a>.
-</p>
-
-<h2 id="gridunits">Grid Units</h2>
-
-<p>
-  The selector next to the grid mode selector defines the size of the grid
-  elements. The grid can be set to several different units:
-</p>
-
-<table class="dl">
-  <tr><th><kbd class="menu">CD Frames</kbd></th>
-  <td>A CD Frame is 1/75th of a second. Snapping to CD Frames (using absolute snap) can be used to avoid issues with CD track lengths.</td></tr>
-  <tr><th><kbd class="menu">Timecode Frames/Seconds/Minutes</kbd></th>
-  <td>The duration of a frame depends on the timecode settings for the session.</td></tr>
-  <tr><th><kbd class="menu">Seconds/Minutes</kbd></th>
-  <td>These are absolute time units, unaffected by sample rate or timecode settings</td></tr>
-  <tr><th><kbd class="menu">Beats/N</kbd></th>
-  <td>Set the grid to units of 1/N beats, where N can be 128, 64, 32, 16, 8, 7, 6, 5, 4, 3, 2. The duration of a grid unit will depend on the tempo and meter in effect at that point in the timeline.</td></tr>
-  <tr><th><kbd class="menu">Beats</kbd></th>
-  <td>Set the grid to whole beats. The duration of a grid unit will depend on the tempo and meter in effect at that point in the timeline.</td></tr>
-  <tr><th><kbd class="menu">Bars</kbd></th>
-  <td>Set the grid to whole bars. The duration of a grid unit will depend on the tempo and meter in effect at that point in the timeline.</td></tr>
-  <tr><th><kbd class="menu">Markers</kbd></th>
-  <td>The grid lines are the markers.</td></tr>
-  <tr><th><kbd class="menu">Region Starts</kbd></th>
-  <td>The grid lines are constructed from region start points (see below).</td></tr>
-  <tr><th><kbd class="menu">Region Ends</kbd></th>
-  <td>The grid lines are constructed from region end points (see below).</td></tr>
-  <tr><th><kbd class="menu">Region Syncs</kbd></th>
-  <td>The grid lines are constructed from region sync points.</td></tr>
-  <tr><th><kbd class="menu">Region Bounds</kbd></th>
-  <td>The grid lines are constructed from region start or end points.</td></tr>
-</table>
-
-<p>
-  To use Region starts/ends/syncs/bounds as snap choices, it is necessary to have either:
+  The grid density can be either based on musical time:
 </p>
 
 <ul>
-  <li><em>No</em> tracks selected, which means that Ardour snaps to regions on any
-    track, or </li>
-  <li>Several tracks selected, which means that Ardour only snaps to regions on
-    those selected tracks.</li>
+  <li><em>No Grid</em>: hides the Grid</li>
+  <li><em>Bar</em>: shows one grid line per bar (e.g, in 4/4 at 120bpm, one line every 2 seconds)</li>
+  <li><em>1/4</em>: shows one grid line per quarter bar, or 4 grid lines per bar (e.g, in 4/4 at 120bpm, one line every .5 seconds)</li>
+  <li><em>...</em></li>
+  <li><em>1/128</em>: shows one grid line per 128<sup>th</sup> bar, or 128 grid lines per bar</li>
+  <li><em>Triplets</em>: groups the ternary divisions of time:
+	<ul>
+	  <li><em>1/3 (8th triplet)</em>: shows one grid line per third bar</li>
+	  <li><em>...</em></li>
+	  <li><em>1/24 (64th triplet)</em>: shows one grid line per 24<sup>th</sup> bar</li>
+	</ul>
+  </li>
+  <li><em>Quintuplets</em>: groups the 1/5<sup>th</sup> divisions of time:
+	<ul>
+	  <li><em>1/5 (8th quintuplet)</em>: shows one grid line per fifth bar</li>
+	  <li><em>...</em></li>
+	  <li><em>1/20 (32th quintuplet)</em>: shows one grid line per 20<sup>th</sup> bar</li>
+	</ul>
+  </li>
+  <li><em>Septuplets</em>: groups the 1/7<sup>th</sup> divisions of time:
+	<ul>
+	  <li><em>1/7 (8th septuplet)</em>: shows one grid line per seventh bar</li>
+	  <li><em>...</em></li>
+	  <li><em>1/28 (32th septuplet)</em>: shows one grid line per 28<sup>th</sup> bar</li>
+	</ul>
+  </li>
 </ul>
 
 <p>
-  If items are moved on a track, and only the current track is selected, then
-  snapping will only happen with other regions on the same track. This means
-  that enabling <kbd class="menu">Edit &gt; Preferences &gt; Editor &gt; Link
-  Selections of Regions and Tracks</kbd> will make the "Region" grid unit
-  unusable. This option should not be used in conjunction with the use any of the
-  Region grid units.
+  Or absolute time:
+</p>
+
+<ul>
+  <li><em>Timecode</em>: shows one grid every <a href="@@on-clock-and-time">frame</a></li>
+  <li><em>MinSec</em>: shows one grid line every thousandth of a second</li>
+  <li><em>CD Frames</em>: shows one grid line per CD Frame (1/75<sup>th</sup> second)</li>
+</ul>
+
+<p class="warning">
+The grid consist of lines running vertically in the edit canvas. When
+zooming too far out, the grid can become too coarse. Ardour tries not
+to show “too many” or “too few” grid lines depending on the zoom level,
+based on the <em>Approximate Grid/Ruler granularity (pixels)</em> <a
+href="@@preferences#preferences-editor-snap">Preferences</a> parameter.
+As a consequence, when the Grid is in the Snap anchors, it is possible
+that items snap in-between the grid lines sometimes. That’s expected
+behavior.
+</p>
+
+<h3>Syncing Regions to the Grid</h2>
+
+<p>
+  By default, a region's beginning will be used as the reference for
+  both types of snapping, this behaviour can be changed by setting a
+  <dfn>sync point</dfn> in the region, by selecting the region(s) and
+  pressing <kbd>V</kbd>. This will set the sync point to the current <a
+  href="@@edit-point-control">edit point</a>.
+</p>
+
+<h3>Keyboard modifiers</h3>
+
+<p>
+  Snapping can be temporarily disabled by using a keyboard modifier while
+  editing, <kbd class="mod2n"></kbd> by default.
+</p>
+<p>
+  Snapping can also be temporarily set to relative, i.e. snapping will
+  occur relative to the current position of the dragged item. E.g. if
+  the Grid is in the Snap options, and the grid is set to
+  <em>Bars</em>, using this keyboard modifier while dragging will snap
+  at every bar relative to the region's beginning (or sync point)
+  instead of the absolute musical bars.
+</p>
+<p>
+  The keyboard modifiers are defined in the <a
+  href="@@preferences#preferences-editor-modifiers">Preferences</a>.
 </p>
 
