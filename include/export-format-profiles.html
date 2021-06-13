@@ -1,16 +1,4 @@
 
-<h2>Export Format Profiles</h2>
-
-<p>
-  An Export Format Profile specifies the file format in which Ardour will export
-  audio files, and also other audio file export options.
-</p>
-
-<p>
-  Export Format Profiles are edited via the <kbd class="menu">Edit Export Format
-  Profile</kbd> dialog.
-</p>
-
 <figure class="right">
   <img src="/images/edit-export-format-profile.png" alt="The 'Edit Export Format Profile' dialog">
   <figcaption>
@@ -18,7 +6,23 @@
   </figcaption>
 </figure>
 
-<h3>Normalize</h3>
+<p>
+  An Export Format Profile specifies the file format in which Ardour will export
+  audio files, and also other audio file export options.
+</p>
+<p>
+  Export Format Profiles are edited via the <kbd class="menu">Edit Export Format
+  Profile</kbd> dialog.
+</p>
+
+<h2>Label</h2>
+<p>
+  The <kbd class="menu">Label</kbd> field allows to choose the name which will be
+  shown for this format in the drop-down list of export formats in the
+  'File Formats' tab of the <a href="@@export-dialog">Export dialog</a>.
+</p>
+
+<h2>Pre Process</h2>
 <p>
   If enabled, levels of exported files will be normalized to the level chosen here.
   The normalization can be either:
@@ -26,18 +30,20 @@
 
 <ul>
   <li>Peak, which adjusts the gain to bring the highest signal peak to the
-    chosen level (in <acronym title="decibels relative to full scale">dBFS</acronym>),</li>
+    chosen level (in <acronym title="decibels relative to full scale">dBFS</acronym>),
+  </li>
   <li>Loudness, which adjusts the gain to bring the average amplitude to the
     chosen level (in <acronym title="loudness units relative to full scale">LUFS</acronym>),
     without exceeding the chosen true-peak value (in
     <acronym title="decibels true peak">dBTP</acronym>).
     EBU R128 is only available for mono or stereo sounds while true-peak works
-    for any channel layout.</li>
+    for any channel layout.
+  </li>
 </ul>
 
 <h3>Trim silence at start/end</h3>
 <p>
-  These checkboxes allow to remove any part Ardour considers silent (0dB),
+  These checkboxes allow to remove any part Ardour considers silent (&lt; &minus;90dB),
   at the beginning or/and end of each exported track.
 </p>
 
@@ -46,10 +52,22 @@
   These checkboxes allow to add silence at the beginning or/and end of each
   exported track. The duration of the added silence can be manually fixed in the
   adjacent 'timer' input fields.
+</p>
 
-<h3>Compatibility/Quality/File format/Sample rate</h3>
+<h2>Watermark</h2>
+<p>
+  This section adds watermarks to the exported audio (e.g. for limited/demo
+  distribution), by overwriting part of the audio with white noise in the
+  exported file.
+</p>
+<p>
+  Both the <dfn>Mode</dfn> (how often and how long) and <dfn>Noise Level</dfn>
+  (how loud) can be set.
+</p>
 
-<h4>Compatibility</h4>
+<h2>Format</h2>
+
+<h3>Compatibility</h3>
 <p>
   Selecting an item in the 'Compatibility' emphasizes the settings in the other
   columns that are compatible with the selected standard, by turning incompatible
@@ -57,14 +75,14 @@
   compatibility column checkbox disappears.
 </p>
 
-<h4>Quality</h4>
+<h3>Quality</h3>
 <p>
   The appropriate item in the 'Quality' column will be highlighted when a file format
   is chosen. At the moment, selecting a Quality setting does not show the
   compatible File formats.
 </p>
 
-<h4>File format</h4>
+<h3>File format</h3>
 <p>
   This column contains a list of Ardour's supported export file types. Selecting
   one updates the options underneath it.
@@ -75,51 +93,38 @@
 	binary.
 </p>
 
-<h4>Sample rate</h4>
+<h3>Sample rate</h3>
 <p>
   A specific sample rate can be chosen for the exported files, or the current session's
   sample rate (by choosing 'Session rate'), without sample rate conversion.
 </p>
 
-<h4>Sample rate conversion quality</h4>
+<h2>Encoding</h2>
+<p>
+  Options relevant to the chosen file format will appear just to the right of the
+  Compatibility/Quality/File format/Sample rate table.
+</p>
+
+<h3>Sample rate conversion quality</h3>
 <p>
   In case the chosen sample rate does not match the current session's sample rate,
   the sample rate conversion quality can be chosen here. Better quality options are
   slower.
 </p>
 
-<h3>Format Options</h3>
+<h2>Metadata</h2>
 <p>
-  Options relevant to the chosen file format will appear just under the
-  Compatibility/Quality/File format/Sample rate table.
+  These options are presented whatever the chosen format is:
 </p>
 
-<h4>Tag with session's metadata</h4>
+<h3>Tag file with session's metadata</h3>
 <p>
   If the exported file format supports metadata (e.g. FLAC, Ogg Vorbis), use data
   entered in the <a href="@@metadata">Session Metadata</a> window to tag the
   exported files.
 </p>
 
-<h4>Sample Format and Dithering</h4>
-<p>
-  The <kbd class="menu">Sample Format</kbd> is the bit depth of exported files,
-  i.e. the numbers of values a sample can have. Increasing the sample format
-  results in a better defined audio file at the cost of increasing the file size.
-</p>
-<p>
-  If the exported files bit depth is less than Ardour's native bit depth
-  (32 bits floating point by default), the dithering algorithm, that chooses how
-  to compute the conversion can be chosen in the <kbd class="menu">Dithering</kbd>
-  column.
-</p>
-
-<h3>Options</h3>
-<p>
-  These options are presented whatever the chosen format is:
-</p>
-
-<h4>Create CUE/TOC/chapter mark file</h4>
+<h3>Create CUE/TOC/chapter mark file</h3>
 <p>
   As well as exporting an audio file, Ardour can create a file (in CUE, TOC or MP4ch format
   respectively) containing CD track information, as defined in the
@@ -127,14 +132,7 @@
   Those files can then be used to either burn a CD or DVD, or to create "chapters"
   inside a compatible mp4 video container.
 
-<h3>Label</h3>
-<p>
-  The <kbd class="menu">Label</kbd> field allows to choose the name which will be
-  shown for this format in the drop-down list of export formats in the
-  'File Formats' tab of the <a href="@@export-dialog">Export dialog</a>.
-</p>
-
-<h3>Command to run post-export</h3>
+<h2>Post Export</h2>
 <p>
   If this is not blank, it is considered as a command to be run after the export
   of each file. Either the command must exist in $PATH, or an absolute path to
@@ -144,20 +142,33 @@
 <p>
   Certain sequences are allowed here to stand for the exported file name and
   various parameters. Currently these are:
-<table class="dl">
-<tr><th><code>%f</code></th>
-<td>Full path and filename of the exported audio file</td></tr>
-<tr><th><code>%d</code></th>
-<td>Directory containing the exported audio file (including trailing directory separator)</td></tr>
-<tr><th><code>%b</code></th>
-<td>Basename of the exported audio file (without extension)</td></tr>
-<tr><th><code>%s</code></th>
-<td>Path to the current session file</td></tr>
-<tr><th><code>%n</code></th>
-<td>Name of the current session file</td></tr>
-<tr><th><code>%%</code></th>
-<td>A literal percent sign</td></tr>
-</table>
+</p>
+
+<ul>
+	<li><dfn>%a</dfn>: Artist name</li>
+	<li><dfn>%b</dfn>: File's base-name</li>
+	<li><dfn>%c</dfn>: Copyright</li>
+	<li><dfn>%d</dfn>: File's directory</li>
+	<li><dfn>%f</dfn>: File's full absolute path</li>
+	<li><dfn>%l</dfn>: Lyricist</li>
+	<li><dfn>%n</dfn>: Session name</li>
+	<li><dfn>%o</dfn>: Conductor</li>
+	<li><dfn>%t</dfn>: Title</li>
+	<li><dfn>%z</dfn>: Organization</li>
+	<li><dfn>%A</dfn>: Album</li>
+	<li><dfn>%C</dfn>: Comment</li>
+	<li><dfn>%E</dfn>: Engineer</li>
+	<li><dfn>%G</dfn>: Genre</li>
+	<li><dfn>%L</dfn>: Total track count</li>
+	<li><dfn>%M</dfn>: Mixer</li>
+	<li><dfn>%N</dfn>: Timespan name</li>
+	<li><dfn>%O</dfn>: Composer</li>
+	<li><dfn>%P</dfn>: Producer</li>
+	<li><dfn>%S</dfn>: Disc subtitle</li>
+	<li><dfn>%T</dfn>: Track number</li>
+	<li><dfn>%Y</dfn>: Year</li>
+	<li><dfn>%Z</dfn>: Country</li>
+</ul>
 
 <p>
   Any part of the command-line enclosed in double-quotes (") will be used as-is.
