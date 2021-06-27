@@ -1,6 +1,4 @@
 
-<p class=fixme>Item #3 below does not hold in all cases; check to make sure the rest of the content is sane as well</p>
-
 <figure>
 <img src="/images/typical-midi-track-controls.png" alt="A MIDI track header">
 <figcaption class="center">MIDI track header, stretched to show normally hidden controls.</figcaption>
@@ -21,14 +19,21 @@
   <li>An External MIDI Device combobox can appear, for selecting <a
   href="@@patch-change#midnam">MIDNAMs</a></li>
   <li>An External Device Mode combobox can appear, for selecting an external
-  device's mode</li>
+  device's mode, in case no relevant External MIDI Device has been selected</li>
 </ol>
 
 <p class="note">
   To show the full set of MIDI track controls, the <a
   href="@@track-height">track height</a> must be increased beyond the default
   height. MIDI tracks will show only a few of the control elements when there
-  is insufficient vertical space. Further, the External MIDI Device and
+  is insufficient vertical space. As for <a href="@@audio-track-controls">Audio
+  tracks</a>, this can be done by either toggling the
+  track's full screen mode (<kbd class="menu">Track &gt; Height &gt; Fit
+  selection (Vertical)</kbd>, default : <kbd>F</kbd>, or by simply
+  double-clicking an empty space in the track header, to increase the track's
+  height.
+  <br>
+  Further, the External MIDI Device and
   External Device Mode comboboxes will <strong>not</strong> appear if there is
   a synth plugin on the track that comes with an associated <a
   href="@@patch-change#midnam">MIDNAM</a>.
