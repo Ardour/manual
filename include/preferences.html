@@ -146,6 +146,15 @@
       </li>
     </ul>
   </li>
+  <li>
+    <dfn>New Version Check</dfn>
+    <ul>
+      <li>
+        <dfn>Check for announcements at application start</dfn> sends an
+        anonymous request to Ardour's server to check for a new version.
+      </li>
+    </ul>
+  </li>
 </ul>
   
 <h2 id="preferences-appearance">Appearance</h2>
@@ -546,6 +555,11 @@
         supersede Ardour's.
       </li>
       <li>
+        <dfn>Show/Hide splash screen instead of setting z-axis stack order</dfn>:
+        Hides the splash instead of re-layering it. This setting requires a restart
+        of Ardour to take effect.
+      </li>
+      <li>
         <dfn>All floating windows are dialogs</dfn>: when enabled, Ardour will
         use type &quot;Dialog&quot; for all floating windows instead of using type
         &quot;Utility&quot; for some of them. This may help usability with some
@@ -642,7 +656,7 @@
         scrolls when dragging the playhead outside of the visible canvas.
       </li>
       <li>
-        <dfn>Limit zooming &amp; summary view to X minutes beyond session extents:</dfn>
+        <dfn>Limit zoom &amp; summary view beyond session extents to:</dfn>
         prevents the zoom out both in the editor and the summary, to show anything past
         the chosen time after the end marker, restraining the vision to only useful
         content.
@@ -675,7 +689,7 @@
         fade shape</a> is the default.
       </li>
       <li>
-        <dfn>Regions in active edit groups are edited together:</dfn> sets
+        <dfn>Regions in edit groups are edited together:</dfn> sets
         the criteria to see if editing actions apply to tracks grouped together
         in an group.
       </li>
@@ -1090,10 +1104,20 @@
   <li>
     <dfn>General</dfn>
     <ul>
+	  <li>
+        <dfn>Scan for [new] Plugins on Application Start</dfn> When
+    	  enabled new plugins are searched, tested and added to the cache
+    	  index on application start. When disabled new plugins will only be
+    	  available after triggering a 'Scan' manually.
+      </li>
       <li>
         <dfn>Always Display Plugin Scan Progress</dfn> When enabled a
         popup window showing plugin scan progress is displayed for indexing
         (cache load) and discovery (detect new plugins).
+      </li>
+      <li>
+        <dfn>Verbose Plugin Scan</dfn>: adds information about the plugin in the
+        <a href="@@status-bar">Log window</a>.
       </li>
       <li>
         <dfn>Make new plugins active</dfn> when enabled, any plugin added to a track
@@ -1183,24 +1207,17 @@
     <dfn>VST</dfn>
     <ul>
       <li>
-        <dfn>Enable Mac VST support (requires restart or re-scan)</dfn> makes a
+        <dfn>Enable Mac VST2 support (requires restart or re-scan)</dfn> makes a
         MacOs system able to run VST-Mac plugins. As stated, a new scan for plugins
         is required, be it manually or by restarting Ardour.
       </li>
       <li>
-        <dfn>Scan for [new] VST Plugins on Application Start</dfn> When
-    	  enabled new VST plugins are searched, tested and added to the cache
-    	  index on application start. When disabled new plugins will only be
-    	  available after triggering a 'Scan' manually.
+        <dfn>Enable Linux VST2 support (requires restart or re-scan)</dfn> makes a
+        Linux system able to run VST2 plugins.
       </li>
       <li>
-        <dfn>Verbose Plugin Scan</dfn>: adds information about the plugin in the
-        <a href="@@status-bar">Log window</a>.
-      </li>
-      <li>
-        <dfn>Scan Time Out</dfn> Specifies the default timeout for plugin
-    	  instantiation. Plugins that require more time to load will be
-        blacklisted. A value of &infin; disables the timeout.
+        <dfn>Enable VST3 support (requires restart or re-scan)</dfn> makes any
+        system able to run VST3 plugins.
       </li>
     </ul>
   </li>
@@ -1213,8 +1230,8 @@
         inserted into the processor box. A new VST plugin scan is then required.
       </li>
       <li>
-        <dfn>VST 2 Blacklist:</dfn> Clicking the <kbd class="menu">Clear</kbd>
-        button makes blacklisted VST plugins available to be added to the processor
+        <dfn>VST 2 Ignorelist:</dfn> Clicking the <kbd class="menu">Clear</kbd>
+        button makes ignored VST plugins available to be added to the processor
         box.
       </li>
       <li>
@@ -1242,7 +1259,7 @@
         <dfn>VST 3 Cache:</dfn> Same as above, for VST 3
       </li>
       <li>
-        <dfn>VST 3 Blacklist:</dfn> Same as above, for VST 3
+        <dfn>VST 3 Ignorelist:</dfn> Same as above, for VST 3
       </li>
       <li>
         <dfn>Additional VST3 Path:</dfn> The VST 3 specs clearly define where
@@ -1250,6 +1267,16 @@
         way to search other directories for plugin, it is out of spec and not
         recommanded.
       </li>
+      <li>
+        <dfn>Automatically show 'Micro Edit' tagged controls on the mixer-strip:</dfn>
+        displays the plugin's UI directly inside each mixer strip (inline), if the plugin
+        has a 'Micro Edit' <a hreg="@@plugin-selector">tag</a>.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>VST2/VST3</dfn>
+    <ul>
       <li>
         <dfn>Conceal VST2 Plugin if matching LV3 exists</dfn> When 
         enabled, gives precedence to the VST3 (more up-to-date) version of
@@ -1266,7 +1293,7 @@
     <dfn>Audio Unit</dfn>
     <ul>
       <li>
-        <dfn>Scan for [new] AudioUnit Plugins on Application Start</dfn> When
+        <dfn>Enable Audio Unit support (requires restart or re-scan)</dfn> When
         enabled, new AU plugins are searched, tested and added to the cache
         index on application start. When disabled, new plugins will only be
         available after triggering a 'Scan' manually.
@@ -1277,8 +1304,8 @@
         inserted into the processor box. A new AU plugins scan is then required.
       </li>
       <li>
-        <dfn>AU Blacklist:</dfn> Clicking the <kbd class="menu">Clear</kbd>
-        button makes blacklisted AU plugins available to be added to the processor
+        <dfn>AU Ignorelist:</dfn> Clicking the <kbd class="menu">Clear</kbd>
+        button makes ignored AU plugins available to be added to the processor
         box.
       </li>
     </ul>
@@ -1586,6 +1613,14 @@
         <dfn>Signal processing uses:</dfn> sets how many cpu processors can be
           used to do signal processing. It can be set to use one up to all
           processors.
+      </li>
+      <li>
+        <dfn>Power Management, CPU DMA latency: </dfn> modern processors try
+        to aggressively transition to power saving when idle, even for a few
+        microseconds, hurting realtime performance by needing to wake to a
+        more active state. This setting counters this behaviour by setting
+        a maximum response time while low latency operation is desired.
+        <kbd class="menu">0</em> is the fastest response time.
       </li>
     </ul>
   </li>
