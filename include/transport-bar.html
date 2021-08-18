@@ -12,8 +12,10 @@
   </figcaption>
 </figure>
 
+<h3 id="transport_action_buttons">Transport action buttons</h3>
 <p>
-  This bar is made of (from left to right):
+  The upper row contains transport actions, that are all bound to keyboard
+  shortcuts, which allows for speedier use and more focused work:
 </p>
 
 <table class="dl">
@@ -47,32 +49,36 @@
 </table>
 
 <p class="note">
-  All these actions are bound to keyboard shortcuts, which allows for speedier
-  use and more focused work.
-</p>
-
-<p class="note">
   If Ardour is synchronized with other devices then some or all of these control
   methods may be unavailable&mdash;depending on the synchronization protocol,
   Ardour may respond only to commands sent from its master device(s).
 </p>
 
+<h3 id="transport_modifiers">The Transport modifiers</h3>
+<h4 id="transport_shuttle">The Shuttle Speed Control</h4>
 <p>
-  Under these buttons is the <dfn>Shuttle Speed Control</dfn> that allows to scrub
-  through the audio quickly. The slider decides the playback speed: the further
-  from the center it is set, the faster the playback will scrub in both directions.
+  Under these buttons is the <dfn>Shuttle Speed Control</dfn> that
+  allows to <em>temporarily</em> scrub through the audio quickly. The slider
+  decides the playback speed: the further from the center it is set,
+  the faster the playback will scrub in both directions. The range of
+  this acceleration can be set by <kbd class="mouse">right</kbd>
+  clicking the control and setting the multiplier, between 1.5
+  (&plusmn; 150%) and 8 (&plusmn; 800%).
 </p>
-<p>
-  The Shuttle Speed Control supports 2 operating modes, that can be chosen with
-  <kbd class="mouse">right</kbd> click > Mode:
-</p>
-<ul>
-  <li><dfn>Sprung mode</dfn> that allows for a temporary scrub: it only scrubs
-    while the mouse is left clicked on the control.</li>
-  <li><dfn>Wheel mode</dfn> that allows to set a playback speed until the "Stop"
-    button is pressed, which stops the playback and resets its speed.</li>
-</ul>
 
+<h4 id="transport_varispeed">VariSpeed</h4>
+<p>
+  The <kbd class="menu">VS</kbd> (for <em>V</em>ari<em>S</em>peed)
+  button sets a <em>constant</em> playback/record speed. It can be set
+  in semitones (1 semitone = &times; 2 <sup>1&frasl;12</sup> &asymp;
+  105,9%), or cents of semitones, and is armed/disarmed by clicking the
+  button. Whether or not this VariSpeed is persistent when
+  stopping/restarting transport depends on the <kbd class="option">Reset
+  default speed on stop</kbd> parameter in the <a
+  href="@@preferences#preferences-transport">Preferences</a>.
+</p>
+
+<h4 id="transport_sync">Transport Sync</h4>
 <p>
   On the left of the slider is the positional sync button (which might show <dfn>Internal</dfn>,
   or <dfn>MTC</dfn> or several other values), than can be used to control whether or not the
@@ -80,6 +86,8 @@
   synchronization source, such as MIDI Time Code (MTC), Linear Time Code (LTC) or JACK
   (see <a href="@@timecode-generators-and-slaves">Timecode Generators and Slaves</a>).
 </p>
+
+<h4 id="transport_status">Transport Status</h4>
 <p>
   The current playback status (Stop, Play, or speed %) is shown on the right of
   the speed slider.
@@ -103,7 +111,7 @@
 </table>
 
 <p>
-  Go to the <kdb class="menu">Transport</kbd> and <kdb class="menu">Transport &gt;
-    Playhead</kbd> to find more.
+  The <kbd class="menu">Transport</kbd> and <kbd class="menu">Transport &gt;
+  Playhead</kbd> menus contain a lot more transport actions and their key bindings.
 </p>
 
