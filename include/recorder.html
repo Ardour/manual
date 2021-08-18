@@ -136,6 +136,39 @@
 	 Input when the master-record arm is engaged (so you are actually
 	 recording).
 
+<h3>'New Playlist' buttons</h3>
+
+<figure class="left">
+	<img alt="The 'New Playlist' buttons" src="/images/recorder_new-playlist.png">
+	<figcaption>
+		The 'New Playlist' buttons
+	</figcaption>
+</figure>
+
+<p>
+  Recording multiple takes can easily be done in Ardour by using
+  <a href="@@understanding-playlists">playlists</a>, as a track can have
+  multiple playlists and it is easy to <a href="@@playlist-operations">switch</a>
+  from one to another. 
+</p>
+<p>
+  The two buttons create new, "blank", playlists to record on:
+</p>
+<ul>
+	<li><kbd class="menu">New Playlist for All Tracks</kbd> creates a
+	new playlist for each visible track, while</li>
+	<li><kbd class="menu">New Playlist for Rec-Armed</kbd> uses the
+	<kbd style="color:red;">&#9679;</kbd> recording
+	status of each track to generate new playlists.</kbd></li>
+</ul>
+<p>
+  Creating new playlists is both cheap in terms of CPU and memory, and easy
+  to revert by changing the track's playlist back to its previous one. Playlists
+  on different tracks can also share the same name, allowing for a better
+  workflow when recording: Ardour suggests <em>Take.<i>#n</i></em> as the
+  name for each playlist, so that they stay somewhat correlated.
+</p>
+
 <h3>Disk space and Reset Peaks</h3>
 
 <figure class="left">
