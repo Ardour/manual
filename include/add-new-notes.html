@@ -1,51 +1,54 @@
 
-<p class=fixme>WTH is &ldquo;Note Level Editing&rdquo;? (See table below, &ldquo;So, to summarize&hellip;&rdquo;.)</p>
+<p>
+  MIDI notes can be added a few different way in Ardour:
+<p>
 
-<h2>Adding new notes</h2>
+<h2 id="add-new-notes-using-the-mouse">Using the mouse</h2>
 
 <p>
-  For light MIDI editing, Internal Edit Mode can be used. This mode allows
-  selecting, copying, moving and deleting notes, and also allows altering
-  notes&rsquo; properties. To <em>add</em> notes using the mouse, <kbd
-  class="mouse mod1">Left</kbd>-drag. For more extensive MIDI editing, <kbd
-  class="menu">Draw Mode</kbd> may be preferred. New notes can be added with
-  a click or drag, without having to hold down <kbd class=mod1n></kbd>.
-  However, <kbd class="menu">Draw Mode</kbd> doesn't allow region-level
-  editing.
+  Drawing notes with the mouse requires that a MIDI track <a
+  href="@@create-midi-tracks">exists</a>, and a blank MIDI region has
+  been <a href="@@create-midi-regions">created</a> in this track.
 </p>
-
-<p class=fixme>Not sure if the following paragraph is true.</p>
 <p>
-  In both modes, a mouse <em>click</em> creates a note at the pointer location
-  (or the nearest grid point if grid is enabled), and its duration is one <a
-  href="@@grid-controls">Grid unit</a>, even if the grid is disabled. A mouse
-  <em>drag</em> creates the note like a click does, but allows continuously
-  setting the duration of the note until the mouse button is released.
+  In either <em>Draw</em> or <em>Internal Edit</em> <a
+  href="@@toolbox">Mode</a> new notes can be added with a click or
+  drag: a mouse <em>click</em> creates a note at the pointer location
+  (or the nearest grid anchor if grid is enabled), and its duration is
+  one <a href="@@grid-controls">Grid unit</a>. A mouse <em>drag</em>
+  creates the note like a click does, but allows continuously setting
+  the duration of the note until the mouse button is released.
 </p>
 
-<p>So, to summarize:</p>
+<h2 id="add-new-notes-using-step-entry">Using Step Entry</h2>
 
-<table class="dl">
-  <tr>
-    <th>Selecting, moving, copying, trimming, deleting <em>regions</em></th>
-    <td><kbd class="menu">Note Level Editing</kbd> disabled, using object, range or other mouse modes</td>
-  </tr>
-  <tr>
-    <th>Selecting, moving, copying trimming, deleting <em>notes</em></th>
-    <td><kbd class="menu">Note Level Editing</kbd> enabled, and using mouse object mode</td>
-  </tr>
-  <tr>
-    <th>Adding new notes</th>
-    <td>Enabling "Note Level Editing" and then either
-      <ul>
-        <li>using mouse object mode and <kbd class="mouse mod1">Left</kbd>-drag, or</li>
-        <li>using mouse draw mode.</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+<p>
+  The <a href="@@step-entry">Step Entry editor</a> allows to enter a
+  melody in sequence along time, using a virtual keyboard and specific
+  controls. It can be a very handy and fast way create MIDI lines, in a
+  kind of typewriter way, all the more when using its different
+  keyboard shortcuts.
+</p>
+<p>
+  The Step Entry window is shown by <kbd class="mouse">right</kbd>
+  clicking the record button in the <a
+  href="@@midi-track-controls">MIDI track header</a> and selecting <kbd
+  class="menu">Step Entry</kbd>. This will automatically create a MIDI
+  region to type into at the playhead position, which will automatically expand at each step.
+</p>
 
-<p class="note">
-  There is also <a href="@@step-entry">a step entry editor</a> that allows the
-  entry of notes from a virtual keyboard.
+<h2 id="add-new-notes-using-the-virtual-keyboard">Using the Virtual Keyboard</h2>
+
+<p>
+  The <a href="@@virtual-keyboard">Virtual MIDI Keyboard</a> &mdash; or
+  a real MIDI keyboard plugged in as the tracks input &mdash; can be
+  used to record MIDI, as a microphone would record audio.
+</p>
+<p>
+  It can be started by choosing the <kbd class="menu">Window &gt;
+  Virtual Keyboard</kbd> menu. Exactly like for audio recording, the
+  track(s) must be armed for recording, the main record engaged, then
+  the transport started. As for the Step Entry, a MIDI region will be
+  auto-generated at the playhead position, and expanded as long as the
+  recording lasts.
 </p>
