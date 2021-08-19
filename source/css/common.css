@@ -133,8 +133,7 @@ samp {
 }
 
 .note,
-.warning,
-.fixme {
+.warning {
   min-height: 1.5ex;
   padding: 1em;
   margin-bottom: 1em;
@@ -158,15 +157,7 @@ code {
 }
 
 .fixme {
-  border-color: #999944;
-  background-color: #f0f0e0;
-  font-weight: bold;
-}
-
-.fixme:before {
-  content: 'FIXME: ';
-  font-style: italic;
-  font-size: 2em;
+  display: none;
 }
 
 /* Keyboard modifiers */
