@@ -6,46 +6,55 @@
 </p>
 
 <table class="dl">
-  <tr><th>(Local Playlists)</th>
-   <td>Shows all of the playlists associated with this track, and indicates
-   the currently selected playlist</td></tr>
-  <tr><th>Rename&hellip;</th>
-  <td>Displays a dialog to rename the current playlist</td></tr>
-  <tr><th>New&hellip;</th>
-  <td>Creates a new empty playlist, and the track switches to the new playlist</td></tr>
-  <tr><th>New Copy&hellip;</th>
-  <td>Creates a new playlist that is a copy of the current playlist; the track switches to the new playlist</td></tr>
-  <tr><th>Clear Current</th>
-  <td>Removes all regions from the current playlist</td></tr>
-  <tr><th>Select From All&hellip;</th>
-  <td>Displays a playlist browser to manually choose which playlist this track should use. (from this track or another one)</td></tr>
+  <tr>
+	<th><i>(Local Playlists)</i></th>
+	<td>Shows all of the playlists associated with this track, and indicates
+	the currently selected playlist</td>
+  </tr>
+  <tr>
+	<th>Select&hellip;</th>
+	<td>Allows switching playlists, either for this track or multiple ones (more about that later)</td>
+  </tr>
+  <tr>
+    <th>Rename&hellip;</th>
+    <td>Displays a dialog to rename the current playlist</td></tr>
+  <tr>
+	<th>New Playlist&hellip;</th>
+	<td>Creates a new empty playlist, and the track switches to the new playlist</td>
+  </tr>
+  <tr>
+	<th>Copy Playlist&hellip;</th>
+    <td>Creates a new playlist that is an independent copy of the current playlist; the track switches to the new playlist</td>
+  </tr>
+  <tr>
+	<th>Clear Current</th>
+    <td>Removes all regions from the current playlist</td>
+  </tr>
+  <tr>
+	<th>Advanced</th><td></td></tr>
+	<tr>
+	  <th class="sub1">Copy from &hellip;</th>
+	  <td>Creates a new playlist that is an independent copy of a playlist from this track or another one; the track switches to the new playlist</td>
+	</tr>
+	<tr>
+	  <th class="sub1">Share with &hellip;</th>
+	  <td>Uses a playlist from this track or another one; any edit to this playlist will be reflected on the other track(s) that use this playlist</td>
+	</tr>
+	<tr>
+	  <th class="sub1">Steal from &hellip;</th>
+	  <td>Uses a playlist from this track or another one and removes it from the local playlists in the "robbed" track. Otherwise, behaves like "Share with &hellip;"</td>
+	</tr>
 </table>
 
-<h2>Renaming Playlists</h2>
-<p>
-  Playlists are created by default with the name of the active playlist, plus a
-  version number, and the first playlist is named after the track with which it is
-  associated. So, the first playlist for a track called "Cowbell" will be called
-  "Cowbell.1", the next one "Cowbell.2", etc.  This name can be changed at any
-  time, to anything: Ardour does not require  playlist names to be unique,
-  although it will make the user's life easier if  they are. Suggested examples
-  of user-assigned names for a playlist might include <kbd class="input"> Lead
-  Guitar, 2nd take</kbd>, <kbd class="input">vocals (quiet)</kbd>, and <kbd
-  class="input">downbeat cuica</kbd>. These might be different from the
-  associated track names, which for these examples might be <kbd
-  class="input">Lead Guitar</kbd>, <kbd class="input">Vocals</kbd> and  <kbd
-  class="input">Cuica</kbd>. The playlist name provides more information because
-  it is about a specific version of the material that may (or may not) end up in
-  the final version of the track.
+<p class="note">
+  When <em>Stealing</em> a playlist, it does not remove the playlist from the
+  robbed track. The playlist now belongs to the current track, and the robbed track
+  uses the playlist as a shared playlist with the new owner. Hence, this playlist
+  won't be in the <i>(Local Playlists)</i> list from the robbed track anymore, but
+  will now appear in the current track's local playlists.
 </p>
 
-<p class="note">Using the fact that playlist names are based on the active one with
-  an incremented version number, one can rename a playlist "Cowbell take.1" so that
-  the next playlist created is automatically named "Cowbell take.2" etc. This allows
-  for a quick way to label different takes.
-</p>
-
-<h2>Sharing Playlists</h2>
+<h2>Sharing vs copying Playlists</h2>
 <p>
   It is entirely possible to <dfn>share playlists</dfn> between tracks. The only
   slightly unusual thing that should be noted when sharing is that edits to the
@@ -55,8 +64,52 @@
 </p>
 <p>
   To avoid this kind of behaviour, and nevertheless use the same (or substantially
-  the same) playlist on two tracks, the desired playlist must be chosen in the
-  second track, and then the <kbd class="menu">New Copy&hellip;</kbd> button clicked.
+  the same) playlist on two tracks, the desired playlist must be copied and not shared.
   This generates an <dfn>independent copy</dfn> of it for that track, which can
   then be edited without affecting the original.
+</p>
+
+<h2>Select menu</h2>
+
+<figure>
+	<img src="/images/playlist_select.png" alt="The Select playlist menu"/>
+	<figcaption>The Select playlist menu.</figcaption>
+</figure>
+
+<p>
+  In its most basic use, the <kbd class="menu">Select &hellip;</kbd>
+  menu allows:
+</p>
+<ul>
+	<li>
+		to switch from one playlist to another (with the added benefit,
+		compared to switching directly from the <i>Local Playlists</i>
+		list, to see the creation date and time),
+	</li>
+	<li>
+		to create a new, empty playlist, with the <kbd class="menu">New
+		Playlist(s)</kbd> button,
+	</li>
+	<li>
+		or to create an independent copy of the current one, with the
+		<kbd class="menu">Copy Playlist(s)</kbd> button.
+	</li>
+</ul>
+<p>
+  When used for <kbd class="option">Only this track/group</kbd>, in the
+  selector below, it is the same as using the <kbd class="menu">New
+  Playlist &hellip;</kbd> and <kbd class="menu">Copy Playlist &hellip;</kbd> from the
+  Playlist menu.
+</p>
+<p>
+  But the selector also allows to apply these operation (changing
+  playlist, creating an empty new one or creating an independent copy)
+  for <kbd class="option">Rec-armed tracks</kbd> or <kbd
+  class="option">ALL tracks</kbd>. This can be useful in a recording
+  situation with many microphones and multiple takes to deal with.
+</p>
+<p>
+  These playlist operations, on multiple tracks, are also available
+  directly on the secondary toolbar in <a
+  href="@@recorder">Recorder</a> mode.
 </p>
