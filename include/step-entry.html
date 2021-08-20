@@ -1,6 +1,4 @@
 
-<p class="fixme">step_editing.bindings doesn't seem to exist anywhere discoverable by an average user; also, what does "Insert Snap-Rest" mean? And what key is the "bar" key and why doesn't it work?</p>
-
 <p>
   Entering notes in Ardour can be done by using a connected MIDI device like a MIDI keyboard or pad controller, or by using the mouse. A third option, which provides for fine-grained control, precision and speed comes from using Ardour's Step Entry dialog.
 </p>
@@ -50,11 +48,8 @@
 <p>
   Almost all actions in the step entry dialog can be driven directly from the
   keyboard, so that moving back and forth from the keyboard to the mouse is
-  typically not necessary&mdash;even for complex data entry.
-</p>
-
-<p>
-  The default key bindings for this (configured in <tt>step_editing.bindings</tt>) are:
+  typically not necessary&mdash;even for complex data entry. The default key
+  bindings are:
 </p>
 
 <table>
@@ -62,10 +57,10 @@
   <tr><td><kbd>1</kbd> to <kbd>9</kbd></td><td>Set octave 1 to 9</td></tr>
   <tr><td><kbd>0</kbd></td><td>Set octave 10</td></tr>
 
-  <tr><td><kbd>f1</kbd></td><td>Set note length whole</td></tr>
-  <tr><td><kbd>f2</kbd></td><td>Set note length half</td></tr>
-  <tr><td><kbd>f3</kbd></td><td>Set note length third</td></tr>
-  <tr><td><kbd>f4</kbd> to <kbd>f8</kbd></td><td>Set note length quarter to sixtyfourth</td></tr>
+  <tr><td><kbd>f1</kbd></td><td>Set note length to whole</td></tr>
+  <tr><td><kbd>f2</kbd></td><td>Set note length to half</td></tr>
+  <tr><td><kbd>f3</kbd></td><td>Set note length to third</td></tr>
+  <tr><td><kbd>f4</kbd> to <kbd>f8</kbd></td><td>Set note length to quarter to sixtyfourth</td></tr>
 
   <tr><td><kbd>a</kbd></td><td>Insert C</td></tr>
   <tr><td><kbd>w</kbd></td><td>Insert C&sharp;</td></tr>
@@ -80,9 +75,9 @@
   <tr><td><kbd>u</kbd></td><td>Insert A&sharp;</td></tr>
   <tr><td><kbd>j</kbd></td><td>Insert B</td></tr>
 
-  <tr><td><kbd>tab</kbd></td><td>Insert rest</td></tr>
-  <tr><td><kbd class="mod1">tab</kbd></td><td>Insert snap rest (?)</td></tr>
-  <tr><td><kbd>backspace</kbd></td><td>Set insert cursor back one note length</td></tr>
+  <tr><td><kbd>tab</kbd></td><td>Insert a one note length rest</td></tr>
+  <tr><td><kbd class="mod1">tab</kbd></td><td>Insert a one grid unit rest</td></tr>
+  <tr><td><kbd>backspace</kbd></td><td>Moves the cursor back one note length</td></tr>
 
   <tr><td><kbd>z</kbd></td><td>Set note velocity &#119183;&#119183;&#119183;</td></tr>
   <tr><td><kbd>x</kbd></td><td>Set note velocity &#119183;&#119183;</td></tr>
@@ -101,6 +96,6 @@
   <tr><td><kbd>'</kbd></td><td>Toggle triplet</td></tr>
   <tr><td><kbd>.</kbd></td><td>Set single dotted</td></tr>
   <tr><td><kbd class="mod1">.</kbd></td><td>Clear dotted</td></tr>
-  <tr><td><kbd>bar (?)</kbd></td><td>Toggle chord</td></tr>
+  <tr><td><kbd>|</kbd> (bar)</td><td>Toggle chord</td></tr>
 </table>
 
