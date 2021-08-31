@@ -173,7 +173,6 @@ body {
   font-size: .9em;
   line-height: .9em; 
 }
-}
 
 #content figcaption.center {
   text-align: center;
@@ -211,17 +210,6 @@ body {
 
 #content img.fit {
   width: 100%;
-}
-
-kbd {
-  text-shadow: 0 0 2px rgb(255, 255, 255);
-  box-shadow: inset 0 0 1px rgb(255, 255, 255), inset 0 0 .4em rgb(200, 200, 200), 0 .1em 0 rgb(130, 130, 130), 0 .11em 0 rgba(0, 0, 0, .4), 0 .1em .11em rgba(0, 0, 0, .9);
-}
-
-
-kbd.cmd {
-  text-shadow: none;
-  box-shadow: none;
 }
 
 #content p.center {

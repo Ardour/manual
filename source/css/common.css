@@ -1,5 +1,4 @@
 
-
 body {
   line-height: normal;
 }
@@ -9,14 +8,14 @@ kbd {
   min-width: 1em;
   padding: .2em .3em;
   font: normal .8em/1 sans-serif;
-  text-align: center;
   text-decoration: none;
   border-radius: .3em;
-  background: rgb(250, 250, 250);
+  background: rgb(210, 210, 210);
   background: linear-gradient(to top, rgb(210, 210, 210), rgb(255, 255, 255));
   color: rgb(50, 50, 50);
   white-space: nowrap;
-  text-transform: capitalize;
+  text-shadow: 0 0 2px rgb(255, 255, 255);
+  box-shadow: inset 0 0 1px rgb(255, 255, 255), inset 0 0 .4em rgb(200, 200, 200), 0 .1em 0 rgb(130, 130, 130), 0 .11em 0 rgba(0, 0, 0, .4), 0 .1em .11em rgba(0, 0, 0, .9);
 }
 
 kbd.def {
@@ -34,7 +33,7 @@ kbd.osc {
 
 kbd.input {
   background: none;
-  border-radius: 0;
+  border-radius: unset;
 }
 
 kbd.cmd {
@@ -44,45 +43,37 @@ kbd.cmd {
   text-transform: none;
   background: rgb(220, 220, 220);
   text-align: left;
+  color: #999999;
+  text-shadow: none;
+  box-shadow: none;
 }
 
 kbd.cmd.lin:before {
   content: 'user@linux:~ ';
-  color: #999999;
 }
 
 kbd.cmd.mac:before {
   content: 'MacBook:~/Desktop User\$ ';
-  color: #999999;
 }
 
 kbd.cmd.win:before {
   content: 'C:\\Users\\myAccount> ';
-  color: #999999;
 }
 
-kbd.optoff,
-kbd.option {
-  border: none;
-  background: none;
-  margin: 0 1em 0 0;
-  vertical-align: middle;
+kbd.menu,
+kbd.option,
+kbd.optoff {
+  border-radius: unset;
+  background: rgb(240, 240, 240);
+  box-shadow: inset 0 0 1px rgb(255, 255, 255), inset 0 0 .4em rgb(200, 200, 200), 0 .1em 0 rgb(130, 130, 130), 0 .11em 0 rgba(0, 0, 0, .4);
 }
 
 kbd.optoff:before {
-  content: url('../images/checkbox-unchecked.png');
+  content: '\2610\00a0';
 }
 
 kbd.option:before {
-  content: url('../images/checkbox-checked.png');
-}
-
-kbd.menu {
-  border: none;
-  background: none;
-  font-weight: bold;
-  font-stretch: extra-condensed;
-  white-space: normal;
+  content: '\2611\00a0';
 }
 
 kbd.osc {
