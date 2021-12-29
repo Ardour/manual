@@ -208,16 +208,22 @@ def GetParent(fs, pos):
 
 
 #
-# Change the hierarchy of titles : h1->hn, h2->hn+1, etc... n being delta-1
+# Change the hierarchy of titles : <h1>-><hn>, <h2>-><hn+1>, so that the
+# highest hyerarchy level is maxlevel
 #
-def reheader(txt, delta):
-	for i in range(6, 0, -1):
-		txt = txt.replace('<h' + str(i), '<h' + str(i + delta))
-		txt = txt.replace('</h' + str(i), '</h' + str(i + delta))
+def remapheader(txt, maxlevel):
+	maxlvl=1
+	# find the highest hierarchy level in the content
+	while maxlvl < 7 and txt.find('<h' + str(maxlvl)) == -1:
+		maxlvl += 1
+	# if there is a hierarchy, remap it so that the highest level is maxlevel
+	if maxlvl < 7:
+		for i in range(6, maxlvl-1, -1):
+			txt = txt.replace('<h' + str(i), '<h' + str(i + maxlevel - maxlvl))
+			txt = txt.replace('</h' + str(i), '</h' + str(i + maxlevel - maxlvl))
 
 	return txt
-
-
+	
 #
 # Creates the BreadCrumbs
 #
@@ -622,7 +628,7 @@ for header in fileStruct:
 
 	# Fix up any internal links
 	opcontent = FixInternalLinks(oplinks, content, header['title'])
-	opcontent = reheader(opcontent, 2)
+	opcontent = remapheader(opcontent, level+2)
 
 	# Create "one page" header
 	oph = '<h' + str(level+1) + ' class="clear" id="' + header[('link' if 'link' in header else 'filename')] +'">' + header['title'] + '</h' + str(level+1) + '>\n';
