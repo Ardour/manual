@@ -93,7 +93,7 @@ body {
 	counter-reset: partnum chapternum subchapternum subsubchapternum figurenum; /* resets all counters */
 	font-size: 10pt;
 	line-height: 1.25em;
-
+	text-align: justify;
 }
 
 h1, h2 {
