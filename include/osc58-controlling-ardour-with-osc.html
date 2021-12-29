@@ -18,34 +18,34 @@
 </p>
 <ul>
   <li>
-	<a href="#set-up">Control Surface Set</a>
+	<a href="#osc_set-up">Control Surface Set</a>
   </li>
   <li>
-	<a href="#global">Master or Global messages</a>
+	<a href="#osc_global">Master or Global messages</a>
   </li>
   <li>
-	<a href="#transport">Transport Control</a>
+	<a href="#osc_transport">Transport Control</a>
   </li>
   <li>
-	<a href="#recording">Recording control</a>
+	<a href="#osc_recording">Recording control</a>
   </li>
   <li>
-	<a href="#information">Transport Information</a>
+	<a href="#osc_information">Transport Information</a>
   </li>
   <li>
-	<a href="#editing">Editing-related</a>
+	<a href="#osc_editing">Editing-related</a>
   </li>
   <li>
-	<a href="#Master-strip">Master and Monitor strip control</a>
+	<a href="#osc_Master-strip">Master and Monitor strip control</a>
   </li>
   <li>
-    <a href="#strips">Track specific operations</a>
+    <a href="#osc_strips">Track specific operations</a>
   </li>
   <li>
-    <a href="#select">Selected Strip Operations</a>
+    <a href="#osc_select">Selected Strip Operations</a>
   </li>
   <li>
-    <a href="#menu">Menu actions</a>
+    <a href="#osc_menu">Menu actions</a>
   </li>
 </ul>
 <p>
@@ -82,7 +82,7 @@ here</em>"/&gt;</kbd>
   OSC feedback In Ardour.</a>
 </p>
 
-<h2 id="set-up">Control Surface Set Up</h2>
+<h2 id="osc_set-up">Control Surface Set Up</h2>
 
 <p>
   Control surface set up allows the controller to tell Ardour about its
@@ -306,9 +306,9 @@ here</em>"/&gt;</kbd>
 	href="@@osc58-parameter-types">
 	Parameter Types in OSC.</a>
 </p>
-<h3 id="global">Master or Global messages</h3>
+<h3 id="osc_global">Master or Global messages</h3>
 
-<h4  id="transport">Transport Control</h4>
+<h4  id="osc_transport">Transport Control</h4>
 <table class="dl">
   <tr><th><kbd class="osc">/transport_stop</kbd></th>
   <td>Stops a rolling transport</td></tr>
@@ -376,7 +376,7 @@ here</em>"/&gt;</kbd>
   OSC Jog Modes</a></td></tr>
 </table>
 
-<h4 id="recording">Recording control</h4>
+<h4 id="osc_recording">Recording control</h4>
 <table class="dl">
   <tr><th><kbd class="osc">/toggle_punch_in</kbd></th>
   <td></td></tr>
@@ -386,7 +386,7 @@ here</em>"/&gt;</kbd>
   <td>Toggles master record enable</td></tr>
 </table>
 
-<h4 id="information">Transport Information</h4>
+<h4 id="osc_information">Transport Information</h4>
 <table class="dl">
   <tr><th><kbd class="osc">/transport_frame</kbd></th>
   <td>Ardour sends /transport_frame <em>current_frame</em></td></tr>
@@ -396,7 +396,7 @@ here</em>"/&gt;</kbd>
   <td>Ardour sends /record_enabled <em>recordenable_status</em></td></tr>
 </table>
 
-<h4 id="editing">Editing-related</h4>
+<h4 id="osc_editing">Editing-related</h4>
 <table class="dl">
   <tr><th><kbd class="osc">/undo</kbd></th>
   <td></td></tr>
@@ -409,7 +409,7 @@ here</em>"/&gt;</kbd>
   <td>Set session name to <em>new_name</em> (if new_name is legal and unique)</td></tr>
 </table>
 
-<h4 id="Master-strip">Master and Monitor strip control</h4>
+<h4 id="osc_Master-strip">Master and Monitor strip control</h4>
 <table class="dl">
   <tr><th><kbd class="osc">/master/gain <em>dB</em></kbd></th>
   <td>dB is a float indicating the desired gain in dB</td></tr>
@@ -439,7 +439,7 @@ here</em>"/&gt;</kbd>
   <td>state is an int of 0 or 1 where 1 is mono mode</td></tr>
 </table>
 
-<h3 id="strips">Track specific operations</h3>
+<h3 id="osc_strips">Track specific operations</h3>
 <p>
   For each of the following, <em>ssid</em> is the Surface Strip ID for the track
 </p>
@@ -476,7 +476,7 @@ here</em>"/&gt;</kbd>
   <tr><th><kbd class="osc">/strip/spill <em>ssid</em></kbd></th>
   <td> Use strips this strip is grouped with or those that feed this bus
   (if this strip is a bus) or that this vca (if this is a VCA) controls.
-  See <a href="#spill">Spill Strips</a> for more details</td></tr>
+  See <a href="#osc_spill">Spill Strips</a> for more details</td></tr>
   <tr><th><kbd class="osc">/strip/hide <em>ssid</em> <em>y/n</em></kbd></th>
   <td>Where <em>y/n</em> = 1 hide this strip, 0 for show this track.
   <a href="@@osc58-feedback-and-strip-types-values#hidden">
@@ -485,7 +485,7 @@ here</em>"/&gt;</kbd>
   <td>where <em>strip_name</em> is a string representing the desired name for the strip</td></tr>
   <tr><th><kbd class="osc">/strip/group <em>ssid</em> <em>group_name</em></kbd></th>
   <td>where <em>group_name</em> is a string representing the name of the group desired.
-  See <a href="#groups">groups</a> for more details</td></tr>
+  See <a href="#osc_groups">groups</a> for more details</td></tr>
   <tr><th><kbd class="osc">/strip/mute <em>ssid</em> <em>mute_st</em></kbd></th>
   <td>where <em>mute_st</em> is a bool/int representing the desired mute state of the track</td></tr>
   <tr><th><kbd class="osc">/strip/solo <em>ssid</em> <em>solo_st</em></kbd></th>
@@ -558,7 +558,7 @@ here</em>"/&gt;</kbd>
   <tr><th><kbd class="osc">/strip/name <em>ssid</em> <em>name</em></kbd></th>
   <td>where <em>name</em> is a string for the desired name of the track</td></tr>
 </table>
-<h3 id="select">Selected Strip Operations</h3>
+<h3 id="osc_select">Selected Strip Operations</h3>
 <p>
   New for Ardour 5, A whole set of operations that work on the selected
   or expanded strip.
@@ -611,7 +611,7 @@ here</em>"/&gt;</kbd>
   <td>where <em>comment</em> is a string representing the desired comment for the strip</td></tr>
   <tr><th><kbd class="osc">/select/group <em>group_name</em></kbd></th>
   <td>where <em>group_name</em> is a string representing the name of the group desired.
-  See <a href="#groups">groups</a> for more details</td></tr>
+  See <a href="#osc_groups">groups</a> for more details</td></tr>
   <tr><th><kbd class="osc">/select/group/enable <em>state</em></kbd></th>
   <td>where <em>state</em> is an int representing the desired enable state
   of the group the selected strip is a part of</td></tr>
@@ -687,7 +687,7 @@ here</em>"/&gt;</kbd>
   <tr><th><kbd class="osc">/select/spill</kbd></th>
   <td> show only strips this strip is grouped with or
   those that feed this bus or that this vca controls.
-  See <a href="#spill">Spill Strips</a> for more details</td></tr>
+  See <a href="#osc_spill">Spill Strips</a> for more details</td></tr>
   <tr><th><kbd class="osc">/select/*/automation  <em>mode</em></kbd></th>
   <td>where <em>mode</em> is an int ranging from 0 to 3 representing the desired automation mode for the control.
   <a href="@@osc58-automation">See OSC Automation.</a></td></tr>
@@ -729,7 +729,7 @@ here</em>"/&gt;</kbd>
 	for page up and a switch with a value of <code>-1</code> for page down. An encoder
 	can be used as well. (these commands were added in Ardour version 5.10)
 </p>
-<h4 id="groups">Using groups with strip and select (new for Ardour 6.0)</h4>
+<h4 id="osc_groups">Using groups with strip and select (new for Ardour 6.0)</h4>
 <p class="note">
 	No grouping will occure unless <code>use_group</code> is set either
 	by using <kbd class="osc">/set_surface/strip_types</kbd> with the use groups bit set
@@ -768,7 +768,7 @@ here</em>"/&gt;</kbd>
 	<p>To create a new group from a strip that is already joined to a group,
 	the strip must first remove itself from the current group.
 	</p>
-<h4 id="spill">Spill Strips</h4>
+<h4 id="osc_spill">Spill Strips</h4>
 <p><kbd class="osc">/select/spill</kbd> or <kbd class="osc">/strip/spill</kbd>
 	will:</p>
 	<ul>
@@ -807,7 +807,7 @@ here</em>"/&gt;</kbd>
 	<kbd class="osc">/strip/custom/mode <em>mode</em></kbd>.
 </p>
 
-<h3 id="menu">Menu actions</h3>
+<h3 id="osc_menu">Menu actions</h3>
 <p>
   Every single menu item in Ardour's GUI is accessible via OSC. There is
   a single common syntax to trigger the action as if it was selected

@@ -42,14 +42,12 @@ div.frontcover {
 @page :right {
    @bottom-left {
        margin: 10pt 0 30pt 0;
-       /*border-top: .25pt solid #666;*/
 	   content: "The Ardour Manual";
        font-size: 7pt;
        color: #333;
    }
    @bottom-right {
        margin: 10pt 0 30pt 0;
-       /*border-top: .25pt solid #666;*/
        content: counter(page);
        font-size: 7pt;
    }
@@ -67,14 +65,12 @@ div.frontcover {
 @page :left {
    @bottom-right {
        margin: 10pt 0 30pt 0;
-       /*border-top: .25pt solid #666;*/
 	   content: "The Ardour Manual";
        font-size: 7pt;
        color: #333;
    }
    @bottom-left {
        margin: 10pt 0 30pt 0;
-       /*border-top: .25pt solid #666;*/
        content: counter(page);
        font-size: 7pt;
    }
@@ -94,8 +90,7 @@ div.frontcover {
 }
 
 body {
-	counter-reset: partnum chapternum subchapternum figurenum; /* resets all counters */
-	/*font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;*/
+	counter-reset: partnum chapternum subchapternum subsubchapternum figurenum; /* resets all counters */
 	font-size: 10pt;
 	line-height: 1.25em;
 
@@ -109,7 +104,6 @@ h1, h2 {
 #toc::before { /* the ToC should not count...*/
   content: none;
   counter-reset: partnum;
-  /*counter-increment: partnum -1;*/
 }
 
 h1::before { /* parts */
@@ -127,14 +121,19 @@ h3::before {	/* subchapter */
   content: counter(chapternum) "." counter(subchapternum) " - " ;
 }
 
+h4::before {	/* subsubchapter */
+  counter-increment: subsubchapternum;
+  content: counter(chapternum) "." counter(subchapternum) "." counter(subsubchapternum) " - " ;
+}
+
 figcaption::before {
 	counter-increment: figurenum;
 	content: "Fig. " counter(chapternum) "." counter(figurenum) " - ";
 }
 
 h1 { font-size: 3em; }
-h2 { font-size: 2.25em; counter-reset: subchapternum figurenum; }
-h3 { font-size: 1.75em; }
+h2 { font-size: 2.25em; counter-reset: subchapternum subsubchapternum figurenum; }
+h3 { font-size: 1.75em; counter-reset: subsubchapternum; }
 h4 { font-size: 1.4em; }
 h5 { font-size: 1.2em; }
 h6 { font-size: 1.1em; }
@@ -144,13 +143,18 @@ h1,h2,h3,h4,h5 {
 	page-break-after: avoid;
 	page-break-inside: avoid;
 	line-height: 1.25em;
+	color: darkred;
 }
 
 h1+p, h2+p, h3+p {
 	page-break-before: avoid;
 }
 
-table, figure {
+table {
+	clear: both;
+}
+
+figure {
 	page-break-inside: avoid;
 }
 
