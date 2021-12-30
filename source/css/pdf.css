@@ -14,7 +14,11 @@
 
 body {
 	font-family: 'lora';
-	font-size: 12px;
+	counter-reset: partnum chapternum subchapternum subsubchapternum figurenum; /* resets all counters */
+	font-size: 10pt;
+	line-height: 1.25em;
+	text-align: justify;
+	color:#212a30;
 }
 
 img {
@@ -89,13 +93,6 @@ div.frontcover {
   }
 }
 
-body {
-	counter-reset: partnum chapternum subchapternum subsubchapternum figurenum; /* resets all counters */
-	font-size: 10pt;
-	line-height: 1.25em;
-	text-align: justify;
-}
-
 h1, h2 {
   string-set: doctitle content(); /* get the title of the current chapter */
   page-break-before: always;
@@ -131,8 +128,8 @@ figcaption::before {
 	content: "Fig. " counter(chapternum) "." counter(figurenum) " - ";
 }
 
-h1 { font-size: 3em; }
-h2 { font-size: 2.25em; counter-reset: subchapternum subsubchapternum figurenum; }
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; counter-reset: subchapternum subsubchapternum figurenum; }
 h3 { font-size: 1.75em; counter-reset: subsubchapternum; }
 h4 { font-size: 1.4em; }
 h5 { font-size: 1.2em; }
@@ -143,7 +140,7 @@ h1,h2,h3,h4,h5 {
 	page-break-after: avoid;
 	page-break-inside: avoid;
 	line-height: 1.25em;
-	color: darkred;
+	color: #e4214e;
 }
 
 h1+p, h2+p, h3+p {
@@ -188,7 +185,9 @@ ol {
 }
 
 a {
-	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+	color: inherit;
 }
 
 /* add page number to cross references */
