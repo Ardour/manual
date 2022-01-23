@@ -1645,7 +1645,7 @@ part: section
 ---
 
 ---
-title: Loudness Analyzer & Normalizer
+title: Loudness Analyzer and Normalizer
 include: loudness-analyzer.html
 link: loudness-analyzer
 part: subchapter
@@ -1793,7 +1793,7 @@ part: chapter
 ---
 
 ---
-title: Transcoding, Formats &amp; Codecs
+title: Transcoding, Formats and Codecs
 include: transcoding-formats-amp-codecs.html
 link: transcoding-formats-amp-codecs
 uri: video-timeline/transcoding_formats_codecs
@@ -1801,7 +1801,7 @@ part: chapter
 ---
 
 ---
-title: Workflow &amp; Operations
+title: Workflow and Operations
 include: workflow-amp-operations.html
 link: workflow-amp-operations
 uri: video-timeline/operations
