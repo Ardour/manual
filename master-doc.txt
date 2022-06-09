@@ -293,22 +293,6 @@ part: chapter
 ---
 
 ---
-title: MIDI on Linux
-include: midi-on-linux.html
-link: midi-on-linux
-uri: setting-up-your-system/setting-up-midi/midi-on-linux
-part: subchapter
----
-
----
-title: MIDI on OS X
-include: midi-on-os-x.html
-link: midi-on-os-x
-uri: setting-up-your-system/setting-up-midi/midi-on-os-x
-part: subchapter
----
-
----
 title: Ardour's Interface
 uri: ardours-interface
 part: part
