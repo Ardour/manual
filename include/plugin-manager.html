@@ -1,21 +1,130 @@
 
 <p>
-  The <dfn>Plugin Manager</dfn> ... FIXME
-</p>
-
-<p>
-  FIXME
+  The <dfn>Plugin Manager</dfn> provides a convenient interface to various
+  operations on plugins and is the primary troubleshooting tools when something
+  goes wrong with plugins. It works on both physical plugin files and
+  the plugins index.
 </p>
 
 <figure class=center>
-<img src="/images/plugin-manager.png" alt="The Plugin Manager window"/>
+<img src="/images/plugin-manager.png" alt="The Plugin Manager window" width="100%" />
 <figcaption class=center>The Plugin Manager window</figcaption>
 </figure>
 
-<h2>Plugins info</h2>
+<h2>What is a plugins index?</h2>
 
 <p>
-  FIXME TABLE CULUMNS: Status, Ign, Fav, Hide, Type, File/ID, Name, Creator, Tags 
+  For each type of a plugin (e.g. VST3 or LV2) there are pre-configured paths
+  where these plugins are located. Every time Ardour runs, it re-scans plugins
+  in these paths and recreates an index — a kind of inventory of available
+  plugins. Whenever you open the <a href="@@plugin-selector">Plugin Selector</a>
+  dialog, Ardour reads the list of available plugins from that index and
+  displays them for you to pick.
+</p>
+
+<p>
+  Re-scanning paths is important because it's common for plugins to change on
+  the disk (e.g. when you installed a newer version) or get removed (when you
+  don't need a plugin anymore). Sometimes plugins get corrupted due to
+  a hardware failure. Indexing them often helps identifying issues early on,
+  and the Plugin Manager helps reviewing the general state of affairs with
+  plugins.
+</p>
+
+<h2>Plugins info</h2>
+
+The main part of the Plugin Manager window is the table where all plugins known
+to Ardour are listed. You can use it to both view information about a plugin and 
+control some of its aspects:
+
+<table class="dl">
+  <tr>
+      <th>Status</th>
+      <td>Ardour will displays the status of every plug-in file. See below
+      for more information</td>
+  </tr>
+  <tr>
+      <th>Ign</th>
+      <td>Do not load this plugin file at all</td>
+  </tr>
+  <tr>
+      <th>Fav</th>
+      <td>Set or unset the Favorite status for a plugin</td>
+  </tr>
+  <tr>
+      <th>Hide</th>
+      <td>Load this plugin file, but do not show it in the Plugin Selector</td>
+  </tr>
+  <tr>
+      <th>Type</th>
+      <td>The name of the API this plugin has been built with:
+      VST2, VST3, AU, LADSPA, LV2</td>
+  </tr>
+  <tr>
+      <th>File/ID</th>
+      <td>Displays the file name for LADSPA, VST2, and VST3, as well as
+      the ID for LV2 and AU</td>
+  </tr>
+  <tr>
+      <th>Name</th>
+      <td>User-visible name of the plugin</td>
+  </tr>
+  <tr>
+      <th>Creator</th>
+      <td>Developer of team of developers who created the plugin</td>
+  </tr>
+  <tr>
+      <th>Tags</th>
+      <td>Metadata that classifies the plugin by type,
+      e.g. 'instrument|synth' or 'analyser'</td>
+  </tr>
+</table>
+
+<p>
+  The Status field specifically has the following options: 
+</p>
+
+<table class="dl">
+  <tr>
+    <th>OK</th>
+    <td>The plugin file has loaded without any issues and the information
+    in the cache about it is up to date</td>
+  </tr>
+  <tr>
+    <th>New</th>
+    <td>The plugin file has just been discovered and successfully loaded
+    for the first time</td>
+  </tr>
+  <tr>
+    <th>Updated</th>
+    <td>The plugin file changed on the disk, the plugin cache has been updated
+    accordingly, the plugin file loaded successfully</td>
+  </tr>
+  <tr>
+    <th>Concealed</th>
+    <td>VST2 if corresponding VST3 exists.  same for LV1 when LV2 exists</td>
+  </tr>
+  <tr>
+    <th>Error</th>
+    <td>There was a problem loading the plugin file</td>
+  </tr>
+  <tr>
+    <th>Stale</th>
+    <td>A VSTx/AU plugin changed on the disk but hasn't been re-scanned
+    by Ardour yet</td>
+  </tr>
+  <tr>
+    <th>Incompatible</th>
+    <td>Scan the plugin failed. Typical reasons are 32/64-bit mismatch,
+    attempt to load a .dll on Linux or a .dylib on Windows</td>
+  </tr>
+</table>
+
+<p>
+  The <kbd class="menu">Plugin Count</kbd> section in the sidebar provides
+  basic information on available plugins: how many plugins of every supported
+  type are available through Ardour in total, how many failed to load, and 
+  how many are missing.
 </p>
 
 <h2>Searching</h2>
@@ -24,7 +133,7 @@
   FIXME
 </p>
 
-<h2>Scan Actions</h2>
+<h2>Scan actions</h2>
 
 <p>
   FIXME
