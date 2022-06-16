@@ -1,6 +1,6 @@
 
 <figure class="right">
-	<img src="/images/import-window.png" alt="The import window">
+	<img src="/images/import-window.png" alt="The import window" width="50%">
 	<figcaption>
 		The import window.
 	</figcaption>
@@ -15,8 +15,10 @@
 </p>
 <p>
   Importing audio and MIDI data into the session is done with the
-  <dfn>Add Existing Media</dfn> dialog, accessed by the <kbd class="menu">
-  Session &gt; Import</kbd> menu.
+  <dfn>Add Existing Media</dfn> dialog, accessed either by the
+  <kbd class="menu"> Session &gt; Import</kbd> menu or, if any tracks have
+  already been added, by right-clicking on the canvas of the <dfn>Editor</dfn>
+  window and choosing <kbd class="menu">Insert Existing Media</kbd>.
 </p>
 
 <h2>The Soundfile Information Box</h2>
@@ -87,6 +89,34 @@
   The <kbd class="menu">Conversion quality</kbd> drop-down controls the
   quality of the resampling process, if the sampling rate of the source file
   differs from the session rate.
+</p>
+<p>
+  There are three MIDI-specific options as well. First off, you can set a track 
+  naming scheme:
+</p>
+<table class="dl">
+  <tr><th>by track number</th><td>will automatically assign every track a name that consists of the imported file name and a track number</td></tr>
+  <tr><th>by track name</th><td>will</td></tr>
+  <tr><th>by instrument name</th><td>will</a></td></tr>
+</table>
+<p>
+<p>
+  You can also optionally import a tempo map from a MIDI file.
+  The <kbd class="menu">Use MIDI Tempo Map (if defined)</kbd> option appears
+  when a MIDI file is selected in the file selection dialog.
+<p>
+<p>
+  The last MIDI-specific option is <kbd class="menu">Import MIDI Markers
+  (if any)</kbd>. If those are present in a MIDI file, they will be rendered
+  right above MIDI clips on the canvas. Editing the MIDI markers is currently
+  unavailable.
+</p>
+<figure class="right">
+	<img src="/images/imported-midi-markers.png" alt="MIDI markers imported from a .mid file" width="75%">
+	<figcaption>
+		MIDI markers imported from a .mid file
+	</figcaption>
+</figure>
 </p>
 <p>
   Finally, and most importantly, the files can be linked or copied to the session
