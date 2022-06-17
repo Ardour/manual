@@ -102,7 +102,8 @@ control some of its aspects:
   </tr>
   <tr>
     <th>Concealed</th>
-    <td>VST2 if corresponding VST3 exists.  same for LV1 when LV2 exists</td>
+    <td>A VST2 plugin will be hidden from Plugin Selector, if a corresponding
+    VST3 plugin exists. The same applies to LV1 (LADSPA) and LV2</td>
   </tr>
   <tr>
     <th>Error</th>
@@ -110,7 +111,7 @@ control some of its aspects:
   </tr>
   <tr>
     <th>Stale</th>
-    <td>A VSTx/AU plugin changed on the disk but hasn't been re-scanned
+    <td>A plugin changed on the disk but hasn't been re-scanned
     by Ardour yet</td>
   </tr>
   <tr>
@@ -130,18 +131,56 @@ control some of its aspects:
 <h2>Searching</h2>
 
 <p>
-  FIXME
+  You can search for a specific plugin or a group of plugins. Simply place the
+  cursor inside the input text box in the upper left corner and type. Ardour
+  will search in the index
+</p>
+
+<p>
+  By default, Ardour will search through plugin names, makers, and file names.
+  Additionally, you can search through Type, Tags, and Paths.
 </p>
 
 <h2>Scan actions</h2>
 
 <p>
-  FIXME
+  This section of the sidebar contains commands that operate
+  on the plugins index.
 </p>
+
+<table class="dl">
+  <tr>
+    <th>Discover New/Updated</th>
+    <td>This will run a full scan on all known paths to plugin of all supported types</td>
+  </tr>
+  <tr>
+    <th>Update Index Only</th>
+    <td>This will check which plugins were updated without scanning them</td>
+  </tr>
+  <tr>
+    <th>Re-scan Selected</th>
+    <td>This will re-scan plugin files selected in the main part of the window</td>
+  </tr>
+  <tr>
+    <th>Re-scan Faulty</th>
+    <td>This will only re-scan plugins that previously failed to load</td>
+  </tr>
+  <tr>
+    <th>Re-scan All</th>
+    <td>This will re-scan all currently known plugins</td>
+  </tr>
+  <tr>
+    <th>Clear Staled Scan Log</th>
+    <td>This will remove all entries from the index on plugins that changed
+    on the disk but haven't been re-scanned</td>
+  </tr>
+</table>
 
 <h2>Preferences</h2>
 
 <p>
-  FIXME
+  This section of the sidebar allows settings paths to VST2 and VST3 plugins,
+  as well as quickly open the <kbd class="menu">Preferences</kbd> dialog
+  on the <kbd class="menu">Plugins</kbd> page where you can set various options
+  for scanning plugins and controlling their default behavior.
 </p>
-
