@@ -2,8 +2,7 @@
 <p>
   The <dfn>Plugin Manager</dfn> provides a convenient interface to various
   operations on plugins and is the primary troubleshooting tools when something
-  goes wrong with plugins. It works on both physical plugin files and
-  the plugins index.
+  goes wrong with plugins. It works on both plugin files and the plugins index.
 </p>
 
 <figure class=center>
@@ -14,7 +13,7 @@
 <h2>What is a plugins index?</h2>
 
 <p>
-  For each type of a plugin (e.g. VST3 or LV2) there are pre-configured paths
+  For each type of a plugin (e.g. VST3 or AU) there are pre-configured paths
   where these plugins are located. Every time Ardour runs, it re-scans plugins
   in these paths and recreates an index — a kind of inventory of available
   plugins. Whenever you open the <a href="@@plugin-selector">Plugin Selector</a>
@@ -29,6 +28,12 @@
   a hardware failure. Indexing them often helps identifying issues early on,
   and the Plugin Manager helps reviewing the general state of affairs with
   plugins.
+</p>
+
+<p>
+  Ardour also treats LV2 plugins slightly differently and scans them on startup
+  unconditionally. You can disable the scanning of VST2, VST3, and AU plugins
+  entirely in the <kbd class="menu">Preferences</kbd> dialog.
 </p>
 
 <h2>Plugins info</h2>
