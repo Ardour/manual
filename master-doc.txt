@@ -1532,6 +1532,15 @@ part: subchapter
 ---
 
 ---
+title: Bundle Manager
+include: bundle-manager.html
+link: bundle-manager
+uri: bundle-manager
+part: subchapter
+---
+
+
+---
 title: Aux Sends
 include: aux-sends.html
 link: aux-sends

@@ -1,0 +1,76 @@
+<p>
+	The <dfn>Bundle Manager</dfn> simplifies connecting I/O channels in cases
+	where similarly purposed instruments/mics are scattered across
+	a multi-channel audio interface. A common scenario is recording a drumkit
+	with 6 mics. If you need to re-route the mics in the session, instead of
+	connecting each and every one of them separately, you can create a bundle
+	and connect just the bundle.
+</p>
+<p>
+	Bundles can be created for both sources (e.g. mic inputs) and destinations
+	(e.g. studio monitors). You can create as many bundles as you like.
+</p>
+
+<figure>
+  <img src="/images/bundle-manager-main-window.png" alt="Bundle Manager main window">
+  <figcaption>
+    Bundle Manager main window
+  </figcaption>
+</figure>
+
+<h2>Creating a bundle</h2>
+
+<p>
+	Click <kbd class="menu">New</kbd> button to create a new bundle.
+	In the newly opened dialog, give it a name, choose whether you want this
+	to be a bundle of source or destination channels, then connect the ports
+	that you want to collect to the bundle port.
+</p>
+
+<figure>
+  <img src="/images/bundle-manager-connection-setup.png" alt="Bundle Manager connection setup">
+  <figcaption>
+    Bundle Manager connection setup
+  </figcaption>
+</figure>
+
+<p>
+	Close the dialog to apply changes.
+</p>
+
+<h2>Connecting a bundle</h2>
+
+<p>
+	When you connect a bundle to a port, it works as a convenience proxy
+	for the physical ports. Clicking to connect a bundle to an output
+	automatically creates connections in the actual ports.
+</p>
+
+<figure>
+  <img src="/images/bundle-manager-connection-setup.gif" alt="Bundle routing in the Audio Connection Manager">
+  <figcaption>
+    Bundle routing in the Audio Connection Manager
+  </figcaption>
+</figure>
+
+<h2>Editing and deleting bundles</h2>
+
+<p>
+	At any time you can re-open the Bundle Manager window, select a bundle,
+	click <kbd class="menu">Edit</kbd> and change connection of physical
+	ports to the bundle. Close the window to apply changes.
+</p>
+
+<p>
+	You can easily delete an existing bundle. Open the Bundle Manager window,
+	select a bundle, click <kbd class="menu">Delete</kbd>.
+</p>
+
+<h2>Reusing bundles</h2>
+
+<p>
+	As bundles are part of a session rather than a global setting, you can
+	save them as part of a template for further reuse. Simply create a new
+	session, create and connect tracks, busses, and bundles, then save your
+	session as a template. Choose this template when creating a new session.
+</p>
