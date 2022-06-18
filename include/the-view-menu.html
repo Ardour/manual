@@ -6,7 +6,9 @@
 <table class="dl">
 	<tr><th>&square; Maximise Editor Space</th><td>Puts the Editor window in full screen mode</td></tr>
 	<tr><th>&square; Maximize Mixer Space</th><td>Puts the Mixer window in full screen mode</td></tr>
-
+	<tr><th colspan="2">Region Layers</th></tr>
+		<tr><th class="sub1">Stacked Layer Display</th><td>When multiple takes are available, this will display them on top of one another</td></tr>
+		<tr><th class="sub1">Overlaid Layer Display</th><td>When multiple takes are available, the most recent one will be displayed on top of older ones</td></tr>
 	<tr><th colspan="2">Automation</th></tr>
 		<tr><th class="sub1">Toggle All Existing Automation</th><td>Show or hides all the <a href="@@automation">automation lanes</a> that have been edited by the user</td></tr>
 		
@@ -22,7 +24,18 @@
 		<tr><th class="sub1">Bars &amp; Beats</th><td>Same as for the main clock</td></tr>
 		<tr><th class="sub1">Minutes &amp; Seconds</th><td>Same as for the main clock</td></tr>
 		<tr><th class="sub1">Samples</th><td>Same as for the main clock</td></tr>
-
+	<tr><th colspan="2">Rulers</th></tr>
+		<tr><th class="sub1">&square; Min:Sec</th><td>Shows (when checked) or hides a line in <a href="@@ruler">the Ruler</a> with the time formatted as Hours:Minutes:Seconds.Milliseconds</td></tr>
+		<tr><th class="sub1">&square; Timecode</th><td>Same as above, with the time formatted as Hours:Minutes:Seconds:Frames</td></tr>
+		<tr><th class="sub1">&square; Samples</th><td>Same as the above, with the time displayed in samples from the absolute start</td></tr>
+		<tr><th class="sub1">&square; Bars &amp; Beats</th><td>Same as the above, with the time formatted as Bars:Beats:Ticks</td></tr>
+		<tr><th class="sub1">&square; Meter</th><td>Shows / hides the Meter line in the ruler, where the signature can be adjusted along the playline</td></tr>
+		<tr><th class="sub1">&square; Tempo</th><td>Shows / hides the Tempo line, where the BPM can be changed with markers</td></tr>
+		<tr><th class="sub1">&square; Ranges</th><td>Shows / hides the Range line, where ranges can be defined</td></tr>
+		<tr><th class="sub1">&square; Loop/Punch</th><td>Shows / hides the Loop/Punch line, where loops and Punches can be defined</td></tr>
+		<tr><th class="sub1">&square; CD Markers</th><td>Shows / hides the Range line, where CD Markers can be defined</td></tr>
+		<tr><th class="sub1">&square; Markers</th><td>Shows / hides the Markers line, where custom markers can be defined</td></tr>
+		<tr><th class="sub1">&square; Video</th><td>Shows / hides the Video timeline, where frames of the video are shown for syncing purposes</td></tr>
 	<tr><th colspan="2">Zoom</th></tr>
 		<tr><th class="sub1">Zoom In</th><td>Zooms in, focusing the <em>Zoom Focus</em> (see below)</td></tr>
 		<tr><th class="sub1">Zoom Out</th><td>Zooms out</td></tr>
@@ -42,20 +55,11 @@
 		<tr><th class="sub1">&cir; Zoom Focus Mouse</th><td>Same as above, with the mouse pointer</td></tr>
 		<tr><th class="sub1">&cir; Zoom Focus Edit Point</th><td>Same as above, with the Edit Point</td></tr>
 		<tr><th class="sub1">Next Zoom Focus</th><td>Circles between the previous modes</td></tr>
-	<tr><th colspan="2">Rulers</th></tr>
-		<tr><th class="sub1">&square; Min:Sec</th><td>Shows (when checked) or hides a line in <a href="@@ruler">the Ruler</a> with the time formatted as Hours:Minutes:Seconds.Milliseconds</td></tr>
-		<tr><th class="sub1">&square; Timecode</th><td>Same as above, with the time formatted as Hours:Minutes:Seconds:Frames</td></tr>
-		<tr><th class="sub1">&square; Samples</th><td>Same as the above, with the time displayed in samples from the absolute start</td></tr>
-		<tr><th class="sub1">&square; Bars &amp; Beats</th><td>Same as the above, with the time formatted as Bars:Beats:Ticks</td></tr>
-
-		<tr><th class="sub1">&square; Meter</th><td>Shows / hides the Meter line in the ruler, where the signature can be adjusted along the playline</td></tr>
-		<tr><th class="sub1">&square; Tempo</th><td>Shows / hides the Tempo line, where the BPM can be changed with markers</td></tr>
-		<tr><th class="sub1">&square; Ranges</th><td>Shows / hides the Range line, where ranges can be defined</td></tr>
-		<tr><th class="sub1">&square; Loop/Punch</th><td>Shows / hides the Loop/Punch line, where loops and Punches can be defined</td></tr>
-		<tr><th class="sub1">&square; CD Markers</th><td>Shows / hides the Range line, where CD Markers can be defined</td></tr>
-		<tr><th class="sub1">&square; Markers</th><td>Shows / hides the Markers line, where custom markers can be defined</td></tr>
-
-		<tr><th class="sub1">&square; Video</th><td>Shows / hides the Video timeline, where frames of the video are shown for syncing purposes</td></tr>
+	<tr><th colspan="2">Scroll</th></tr>
+		<tr><th class="sub1">Scroll Tracks Down</th><td>Scrolls the view toward the bottom of the session from one screen (vertically, so along tracks)</td></tr>
+		<tr><th class="sub1">Scroll Tracks Up</th><td>Same as above, towards the top</td></tr>
+		<tr><th class="sub1">Scroll Forward</th><td>Scrolls the view toward the right of the session from one screen (horizontally, so along time)</td></tr>
+		<tr><th class="sub1">Scroll Backward</th><td>Same as above, to the left</td></tr>
 	<tr><th colspan="2">Video Monitor</th></tr>
 		<tr><th class="sub1">Original Size</th><td>When the <a href="@@video-timeline-and-monitoring">Video Monitor</a> is active, resets its size to the original size, i.e. 1 pixel in the video is 1 pixel on screen</td></tr>
 		<tr><th class="sub1">&square; Letterbox</th><td>When checked, forces the ratio (width/height) to be the one of the original video. If unchecked, the video will be stretched to fit the window</td></tr>
@@ -66,12 +70,7 @@
 		<tr><th class="sub1">&square; Timecode</th><td>When checked, displays a Timecode over the video, in the Hours:Minutes:Seconds:Frames format</td></tr>
 		<tr><th class="sub1">&square; Frame number</th><td>When checked, shows the absolute frame number inside the video, i.e. this image is the <em>n</em>th of the video</td></tr>
 		<tr><th class="sub1">&square; Timecode Background</th><td>Adds a black background to the timecode for readability</td></tr>
-	<tr><th colspan="2">Scroll</th></tr>
-		<tr><th class="sub1">Scroll Tracks Down</th><td>Scrolls the view toward the bottom of the session from one screen (vertically, so along tracks)</td></tr>
-		<tr><th class="sub1">Scroll Tracks Up</th><td>Same as above, towards the top</td></tr>
-		<tr><th class="sub1">Scroll Forward</th><td>Scrolls the view toward the right of the session from one screen (horizontally, so along time)</td></tr>
-		<tr><th class="sub1">Scroll Backward</th><td>Same as above, to the left</td></tr>
-	<tr><th colspan="2">Views</th></tr>
+	<tr><th colspan="2">Editor Views</th></tr>
 		<tr><th class="sub1">Save View <em>n</em></th><td>Saves the position on the timeline in the memory, horizontally and vertically (along time and tracks)</td></tr>
 		<tr><th class="sub1">Go to View <em>n</em></th><td>Loads and displays a saved position (see above)</td></tr>
 

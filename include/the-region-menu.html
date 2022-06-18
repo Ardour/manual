@@ -4,7 +4,7 @@
 </p>
 
 <table class="dl">
-	<tr><th>Insert Region from Region List</th><td>If a region is selected in the Editor List, add it at the Edit point</td></tr>
+	<tr><th>Insert Region from Source List</th><td>If a region is selected in the Editor List, add it at the Edit point</td></tr>
 	<tr><th>Play Selected Regions</th><td>Starts playback at the beginning of the selected region(s), and stops at its(their) end</td></tr>
 	<tr><th>Tag Selected Regions</th><td>Prompts for a text to tag all the selected regions, this tag is visible in the <a href="@@the-region-list">Region list</a></td></tr>
 	<tr><th>Loop</th><td>Creates a loop range on the selected region's boundaries, and starts the looped playback</td></tr>
@@ -59,6 +59,11 @@
 		<tr><th class="sub1">Nudge Later by Capture Offset</th><td>Moves the region to the right by the capture latency computed by Ardour based on the user's settings regarding latency</td></tr>
 		<tr><th class="sub1">Nudge Earlier by Capture Offset</th><td>Same as above, to the left</td></tr>
 		<tr><th class="sub1">Sequence Regions</th><td>Puts the selected regions one after the other, so that the end of one region is the beginning of the next one, removing any overlap or silence. The reference point is the earliest region.</td></tr>
+	<tr><th colspan="2">Markers</th></tr>
+		<tr><th class="sub1">Add Region Cue Marker</th><td>Opens a dialog to enter a region-level marker at the mouse pointer position</td></tr>
+		<tr><th class="sub1">Clear Region Cue Markers</th><td>Removes all markers from the selected regions</td></tr>
+		<tr><th class="sub1">Convert Region Cue Markers to CD Markers</th><td>Converts all markers from selected regions to CD markers, bit doesn't delete original region-level markers</td></tr>
+		<tr><th class="sub1">Convert Region Cue Markers to Location Markers</th><td>Converts all markers from selected regions to location markers, bit doesn't delete original region-level markers</td></tr>
 	<tr><th colspan="2">Trim</th></tr>
 		<tr><th class="sub1">Trim Start at Edit Point</th><td>If the Edit Point is within the region boundaries, shortens the region to align its start with the Edit Point</td></tr>
 		<tr><th class="sub1">Trim End at Edit Point</th><td>Same as above, for the end of the region</td></tr>

@@ -164,13 +164,13 @@
     <dfn>GUI Lock</dfn>
     <ul>
       <li>
-        <dfn>Lock timeout (seconds):</dfn>locks the <abbr title="Graphical User
+        <dfn>Lock timeout (seconds)</dfn>: locks the <abbr title="Graphical User
         Interface">GUI</abbr> after this many idle seconds (zero being 'never lock').
         The GUI can also be locked with <kbd class="menu">Session &gt; Lock</kbd>. When
         locked, a dialog will display a &quot;Click to unlock&quot; button.
       </li>
       <li>
-        <dfn>System Screensaver Mode:</dfn>can be used to prevent the
+        <dfn>System Screensaver Mode</dfn>: can be used to prevent the
         screensaver to be launched by the system, either while recording
         (e.g. for long and unattended recording session), when Ardour is
         simply started, or never (the screensaver is then able to start).
@@ -241,7 +241,7 @@
     <dfn>Graphics Acceleration</dfn>
     <ul>
 	  <li>
-        <dfn>Disable Graphics Hardware Acceleration (requires restart)</dfn>
+        <dfn>Disable Graphics Hardware Acceleration (requires restart)</dfn>:
         Ardour uses hardware accelerated UI rendering by default for speed.
         Sometimes though, a buggy driver can cause this to make the system slow or
         unstable. Checking this will make Ardour draw its UI without
@@ -249,7 +249,7 @@
         on those buggy systems at the expense of speed.
       </li>	
       <li>
-        <dfn>Possibly improve slow graphical performance (requires restart)</dfn>
+        <dfn>Possibly improve slow graphical performance (requires restart)</dfn>:
         Wherever gradients appear in the UI, Ardour uses hardware accelerated
         gradients creation. Checking this will make Ardour draw its own gradients without
         hardware acceleration for stability on systems with buggy drivers.
@@ -265,7 +265,7 @@
     <dfn>Input Meter Layout</dfn>
     <ul>
       <li>
-        <dfn>Input Meter Layout:</dfn>In Recorder mode, determines if audio
+        <dfn>Input Meter Layout</dfn>: in Recorder mode, determines if audio
         inputs are displayed horizontally or vertically.
       </li>  
 	</ul>
@@ -325,32 +325,32 @@
     <dfn>Waveforms</dfn>
     <ul>
       <li>
-        <dfn>Show waveforms in regions</dfn> when enabled shows a visual
+        <dfn>Show waveforms in regions</dfn>: when enabled, shows a visual
         representation of the region's audio waveform.
       </li>
       <li>
-        <dfn>Show waveform while recording</dfn> when
-        enabled, will draw the audio waveform in regions being recorded, in near
-        real time. When disabled, only a region block will be drawn while recording,
+        <dfn>Show waveforms while recording</dfn>: when enabled, will draw
+        the audio waveform in regions being recorded, in near real time.
+        When disabled, only a region block will be drawn while recording,
         reducing CPU requirements.
       </li>
       <li>
-        <dfn>Show waveform clipping</dfn>: when enabled the waveform
+        <dfn>Show waveform clipping</dfn>: when enabled, the waveform
         displayed will show peaks marked in red if they exceed the clip level.
       </li>
       <li>
-        <dfn>Waveform Clip Level (dBFS):</dfn> sets the level at which the
+        <dfn>Waveform Clip Level (dBFS)</dfn>: sets the level at which the
         waveform shown in an audio region will be drawn in red to indicate
         clipping. Setting lower than 0.0&nbsp;dBFS can be useful if any tool in
         the audio chain has problems near 0.0&nbsp;dBFS.
       </li>
       <li>
-        <dfn>Waveform scale:</dfn> when waveforms are shown in audio regions,
+        <dfn>Waveform scale</dfn>: when waveforms are shown in audio regions,
         they can be displayed using a <em>linear</em> or a <em>logarithmic</em>
         scale. See <a href="@@waveform-display">Waveform display</a>.
       </li>
       <li>
-        <dfn>Waveform shape:</dfn> when waveforms are shown in audio regions,
+        <dfn>Waveform shape</dfn>: when waveforms are shown in audio regions,
         they can be displayed using a <em>traditional</em> or a <em>rectified</em>
         shape. See <a href="@@waveform-display">Waveform display</a>.
       </li>
@@ -360,7 +360,7 @@
     <dfn>Editor Meters</dfn>
     <ul>
       <li>
-        <dfn>Show meters in track headers</dfn>, when enabled, shows
+        <dfn>Show meters in track headers</dfn>: when enabled, shows
         a small meter in the Editor's <a href="@@audio-track-controls">track headers</a>.
         The meter is shown on the right side area of the header and provides an
         instant, if unprecise, view of the levels on this track/bus.
@@ -1098,6 +1098,10 @@
         <dfn>Scan for Plugins</dfn> will initiate an immediate scan of the system
         for available plugins. Useful to get a newly installed plugin recognised
         by Ardour.
+      </li>
+      <li>
+        <dfn>Scan Time Out</dfn> sets the time that Ardour will try to find
+        any plugins in known paths until it gives up.
       </li>
     </ul>
   </li>
