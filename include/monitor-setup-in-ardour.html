@@ -1,50 +1,22 @@
 
-<p>Ardour has three main settings which affect how
-  monitoring is performed. The first is
-  <kbd class="menu">Edit &gt; Preferences &gt; Monitoring &gt;
-  Record monitoring handled by</kbd>. There are two or three
-  options here, depending on the capabilities
-  of the hardware.
-</p>
-<p> The other two settings are more complex.  One is
-  <kbd class="menu">Tape machine mode</kbd>, found in the
-  same dialog, and the other is the
-  <kbd class="option">Session &gt; Properties &gt; Monitoring
-  automatically follows transport state</kbd> setting.
+<p>
+  Ardour has two main settings which affect how monitoring is performed.
+  The first is <kbd class="menu">Edit &gt; Preferences &gt; Monitoring &gt;
+  Record monitoring handled by</kbd>. There are two or three options here,
+  depending on the capabilities of the hardware.
 </p>
 <p>
-  Monitoring also depends on the state of the track's record-enable button,
-  the session record-enable button, and on whether or not the transport is
-  rolling.
+  The other setting is the <kbd class="option">Session &gt; Properties &gt;
+  Track Input Monitoring automatically follows transport state
+  (auto-input)</kbd>.
+</p>
+<p>
+  Monitoring also depends on the state of the track's record-enable button
+  and the session record-enable button, as well as on whether or not the
+  transport is rolling.
 </p>
 
-<h3>Software or Hardware Monitoring Modes</h3>
 <p>
   If Ardour is set to <dfn>external monitoring</dfn>, Ardour does not do any
   monitoring.
 </p>
-
-<h2>Monitoring in Non-Tape-Machine Mode</h2>
-<p>
-  When <dfn>Tape-Machine mode is off</dfn>, and a track is armed, Ardour
-  <em>always</em> monitors the live input, except in one case: if the transport is
-  rolling, the session is not recording, and <dfn>auto-input</dfn> is active,
-  the playback from an armed track will be heard.
-</p>
-<p>
-  Unarmed tracks will play back their contents from disc, unless the
-  transport is stopped <em>and</em> <dfn>auto-input</dfn> is enabled.
-  In this case, the track monitors its live input.
-</p>
-
-<h2>Monitoring in Tape-Machine Mode</h2>
-
-<p>
-  In <dfn>Tape-Machine mode</dfn>, when a track is armed, its behaviour is
-  the same as in non-tape-machine mode.
-</p>
-<p>
-  Unarmed tracks however will always just play back their contents from
-  disk; the live input will never be monitored.
-</p>
-
