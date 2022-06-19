@@ -217,15 +217,6 @@ part: subchapter
 ---
 
 ---
-title: Using More Than One Audio Device
-menu_title: More Than One Audio Device
-include: using-more-than-one-audio-device.html
-link: using-more-than-one-audio-device
-uri: setting-up-your-system/using_more_than_one_audio_device
-part: subchapter
----
-
----
 title: Monitor Setup in Ardour
 menu_title: Monitor Setup in Ardour
 include: monitor-setup-in-ardour.html
