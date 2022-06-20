@@ -2062,6 +2062,15 @@ part: chapter
 ---
 
 ---
+title: Performance Meters
+menu_title: Performance Meters
+include: performance-meters.html
+link: performance-meters
+uri: troubleshooting/performance-meters
+part: chapter
+---
+
+---
 title: Scripting
 part: part
 ---
