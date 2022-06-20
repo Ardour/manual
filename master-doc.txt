@@ -2048,6 +2048,20 @@ part: chapter
 ---
 
 ---
+title: Troubleshooting
+part: part
+---
+
+---
+title: Plugin DSP Load
+menu_title: Plugin DSP Load
+include: plugin-dsp-load.html
+link: plugin-dsp-load
+uri: troubleshooting/plugin-dsp-load
+part: chapter
+---
+
+---
 title: Scripting
 part: part
 ---
