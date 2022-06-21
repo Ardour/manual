@@ -1,8 +1,9 @@
 <p>
 	The <dfn>Plugin DSP Load</dfn> window is helpful in cases where
-	some of the plugins in use overload the CPU, resulting in audible
-	clicks and pops in the output, but you aren't quire sure which ones
-	are causing this exactly.
+	some of the plugins need too much CPU time to process buffers,
+	resulting in audible clicks and pops in the output, but you aren't
+	quire sure which ones are causing this exactly or you do know,
+	but you need actual stats.
 </p>
 
 <figure class=center>
@@ -13,10 +14,16 @@
 <p>
 	For each plugin in use, there is a chart and numeric data that represents
 	minumum, maximum, and average CPU time used, as well as standard deviation.
-	This, along with simple color coding — green for safe amount of CPU use,
-	red for CPU overload — gives you a good overview of what's going on
-	in the session.
+	This, along with simple color coding — green for safe amount of CPU time,
+	red for too much CPU time required — gives you a good overview of what's
+	going on in the session.
 </p>
+
+<figure class=center>
+<img src="/images/plugin-dsp-load-graph_en.svg" alt="The Plugin DSP Load window" width="75%" />
+<figcaption class=center>Plugin DSP Load chart legend</figcaption>
+</figure>
+
 
 <p>
 	The Plugin DSP Load window has basic sorting options: by worst-case load
