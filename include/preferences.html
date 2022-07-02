@@ -130,6 +130,12 @@
         selects, and then disables changes to, the <em>Copy files to session</em>
         option in the <a href="@@import-dialog">Add Existing Media</a> dialog.
       </li>
+      <li>
+        <strong>Cache Folder for downloaded Freesound clips</strong>: when you try
+        sounds form FreeSound.org before inserting them into the project, they need
+        to be saved locally on your computer; this is where you define the folder
+        for those temporary files.
+      </li>
     </ul>
   </li>
   <li>
@@ -252,12 +258,6 @@
         hardware acceleration, in software, improving stability and responsiveness
         on those buggy systems at the expense of speed.
       </li>	
-      <li>
-        <dfn>Possibly improve slow graphical performance (requires restart)</dfn>:
-        Wherever gradients appear in the UI, Ardour uses hardware accelerated
-        gradients creation. Checking this will make Ardour draw its own gradients without
-        hardware acceleration for stability on systems with buggy drivers.
-      </li>
     </ul>
   </li>
 </ul>  
@@ -309,7 +309,7 @@
         editor. Values range from 0.0, no gradient effect, to 1.0, maximum effect.
       </li>
       <li>
-        <dfn>Track name ellipsis mode:</dfn> when the track header is not 
+        <dfn>Track name ellipsize mode:</dfn> when the track header is not 
         wide enough to display the track's name in full, selects how the
         name will be shorten between:
         <ul>
@@ -463,6 +463,10 @@
       <li>
         <dfn>Display Monitor Section Info</dfn> toggles the visibility of the
        Monitor Info slice of the main toolbar.
+      </li>
+      <li>
+        <dfn>Display Cue Rec/Play Controls</dfn> toggles the visibility of the
+       buttons that enable creating and playing back cue markers.
       </li>
       <li>
         <dfn>Display Navigation Timeline</dfn> toggles the visibility of the
@@ -709,7 +713,7 @@
     <ul>
       <li>
         <dfn>After a Separate operation, in Range mode:</dfn> determines what
-        should become of the Range selection after a Separate operations:
+        should become of the Range selection after a Separate operation:
         <ul>
 			<li>Clear the Range Selection: nothing is selected anymore</li>
 			<li>Preserve the Range Selection: the range selection is kept</li>
@@ -848,6 +852,21 @@
         keyboard of the Virtual Keyboard (<kbd class="menu">Window &gt; Virtual Keyboard</kbd>).
       </li>
 
+    </ul>
+  </li>
+  <li>
+    <dfn>Default Visible Note Range</dfn>
+    <ul>
+      <li>
+        <dfn>Default lower visible MIDI note</dfn>: this note will be the lowest
+        visible one on the timeline unless you tweak that by adjusting the vertical
+        range. E.g. C4 is C on the fourth octave.
+      </li>
+      <li>
+        <dfn>Default upper visible MIDI note</dfn>: this note will be the highest
+        visible one on the timeline unless you tweak that by adjusting the vertical
+        range. E.g. B4 is B on the fourth octave.
+      </li>
     </ul>
   </li>
   <li>
@@ -1146,9 +1165,14 @@
         <a href="@@status-bar">Log window</a>.
       </li>
       <li>
-        <dfn>Make new plugins active</dfn> when enabled, any plugin added to a track
+        <dfn>Make new plugins active</dfn>: when enabled, any plugin added to a track
         will be in active mode. If unchecked, the plugins will be added in inactive
         mode by default, hence have no processing effect on the track/bus.
+      </li>
+      <li>
+        <dfn>Show only one plugin window at a time</dfn>: when enabled, only
+        one plugin window will be displayed on the screen; when disabled, you
+        can open as many plugin windows as you like.
       </li>
     </ul>
   </li>
@@ -1731,50 +1755,29 @@
   </li>
 </ul>
 
-<h2 id="preferences-video">Video</h2>
+<h2 id="preferences-triggering">Triggering</h2>
 
 <ul>
   <li>
-    <dfn>Video Server</dfn>
+    <dfn>Triggering</dfn>
     <ul>
       <li>
-        <dfn>Show Video Export Info before export</dfn> Shows a warning message
-        when exporting a video about licensing and offers to open the
-        <a href="@@workflow-amp-operations#export">export video</a> section of
-        this manual.
-      </li>
-      <li>
-        <dfn>Show Video Server Startup Dialog</dfn>: when using video inside Ardour,
-        this video is accessed via Xjadeo from a source file through a Video Server.
-        This options shows the server's startup dialog (useful for debugging a
-        malfunctioning video).
-      </li>
-      <li>
-        <dfn>Advanced Setup (remote video server)</dfn> can be used when the setup
-        is more complex than opening a local file with Ardour. The tools used behind
-        the scene by Ardour allow a lot of flexibility, so for a competent user,
-        the options below are provided to access a distant file (i.e. on another
-        machine). The default options for the two following fields ("http://localhost:1554"
-        and "/") are suitable for local files.
-      </li>
-      <li>
-        <dfn>Video Server URL:</dfn> Base URL of the video server delivering the video
-        through the network (<code>http://IP-or-address:port</code>).
-      </li>
-      <li>
-        <dfn>Video folder</dfn> is the server's local path to the document-root,
-        i.e. the files that can be delivered by the server.
+        <dfn>Default trigger input</dfn>: this is where you choose a MIDI device
+        that will send notes to tiggers boxes in the Cue window. This is typically
+        a grid controller like monome, Novation Launchpad, Ableton Push etc.
       </li>
     </ul>
   </li>
   <li>
-    <dfn>Video Monitor</dfn>
+    <dfn>Clip Library</dfn>
     <ul>
       <li>
-        <dfn>Custom Path to Video Monitor (xjadeo) - leave empty for default:</dfn>
-        Ardour bundles offer xjadeo bundled, so it should run flawlessly. Though,
-        for custom builds or if a newer version of xjadeo is available, one can
-        specify a path to the wanted version of xjadeo.
+        <dfn>User writable Clip Library</dfn>: this is a folder where your custom
+        reusable clips will be saved to.
+      </li>
+      <li>
+        <dfn>Reset Clip Library Dir</dfn>: this will reset the location of your
+        custom reusable clips to a default location.
       </li>
     </ul>
   </li>
