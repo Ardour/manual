@@ -7,7 +7,7 @@
 </p>
 
 <figure class="right">
-  <img src="/images/preferences.png" alt="The Preferences window">
+  <img class="mini" style="width:600px;" src="/images/preferences.png" alt="The Preferences window">
   <figcaption>
     The Preferences window
   </figcaption>
@@ -36,6 +36,9 @@
 		<li><a href="#preferences-editor-modifiers">Modifiers</a></li>
 	</ul>
 	<li><a href="#preferences-midi">MIDI</a></li>
+  <ul>
+    <li><a href="#preferences-midi-port-config">MIDI Port Config</a></li>
+  </ul>
 	<li><a href="#preferences-transport">Transport</a></li>
 	<ul>
 		<li><a href="#preferences-transport-chase">Chase</a></li>
@@ -53,6 +56,7 @@
 	<li><a href="#preferences-metering">Metering</a></li>
 	<li><a href="#preferences-performance">Performance</a></li>
 	<li><a href="#preferences-video">Video</a></li>
+  <li><a href="#preferences-triggering">Triggering</a></li>
 </ul>
 
 <h2 class="clear" id="preferences-general">General</h2>
@@ -1746,6 +1750,49 @@
         can be automated by Ardour, checking this will limit the number of parameters
         that are listed as automatable, hence making the lists shorter and the GUI
         more responsive.
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="preferences-video">Video</h2>
+
+<ul>
+  <li>
+    <dfn>Video Server</dfn>
+    <ul>
+      <li>
+        <dfn>Show Video Server Startup Dialog</dfn>: when using video inside Ardour,
+        this video is accessed via Xjadeo from a source file through a Video Server.
+        This options shows the server's startup dialog (useful for debugging a
+        malfunctioning video).
+      </li>
+      <li>
+        <dfn>Advanced Setup (remote video server)</dfn> can be used when the setup
+        is more complex than opening a local file with Ardour. The tools used behind
+        the scene by Ardour allow a lot of flexibility, so for a competent user,
+        the options below are provided to access a distant file (i.e. on another
+        machine). The default options for the two following fields ("http://localhost:1554"
+        and "/") are suitable for local files.
+      </li>
+      <li>
+        <dfn>Video Server URL:</dfn> Base URL of the video server delivering the video
+        through the network (<code>http://IP-or-address:port</code>).
+      </li>
+      <li>
+        <dfn>Video folder</dfn> is the server's local path to the document-root,
+        i.e. the files that can be delivered by the server.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Video Monitor</dfn>
+    <ul>
+      <li>
+        <dfn>Custom Path to Video Monitor (xjadeo) - leave empty for default:</dfn>
+        Ardour bundles offer xjadeo bundled, so it should run flawlessly. Though,
+        for custom builds or if a newer version of xjadeo is available, one can
+        specify a path to the wanted version of xjadeo.
       </li>
     </ul>
   </li>
