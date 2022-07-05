@@ -1,0 +1,97 @@
+<p>
+	The <dfn>Clips</dfn> browser provides a way to easily reuse little pieces
+	of music across sessions. You can also drop audio and MIDI clips on a
+	timeline in the <a href="@@clips-in-the-editor">Editor window</a> or use
+	them in trigger slots in the <a href="@@clips-in-the-cue-window">Cue window</a>.
+</p>
+
+<h2>Clips Browser Interface</h2>
+
+<p>
+	In the Editor window, the Clips browser is part of the Editor sidebar
+	and thus can be hidden from the main window. In the Cue window, the Clips
+	browser is an essential part of the workflow and is always visible.
+</p>
+
+<figure class="right">
+  <img src="/images/clips-browser.png" width="400px" alt="The Clips browser">
+  <figcaption>
+    The Clips browser
+  </figcaption>
+</figure>
+
+<p>
+	The Clips browser has three main parts:
+</p>
+
+<ol>
+	<li>Selector of clip library locations</li>
+	<li>List of clips, with a treeview where necessary</li>
+	<li>Preview options</li>
+</ol>
+
+<h2>Library Locations</h2>
+
+<p>
+	The <dfn>Clips</dfn> browser is capable of handling multiple locations
+	of clips and loops. There are several types of locations suported by the
+	browser:
+</p>
+
+<ol>
+	<li>
+		<dfn>Ardour Bundled Content</dfn>: these are all the audio and MIDI
+		files shipped along with an official Ardour build.
+	</li>
+	<li>
+		<dfn>Custom folder</dfn>: it's a single user-defined location
+		on a local or remote disk that you can write to. The folder is defined
+		on the <kbd class="menu">Triggering</kbd> page of the
+		<kbd class="menu">Preferences</kbd> dialog and is preserved across
+		sessions.
+	</li>
+	<li>
+		<dfn>Additional locations</dfn>: typically those are locations where
+		you store existing clips/loops libraries acquired elsewhere. You can
+		have as many as you like, please see <a href="@@adding-3rd-party-clip-libraries">Adding 3rd Party Clip Libraries</a> chapter for more info. These locations
+		are also preserved across sessions.
+	</li>
+	<li>
+		<dfn>Other locations</dfn>: this is a one-off access to a location
+		where clips and loops are stored. This location is not preserved across
+		sessions.
+	</li>
+</ol>
+
+<h2>List of Clips</h2>
+
+<p>
+	The Clips browser will provide access to all supported media file types
+	available in a selected location. Typically those would be, WAV, FLAC,
+	and MID files.
+</p>
+
+<p>
+	If there are subfolders in the clip library's folder, the Clips browser
+	will display them using as a tree view. The browser will also lazy-load
+	subfolders: instead of loading the entire list of all supported files
+	in the library location, it will only display top-level folders and load
+	their content when you start expanding subfolders you are interested in.
+</p>
+
+<h2>Preview Options</h2>
+
+<p>
+	The preview section has simple playback controls as well as an option
+	to automatically play back a clip when you click it in the list.
+	For MIDI clips, you can also select a virtual instrument (Ardour defaults
+	to ACE Reasonable Synth).
+</p>
+
+<p>
+	When playing a clip, Ardour will automatically pause the transport
+	and resume playback when the clip playback is done. Ardour will also
+	use the audition channel for playback, so you can control the preview
+	volume using the monitor level control in the
+	<a href="@@monitor-section">Monitor</a> section of the <dfn>Mixer</dfn>.
+</p>
