@@ -1453,6 +1453,47 @@ part: chapter
 ---
 
 ---
+title: Clips
+uri: clips
+part: part
+---
+
+---
+title: Clips Overview
+link: clips-overview
+include: clips-overview.html
+part: chapter
+---
+
+---
+title: Clips in the Editor
+link: clips-in-the-editor
+include: clips-in-the-editor.html
+part: chapter
+---
+
+---
+title: Clips in the Cue Window
+link: clips-in-the-cue-window
+include: clips-in-the-cue-window.html
+part: chapter
+---
+
+---
+title: Adding 3rd Party Clip Libraries
+link: adding-3rd-party-clip-libraries
+include: adding-3rd-party-clip-libraries.html
+part: chapter
+---
+
+---
+title: Managing Custom Clips
+link: managing-custom-clips
+include: managing-custom-clips.html
+part: chapter
+---
+
+---
 title: Arranging
 part: part
 ---
