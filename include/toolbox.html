@@ -21,7 +21,7 @@
 </table>
 
 <p>
-  Ripple Edit mode provides the following:
+  The general idea behind the Ripple edit mode is this:
   <ul>
     <li>Deleting a range will move later regions to compensate for the deleted time</li>
     <li>Deleting a region will move later regions to compensate for the deleted region's length</li>
@@ -29,6 +29,35 @@
     <li>Inserting a new region (via dragging or via Paste) will move later regions to the right to compensate</li>
   </ul>
 </p>
+
+<p>
+  Within this general idea several behavior variations are available
+  as Ripple edit modes:
+</p>
+
+<ol>
+  <li>
+    <dfn>Selected</dfn>. Only applies the ripple logic to currently selected
+    tracks. After making a selection, you can use the
+    <kbd class="button">Alt</kbd> modifier and click on tracks to add or remove
+    them to/from the selection. Markers will stay intact.
+  </li>
+  <li>
+    <dfn>All</dfn>. Applies the ripple logic to all tracks on the timeline
+    and shifts location, CD, and cue markers accordingly. Selecting a range
+    with this mode will automatically make a time-constrained selection in all tracks of the project.
+  </li>
+  <li>
+    <dfn>Interview</dfn>. This mode works just like the <dfn>Selected</dfn>
+    mode with one exception: when you select a range and press
+    <kbd class="button">Del</kbd>, this will remove the selected portion
+    of either audio or MIDI without shifting other clips to the left to match
+    the freed space on the timeline. The main use case for this mode is editing 
+    interviews where you want ripple behavior to edit out periods of silence,
+    while being able to just delete e.g. an out-of-place exclamation by the
+    interviewer.
+  </li>
+</ol>
 
 <p class="note">
   If <kbd class="menu">Snap To Grid</kbd> is enabled, then regions can
