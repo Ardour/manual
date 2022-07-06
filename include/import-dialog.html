@@ -125,3 +125,107 @@
   versus Linking</a> for details.
 </p>
 
+<h2>Importing from FreeSound.org</h2>
+
+<p>
+  Ardour can import sounds from the public library at FreeSound.org.
+  This feature requires an account with the online service.
+</p>
+
+<p>
+  Sound clips on FreeSound.org typically have metadata in form of tags
+  that give a general idea what sound is recorded in a clip. Ardour will
+  use that metadata to find sound clips that match your request.
+</p>
+
+<figure class="right">
+  <img src="/images/freesound-clips-list.png" alt="List of sound clips found on FreeSound.org" width="75%">
+  <figcaption>
+    List of sound clips found on FreeSound.org
+  </figcaption>
+</figure>
+
+<p>
+  There are two more options for the search:
+</p>
+
+<ol>
+  <li><dfn>Sort</dfn>: allows sorting all sound clips that match your
+  request in a particular order. Changing the type of sorting requires
+  running the search again.</li>
+  <li><dfn>License</dfn>: allows limiting your search by choosing
+  a particular license depending on how you license your own work.</li>
+</ol>
+
+<p>
+  Ardour will list all sounds clips that match your request right in the
+  window. If there are a lot of option, click the
+  <kbd class="button">More</kbd> button to load the next page with results.
+</p>
+
+<p>
+  When you click on any sound clip in the list for the first time,
+  a FreeSound.org login page will open in your preferred web browser.
+</p>
+
+<figure class="right">
+  <img src="/images/freesound-login.png" alt="Log into FreeSound.org" width="75%">
+  <figcaption>
+    Log into FreeSound.org
+  </figcaption>
+</figure>
+</p>
+
+<p>
+  You will then be asked to grant access to Ardour.
+</p>
+
+<figure class="right">
+  <img src="/images/freesound-grant-access.png" alt="Grant access to Ardour" width="75%">
+  <figcaption>
+    Grant access to Ardour
+  </figcaption>
+</figure>
+</p>
+
+<p>
+  Once you do that, FreeSound.org will generate authorization code that you need to select and copy to the clipboard.
+</p>
+
+<figure class="right">
+  <img src="/images/freesound-auth-code.png" alt="Authorization token" width="75%">
+  <figcaption>
+    Authorization code
+  </figcaption>
+</figure>
+</p>
+
+<p>
+  Finally, insert the code into the entry box here and click <kbd class="button">OK</kbd>.
+</p>
+
+<figure class="right">
+  <img src="/images/freesound-code-insert.png" alt="Insert authorization token" width="75%">
+  <figcaption>
+    Insert authorization code
+  </figcaption>
+</figure>
+</p>
+
+<p>
+  After that, Ardour will be able to download clips for preview in a folder
+  for temporary files that you can select in the
+  <kbd class="window">Preferences</kbd> dialog on the
+  <kbd class="windows">General</kbd> page.
+</p>
+
+<p>
+  You can preview and insert clips from FreeSound.org like any other sound
+  files.
+</p>
+
+<p>
+  Please note that authorization code only works as long as Ardour is running.
+  The next time you start Ardour, you will need to authorize it again. This is
+  implementation specifics of FreeSound.org.
+</p>
