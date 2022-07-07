@@ -1686,6 +1686,14 @@ part: section
 ---
 
 ---
+title: Mixer Scenes
+include: mixer-scenes.html
+link: mixer-scenes
+uri: mixing/mixer-scenes
+part: subchapter
+---
+
+---
 title: Loudness Analyzer and Normalizer
 include: loudness-analyzer.html
 link: loudness-analyzer
