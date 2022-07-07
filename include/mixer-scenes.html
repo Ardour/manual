@@ -1,0 +1,146 @@
+<p>
+	<dfn>Mixer Scenes</dfn> are a convenient way to keep multiple variations
+	of a mix with the same set of tracks, busses, and plugins. In a recording
+	studio environment, you can use it to quickly navigate between versions
+	of a mix. In a broadcasting situation, it's a convenient way
+	to quickly "add" a new mic when another guest joins a conversation.
+</p>
+
+<p>
+	The user interface
+	is located in the bottom left part of the <dfn>Mixer</dfn> window.
+</p>
+
+<figure class="right">
+  <img class="mini" style="width:400px;" src="/images/mixer-scene-list.png" alt="Mixer Scenes in the Mixer window">
+  <figcaption>
+    Mixer Scenes in the Mixer window
+  </figcaption>
+</figure>
+
+<p>
+	You can store a new mixer scene, recall it, overwrite it, rename it,
+	or clear it. All interactions involve right-clicking, middle-clicking,
+	or left-clicking a button with a number that represents a scene.
+</p>
+
+<h2>What mixer scenes can and cannot do</h2>
+
+<p>
+	As part of a mixer scene, you can store and recall only the controls
+	that you can automate:
+</p>
+
+<ul>
+	<li>Fader position in tracks, all types of busses, and VCA masters</li>
+	<li>Panner position in tracks and all types of busses</li>
+	<li>Monitor and foldback bus output levels</li>
+	<li>State of record arm</li>
+	<li>State of monitor input and monitor playback</li>
+	<li>State of solo and mute</li>
+	<li>Settings of plugins</li>
+</ul>
+
+<p>Mixer scenes do not cover:</p>
+
+<ul>
+	<li>The general signal chain in the processor box, i.e. which plugins
+	are loaded in whatever order</li>
+	<li>Plugin bypass states</li>
+	<li>Comments for mixer channels</li>
+	<li>Any monitor section controls other than the output level</li>
+</ul>
+
+<h2>Storing a mixer scene</h2>
+
+<p>
+	All mixer scenes are enumerated in the user interface. Hover the mouse
+	pointer over an unused scene slot, right-click, then select
+	<kbd class="menu">Store</kbd>.
+</p>
+
+<figure class="right">
+  <img class="mini" style="width:300px;" src="/images/mixer-scene-store.png" alt="Store a new mixer scene">
+  <figcaption>
+    Store a new mixer scene
+  </figcaption>
+</figure>
+
+<p>
+	When you create a new mixer scene, the name defaults to the timestamp of
+	the moment you are creating this scene. Instead, you can give scenes
+	meaningful names. That way you can reopen a session months later and
+	be able to tell which scene corresponds to which variation of the mix.
+</p>
+
+<h2>Recalling a mixer scene</h2>
+
+<p>
+	To switch to an existing mixer scene (i.e. to recall it), simply left-click
+	on the button with the scene number.
+</p>
+
+<p>
+	If you want to quickly compare the current scene against a different one,
+	hover the numbered button of the other scene, middle-click it and hold.
+	Release the mouse button when you're done comparing.
+</p>
+
+<h2>Renaming a mixer scene</h2>
+
+<p>
+	You can rename a scene at any time later. Right-click over the button with
+	scene's number, choose <kbd class="menu">Rename</kbd>, the enter a new name
+	in the newly opened dialog.
+</p>
+
+<figure class="right">
+  <img class="mini" style="width:300px;" src="/images/mixer-scene-rename.png" alt="Rename a mixer scene">
+  <figcaption>
+    Rename a mixer scene
+  </figcaption>
+</figure>
+
+<h2>Clearing a mixer scene</h2>
+
+<p>
+	If you don't need a scene anymore or if you want to reserve it for something
+	else in the future, you can clear it. Right-click over the button with scene's
+	number, and choose <kbd class="menu">Clear</kbd>. This will empty the scene slot.
+</p>
+
+<p>
+	If the scene you've just cleared was the one currently loaded, all positions
+	of faders, panners etc. will remain intact. You can continue making further
+	adjustments.
+</p>
+
+<h2>Overwriting a stored scene</h2>
+
+<p>
+	If you made some adjustments and want them to be saved into an existing scene,
+	simply choose <kbd class="menu">Store</kbd> in the right-click menu for that
+	scene. Ardour will ask your confirmation for overwriting it and will suggest
+	renaming the scene (clicking the <kbd class="button">Store</kbd> button without
+	changing the name will effectively keep the old name).
+</p>
+
+<h2>Accessing more mixer scenes</h2>
+
+<p>
+	Ardour only exposes 8 mixer scenes in the user interface for simplicity's
+	sake. However the actual number of scenes is larger. There are two ways
+	to work around that and store, recall, and clear more mixer scenes:
+</p>
+
+<ol>
+	<li>
+		Keyboard shortcuts: you can manually set any keyboard shortcuts
+		(<kbd class="menu">Window > Keyboard Shortcuts</kbd>) to 12 mixer scenes
+		rather than 8.
+	</li>
+	<li>
+		Scripting: you can use <a href="@@lua-scripting">Lua scripts</a> to access
+		the full range of available mixer scenes, which is 2<sup>64</sup>.
+	</li>
+</ol>
