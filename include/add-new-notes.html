@@ -20,6 +20,45 @@
   the duration of the note until the mouse button is released.
 </p>
 
+<p>
+  The toolbar available in the <dfn>Draw</dfn> mode helps drawing notes
+  of exact length, in a certain MIDI channel, with predefined velocity:
+</p>
+
+<figure>
+<img style="width:75%" src="/images/midi-draw-toolbar.png" alt="MIDI draw toolbar">
+<figcaption>MIDI draw toolbar</figcaption>
+</figure>
+
+<p>
+  While the <dfn>Velocity</dfn> drop-down list only displays presets,
+  you can hover it and use mouse wheel scrolling to increment the current
+  value by 1. Scrolling above the other two drop-down lists will cycle
+  through the presets.
+</p>
+
+<p>
+  The <dfn>Auto</dfn> option in three drop-down lists works differently
+  in all three cases:
+</p>
+
+<table class="dl">
+  <tr>
+    <th>Length</th>
+    <td>The length will be defined by the grid snapping setting</td>
+  </tr>
+  <tr>
+    <th>Channel</th>
+    <td>This value will be inhertited from the last added note</td>
+  </tr>
+  <tr>
+    <th>Velocity</th>
+    <td>The value will be an interpolation between two closest notes,
+    the position of the newly added note relative to either of the two
+    notes will also be taken into consideration</td>
+  </tr>
+</table>
+
 <h2 id="add-new-notes-using-step-entry">Using Step Entry</h2>
 
 <p>
