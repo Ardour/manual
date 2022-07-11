@@ -1,5 +1,20 @@
 <h2>Adding tracks</h2>
 
+<p>
+	You can add tracks in the <dfn>Cue</dfn> window the usual way,
+	either by double-clicking on the free space in the canvas or
+	by choosing the <kbd class="menu">Track &lt; Add Track, Bus, or VCA</kbd>
+	menu item. The important part is to enable the
+	<kbd class="option">Show on Cue Page</kbd> checkbox in the newly
+	opened dialog.
+</p>
+
+<p>
+	Alternatively, you can drop an existing audio or MIDI file into
+	the empty part of the canvas to automatically create the cue track
+	and fill the first empty trigger slot with it. 
+</p>
+
 <h2>Loading clips to slots</h2>
 
 <p>Via right-click menu. FIXME</p>
@@ -12,8 +27,47 @@
 
 <h2>Setting Clip Properties</h2>
 
-<p>General settings. FIXME</p>
+<p>
+	The contents of this options box partially depends on the type of data
+	in the clip, audio or MIDI. The common settings are:
+</p>
 
-<p>Audio-specific settings. FIXME</p>
+<ul>
+	<li>
+		<dfn>Name</dfn>: the full name of the clip's file, usually visible in its
+		shortened form.
+	</li>
+	<li>
+		<dfn>Load</dfn>: this button allows loading a clip's file into
+		the selected trigger slot.
+	</li>
+	<li>
+		<dfn>Color</dfn>: here you can open a color chooser dialog to set
+		the color of the clip's title inside the trigger slot.
+	</li>
+</ul>
 
-<p>MIDI-specific settings. FIXME</p>
+<p>
+	The only audio-specific setting is <dfn>Gain (dB)</dfn> which adjusts
+	the output volume of a clip.
+</p>
+
+<p>
+	For MIDI clips, there are several specific options:
+</p>
+
+<ul>
+	<li>
+		<dfn>Velocity Adj</dfn>: this effectively adjusts the output volume
+		by increasing the velocity of MIDI notes.
+	</li>
+	<li>
+		<dfn>Send Patches</dfn>: this enables sending a control message
+		to load a particular patch. This is typically used for external
+		MIDI gear such a hardware synthesizers.
+	</li>
+	<li>
+		<dfn>MIDI Patches</dfn>: clicking this button will open a dialog
+		where you can select a patch to send when a MIDI clip is triggered.
+	</li>
+</ul>
