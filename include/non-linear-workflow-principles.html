@@ -1,0 +1,122 @@
+<p>
+	The Cue window allows working with music ideas in a non-linear fashion.
+	Instead of navigating the timeline and placing regions of audio and MIDI
+	data at a particular point in time, you deal with short clips that contain
+	rhythmic and melodic patterns and can be triggered to play a certain amount
+	of times, then automatically trigger another clip to be played.
+</p>
+
+<p>
+	The concept has been introduced and popularized by Ableton and since then
+	found its way into many other applications. Ardour draws many ideas from
+	Ableton Live, as well as from several other digital audio workstations,
+	and adapts them to Ardour's specifics. If you are familiar with Live, you
+	will find many aspects familiar, but you should not expect the Cue's feature
+	set to be a 100% copy of that from any other application.
+</p>
+
+<p>
+	Here are some basics concepts of the non-linear workflow shared by multiple
+	applications including Ardour.
+</p>
+
+<h2>Grid and scenes</h2>
+
+<p>
+	All clips are organized in a kind of a grid. The grid provides an overview
+	of all the musical ideas, all the rhythmic patterns, short melodies, and sound
+	effects that you can use in a composition.
+</p>
+<p>
+	One dimension of the grid, usually represented by a track, would accumulate
+	clips played with roughly the same kind of an instrument, e.g. all drum
+	patterns, or all basslines etc.
+</p>
+<p>
+	The other dimension, usually called scenes (or cues, in Ardour) would
+	organize these clips so that you would be able to play multiple clips at
+	the same time by pressing just one button. So if you want a particular
+	bassline played along a particular drum sequence, you would place them in
+	the same scene.
+</p>
+
+<p>
+	Ardour specifics are explained in the
+	<a href="@@cue-window-elements">Cue window elements</a> chapter.
+</p>
+
+<h2>Slots and clips</h2>
+
+<p>
+	Cells in a grid are usually called slots. They are a kind of a container
+	that can hold an audio or a MIDI clip. Typically, a clip can be loaded
+	into a slot from a disk by pointing the file selector to it, or loaded
+	from a pre-recorded library of reusable clips, or recorded in place.
+	You will find more information about that in the
+	<a href="@@populating-the-cue-grid">Populating the cue grid</a> chapter.
+</p>
+
+<h2>Launching</h2>
+
+<p>
+	In a non-linear workflow, a clip can be triggered to play in multiple ways.
+	Most of the time it's either pressing a corresponding silicon pad on an
+	external grid controller attached via MIDI, or scrolling the mouse wheel
+	downwards over the slot that contains the clip, or just clicking a 'Play'
+	button next to clip's name.
+</p>
+
+<p>
+	Usually you can configure a slot to respond to some ways to trigger clip
+	playback and ignore others. We'll talk about it in the
+	<a href="@@clip-launch-options">Clip Launch Options</a> chapter.
+</p>
+
+<h2>Follow actions</h2>
+
+<p>
+	A clip can play in a loop until you stop it directly, or it can play
+	a user-defined amoutn of time and the trigger another clip in the track.
+	Say, you start a composition with one rhythmic pattern played four times
+	and you want the next rhythmic patterns to play eight times, then move
+	to a third one.
+</p>
+
+<p>
+	This is typically achieved through so called follow actions. In an example
+	above, for the first clip (or, rather, slot) you can set a follow count
+	(4 times), and use the follow action usually called "Next". This will get
+	the clip in that first slot to play 4 times then trigger the playback of
+	a clip in the second slot.
+</p>
+
+<p>
+	Every application has its own set of follow actions. Most common ones are
+	repeating the clip indefinitely, triggering the previous/next slot,
+	or jumping to a slot in a particular scene.
+</p>
+
+<p>
+	You can read more about follow actions in Ardour
+	<a href="@@clip-follow-actions">here</a>.
+</p>
+
+<h2>Musical time and stretching</h2>
+
+<p>
+	In a non-linear workflow, all work is happening in musical time: both audio
+	and MIDI clips are measured in bars and beats.
+</p>
+
+<p>
+	By default, an application that supports a non-linear workflow will attempt
+	to estimate beats per minute in an audio clip and then stretch or squeeze
+	the clip so that it would match the bpm of the session and wrap neatly around
+	bars. That way, a clip that originally has a different tempo that the one in
+	the session would stay in sync with other clips.
+</p>
+
+<p>
+	Stretch options in Ardour are explained
+	<a href="@@clip-stretch-options">here</a>.
+</p>

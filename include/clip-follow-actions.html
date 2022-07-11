@@ -1,0 +1,48 @@
+<h2>Follow Actions</h2>
+
+<p>When the contents of one trigger slots has been played a user-defined number of times, Ardour can stop playing trigger slots or switch to a different trigger slot. This is defined by follow actions, i.e. actions follow the playback of a trigger slot.</p>
+
+<p>
+  Here are the currently available follow actions:
+</p>
+
+<p>FIXME THE ENTIRE TABLE</p>
+
+<table class="dl">
+  <tr><th><kbd class="menu">None</kbd></th>
+  <td>Play the contents of the slot once and stop</td></tr>
+  <tr><th><kbd class="menu">Stop</kbd></th>
+  <td>Stop after playing back the amount of times set with Follow Count or via Follow Length (see below)</td></tr>
+  <tr><th><kbd class="menu">Again</kbd></th>
+  <td>Repeat the contents of the trigger slot over and over again</td></tr>
+  <tr><th><kbd class="menu">Reverse</kbd></th>
+  <td>Play back and go to the previous trigger slot</td></tr>
+  <tr><th><kbd class="menu">Forward</kbd></th>
+  <td>Play back and go to the next trigger slot</td></tr>
+  <tr><th><kbd class="menu">Jump</kbd></th>
+  <td>Play back and jump to a particular scene. Selecting multi-jump and multiple trigger slots will result in randomly playing one of the selected slots.</td></tr>
+</table>
+
+<p>To help distinguishing between them, Ardour will display an icon next to the name of a clip in a slot:</p>
+
+<figure>
+  <img style="width:150px;" src="/images/cue-follow-actions-all-icons.png" alt="Follow Action icons">
+  <figcaption>
+    Follow action icons, top to bottom: None, Stop, Again, Reverse, Forward, Jump to scene B, Multi-Jump
+  </figcaption>
+</figure>
+
+<h2>Follow Actions Probability</h2>
+
+<p>Ardour can help you explore ideas by bringing an element of randomness. You can set two possible follow actions to randonly alternate between, then set the percentage of probability of the left or the right follow action to be triggered. 0% means the left follow action is always chosen, 100% means the right follow action is always chosen. Anything between 0% and 50% will skew the probability towards the left follow action, anything between 50% and 100% will do the same for the right follow action.</p>
+
+<h2>Duration</h2>
+
+<p>Follow Count</p>
+
+<p>How many times to repeat a clip before triggering the Follow Action. FIXME</p>
+
+<p>Follow Length: [] beats</p>
+
+<p>When enabled, follow length is used instead of clip length. FIXME</p>
+

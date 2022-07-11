@@ -1,0 +1,39 @@
+<h2>Stretch</h2>
+
+<p>FIXME. Optional. What happens when disabled? Won’t match the current timeline
+tempo: START THE SECTION WITH THIS: ARDOUR ALWAYS MATCHES CURRENT SESSION
+TEMPO, SO TEMPO RAMPS WILL WORK FOR CLIPS</p>
+
+<p>Stretch modes:</p>
+
+<ul>
+  <li><dfn>Crisp</dfn> works best for sounds with fast onset like drums and percussion</li>
+  <li><dfn>Smooth</dfn> is best used for sustained notes like pads</li>
+  <li><dfn>Mixed</dfn> is for anything in between</li>
+</ul>
+
+<h2>BPM</h2>
+
+Displays estimated tempo rounded to the closest integer. You can make half or double of whatever is in that display. You can go as low as almost zero and you will be exhausted after BPM in 6 figures.
+
+<h2>Clip Length</h2>
+
+Measured in beats. Affects the bpm. FIXME
+
+<h2>Length in Bars</h2>
+
+<p>It’s a hint to help you counting. FIXME</p>
+
+<p>1) when a file is loaded, we infer its bpm either by minibpm's estimate, a flag in the filename, metadata (TBD) or other means</p>
+
+<p>2) we assume the clip must have an integer number of beats in it  (simplest case is a one-bar loop with 4 beats in it)</p>
+
+<p>3) ...so we round to the nearest beat length, and set the tempo to *exactly* fit the sample-length into the assumed beat-length</p>
+
+<p>4) the user may recognize a problem:  "this was a 3/4 beat, which was rounded to 4 beats but it should have been 3"</p>
+
+<p>5) if the user changes the beat-length, then the tempo is recalculated for use during stretching</p>
+
+<p>6) someday, we will also allow the sample start and length to be adjusted in a trimmer, and that will also adjust the tempo</p>
+
+<p>7) in all cases the user should be in final control; but our "internal" value for stretching are just sample-start and BPM, end of story</p>
