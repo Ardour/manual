@@ -1,10 +1,31 @@
-<h2>Stretch</h2>
+<h2>Stretching</h2>
 
-<p>FIXME. Optional. What happens when disabled? Won’t match the current timeline
-tempo: START THE SECTION WITH THIS: ARDOUR ALWAYS MATCHES CURRENT SESSION
-TEMPO, SO TEMPO RAMPS WILL WORK FOR CLIPS</p>
+<p>
+	When you load an audio clip into a trigger slot, Ardour applies some
+	heuristics to estimate its temo in beats per minute. If neither the file
+	name nor the metadata specify it, Ardour will use
+	<a href="https://github.com/breakfastquay/minibpm">minibpm</a> to analyze
+	the file assuming it has a fixed tempo.
+</p>
+
+<p>
+	After estimating the tempo, Ardour will enable stretching for the clip
+	to make it match session's bpm at any given time. This means that should
+	session's tempo change over time (in either ramped or constant mode),
+	Ardour will re-stretch all audio clips to accomodate for that.
+</p>
+
+<p>
+	Disabling stretching when original clip's tempo doesn't match that of the
+	session will most of the times make the clip audibly go out of sync with
+	the beat.
+</p>
 
 <p>Stretch modes:</p>
+
+<p>
+	Once stretching is enabled, you have several options how to apply it:
+</p>
 
 <ul>
   <li><dfn>Crisp</dfn> works best for sounds with fast onset like drums and percussion</li>
@@ -14,7 +35,24 @@ TEMPO, SO TEMPO RAMPS WILL WORK FOR CLIPS</p>
 
 <h2>BPM</h2>
 
-Displays estimated tempo rounded to the closest integer. You can make half or double of whatever is in that display. You can go as low as almost zero and you will be exhausted after BPM in 6 figures.
+<p>
+	This is where Ardour displays the estimated tempo rounded to the closest
+	integer. You can progressively divide or mutiply by two whatever Ardour
+	thinks is the original tempo.
+</p>
+
+<p>
+	Supposing, session's tempo is currently 120bpm and original clip's tempo
+	is 90bpm. Stretching the clip to match session's tempo will make it sound
+	faster that it originally is.
+</p>
+
+<p>
+	If you divide the estimated clip's tempo by 2, you get 45bpm. Stretching it
+	back to 120bpm will make it sound faster. And multiplying the original
+	clip's tempo by 2 will make it 180bpm. Stretched down to 120bpm, the clip
+	will sound slower than it originally is.
+</p>
 
 <h2>Clip Length</h2>
 
