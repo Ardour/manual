@@ -10,38 +10,79 @@
 
 <h2>Launch Style</h2>
 
-<p>FIXME THE ENTIRE TABLE</p>
+<p>
+  The <dfn>Launch Style</dfn> defines how you interact with the clip's
+  playback. Ardour makes a distinction between pressing a button or a key
+  (the 'down' event for a mouse or the note-on MIDI event) and releasing
+  a button or a key (the 'up' event for a mouse or the note-off MIDI event).
+</p>
+
+<p>
+  You can setup a trigger slot so that you would press a silicon pad on your
+  external grid controller, and Ardour would play the clip in that slot
+  indefinitely on repeat. Or you could set it up so that it would only repeat
+  that clip as long as you are keeping the pad pressed and stop playing it
+  as soon as you stop pressing the pad.
+</p>
 
 <table>
   <tr>
     <th><kbd class="menu">Trigger</kbd></th>
     <td width="100px"><img src="/images/launch-style-icons-trigger.png" /></td>
-    <td>You click and it starts playing until it stops; mouse up and note-off are ignored</td></tr>
+    <td>Clicking will trigger the playback of a clip. Further clicks, as well
+    as mouse up and note-off events will be ignored.</td></tr>
   <tr>
     <th><kbd class="menu">Retrigger</kbd></th>
     <td width="100px"><img src="/images/launch-style-icons-retrigger.png" /></td>
-    <td>Mouse down or note-on starts or retriggers; mouse up and note-off FIXME</td></tr>
+    <td>Clicking will trigger the playback of a clip. Another click will restart
+    (retrigger) the playback from the beginning, quantization will be taken into
+    consideration. Mouse up and note-off events will be ignored.</td></tr>
   <tr>
     <th><kbd class="menu">Gate</kbd></th>
     <td width="100px"><img src="/images/launch-style-icons-gate.png" /></td>
-    <td>plays only as long as you press the play button, quantization setting defines how soon it starts and ends after pressing the button down. Runs till mouse up/note off then to next quantization</td></tr>
+    <td>The clip will be played back as long as you keep the mouse button
+    or the MIDI key/pad pressed. Quantization defines how soon playback starts
+    after pressing the button/key down and ends after releasing the button/key.
+    </td>
+  </tr>
   <tr>
     <th><kbd class="menu">Toggle</kbd></th>
     <td width="100px"><img src="/images/launch-style-icons-toggle.png" /></td>
-    <td>Keeps looping until you click it again. runs till next mouse down/NoteOn</td></tr>
+    <td>The clip will keep playing until you click the button again or send
+    another note-on event from your MIDI device</td>
+  </tr>
   <tr>
     <th><kbd class="menu">Repeat</kbd></th>
     <td width="100px"><img src="/images/launch-style-icons-repeat.png" /></td>
-    <td>Keeps looping, but when you press and hold, it starts from the beginning and plays as far as quantization setting goes, e.g. 1/16 means it repeats the first 1/16 of a bar. plays only quantization extent until mouse up/note off</td></tr>
+    <td>The contents of the clip will be played to the extent of the quantization setting.</td>
+  </tr>
 </table>
 
 <h2>Launch Quantize</h2>
 
-<p>From 4 bars down to 1/64 bar, and None. FIXME</p>
+<p>
+  This setting defines how long Ardour will wait till beginning the playback
+  of a clip in a trigger slot. If the transport is already rolling, and
+  quantization is set to 1 bar, which is the default, Ardour will wait for the
+  next bar, then start playing the clip. Quantizing to a whole bar or several
+  bars typically guarantees that downbeats of a drums track and a bassline
+  track align.
+</p>
+
+<p>
+  The quantization value can be as large as 4 bars and as small as 1/64 bar.
+  When 'None' is selected, playback with a rolling transport will start
+  immediately.
+</p>
 
 <h2>Legato</h2>
 
-<p>FIXME (also, doesn't work properly yet).</p>
+<p>
+  The <dfn>Legato</dfn> mode helps keeping two clips of the same track in sync
+  when you switch from one to another. With Legato on, Ardour will pick up
+  the playback of the second clip at the position where the first one left off.
+  Please note that quantization applies here.
+</p>
 
 <h2>Cue Isolate</h2>
 
