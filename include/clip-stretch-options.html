@@ -2,17 +2,17 @@
 
 <p>
 	When you load an audio clip into a trigger slot, Ardour applies some
-	heuristics to estimate its temo in beats per minute. If neither the file
-	name nor the metadata specify it, Ardour will use
-	<a href="https://github.com/breakfastquay/minibpm">minibpm</a> to analyze
-	the file assuming it has a fixed tempo.
+	heuristics to estimate its temo in beats per minute. Unless a metadata
+	in the file source provides information,
+	<a href="https://github.com/breakfastquay/minibpm">minibpm</a> is used
+	to analyze and detect the file's BPM.
 </p>
 
 <p>
-	After estimating the tempo, Ardour will enable stretching for the clip
-	to make it match session's bpm at any given time. This means that should
-	session's tempo change over time (in either ramped or constant mode),
-	Ardour will re-stretch all audio clips to accomodate for that.
+	After tempo is estimated, the clip is time-stretched to match the
+	session's tempo map. This means that should session's tempo change over
+	time (in either ramped or constant mode), all audio clips will be
+	re-stretched to accomodate for that.
 </p>
 
 <p>
@@ -36,9 +36,8 @@
 <h2>BPM</h2>
 
 <p>
-	This is where Ardour displays the estimated tempo rounded to the closest
-	integer. You can progressively divide or mutiply by two whatever Ardour
-	thinks is the original tempo.
+	This is where the estimated tempo is displayed. It can also
+	be progressively divided or mutiplied by two.
 </p>
 
 <p>
@@ -48,10 +47,10 @@
 </p>
 
 <p>
-	If you divide the estimated clip's tempo by 2, you get 45bpm. Stretching it
-	back to 120bpm will make it sound faster. And multiplying the original
-	clip's tempo by 2 will make it 180bpm. Stretched down to 120bpm, the clip
-	will sound slower than it originally is.
+	If the estimated clip's tempo is divided by 2, stretching the resulted
+	45bpm back to 120bpm will make the clip sound faster. Vice versa,
+	multiplying the original clip's tempo by 2 and then stretching it down
+	from 180bpm to 120bpm will make the clip sound slower than it originally is.
 </p>
 
 <h2>Clip Length</h2>
