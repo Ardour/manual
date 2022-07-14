@@ -1,14 +1,51 @@
 <p>
-	You can combine the linear workflow, i.e. working with regions on the
-	timeline, and the non-linear workflow, i.e. launching clips from trigger
-	slots and setting up follow actions.
+	It's possible to combine the linear workflow, i.e. working with regions on
+	the timeline, and the non-linear workflow, i.e. launching clips from trigger
+	slots.
 </p>
 
-<p>FIXME GENERAL ORDER OF ACTION:</p>
+<p>
+	The general steps to do so are:
+</p>
 
 <ol>
-<li>1. Set up follow actions, follow count etc. It's up to you if you want transitions between scenes through follow actions. You can set slots to use Again follow action and add markers treiggering cues where you need them and adding "stop all cues" marker where you need all cues off.</li>
-<li>Add cue markers.</li>
-<li>Add the "stop all cues" marker</li>
-<li>Draw/record your non-repeatable regions the usual way on the timeline/canvas.</li>
+	<li>
+		Setting up the trigger slots grid: loading clips into slots and grouping
+		them into cues.
+	</li>
+	<li>
+		Setting up follow actions to make transitions from one cue to another,
+		although in some cases this would be fairly optional as it is possible
+		to trigger specific cues from the timeline.
+	</li>
+	<li>
+		Adding cue markers on the ruler where repeatable clips should start
+		playing. This will launch an entire cue sans the isolated slots.
+	</li>
+	<li>
+		Adding the "Stop all cues" marker where all cues should stop playing.
+	</li>
 </ol>
+
+<p>
+	In the example below, cue A starts at bar 3, followed by cue B at bar 7, then
+	all cues are stopped at bar 11. After that, cue C is triggered on bar 15, then
+	cue D on bar 19, then all cues are stopped at bar 23.
+</p>
+
+<figure>
+  <img style="width:75%;" src="/images/cue-markers-ruler-example.png" alt="Using Cue markers">
+  <figcaption>
+    Using Cue markers
+  </figcaption>
+</figure>
+
+<p>
+	The rest of the composition would be written the usual way, by creating
+	consecutive audio and/or MIDI regions on the canvas.
+</p>
+
+<p>
+	A session that is set up in such a way can be exported just like any other,
+	into a single audio file or through stem exporting.
+</p>
