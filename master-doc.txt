@@ -1556,6 +1556,14 @@ part: subchapter
 ---
 
 ---
+title: Setting Up Clip Properties
+link: clip-properties
+include: clip-properties.html
+uri: cue/setting-up-cues/clip-properties
+part: subchapter
+---
+
+---
 title: Setting Up Launch Options
 link: clip-launch-options
 include: clip-launch-options.html
