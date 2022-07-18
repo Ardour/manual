@@ -87,8 +87,25 @@
 <h2>Cue Isolate</h2>
 
 <p>
-  When you play the entire cue, all slots that belong to it get triggered.
+  When an entire cue is played, all slots that belong to it get triggered.
   <dfn>Solo Isolate</dfn> is a way to disable that for selected slots.
-  An isolated slot will only be triggered when you send either mouse-down
-  or note-on event directly to it.
+  An isolated slot will only be triggered when either mouse-down or note-on
+  event is sent directly to it.
+</p>
+
+<p>
+  Isolated slots are visually separated from others: they have a linear
+  black-to-transparent gradient fill in the background of the trigger button.
+</p>
+
+<figure>
+  <img style="width:50%;" src="/images/isolated-trigger-slots.png" alt="Isolated trigger slots">
+  <figcaption>
+    Isolated trigger slots
+  </figcaption>
+</figure>
+
+<p>
+  On the screenshot above, the Bass, Lead Synth and El Piano tracks all have
+  at least one isolated trigger slot.
 </p>
