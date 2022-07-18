@@ -1,7 +1,7 @@
 <h2>Adding tracks</h2>
 
 <p>
-	You can add tracks in the <dfn>Cue</dfn> window the usual way,
+	It's possible to add tracks in the <dfn>Cue</dfn> window the usual way,
 	either by double-clicking on the free space in the canvas or
 	by choosing the <kbd class="menu">Track &gt; Add Track, Bus, or VCA</kbd>
 	menu item. The important part is to enable the
@@ -10,19 +10,19 @@
 </p>
 
 <p>
-	Alternatively, you can drop an existing audio or MIDI file into
+	Alternatively, it's possible to drop an existing audio or MIDI file into
 	the empty part of the canvas to automatically create the cue track
 	and fill the first empty trigger slot with it.
 </p>
 
 <p>
 	Trigger slots not only work as a drag-and-drop target, they also
-	work as a drag-and-drop sources. You can drag the contents of an
-	existing trigger slot into the empty part of the canvas to create
+	work as a drag-and-drop sources. It's possible to drag the contents
+	of an existing trigger slot into the empty part of the canvas to create
 	a new track and fill the first slot with the contents of the original
-	slot. You can also drag and drop the contents of one slot into another
-	in case you want to use the same clip with some variations (e.g.
-	a custom follow length).
+	slot. It's also possible to drag and drop the contents of one slot into
+	another in case you want to use the same clip with some variations
+	(e.g. a custom follow length).
 </p>
 
 <h2>Loading clips to slots</h2>
@@ -59,54 +59,7 @@
 </ul>
 
 <p>
-	Note that the type of data must match the type of tracks when you
-	drag and drop a file, a clip, or a region. E.g. you cannot place
-	a MIDI clip into a trigger slots of an audio track.
+	The type of data must match the type of tracks a clip is being inserted to.
+	E.g. it's impossible to place a MIDI clip into a trigger slot of an audio
+	track.
 </p>
-
-<h2>Setting Clip Properties</h2>
-
-<p>
-	The contents of this options box partially depends on the type of data
-	in the clip, audio or MIDI. The common settings are:
-</p>
-
-<ul>
-	<li>
-		<dfn>Name</dfn>: the full name of the clip's file, usually visible in its
-		shortened form.
-	</li>
-	<li>
-		<dfn>Load</dfn>: this button allows loading a clip's file into
-		the selected trigger slot.
-	</li>
-	<li>
-		<dfn>Color</dfn>: here you can open a color chooser dialog to set
-		the color of the clip's title inside the trigger slot.
-	</li>
-</ul>
-
-<p>
-	The only audio-specific setting is <dfn>Gain (dB)</dfn> which adjusts
-	the output volume of a clip.
-</p>
-
-<p>
-	For MIDI clips, there are several specific options:
-</p>
-
-<ul>
-	<li>
-		<dfn>Velocity Adj</dfn>: this effectively adjusts the output volume
-		by increasing the velocity of MIDI notes.
-	</li>
-	<li>
-		<dfn>Send Patches</dfn>: this enables sending a control message
-		to load a particular patch. This is typically used for external
-		MIDI gear such a hardware synthesizers.
-	</li>
-	<li>
-		<dfn>MIDI Patches</dfn>: clicking this button will open a dialog
-		where you can select a patch to send when a MIDI clip is triggered.
-	</li>
-</ul>
