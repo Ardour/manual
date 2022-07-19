@@ -1470,7 +1470,7 @@ part: chapter
 
 ---
 title: Clips
-uri: clips
+link: clips
 part: part
 ---
 
