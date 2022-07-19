@@ -1,78 +1,102 @@
 <p>
 	For cues, Ardour generally follows the design pattern of other applications
-	that support a grid-based non-linear workflow. Here are themain elements
-	of the <dfn>Cue</dfn> window.
+	that support a grid-based non-linear workflow.
 </p>
 
-<!-- <figure>
-  <img style="width:150px;" src="/images/cue-window.png" alt="The Cue window elements">
+<figure>
+  <img style="width:75%;" src="/images/cue-window-elements.png" alt="The Cue window elements">
   <figcaption>
     The Cue window elements
   </figcaption>
-</figure> -->
+</figure>
+
+<p>The main elements of the <dfn>Cue</dfn> window are:</p>
 
 <ol>
-	<li>Grid comprised of tracks and cues</li>
-	<li>Processor box</li>
-	<li>Per-track controls</li>
-	<li>Sidebar with the tabs: Clips, Tracks, Sources, Regions</li>
-	<li>Bottom bar with options for clips and trigger slots</li>
+	<li>Grid of tracks and cues, playback indicators</li>
+	<li>Mixer channel section</li>
+	<li>Clip and trigger slot options</li>
+	<li>Sidebar: Clips, Tracks, Sources, and Regions</li>
 </ol>
 
 <h2>Grid</h2>
 
-<p>Grid: tracks and cues. FIXME</p>
-
-<p>Slot: launch indicator, title, follow action indicator. FIXME
-
-<h2>Playback Indication</h2>
-
-<p>FIXME</p>
-
-<h2>Processor Box</h2>
-
 <p>
-	Similarly to the ordinary track, this is where you assign a virtual
-	instrument to a MIDI track and/or add effects to be applied to all clips
-	in a track regardless of what scene they belong to.
+	The trigger slots <dfn>grid</dfn> is comprised of tracks (stacked
+	horizontally) and cues (stacked vertically). Tracks group clips played
+	by roughly the same instrument (or set of instruments, in case of drums
+	and percussion). Cues group clips that will be played simultaneously. 
 </p>
 
-<h2>Per-Track Controls</h2>
+<p>
+	Every <dfn>trigger slot</dfn> with a clip inside contains three elements:
+	launch button/indicator, clip title, and follow action selector/indicator.
+</p>
 
 <p>
-	Again, similarly to ordinary tracks, this is where you tweak the fader
-	and panner positions, mute or solo an entire track.
+	The <dfn>playback indication area</dfn> displays four pieces of data for
+	each track:
 </p>
+
+<ul>
+	<li>Clip playback progress</li>
+	<li>Which cue the playing clip belongs to</li>
+	<li>MIDI clip indication</li>
+	<li>Follow count</li>
+</ul>
+
+<p>
+	<a href="@@playing-back-the-cues">This chapter</a> provides more information
+	on playback in the <dfn>Cue</dfn> window.
+</p>
+
+<h2>Mixer channel section</h2>
+
+<p>
+	The mixer channel section is very similar to what's available in the
+	<dfn>Mixer</dfn> window: there's the <a href="@@processor-box">processor
+	box</a>, the same <a href="@@panning">panner</a>, as well as the
+	<a href="@@muting-and-soloing">mute and the solo</a> buttons. Both the fader
+	and the meter are horizontal, there is no choice for a type of meter.
+</p>
+
+<h2>Clip and trigger slot options</h2>
+
+<p>
+	The bottom section contains several groups of controls:
+</p>
+
+<ul>
+	<li><a href="@@clip-properties">Clip Properties</a>: full name of a clip
+	in the selected trigger slot, loading a different clip, gain control</li>
+	<li><a href="@@clip-launch-options">Launch Options</a>: how the clips' playback is triggered and within what musical time unit it is quantized</li>
+	<li><a href="@@clip-follow-actions">Follow Actions</a>: how many times one
+	clip is played and what other clip's playback is triggered next</li>
+	<li><a href="@@clip-stretch-options">Stretch Options</a> (audio-only):
+	stretching the original audio data to match current session tempo, adjusting
+	assumed original tempo for creative purposes</li>
+</ul>
 
 <h2>Sidebar</h2>
 
 <p>
-	Ardour defaults to displaying the Clips tab as the clips browser
-	is commonly used for pulling reusable clips into the project.
+	Ardour defaults to displaying the <a href="@@clips-overview">Clips</a> tab
+	as the clips browser is commonly used for pulling reusable clips into
+	the project.
 </p>
 
 <p>
-	You can also access the list of tracks, which in the context of the Cue
-	window is mostly useful to mark a track as visible or not visible in the
-	Cue window.
+	In the Cue context, the <dfn>Tracks</dfn> tab is mostly useful for marking
+	a track as visible or not visible in the Cue window.
 </p>
 
 <p>
-	Additionally, you can pick a source or a region in the <dfn>Sources</dfn>
-	or <dfn>Regions</dfn> tabs respectively and drop them in the <dfn>Clips</dfn>
-	tab to copy a reusable item to your custom library of clips.
-</p>
-
-<h2>Bottom Bar</h2>
-
-<p>
-	The bottom bar contains three or four groups of controls depending on the
-	type of a clip, audio or MIDI.
+	Both the <dfn>Sources</dfn> and the <dfn>Regions</dfn> tabs can work as
+	drag-and-drop sources for:
 </p>
 
 <ul>
-	<li><dfn>Clip Properties</dfn>: FIXME</li>
-	<li><dfn>Launch Options</dfn>: FIXME</li>
-	<li><dfn>Follow Actions</dfn>: FIXME</li>
-	<li><dfn>Stretch Options</dfn> (audio-only): FIXME</li>
+	<li>Placing audio and MIDI data to trigger slots</li>
+	<li>Creating new tracks</li>
+	<li>Creating new reusable clips available from the Clips browser</li>
 </ul>
