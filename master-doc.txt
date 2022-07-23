@@ -267,6 +267,15 @@ part: subchapter
 ---
 
 ---
+title: Transport Masters
+menu_title: Transport Masters
+include: transport-masters.html
+link: transport-masters
+uri: synchronization/transport-masters.html
+part: subchapter
+---
+
+---
 title: Preferences
 menu_title: Preferences
 include: preferences.html

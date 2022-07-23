@@ -1,0 +1,154 @@
+<p>
+	The <dfn>Transport Masters</dfn> dialog allows selecting a transport master
+	(a timecode source) for Ardour to sync to, as well as tweaking additional
+	settings.
+</p>
+
+<figure>
+  <img style="width:75%;" src="/images/transport-masters.png" alt="Transport Masters">
+  <figcaption>
+    Transport Masters
+  </figcaption>
+</figure>
+
+<p>
+	Supported protocols are:
+</p>
+
+<ul>
+	<li>JACK Transport</li>
+	<li>MIDI Time Code (MTC)</li>
+	<li>Linear (or Longitudinal) Timecode (LTC)</li>
+	<li>MIDI Beat Clock, or MIDI Clock</li>
+</ul>
+
+<p>
+	For each type of supported protocol it's possible to select the port
+	to read timecode signal from, view sync position and drift (delta), see
+	when any message was received the last time, and toggle additional
+	options.`
+</p>
+
+<h2>Selecting a Transport Master</h2>
+
+<p>
+	The dialog collects all transport masters information and settings in one
+	place, however Ardour can sync only to one timecode source at a time.
+	Clicking the radio button to the left of the master's name selects that
+	transport master.
+</p>
+
+<p>
+	It is neccessary to also select an audio or MIDI port (depending on the
+	protocol) to read timecode data from. Relevant ports are listed for each
+	transport master in the dropdown list in the <dfn>Source</dfn> section.
+</p>
+
+<h2>Keeping Track of The Sync</h2>
+
+<p>
+	<dfn>Format</dfn> displays the timecode format for each transport master
+	depending on the specifics of that master's protocol. E.g. while MTC and
+	LTC will display a frame rate such as 25 fps, MIDI Clock will be
+	transmitting tempo such as 120 beats per minute.
+</p>
+
+<p>
+	<dfn>Sync Position + Delta</dfn> displays current location as per timecode
+	as well as the difference between current location in Ardour and the
+	location per timecode source. This difference (delta) accumulates as long
+	as Ardour's transport isn't rolling.
+</p>
+
+<p>
+	<dfn>Last Message + Age</dfn> displays the latest location transmitted
+	by the timecode source, as well as the time since the last transmission
+	was received.
+</p>
+
+<h2>Setting Additional Options</h2>
+
+<p>
+	It's possible to set several additional options.
+</p>
+
+<p>
+	<dfn>Active Commands</dfn> makes it possible to perform certain types
+	of actions in Ardour at the cost of decoupling from the transport master.
+	Supported options are:
+</p>
+
+<ul>
+	<li>Accept start/stop commands (displays 'Start/Stop' on the button)</li>
+	<li>Accept speed-changing commands (displays 'Speed' on the button)</li>
+	<li>Accept locate commands (displays 'Locate' on the button)</li>
+</ul>
+
+<p>
+	When only one command is enabled, its short name will displayed at the
+	button's caption (see above). When two out of three are enabled,
+	the button's caption will be 'Complex'. When all three options are enabled,
+	the caption will be 'All'.
+</p>
+
+<p>
+	The easiest way to select two or three options at a time is to open the
+	drop-down menu, use arrow up/down keys to navigate to the option of interest,
+	the press <kbd class="button">Spacebar</kbd> to toggle that option without
+	subsequently closing the drop-down menu.
+</p>
+
+<p>
+	<dfn>Clock Synced</dfn> — when this option is enabled, the external
+	timecode source is assumed to be sample-clock synced to the audio interface
+	that is being used by Ardour
+</p>
+
+<p>
+	<dfn>29.97/30</dfn> — when this option is enabled, the external timecode
+	source is assumed to use 29.97 fps exactly rather than 30000/1001 (which is
+	29.97002997).
+</p>
+
+<p>
+	Both <dfn>Clock Synced</dfn> and <dfn>29.97/30</dfn> options are not
+	applicable to <dfn>MIDI Beat Clock</dfn> that operates in the musical time
+	domain and transmits beats per minute rather that seconds and frames.
+</p>
+
+<h2>Adding and Removing Custom Transport Masters</h2>
+
+<p>
+	It is possible to <dfn>add</dfn> additional masters of the same type, e.g.
+	two difference sources of LTC.
+</p>
+
+<p>
+	Clicking <kbd class="button">Add a New Transport Master</kbd> opens a new
+	dialog.
+</p>
+
+<figure>
+  <img style="width:50%;" src="/images/add-transport-master.png" alt="Add a new transport master">
+  <figcaption>
+    Add a new transport master
+  </figcaption>
+</figure>
+
+<p>
+	It's usually a good idea to give the custom transport master a descriptive
+	name, especially if there are multiple ones available using the same
+	protocol.
+</p>
+
+<p>
+	The next step is selecting the audio or MIDI port where the timecode signal
+	will be coming from.
+</p>
+
+<p>
+	Additional transport masters can be <dfn>removed</dfn> with a single click.
+	Every custom transport master has a button with a crosshair icon
+	<kbd class="button">X</kbd> to the right of the window. No confirmation
+	will be asked upon clicking this button.
+</p>
