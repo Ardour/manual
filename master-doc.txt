@@ -318,6 +318,14 @@ part: subchapter
 ---
 
 ---
+title: Keyboard Shortcuts
+include: keyboard-shortcuts.html
+link: keyboard-shortcuts
+uri: setting-up-your-system/keyboard-shortcuts
+part: chapter
+---
+
+---
 title: Ardour's Interface
 uri: ardours-interface
 part: part
