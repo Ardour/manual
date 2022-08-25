@@ -719,7 +719,7 @@ if pdf:
 
 	# Generating the actual PDF with weasyprint (https://weasyprint.org/)
 	from weasyprint import HTML
-	from weasyprint.fonts import FontConfiguration
+	from weasyprint.text.fonts import FontConfiguration
 	
 	html_font_config = FontConfiguration()
 	doc = HTML(string = pdfpage, base_url = global_site_dir)
