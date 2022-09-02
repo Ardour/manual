@@ -1,12 +1,57 @@
-<h2>How To Play Back Individual Slots</h2>
+<p>
+	It is possible to play both individual clips and entire cues.
+</p>
 
-<p>By clicking play button. FIXME</p>
+<h2>Playing Individual Clips</h2>
 
-<p>By scrolling the mouse wheel. FIXME</p>
+<p>
+	There are generally two ways to trigger a slot with a clip inside.
+</p>
 
-<p>Stopping the slot playback. FIXME</p>
+<ol>
+	<li>Pressing a mouse button over the button to the left of the
+	clip's name (Ardout defaults to Trigger launch style which has a classical
+	triangle playback icon)</li>
+	<li>Sending a note-on event from an external or a virtual MIDI
+	controller</li>
+</ol>
 
-<h2>How To Play Back An Entire Cue</h2>
+<p>
+	How Ardour responds to releasing the mouse button or sending a note-off
+	event depends on the trigger launch style.
+	<a href="@@clip-launch-options">This chapter</a> covers that topic.
+</p>
+
+<p>
+	Once the clip starts playing, the playback indication panel for that track
+	lights up with some information:
+</p>
+
+<figure>
+  <img style="width:75%;" src="/images/trigger-slot-playing.png" alt="Playback indication">
+  <figcaption>
+    Playback indication
+  </figcaption>
+</figure>
+
+<p>
+	Left to right:
+</p>
+
+<ul>
+	<li>Clip progress, in the form of a sliding pie chart</li>
+	<li>Which cue is playing (it's C on the screenshot)</li>
+	<li>MIDI clip indication, an icon representing two beamed 1/16 notes</li>
+	<li>Follow count, e.g. '1/2' on the screenshot means the clip is currently being played
+	the first time out of two times total</li>
+</ul>
+
+<p>
+	One way to stop a playing clip is to click the square-shaped icon
+	in any of the empty slots in the track of interest.
+</p>
+
+<h2>Play An Entire Cue</h2>
 
 <p>Launching a cue. FIXME</p>
 
