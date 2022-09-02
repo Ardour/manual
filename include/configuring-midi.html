@@ -26,25 +26,16 @@
   <td><dfn><abbr title="Advanced Linux Sound API">ALSA</abbr> MIDI</dfn> is the
   standard MIDI framework on Linux systems.</td></tr>
   <tr><th>Windows</th>
-  <td>There is no single standard MIDI framework on Windows, but Ardour
-  can work with ASIO and others.</td></tr>
+  <td><dfn><abbr title="Microsoft Multimedia Environment">MME</abbr></dfn> is the
+  standard MIDI framework on Windows systems.</td></tr>
 </table>
 
 <p class="note">
-  On Linux systems, <dfn>QJackCtl</dfn> control software displays ALSA MIDI
-  ports under its "ALSA" tab (it does not currently display CoreMIDI ports).
-  By contrast, JACK MIDI ports show up under the <kbd class="menu">MIDI</kbd>
-  tab in QJackCtl. However, when Ardour is using jackd for audio in and out
-  the alsa MIDI ports are not accessable. When Ardour is using ALSA for audio
-  in and out then only alsa MIDI ports are accessable.
+  <dfn><abbr title="JACK Audio Connection Kit">JACK</abbr></dfn> is an
+  alternate audio system which Ardour can utilize for both audio and
+  MIDI.  JACK is used to route audio between independent applications,
+  and is now considered an advanced use case which is not recommended
+  for most users.  Users with a need to use JACK for audio routing
+  should consult the latest documentation at
+  the <a href="https://jackaudio.org/">JACK website</a>.
 </p>
-
-<h2>JACK MIDI Configuration</h2>
-
-<p>
-  By default, JACK will <strong>not</strong> automatically detect and use
-  existing MIDI ports. One of several ways of <dfn>bridging</dfn> between
-  the native MIDI frameworks (e.g. CoreMIDI or ALSA) and JACK MIDI must be
-  chosen, as described in the following sections.
-</p>
-
