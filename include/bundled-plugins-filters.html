@@ -1,0 +1,194 @@
+<h2>ACE Compressor</h2>
+
+<p>
+  The job of this filter is to make an audio recording perceivably louder by
+  reducing the dynamic range, that is, the difference between the loudest and
+  the quietest parts. ACE compressor lowers the volume of loud sounds above a
+  user-defined threshold measured in dB, then the gain of all the sound gets
+  increased to make up for lost loudness.
+</p>
+
+<figure>
+  <img style="width:50%;" src="/images/a-compressor.png" alt="ACE Compressor">
+  <figcaption>
+    ACE Compressor
+  </figcaption>
+</figure>
+
+<p>Available settings are:</p>
+
+<ul>
+<li><strong>Threshold</strong>. This setting defines the loudness at which the compressor
+will start working.</li>
+<li><strong>Knee</strong>. Whether the transition from uncompressed to compressed is soft
+or hard. The effect is more noticeable with larger ratios.</li>
+<li><strong>Ratio</strong>. How much the gain is reduced above a certain threshold.
+If the ratio is e.g. 5:1, 5dB will become 1dB.</li>
+<li><strong>Attack</strong>. How long (in ms) it takes to apply maximum compression.</li>
+<li><strong>Release</strong>. How long it takes to return to zero compression.</li>
+<li><strong>Makeup Gain</strong>. How much the overall level should be increased after
+reducing loud sections.</li>
+<li><strong>Sidechain</strong>. Whether the effect should be activate by the loadness
+of audio signal in another track passing a certain threshold.</li>
+</ul>
+<p>The plugin also provides an opt-out inline display that shows input signal,
+threshold, and resulting gain reduction:</p>
+
+<figure>
+  <img style="width:75%;" src="/images/a-compressor-inline.png" alt="Inline ACE Compressor display">
+  <figcaption>
+    Inline display
+  </figcaption>
+</figure>
+
+<h2>ACE Expander</h2>
+
+<p>
+  Contrary to compressors, expanders increase the dynamic range either
+  by making quite sounds quieter (downward expanders) or by making loud
+  sounds louder (upward expanders). <em>ACE Expander</em> is a downward
+  expander. It reduces the level of a signal below a user-defined threshold
+  by user-defined ratio, then optionally increases the overall gain to make
+  up for lost loudness.
+</p>
+
+<figure>
+  <img style="width:50%;" src="/images/a-expander.png" alt="ACE Expander">
+  <figcaption>
+    ACE Expander
+  </figcaption>
+</figure>
+
+<p>Available settings are:</p>
+
+<ul>
+  <li><strong>Attack</strong>. How long (in ms) it takes to apply maximum
+  reduction of the quiet sections.</li>
+  <li><strong>Release</strong>. How long it takes to stop reducing the quiet
+  signal at all.</li>
+  <li><strong>Knee</strong>. Whether the transition from non-reduced to
+  reduced signal level is soft or hard. The effect is more noticeable with
+  larger ratios.</li>
+  <li><strong>Ratio</strong>. How much the gain is reduced below a certain
+  threshold. If the ratio is e.g. 3:1, -10dB will become -30dB.</li>
+  <li><strong>Threshold</strong>. The loudness at which the expander will
+  start working.</li>
+  <li><strong>Makeup Gain</strong>. How much the overall level should be
+  increased after reducing quiet sections.</li>
+  <li><strong>Sidechain</strong>. Whether the effect should be activated by
+  the loudness of audio signal in another track passing a certain threshold.</li>
+</ul>
+
+<p>
+  <em>ACE Expander</em> also comes with an inline widget for mixer channels
+  that displays the input signal level, the threshold, and the amount of
+  reduced signal.
+</p>
+
+<figure>
+  <img style="width:75%;" src="/images/a-expander-inline.png" alt="Inline ACE Expander display">
+  <figcaption>
+    Inline display
+  </figcaption>
+</figure>
+
+<h2>ACE Delay</h2>
+
+<p>
+  Delay effects repeat original signal after a user-defined interval.
+  In <em>ACE Delay</em>, the interval is calculated from the tempo and the
+  divisor&nbsp;&mdash; a musical time unit like a 1/4th note or a dotted 1/16th note.
+  When using a delay in music production, it's usually best to sync to
+  project's tempo, especially if there are tempo ramps in a song.
+</p>
+
+<figure>
+  <img style="width:50%;" src="/images/a-delay.png" alt="ACE Delay">
+  <figcaption>
+    ACE Delay
+  </figcaption>
+</figure>
+
+<p>Available settings are:</p>
+
+<ul>
+  <li><strong>Tempo</strong>. Amount of beats per minute.</li>
+  <li><strong>Sync</strong>. This toggles the syncing to project&#39;s
+  tempo.</li>
+  <li><strong>Divisor</strong>. The interval between the original sound and
+  its delayed copy, expressed in whole or fractional notes
+  (1/4th, 1/8th etc.)</li>
+  <li><strong>Dotted</strong>. When enabled, adds half the divisor unit
+  to the delay interval, e.g. a 1/8th note becomes a dotted 1/8th note.</li>
+  <li><strong>Time</strong>. The final delay time expressed in milliseconds.</li>
+  <li><strong>Feedback</strong>. How much of the processed signal goes back
+  into the delay effect&#39;s input.</li>
+  <li><strong>Low-Pass Filter (LPF)</strong>. This helps simulating analog
+  delay effects where the repeated signal gets dull.</li>
+  <li><strong>Invert</strong>. This option inverts the polarity of the output
+  signal.</li>
+  <li><strong>Output Gain</strong>. Reduces or increases the level of the
+  output signal.</li>
+</ul>
+
+<h2>ACE Reverb</h2>
+
+<p>A reverb effect emulates sound waves reflecting off the walls in a closed
+space which could be a a small room or a cathedral. The effect is usually
+applied to a &quot;dry&quot; audio recording, that is, one typically made in a
+very small room with acoustic absorption treatment so that there are little-to-no
+reflections. That way, a reverb effect makes the most sense as it gives you a
+clean slate and more freedom to shape your sound.</p>
+
+<p>The <em>ACE Reverb</em> effect is a very simple one, based on early research to
+artificial reverberation by Manfred Schroeder and Ben Logan (<a href="https://ccrma.stanford.edu/~jos/pasp/Schroeder_Reverberators.html">see
+here</a> for technical details). There are just two controls:</p>
+
+<ul>
+  <li><strong>Blend</strong>. This control changes the mix in favour
+  of either &quot;dry&quot; unprocessed signal that is being fed into the
+  effect or the &quot;wet&quot; processed by the effect. 0 means you only
+  hear the unprocessed signal, 1 mean you only hear the processed signal.</li>
+  <li><strong>Room Size</strong>. This control changes the size of the virtual
+  room and therefore the amount of decay.</li>
+</ul>
+
+<h2 id="ace-high-low-pass-filter">ACE High/Low Pass Filter</h2>
+
+<p>
+  High-pass and low-pass filters reduce the signal below and above a certain
+  frequency respectively. The <em>ACE High/Low Pass</em> filter combines the
+  two filters in one.
+</p>
+
+<figure>
+  <img style="width:50%;" src="/images/a-lpf-hpf.png" alt="Inline ACE High/Low Pass Filter display">
+  <figcaption>
+    ACE High/Low Pass Filter
+  </figcaption>
+</figure>
+
+<p>Each of the two bandpass filters has three controls:</p>
+
+<ul>
+  <li><strong>Steepness</strong>. How much the filter reduces the signal per
+  each step (12dB/oct to 48dB/oct). Setting steepness to <em>Off</em>
+  disables the filter entirely.</li>
+  <li><strong>Cutoff frequency</strong>. The base frequency where the filter
+  begins cutting off the data.</li>
+  <li><strong>Resonance</strong>. How much the signal around the cutoff
+  frequency is suppressed (lower values) or emphasized (higher values).
+  The plugins defaults to 0.707 which roughly translates to "do nothing".</li>
+</ul>
+
+<p>
+  The plugin also comes with an inline display visualizing the effect that
+  the filters have.
+</p>
+
+<figure>
+  <img style="width:75%;" src="/images/a-lpf-hpf-inline.png" alt="Inline ACE High/Low Pass Filter display">
+  <figcaption>
+    Inline display
+  </figcaption>
+</figure>

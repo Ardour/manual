@@ -1940,6 +1940,19 @@ part: subchapter
 ---
 
 ---
+title: Bundled Plugins
+part: part
+---
+
+---
+title: Filters and Effects
+include: bundled-plugins-filters.html
+link: bundled-plugins-filters
+uri: plugins-filters
+part: chapter
+---
+ 
+---
 title: Video
 part: part
 ---
