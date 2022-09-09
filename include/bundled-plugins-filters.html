@@ -192,3 +192,58 @@ here</a> for technical details). There are just two controls:</p>
     Inline display
   </figcaption>
 </figure>
+
+<h2>ACE EQ</h2>
+
+<p>
+  Equalizers are commonly used to shape the sound, change timbre of an
+  instrument and  generally help it sit better in a mix.
+</p>
+<p>
+  ACE EQ is a simple 4-band equalizer with a low and a high shelves.
+  All bands and shelves are optional and can be disabled by clicking on
+  the outer border of respective parameters boxes.
+</p>
+<p>
+  For each band it's possible to set the base frequency, the gain level,
+  and the bandwidth. The latter defines how much frequencies around the base
+  frequency are affected by the gain adjustment. In an example below, the first
+  band has the narrowest bandwidth of 0.1, and the third band has the default
+  banwidth of 1.0. While both bands have a gain of +10dB, the first one is very
+  narrow, but the third one is wide enough so that changes begin affecting
+  frequencies that belong to neighboring frequency bands.
+</p>
+
+<figure>
+  <img style="width:50%;" src="/images/a-eq-bandwidths.png" alt="ACE EQ bandwidths">
+  <figcaption>
+    ACE EQ bandwidths
+  </figcaption>
+</figure>
+
+<p>There are three ways to adjust both frequency, gain, and bandwidth:</p>
+
+<ol>
+  <li><p><strong>Directly on the diagram</strong>. Dragging the band mark
+  (1 through 4) left and right changes the frequency, dragging it up and down
+  changes the gain. Scrolling the mouse wheel over the band mark changes the
+  bandwidth.</p>
+  </li>
+  <li><p><strong>In the bottom parameters boxes</strong>. Scrolling the mouse
+  wheel over a setting changes its value. This is also where and how the master
+  output can be adjusted.</p>
+  </li>
+  <li><p><strong>Numerically via the generic plugin UI</strong>. This user
+  interface can be displayed by right-clicking on the plugin in the mixer
+  channel and choosing the  <em>Edit with generic controls…</em> option.</p>
+  </li>
+</ol>
+
+<p>ACE EQ also provides an inline display for mixer channels:</p>
+
+<figure>
+  <img style="width:75%;" src="/images/a-eq-inline.png" alt="Inline ACE EQ display">
+  <figcaption>
+    Inline display
+  </figcaption>
+</figure>
