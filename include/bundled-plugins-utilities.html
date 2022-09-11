@@ -1,0 +1,77 @@
+
+<h2 id="ace-amplifier">ACE Amplifier</h2>
+
+<p>
+  This plugin can adjust gain by +/- 20dB anywhere in the processor box.
+  It's typically useful in scenarios where a plugin's output needs to be
+  adjusted, but the plugin does not provide its output level control.
+</p>
+
+<p>
+  <em>Gain</em> is the only available setting. It can be set in the generic
+  plugin editor dialog or adjusted on the respective automation lane.
+</p>
+
+<!-- <h2 id="ace-a-b-switch">ACE A/B Switch</h2>
+
+<p>Automatable A/B Input Select. Channels grouped:
+Mono out:  In 1/2 -&gt; Out 1
+Stereo out: In 1/3 -&gt; Out 1, In 2/4 -&gt; Out 2
+Quad out: In 1/5 -&gt; Out 1, In 2/6 -&gt; Out 2, In 3/7 -&gt; Out 3, In 4/8 -&gt; Out 4</p>
+
+<h2 id="ace-cross-fade">ACE Cross Fade</h2>
+
+<p>Automatable Crossfade. Channels are grouped:
+Mono out:  In 1/2 -&gt; Out 1
+Stereo out: In 1/3 -&gt; Out 1, In 2/4 -&gt; Out 2
+Quad out: In 1/5 -&gt; Out 1, In 2/6 -&gt; Out 2, In 3/7 -&gt; Out 3, In 4/8 -&gt; Out 4</p> -->
+
+<h2 id="ace-mute">ACE Mute</h2>
+
+<p>
+  This plugin can mute the signal anywhere in the processing chain as opposed
+  to automating the mute state of the track that works on all processed audio
+  only. Using <em>ACE Mute</em> in the very beginning of the signal chain means
+  that in the muted state no signal is processed by plugins further in the
+  processing chain.
+</p>
+
+<p>
+  <em>ACE Mute</em> has no settings. All user interaction happens
+  in the dedicated automation lane:
+</p>
+
+<figure>
+  <img style="width:50%;" src="/images/a-mute-example.png" alt="Using ACE Mute">
+  <figcaption>
+    Using ACE Mute
+  </figcaption>
+</figure>
+
+<p>
+  Ardour also ships with a variation of <em>ACE Mute</em> called
+  <em>ACE Slow Mute</em> that applies a 1 second long fade out/in before/after
+  the muting.
+</p>
+
+<h2 id="voice-level-activate">Voice/Level Activate</h2>
+
+<p>
+  This plugin rolls the transport when the signal level on the plugin's input
+  exceeds a user-defined level. A common scenario where this is helpful is
+  recording in a home studio where an instrument or a vocal mic is at a distance
+  from the computer. Arming a track for recording, toggling recording mode, then
+  clapping in front of a mic or plucking a string will roll the transport and
+  start recording to a track of choice.
+</p>
+
+<figure>
+  <img style="width:50%;" src="/images/voice-level-activate.png" alt="Voice/Level Activate">
+  <figcaption>
+    Voice/Level Activate
+  </figcaption>
+</figure>
+
+<p>
+  The only configurable setting is the input level threshold.
+</p>
