@@ -1951,7 +1951,23 @@ link: bundled-plugins-filters
 uri: plugins-filters
 part: chapter
 ---
- 
+
+---
+title: Instruments
+include: bundled-plugins-instruments.html
+link: bundled-plugins-instruments
+uri: plugins-instruments
+part: chapter
+---
+
+---
+title: Utilities
+include: bundled-plugins-utilities.html
+link: bundled-plugins-utilities
+uri: plugins-uitilties
+part: chapter
+---
+
 ---
 title: Video
 part: part
