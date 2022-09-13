@@ -1969,14 +1969,6 @@ part: chapter
 ---
 
 ---
-title: Inline Scopes
-include: bundled-plugins-inline-scopes.html
-link: bundled-plugins-inline-scopes
-uri: plugins-inline-scopes
-part: chapter
----
-
----
 title: Video
 part: part
 ---
