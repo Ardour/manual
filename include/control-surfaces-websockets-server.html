@@ -1,0 +1,182 @@
+<p>
+  The WebSockets Server is an experimental control surface that allows
+  controlling a running Ardour session via a web browser on any computer
+  in the same local network.
+</p>
+
+<p>
+	The connection between the WebSockets server and a running instance of Ardour
+	is two-way: any changes made in the web-based surface are immediately
+	available in Ardour, and vice versa.
+</p>
+
+<p>
+  The experimental status means that this control surface is not
+  feature-complete and might have bugs.
+</p>
+
+<p>
+  Supported features are currently limited to:
+</p>
+
+<ul>
+  <li>Adjusting positions of channel faders and panners in tracks and the master
+  bus, as well as muting and unmuting tracks.</li>
+  <li>Changing settings of LV2 plugins that have already been loaded into
+  tracks or the master bus.</li>
+  <li>Rolling or pausing transport.</li>
+</ul>
+
+<h2>Enabling and Accessing the WebSockets Server</h2>
+
+<p>
+  To enable the WebSockets Server surface, open the <em>Preferences</em> dialog
+  and go to the <em>Control Surfaces</em> page. Click on the <em>Web Sockets
+  Server (Experimental)</em> to enable it. This will immediately run the server
+  and make it available on port 3818. You can verify that it's running by
+  opening a web browser on the same computer and visiting
+  <a href="http://localhost:3818/">http://localhost:3818/</a>. You should see
+  the home page that looks like this:
+</p>
+
+<figure>
+  <img src="/images/websockets-main.png" alt="WebSockets Server main page" 
+  width="50%" >
+  <figcaption>
+    WebSockets Server main page
+  </figcaption>
+</figure>
+
+<p>
+  To access the server from any device in the same network you need to know the
+  broadcast IP address of the computer running Ardour. Here is how to do that
+  on supported operating systems.
+</p>
+
+<p>
+  Windows 10:
+</p>
+
+<ol>
+  <li>Open the <em>Settings</em> application.</li>
+  <li>Go to the <em>Network &amp; internet</em> from the menu on the left, then click Properties along the top.</li>
+  <li>Select the type of network connection (WiFi or Ethernet)</li>
+  <li>Click <em>Network</em> in the center.</li>
+  <li>In the newly opened page, the local IPv4 address be displayed.</li>
+</ol>
+
+<p>&hellip;or&hellip;</p>
+
+<ol>
+  <li>Open the <em>Start</em> menu and type <tt>cmd</tt>. This will  to open the
+  command prompt.</li>
+  <li>Type <tt>ipconfig</tt> and press <strong>Enter</strong>.</li>
+  <li>In the output, look for IPv4 address.</li>
+</ol>
+
+<p>
+  macOS:
+</p>
+
+<ol>
+  <li>Open the <em>System Preferences</em> dialog.</li>
+  <li>Select <em>Network</em>, then choose connection type (typically WiFi,
+  Ethernet, or USB).</li>
+  <li>The IP address will be displayed on the newly opened page under the
+  connection status.</li>
+</ol>
+
+<p>
+  Linux:
+</p>
+
+<ol>
+  <li>Open a terminal program.</li>
+  <li>Run this command: <tt>$ ip -4 address</tt>.</li>
+  <li>The output will list several network devices. You want the one that has
+  "BROADCAST" rather than "LOOPBACK" in the description.</li>
+</ol>
+
+<p>
+  Once you know the address, you can open the control surface web app
+  in a browser by visiting the IP address with appended port number.
+  E.g. if the IP address of the computer running Ardour is <tt>192.168.1.68</tt>,
+  the entire URL will be <tt>http://192.168.1.68:3818/</tt>.
+</p>
+
+<h2>Using the WebSockets Server control surface</h2>
+
+<p>
+	Various features available in the control surface are spread across three
+	pages: <em>Mixer</em>, <em>Transport</em>, and <em>Protocol</em>.</p>
+
+<h3>Mixer</h3>
+
+<p>
+	This is where you can view VU meters for each track and the master bus, as
+	well as make a number of adjustments:
+</p>
+
+<ul>
+	<li>Change positions of faders and panners.</li>
+	<li>Enable and disable the <em>Mute</em> status.</li>
+	<li>Adjust settings of LV2 plugins loaded into mixer channels.</li>
+</ul>
+
+<figure>
+  <img src="/images/websockets-mixer.png" alt="Mixer view in WebSockets Server" 
+  width="50%" >
+  <figcaption>
+    Mixer view in WebSockets Server
+  </figcaption>
+</figure>
+
+<p>
+	The control surface only supports changing settings for LV2 plugins presently.
+	LADSPA, VST2/VST3, and AU plugins will not be listed. When an LV2 plugin has
+	been loaded into a mixer channel, a button with "f" caption appears on top of
+	the mixer channel. Clicking it opens this kind of an overlay:
+</p>
+
+<figure>
+  <img src="/images/websockets-plugins.png"
+  alt="Plugins view in WebSockets Server" width="50%" >
+  <figcaption>
+    Plugins view in WebSockets Server
+  </figcaption>
+</figure>
+
+<h3>Transport</h3>
+
+<p>
+	The <em>Transport</em> view displays the timecode of the current playhead
+	position and allows toggling playback.
+</p>
+
+<figure>
+  <img src="/images/websockets-transport.png"
+  alt="Transport view in WebSockets Server" width="50%" >
+  <figcaption>
+    Transport view in WebSockets Server
+  </figcaption>
+</figure>
+
+<p>
+	The <em>Record</em> toggle is currently non-functional.
+</p>
+
+<h3>Protocol</h3>
+
+<p>
+	This page is targeted at developers willing to enhance the WebSockets Server
+	control surface. It displays the data passed between Ardour and the web
+	browser.
+</p>
+
+<figure>
+  <img src="/images/websockets-protocol.png"
+  alt="Protocol view in WebSockets Server" width="50%" >
+  <figcaption>
+    Protocol view in WebSockets Server
+  </figcaption>
+</figure>

@@ -1964,7 +1964,15 @@ part: chapter
 title: Utilities
 include: bundled-plugins-utilities.html
 link: bundled-plugins-utilities
-uri: plugins-uitilties
+uri: plugins-utilities
+part: chapter
+---
+
+---
+title: Inline Scopes
+include: bundled-plugins-inline-scopes.html
+link: bundled-plugins-inline-scopes
+uri: plugins-inline-scopes
 part: chapter
 ---
 
@@ -2233,6 +2241,15 @@ menu_title: Ableton Push 2
 include: using-the-ableton-push-2.html
 link: using-the-ableton-push-2
 uri: using-control-surfaces/Ableton_Push2
+part: chapter
+---
+
+---
+title: Using the WebSockets Server
+menu_title: WebSockets Server
+include: control-surfaces-websockets-server.html
+link: control-surfaces-websockets-server.html
+uri: using-control-surfaces/websockets-server
 part: chapter
 ---
 
