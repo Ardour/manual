@@ -1,8 +1,8 @@
 <h2 id="ace-inline-scope">ACE Inline Scope</h2>
 
 <p>
-  This inline scope displays the waveform of audio being played in the track.
-  The waveform moves downwards.
+  This inline scope displays the waveform of audio being played in the track
+  or streamed into track's input. The waveform moves downwards.
 </p>
 
 <figure>
@@ -25,6 +25,40 @@
   <img style="width:50%;" src="/images/a-inline-scope-options.png" alt="Inline Scope Options">
   <figcaption>
     Inline Scope Options
+  </figcaption>
+</figure>
+
+<h2 id="ace-inline-spectrogram">ACE Inline Spectrogram</h2>
+
+<p>This plugin displays a spectrogram of audio signal being played in the track
+or streamed into track's input.</p>
+
+<figure>
+  <img style="width:50%;" src="/images/a-inline-spectrogram.png" alt="ACE Inline Spectrogram">
+  <figcaption>
+    ACE Inline Spectrogram
+  </figcaption>
+</figure>
+
+<p>The plugin has a number of options:</p>
+<ul>
+  <li><strong>Logscale</strong>. Whether the plugin should use a logarithmic
+  rather than a linear scale.</li>
+  <li><strong>1/f scale</strong>. Whether the spectrum analyzer should adjust
+  for 1/f aka "pink noise" to provide a more useful representation of the
+  signal.</li>
+  <li><strong>FFT size</strong>. This is the frequency resolution. The more bins
+  in analysis window, the better resolution.</li>
+  <li><strong>Height (Aspect)</strong>. The aspect ratio of the inline display.</li>
+  <li><strong>Range</strong>. The dynamic range of the spectrum analyzer in dB.</li>
+  <li><strong>Offset</strong>. Optional gain correction of the original signal
+  if it's too quiet or too loud.</li>
+</ul>
+
+<figure>
+  <img style="width:50%;" src="/images/a-inline-spectrogram-options.png" alt="Inline Spectrogram ">
+  <figcaption>
+    Inline Spectrogram options
   </figcaption>
 </figure>
 
