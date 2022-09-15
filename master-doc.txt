@@ -1263,10 +1263,24 @@ part: chapter
 ---
 
 ---
+title: Adjusting Gain
+link: adjusting-gain
+uri: adjusting-gain
+part: chapter
+---
+
+---
+title: Region Gain
+include: region-gain-adjustment.html
+link: region-gain-adjustment
+part: subchapter
+---
+
+---
 title: Gain Envelopes
 include: gain-envelopes.html
 link: gain-envelopes
-part: chapter
+part: subchapter
 ---
 
 ---
