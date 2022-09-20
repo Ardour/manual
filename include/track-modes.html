@@ -3,9 +3,9 @@
   when recording:
 </p>
 <table class="dl">
-  <tr><th>Normal</th>
-  <td>Tracks in <dfn>normal mode</dfn> will record non-destructively&mdash;new
-  data is written to new files, and when overdubbing, new regions will be
+  <tr><th>Layered</th>
+  <td>Tracks in <dfn>layered mode</dfn> will record non-destructively&nbsp;&mdash;
+  new data is written to new files, and when overdubbing, new regions will be
   layered on top of existing ones. This is the recommended mode for most
   workflows.
   </td></tr>
@@ -18,39 +18,60 @@
   word material, especially in combination with
   <a href="@@pushpull-trimming">push/pull trimming</a>.
   </td></tr>
+  <tr><th>Sound on Sound</th>
+  <td>Tracks using <dfn>sound-on-sound mode</dfn> will record
+  non-destructively&nbsp;&mdash; new data is written to new files, but when
+  overdubbing, new regions will be layered on top of existing ones in non-opaque
+  mode which means both existing and new material will be played back after
+  the recording is over. This is convenient for a variety of use cases, such as
+  adding MIDI Control Change events on top of recorded live performance.
+  </td></tr>
 </table>
 
+<p>
+  Results of recording in layered and non-layered modes are visually the same.
+  However, with the sound-on-sound mode lower layers are visible under upper
+  layers, because in that case new regions with overdubs are created with
+  disabled <em>Opaque</em> setting.
+</p> 
+
 <figure class="right">
-  <img src="/images/a3_nonlayered_example.png" alt="Normal and non-layered overdubbing comparision">
+  <img src="/images/region-layering-modes-overlaid.png" alt="Layered, non-layered, and sound-on-sound modes" width="75%" >
   <figcaption>
-    Normal and non-layered overdubbing comparision
+    Layered, non-layered, and sound-on-sound modes in overlaid view
   </figcaption>
 </figure>
 
 <p>
-  The screenshot on the right shows the subtle difference between an overdub
-  in <dfn>normal mode</dfn> (upper track) and one in <dfn>non-layered mode</dfn>
-  (lower track). Both tracks were created using identical audio data.
-</p>
-<p>
-  The upper track shows a new region which has been <dfn>layered on
-  top</dfn> of the the existing (longer) region. It can be seen by the region
-  name strips.
-</p>
-<p>
-  The lower track has split the existing region in two, trimmed each new
-  region to create space for the new overdub, and inserted the overdub region
-  in between.
-</p>
-
-<p>
-  The switch between normal and non-layered modes is a global setting available
-  in the main toolbar.
+  To illustrate the difference, here is the screenshot of the same tracks, but
+  this time&nbsp;&mdash; in <em>Stacked</em> track mode (rather than
+  <em>Overlaid</em> as on the screenshot above).
 </p>
 
 <figure class="right">
-  <img src="/images/non-layered-track-mode-enabled.png" alt="Non-layered track mode enabled" width="50%">
+  <img src="/images/region-layering-modes-stacked.png" alt="Layered, non-layered, and sound-on-sound modes in stacked view" width="75%" >
   <figcaption>
-    Non-layered track mode enabled
+    Layered, non-layered, and sound-on-sound modes in stacked view
+  </figcaption>
+</figure>
+
+<p>
+  The overdub is an opaque region on top of the original content for the
+  <em>Layered</em> mode. For the <em>Non-Layered</em> mode, it completely
+  replaces the matching part of the original content. And for the
+  <em>Sound on Sound</em> mode, it's a transparent region on top of the original
+  content.
+</p>
+
+<p>
+  The switch between layered, non-layered, and sound-on-sound modes is a global
+  setting available in the main toolbar right below the buttons enabling
+  Punch In and Punch Out.
+</p>
+
+<figure class="left">
+  <img src="/images/layering-switch.png" alt="Layering switch" width="50%">
+  <figcaption>
+    Layering switch
   </figcaption>
 </figure>
