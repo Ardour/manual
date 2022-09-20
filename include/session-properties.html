@@ -320,6 +320,11 @@
 		<dfn>MIDI Options</dfn>
 		<ul>
 			<li>
+				<dfn>Draw tool creates opaque MIDI regions</dfn>: if selected, creates
+				MIDI regions that, when placed on top of other regions, don't mix with
+				content below during playback.
+			</li>
+			<li>
 				<dfn>MIDI region copies are independent</dfn>: if selected, when a MIDI
 				region is copied or duplicated, the new region is not linked to the
 				region it was copied from. If it is not selected, the copied regions
@@ -328,7 +333,7 @@
 			</li>
 			<li>
 				<dfn>Policy for handling overlapping notes on the same MIDI channel:</dfn>
-				Selects how Ardour reacts to possibly conflicting MIDI notes:
+				selects how Ardour reacts to possibly conflicting MIDI notes:
 					<ul>
 						<li>never allow them</li>
 						<li>don't do anything in particular</li>
