@@ -1632,13 +1632,13 @@ part: part
 ---
 
 ---
-title: Time, Tempo and Meter
+title: Time, Tempo and Time Signature
 link: time-tempo-and-meter
 part: chapter
 ---
 
 ---
-title: Tempo and Meter
+title: Tempo and Time Signature
 include: tempo-and-meter.html
 link: tempo-and-meter
 uri: working-with-tempo-and-meter
@@ -1646,7 +1646,7 @@ part: subchapter
 ---
 
 ---
-title: Techniques for Working with Tempo and Meter
+title: Techniques for Working with Tempo and Time Signature
 include: techniques-for-working-with-tempo-and-meter.html
 link: techniques-for-working-with-tempo-and-meter
 part: subchapter

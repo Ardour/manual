@@ -1,24 +1,24 @@
 
 <p>
-  Tempo and meter belong together. Without both, there is no way to know where
-  a beat lies in time.
+  Tempo and time signature belong together. Without both, there is no way to
+  know where a beat lies in time.
 </p>
 
 <p>
   Tempo provides a musical pulse, which is divided into beats and bars by a
-  meter. When tempo is changed or an audio-locked meter is moved, all objects
-  on the timeline that are glued to bars and beats (locations, regions) will
-  move in sympathy.
+  time signature. When tempo is changed or an audio-locked time signature is
+  moved, all objects on the timeline that are glued to bars and beats
+  (locations, regions) will move in sympathy.
 </p>
 
 <p class="note">
-  When performing meter or tempo operations, it is advisable to use the BBT
-  ruler (available by right-clicking an existing marker or ruler name), and
-  ensure that the constraint modifier is set (<kbd class="mod3n"></kbd> by default, 
-  may be changed in Preferences->Editor->Modifiers)
-  so that no other modifiers share its key combination. The constraint modifier
-  is the "Constrain drags using: " setting under the "When Beginning a Drag"
-  heading. One viable setting is
+  When performing time signature or tempo operations, it is advisable to use the
+  BBT ruler (available by right-clicking an existing marker or ruler name), and
+  ensure that the constraint modifier is set (<kbd class="mod3n"></kbd> by
+  default, may be changed in <kbd class="menu">Preferences &gt; Editor &gt;
+  Modifiers</kbd>) so that no other modifiers share its key combination. The
+  constraint modifier is the "Constrain drags using: " setting under the
+  "When Beginning a Drag" heading. One viable setting is
   <kbd class="mod1n"></kbd><kbd class="mod3n"></kbd>.
 </p>
 
@@ -29,11 +29,11 @@
 </p>
 
 <ul>
-  <li>by double clicking on a tempo marker. This opens the tempo dialog which
+  <li>By double clicking on a tempo marker. This opens the tempo dialog which
   allows entering the tempo directly into an entry box.</li>
-  <li>by using the constraint modifier (<kbd class="mod3n"></kbd> by default, 
-  may be changed in Preferences->Editor->Modifiers)
-  to drag the beat/bars in the BBT ruler or the tempo/meter lines.
+  <li>By using the constraint modifier (<kbd class="mod3n"></kbd> by default, 
+  may be changed in <kbd class="menu">Preferences &gt; Editor &gt; Modifiers</kbd>)
+  to drag the beat/bars in the BBT ruler or the tempo/time signature lines.
   This is the preferred way to match the tempo to previously recorded
   material.</li>
 
@@ -42,7 +42,7 @@
     that non-musical snap is in effect if enabled. Snapping to a minute while
     dragging a beat may result in some very slow tempos. Snapping a beat to a
     video frame however is an incredibly useful way to ensure a soundtrack is
-    punchy and synchronised to the sample.
+    punchy and synchronized to the sample.
   </p>
 
   <li>by holding down the constraint modifier while dragging a tempo vertically.
@@ -55,15 +55,15 @@
   A tempo may be locked to audio or musical time. This can be changed by <kbd
   class="mouse">right</kbd>-clicking on a tempo. If a tempo is locked to music,
   an entry will be available to lock it to audio. Similarly an audio-locked
-  tempo may be locked to music by <kdb class="mouse">right</kbd>-clicking it
+  tempo may be locked to music by <kbd class="mouse">right</kbd>-clicking it
   and selecting the "Lock to Music" entry.
 </p>
 
 <p>
-  Audio locked tempo marks stay in their frame position as their neighbour's
+  Audio locked tempo marks stay in their frame position as their neighbor's
   positions are altered. Their pulse (musical) position will change as their
-  neighbours move. Music locked tempo marks move their frame position as their
-  neighbours are moved, but keep their pulse position (they will move as the
+  neighbors move. Music locked tempo marks move their frame position as their
+  neighbors are moved, but keep their pulse position (they will move as the
   music is moved).
 </p>
 
@@ -89,16 +89,21 @@
 </ul>
 
 <figure>
-    <img src="/images/constant-tempo.png" alt="A constant tempo displaying the tempo at the playhead in the audio clock">
+    <img src="/images/constant-tempo.png" alt="A constant tempo displaying the
+    tempo at the playhead in the audio clock">
     <figcaption>
-        A series of constant tempo markers. The tempo at the playhead position is the same as the previous tempo.
+      A series of constant tempo markers. The tempo at the playhead position is
+      the same as the previous tempo.
     </figcaption>
 </figure>
 
 <figure>
-    <img src="/images/ramped-tempo.png" alt="A ramped tempo displaying the tempo at the playhead in the audio clock">
+    <img src="/images/ramped-tempo.png" alt="A ramped tempo displaying the tempo
+    at the playhead in the audio clock">
     <figcaption>
-        A ramped tempo marker. The tempo at the playhead position is approaching the second tempo. Because the playhead is equidistant (in beats) between the two markers, the tempo at the playhead is the average of the two.
+        A ramped tempo marker. The tempo at the playhead position is approaching
+        the second tempo. Because the playhead is equidistant (in beats) between
+        the two markers, the tempo at the playhead is the average of the two.
     </figcaption>
 </figure>
 
@@ -113,40 +118,41 @@
   copied.
 </p>
 
-<h3>Meter</h3>
+<h3>Time signature</h3>
 
 <p>
-  Meter positions beats using the musical pulse of a tempo, and groups them
-  into bars using its number of divisions per bar.
+  Time signature positions beats using the musical pulse of a tempo, and groups
+  them into bars using its number of divisions per bar.
 </p>
 
 <p>
-  The first meter in a new session may be moved freely. It has an associated
-  tempo which cannot be dragged by itself (although all others can). It can be
-  moved freely and is locked to audio.
+  The first time signature in a new session may be moved freely. It has an
+  associated tempo which cannot be dragged by itself (although all others can).
+  It can be moved freely and is locked to audio.
 </p>
 
 <p>
-  New meters are locked to music. They may only occur on a bar line if music
-  locked.
+  New time signatures are locked to music. They may only occur on a bar line if
+  music locked.
 </p>
 
 <p>
-  An audio locked meter provides a way to cope with musical passages which have
-  no meter (rubato, pause), or to allow a film composer to insert a break in
-  music which cannot be counted in beats.
+  An audio locked time signature provides a way to cope with musical passages
+  which have no time signature (rubato, pause), or to allow a film composer to
+  insert a break in music which cannot be counted in beats.
 </p>
 
 <p>
-  If a meter is audio-locked, its bar number is fixed from the point at which
-  it left the main score. That bar number cannot be changed, nor can tempo
+  If a time signature is audio-locked, its bar number is fixed from the point at
+  which it left the main score. That bar number cannot be changed, nor can tempo
   motion allow the previous bar to overlap. If another bar is needed, lock the
-  meter to music again (right click-&gt;"Lock to Music"), drag the meter to the
-  desired bar and re-lock to audio. The new bar can be freely dragged again.
+  time signature to music again (<kbd class="mouse">right</kbd> &gt;
+  <kbd class="menu">Lock to Music</kbd>), drag the time signature to the desired
+  bar and re-lock to audio. The new bar can be freely dragged again.
 </p>
 
 <ul>
-  <li>To change a meter, double click it. A dialog will appear.</li>
-  <li>To copy a meter, hold down <kbd class="mod1n"></kbd> and drag it.</li>
+  <li>To change a time signature, double-click it. A dialog will appear.</li>
+  <li>To copy a time signature, hold down <kbd class="mod1n"></kbd> and drag it.</li>
 </ul>
 
