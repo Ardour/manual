@@ -1,0 +1,77 @@
+
+<p>
+  I/O plugins provide an way to do pre- and post-processing outside the normal
+  session. Pre-plugins run before Ardour does any processing, post-plugins run
+  after Ardour has done all processing. The rationale is to provide a relatively
+  lightweight pre-/post-processing workflow as compared to using busses.
+</p>
+
+<p>
+  A common use case is wet recording where a number of plugins are applied
+  directly to the physical input. The processed signal then can be routed to any
+  number of tracks or busses in Ardour. This is a lot like doing some of the
+  processing with a chain of guitar pedals, then feeding the signal to an Aux In
+  port on a mixing console or an input port on a multi-effects digital
+  pedalboard.
+</p>
+
+<h2>Adding I/O plugins</h2>
+
+<p>
+  New I/O plugins can be added in the <kbd class="title">I/O Plugins</kbd>
+  dialog (<kbd class="menu">Window &gt; I/O Plugins</kbd>).
+</p>
+
+<figure>
+  <img style="width:50%;" width="50%" src="/images/io-plugins-empty-slots.png" alt="Empty slots in the I/O Plugins dialog">
+  <figcaption>Empty slots in the I/O Plugins dialog</figcaption>
+</figure> 
+
+<p>
+  Right-clicking opens the same menu for plugin selection available for mixer
+  channel strips:
+</p>
+
+<figure>
+  <img style="width:50%;" width="50%" src="/images/io-plugins-right-click-menu.png" alt="Right-click menu in the I/O Plugins dialog">
+  <figcaption>Right-click menu in the I/O Plugins dialog</figcaption>
+</figure> 
+
+<p>
+  Double-clicking opens the <kbd class="title">Plugin Selector</kbd> dialog.
+</p>
+
+<p>
+  Once a plugin has been selected and added, it shows in either Pre- or
+  Post-process section depending on your choice.
+</p>
+
+<figure>
+  <img style="width:50%;" width="50%" src="/images/io-plugins-one-plugin-added.png" alt="ACE Compressor added to the pre- section">
+  <figcaption>ACE Compressor added to the Pre-process section</figcaption>
+</figure> 
+
+<h2>Routing I/O plugins</h2>
+
+<p>
+  I/O plugins have the same user interface for setting input and outputs that is
+  also available in mixer channel strips. The button above the plugin name opens
+  a drop-down menu for quickly choosing an input port. The button below opens
+  the drop-down menu for choosing the output port.
+</p>
+
+<figure>
+  <img style="width:50%;" width="50%" src="/images/io-plugins-choose-output.png" alt="Choosing output for an I/O plugin">
+  <figcaption>Choosing output for an I/O plugin</figcaption>
+</figure> 
+
+<p>
+  Additionally, new tracks automatically connected to an I/O plugin can be
+  easily created in the <kbd class="title">Recorder</kbd> window by clicking the
+  <kbd class="key">+</kbd> button and then setting a new for that track.
+</p>
+
+<figure>
+  <img style="width:50%;" width="50%" src="/images/io-plugins-new-track-from-io-plugin.png" alt="New track connected to an I/O plugin">
+  <figcaption>New track connected to an I/O plugin</figcaption>
+</figure> 
