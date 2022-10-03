@@ -899,6 +899,13 @@ part: chapter
 ---
 
 ---
+title: I/O Plugins
+include: io-plugins.html
+link: io-plugins
+part: chapter
+---
+
+---
 title: Monitoring
 include: monitoring.html
 link: monitoring
@@ -1527,7 +1534,7 @@ part: chapter
 ---
 
 ---
-title: Adding 3rd Party Clip Libraries
+title: Adding Local Clip Libraries
 link: adding-3rd-party-clip-libraries
 include: adding-3rd-party-clip-libraries.html
 part: chapter
