@@ -513,6 +513,76 @@ part: chapter
 ---
 
 ---
+title: Markers
+link: markers
+uri: ardours-interface/markers
+part: chapter
+---
+
+---
+title: Working With Markers
+include: working-with-markers.html
+link: working-with-markers
+uri: working-with-markers
+part: subchapter
+---
+
+---
+title: BBT markers
+include: bbt-markers.html
+link: bbt-markers
+part: subchapter
+---
+
+---
+title: Creating Location Markers
+include: creating-location-markers.html
+link: creating-location-markers
+uri: working-with-markers/creating-location-markers
+part: subchapter
+---
+
+---
+title: Creating Range Markers
+include: creating-range-markers.html
+link: creating-range-markers
+uri: working-with-markers/creating-range-markers
+part: subchapter
+---
+
+---
+title: Moving Markers
+include: moving-markers.html
+link: moving-markers
+uri: working-with-markers/moving-markers
+part: subchapter
+---
+
+---
+title: The Loop Range
+include: the-loop-range.html
+link: the-loop-range
+uri: working-with-markers/loop-range
+part: subchapter
+---
+
+---
+title: Marker Context Menu
+include: marker-context-menu.html
+link: marker-context-menu
+uri: working-with-markers/marker-context-menu
+part: subchapter
+---
+
+---
+title: Punch Range
+include: punch-range.html
+link: punch-range
+uri: working-with-markers/punch-range
+part: subchapter
+---
+
+---
 title: Summary
 include: summary.html
 link: summary
@@ -935,62 +1005,6 @@ part: chapter
 title: Punch Recording Modes
 link: punch-recording-modes
 part: chapter
----
-
----
-title: Working With Markers
-include: working-with-markers.html
-link: working-with-markers
-uri: working-with-markers
-part: subchapter
----
-
----
-title: Creating Location Markers
-include: creating-location-markers.html
-link: creating-location-markers
-uri: working-with-markers/creating-location-markers
-part: subchapter
----
-
----
-title: Creating Range Markers
-include: creating-range-markers.html
-link: creating-range-markers
-uri: working-with-markers/creating-range-markers
-part: subchapter
----
-
----
-title: Moving Markers
-include: moving-markers.html
-link: moving-markers
-uri: working-with-markers/moving-markers
-part: subchapter
----
-
----
-title: The Loop Range
-include: the-loop-range.html
-link: the-loop-range
-uri: working-with-markers/loop-range
-part: subchapter
----
-
----
-title: Marker Context Menu
-include: marker-context-menu.html
-link: marker-context-menu
-uri: working-with-markers/marker-context-menu
-part: subchapter
----
-
----
-title: Punch Range
-include: punch-range.html
-link: punch-range
-uri: working-with-markers/punch-range
-part: subchapter
 ---
 
 ---
@@ -1656,13 +1670,6 @@ part: subchapter
 title: Techniques for Working with Tempo and Time Signature
 include: techniques-for-working-with-tempo-and-meter.html
 link: techniques-for-working-with-tempo-and-meter
-part: subchapter
----
-
----
-title: BBT markers
-include: bbt-markers.html
-link: bbt-markers
 part: subchapter
 ---
 
