@@ -14,17 +14,11 @@
     window or pane. Notes are edited right where they appear.
   </li>
   <li>
-    Editing note information in Ardour occurs in only a single region. There is
-    no way currently to edit note data for multiple regions at the same time;
-    so, for example, notes cannot be selected in several regions and then all
-    deleted, nor can they be copied and pasted from one region to another.
-    Regions, however, <em>can</em> be copied and pasted just as with audio.
-  </li>
-  <li>
-	When using jackd as the audio server for Ardour, all MIDI I/O is done
-	via JACK for sample accurate timing and maximal efficiency when communicating
-	with external software synthesizers. Otherwise, Ardour connects to midi
-	via the existing OS MIDI system.
+    Editing note information in Ardour occurs in only a single
+    region. There is no way currently to edit note data for multiple
+    regions at the same time; so, for example, notes cannot be
+    selected in several regions at once and then all deleted. However
+    they can they be copied and pasted from one region to another.
   </li>
   <li>
     Every MIDI track has its own MIDI port for input; it may have an
@@ -44,9 +38,11 @@
     There is a Normal and a Percussive mode for note data editing.
   </li>
   <li>
-    The vertical dimension of the region window is controlled by a
+    The visible note range is controlled by a
     <dfn>scroomer</dfn> widget, which is a combination scroll/zoom tool for
-    altering the zoom level and range of visible MIDI data.
+    altering the zoom level and range of visible MIDI data. When in
+    internal edit mode, you can also use scroll operations to adjust
+    the visible range in various ways.
   </li>
 </ul>
 

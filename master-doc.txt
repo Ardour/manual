@@ -1380,6 +1380,14 @@ part: chapter
 
 ---
 title: Adding New Notes
+include: controlling-midi-range.html
+link: controlling-midi-range
+uri: working-with-midi/controlling-midi-range
+part: subchapter
+---
+
+---
+title: Adding New Notes
 include: add-new-notes.html
 link: add-new-notes
 uri: working-with-midi/add-new-notes
