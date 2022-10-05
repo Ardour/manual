@@ -28,13 +28,16 @@
     which allows the editing of MIDI data in a given region.
   </li>
   <li>
-    All MIDI I/O is done either by ALSA or JACK (depending on which backend was chosen when starting Ardour), for sample accurate timing and maximal efficiency when communicating with external software synthesizers.
+    All MIDI I/O is handled by the audio/MIDI backend was chosen when
+    starting Ardour. In general, all backends provide sample accurate
+    timing and maximal efficiency when communicating with external
+    software synthesizers.
   </li>
   <li>
-    Every MIDI track has its own JACK MIDI port for input; it may have an
-    arbitrary combination of audio and MIDI outputs, depending on the signal
-    processing in the track; the full flexibility of JACK connectivity is
-    present for MIDI just as it is for audio.
+    Every MIDI track has its own input port; it may have an arbitrary
+    combination of audio and MIDI outputs, depending on the signal
+    processing in the track; the full flexibility of Ardour patching
+    &amp; connectivity is present for MIDI just as it is for audio.
   </li>
   <li>
     Full automation for MIDI tracks, integrated with the handling of all MIDI
