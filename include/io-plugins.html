@@ -18,8 +18,8 @@
   The rationale for pre-processing with I/O plugins is that it's a more
   lightweight way to do it as compared to busses. Much of that is because busses
   have automatable parameters such as fader and panner positions, as well as
-  plugins' parameters. Evaluating automation (even when there's none) is
-  expensive in terms of CPU use. However I/O plugins are not automatable, so
+  plugins' parameters. Evaluating parameter automation (even when there's none)
+  adds additional load to the CPU. However I/O plugins are not automatable, so
   there's no evaluation happening. As far as Ardour is concerned, they are
   almost like JACK audio server clients running alongside Ardour.
 </p>
