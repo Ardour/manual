@@ -1,9 +1,8 @@
-
 <p>
-  I/O plugins provide an way to do pre- and post-processing outside the normal
-  session. Pre-plugins run before Ardour does any processing, post-plugins run
-  after Ardour has done all processing. The rationale is to provide a relatively
-  lightweight pre-/post-processing workflow as compared to using busses.
+  I/O plugins are a way to process audio outside the normal Ardour session or
+  connect to sources typically unavailable in a DAW, such as outputs of NDI
+  devices. Pre-plugins run before Ardour does any processing, post-plugins run
+  after Ardour has done all processing.
 </p>
 
 <p>
@@ -12,7 +11,20 @@
   number of tracks or busses in Ardour. This is a lot like doing some of the
   processing with a chain of guitar pedals, then feeding the signal to an Aux In
   port on a mixing console or an input port on a multi-effects digital
-  pedalboard.
+  pedalboard. The rationale for pre-processing with I/O plugins is that it's a
+  more lightweight way to do it as compared to busses.
+</p>
+
+<p>
+  Another use case would be loading an instance of the NDI Input plugin as a
+  pre-processing plugin to be able to capture and mix sources from NDI devices,
+  or loading an instance of the NDI Output plugin to send audio from Ardour over
+  IP to a receiver for broadcasting.
+</p>
+
+<p>
+  It's also possible to use the post-processing section to load plugins for room
+  correction or signal analysis (VU meters, spectrum analyzers etc.).
 </p>
 
 <h2>Adding I/O plugins</h2>
