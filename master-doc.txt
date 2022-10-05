@@ -1379,7 +1379,7 @@ part: chapter
 ---
 
 ---
-title: Adding New Notes
+title: Controlling Visible Note Range
 include: controlling-midi-range.html
 link: controlling-midi-range
 uri: working-with-midi/controlling-midi-range
