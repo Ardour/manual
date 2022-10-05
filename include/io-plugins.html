@@ -11,8 +11,17 @@
   number of tracks or busses in Ardour. This is a lot like doing some of the
   processing with a chain of guitar pedals, then feeding the signal to an Aux In
   port on a mixing console or an input port on a multi-effects digital
-  pedalboard. The rationale for pre-processing with I/O plugins is that it's a
-  more lightweight way to do it as compared to busses.
+  pedalboard.
+</p>
+
+<p>
+  The rationale for pre-processing with I/O plugins is that it's a more
+  lightweight way to do it as compared to busses. Much of that is because busses
+  have automatable parameters such as fader and panner positions, as well as
+  plugins' parameters. Evaluating automation (even when there's none) is
+  expensive in terms of CPU use. However I/O plugins are not automatable, so
+  there's no evaluation happening. As far as Ardour is concerned, they are
+  almost like JACK audio server clients running alongside Ardour.
 </p>
 
 <p>
