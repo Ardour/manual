@@ -505,18 +505,18 @@ part: subchapter
 ---
 
 ---
-title: Ruler
-include: ruler.html
-link: ruler
-uri: ardours-interface/the-ruler
+title: Ruler and Markers
+link: ruler-and-markers
+uri: ardours-interface/ruler-and-markers
 part: chapter
 ---
 
 ---
-title: Markers
-link: markers
-uri: ardours-interface/markers
-part: chapter
+title: Ruler
+include: ruler.html
+link: ruler
+uri: ardours-interface/the-ruler
+part: subchapter
 ---
 
 ---

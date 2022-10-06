@@ -7,24 +7,25 @@
 </figure>
 
 
-<p> The <dfn>Ruler</dfn> scales the session along time, allows navigating, and
+<p>
+  The <dfn>ruler</dfn> scales the session along time, allows navigating, and
   can be marked for different uses.
 </p>
 <p>
-  One of its main uses is to move the playhead:
-  clicking anywhere on the timeline will bring the playhead at this location in
-  time. Also, using the mouse's scrollwheel while hovering the Ruler will zoom in
-  or out (<kbd class="mouse">&uArr;</kbd>/<kbd class="mouse">&dArr;</kbd> ).
+  One of its main uses is to move the playhead: clicking anywhere on the
+  timeline will bring the playhead at this location in time. Also, using the
+  mouse's scrollwheel while hovering the ruler will zoom in or out
+  (<kbd class="mouse">&uArr;</kbd>/<kbd class="mouse">&dArr;</kbd> ).
 </p>
 <p>
-  The Ruler is made of a succession of rows, each having a special role related to
-  time. Adding or removing rows can be done by <kbd class="mouse">right</kbd> clicking
-  anywhere in the ruler's header on the left, and ticking any of:
+  The ruler is made of a succession of rows, each having a special role related
+  to time. Adding or removing rows can be done by <kbd class="mouse">right</kbd>
+  clicking anywhere in the ruler's header on the left, and ticking any of:
 </p>
 
 <table class="dl">
   <tr>
-    <th><dfn>Mins:Secs</dfn></th>
+    <th><dfn>Mins:Sec</dfn></th>
     <td>scaling the session with the Mins:Secs:mSec notation</td>
   </tr>
   <tr>
@@ -36,7 +37,7 @@
     <td>scaling the session with the sample number notation</td>
   </tr>
   <tr>
-    <th><dfn>Bars:Beats</dfn></th>
+    <th><dfn>Bars &amp; Beats</dfn></th>
     <td>slicing the time according to the time signature</td>
   </tr>
 	<tr>
@@ -53,11 +54,11 @@
     The Bars:Beats ruler will reflect the change.</td>
   </tr>
 	<tr>
-    <th><dfn>Range Markers</dfn></th>
+    <th><dfn>Ranges</dfn></th>
     <td>allow to create and modify ranges directly on the Ruler.</td>
   </tr>
 	<tr>
-    <th><dfn>Loop/Punch Ranges</dfn></th>
+    <th><dfn>Loop/Punch</dfn></th>
     <td>are special kind of ranges designed to be played as a loop and to do
     punch recording, i.e. recording on a precise section of time, respectively.</td>
   </tr>
@@ -66,26 +67,30 @@
     <td>are markers designed to be used while creating a recording that has
     to be split in time, as an audio CD</td>
   </tr>
-	<tr>
-    <th><dfn>Location Markers</dfn></th>
-    <td>is meant to receive any kind of marker, user generated or from Ardour
-    itself.</td>
-  </tr>
   <tr>
     <th><dfn>Cue markers</dfn></th>
     <td>allows triggering entire cues from the grid in the <em>Cue</em>window</td>
   </tr>
+	<tr>
+    <th><dfn>Markers</dfn></th>
+    <td>is meant to receive any kind of marker, user generated or from Ardour
+    itself.</td>
+  </tr>
   <tr>
-    <th><dfn>Video Timeline</dfn></th>
+    <th><dfn>Video</dfn></th>
     <td>shows thumbnails of the <a href="@@video-timeline-and-monitoring">video</a>
     in the timeline</td>
   </tr>
 </table>
 
 <p>
-  Most of the operations on the markers are described in <a
-  href="@@working-with-markers">Working with Markers</a>, while the Time Signature,
-  Tempo, Bars:Beats and Timecode use are described in <a
-  href="@@tempo-and-meter">Tempo and Time Signature</a>.
+  Most rulers allow placing markers to serve a specific purpose: mark a point in
+  time, define a loop range, or something else entirely.
 </p>
 
+<p>
+  Most of the operations on the markers are described in <a
+  href="@@working-with-markers">Working with Markers</a>, additional information
+  on Time Signature, Tempo, Bars:Beats, and Timecode is available in the
+  <a href="@@tempo-and-meter">Tempo and Time Signature</a> chapter.
+</p>
