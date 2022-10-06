@@ -33,7 +33,7 @@ kbd.osc {
 
 kbd.input {
   background: none;
-  border-radius: unset;
+  border-radius: 0;
 }
 
 kbd.cmd {
@@ -63,7 +63,7 @@ kbd.cmd.win:before {
 kbd.menu,
 kbd.option,
 kbd.optoff {
-  border-radius: unset;
+  border-radius: 0;
   background: rgb(240, 240, 240);
   box-shadow: inset 0 0 1px rgb(255, 255, 255), inset 0 0 .4em rgb(200, 200, 200), 0 .1em 0 rgb(130, 130, 130), 0 .11em 0 rgba(0, 0, 0, .4);
 }
