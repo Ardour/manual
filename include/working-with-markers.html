@@ -1,47 +1,157 @@
+<p>
+  Ardour supports multiple type of markers, all designed for particular tasks:
+  single markers that define a location, single markers that change a value,
+  paired markers that define a range on a timeline etc.
+</p>
+
+<h2>Creating New Markers</h2>
 
 <p>
-  It is very useful to be able to tag different locations in a session for
-  later use when editing and mixing. Ardour supports both
-  <dfn>locations</dfn>, which define specific positions in time,
-  and <dfn>ranges</dfn> which define a start and end position in time.
+  There are several ways to create markers in Ardour.
 </p>
-<p>
-  In addition to the standard location markers, there are several more kinds of
-  special markers:
-</p>
-<ul>
-  <li>
-    <dfn>BBT markers</dfn> make it possible to restart the count of bars and
-    beats multiple times in a session.
-  </li>
-  <li>
-    <dfn>Time signature markers</dfn> allow changing the time signature from
-    e.g. 4/4 to 6/8 and then to 3/4 within the same composition.
-  </li>
-  <li>
-    <dfn>Tempo markers</dfn> allow changing tempo within the same composition
-    either abruptly or gradually.
-  </li>
-  <li>
-    <dfn>Range markers</dfn> helps preserving selections (ranges) by storing
-    them in the project and giving them telling names.
-  </li>
-  <li>
-    The <dfn>loop range</dfn> defines the start and end points for Looping.
-  </li>
-  <li>
-    The <dfn>punch range</dfn> defines the in and out points for punch
-    recording.
-  </li>
-  <li>
-    <dfn>CD markers</dfn> are locations that are restricted to legal
-    <dfn>CD sector boundaries</dfn>. They can be used to add track index
-    markers to compact disc images.
-  </li>
-  <li>
-    <dfn>Cue markers</dfn> allow integrating elements of non-linear grid-based
-    workflow into the linear timeline-based workflow by launching and stopping
-    user-defined cues at particular points in time.
-  </li>
-</ul>
 
+<p>
+  The most common way is to right-click over a ruler and select a menu item
+  called like <kbd class="menu">New Loop Range</kbd> (for the
+  <kbd class="title">Loop/Punch Ranges</kbd> ruler) or
+  <kbd class="menu">New Tempo</kbd> (for the
+  <kbd class="title">Tempo</kbd> ruler).
+</p>
+
+<figure>
+    <img width="50%" src="/images/new-range-markers.gif" alt="Adding a New Range Marker">
+    <figcaption>
+      Adding a New Range Marker
+    </figcaption>
+</figure>
+
+<p>
+  Some of the markers can be created from context menus on the canvas.
+  E.g. range markers can be created by creating a range, opening the context
+  (right-click) menu and choosing <kbd class="menu">Add Range Markers</kbd>.
+</p>
+
+<p>
+  Additionally, location markers and range markers can be created from the
+  <kbd class="title">Ranges&nbsp;&amp; Marks</kbd> sidebar by clicking
+  <kbd class="title">Ranges&nbsp;&amp; Marks</kbd> or
+  <kbd class="title">Ranges&nbsp;&amp; Marks</kbd> respectively.
+</p>
+
+<h2>Moving Markers</h2>
+
+<p>
+  Once a single or a paired marker has been added, it can be moved around.
+</p>
+
+<h3>Single marker</h3>
+<p>
+  <kbd class="mouse">Left</kbd>-clicking and dragging moves a single marker to a
+  new location on the timeline.
+</p>
+
+<p>
+  Additionally, markers can be moved to playhead position by right-clicking and
+  choosing the <kbd class="menu">Move Mark to Playhead</kbd> menu item.
+</p>
+
+<h3>Multiple markers</h3>
+<p>
+  It is possible to move multiple markers by the same distance. <kbd
+  class="mouse mod1">Left</kbd>-clicking each discreet marker, or <kbd
+  class="mouse mod3">Left</kbd>-clicking the first and last markers of a range
+  of markers selects them, then dragging one to a new location will move all
+  selected markers together.
+</p>
+<p class="note">
+  The markers are bounded by the zero point on the timeline. In other words, the
+  first marker in the selection cannot move to the left of zero on the timeline.
+</p>
+
+<h3>Both ends of a range marker</h3>
+<p>
+  By <kbd class="mod1 mouse">left</kbd>-dragging either end of the range marker,
+  the other end will move by the same distance.
+</p>
+
+<h2>Renaming Markers</h2>
+
+<p>
+  Some markers on the ruler can have unique names: location markers, CD markers,
+  range markers. Double-clicking on them opens a dialog where a different name
+  can be submitted.
+</p>
+
+<figure>
+    <img width="50%" src="/images/renaming-a-marker.gif" alt="Renaming a Marker">
+    <figcaption>
+      Renaming a Marker
+    </figcaption>
+</figure>
+
+<p>
+  Alternatively, right-clicking on a marker will open a context menu with a menu
+  item called <kbd class="title">Rename...</kbd> or
+  <kbd class="title">Rename Range...</kbd>, depending on the type of the marker.
+  The same dialog for submitting a new name will appear.
+</p>
+
+<h2>Editing Marker's Properties</h2>
+
+<p>
+  Markers on rulers such as <kbd class="title">Time Signature</kbd> or
+  <kbd class="title">Tempo</kbd> don't have unique names, however they do have
+  other properties that can be edited. The principle is the same as with
+  renaming: double-clicking on a marker or right-clicking and choosing the
+  <kbd class="title">Edit...</kbd> menu item.
+</p>
+
+<h2>Hiding Markers</h2>
+
+<p>
+  Most marker types can be temporarily hidden from the ruler if the user chooses
+  to do so. The user interface for that is available in the
+  <kbd class="title">Ranges&nbsp;&amp; Marks</kbd> sidebar: it is a simple
+  <kbd class="title">Hide</kbd> checkbox for each marker.
+</p>
+
+<figure>
+    <img width="50%" src="/images/regions-and-marks.png" alt="Hiding Markers">
+    <figcaption>
+      Hiding Markers
+    </figcaption>
+</figure>
+
+<p>
+  Clicking the respective <kbd class="title">Hide</kbd> checkbox again will
+  reveal the marker on the ruler again.
+</p>
+
+<h2>Removing Markers</h2>
+
+<p>
+  There are two ways to permanently delete a marker. The first one is to
+  right-click the marker of choice, then select
+  <kbd class="menu">Remove</kbd> in the menu.
+</p>
+
+<figure>
+    <img width="50%" src="/images/remove-a-marker.png" alt="Removing a Location Marker">
+    <figcaption>
+      Removing a Location Marker
+    </figcaption>
+</figure>
+
+<p>
+  The second one is to click a marker to select it, keep hovering the mouse
+  pointer, then press <kbd class="key">Del</kbd>.
+</p>
+
+<h2>Additional Actions</h2>
+
+<p>
+  Depending on the type of a marker additional actions are possible, such as
+  moving the playhead to a location marker's position or zooming to a range
+  saved with range markers. This is covered in dedicated subchapters for
+  respective ruler/marker types.
+</p>
