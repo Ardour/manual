@@ -29,7 +29,7 @@
 
 <p>
   Ardour requires xjadeo &ge; version 0.6.4, harvid &ge; version 0.7.0 and
-  ffmpeg (known to work versions: 1.2, 2.8.2)
+  ffmpeg (known to work versions: 1.2, 2.8.2, 5.0)
 </p>
 
 <p>
@@ -42,23 +42,20 @@
 <p>
   All four applications need to be found in <code>$PATH</code> (e.g.
   <code>$HOME/bin</code> or <code>/usr/local/bin</code>). For convenience the
-  binary releases of harvid include ffmpeg_harvid and ffprobe_harvid, but if the
-  distribution provides suitable ffmpeg commands, symbolic links can be created
-  to the distribution-provided binaries:
+  binary releases of harvid include ffmpeg_harvid and ffprobe_harvid.
+  Ardour binaries from ardour.org do include all relevant tools and most
+  GNU/Linux distributions also provide those.
 </p>
 
-<kbd class="cmd lin">sudo ln -s /usr/bin/ffmpeg /usr/bin/ffmpeg_harvid</kbd>
-<kbd class="cmd lin">sudo ln -s /usr/bin/ffprobe /usr/bin/ffprobe_harvid</kbd>
-
 <p>
-  Binary releases are available from ardour.org as well as an installer script:
+  Binary releases of the video-tools are available from ardour.org via a dedicated installer script:
   <a href="https://github.com/Ardour/ardour/blob/master/tools/videotimeline/install_video_tools.sh"
   title="https://github.com/Ardour/ardour/blob/master/tools/videotimeline/install_video_tools.sh"
   rel="nofollow">install_video_tools.sh</a>.
 </p>
 
 <p>
-  The easiest way to install the video-utilities is by running the following
+  The easiest way to install the video-utilities on Linux is by running the following
   line in a terminal:
 </p>
 
