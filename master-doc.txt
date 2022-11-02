@@ -528,9 +528,16 @@ part: subchapter
 ---
 
 ---
-title: BBT markers
+title: Bars:Beats
 include: bbt-markers.html
 link: bbt-markers
+part: subchapter
+---
+
+---
+title: Time Signature
+include: time-signature-ruler.html
+link: time-signature-ruler
 part: subchapter
 ---
 
