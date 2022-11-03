@@ -46,6 +46,7 @@
 	</ul>
 	<li><a href="#preferences-plugins">Plugins</a></li>
 	<ul>
+    <li><a href="#preferences-plugins-gui">GUI</li>
 		<li><a href="#preferences-plugins-vst">VST</a></li>
 		<li><a href="#preferences-plugins-audio_unit">Audio Unit</a></li>
 	</ul>
@@ -1165,14 +1166,15 @@
         <a href="@@status-bar">Log window</a>.
       </li>
       <li>
+        <dfn>Open Plugin manager window when missing plugins are found</dfn>:
+        when enabled</b>, the Plugin Manager is displayed at session load if the
+        session contains any plugins that are missing, or plugins have been
+        updated and require a rescan.
+      </li>
+      <li>
         <dfn>Make new plugins active</dfn>: when enabled, any plugin added to a track
         will be in active mode. If unchecked, the plugins will be added in inactive
         mode by default, hence have no processing effect on the track/bus.
-      </li>
-      <li>
-        <dfn>Show only one plugin window at a time</dfn>: when enabled, only
-        one plugin window will be displayed on the screen; when disabled, you
-        can open as many plugin windows as you like.
       </li>
     </ul>
   </li>
@@ -1183,33 +1185,6 @@
         <dfn>Conceal LADSPA (LV1) Plugins if matching LV2 exists</dfn> When 
         enabled, gives precedence to the LV2 (more up-to-date) version of
         a plugin over its LV1 version, if both exists.
-      </li>
-    </ul>
-  </li>
-  <li>
-    <dfn>Plugin GUI</dfn>
-    <ul>
-      <li>
-        <dfn>Automatically open the plugin GUI when adding a new plugin</dfn>
-        shows the plugins GUI as soon as it is added to the processing box. If
-        unchecked, the plugin will be added in the processor box but the GUI will
-        only be shown when <kbd class="mouse">double clicking</kbd> it.
-      </li>
-      <li>
-        <dfn>Show Plugin Inline Display on Mixer strip by default</dfn> allows Ardour
-        to show, in the <a href="@@audiomidi-mixer-strips">mixer strips</a>, a
-        visual rendering of the effect. These Inline Display are a special feature
-        of Ardour, so not all plugins are able to show this display. Most of Ardour's
-        <a href="@@plugins-bundled-with-ardour">own plugins</a> have an Inline Display.
-        At any time, the plugin's Inline Display can be toggled on or off by
-        <kbd class="mod3n"></kbd>double-clicking it.
-      </li>
-      <li>
-        <dfn>Don't automatically open the plugin GUI when the plugin has an inline
-        display mode</dfn>: this option, available only if
-        <kbd class="option">Automatically open the plugin GUI when adding a new plugin</kbd>
-        is checked, supercedes it and hides the plugin GUI at creation if it has an
-        Inline Display, like Ardour's own <code>ACE *</code> plugins.
       </li>
     </ul>
   </li>
@@ -1248,6 +1223,57 @@
       </li>
     </ul>
   </li>
+</ul>
+
+<h3 id="preferences-plugins-gui">GUI</h3>
+
+<ul>
+  <li>
+    <dfn>Plugin GUI</dfn>
+    <ul>
+      <li>
+        <dfn>Automatically open the plugin GUI when adding a new plugin</dfn>
+        shows the plugins GUI as soon as it is added to the processing box. If
+        unchecked, the plugin will be added in the processor box but the GUI will
+        only be shown when <kbd class="mouse">double clicking</kbd> it.
+      </li>
+      <li>
+        <dfn>Show only one plugin window at a time</dfn>: when enabled, only
+        one plugin window will be displayed on the screen; when disabled, you
+        can open as many plugin windows as you like.
+      </li>
+      <li>
+        <dfn>Closing a Plugin GUI Window</dfn>: this allows users deciding how
+        Ardour should treat plugin windows aftre closing them. Hiding means a
+        complex plugin window can be re-opened fast because it's saved in
+        memory, but it uses sustem resources. Destroying means the window isn't
+        saved, which frees up system resources, however some plugins will take
+        longer to showup on the screen.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Mixer Strip Inline Display</dfn>
+    <ul>
+      <li>
+        <dfn>Show Plugin Inline Display on Mixer strip by default</dfn> allows Ardour
+        to show, in the <a href="@@audiomidi-mixer-strips">mixer strips</a>, a
+        visual rendering of the effect. These Inline Display are a special feature
+        of Ardour, so not all plugins are able to show this display. Most of Ardour's
+        <a href="@@plugins-bundled-with-ardour">own plugins</a> have an Inline Display.
+        At any time, the plugin's Inline Display can be toggled on or off by
+        <kbd class="mod3n"></kbd>double-clicking it.
+      </li>
+      <li>
+        <dfn>Don't automatically open the plugin GUI when the plugin has an inline
+        display mode</dfn>: this option, available only if
+        <kbd class="option">Automatically open the plugin GUI when adding a new plugin</kbd>
+        is checked, supercedes it and hides the plugin GUI at creation if it has an
+        Inline Display, like Ardour's own <code>ACE *</code> plugins.
+      </li>
+    </ul>
+  </li>
+</li>
 </ul>
 
 <h3 id="preferences-plugins-vst">VST</h3>
