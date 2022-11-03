@@ -718,8 +718,11 @@ if pdf:
 	pdfpageFile.close()
 
 	# Generating the actual PDF with weasyprint (https://weasyprint.org/)
-	from weasyprint import HTML
-	from weasyprint.fonts import FontConfiguration
+	from weasyprint import HTML, __version__
+	if float(__version__) < 53.0: # handle an API change
+		from weasyprint.fonts import FontConfiguration
+	else:
+		from weasyprint.text.fonts import FontConfiguration
 	
 	html_font_config = FontConfiguration()
 	doc = HTML(string = pdfpage, base_url = global_site_dir)
