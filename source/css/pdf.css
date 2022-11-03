@@ -195,3 +195,5 @@ a[href^="#"]::after {
 a[href^="http"]::after {
 	content: " (" attr(href) ")";
 }
+
+.imagemap .area {display: none;}
