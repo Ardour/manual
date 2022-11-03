@@ -1084,6 +1084,14 @@ part: subchapter
 ---
 
 ---
+title: Quick Audio Export
+include: quick-audio-export.html
+link: quick-audio-export
+uri: exporting/quick-audio-export
+part: subchapter
+---
+
+---
 title: Export Format Profiles
 include: export-format-profiles.html
 link: export-format-profiles
