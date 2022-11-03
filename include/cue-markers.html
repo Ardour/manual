@@ -1,0 +1,95 @@
+<p>
+  <dfn>Cue markers</dfn> allow bridging linear and non-linear approaches to
+  composing music. The idea is that a user can set up entire cues, then place a
+  cue marker on the timeline to launch a cue of choice at a particular point in
+  time. The workflow is explained in more details in the
+  <a href="@@mixing-linear-nonlinear-workflows">Mixing Linear and Non-Linear Workflows</a> section.
+</p>
+
+<figure>
+  <img style="width:75%;" width="50%" src="/images/cue-markers-ruler-example.png" alt="Cue Markers Ruler">
+  <figcaption>Cue Markers Ruler</figcaption>
+</figure>
+
+<h2>Adding Cue Markers</h2>
+
+<p>
+  There are several ways to add a cue marker:
+</p>
+
+<ul>
+  <li><kbd class="mod1n"></kbd>-click on the ruler creates a marker that
+  launches the A cue.</li>
+  <li><kbd class="mod1n"></kbd>-doubleclick on the rules creates a marker that
+  launches the A cue, then opens the dialog to edit its name</li>
+  <li>Right-click on the ruler opens a menu where A to P markers are listed</li>
+</ul>
+
+<figure>
+  <img style="width:50%;" width="50%" src="/images/cue-marker-ruler-right-click-menu.png" alt="Right-click menu for the Cue Markers ruler">
+  <figcaption>Right-click menu for the Cue Markers ruler</figcaption>
+</figure>
+
+<h2>Moving Cue Markers</h2>
+
+<p>
+  Just like any other marker, a cue marker can be picked and relocated by
+  dragging it left or right.
+</p>
+
+<h2>Stopping All Cues</h2>
+
+<p>
+  Ardour has a special kind of a marker that immediately stops all playing cues.
+  This marker (<kbd class="menu">Stop All Cues</kbd>) can be added via the
+  right-click menu on the Cue Markers ruler.
+</p>
+
+<h2>Removing Cue Markers</h2>
+
+<p>
+  Right-clicking on an existing cue marker opens the context menu with a number
+  of options. Choosing <kbd class="menu">Remove</kbd> will delete the cue marker
+  of choice.
+</p>
+
+<p>
+  When all existing cue markers have to be removed, the best option is to
+  right-click on the Cue Markers ruler (any place except an existing marker) and
+  choose <kbd class="menu">Clear All Cues</kbd>. This will delete all cue
+  markers in the session.
+</p>
+
+<h2>More Options</h2>
+
+<p>
+  The context menu for existing markers provides several more options:
+</p>
+
+<table class="dl">
+  <tr>
+  	<th>Set Cue:</th>
+  	<td>Picking a cue from the list here will replace the selected marker with
+  	a marker for a different cue.</td>
+  </tr>
+  <tr>
+  	<th>Locate to Here</th>
+  	<td>This will move the playhead to the cue marker's position.</td>
+  </tr>
+  <tr>
+  	<th>Play from Here</th>
+  	<td>This will move the playhead to the cue marker's position and start
+  	playback.</td>
+  </tr>
+  <tr>
+  	<th>Move Mark to Playhead</th>
+  	<td>This will move the selected cue marker to the current position of the
+  	Playhead.</td>
+  </tr>
+  <tr>
+  	<th>Glue to Bars and Beats</th>
+  	<td>If this option is enabled, the cue marker will maintain its position in
+  	bars and beats even if there are changes in tempo and time signature.
+  	</td>
+  </tr>
+</table>

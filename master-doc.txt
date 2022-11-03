@@ -590,6 +590,14 @@ part: subchapter
 ---
 
 ---
+title: Cue Markers
+include: cue-markers.html
+link: cue-markers
+uri: working-with-markers/cue-markers
+part: subchapter
+---
+
+---
 title: Summary
 include: summary.html
 link: summary
