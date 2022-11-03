@@ -5,12 +5,22 @@
   feeding the signal from before the insert point to its <dfn>Insert
   send(s)</dfn>, and connecting the remainder of the channel strip to the
   <dfn>Insert return(s)</dfn>, both of which are either audio device or JACK ports.
+</p>
+
+<p class="note">
+  When an insert is created, the signal will be interrupted until the relevant
+  connections to the insert ports are made!
+</p>
+
+<p>
   While jack ports are visible to other JACK applications, ALSA ports are only
   useful for patching in audio equipment external to the computer. If inserting
   a software processor is required, a plugin would be the first choice. If a plugin
   is not available then the jackd audio backend would have to be used. This is
   not very common any more but there are some older jack clients that require
-  using jack.<br>
+  using jack.
+</p>
+<p>
   Inserts work the same as the inserts on analog consoles except they are not
   normalled like most jacks on an analog console.
 </p>
@@ -20,16 +30,29 @@
   analog piece of gear into a channel strip, such as a vintage
   compressor, tube equalizer, etc. In the latter case, the inserts would first
   be connected to a pair of hardware ports, which are in turn connected to the
-  outboard gear.
+  outboard gear. This is done on the <kbd class="tab">Send/Output</kbd> and
+  <kbd class="tab">Return/Input</kbd> tabs of the <kbd class="window">Insert</kbd>
+  dialog respectively.
 </p>
+
+<figure>
+  <img src="/images/port-insert-send.png" width="50%" alt="Insert / Send">
+  <figcaption>
+    Insert Dialog, the Send/Output tab
+  </figcaption>
+</figure>
+
 <p>
-  Disabling (bypassing) an insert is done by clicking on its LED in the processor box.
+  Apart from providing access to the connections matrix, the dialog allows adjusting
+  the output gain and toggling phase inversion for Send/Output, as well as measuring
+  and adjusting latency for the insert.
 </p>
-<p class="note">
-  When an insert is created, the signal will be interrupted until the relevant
-  connections to the insert ports are made!
-</p>
+
 <p class="note">
   Inserts will incur an additional period of latency, which can be
   measured and compensated for during mixing, but not during tracking!
+</p>
+
+<p>
+  Disabling (bypassing) an insert is done by clicking on its LED in the processor box.
 </p>
