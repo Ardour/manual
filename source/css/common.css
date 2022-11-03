@@ -151,6 +151,11 @@ code {
   display: none;
 }
 
+.imagemap {position: relative;}
+.imagemap img {display: block;}
+.imagemap .area {display: block; position: absolute; transition: box-shadow 0.15s ease-in-out;}
+.imagemap .area:hover {box-shadow: 0px 0px 1vw white;}
+
 /* Keyboard modifiers */
 .mod1:before {        content: "Ctrl ";}
 .mod2:before {        content: "Alt ";}
