@@ -542,18 +542,18 @@ part: subchapter
 ---
 
 ---
-title: Creating Location Markers
-include: creating-location-markers.html
-link: creating-location-markers
-uri: working-with-markers/creating-location-markers
+title: Range Markers
+include: creating-range-markers.html
+link: creating-range-markers
+uri: working-with-markers/creating-range-markers
 part: subchapter
 ---
 
 ---
-title: Creating Range Markers
-include: creating-range-markers.html
-link: creating-range-markers
-uri: working-with-markers/creating-range-markers
+title: Location Markers
+include: creating-location-markers.html
+link: creating-location-markers
+uri: working-with-markers/creating-location-markers
 part: subchapter
 ---
 
