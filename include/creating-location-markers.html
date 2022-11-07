@@ -1,14 +1,25 @@
 
 <p>
   <dfn>Location Markers</dfn> appear in the <a href="@@ruler">Locations Markers
-  ruler</a> at the top  of the timeline. The green
-  <dfn style="background-color:limegreen;">begin</dfn> and
-  <dfn style="background-color:limegreen;">end</dfn> markers, that define the length of the session, appear
-  automatically, but yellow <span style="background-color:gold;">custom</span> markers can be created at any position in a
-  session.
+  ruler</a> at the top of the timeline. They have multiple uses, most
+  commonly&nbsp;&mdash; for navigation in a session, e.g. where this or that
+  instrument should start/stop playing. Custom markers can be created at
+  any position in a session.
 </p>
+
 <p>
-  There are multiple ways to create custom markers at the current playhead position:
+  The <dfn style="background-color:limegreen;">start</dfn> and
+  <dfn style="background-color:limegreen;">end</dfn> markers, that define the
+  length of the session, appear automatically once any content has been added to
+  the session (either recorded or imported). The end marker automatically shifts
+  to the right once more material gets added.
+</p>
+
+<h2>Creating Location Markers</h2>
+
+<p>
+  There are multiple ways to create custom markers at the current playhead
+  position:
 </p>
 <ul>
   <li>using the keyboard shortcut (default is <kbd>Tab</kbd></li>
@@ -17,8 +28,8 @@
 </ul>
 
 <p>
-  Adding a marker at an arbitrary location on the timeline (i.e. not at the playhead
-  position) can also be done either by:
+  Adding a marker at an arbitrary location on the timeline (i.e. not at the
+  playhead position) can also be done either by:
 </p>
 <ul>
   <li><kbd class="mouse">right</kbd> clicking in the Location Marker ruler, and
@@ -28,3 +39,124 @@
   clock widget</a> to set its position.</li>
 </ul>
 
+<h2>Moving Location Markers</h2>
+
+<p>
+  <kbd class="mouse">Left</kbd>-clicking and dragging moves a single marker to a
+  new location on the timeline.
+</p>
+
+<p>
+  It is possible to move multiple markers by the same distance. <kbd
+  class="mouse mod1">Left</kbd>-clicking each marker creates a selection of
+  markers that can be dragged left or right together.
+</p>
+
+<h2>Renaming Location Markers</h2>
+
+<p>
+  There are three ways to rename a location marker:
+</p>
+
+<ol>
+  <li>
+    Double-click on a marker opens a dialog where a new name can be submitted.
+  </li>
+  <li>
+    Right-clicking on a marker and selecting <kbd class="menu">Rename….</kbd>
+    opens a dialog where a new name can be submitted.
+  </li>
+  <li>
+    Editing and confirming the name by pressing <kbd class="button">Enter</kbd>
+    in an entry box in the <em>Ranges&nbsp;&amp; Marks</em> sidebar.
+  </li>
+</ol>
+
+<h2>Removing Location Markers</h2>
+
+<p>
+  There are three ways to remove a location marker:
+</p>
+
+<ol>
+  <li>
+    Hovering the marker and pressing <kbd class="button">Enter</kbd>.
+  </li>
+  <li>
+    Right-clicking on a marker and selecting <kbd class="menu">Remove</kbd>.
+  </li>
+  <li>
+    Clicking the <kbd class="button">x</kbd> for a marker of choice in the
+    <em>Ranges&nbsp;&amp; Marks</em> sidebar.
+  </li>
+</ol>
+
+<h2>More Options</h2>
+
+<p>
+  The context (right-click) menu for location markers has more options than the
+  ones mentioned above:
+</p>
+
+<table class="dl">
+  <tr>
+    <th>Locate to Here</th>
+    <td>
+      Moves the playhead to the selected marker.
+    </td>
+  </tr>
+  <tr>
+    <th>Play from Here</th>
+    <td>
+      Moves the playhead to the selected marker and starts playback.
+    </td>
+  </tr>
+  <tr>
+    <th>Move Mark to Playhead</th>
+    <td>
+      This changes the position of the selected marker to that of the playhead.
+    </td>
+  </tr>
+  <tr>
+    <th>Create Range to next Marker</th>
+    <td>
+      This creates a pair of range markers between the selected marker and the
+      next one to the right on the timeline.
+    </td>
+  </tr>
+  <tr>
+    <th>Promote to Time Origin</th>
+    <td>
+      This makes the position of the chosen range marker the origin time. This
+      is mostly useful when the <em>Display delta to origin marker</em> clock
+      mode is enabled to display the difference between current playhead
+      position and the origin time. Absolute time stays unaffected.
+    </td>
+  </tr>
+  <tr>
+    <th>Hide</th>
+    <td>
+      This hides the selected marker from the ruler until the user chooses to
+      unhide it.
+    </td>
+  </tr>
+  <tr>
+    <th>Rename…</th>
+    <td>
+      This opens a dialog to rename the marker.
+    </td>
+  </tr>
+  <tr>
+    <th>Lock</th>
+    <td>
+      This prevents a marker from being accidentally moved elsewhere.
+    </td>
+  </tr>
+  <tr>
+    <th>Glue to Bars and Beats</th>
+    <td>
+      When this option is enabled, the marker maintains its position in bars
+      and beats even if there are changes in tempo and meter.
+    </td>
+  </tr>
+</table>
