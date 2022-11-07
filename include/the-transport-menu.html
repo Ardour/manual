@@ -8,7 +8,7 @@
 	<tr><th colspan="2">Play</th></tr>
 		<tr><th class="sub1">Play Selection</th><td>Only plays the selected duration of the session, based on the current range or selected region(s)</td></tr>
 		<tr><th class="sub1">Solo Selection</th><td>Only plays the selected regions of the session. Regions that are not selected, even on a track with selected regions, wont be played</td></tr>
-		<tr><th class="sub1">Play Selection w/Preroll</th><td>As the previous menu, except it starts the playback a few bars or seconds before the beginning of the selection (the amount of time can be set in the <a href="@@preferences#preferences-transport">Preferences</a>)</td></tr>
+		<tr><th class="sub1">Play w/Preroll</th><td>As the previous menu, except it starts the playback a few bars or seconds before the beginning of the selection (the amount of time can be set in the <a href="@@preferences#preferences-transport">Preferences</a>)</td></tr>
 		<tr><th class="sub1">Start/Continue/Stop</th><td>Leaves loop play or range play mode but without stopping the transport</td></tr>
 		<tr><th class="sub1">Play from Edit Point and Return</th><td>Starts the playback at the <a href="@@edit-point-control">Edit point</a>, and when stopped, goes back to the original location</td></tr>
 		<tr><th class="sub1">Play Loop Range</th><td>If a <a href="@@the-loop-range">Loop range</a> is defined, play it and loop until stopped</td></tr>
@@ -50,6 +50,9 @@
 		<tr><th class="sub1">Jump to Next Mark</th><td>moves the playhead to the next <a href="@@creating-location-markers">marker</a> on the Ruler</td></tr>
 		<tr><th class="sub1">Jump to Previous Mark</th><td>Same, to the left</td></tr>
 
+		<tr><th class="sub1">Jump to Loop Start</th><td>moves the playhead to the <a href="@@the-loop-range">loop</a> start marker if a loop exists</td></tr>
+		<tr><th class="sub1">Jump to Loope End</th><td>Same, for the loop end marker</td></tr>
+		
 		<tr><th class="sub1">Go to Zero</th><td>Sends the playhead to the 00:00:00:00 time, regardless of the sessions Start marker</td></tr>
 		<tr><th class="sub1">Go to Start</th><td>Sends the playhead to the Start marker of the session</td></tr>
 		<tr><th class="sub1">Go to End</th><td>Sends the playhead to the End marker of the session</td></tr>
@@ -68,7 +71,9 @@
 
 		<tr><th class="sub1">Set Session Start from Playhead</th><td>Puts the Start of the session marker at the playhead's position</td></tr>
 		<tr><th class="sub1">Set Session End from Playhead</th><td>Puts the End of the session marker at the playhead's position</td></tr>
-
+	<tr><th colspan="2">Cues</th></tr>
+		<tr><th class="sub1">Trigger Cue <em>A &rarr; H</em></th><td>Starts the playback and triggers the <em>A &rarr; H</em> line of the <a href="@@cue-window-elements#cue_window_grid">Cue grid</a></td></tr>
+	
 	<tr><th>&square; Time Master</th><td>Sets Ardour as the Time master, i.e. Ardour sends the time information to the audio system</td></tr>
 	<tr><th>&square; Punch In/Out</th><td>Based on the Punch in and Punch out markers if they exist, tells Ardour to record only between those two points</td></tr>
 	<tr><th>&square; Punch In</th><td>Based on the Punch in marker, only allow to record from this point on</td></tr>
