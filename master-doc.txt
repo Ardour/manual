@@ -558,26 +558,10 @@ part: subchapter
 ---
 
 ---
-title: Moving Markers
-include: moving-markers.html
-link: moving-markers
-uri: working-with-markers/moving-markers
-part: subchapter
----
-
----
-title: The Loop Range
+title: Loop Range
 include: the-loop-range.html
 link: the-loop-range
 uri: working-with-markers/loop-range
-part: subchapter
----
-
----
-title: Marker Context Menu
-include: marker-context-menu.html
-link: marker-context-menu
-uri: working-with-markers/marker-context-menu
 part: subchapter
 ---
 
