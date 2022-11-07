@@ -49,6 +49,11 @@
 		<tr><th class="sub1">Separate Under</th><td>Removes all the parts of the regions that are under the selected one. Once done, the selected region is alone on its part of the track.</td></tr>
 		<tr><th class="sub1">Separate Using Loop Range</th><td>Cuts the selected regions or the regions on the selected tracks along the Loop range's start and end markers. If nothing is selected, acts on all tracks at once.</td></tr>
 		<tr><th class="sub1">Separate Using Punch Range</th><td>Same as above, with the Punch range markers</td></tr>
+	<tr><th colspan="2">Consolidate</th></tr>
+		<tr><th class="sub1">Consolidate Range</th><td>Group all parts of regions in the range and on the same track as one (Audio or MIDI but not both). Optionnaly, add it to the Cue Grid and/or to the Clip library.</td></tr>
+		<tr><th class="sub1">Consolidate Range (with processing)</th><td>Same as above, with processing (effects, plugins, gain&hellip) applied before grouping.</td></tr>
+		<tr><th class="sub1">Combine</th><td>Group all the selected regions belonging to the same track as one (Audio or MIDI but not both).</td></tr>
+		<tr><th class="sub1">Uncombine</th><td>(Audio only) splits back a compound into its original regions.</td></tr>
 	<tr><th colspan="2">Align</th></tr>
 		<tr><th class="sub1">Align Start</th><td>Moves the selected regions to align the beginning of the regions to the Edit point</td></tr>
 		<tr><th class="sub1">Align Start Relative</th><td>When multiple regions are selected, moves all the regions together as a block to align the beginning of the earliest one to the Edit point.</td></tr>
@@ -63,6 +68,11 @@
 		<tr><th class="sub1">Set Fade Out Length</th><td>Same as above, for the fade out</td></tr>
 		<tr><th class="sub1">&square; Fade Out</th><td>Toggles the fade out on the selected region on or off</td></tr>
 
+	<tr><th colspan="2">Analyze</th></tr>
+		<tr><th class="sub1">Spectral Analysis</th><td>For the selected range and tracks, shows the Spectral analysis, showing a frequency vs dBFS graph.</td></tr>
+		<tr><th class="sub1">Loudness Analysis</th><td>For the selected range, one tab per track, shows the <a href="@@export-dialog#export_analyze">Audio Report/Analysis</a>, showing in particular a time vs dBFS graph.</td></tr>
+		<tr><th class="sub1">Loudness Assistant</th><td>For the selected range and tracks, shows the <a href="@@loudness-analyzer">Loudness Analyzer and Normalizer</a>.</td></tr>
+
 	<tr><th>Tag Last Capture</th><td>Prompts for a text to tag the last record, this tag is visible in the <a href="@@the-region-list">Region list</a></td></tr>
 	<tr><th>Remove Last Capture</th><td>Destroy the last recording. A prompt reminds the user this <em>cannot</em> be undone.</td></tr>
 
@@ -75,8 +85,12 @@
 		<tr><th class="sub1">Next Quantize Grid Choice</th><td>Changes the snap quantization to the next one in the list below</td></tr>
 			
 		<tr><th class="sub1">&cir; No Grid</th><td>Disables <a href="@@grid-controls">snapping</a>, i.e. allows free movement of regions and boundaries</td></tr>
-		<tr><th class="sub1">&cir; Bar</th><td>Snaps to the next musical bar, bars can be set and seen in the <a href="@@ruler">Ruler</a></td></tr>
+		<tr><th class="sub1">&cir; Bar</th><td>Snaps to the closest musical bar, bars can be set and seen in the <a href="@@ruler">Ruler</a></td></tr>
 		<tr><th class="sub1">&cir; 1/4 Note &rarr; 1/28 (32nd septuplet)</th><td>Selects the division of musical time to snap to</td></tr>
+		<tr><th class="sub1">&cir; Timecode</th><td>Snaps to the closest frame, a timecode being Hrs:Min:Sec:Frame. The number of frames per second is defined in the <a href="@@session-properties#properties-timecode">Session Properties</a>.</td></tr>
+		<tr><th class="sub1">&cir; MinSec</th><td>Snaps to the closest second in the timeline.</td></tr>
+		<tr><th class="sub1">&cir; CD Frames</th><td>Snaps to the closest CD Frame, one CD frame being 1/75<sup>th</sup> of a second.</td></tr>
+
 	<tr><th colspan="2">Tempo</th></tr>
 		<tr><th class="sub1">Set Tempo from Region = Bar</th><td>Computes the tempo so that the duration of the first selected region is 1 bar. Ardour prompts if the user wants it to be the global tempo, or a tempo marker at the beginning of the region used</td></tr>
 		<tr><th class="sub1">Set Tempo from Edit Range = Bar</th><td>Same thing, with the current Range instead of a region</td></tr>
