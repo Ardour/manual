@@ -946,6 +946,13 @@ part: chapter
 ---
 
 ---
+title: The Big Clock
+include: big-clock.html
+link: big-clock
+part: chapter
+---
+
+---
 title: Using Key Bindings
 include: using-key-bindings.html
 link: using-key-bindings
