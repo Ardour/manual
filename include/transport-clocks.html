@@ -7,86 +7,105 @@
 </figure>
 
 <p>
-  <dfn>Clocks</dfn> in Ardour are used to display <dfn>time values</dfn> precisely.
-  In many cases, they are also one way to edit (change) time values, and in a few
-  cases, the only way. All clocks share the same basic appearance and functionality,
-  which is described below, but a few clocks serve particularly important roles.
+  <dfn>Clocks</dfn> in Ardour are used to display time values 
+  precisely. In many cases, they are also one way to edit (change) time 
+  values.
 </p>
 <p>
-  In the transport bar of the editor window there are two clocks (on a large enough
-  screen), that display the current position of the playhead
-  and additional information related to transport control and the timeline. These
-  are called the <dfn>transport clocks</dfn>; the left one is the primary
-  transport clock and the right one is the secondary transport clock.
+  In the transport bar of the editor window there are two clocks by 
+  default, that display the current position of the playhead and 
+  additional information related to transport control and the timeline. 
+  These are called the <dfn>transport clocks</dfn>; the left one is the 
+  <dfn>primary transport clock</dfn> (always showing the playhead 
+  position) and the right one is the <dfn>secondary transport 
+  clock</dfn>.
 </p>
 <p>
-  All the clocks in Ardour share the same powerful way of editing time. Refer to
-  <a href="@@editing-clocks">Editing Clocks</a> to learn how.
+  Having two transport clocks allows seeing the playhead position in 
+  two different time units without having to change any settings. For 
+  example, one can see the playhead position in both timecode units and 
+  BBT time. The secondary transport clock can nevertheless be hidden in 
+  the <a 
+  href="@@preferences#preferences-appearance-toolbar">Preferences</a>, 
+  at <kbd class="menu">Appearance &gt; Toolbar &gt; Display Secondary 
+  Clock</kbd>.
 </p>
 <p>
-  Editing the time in the transport clocks will reposition the playhead in the same
-  way that various other editing operations will.
-</p>
-
-<h2>The Special Role of the Secondary Transport Clock</h2>
-
-<p>
-  On a few occasions Ardour needs to display time values to the user, but there
-  is no obvious way to specify what units to use. The most common case is the big
-  cursor that appears when dragging regions. For this and other similar cases,
-  Ardour will display time using the same units as the secondary clock.
-</p>
-
-<h2>Why are there two transport clocks?</h2>
-
-<p>
-  Having two transport clocks allows seeing the playhead position in two different
-  time units without having to change any settings. For example, one can see the
-  playhead position in both timecode units and BBT time.
-</p>
-
-<h2>Special Modes for the Transport Clocks</h2>
-
-<p>
-  In addition to the time-unit modes, each of the two transport
-  clocks (again, on a sufficiently large screen) can be
-  independently set to display <dfn>Delta to Edit Point</dfn> in whatever time
-  units its current mode indicates. This setting means that the clock shows the
-  distance between the playhead and the current edit point, and it may show a
-  positive or negative value depending on the temporal order of these two points.
-  The clocks will use a different color when in this mode to avoid confusion.
+  All the clocks in Ardour share the same powerful way of editing time. 
+  Refer to <a href="@@editing-clocks">Editing Clocks</a> to learn how. 
+  Editing the time in the transport clocks will reposition the playhead 
+  in the same way that various other editing operations will.
 </p>
 
 <p>
-  To switch either (or both!) of the transport clocks into this mode, use
-  <kbd class="menu"> Edit &gt; Preferences &gt; Transport</kbd> and select
-  the relevant checkboxes.
+  The transport clocks have special attributes due to their function:
 </p>
 
+<h2>Information panel</h2>
 <p>
-  Note that when in <samp>Delta to Edit Point</samp> mode, the transport clocks
-  cannot be edited.
+	Under each clock is an information panel, that offers informations about the current <a href="@@editing-clocks#clock-modes">clock mode</a>:
 </p>
+<table class="dl">
+	<thead>
+		<tr>
+			<th>Mode</th>
+			<th>Information</th>
+		</tr>
+	</thead>
+	<tbody>
+	  <tr>
+		  <th>Timecode / Minutes:Second / Seconds</th>
+		  <td>Source of Timecode (<samp>INT</samp> means that Ardour is its own timecode source)</td>
+	  </tr>
+	  <tr>
+		  <th>Bars:Beats</th>
+		  <td>Current tempo and current time signature. Clicking one of this button allows changing the value.</td>
+	  </tr> 
+	  <tr>
+		  <th>Samples</th>
+		  <td>Sample rate (<samp>SR</samp>) and pull-up/down, as defined in the <a href="@@session-properties#properties-timecode">session properties</a>.</td>
+	  </tr>
+  </tbody>
+</table>
 
-
-<h2>The Big Clock</h2>
-
+<h2>Time origin</h2>
 <p>
-  To show the current playhead position in a big, resizable window, activate
-  <kbd class="menu">Window &gt; Big Clock</kbd>. The big clock is very useful
-  when working away from the screen but still wanting to see the playhead
-  position clearly (such as when working with a remote control device across
-  a room). The big clock will change its visual appearance to indicate when active
-  recording is taking place. Below on the left is a screenshot showing a fairly
-  large big clock window filling a good part of the display, and on the right,
-  the same clock during active recording.
+	In the <kbd class="mouse">Right</kbd>-click menu, it is possible to 
+	change the time origin, i.e. the zero-point in time, amongst :
 </p>
 
-<figure>
-  <a href="/images/bigclock.png"><img src="/images/bigclock.png" height="100" alt="The big clock filling a screen"></a>
-  <a href="/images/bigclock-recording.png"><img src="/images/bigclock-recording.png" height="100" alt="The big clock while recording"></a>
-  <figcaption>
-    The Big Clock, with no transport rolling (left) and recording (right).
-  </figcaption>
-</figure>
+<table class="dl">
+  <tr>
+	  <th><dfn>Display absolute time</dfn></th>
+	  <td>The zero point is the absolute start of the timeline (ignoring the session start and any timecode offsets).</td>
+  </tr>
+  <tr>
+	  <th><dfn>Display delta to edit cursor</dfn></th>
+	  <td>The zero point is the Edit Point as chosen from the <a href="@@edit-point-control">Edit Point selector</a>, e.g. a selected marker.</td>
+  </tr> 
+  <tr>
+	  <th><dfn>Display delta to origin marker</dfn></th>
+	  <td>The zero point is the <em>start</em> marker of the session.</td>
+  </tr>
+</table>
+
+<ul>
+  <li>
+	  The transport clock may display a positive or negative value 
+	  depending on the temporal order of the chosen zero value and the 
+	  playhead.
+  </li>
+  <li>
+	  The clocks will use a different color when in <em>delta to 
+	  edit</em> or <em>delta to origin</em> mode to avoid confusion. 
+  </li>
+  <li>
+	  Also, when in the two later modes, the value of the clock can not
+	  be edited.
+  </li>
+</p>
+
+
+
+
 
