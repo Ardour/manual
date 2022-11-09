@@ -1,0 +1,190 @@
+<p>
+  <dfn>CD Markers</dfn> are helpful for producing Cue sheets and TOC files that
+  describe how tracks are laid out on a CD Audio media and how these tracks are
+  named.
+</p>
+
+<figure>
+  <img style="width:75%;" width="50%" src="/images/cd-markers.png"
+  alt="CD Markers ruler">
+  <figcaption>CD Markers ruler</figcaption>
+</figure>
+
+<h2>Creating CD Markers</h2>
+
+<p>
+  Ardour supports two types of CD markers: single and paired. Each one of them
+  works best in a particular scenario (more on that below).
+</p>
+
+<p>
+  There are several ways to create a single CD marker:
+</p>
+
+<ul>
+	<li>
+		<kbd class="mouse mod1">Left</kbd>-clicking on the CD Markers ruler. This
+		places a marker named "mark<em>N</em>" where N is a number that starts
+		with 1 and is incremented by 1 (e.g. mark2, mark 3 etc.) for every next
+		single CD marker.
+	</li>
+	<li>
+		<kbd class="mouse">Right</kbd>-clicking on the ruler and selecting
+		<kbd class="menu">New CD Track marker</kbd>.
+	</li>
+	<li>
+		Clicking the <kbd class="button">New Marker</kbd> button at the bottom of
+		the	<kbd class="window">Ranges&nbsp;&amp; Marks</kbd> sidebar, then enabling
+		the <kbd class="option">CD</kbd> checkbox for the newly created marker.
+	</li>
+</ul>
+
+<p>
+  There are also several ways to create paired CD markers:
+</p>
+
+<ul>
+	<li>
+		<kbd class="mouse mod1">Left</kbd>-clicking and dragging on the CD Markers
+		ruler will render a red-filled preview area that encompasses the future CD
+		marker range. Releasing the mouse button will create a pair of CD markers
+		named 'CD<em>N</em>' where N is a number that starts at 1 and is
+		icremented by 1 (e.g. CD2, CD3 etc.) for every next pair of CD marker ranges.
+	</li>
+	<li>
+		Creating a new pair of <a href="@@creating-range-markers">range markers</a>
+		in any supported way, then enabling the <kbd class="option">CD</kbd>
+		checkbox for the newly created range markers.
+	</li>
+</ul>
+
+<h2>Choosing Between Single and Paired Markers</h2>
+
+<p>
+  Single and paired CD markers both target dedicated use cases, which has a lot
+  to do with how tracks are laid in the Ardour session and how cue sheets work.
+</p>
+
+<p>
+  Single markers work best when each song starts immediately after the previous
+  one. In that case the cue sheet will only reference the beginning of each
+  song (the 'INDEX 01' section), and the TOC file will contain ranges that last
+  from the beginning of one song to the beginning of the next song.
+</p>
+
+<p>
+	Paired markers define a <em>range</em> that encompasses a song. This works
+	best when there are gaps between songs in the session. In that case, for each
+	song, the cue sheet will also contain the 'INDEX 00' section that will
+	reference the beginning of the pregap&nbsp;&mdash; the gap between songs. This
+	will tell CD authoring software which parts of the audio file to exclude from
+	burning to a CD. The TOC file will create ranges exactly as defined by paired
+	CD markers.
+</p>
+
+<h2>Editing CD Markers</h2>
+
+<p>
+	There are several ways to rename CD markers (both single and paired ones):
+</p>
+
+<ul>
+	<li>
+		Double-clicking on a marker or right-clicking on it and selecting the
+		<kbd class="menu">Rename…</kbd> (single markers) or the
+		<kbd class="menu">Rename Range</kbd> (paired markers) menu item brings up
+		the dialog where the name can be changed.
+	</li>
+	<li>
+		The name can also be changed in the
+		<kbd class="window">Ranges&nbsp;&amp; Marks</kbd> sidebar by replacing the
+		existing one and pressing the <kbd>Enter</kbd> key.
+	</li>
+</ul>
+
+<p class="note">
+	CD marker name is primarily the name of the track visible in software and
+	equipment capable of displaying individual track names. Other disc metadata,
+	such as band name, year, total count of tracks etc. is defined in the
+	<a href="@@metadata">Edit Session Metadata</a> dialog.
+</p>
+
+<p>
+  There are additional fields for CD markers only available for editing in the
+  <kbd class="window">Ranges&nbsp;&amp; Marks</kbd> sidebar. All this extra
+  information is written only into CUE and TOC files for CD authoring software.
+</p>
+
+<table class="dl">
+  <tr>
+    <th>ISRC</th>
+    <td>
+    	The International Standard Recording Code, or
+    	<a href="https://usisrc.org/">ISRC</a>, is a unique recording ID issued
+    	by Recording Industry Association of America, Inc. for each track
+    	separately.
+    </td>
+  </tr>
+  <tr>
+    <th>Performer</th>
+    <td>
+    	A band, an orchestra, or an individual musician who performed on the
+    	track.
+    </td>
+  </tr>
+  <tr>
+    <th>Composer</th>
+    <td>
+    	The composer who has authorship over the music in the track.
+    </td>
+  </tr>
+  <tr>
+    <th>SCMS</th>
+    <td>
+    	This enables the Serial Copy Management System (SCMS) which is a copy protection scheme that targets the use of digital audio tape (DAT) and allows the first generation of copies of the original track while preventing the second generation of copies (copies of copies).</td>
+  </tr>
+  <tr>
+    <th>Pre-Emphasis</th>
+    <td>
+    	This targets the use of older CD playback equipment that uses a 14-bit
+    	converter (while dealing with 16-bit data) and noisy filters to remove
+    	frequencies higher than 22050 Hz (the Nyquist frequency). Unless treated
+    	specifically, the use of such equipment results in noise especially
+    	audible in higher frequencies. The pre-emphasis flag tells the CD
+    	authoring software to do two things: apply an equalization curve to boost
+    	higher, "weaker" frequencies, as well as write a pre-emphasis flag to the
+    	subcode stored alongside audio data so that playback software or equipment
+    	capable of de-emphasizing would process the data accordingly.
+    </td>
+  </tr>
+</table>
+
+<h2>Removing CD Markers</h2>
+
+<p>
+  CD markers can be deleted in several ways:
+</p>
+
+<ul>
+  <li>
+    By clicking a marker and pressing the <kbd>Del</kbd> key.
+  </li>
+  <li>
+    By right-clicking on a markers and selecting
+    <kbd class="menu">Remove</kbd> (single marker) or
+    <kbd class="menu">Remove Range</kbd> (paired marker).
+  </li>
+  <li>
+    By clicking the markers' <kbd class="button">x</kbd> button in the
+    <em>Ranges&nbsp;&amp; Marks</em> sidebar.
+  </li>
+</ul>
+
+<h2>More Options</h2>
+
+<p>
+	The <kbd class="mouse">right</kbd>-click menu for single and paired CD
+	markers replicates that of
+	<a href="@@creating-location-markers">location markers</a> and
+	<a href="@@creating-range-markers">range markers</a> respectively.
+</p>

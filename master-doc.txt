@@ -550,14 +550,6 @@ part: subchapter
 ---
 
 ---
-title: Location Markers
-include: creating-location-markers.html
-link: creating-location-markers
-uri: working-with-markers/creating-location-markers
-part: subchapter
----
-
----
 title: Loop Range
 include: the-loop-range.html
 link: the-loop-range
@@ -570,6 +562,22 @@ title: Punch Range
 include: punch-range.html
 link: punch-range
 uri: working-with-markers/punch-range
+part: subchapter
+---
+
+---
+title: CD Markers
+include: cd-markers.html
+link: cd-markers
+uri: working-with-markers/cd-markers
+part: subchapter
+---
+
+---
+title: Location Markers
+include: creating-location-markers.html
+link: creating-location-markers
+uri: working-with-markers/creating-location-markers
 part: subchapter
 ---
 
