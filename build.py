@@ -30,6 +30,7 @@ global_master_doc = 'master-doc.txt'
 global_pdflink = '<button class="btn btn-default" type="button" onclick="window.location.href=\'/manual.pdf\'"><span class="glyphicon glyphicon-book" aria-hidden="true"></span></button>'
 from datetime import datetime
 global_today = datetime.today().strftime('%Y-%m-%d')
+global_redirects_file = 'uri_to_fix.txt'
 
 # This matches all *non* letter/number, ' ', '.', '-', and '_' chars
 cleanString = re.compile(r'[^a-zA-Z0-9 \._-]+')
@@ -727,6 +728,30 @@ if pdf:
 	html_font_config = FontConfiguration()
 	doc = HTML(string = pdfpage, base_url = global_site_dir)
 	doc.write_pdf(global_site_dir + 'manual.pdf', font_config = html_font_config)
+
+# URI redirects
+if os.path.exists(global_redirects_file):
+	with open(global_redirects_file) as f:
+		cpt = 0;
+		for line in f:
+			line = line.strip();
+			if line == '':
+				continue	#empty line
+			if line.startswith('//'):
+				continue	#comment
+			params = line.split('|');
+			params[0] = params[0].strip(' \t/')
+			params[1] = params[1].strip(' \t')
+			# write an HTML the file with a refresh redirect
+			os.makedirs(global_site_dir + params[0], 0o775, exist_ok=True)
+			destFile = open(global_site_dir + params[0] + '/index.html', 'w')
+			newlink = FixInternalLinks(links, '"'+params[1]+'"', global_redirects_file)
+			newlink = newlink.strip('"')
+			page = '<html><head><meta http-equiv="refresh" content="0; url=' + newlink + '"></head><body><p>The page has moved to:<a href="' + newlink + '">this page</a></p></body></html>'
+			destFile.write(page)
+			destFile.close()
+if noisy:
+	print('Generated ' + str(cpt) + ' redirection files.')
 
 if noisy:
 	print('Processed ' + str(fileCount) + ' files.')
