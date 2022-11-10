@@ -108,38 +108,6 @@ uri: introducing-ardour/basic-gui-operations
 part: subchapter
 ---
 
----
-title: Keyboard and Mouse Shortcuts
-link: keyboard-and-mouse-shortcuts
-part: chapter
----
-
----
-title: Default Keyboard Bindings
-menu_title: Default Key Bindings
-include: default-keyboard-bindings.html
-link: default-keyboard-bindings
-uri: default-keyboard-bindings
-part: subchapter
----
-
----
-title: Mnemonic Bindings for Linux &amp; Windows
-menu_title: Linux &amp; Windows Bindings
-include: mnemonic-bindings-for-linux.html
-link: mnemonic-bindings-for-linux
-uri: default-keyboard-bindings/mnemonic-bindings-for-linux
-part: subchapter
----
-
----
-title: Mnemonic Bindings for macOS
-menu_title: macOS Bindings
-include: mnemonic-bindings-for-os-x.html
-link: mnemonic-bindings-for-os-x
-uri: default-keyboard-bindings/mnemonic-bindings-for-os-x
-part: subchapter
----
 
 ---
 title: Ardour Configuration
@@ -2377,6 +2345,13 @@ title: List of Menu Actions
 include: list-of-menu-actions.html
 link: list-of-menu-actions
 uri: appendix/menu-actions-list
+part: chapter
+---
+
+---
+title: Default Keyboard Shortcuts
+include: default-shortcuts.html
+link: default-shortcuts
 part: chapter
 ---
 
