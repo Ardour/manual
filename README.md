@@ -117,4 +117,11 @@ The `build.py` script that builds the manual accepts the following options:
 - '-q', or '--quiet', to suppress all output (overrides -v)
 - '-d', or '--devmode', to add content to pages to help developers debug them
 (link, file name, URL)
-- '-n', or '--nopdf', to prevent the build script from generate a PDF from the content
+- '-p', or '--pdf', to automatically generate a PDF from the content
+
+### Redirects
+
+the uri_to_fix.txt file is a structured file that is read at build time
+to generate redirects HTML pages, and avoid dead links when a page is moved
+or removed. The syntax is old/and/obsolete/uri | @@link, reusing the 'link'
+keyword of the master document. 

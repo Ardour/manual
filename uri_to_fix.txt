@@ -1,27 +1,21 @@
-URLs that are currently 404 (Feb/14) -- add 301 redirects or re-instantiate the old URI
-
-MUST fix:
-
-...
-
-
-Should fix:
-
-[FIXED?] http://www.manual.ardour.org/ardours-interface/using-ardour-clock-displays/ -> ardours-interface/transport-clocks
-
-
-Maybe fix:
-
-http://www.manual.ardour.org/editing-and-arranging/creating-regionfades-and-crossfades/
-http://www.manual.ardour.org/editing-and-arranging/editing-midi/midi_region_cloning/
-http://www.manual.ardour.org/editing-and-arranging/editing-midi/changing-note-properties/
-http://www.manual.ardour.org/editing-and-arranging/editing-midi/quantizing-midi/
-http://www.manual.ardour.org/working-with-plugins/the-processor-box/
-http://www.manual.ardour.org/ardours-interface/basic-gui-operations/selection-techniques/
-http://www.manual.ardour.org/ardours-interface/basic-gui-operations/using-the-mouse/
-http://www.manual.ardour.org/ardours-interface/introducing-the-editor-window/the-editing-toolbar/
-http://www.manual.ardour.org/ardours-interface/introducing-the-editor-window/the-transport-bar/
-http://www.manual.ardour.org/working-with-markers/getting-to-know-the-rangesmarks-list/
-http://www.manual.ardour.org/working-with-markers/the-punch-range/
-http://www.manual.ardour.org/signal-routing/role-of-jack/
-http://www.manual.ardour.org/editing-and-arranging/move-regions/move-regions-with-the-mouse
+// URLs that are currently 404 (Feb/14) -- add 301 redirects or re-instantiate the old URI
+// 
+// These URIs are no longer relevant, and are redirected by a meta refresh
+//
+// format : old/URI/to/replace	|@@link (cf master-donc.txt)
+//
+default-keyboard-bindings/mnemonic-bindings-for-os-x/					|@@default-shortcuts
+default-keyboard-bindings/mnemonic-bindings-for-linux/					|@@default-shortcuts
+introduction-to-ardour/keyboard-and-mouse-shortcuts/					|@@keyboard-shortcuts
+editing-and-arranging/creating-regionfades-and-crossfades/				|@@create-region-fades-and-crossfades
+editing-and-arranging/editing-midi/midi_region_cloning/					|@@independent-and-dependent-midi-region-copies
+editing-and-arranging/editing-midi/quantizing-midi/						|@@quantize-midi
+working-with-plugins/the-processor-box/									|@@audiomidi-mixer-strips#audio-midi-processor-box
+ardours-interface/basic-gui-operations/selection-techniques/			|@@using-the-mouse
+ardours-interface/basic-gui-operations/using-the-mouse/					|@@using-the-mouse
+ardours-interface/introducing-the-editor-window/the-editing-toolbar/	|@@toolbox
+ardours-interface/introducing-the-editor-window/the-transport-bar/		|@@transport-bar
+working-with-markers/getting-to-know-the-rangesmarks-list/				|@@the-ranges-and-marks-lists
+working-with-markers/the-punch-range/									|@@selection-and-punch-clocks
+signal-routing/role-of-jack/											|@@starting-ardour
+editing-and-arranging/move-regions/move-regions-with-the-mouse			|@@move-regions-with-the-mouse
