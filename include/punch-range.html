@@ -3,9 +3,169 @@
   The <dfn>punch range</dfn> is a special range used to define where
   recording will start and/or stop during a <dfn>punch</dfn>.
 </p>
+
+<h2>Creating a Punch Range</h2>
+
 <p>
-  It can be defined on the timeline or in the
-  <a href="@@the-ranges-and-marks-lists">Ranges &amp; Marks</a>
-  list.
+  A punch range can be created in multiple ways.
 </p>
 
+<ul>
+  <li>
+    By selecting a range on the timeline,
+    <kbd class="mouse">right</kbd>-clicking, then selecting
+    <kbd class="menu">Set Punch from Selection</kbd>. This will create punch
+    range's start and end markers that match the beginning and the end of the
+    range selection respectively.
+  </li>
+  <li>
+    By <kbd class="mod1 mouse">left</kbd>-dragging on the Loop/Punch Ranges
+    ruler, releasing the mouse button, then choosing
+    <kbd class="menu">Set Punch Range</kbd> in the pop-up menu.
+  </li>
+</ul>
+
+<figure>
+  <img style="width:75%;" width="50%" src="/images/a7-create-punch-region-on-ruler.gif"
+  alt="Creating a punch range directly on the ruler">
+  <figcaption>Creating a punch range directly on the ruler</figcaption>
+</figure>
+
+<h2>Editing a Punch Range</h2>
+
+<p>
+  The punch range can be edited in multiple ways as well.
+</p>
+
+<ul>
+	<li>
+	  Individual markers can be dragged on the ruler by
+	  <kbd class="mod1 mouse">left</kbd>-clicking and dragging. It is also
+	  possible to drag both the start and the end markers togother.
+	  <kbd class="mod1 mouse">Left</kbd>-click and select both markers, then
+	  <kbd class="mod1 mouse">left</kbd>-drag them.
+	</li>
+	<li>
+		Positions of the start and the end markers can be edited numerically in the
+		<a href="@@the-ranges-and-marks-lists">Ranges&nbsp;&amp; Marks</a> sidebar.
+	</li>
+	<li>
+		Positions of the start and the end markers can also be reset from another
+		range selection by making that selection, then
+		<kbd class="mod1 mouse">right</kbd>-clicking and selecting the
+		<kbd class="menu">Set Range from Selection</kbd> menu item.
+	</li>
+</ul>
+
+<h2>Removing a Loop Range</h2>
+
+<p>
+	There are two ways to delete a loop range:
+</p>
+
+<ol>
+	<li>
+		<kbd class="mod1 mouse">Right</kbd>-clicking and selecting the
+		<kbd class="menu">Remove Range</kbd> menu item.
+	</li>
+	<li>
+		Click the <kbd>X</kbd> button in the list of ranges in the
+		<a href="@@the-ranges-and-marks-lists">Ranges&nbsp;&amp; Marks</a> sidebar.
+	</li>
+</ol>
+
+<h2>More Options</h2>
+
+<p>
+  The right-click menu mostly copies that of a regular pair of range markers.
+  The following options are available in addition to the ones mentioned above.
+</p>
+
+<table class="dl">
+  <tr>
+    <th>Play Range</th>
+    <td>
+      Starts playback at the left marker in the pair and stops at the right
+      marker.</td>
+  </tr>
+  <tr>
+    <th>Locate to Marker</th>
+    <td>
+      Moves the playhead to the selected marker.
+    </td>
+  </tr>
+  <tr>
+    <th>Play from Marker</th>
+    <td>
+      Moves the playhead to the selected marker and starts playback.
+    </td>
+  </tr>
+  <tr>
+    <th>Loop Range</th>
+    <td>
+      Creates a loop range off the selected range markers pair and starts
+      playback.
+    </td>
+  </tr>
+  <tr>
+    <th>Set Marker from Playhead</th>
+    <td>
+      Changes the position of the selected marker to that of the playhead.
+    </td>
+  </tr>
+  <tr>
+    <th>Zoom to Range</th>
+    <td>
+      Changes the zoom so that the area defined by the range markers would be
+      maximized yet visible entirely within Ardour's window.
+    </td>
+  </tr>
+  <tr>
+    <th>Glue to Bars and Beats</th>
+    <td>
+      When this option is enabled, the marker maintains its position in bars
+      and beats even if there are changes in tempo and meter.
+    </td>
+  </tr>
+  <tr>
+    <th>Loudness Assistant…</th>
+    <td>
+      Launches the Loudness Assistant to analyze the selection defined by the
+      selected pair of range markers.
+    </td>
+  </tr>
+  <tr>
+    <th>Export Range…</th>
+    <td>
+      Exports the selection defined by the selected pair of range markers.
+    </td>
+  </tr>
+  <tr>
+    <th>Promote to Time Origin</th>
+    <td>
+      This makes the position of the chosen range marker the origin time. This
+      is mostly useful when the <em>Display delta to origin marker</em> clock
+      mode is enabled to display the difference between current playhead
+      position and the origin time. Absolute time stays unaffected.
+    </td>
+  </tr>
+  <tr>
+    <th>Separate Regions in Range</th>
+    <td>
+      Cuts all regions crossing the positions of the range markers.
+    </td>
+  </tr>
+  <tr>
+    <th>Select All in Range</th>
+    <td>
+      Select entire regions that cross the borders of the range markers.
+    </td>
+  </tr>
+  <tr>
+    <th>Select Range</th>
+    <td>
+      Create a selection from the range markers in all selected tracks and
+      busses.
+    </td>
+  </tr>
+</table>
