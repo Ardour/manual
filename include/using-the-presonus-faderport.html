@@ -1,7 +1,7 @@
 
 <p>
-  Since version 4.5, Ardour has had full support for the Presonus
-  Faderport. This is a compact control surface featuring a single
+  Ardour has full support for the Presonus Faderport controller.
+  This is a compact control surface featuring a single
   motorized fader, a single knob (encoder) and 24 buttons with fixed
   labels. It is a relatively low-cost device that functions very well
   to control a single (selected) track or bus, along with a variety of
@@ -64,14 +64,13 @@
 </p>
 
 <h2>Using the Faderport</h2>
+
 <p>
   The Faderport's controls can be divided into three groups:
   <ol>
     <li>Global controls such as the transport buttons</li>
-
     <li>Controls which change the settings for particular track or
       bus</li>
-
     <li>Controls which alter which track or bus is modified by the
       per-track/bus controls.</li>
   </ol>
@@ -84,295 +83,329 @@
 </p>
 
 <h3>Transport Buttons</h3>
+
 <p>
   The transport buttons all work as you would expect.
-  <table class="dl">
-    <tr><th>Rewind</th>
-    <td>
-      <p>
-      When pressed on its own, starts the transport moving backwards. Successive presses
-      speed up the "rewind" behaviour.
-      </p>
-      <p>
-	If pressed while also holding the Stop button, the playhead will
-	return to the zero position on the timeline.
-      </p>
-      <p>
-	If pressed while also holding the Shift button, the playhead will
-	move to the session start marker.
-      </p>
-    </td></tr>
-    <tr><th>Fast Forward</th>
-    <td>
-      <p>
-	When pressed on its own, starts the transport moving faster than normal. Successive presses
-	speed up the "fast forward" behaviour.
-      </p>
-      <p>
-	If pressed while also holding the Shift button, the playhead
-	will move to the session end marker.
-      </p>
-    </td></tr>
-    <tr><th>Stop</th>
-    <td>
-      Stops the transport. Also used in combination with the Rewind
-      button to "return to zero".
-    </td></tr>
-    <tr><th>Play</th>
-    <td>
-      Starts the transport. If pressed while the transport is
-      already rolling at normal speed, causes the playhead to jump to
-      the start of the last "roll" and continue rolling ("Poor man's
-      looping").
-    </td></tr>
-    <tr><th>Record Enable</th>
-    <td>Toggles the global record enable setting
-    </td></tr>
-  </table>
 </p>
 
+<table class="dl">
+  <tr><th>Rewind</th>
+  <td>
+    <p>
+      When pressed on its own, starts the transport moving backwards.
+      Successive presses speed up the "rewind" behaviour.
+    </p>
+    <p>
+     If pressed while also holding the Stop button, the playhead will
+     return to the zero position on the timeline.
+    </p>
+    <p>
+     If pressed while also holding the Shift button, the playhead will
+     move to the session start marker.
+    </p>
+  </td></tr>
+  <tr><th>Fast Forward</th>
+  <td>
+    <p>
+     When pressed on its own, starts the transport moving faster than normal.
+      Successive presses speed up the "fast forward" behaviour.
+    </p>
+    <p>
+     If pressed while also holding the Shift button, the playhead
+     will move to the session end marker.
+    </p>
+  </td></tr>
+  <tr><th>Stop</th>
+  <td>
+    Stops the transport. Also used in combination with the Rewind
+    button to "return to zero".
+  </td></tr>
+  <tr><th>Play</th>
+  <td>
+    Starts the transport. If pressed while the transport is
+    already rolling at normal speed, causes the playhead to jump to
+    the start of the last "roll" and continue rolling ("Poor man's
+    looping").
+  </td></tr>
+  <tr><th>Record Enable</th>
+  <td>Toggles the global record enable setting
+  </td></tr>
+</table>
+
 <h3>Other Global Controls</h3>
+
 <p>
-  The Mix, Proj, Trns buttons do not obviously correspond any
+  The <kbd class="button">Mix</kbd>, <kbd class="button">Proj</kbd>,
+  <kbd class="button">Trns</kbd> buttons do not obviously correspond to any
   particular functions or operations in Ardour. We have therefore
   allowed users to choose from a carefully curated set of possible
   actions that seem related to the button labels in some clear
   way. This can be done via the Faderport configuration dialog
-  accessed via <code>Preferences &gt; Control Surfaces</code>. Each
+  accessed via <code>Preferences&nbsp;&gt; Control Surfaces</code>. Each
   button has 3 possible actions associated with it:
-  <ul>
-    <li>Plain Press: action to be taken when the button is pressed on
-      its own.</li>
-    <li>Shift-Press: action to be taken when the button is pressed in
-      conjunction with the Shift button.</li>
-    <li>Long Press: action to be taken when the button is pressed on
-      its own and held down for more than 0.5 seconds.</li>
-  </ul>
+</p>
+
+<ul>
+  <li>Plain Press: action to be taken when the button is pressed on
+    its own.</li>
+  <li>Shift-Press: action to be taken when the button is pressed in
+    conjunction with the Shift button.</li>
+  <li>Long Press: action to be taken when the button is pressed on
+    its own and held down for more than 0.5 seconds.</li>
+</ul>
+
+<p>
   Click on the relevant drop-down selector to pick an action as you
   prefer.
 </p>
+
 <p>
   The User button also has no obvious mapping to specific Ardour
   functionality, so we allow users to choose from <em>any</em>
   possible GUI action. The menu for selecting the action is somewhat
   confusing and it can be hard to find what you're looking
   for. However, all possible actions are there, so keep looking!
-<p>
-  <table class="dl">
-    <tr><th>Mix</th>
-    <td>
-      <p>
-	Possible actions include:
-	<ul>
-	  <li>Toggle Editor &amp; Mixer visibility</li>
-	  <li>Show/Hide the Editor mixer strip</li>
-	</ul>
-      </p>
-    </td></tr>
-    <tr><th>Proj</th>
-    <td>
-      <p>
-	Possible actions include:
-	<ul>
-	  <li>Toggle Meterbridge visibility</li>
-	  <li>Toggle Session Summary visibility</li>
-	  <li>Toggle Editor Lists visibility</li>
-	  <li>Zoom to session</li>
-	  <li>Zoom in</li>
-	  <li>Zoom out</li>
-	</ul>
-      </p>
-   </td></tr>
-    <tr><th>Trns</th>
-    <td>
-      <p>
-	Possible actions include:
-	<ul>
-	  <li>Toggle Locations window visibility</li>
-	  <li>Toggle Metronome</li>
-	  <li>Toggle external sync</li>
-	  <li>Set Playhead at current pointer position</li>
-	</ul>
-      </p>
-    </td></tr>
-    <tr><th>Undo/Redo</th>
-    <td>
-      Undo Causes the last operation carried out in the editor to be
-      undone. When pressed in conjunction with the Shift button, it
-      causes the most recent undone operation to be re-done.
-    </td></tr>
-    <tr><th>Punch</th>
-    <td>
-      <p>
-	When pressed on its own, toggles punch recording. If there is no
-	punch range set for the session, this will do nothing.
-      </p>
-      <p>
-	When pressed in conjunction with the Shift button, this moves
-	the playhead to the previous Marker
-      </p>
-    </td></tr>
-    <tr><th>User</th>
-    <td>
-      <p>
-	See above. Any and all GUI-initiated actions can be driven with
-	by pressing this button on its own, or with a "long" press.
-      </p>
-      <p>
-	When pressed in conjunction with the Shift button, this will move
-	the playhead to the next marker.
-      </p>
-    </td></tr>
-    <tr><th>Loop</th>
-    <td>
-      <p>
-	When pressed on its own, this toggles loop playback. If the
-	Ardour preference "Loop-is-mode" is enabled, this does nothing
-	to the current transport state. If that preference is disabled,
-	then engaging loop playback will also start the transport.
-      </p>
-      <p>
-	When pressed in conjunction with the Shift button, this will
-	create a new (unnamed) marker at the current playhead
-	position.
-      </p>
-    </td></tr>
-  </table>
 </p>
 
+<table class="dl">
+  <tr><th>Mix</th>
+  <td>
+    <p>
+      Possible actions include:
+    </p>
+    <ul>
+      <li>Toggle Editor &amp; Mixer visibility</li>
+      <li>Show/Hide the Editor mixer strip</li>
+    </ul>
+  </td></tr>
+  <tr><th>Proj</th>
+  <td>
+    <p>
+      Possible actions include:
+      <ul>
+        <li>Toggle Meterbridge visibility</li>
+        <li>Toggle Session Summary visibility</li>
+        <li>Toggle Editor Lists visibility</li>
+        <li>Zoom to session</li>
+        <li>Zoom in</li>
+        <li>Zoom out</li>
+      </ul>
+     </p>
+  </td></tr>
+  <tr><th>Trns</th>
+  <td>
+    <p>
+      Possible actions include:
+      <ul>
+        <li>Toggle Locations window visibility</li>
+        <li>Toggle Metronome</li>
+        <li>Toggle external sync</li>
+        <li>Set Playhead at current pointer position</li>
+      </ul>
+    </p>
+  </td></tr>
+  <tr><th>Undo/Redo</th>
+  <td>
+    Undo Causes the last operation carried out in the editor to be
+    undone. When pressed in conjunction with the Shift button, it
+    causes the most recent undone operation to be re-done.
+  </td></tr>
+  <tr><th>Punch</th>
+  <td>
+    <p>
+      When pressed on its own, toggles punch recording. If there is no
+      punch range set for the session, this will do nothing.
+    </p>
+    <p>
+      When pressed in conjunction with the Shift button, this moves
+      the playhead to the previous Marker
+    </p>
+  </td></tr>
+  <tr><th>User</th>
+  <td>
+    <p>
+      See above. Any and all GUI-initiated actions can be driven with
+      by pressing this button on its own, or with a "long" press.
+    </p>
+    <p>
+      When pressed in conjunction with the Shift button, this will move
+      the playhead to the next marker.
+    </p>
+  </td></tr>
+  <tr><th>Loop</th>
+  <td>
+    <p>
+      When pressed on its own, this toggles loop playback. If the
+      Ardour preference "Loop-is-mode" is enabled, this does nothing
+      to the current transport state. If that preference is disabled,
+      then engaging loop playback will also start the transport.
+    </p>
+    <p>
+      When pressed in conjunction with the Shift button, this will
+      create a new (unnamed) marker at the current playhead
+      position.
+    </p>
+  </td></tr>
+</table>
+
 <h3>Per-track Controls</h3>
-<p>
-  <table class="dl">
-    <tr><th>Mute</th>
+
+<table class="dl">
+  <tr>
+    <th>Mute</th>
     <td>
       This toggles the mute setting of the currently controlled
       track/bus. The button will be lit if the track/bus is muted.
-    </td></tr>
-    <tr><th>Solo</th>
+    </td>
+  </tr>
+  <tr>
+    <th>Solo</th>
     <td>
       This toggles the solo (or listen) setting of the currently
       controlled track/bus. The button will be lit if the track/bus is
       soloed (or set to listen mode).
-    </td></tr>
-    <tr><th>Rec</th>
+    </td>
+  </tr>
+  <tr>
+    <th>Rec</th>
     <td>
       This toggles the record-enabled setting of the currently
       controlled track/bus. The button will be lit if the track is
       record-enabled. This button will do nothing if the Faderport is
       controlling a bus.
-    </td></tr>
-    <tr><th>Fader</th>
+    </td>
+  </tr>
+  <tr>
+    <th>Fader</th>
     <td>
       The fader controls the gain applied to the currently controlled
       track/bus. If the Faderport is powered, changing the gain in
       Ardour's GUI or via another control surface, or via automation,
       will result in the fader moving under its own control.
-    </td></tr>
-    <tr><th>Knob/Dial/Encoder</th>
+    </td>
+  </tr>
+  <tr>
+    <th>Knob/Dial/Encoder</th>
     <td>
       <p>
-	The knob controls 1 or 2 pan settings for the current
-	controlled track/bus. When used alone, turning the knob controls
-	the "azimuth" or "direction" (between left and right) for the
-	panner in the track/bus (if any). This is all you need when
-	controlling tracks/busses with 1 input and 2 outputs.
+  	    The knob controls 1 or 2 pan settings for the current
+  	    controlled track/bus. When used alone, turning the knob controls
+  	    the "azimuth" or "direction" (between left and right) for the
+  	    panner in the track/bus (if any). This is all you need when
+  	    controlling tracks/busses with 1 input and 2 outputs.
+        </p>
+      <p>
+  	    If controlling a 2 input/2 output track/bus, Ardour's panner
+  	    has two controls: azimuth (direction) and width. The width
+  	    must be reduced to less than 100% before the azimuth can be
+  	    changed. Pressing the "Shift" button while turning the knob
+  	    will alter the width setting.
       </p>
       <p>
-	If controlling a 2 input/2 output track/bus, Ardour's panner
-	has two controls: azimuth (direction) and width. The width
-	must be reduced to less than 100% before the azimuth can be
-	changed. Pressing the "Shift" button while turning the knob
-	will alter the width setting.
+  	    The knob can also be turned while the "User" button is held,
+  	    in order to modify the input gain for the currently controlled
+  	    track.
       </p>
-      <p>
-	The knob can also be turned while the "User" button is held,
-	in order to modify the input gain for the currently controlled
-	track.
-      </p>
-    </td></tr>
-    <tr><th>Read</th>
+    </td>
+  </tr>
+  <tr>
+    <th>Read</th>
     <td>
       Enables playback/use of fader automation data by the controlled track/bus.
-    </td></tr>
-    <tr><th>Write</th>
+    </td>
+  </tr>
+  <tr>
+    <th>Write</th>
     <td>
       Puts the fader for the controlled track/bus into automation
       write mode. While the transport is rolling, all fader changes
       will be recorded to the fader automation lane for the relevant track/bus.
-    </td></tr>
-    <tr><th>Touch</th>
+    </td>
+  </tr>
+  <tr>
+    <th>Touch</th>
     <td>
       Puts the fader for the controlled track/bus into automation
       touch mode. While the transport is rolling, touching the fader
       will initiate recording all fader changes until the fader is
       released. When the fader is not being touched, existing
       automation data will be played/used to control the gain level.
-    </td></tr>
-    <tr><th>Off</th>
+    </td>
+  </tr>
+  <tr>
+    <th>Off</th>
     <td>
       This disables all automation modes for the currently controlled
       track/bus. Existing automation data will be left unmodified by
       any fader changes, and will not be used for controlling gain.
-    </td></tr>
-  </table>
-</p>
+    </td>
+  </tr>
+</table>
 
 <h3>Track Selection Controls</h3>
+
 <p>
   You can manually change the track/bus controlled by the Faderport by
   changing the selected track in Ardour's editor window. If you select
   more than 1 track, the Faderport will control the first selected
   track and <em>only</em> that track/bus.
 </p>
-<p>
-  <table class="dl">
-    <tr><th>Left (arrow)</th>
+
+<table class="dl">
+  <tr>
+    <th>Left (arrow)</th>
     <td>
       This causes the Ardour GUI to select the previous track/bus
       (using the current visual order in the editor window), which
       will in turn cause the Faderport to control that track. If there
       is no previous track/bus, the selected track/bus is left
       unchanged, and the Faderport continues to control it.
-    </td></tr>
-    <tr><th>Right (arrow)</th>
+    </td>
+  </tr>
+  <tr>
+    <th>Right (arrow)</th>
     <td>
       This causes the Ardour GUI to select the next track/bus
       (using the current visual order in the editor window), which
       will in turn cause the Faderport to control that track. If there
       is no next track/bus, the selected track/bus is left
       unchanged, and the Faderport continues to control it.
-    </td></tr>
-    <tr><th>Output</th>
+    </td>
+  </tr>
+  <tr>
+    <th>Output</th>
     <td>
       <p>
-	Pressing the Output button causes the Faderport to control
-	the fader, pan, mute and solo settings of the Master bus. If
-	your session does not contain a Master bus, it does nothing.
-	This is a toggle button&mdash;pressing it again returns Faderport
-	to controlling whichever track/bus was selected before the
-	first press of the Output button.
+        Pressing the Output button causes the Faderport to control
+        the fader, pan, mute and solo settings of the Master bus. If
+        your session does not contain a Master bus, it does nothing.
+        This is a toggle button&mdash;pressing it again returns Faderport
+        to controlling whichever track/bus was selected before the
+        first press of the Output button.
       </p>
       <p>
-	If your session uses Ardour's monitor section, you can use
-	Shift-Output to assign it to the Faderport in the same way
-	that Output assigns the Master bus. This is also a toggle
-	setting, so the second Shift-Output will return the Faderport
-	to controlling whichever track/bus was selected before.
+        If your session uses Ardour's monitor section, you can use
+        Shift-Output to assign it to the Faderport in the same way
+        that Output assigns the Master bus. This is also a toggle
+        setting, so the second Shift-Output will return the Faderport
+        to controlling whichever track/bus was selected before.
       </p>
       <p>
-	If you press Shift-Output after a single press to Output
-	(i.e. control the Monitor Section while currently controlling
-	the Master bus) or vice versa (i.e. control the Master bus
-	while currently controlling the Monitor Section), the press
-	will be ignored. This avoids getting into a tricky situation
-	where it is no longer apparent what is being controlled and
-	what will happen if you try to change it.
+        If you press Shift-Output after a single press to Output
+        (i.e. control the Monitor Section while currently controlling
+        the Master bus) or vice versa (i.e. control the Master bus
+        while currently controlling the Monitor Section), the press
+        will be ignored. This avoids getting into a tricky situation
+        where it is no longer apparent what is being controlled and
+        what will happen if you try to change it.
       </p>
-    </td></tr>
-    <tr><th>Bank</th>
+    </td>
+  </tr>
+  <tr>
+    <th>Bank</th>
     <td>
       The "Bank" button is currently not used by Ardour
-    </td></tr>
-  </table>
-</p>
+    </td>
+  </tr>
+</table>
 

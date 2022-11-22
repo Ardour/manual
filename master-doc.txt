@@ -2291,8 +2291,8 @@ part: chapter
 ---
 
 ---
-title: Using the PreSonus FaderPort 8
-menu_title: PreSonus FaderPort 8
+title: Using the PreSonus FaderPort 2/8/16
+menu_title: PreSonus FaderPort 2/8/16
 include: using-the-presonus-faderport8.html
 link: using-the-presonus-faderport8
 uri: using-control-surfaces/PreSonus_FaderPort8
