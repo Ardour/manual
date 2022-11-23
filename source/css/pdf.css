@@ -124,8 +124,8 @@ h4::before {	/* subsubchapter */
 }
 
 figcaption::before {
-	counter-increment: figurenum;
-	content: "Fig. " counter(chapternum) "." counter(figurenum) " - ";
+  counter-increment: figurenum;
+  content: "Fig. " counter(chapternum) "." counter(figurenum) " - ";
 }
 
 h1 { font-size: 2.5em; }
@@ -136,32 +136,32 @@ h5 { font-size: 1.2em; }
 h6 { font-size: 1.1em; }
 
 h1,h2,h3,h4,h5 {
-	font-weight: bold;
-	page-break-after: avoid;
-	page-break-inside: avoid;
-	line-height: 1.25em;
-	color: #e4214e;
+  font-weight: bold;
+  page-break-after: avoid;
+  page-break-inside: avoid;
+  line-height: 1.25em;
+  color: #e4214e;
 }
 
 h1+p, h2+p, h3+p {
-	page-break-before: avoid;
+  page-break-before: avoid;
 }
 
 table {
-	clear: both;
+  clear: both;
 }
 
 figure {
-	page-break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 td, th {
-	vertical-align: top;
+  vertical-align: top;
 }
 
 ul.toc {
-	white-space: nowrap;
-	list-style: none;
+  white-space: nowrap;
+  list-style: none;
 }
 
 /* create page numbers using target-counter in the TOC */
@@ -171,21 +171,21 @@ ul.toc a::after {
 }
 
 ul.toc li {
-	line-height: 2;
+  line-height: 2;
 }
 
 ul.toc li a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 ol {
-	list-style-position: inside;
+  list-style-position: inside;
 }
 
 a {
-	font-weight: bold;
-	text-decoration: none;
-	color: inherit;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* add page number to cross references */
@@ -193,7 +193,7 @@ a[href^="#"]::after {
   content: " (p. " target-counter(attr(href, url), page) ")";
 }
 a[href^="http"]::after {
-	content: " (" attr(href) ")";
+  content: " (" attr(href) ")";
 }
 
 .imagemap .area {display: none;}
