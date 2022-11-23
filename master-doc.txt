@@ -101,6 +101,15 @@ part: subchapter
 ---
 
 ---
+title: Default Keyboard Bindings
+menu_title: Default Key Bindings
+include: default-keyboard-bindings.html
+link: default-keyboard-bindings
+uri: default-keyboard-bindings
+part: subchapter
+---
+
+---
 title: Basic GUI Operations
 include: basic-gui-operations.html
 link: basic-gui-operations
