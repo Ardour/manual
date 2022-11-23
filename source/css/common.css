@@ -151,6 +151,10 @@ code {
   display: none;
 }
 
+img.hdimage {
+  width: 50%;
+}
+
 /* Keyboard modifiers */
 .mod1:before {        content: "Ctrl ";}
 .mod2:before {        content: "Alt ";}
