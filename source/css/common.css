@@ -14,8 +14,6 @@ kbd {
   background: linear-gradient(to top, rgb(210, 210, 210), rgb(255, 255, 255));
   color: rgb(50, 50, 50);
   white-space: nowrap;
-  text-shadow: 0 0 2px rgb(255, 255, 255);
-  box-shadow: inset 0 0 1px rgb(255, 255, 255), inset 0 0 .4em rgb(200, 200, 200), 0 .1em 0 rgb(130, 130, 130), 0 .11em 0 rgba(0, 0, 0, .4), 0 .1em .11em rgba(0, 0, 0, .9);
 }
 
 kbd.def {
@@ -23,9 +21,7 @@ kbd.def {
   margin-right: .2em;
 }
 
-kbd.input,
-kbd.cmd,
-kbd.osc {
+kbd.input, kbd.cmd, kbd.osc {
   font-family: mono;
   border-width: 0;
   text-transform: none;
@@ -44,8 +40,6 @@ kbd.cmd {
   background: rgb(220, 220, 220);
   text-align: left;
   color: #999999;
-  text-shadow: none;
-  box-shadow: none;
 }
 
 kbd.cmd.lin:before {
@@ -60,12 +54,9 @@ kbd.cmd.win:before {
   content: 'C:\\Users\\myAccount> ';
 }
 
-kbd.menu,
-kbd.option,
-kbd.optoff {
+kbd.menu, kbd.option, kbd.optoff {
   border-radius: 0;
   background: rgb(240, 240, 240);
-  box-shadow: inset 0 0 1px rgb(255, 255, 255), inset 0 0 .4em rgb(200, 200, 200), 0 .1em 0 rgb(130, 130, 130), 0 .11em 0 rgba(0, 0, 0, .4);
 }
 
 kbd.optoff:before {
@@ -84,9 +75,7 @@ kbd.osc {
   text-align: left;
 }
 
-kbd.fader,
-kbd.knob,
-kbd.button {
+kbd.fader, kbd.knob, kbd.button {
   background: rgb(174, 174, 217);
   background: linear-gradient(to top, rgb(174, 174, 217), rgb(221, 221, 255));
   color: #000044;
@@ -118,23 +107,22 @@ samp {
   margin-right: .5em;
 }
 
-#content dfn {
+dfn {
   font-weight: bold;
   font-style: normal;
-}
-
-.note,
-.warning {
-  min-height: 1.5ex;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-style: solid;
-  border-width: 1px 1px 1px 8px;
 }
 
 code {
   font-size: .9em;
   color: #555;
+}
+
+.note, .warning {
+  min-height: 1.5ex;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-style: solid;
+  border-width: 1px 1px 1px 8px;
 }
 
 .note {
