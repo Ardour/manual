@@ -118,6 +118,7 @@ The `build.py` script that builds the manual accepts the following options:
 - '-d', or '--devmode', to add content to pages to help developers debug them
 (link, file name, URL)
 - '-p', or '--pdf', to automatically generate a PDF from the content
+(requires [WeasyPrint](https://weasyprint.org/) to run)
 
 ### Redirects
 
