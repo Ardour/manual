@@ -2,30 +2,44 @@
   Audio tracks in Ardour have a <dfn>mode</dfn> which affects how they behave
   when recording:
 </p>
+
 <table class="dl">
-  <tr><th>Layered</th>
-  <td>Tracks in <dfn>layered mode</dfn> will record non-destructively&nbsp;&mdash;
-  new data is written to new files, and when overdubbing, new regions will be
-  layered on top of existing ones. This is the recommended mode for most
-  workflows.
-  </td></tr>
-  <tr><th>Non-Layered</th>
-  <td>Tracks using <dfn>non-layered mode</dfn> will record
-  non-destructively&mdash;new data is written to new files, but when
-  overdubbing, the existing regions are trimmed so that there are no overlaps.
-  This does not affect the previously recorded audio data, and trimmed regions
-  can be expanded again at will. Non-layered mode can be very useful for spoken
-  word material, especially in combination with
-  <a href="@@pushpull-trimming">push/pull trimming</a>.
-  </td></tr>
-  <tr><th>Sound on Sound</th>
-  <td>Tracks using <dfn>sound-on-sound mode</dfn> will record
-  non-destructively&nbsp;&mdash; new data is written to new files, but when
-  overdubbing, new regions will be layered on top of existing ones in non-opaque
-  mode which means both existing and new material will be played back after
-  the recording is over. This is convenient for a variety of use cases, such as
-  adding MIDI Control Change events on top of recorded live performance.
-  </td></tr>
+  <tr>
+    <th>Layered</th>
+    <td>
+      Tracks in <dfn>layered mode</dfn> will record
+      non-destructively&nbsp;&mdash; new data is written to new files, and when
+      overdubbing, new regions will be layered on top of existing ones. This is
+      the recommended mode for most workflows. When recording with the
+      <dfn>layered mode</dfn>, Ardour only does input monitoring.
+    </td>
+  </tr>
+  <tr>
+    <th>Non-Layered</th>
+    <td>
+      Tracks using <dfn>non-layered mode</dfn> will record
+      non-destructively&mdash;new data is written to new files, but when
+      overdubbing, the existing regions are trimmed so that there are no
+      overlaps. This does not affect the previously recorded audio data, and
+      trimmed regions can be expanded again at will. Non-layered mode can be
+      very useful for spoken word material, especially in combination with
+      <a href="@@pushpull-trimming">push/pull trimming</a>. When recording with
+      the <dfn>non-layered mode</dfn>, Ardour only does input monitoring.
+    </td>
+  </tr>
+  <tr>
+    <th>Sound on Sound</th>
+    <td>
+      Tracks using <dfn>Sound on Sound mode</dfn> will record
+      non-destructively&nbsp;&mdash; new data is written to new files, but when
+      overdubbing, new regions will be layered on top of existing ones in
+      non-opaque mode which means both existing and new material will be played
+      back after the recording is over. This is convenient for a variety of use
+      cases, such as adding MIDI Control Change events on top of recorded live
+      performance. When recording in the <dfn>sound-on-sound mode</dfn>, Ardour
+      does cue monitoring.
+    </td>
+  </tr>
 </table>
 
 <p>
