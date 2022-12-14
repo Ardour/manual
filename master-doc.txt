@@ -1092,6 +1092,14 @@ part: subchapter
 ---
 
 ---
+title: Bouncing Regions
+include: bouncing-regions.html
+link: bouncing-regions
+uri: exporting/bouncing-regions
+part: subchapter
+---
+
+---
 title: Interchange with other DAWs
 include: interchange-with-other-daws.html
 link: interchange-with-other-daws
