@@ -95,21 +95,46 @@
   naming scheme:
 </p>
 <table class="dl">
-  <tr><th>by track number</th><td>will automatically assign every track a name that consists of the imported file name and a track number</td></tr>
-  <tr><th>by track name</th><td>will</td></tr>
-  <tr><th>by instrument name</th><td>will</a></td></tr>
+  <tr>
+    <th>
+      by track number
+    </th>
+    <td>
+      will automatically assign every track a name that consists of the
+      imported file name and a track number
+    </td>
+  </tr>
+  <tr>
+    <th>
+      by track name
+    </th>
+   <td>
+      will automatically assign every track a name that consists of the
+      imported track's name and number
+    </td>
+  </tr>
+  <tr>
+    <th>
+      by instrument name
+    </th>
+    <td>
+      will automatically assign every track a name that consists of the
+      imported instrument's name and a track number
+    </td>
+  </tr>
 </table>
 <p>
 <p>
   You can also optionally import a tempo map from a MIDI file.
-  The <kbd class="menu">Use MIDI Tempo Map (if defined)</kbd> option appears
-  when a MIDI file is selected in the file selection dialog.
+  The <kbd class="menu">Use MIDI Tempo Map</kbd> option appears when a MIDI
+  file is selected in the file selection dialog.
 <p>
 <p>
-  The last MIDI-specific option is <kbd class="menu">Import MIDI Markers
-  (if any)</kbd>. If those are present in a MIDI file, they will be rendered
-  right above MIDI clips on the canvas. Editing the MIDI markers is currently
-  unavailable.
+  The last MIDI-specific option is <kbd class="menu">Import MIDI Markers</kbd>.
+  If those are present in a MIDI file, they will be rendered right above MIDI
+  clips on the canvas. Editing the MIDI markers is currently unavailable.
+  If MIDI lyrics is available in the file, it was also be imported as region
+  markers (that can be later promoted to location markers).
 </p>
 <figure class="right">
 	<img src="/images/imported-midi-markers.png" alt="MIDI markers imported from a .mid file" width="75%">
