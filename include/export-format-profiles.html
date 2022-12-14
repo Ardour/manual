@@ -22,7 +22,7 @@
   'File Formats' tab of the <a href="@@export-dialog">Export dialog</a>.
 </p>
 
-<h2>Pre Process</h2>
+<h2>Pre-Process</h2>
 <p>
   If enabled, levels of exported files will be normalized to the level chosen here.
   The normalization can be either:
@@ -88,9 +88,9 @@
   one updates the options underneath it.
 </p>
 <p>
-	Note: For mp3 export ardour relies on ffmpeg to encode the file. This comes bundled
-	with the video-tools (and is always available when you install the official Ardour
-	binary.
+	Note: For MP3 export Ardour relies on libsndfile v1.1.0 and newer to encode
+  the file. For Opus support, Ardour requires a build of libsndfile from git
+  (or future 1.2.0 release). This comes bundled with official Ardour binaries.
 </p>
 
 <h3>Sample rate</h3>
