@@ -2285,6 +2285,15 @@ part: chapter
 ---
 
 ---
+title: Using the Steinberg CC121
+menu_title: Steinberg CC121
+include: control-surfaces-steinberg-cc121.html
+link: control-surfaces-steinberg-cc121
+uri: using-control-surfaces/Steinberg_CC121
+part: chapter
+---
+
+---
 title: Using the Ableton Push 2
 menu_title: Ableton Push 2
 include: using-the-ableton-push-2.html
