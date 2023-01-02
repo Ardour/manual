@@ -2294,6 +2294,15 @@ part: chapter
 ---
 
 ---
+title: Using the Tascam US-2400
+menu_title: Tascam US-2400
+include: control-surfaces-tascam-us-2400.html
+link: control-surfaces-tascam-us-2400
+uri: using-control-surfaces/Tascam_US-2400
+part: chapter
+---
+
+---
 title: Using the Ableton Push 2
 menu_title: Ableton Push 2
 include: using-the-ableton-push-2.html
