@@ -2234,6 +2234,24 @@ part: subchapter
 ---
 
 ---
+title: Using the Ableton Push 2
+menu_title: Ableton Push 2
+include: using-the-ableton-push-2.html
+link: using-the-ableton-push-2
+uri: using-control-surfaces/Ableton_Push2
+part: chapter
+---
+
+---
+title: Using the Contour Design Shuttle Devices
+menu_title: Contour Design
+include: control-surfaces-countourdesign.html
+link: control-surfaces-countourdesign
+uri: using-control-surfaces/Countour_Design
+part: chapter
+---
+
+---
 title: Generic MIDI
 include: generic-midi.html
 link: generic-midi
@@ -2299,15 +2317,6 @@ menu_title: Tascam US-2400
 include: control-surfaces-tascam-us-2400.html
 link: control-surfaces-tascam-us-2400
 uri: using-control-surfaces/Tascam_US-2400
-part: chapter
----
-
----
-title: Using the Ableton Push 2
-menu_title: Ableton Push 2
-include: using-the-ableton-push-2.html
-link: using-the-ableton-push-2
-uri: using-control-surfaces/Ableton_Push2
 part: chapter
 ---
 
