@@ -19,12 +19,12 @@
   chain using an automation lane and custom pin connections.
 </p>
 <p>
-  In the example below, the processor box has two ACE Delay plugins processing
-  input differently. Each plugin has two manually added outputs so that the
-  original signal would flow into one instance of a plugin while bypassing the
-  other one. All four resulting outputs then flow into the ACE A/B Switch
-  plugin. Inputs 1 and 3 are combined into the A version of the stereo mix,
-  inputs 2 and 4 are combined into the B version of a stereo mix.
+  In the example below, the processor box for a 1-channel track has two
+  <em>ACE Delay</em> plugins processing the input differently. Each plugin
+  has one manually added output so that the original signal would flow into
+  one instance of a plugin while bypassing the other one. All two resulting
+  outputs then flow into the ACE A/B Switch plugin. Inputs 1 is considered the
+  A version, inputs 2 is the B version.
 </p>
 
 <figure>
@@ -36,8 +36,8 @@
 </figure>
 
 <p>
-  ACE A/B Switch will default to the A output. Using an automation lane, it's
-  possible to momentarily switch to the B output and back.
+  ACE A/B Switch will default to the A version. Using an automation lane, it's
+  possible to momentarily switch to the B version and back.
 </p>
 
 <figure>
