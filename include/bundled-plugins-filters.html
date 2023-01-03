@@ -247,3 +247,33 @@ here</a> for technical details). There are just two controls:</p>
     Inline display
   </figcaption>
 </figure>
+
+<h2>ACE Notch Bank</h2>
+
+<p>
+  This is a very basic harmonic filter that suppresses a user-defined number
+  of harmonics (stages) starting at a user-defined base frequency. The filter
+  is mostly useful as a demonstration for Ardour's built-in biquadratic filter
+  that can be used in Lua scripts.
+</p>
+
+<figure>
+  <img style="width:50%;" src="/images/ace-notch-bank.png" alt="ACE Notch bank">
+  <figcaption>
+    ACE Notch Bank
+  </figcaption>
+</figure>
+
+<p>
+  An example below is a sine wave at 120Hz with added harmonics, each
+  at a lower magnitude than the previous one. Applying the ACE Notch Bank
+  filter starting at 120Hz with 8 stages completeles silences the signal
+  (the purple line for processed signal is not even visible):
+</p>
+
+<figure>
+  <img style="width:75%;" src="/images/ace-notch-bank-before-after.png" alt="Results of applying ACE Notch Bank">
+  <figcaption>
+    Results of applying ACE Notch Bank
+  </figcaption>
+</figure>
