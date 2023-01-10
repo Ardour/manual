@@ -2243,6 +2243,15 @@ part: chapter
 ---
 
 ---
+title: Using the Novation Launch Control XL
+menu_title: Novation Launch Control XL
+include: control-surfaces-novation-lcxl.html
+link: control-surfaces-novation-lcxl
+uri: using-control-surfaces/Launch_Control_XL
+part: chapter
+---
+
+---
 title: Using the Contour Design Shuttle Devices
 menu_title: Contour Design
 include: control-surfaces-countourdesign.html
