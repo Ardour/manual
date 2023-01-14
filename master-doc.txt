@@ -1915,13 +1915,6 @@ part: subchapter
 ---
 
 ---
-title: Plugins Bundled With Ardour
-include: plugins-bundled-with-ardour.html
-link: plugins-bundled-with-ardour
-part: subchapter
----
-
----
 title: Getting More Plugins
 include: getting-more-plugins.html
 link: getting-more-plugins
