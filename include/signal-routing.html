@@ -12,10 +12,19 @@
 </p>
 <ul>
   <li>
-    <dfn>Track inputs</dfn> are optionally auto-connected to hardware inputs, in round robin
-    order, depending on the setting chosen in the
+    <dfn>Track inputs</dfn> are optionally auto-connected to hardware inputs,
+    in the round-robin order. In the example below where an audio interface
+    only has two inputs and 8 new tracks have been created, Ardour connects
+    the first input to the first track, then the second input to the second
+    track, then the first input to the third track, and repeats it until all
+    tracks have an input assigned for them. The exact configuration will
+    depend on how many channels have been chosen for each new track in the
     <a href="@@newopen-session-dialog"><kbd
-    class="menu">Session &gt; New Session</kbd> dialog</a>.
+    class="menu">Session &gt; New Session</kbd> dialog</a>. 
+    <figure>
+      <img src="/images/round-robin-connections.png" width="50%">
+      <figcaption>Round-robin assignment of connections</figcaption>
+    </figure>
   </li>
   <li>
     <dfn>Bus inputs</dfn> are left disconnected.
