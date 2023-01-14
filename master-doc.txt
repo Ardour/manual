@@ -1915,14 +1915,6 @@ part: subchapter
 ---
 
 ---
-title: Getting More Plugins
-include: getting-more-plugins.html
-link: getting-more-plugins
-uri: working-with-plugins/getting-plugins
-part: subchapter
----
-
----
 title: Automation
 include: automation.html
 link: automation
@@ -2424,3 +2416,10 @@ link: midnam-ref
 part: chapter
 ---
 
+---
+title: Getting More Plugins
+include: getting-more-plugins.html
+link: getting-more-plugins
+uri: working-with-plugins/getting-plugins
+part: chapter
+---
