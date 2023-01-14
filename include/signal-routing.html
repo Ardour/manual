@@ -1,3 +1,4 @@
+<h2>Routing for audio tracks</h2>
 
 <p>
   Ardour exposes multiple ports for various parts of the signal chain to link
@@ -7,8 +8,8 @@
 </p>
 
 <figure class="right">
-  <img src="/images/general-signal-flow.png" height="700px">
-  <figcaption>General signal flow</figcaption>
+  <img src="/images/general-signal-flow-audio.png" height="700px">
+  <figcaption>General signal flow for audio</figcaption>
 </figure>
 
 <p>
@@ -33,8 +34,8 @@
   <li>
     The signal from a guitar can pass a DI box and feed into one track, but
     another path can go through preamp/amp/cabinet/mic and feed into another
-    track, so that the musician has both processed sound and dry that can be
-    re-amped later on.
+    track, so that the musician has both processed sound and dry sound that can
+    be re-amped later on.
   </li>
   <li>
     The same can be achieved by creating an input I/O plugin (a guitar amp/cab
@@ -65,7 +66,7 @@
     <a href="@@newopen-session-dialog"><kbd
     class="menu">Session &gt; New Session</kbd> dialog</a>. 
     <figure>
-      <img src="/images/round-robin-connections.png" width="75%">
+      <img src="/images/round-robin-connections.png" width="60%">
       <figcaption>Round-robin assignment of connections</figcaption>
     </figure>
   </li>
@@ -95,4 +96,57 @@
   However, for many workflows during mixing, more complicated signal routing
   is required. Ardour offers many possibilities for connecting things to fit any
   particular workflow.
+</p>
+
+<h2>Routing for MIDI tracks</h2>
+
+<p>
+  Typical routing for MIDI tracks is very similar to that of audio tracks.
+</p>
+
+<figure class="right">
+  <img src="/images/general-signal-flow-midi.png" height="700px">
+  <figcaption>General signal flow for MIDI</figcaption>
+</figure>
+
+<p>
+  A MIDI keyboard output goes into MIDI IN port of an audio interface, then
+  MIDI events are transmitted over USB to a MIDI track where they are sent to
+  a software synthesizer. The synthesizer plugin outputs two or more audio
+  channels that are automatically connected to the master bus, and master bus
+  outputs are connected to studio monitors or headphones.
+</p>
+
+<p>
+  Notably, the processor box for MIDI tracks and busses always has a MIDI
+  THROUGH port that carries a copy of all events coming through MIDI IN.
+</p>
+
+<p>
+  There are also some variations here possible:
+</p>
+
+<ul>
+  <li>
+    The first plugin in the track can be a MIDI plugin that somehow transforms
+    incoming events, e.g. transposes them by two octaves or builds arpeggios and
+    <em>then</em> send the resulting notes to a software synthesizer or a
+    sampler.
+  </li>
+  <li>
+    The MIDI output from the audio interface can be connected to a MIDI bus with
+    an arpeggiator that sends resulted MIDI events to a MIDI track for capturing
+    and to a hardware synthesizer for playback.
+  </li>
+  <li>
+    The MIDI keyboard can be also connected directly to a laptop or a desktop via
+    a USB port.
+  </li>
+</ul>
+
+<p>
+  Ardour use the same round-robin logic to connect MIDI ports to MIDI tracks when
+  multiple MIDI tracks are created. However, when no MIDI device is connected,
+  Ardour will connect the newest created track to its own internal virtual MIDI
+  keyboard and keep the other MIDI tracks not connected.
 </p>
