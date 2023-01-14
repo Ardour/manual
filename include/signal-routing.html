@@ -1,15 +1,58 @@
 
 <p>
-  Ardour does most of its internal <dfn>signal routing</dfn> via JACK:
-  all track and bus inputs and outputs are JACK ports, as are sends and
-  inserts, which means they can be tapped into by other JACK clients.
-  Only the signal flow inside a track or bus (i.e. from <a
-  href="@@processor-box">processor to processor</a>) is
-  handled internally.
+  Ardour exposes multiple ports for various parts of the signal chain to link
+  those parts: track inputs and outputs, bus inputs and outputs, sends and
+  inserts, monitor section outputs. When using the JACK audio backend, these
+  ports are also accessible by other applications and can be routed externally.
 </p>
+
+<figure class="right">
+  <img src="/images/general-signal-flow.png" height="700px">
+  <figcaption>General signal flow</figcaption>
+</figure>
+
 <p>
-  By default, Ardour will automatically create the following connections:
+  The chart on the right demonstrates a common signal flow for recording
+  an instrument: a guitar is plugged into a front input of an audio interface,
+  the signal then goes directly into the track output, passes the <a
+  href="@@processor-box">processor box</a> with plugins, fader, and panner,
+  connects to the input of the master bus, passes its processor box, the goes
+  into the monitor section, then finally connects to physical outputs like
+  studio monitors or headphones.
 </p>
+
+<p>
+  This configuration can have multiple variations, such as:
+</p>
+
+<ul>
+  <li>
+    There can be a DI box sitting between the guitar and the front input,
+    if the guitar has a passive pickup.
+  </li>
+  <li>
+    The signal from a guitar can pass a DI box and feed into one track, but
+    another path can go through preamp/amp/cabinet/mic and feed into another
+    track, so that the musician has both processed sound and dry that can be
+    re-amped later on.
+  </li>
+  <li>
+    The same can be achieved by creating an input I/O plugin (a guitar amp/cab
+    simulator), passing a copy of guitar's DI'ed signal through it and feeding
+    the I/O plugin's output to another track.
+  </li>
+  <li>
+    Monitoring could be done with hardware, so that there would be no monitor
+    section, and thus the master bus would be connected to physical output ports
+    directly.
+  </li>
+</ul>
+
+<p>
+  When Ardour creates multiple tracks and/or busses at once, this is what
+  happens.
+</p>
+
 <ul>
   <li>
     <dfn>Track inputs</dfn> are optionally auto-connected to hardware inputs,
@@ -22,7 +65,7 @@
     <a href="@@newopen-session-dialog"><kbd
     class="menu">Session &gt; New Session</kbd> dialog</a>. 
     <figure>
-      <img src="/images/round-robin-connections.png" width="50%">
+      <img src="/images/round-robin-connections.png" width="75%">
       <figcaption>Round-robin assignment of connections</figcaption>
     </figure>
   </li>
@@ -37,7 +80,10 @@
     Track and bus outputs are always auto-connected to the master bus inputs.
   </li>
   <li>
-    Master bus outputs are connected to hardware outputs.
+    Master bus outputs are connected to hardware outputs if new session don't
+    have a monitor section by default (this is set when the user runs Ardour
+    for the first time and can be changed on the <kbd class="title">Monitoring
+    Page</kbd> of the <kbd class="window">Preferences</kbd> dialog).
   </li>
 </ul>
 <p>
