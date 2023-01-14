@@ -1930,14 +1930,6 @@ part: subchapter
 ---
 
 ---
-title: Using Windows VST Plugins on Linux
-include: using-windows-vst-plugins-on-linux.html
-link: using-windows-vst-plugins-on-linux
-uri: working-with-plugins/windows-vst-support
-part: subchapter
----
-
----
 title: Automation
 include: automation.html
 link: automation
