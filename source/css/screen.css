@@ -10,19 +10,6 @@ body {
   font-size: 16px;
 }
 
-@media (max-width: 800px) {
-  #tree {
-    position: relative;
-    height: 250px;
-    width: 100%;
-    margin-top: 20px;
-  }
-  #content {
-    padding-left: 20px;
-    margin-top: 0px;
-  }
-}
-
 .clear {
   clear:both;
 }
@@ -278,4 +265,18 @@ p.subsection {
 #tree .active > a {
   display: inline;
   color: #FF8080;
+}
+
+
+@media (max-width: 800px) {
+  #tree {
+    position: relative;
+    height: 250px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  #content {
+    padding-left: 20px;
+    margin-top: 0px;
+  }
 }
