@@ -3983,6 +3983,7 @@ Pointer Classes cannot be created in Lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RCConfiguration::*)() const">get_send_midi_clock</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RCConfiguration::*)() const">get_send_mmc</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RCConfiguration::*)() const">get_send_mtc</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RCConfiguration::*)() const">get_setup_sidechain</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RCConfiguration::*)() const">get_show_solo_mutes</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RCConfiguration::*)() const">get_show_video_server_dialog</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RCConfiguration::*)() const">get_show_vst3_micro_edit_inline</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -4151,6 +4152,7 @@ Pointer Classes cannot be created in Lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RCConfiguration::*)(bool)">set_send_midi_clock</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RCConfiguration::*)(bool)">set_send_mmc</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RCConfiguration::*)(bool)">set_send_mtc</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RCConfiguration::*)(bool)">set_setup_sidechain</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RCConfiguration::*)(bool)">set_show_solo_mutes</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RCConfiguration::*)(bool)">set_show_video_server_dialog</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (ARDOUR::RCConfiguration::*)(bool)">set_show_vst3_micro_edit_inline</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
@@ -4320,6 +4322,7 @@ Pointer Classes cannot be created in Lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">send_midi_clock</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">send_mmc</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">send_mtc</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">setup_sidechain</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">show_solo_mutes</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">show_video_server_dialog</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">show_vst3_micro_edit_inline</span></td><td class="fill"></td></tr>
@@ -4980,6 +4983,7 @@ Pointer Classes cannot be created in Lua scripts. It always requires a call to C
  <tr><td class="def"><a class="" href="#PBD:Controllable">Controllable</a></td><td class="decl"><span class="functionname"><abbr title="boost::shared_ptr&lt;PBD::Controllable&gt; (ARDOUR::Session::*)(PBD::ID const&amp;)">controllable_by_id</abbr></span><span class="functionargs"> (<a class="" href="#PBD:ID">ID</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Session::*)() const">current_end_sample</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">long</span></td><td class="decl"><span class="functionname"><abbr title="long (ARDOUR::Session::*)() const">current_start_sample</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)(Temporal::timepos_t const&amp;, Temporal::timepos_t const&amp;, Temporal::timepos_t const&amp;, bool)">cut_copy_section</abbr></span><span class="functionargs"> (<a class="" href="#Temporal:timepos_t">timepos_t</a>, <a class="" href="#Temporal:timepos_t">timepos_t</a>, <a class="" href="#Temporal:timepos_t">timepos_t</a>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">void</span></td><td class="decl"><span class="functionname"><abbr title="void (ARDOUR::Session::*)(bool, bool)">disable_record</abbr></span><span class="functionargs"> (<span class="em">bool</span>, <span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><a class="" href="#ARDOUR:AudioEngine">AudioEngine</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::AudioEngine&amp; (ARDOUR::Session::*)()">engine</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">double</span></td><td class="decl"><span class="functionname"><abbr title="double (ARDOUR::Session::*)() const">engine_speed</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -6614,6 +6618,7 @@ Pointer Classes cannot be created in Lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)() const">get_link_region_and_track_selection</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (UIConfiguration::*)() const">get_lock_gui_after_seconds</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname"><abbr title="unsigned int (UIConfiguration::*)() const">get_max_inline_controls</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (UIConfiguration::*)() const">get_max_note_height</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (UIConfiguration::*)() const">get_max_plugin_chart</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname"><abbr title="int (UIConfiguration::*)() const">get_max_plugin_recent</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">float</span></td><td class="decl"><span class="functionname"><abbr title="float (UIConfiguration::*)() const">get_meter_hold</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -6627,6 +6632,7 @@ Pointer Classes cannot be created in Lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)() const">get_never_display_periodic_midi</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)() const">get_new_automation_points_on_lane</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)() const">get_no_new_session_dialog</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR.AppleNSGLViewMode">AppleNSGLViewMode</a></td><td class="decl"><span class="functionname"><abbr title="ARDOUR::AppleNSGLViewMode (UIConfiguration::*)() const">get_nsgl_view_mode</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)() const">get_one_plugin_window_only</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)() const">get_only_copy_imported_files</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)() const">get_open_gui_after_adding_plugin</abbr></span><span class="functionargs"> ()</span></td><td class="fill"></td></tr>
@@ -6741,6 +6747,7 @@ Pointer Classes cannot be created in Lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)(bool)">set_link_region_and_track_selection</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)(unsigned int)">set_lock_gui_after_seconds</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)(unsigned int)">set_max_inline_controls</abbr></span><span class="functionargs"> (<span class="em">unsigned int</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)(int)">set_max_note_height</abbr></span><span class="functionargs"> (<span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)(int)">set_max_plugin_chart</abbr></span><span class="functionargs"> (<span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)(int)">set_max_plugin_recent</abbr></span><span class="functionargs"> (<span class="em">int</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)(float)">set_meter_hold</abbr></span><span class="functionargs"> (<span class="em">float</span>)</span></td><td class="fill"></td></tr>
@@ -6754,6 +6761,7 @@ Pointer Classes cannot be created in Lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)(bool)">set_never_display_periodic_midi</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)(bool)">set_new_automation_points_on_lane</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)(bool)">set_no_new_session_dialog</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)(ARDOUR::AppleNSGLViewMode)">set_nsgl_view_mode</abbr></span><span class="functionargs"> (<a class="" href="#ARDOUR.AppleNSGLViewMode">AppleNSGLViewMode</a>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)(bool)">set_one_plugin_window_only</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)(bool)">set_only_copy_imported_files</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname"><abbr title="bool (UIConfiguration::*)(bool)">set_open_gui_after_adding_plugin</abbr></span><span class="functionargs"> (<span class="em">bool</span>)</span></td><td class="fill"></td></tr>
@@ -6869,6 +6877,7 @@ Pointer Classes cannot be created in Lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">link_region_and_track_selection</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname">lock_gui_after_seconds</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">unsigned int</span></td><td class="decl"><span class="functionname">max_inline_controls</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname">max_note_height</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname">max_plugin_chart</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">int</span></td><td class="decl"><span class="functionname">max_plugin_recent</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">float</span></td><td class="decl"><span class="functionname">meter_hold</span></td><td class="fill"></td></tr>
@@ -6882,6 +6891,7 @@ Pointer Classes cannot be created in Lua scripts. It always requires a call to C
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">never_display_periodic_midi</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">new_automation_points_on_lane</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">no_new_session_dialog</span></td><td class="fill"></td></tr>
+ <tr><td class="def"><a class="" href="#ARDOUR.AppleNSGLViewMode">ARDOUR.AppleNSGLViewMode</a></td><td class="decl"><span class="functionname">nsgl_view_mode</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">one_plugin_window_only</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">only_copy_imported_files</span></td><td class="fill"></td></tr>
  <tr><td class="def"><span class="em">bool</span></td><td class="decl"><span class="functionname">open_gui_after_adding_plugin</span></td><td class="fill"></td></tr>
@@ -8612,6 +8622,12 @@ Pointer Classes cannot be created in Lua scripts. It always requires a call to C
 <li class="const">ARDOUR.ScreenSaverMode.InhibitWhileRecording</li>
 <li class="const">ARDOUR.ScreenSaverMode.InhibitAlways</li>
 </ul>
+<h3 id="ARDOUR.AppleNSGLViewMode" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.AppleNSGLViewMode</h3>
+<ul class="enum">
+<li class="const">ARDOUR.AppleNSGLViewMode.NSGLHiRes</li>
+<li class="const">ARDOUR.AppleNSGLViewMode.NSGLLoRes</li>
+<li class="const">ARDOUR.AppleNSGLViewMode.NSGLDisable</li>
+</ul>
 <h3 id="ARDOUR.PluginGUIBehavior" class="cls enum"><abbr title="Enum">&isin;</abbr>&nbsp;ARDOUR.PluginGUIBehavior</h3>
 <ul class="enum">
 <li class="const">ARDOUR.PluginGUIBehavior.PluginGUIHide</li>
@@ -9226,6 +9242,6 @@ Pointer Classes cannot be created in Lua scripts. It always requires a call to C
 <li><a class="" href="#Vamp:RealTime">Vamp:RealTime</a></li>
 <li><a class="" href="#os">os</a></li>
 </ul>
-<!-- 566 / 4347 !-->
+<!-- 566 / 4354 !-->
 </div>
-<div class="luafooter">Ardour 7.2 &nbsp;-&nbsp; Tue, 13 Dec 2022 13:22:32 +0100</div>
+<div class="luafooter">Ardour 7.3 &nbsp;-&nbsp; Thu, 16 Feb 2023 02:48:15 +0100</div>
