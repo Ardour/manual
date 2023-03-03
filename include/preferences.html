@@ -14,6 +14,14 @@
 </figure>
 
 <p>
+  Settings can be searched for using the input box in the lower left corner
+  of the Preferences window. Typing in a keyword and pressing <kbd>Enter</kbd>
+  will open the Preferences pages where the first occurence of the keyword is
+  available, the setting will be highlighted. Pressing <kbd>Enter</kbd> again
+  will highlight the next occurence (where available).
+</p>
+
+<p>
 	Preferences are conveniently grouped by category:
 </p>
 
@@ -585,6 +593,11 @@
         floating window, which may be handled differently by the windowing system
         and easier to access.
       </li>
+      <li>
+        <dfn>Render Canvas on openGL texture (requires restart)</dfn>: Ardour
+        will render the edutor canvas on an OpenGL texture to try improving
+        graphics performance.
+      </li>
     </ul>
   </li>
 </ul>  
@@ -867,6 +880,11 @@
         <dfn>Default upper visible MIDI note</dfn>: this note will be the highest
         visible one on the timeline unless you tweak that by adjusting the vertical
         range. E.g. B4 is B on the fourth octave.
+      </li>
+      <li>
+        <dfn>Maximum note length</dfn> sets the height of MIDI notes in pixels
+        at maximum vertical zoom. Attempting to zoom in closer will result in
+        scrolling the pianoroll up or down.
       </li>
     </ul>
   </li>
@@ -1172,9 +1190,17 @@
         updated and require a rescan.
       </li>
       <li>
-        <dfn>Make new plugins active</dfn>: when enabled, any plugin added to a track
-        will be in active mode. If unchecked, the plugins will be added in inactive
-        mode by default, hence have no processing effect on the track/bus.
+        <dfn>Make new plugins active</dfn>: when enabled, any plugin added to
+        a track will be in active mode. If unchecked, the plugins will be added
+        in inactive mode by default, hence have no processing effect on the
+        track/bus.
+      </li>
+      <li>
+        <dfn>Setup Sidechain ports when loading plugin with aux inputs</dfn>:
+        when enabled, Ardour will automatically create sidechain ports for
+        plugins that have sidechain inputs and leave them for the user
+        to connect in the Pin Configuration dialog (see the
+        <a href="/signal-routing/sidechaining/">Sidechaining</a> chapter).
       </li>
     </ul>
   </li>
@@ -1469,6 +1495,14 @@
         the master-bus and a Loudness Analyzer &amp; Normalizer button that
         calculates the Loudness (LUFS) of the session (or a range selection), 
         and normalizes the loudness according to various standards.
+      </li>
+      <li>
+        <dfn>I/O Resampler (vari-speed) quality</dfn>: resampling on the fly
+        during playback or recording takes time and thus introduces latency.
+        This setting accomodates for that and introduces latency predictably
+        and consistently. Each preset matches a particular level of resampling
+        quality. Restarting audio engine is required after changing this
+        setting.
       </li>
     </ul>
   </li>
