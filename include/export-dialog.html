@@ -14,7 +14,7 @@
   </figcaption>
 </figure>
 
-<h2>File Format</h2>
+<h2 id="export_file_format">File Format</h2>
 
 <p>
   This tab contains controls for the format of the exported audio file(s).
@@ -62,7 +62,7 @@
 <li>Streaming</li>
 </ul>
 
-<h2>The location</h2>
+<h2 id="export_location">The location</h2>
 
 <p>
   Aside from providing a way to tell Ardour <em>where</em> to put the created file(s),
@@ -89,6 +89,22 @@
   the same name, Ardour shows a yellow warning line in the bottom of the window, and
   a button to list all the files that would be erased and replaced.
 </p>
+
+<h2 id="export_overwrite">Overwriting Files</h2>
+
+<p>
+  Ardour checks whether exporting will overwriting existing files. If such
+  files are discovered, it will display a warning in the lower right corner
+  of the window. Clicking the <kbd>List files</kbd> button next to the message
+  will display the list of file that will be overwritten.
+</p>
+
+<figure>
+  <img class="hdimage" src="/images/export-overwrite-files.png" alt="List of files to be overwritten">
+  <figcaption>
+    List of files to be overwritten
+  </figcaption>
+</figure>
 
 <h2 id="export_analyze">Analyze exported audio</h2>
 
@@ -128,7 +144,7 @@
   <li>a graph of the multiplicity of the peaks at the different loudness levels.</li>
 </ul>
 
-<h2>Time Span</h2>
+<h2 id="export_timespan">Time Span</h2>
 
 <figure>
   <img class="hdimage" src="/images/export-dialog-timespan.png" alt="The Time Span tab">
@@ -150,7 +166,7 @@
   the <kbd class="option">RT</kbd> checkbox next to each time span.
 </p>
 
-<h2>Channels</h2>
+<h2 id="export_channels">Channels</h2>
 
 <figure>
   <img class="hdimage" src="/images/export-dialog-channels.png" alt="The Channels tab">
