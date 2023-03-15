@@ -4,8 +4,15 @@
 <head>
 	<title>{{page.page_title}}</title>
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
-	<meta name="description" content="{{page.page_title}}">
+	<meta name="description" content="{{page.page_title}} - {{page.title}}">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="og:title" content="{{page.page_title}}" />
+	<meta name="og:description" content="{{page.title}}" />
+	<meta name="og:type" content="website" />
+	<meta name="og:site_name" content="manual.ardour.org" />
+	<meta name="og:url" content="https://manual.ardour.org/" />
+	<meta name="og:image" content="https://manual.ardour.org/images/logo.png" />
 
 	<link href="{{page.bootstrap_path}}/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/common.css" rel="stylesheet">
