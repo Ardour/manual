@@ -2297,6 +2297,15 @@ part: chapter
 ---
 
 ---
+title: Using the Softube Console1
+menu_title: Softube Console1
+include: using-the-softube-console1.html
+link: using-the-softube-console1
+uri: using-control-surfaces/Softube_Console1
+part: chapter
+---
+
+---
 title: Using the Steinberg CC121
 menu_title: Steinberg CC121
 include: control-surfaces-steinberg-cc121.html

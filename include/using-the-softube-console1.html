@@ -1,0 +1,260 @@
+
+<p>
+   Ardour has a good support for the Softube Console1 controller.
+</p>
+
+<h2>Connecting the Console1</h2>
+<p>
+  Console1 comes with a single USB Socket on the back. Connect a
+  suitable USB cable from there to a USB port on your computer.
+</p>
+<p class="well">
+  Ardour uses the Console1 as a generic MIDI controller. You
+  do not need to do anything to enable this&mdash;The Console1
+  sends and receives ordinary MIDI controller messages to/from 
+  the host, and the host understands the intended meaning of these 
+  messages. We note this detail to avoid speculation about whether 
+  Ardour supports the native mode, which sends MIDI Sysex 
+  Messages&mdash;it does not.
+</p>
+<p>
+  The Console1 will be automatically recognized by your operating
+  system, and will appear in any of the lists of possible MIDI ports
+  in both Ardour and other similar software.
+</p>
+<p>
+  To connect the Console1 to Ardour, open the Preferences dialog, and
+  then click on "Control Surfaces". Click on the "Enable" button
+  in the line that says "Console1" in order to activate Ardour's
+  Console1 support. Then double click on the line that says
+  "Console1". A new dialog will open, containing two dropdown selectors 
+  that will allow you to identify the MIDI ports where your Console1 
+  is connected.
+</p>
+
+<figure>
+  <img src="/images/c1_settings.png" alt="The Console 1 configuration dialog">
+  <figcaption>
+    The Console1 configuration dialog
+  </figcaption>
+</figure>
+
+<p>
+  Once you select the input and output port, Ardour will initialize
+  the Console1 and it will be ready to use. You only need do this
+  once: once these ports are connected and your session has been
+  saved, the connections will be made automatically in this and other
+  future sessions.
+</p>
+<h2>Harrison Mixbus &amp; Mixbus 32c</h2>
+<p class="well">
+  A lot of functionality is developed to be used with Harrison Mixbus 
+  and Harrison Mixbus32c, therefore the  assignment of the controls might 
+  sometimes  feels a little arbitrary. However, in the future it might 
+  be possible, to controll plugins with this surface.<br/>
+  <strong>Controls only used by Harrison Mixbus (32c) are marked with
+  [Mixbus]</strong><br/>
+  <strong>Controls inside a Mixbus only section wich are working in 
+  Ardour as well marked with [Ardour]</strong><br/>
+</p>
+
+<h2>Using the Console1</h2>
+<p class="well">
+  The <kbd class="button">Fine Adjust / Shift</kbd> button unfortunately 
+  does not work in the generic MIDI mode. 
+  Therefore the <kbd class="button">Preset / Save Preset</kbd> button is used as a shift 
+  button.
+  In the following this will be simply referred to as the <em>Shift</em> button 
+</p>
+
+<h3>The controls</h3>
+<h4>General</h4>
+<table class="dl">
+  <tr> 
+    <th><kbd class="button">On</kbd></th>
+    <td>Is lit when a channel is in solo mode and 
+    can disables all solo modes.<em>Rude Solo</em></td>
+  </tr>
+  <tr>
+    <th><kbd class="button">Mode</kbd></th>
+    <td>Zooms to selection</td>
+  </tr>
+  <tr>
+    <th><kbd class="button">Page Up</kbd> / <kbd class="button">Page Down</kbd></th>
+    <td>Switches 20 Channels up or down. Only lit if there is another page/bank<td>
+  </tr>
+  <tr>
+    <th><kbd class="button">1</kbd>...<kbd class="button">20</kbd></th>
+    <td>Select the nth channel of the current bank.<em>The Master channel is always the last channel</em></td>
+  </tr>
+  <tr>
+    <th><kbd class="button">Track Group</kbd>/<kbd class="button">Track Copy</kbd></th>
+    <td>Unused</td>
+  </tr>
+  <tr>
+    <th><kbd class="button">Order</kbd></th>
+    <td>[Mixbus]Switches between the compressor modes: Leveler/Compressor/Limiter</td>
+  </tr>
+  <tr>
+    <th><kbd class="button">External Sidechain</kbd></th>
+    <td>Switches between Edit, Cue and Mixer Screen</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Input</kbd></th>
+    <td>Trim</td>
+  </tr>
+  <tr>
+    <th><kbd class="fader">Input Meter</kbd></th>
+    <td>Unused</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">High Cut</kbd></th>
+    <td>[Mixbus]High Cut</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Low Cut</kbd></th>
+    <td>[Mixbus]Low Cut</td>
+  </tr>
+  <tr>
+    <th><kbd class="button">Filter to Compresso</kbd></th>
+    <td>[Mixbus]Filters on/off</td>
+  </tr>
+  <tr>
+    <th><kbd class="button">Phase</kbd></th>
+    <td>Switches the phase of all channels. If only one of more channels is switched in the GUI, the LED blinks</td>
+  </tr>
+  <tr>
+    <th><kbd class="button">Preset</kbd></th>
+    <td>The Global 'Shift' button</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Pan</kbd></th>
+    <td>Pan</td>
+  </tr>
+  <tr>
+    <th><kbd class="button">Solo</kbd></th>
+    <td>Solo button for the channel</td>
+  </tr>
+  <tr>
+    <th><kbd class="button">Mute</kbd></th>
+    <td>Mute button for the channel, blinks, when channel is muted due to another channels Solo-Mode</td>
+  </tr>
+  <tr>
+    <th><kbd class="fader">Volume Meter</kbd></th>
+    <td>Shows the channel-volume</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Volume</kbd></th>
+    <td>Sets the channles volume</td>
+  </tr>
+</table>
+
+<h4>Shape-Section [Mixbus]</h4>
+<table class="dl">
+  <tr> 
+    <th><kbd class="button">Shape</kbd></th>
+    <td>Switches the Gate section on or off</td>
+  </tr>
+  <tr>
+    <th><kbd class="fader">Shape Meter</kbd></th>
+    <td>Shows the Gain reduction of the gate<td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">Gate</kbd></th>
+    <td>Threshold for the gate</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Gate Release</kbd></th>
+    <td>Release time for the gate</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">Gate Release</kbd></th>
+    <td>Hysteresis for the gate</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Sustain</kbd></th>
+    <td>Attack time for the gate</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">Sustain</kbd></th>
+    <td>Hold time for the gate</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Punch</kbd></th>
+    <td>Depth for the gate</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">Sustain</kbd></th>
+    <td>Filter frequency for the gate</td>
+  </tr>
+  <tr>
+    <th><kbd class="button">Hard Gate</kbd></th>
+    <td>Sidechain filter on / off</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="button">Hard Gate</kbd></th>
+    <td>Sidechain filter listen</td>
+  </tr>
+  
+</table>
+
+<h4>Equalizer Section [Mixbus]</h4>
+<p class="well">
+ All encoders in the EQ section are working as sends if the shift button is activated.
+ See the bus send section.
+</p>
+<table class="dl">
+  <tr> 
+    <th><kbd class="button">Equalizer</kbd></th>
+    <td>Switches the Equalizer section on or off</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Low Gain</kbd></th>
+    <td>The Gain (reduction or boost) of the semiparametric bass eq<td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">(Low) Frequency</kbd></th>
+    <td>The frequency of the semiparametric bass eq<td>
+  </tr>  
+  <tr> 
+    <th><kbd class="button">(Low) Cut / Bell / Shelf</kbd></th>
+    <td>Switches between Cut/Boost or Shelf (this uses only two of the three states</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Low Mid Gain</kbd></th>
+    <td>The Gain (reduction or boost) of the semiparametric low mid eq</td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">(Low Mid) Frequency</kbd></th>
+    <td>The frequency of the semiparametric low mid eq</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">(Low Mid) Shape</kbd></th>
+    <td>[Ardour]The eleventh send of a channel / Send to the eleventh mixbus</td>
+  </tr>  
+
+  <tr>
+    <th><kbd class="knob">High Mid Gain</kbd></th>
+    <td>The Gain (reduction or boost) of the semiparametric high mid eq</td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">(High Mid) Frequency</kbd></th>
+    <td>The frequency of the semiparametric high mid eq</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">(High Mid) Shape</kbd></th>
+    <td>[Ardour]The twelfth send of a channel / Send to the twelfth mixbus
+    (see section Mixbusses) </td>
+  </tr>  
+
+  <tr>
+    <th><kbd class="knob">High Gain</kbd></th>
+    <td>The Gain (reduction or boost) of the semiparametric treble eq</td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">(High) Frequency</kbd></th>
+    <td>The frequency of the semiparametric treble eq<td>
+  </tr>  
+  
+</table>
+
