@@ -72,7 +72,7 @@
 <table class="dl">
   <tr> 
     <th><kbd class="button">On</kbd></th>
-    <td>Is lit when a channel is in solo mode and 
+    <td>Is lit when a mixer strip is in solo mode and 
     can disables all solo modes.<em>Rude Solo</em></td>
   </tr>
   <tr>
@@ -81,11 +81,11 @@
   </tr>
   <tr>
     <th><kbd class="button">Page Up</kbd> / <kbd class="button">Page Down</kbd></th>
-    <td>Switches 20 Channels up or down. Only lit if there is another page/bank<td>
+    <td>Switches 20 mixer strips up or down. Only lit if there is another page/bank<td>
   </tr>
   <tr>
     <th><kbd class="button">1</kbd>...<kbd class="button">20</kbd></th>
-    <td>Select the nth channel of the current bank.<em>The Master channel is always the last channel</em></td>
+    <td>Select the nth mixer strip of the current bank.<em>The Master channel is always the last mixer strip</em></td>
   </tr>
   <tr>
     <th><kbd class="button">Track Group</kbd>/<kbd class="button">Track Copy</kbd></th>
@@ -93,7 +93,7 @@
   </tr>
   <tr>
     <th><kbd class="button">Order</kbd></th>
-    <td>[Mixbus]Switches between the compressor modes: Leveler/Compressor/Limiter</td>
+    <td>[Mixbus]Switches between the compressor modes: Leveler/Compressor/Limiter &mdash; see Compressor section</td>
   </tr>
   <tr>
     <th><kbd class="button">External Sidechain</kbd></th>
@@ -116,7 +116,7 @@
     <td>[Mixbus]Low Cut</td>
   </tr>
   <tr>
-    <th><kbd class="button">Filter to Compresso</kbd></th>
+    <th><kbd class="button">Filter to Compressor</kbd></th>
     <td>[Mixbus]Filters on/off</td>
   </tr>
   <tr>
@@ -133,19 +133,19 @@
   </tr>
   <tr>
     <th><kbd class="button">Solo</kbd></th>
-    <td>Solo button for the channel</td>
+    <td>Solo button for the mixer strip</td>
   </tr>
   <tr>
     <th><kbd class="button">Mute</kbd></th>
-    <td>Mute button for the channel, blinks, when channel is muted due to another channels Solo-Mode</td>
+    <td>Mute button for the mixer strip, blinks, when the mixer strip is muted due to another mixer strips Solo-Mode</td>
   </tr>
   <tr>
     <th><kbd class="fader">Volume Meter</kbd></th>
-    <td>Shows the channel-volume</td>
+    <td>Shows the mixer strip volume</td>
   </tr>
   <tr>
     <th><kbd class="knob">Volume</kbd></th>
-    <td>Sets the channles volume</td>
+    <td>Sets the mixer strip volume</td>
   </tr>
 </table>
 
@@ -230,7 +230,7 @@
   </tr>
   <tr>
     <th><kbd class="knob">(Low Mid) Shape</kbd></th>
-    <td>[Ardour]The eleventh send of a channel / Send to the eleventh mixbus</td>
+    <td>[Ardour]The eleventh send of a mixer strip / Send to the eleventh mixbus</td>
   </tr>  
 
   <tr>
@@ -243,7 +243,7 @@
   </tr>
   <tr>
     <th><kbd class="knob">(High Mid) Shape</kbd></th>
-    <td>[Ardour]The twelfth send of a channel / Send to the twelfth mixbus
+    <td>[Ardour]The twelfth send of a mixer strip / Send to the twelfth mixbus
     (see section Mixbusses) </td>
   </tr>  
 
@@ -258,3 +258,103 @@
   
 </table>
 
+<h4>Compressor Section [Mixbus]</h4>
+<table class="dl">
+  <tr> 
+    <th><kbd class="button">Compressor</kbd></th>
+    <td>Switches the Compressor on or off</td>
+  </tr>
+  <tr>
+    <th><kbd class="fader">Compressor Meter</kbd></th>
+    <td>Shows the gain reduction of the leveler/compressor/limiter<td>
+  </tr>  
+  <tr>
+    <th><kbd class="button">Order</kbd></th>
+    <td><em>Above this section</em> Switches between the compressor modes: Leveler/Compressor/Limiter</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Ratio</kbd></th>
+    <td>Ratio of the compressor<td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">Parallel Dry/Wet</kbd></th>
+    <td>Makeup gain of the compressor</td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">Attack</kbd></th>
+    <td>Attack time of the compressor<td>
+  </tr>  
+  <tr> 
+    <th><kbd class="button">Release</kbd></th>
+    <td>Release time of the compressor</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Threshold</kbd></th>
+    <td>Threshold of the compressor</td>
+  </tr>  
+</table>
+
+<h4>Sends</h4>
+<div class="well">
+All Encoders in the equalizer-section are working as sends when 'shift' is selected.<br/>
+Additionally the Low-Mid and High-Mid shape encoders are sends to the mixbusses 
+eleven and twelfe. The Idea behind this is to have some common effects on this two 
+mixbusses which are accessible without 'shift'. Currently, this is focused on Mixbus. <br/>
+The functionality will be extended to fit better with Ardour in a second development phase.
+However, if a mixer strip in Ardour has sends to busses, these are accessible with the send encoders
+as well. These are numbered from top to bottom. The topmost send can be changed by 
+the send 1 encoder <kbd class="knob">Shift</kbd>+<kbd class="knob">(Low) Frequency</kbd>,
+the next send below by the send 2 encoder 
+<kbd class="knob">Shift</kbd>+<kbd class="knob">(Low Mid) Frequency</kbd> and so on.
+</div>
+<table class="dl">
+  <tr>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">(Low) Frequency</kbd></th>
+    <td>Send 1<td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">(Low Mid) Frequency</kbd></th>
+    <td>Send 2</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">(High Mid) Frequency</kbd></th>
+    <td>Send 3</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">(High) Frequency</kbd></th>
+    <td>Send 4</td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">Low Gain</kbd></th>
+    <td>Send 5</td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">Low Mid Gain</kbd></th>
+    <td>Send 6</td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">High Mid Gain</kbd></th>
+    <td>Send 7</td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">High Gain</kbd></th>
+    <td>Send 8</td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">(Low Mid) Shape</kbd></th>
+    <td>Send 9</td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">(High Mid) Shape</kbd></th>
+    <td>Send 10</td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">(Low Mid) Shape</kbd></th>
+    <td>Send 11</td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">(High Mid) Shape</kbd></th>
+    <td>Send 12</td>
+  </tr>  
+
+</table>  
