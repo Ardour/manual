@@ -9,16 +9,23 @@
   the track faders.
 </p>
 
-<p class="note">Ardour also provides <a href="@@control-masters-mixer-strips">VCAs</a>
-  that is a very flexible way to adjust the volume of a group of tracks/busses when
-  no additionnal processing is needed.
+<p>
+  Ardour supports both audio and MIDI subgroup busses, so it's possible to
+  collect MIDI events from multiple tracks and send them to a multi-voice
+  software synth or sampler.
+</p>
+
+<p class="note">
+  Ardour also provides <a href="@@control-masters-mixer-strips">VCAs</a>
+  that is a very flexible way to adjust the volume of a group of tracks/busses 
+  when no additional processing is needed.
 </p>
 
 <p>
   Create a subgroup from an existing Track/Bus group is done by <kbd
   class="mouse">right</kbd>-clicking on the relevant <a
   href="@@the-track-and-bus-group-list">group tab</a>, and choosing <kbd
-  class="menu">Add new subgroup bus</kbd>. A new bus will be created and every
+  class="menu">Add New Subgroup Bus</kbd>. A new bus will be created and every
   member of the track group will have its outputs disconnected from other
   destinations and then connected to the new bus inputs. The bus outputs will
   feed the master bus unless manual connections have been selected in the
@@ -28,14 +35,14 @@
   Alternatively, a group can be created manually, by first adding a new bus,
   then, for each track to be fed in the subgroup bus, disconnecting its outputs
   from the master and connecting it to the inputs of the subgroup bus instead.
-  This can be done in the global audio patchbay or on a track by track basis via the
-  output button of each track's channel strip.
+  This can be done in the global audio patchbay or on a track by track basis via 
+  the output button of each track's channel strip.
 </p>
 <p>
   Remove a subgroup (bus) is done by <kbd class="mouse">right </kbd>-clicking on
   the track group tab, and selecting <kbd class="menu">Remove subgroup
   bus</kbd>. Simply deleting the bus itself will <strong>not</strong> restore
   signal routing to the way it was before the addition of the subgroup
-  bus&mdash;tracks that had been subgrouped will be left with their main outputs
-  disconnected.
+  bus&nbsp;&mdash;tracks that had been subgrouped will be left with their main 
+  outputs disconnected.
 </p>
