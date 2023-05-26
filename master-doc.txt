@@ -2221,7 +2221,7 @@ part: subchapter
 ---
 title: Using the Ableton Push 2
 menu_title: Ableton Push 2
-include: using-the-ableton-push-2.html
+include: control-surfaces-ableton-push-2.html
 link: using-the-ableton-push-2
 uri: using-control-surfaces/Ableton_Push2
 part: chapter
@@ -2281,7 +2281,7 @@ part: subchapter
 ---
 title: Using the PreSonus FaderPort
 menu_title: PreSonus FaderPort
-include: using-the-presonus-faderport.html
+include: control-surfaces-presonus-faderport.html
 link: using-the-presonus-faderport
 uri: using-control-surfaces/Presonus_FaderPort
 part: chapter
@@ -2290,7 +2290,7 @@ part: chapter
 ---
 title: Using the PreSonus FaderPort 2/8/16
 menu_title: PreSonus FaderPort 2/8/16
-include: using-the-presonus-faderport8.html
+include: control-surfaces-presonus-faderport8.html
 link: using-the-presonus-faderport8
 uri: using-control-surfaces/PreSonus_FaderPort8
 part: chapter
@@ -2299,7 +2299,7 @@ part: chapter
 ---
 title: Using the Softube Console1
 menu_title: Softube Console1
-include: using-the-softube-console1.html
+include: control-surfaces-softube-console1.html
 link: using-the-softube-console1
 uri: using-control-surfaces/Softube_Console1
 part: chapter
