@@ -1,16 +1,17 @@
 
-<figure class="right">
-  <img src="/images/virtual_keyboard.png" alt="The Virtual Keyboard window">
-  <figcaption class="center">
-    The Virtual Keyboard window
-  </figcaption>
-</figure>
-
 <p>
   The <dfn>Virtual Keyboard</dfn> is a software MIDI instrument, similar to
   <a href="https://vmpk.sourceforge.io/">VMPK</a> that can be used like an
   hardware musical keyboard would, to emit MIDI events.
 </p>
+
+<figure class="left">
+  <img src="/images/virtual_keyboard.png" alt="The Virtual Keyboard window" 
+  width="75%">
+  <figcaption class="left">
+    The Virtual Keyboard window
+  </figcaption>
+</figure>
 
 <p>
   It can be used to test or record MIDI notes or events, as the computer 
@@ -34,18 +35,23 @@
 		A channel selector to choose on which MIDI channel the events are generated
 	</li>
 	<li>
-		A pitch bend that can bend as much as the virtual instrument allows. The controls are:
+		A pitch bend that can bend as much as the virtual instrument allows.
+		The MIDI specification defines the pitch-bend range as [0..16383].
+		So Ardour maps that range to whatever the synth has and sets the
+		neutral/middle position in the virtual keyboard to 8192. If the synth
+		operates in the +/- 2 semitones range, that makes 1 semitone 4096
+		units large. The controls are:
 		<ul>
 			<li>Mousewheel up/down : persistent bend up/down</li>
 			<li>Mouse-drag up/down (by <kbd class="mouse">left</kbd>-clicking
 			anywhere in the slider) : sprung-mode bend up/down (returns to
 			&plus;0 semitone when the mouse button is released)</li>
-			<li><kbd>F1</kbd> : abruptly &minus;2 semitones</li>
-			<li><kbd>F2</kbd> : abruptly &minus;1 semitone</li>
-			<li><kbd>F3</kbd> : abruptly &plus;1 semitone</li>
-			<li><kbd>F4</kbd> : abruptly &plus;2 semitones</li>
-			<li><kbd>&darr;</kbd> : ramps to &minus;2 semitones</li>
-			<li><kbd>&uarr;</kbd> : ramps to &plus;2 semitones.</li>
+			<li><kbd>F1</kbd>: abruptly all the way down</li>
+			<li><kbd>F2</kbd>: abruptly half the way down</li>
+			<li><kbd>F3</kbd>: abruptly half the way up</li>
+			<li><kbd>F4</kbd>: abruptly all the way up</li>
+			<li><kbd>&darr;</kbd>: ramps all the way down</li>
+			<li><kbd>&uarr;</kbd>: ramps all the way up.</li>
 		</ul>
 	</li>
 	<li>
@@ -64,7 +70,7 @@
 		each knob and selecting a different Control Number.
 	</li>
 	<li>
-		<em>Octave</em> : a selector to choose where on the keyboard (on which
+		<em>Octave</em>: a selector to choose where on the keyboard (on which
 		octave) the keyboard view is. The chosen octave will be the second one
 		displayed, i.e. if "Octave" is set to 3, the leftmost displayed octave
 		will be 2.<br>
@@ -73,8 +79,8 @@
 		<kbd>Z</kbd>, is mapped to C3.<br>
 		The controls are:
 		<ul>
-			<li><kbd>&larr;</kbd> : decrease Octave by one (i.e., scroll the view to the left)</li>
-			<li><kbd>&rarr;</kbd> : increase Octave by one (i.e., scroll the view to the right)</li>
+			<li><kbd>&larr;</kbd>: decrease Octave by one (i.e., scroll the view to the left)</li>
+			<li><kbd>&rarr;</kbd>: increase Octave by one (i.e., scroll the view to the right)</li>
 		</ul>
 	</li>
 	<li>
@@ -84,9 +90,15 @@
 		<em>Velocity</em> sets the intensity of the note, which contributes 
 		to its audio volume, and can, depending on the virtual instrument,
 		play a role in the sample selection.<br>
-		Although the drop down menu only lists a few values, scrolling the mouse
-		over the control, as with the other selectors, allows to change its
-		value with a finer in/decrement.
+		Although the drop down menu only lists a few values, scrolling the mouse over the control, as with the other selectors, allows to change
+		its value with a finer in/decrement.<br>
+		Available shortcuts are:
+		<ul>
+			<li><kbd>F5</kbd>: sets velocity to 32</li>
+			<li><kbd>F6</kbd>: sets velocity to 64</li>
+			<li><kbd>F7</kbd>: sets velocity to 96</li>
+			<li><kbd>F8</kbd>: sets velocity to 127</li>
+		</ul>
 	</li>
 	<li>
 		A <em>Transpose</em> selector, that shifts the notes played by its value
@@ -95,6 +107,6 @@
 	<li>
 		A <em>Panic</em> button, to immediately stop all MIDI sound.
 	</li>
-
 </ul>
+
 
