@@ -31,6 +31,7 @@
 	<ul>
 		<li><a href="#preferences-appearance-recorder">Recorder</a></li>
 		<li><a href="#preferences-appearance-editor">Editor</a></li>
+    <li><a href="#preferences-appearance-waveform">Waveform</a></li>
 		<li><a href="#preferences-appearance-mixer">Mixer</a></li>
 		<li><a href="#preferences-appearance-toolbar">Toolbar</a></li>
 		<li><a href="#preferences-appearance-size-and-scale">Size and Scale</a></li>
@@ -335,41 +336,6 @@
     </ul>
   </li>
   <li>
-    <dfn>Waveforms</dfn>
-    <ul>
-      <li>
-        <dfn>Show waveforms in regions</dfn>: when enabled, shows a visual
-        representation of the region's audio waveform.
-      </li>
-      <li>
-        <dfn>Show waveforms while recording</dfn>: when enabled, will draw
-        the audio waveform in regions being recorded, in near real time.
-        When disabled, only a region block will be drawn while recording,
-        reducing CPU requirements.
-      </li>
-      <li>
-        <dfn>Show waveform clipping</dfn>: when enabled, the waveform
-        displayed will show peaks marked in red if they exceed the clip level.
-      </li>
-      <li>
-        <dfn>Waveform Clip Level (dBFS)</dfn>: sets the level at which the
-        waveform shown in an audio region will be drawn in red to indicate
-        clipping. Setting lower than 0.0&nbsp;dBFS can be useful if any tool in
-        the audio chain has problems near 0.0&nbsp;dBFS.
-      </li>
-      <li>
-        <dfn>Waveform scale</dfn>: when waveforms are shown in audio regions,
-        they can be displayed using a <em>linear</em> or a <em>logarithmic</em>
-        scale. See <a href="@@waveform-display">Waveform display</a>.
-      </li>
-      <li>
-        <dfn>Waveform shape</dfn>: when waveforms are shown in audio regions,
-        they can be displayed using a <em>traditional</em> or a <em>rectified</em>
-        shape. See <a href="@@waveform-display">Waveform display</a>.
-      </li>
-    </ul>
-  </li>
-  <li>
     <dfn>Editor Meters</dfn>
     <ul>
       <li>
@@ -412,7 +378,47 @@
     </ul>
   </li>
 </ul>
-  
+
+<h3 id="preferences-appearance-waveform">Waveform</h3>
+
+<ul>
+  <li>
+    <dfn>Editor Waveforms</dfn>
+    <ul>
+      <li>
+        <dfn>Show waveforms in regions</dfn>: when enabled, shows a visual
+        representation of the region's audio waveform.
+      </li>
+      <li>
+        <dfn>Show waveforms while recording</dfn>: when enabled, will draw
+        the audio waveform in regions being recorded, in near real time.
+        When disabled, only a region block will be drawn while recording,
+        reducing CPU requirements.
+      </li>
+      <li>
+        <dfn>Show waveform clipping</dfn>: when enabled, the waveform
+        displayed will show peaks marked in red if they exceed the clip level.
+      </li>
+      <li>
+        <dfn>Waveform Clip Level (dBFS)</dfn>: sets the level at which the
+        waveform shown in an audio region will be drawn in red to indicate
+        clipping. Setting lower than 0.0&nbsp;dBFS can be useful if any tool in
+        the audio chain has problems near 0.0&nbsp;dBFS.
+      </li>
+      <li>
+        <dfn>Waveform scale</dfn>: when waveforms are shown in audio regions,
+        they can be displayed using a <em>linear</em> or a <em>logarithmic</em>
+        scale. See <a href="@@waveform-display">Waveform display</a>.
+      </li>
+      <li>
+        <dfn>Waveform shape</dfn>: when waveforms are shown in audio regions,
+        they can be displayed using a <em>traditional</em> or a <em>rectified</em>
+        shape. See <a href="@@waveform-display">Waveform display</a>.
+      </li>
+    </ul>
+  </li>
+</ul>
+
 <h3 id="preferences-appearance-mixer">Mixer</h3>
 
 <ul>
@@ -555,12 +561,16 @@
         into a toddler's toy.
       </li>
       <li>
-        <dfn>Use color-palette to assign color for new tracks/busses</dfn>
+        <dfn>Use color-palette to assign color for new tracks</dfn>
         enables color-coding of tracks by picking colors from a fixed palette
         and assigning them to regions' backgrounds and, optionally, to
-        respective faders of tracks and busses (there is a dedicated setting for 
-        that). When disabled, all regions (and faders) have a neutral gray
+        respective faders of tracks and busses (there is a dedicated setting
+        for that). When disabled, all regions (and faders) have a neutral gray
         background.
+      </li>
+      <li>
+        <dfn>Use color-palette to assign color for new busses</dfn> does the
+        same as the setting above, but with regards to busses.
       </li>
       <li>
         <dfn>Use color-palette to assign color for new VCA</dfn> does the same
@@ -816,6 +826,7 @@
 	Lists the different possible anchors to which an object should snap to, among:
 	<ul>
 	  <li>Markers</li>
+    <li>Playhead</li>
 	  <li>Region Sync points</li>
 	  <li>Region Starts</li>
 	  <li>Region Ends</li>
@@ -1633,6 +1644,16 @@
       <li>
         <dfn>Enable Metronome only while recording</dfn>: when enabled, the
         metronome will remain silent unless Ardour is recording.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Tempo</dfn>
+    <ul>
+      <li>
+        <dfn>Default tempo ruler state for new sessions</dfn>: allows choosing
+        whether a tempo map is created by default or requires the user to
+        build it from mapping performance to bars and beats.
       </li>
     </ul>
   </li>
