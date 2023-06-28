@@ -210,7 +210,7 @@ def GetParent(fs, pos):
 
 #
 # Change the hierarchy of titles : <h1>-><hn>, <h2>-><hn+1>, so that the
-# highest hyerarchy level is maxlevel
+# highest hierarchy level is maxlevel
 #
 def remapheader(txt, maxlevel):
 	maxlvl=1
@@ -664,7 +664,7 @@ for header in fileStruct:
 	page = page.replace('{{ content }}', content + more)
 
 	# Create the directory for the index.html file to go into (we use makedirs,
-	# because we have to in order to accomodate the 'uri' keyword)
+	# because we have to in order to accommodate the 'uri' keyword)
 	os.makedirs(global_site_dir + header['filename'], 0o775, exist_ok=True)
 
 	# Finally, write the file!

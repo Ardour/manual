@@ -48,7 +48,7 @@ Here are the keywords you can put in, and a brief description of what they do:
 | exclude | Tells the `implode` and `explode` scripts that file referred to by the `include` keyword should be ignored. Note that the value of this keyword is ignored |
 | pdf-exclude | Does not include the content in the generated PDF, but links to its online contents. The value is also ignored. |
 | style   | Sets an alternate CSS stylesheet; the name should match the one referred to (sans the `.css` suffix) in the `source/css` directory |
-| uri     | Sets an absolute URI where this page will go in the hierachy of the created website. It does *not* change the document structure |
+| uri     | Sets an absolute URI where this page will go in the hierarchy of the created website. It does *not* change the document structure |
 
 ### Normal content
 
@@ -65,7 +65,7 @@ Adding `source/images/horse.png` makes it available at the url
 
 The manual uses [Bootstrap](http://getbootstrap.com/) for its global layout, and
 a few custom CSS files that contains classes used for keys, menus,
-tables, etc... so it is recommanded to have a look at it first, or at least see
+tables, etc... so it is recommended to have a look at it first, or at least see
 how other pages are made to keep the manual consistent in its appearance:
 
 - `source/css/common.css` contains shared classes between all media and is included everywhere
@@ -102,7 +102,7 @@ internet access. You will need `git`, `python3` and `cherrypy` python module ins
 
 ### Helper scripts: `implode` and `explode`
 
-The `implode` and `explode` scripts exist in order to accomodate different
+The `implode` and `explode` scripts exist in order to accommodate different
 working styles. `implode` takes all the files referenced by the `include`
 keywords in the headers in the Master Document and automagically puts them into
 the Master Document in their proper places. Note that any header that has an
