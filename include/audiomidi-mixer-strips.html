@@ -91,11 +91,21 @@
     a mono track will result in a stereo output for the strip.</td></tr>
   <tr><th>Disk I/O</th><td>This submenu allows switching between recording
     pre-fader signal, post-fader signal, or with custom record and playback
-    positions.</td></tr>
-  <!-- <tr><th>Pin Connections&hellip;</th><td>Shows the <kbd class="menu">Pin Configuration</kbd>
-    window, that shows (and allows to modify) all the signal flows inside the track</td></tr>
-  <tr><th>Adjust Latency&hellip;</th><td>Shows the <kbd class="menu">Track Latency</kbd>
+    positions. Only available for tracks.</td></tr>
+  <tr><th>Pin Connections&hellip;</th><td>Shows the <kbd class="menu">Pin
+    Configuration</kbd> window that shows (and allows to modify) all the signal
+    flows inside the track. Only available for tracks and busses with at least one
+    processor in the mixer strip.</td></tr>
+  <!-- <tr><th>Adjust Latency&hellip;</th><td>Shows the <kbd class="menu">Track Latency</kbd>
     dialog, that allows fine-tune the latency to the track, in samples, msec or period</td></tr> -->
+  <tr><th>Patch selector&hellip;</th><td>Opens a dialog for selecting a patch provided
+    by MIDNAM. Only available for MIDI tracks.</td></tr>
+  <tr><th>Fan out to Busses&hellip;</th><td>Creates one bus per each output
+    of a virtual instrument and connects to created busses. Only available for
+    MIDI tracks where a virtual instrument has more than two audio outputs.</td></tr>
+  <tr><th>Fan out to Tracks&hellip;</th><td>Creates one track per each output
+    of a virtual instrument and connects to created tracks. Only available for
+    MIDI tracks where a virtual instrument has more than two audio outputs.</td></tr>
   <tr><th><kbd class="option">Protect Against Denormals</kbd></th><td>Uses a trick to
     get rid of <em>denormals</em>, which are very small numbers the CPU can have
     a hard time dealing with. To be used if the CPU consumption for plugins is
