@@ -86,13 +86,16 @@
   <tr><th><kbd class="option">Active</kbd></th><td>Select the active status of the track.
     An inactive track won't output any sound</td></tr>
   <tr><th><kbd class="option">Strict I/O</kbd></th><td>While in <a href="@@trackbus-signal-flow">
-    patchbayStrict I/O</a> mode, a track <em>always</em> has as many output as it
+    Strict I/O</a> mode, a track <em>always</em> has as many output as it
     has inputs, regardless of the effects. When disabled, a stereo effect put on
     a mono track will result in a stereo output for the strip.</td></tr>
-  <tr><th>Pin Connections&hellip;</th><td>Shows the <kbd class="menu">Pin Configuration</kbd>
+  <tr><th><kbd class="option">Disk I/O</kbd></th><td>This submenu allows
+    switching between recording pre-fader signal, post-fader signal, or with
+    custom record and playback positions.</td></tr>
+  <!-- <tr><th>Pin Connections&hellip;</th><td>Shows the <kbd class="menu">Pin Configuration</kbd>
     window, that shows (and allows to modify) all the signal flows inside the track</td></tr>
   <tr><th>Adjust Latency&hellip;</th><td>Shows the <kbd class="menu">Track Latency</kbd>
-    dialog, that allows fine-tune the latency to the track, in samples, msec or period</td></tr>
+    dialog, that allows fine-tune the latency to the track, in samples, msec or period</td></tr> -->
   <tr><th><kbd class="option">Protect Against Denormals</kbd></th><td>Uses a trick to
     get rid of <em>denormals</em>, which are very small numbers the CPU can have
     a hard time dealing with. To be used if the CPU consumption for plugins is
