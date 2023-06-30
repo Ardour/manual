@@ -1,0 +1,270 @@
+<p>
+  The Tempo ruler allows changing tempo within one session, either abruptly or
+  gradually over time. This is done by placing tempo markers on the ruler and
+  setting up how exactly the transition happens.
+</p>
+
+<p>
+  On the screenshot below, there are 4 bars of music at 120bpm starting at bar 27,
+  then the tempo changes abruptly to 140bpm and goes on for another 4 bars at that
+  tempo, then abruptly changes back to 120bpm and within the next 4 bars gradually
+	goes back to 140bpm, then continues at 140bpm until the end of the session.
+</p>
+
+<figure>
+  <img style="width:75%;" width="50%" src="/images/multiple-tempo-markers.png"
+  alt="Changes in tempo over time">
+  <figcaption>Changes in tempo over time</figcaption>
+</figure>
+
+<h2>Tempo ruler modes</h2>
+
+<p>
+	The Tempo ruler has two modes: editing tempo and mapping tempo. The mode can
+	be selected in the <kbd class="menu">Edit &gt; Tempo</kbd> menu.
+	Additionally, users can select which one should be enabled by default
+	<kbd class="menu">Edit &gt; Preferences &gt; Metronome &gt; Default tempo
+	ruler state for new sessions</kbd>.
+</p>
+
+<p>
+	The Map Tempo mode is best suited for cases when there is a live recording
+	of an instrument or multiple instruments, with some tempo imperfections. So
+	before more instruments are added, e.g. MIDI-programmed drums, the tempo map
+	needs to be adjusted to match the actual performance. In this mode, MIDI data
+	is not adjusted for tempo map changes, so if the live recording contained
+	both audio and MIDI tracks, the notes will stay exactly where they are.
+	Additionally, tweaking tempo markers does not change the wall clock position
+	of other tempo markers.
+</p>
+
+<figure>
+  <img style="width:75%;" width="50%" src="/images/map-tempo-example.png"
+  alt="An example of mapping tempo to performance">
+  <figcaption>An example of mapping tempo to performance</figcaption>
+</figure>
+
+<p>
+	The Change Tempo mode is better suited for cases when the musician either
+	starts a session from scratch and creates the tempo map at the beginning, or
+	when they do need the MIDI data to be adjusted for tempo map changes.
+	Tweaking tempo in a tempo marker in this mode also changes the wall clock
+	position of subsequent tempo markers.
+</p>
+
+<h2>Anatomy of tempo markers</h2>
+
+<p>
+	When working with the tempo ruler in the Change Tempo mode, each tempo
+	marker exposes several editable properties:
+</p>
+
+<ul>
+	<li>
+		BPM at the start, sets a new tempo value.
+	</li>
+	<li>
+		BPM at the end <em>(only available for gradual transitions)</em>, defines
+		the tempo value at the end of a tempo ramp.
+	</li>
+	<li>
+		Tempo (transition) type, defines whether the tempo is the same (constant)
+		until the next tempo marker or whether it gradually changes (ramps up
+		or down) towards the next tempo.
+	</li>
+	<li>
+		Location of the tempo marker, defined in musical time.
+	</li>
+	<li>
+		Lock style, defines whether tempo is locked to musical time (bars and
+		beats) or real time (minutes and seconds).
+	</li>
+</ul>
+
+<p>
+	In the Map Tempo mode, tempo markers also have these properties, but except
+	for the BPM at the start value, they are not exposed in the user interface.
+</p>
+
+<h2>Working with tempo markers in the Edit Tempo mode</h2>
+
+<h3>Adding Tempo Markers</h3>
+
+<p>
+	To add a tempo marker, hover a bar or a beat line, press <kbd>Ctrl</kbd>
+	and single-click. Newly created tempo marker will have the same tempo value
+	as the previous one.
+</p>
+
+<h2>Shifting tempo markers</h2>
+
+<p>
+	To change the position of a tempo change, do one of the two things:
+</p>
+
+<ul>
+	<li>
+		Click and drag a marker left or right. Ardour will increment the change
+		by one beat.
+	</li>
+	<li>
+		Double-click the marker or right-click it and choose
+		<kbd class="menu">Edit</kbd> to open the marker properties dialog, then
+		change the bar and the beat where tempo change should occur.
+	</li>
+</ul>
+
+<figure>
+  <img style="width:50%;" width="50%" src="/images/tempo-marker-change-location.png"
+  alt="Changing location of a tempo marker">
+  <figcaption>Changing location of a tempo marker</figcaption>
+</figure>
+
+<h3>Editing tempo value</h3>
+
+<p>
+	The tempo start value can be changed directly on the timeline or using the
+	tempo marker properties dialog.
+</p>
+
+<p>
+	To change the tempo value directly on the timeline, hover the marker, press
+	<kbd>Ctrl</kbd>, and drag the marker left or right. The bpm start value will
+	change, and the grid will be adjusted accordingly.
+</p>
+
+<p>
+	Alternatively, double-click the marker or right-click it and choose
+	<kbd class="menu">Edit</kbd> to open the marker properties dialog, then
+	change the "Start beats per minute" value.
+</p>
+
+<p>
+	Additionally, you can set the new tempo by tapping it in one of the two ways:
+</p>
+
+<ul>
+	<li>
+		By repeatedly clicking the <kbd class="button">Tap tempo</kbd> button
+		in the dialog.
+	</li>
+	<li>
+		By selecting a connected MIDI keyboard and repeatedly pressing either
+		a piano key or a silicon pad.
+	</li>
+</ul>
+
+<p>
+	In some cases, an existing tempo marker needs to get the same value as the
+	tempo marker before it, typically to start a ramp. To do that, right-click
+	the tempo marker that needs to change and select the
+	<kbd class="menu">Continue</kbd> menu item.
+</p>
+
+<h3>Constant vs ramped tempo</h3>
+
+<p>
+	The tempo between two tempo markers with different bpm start value can stay
+	the same (constant) or change gradually (ramped).
+</p>
+
+<p>
+	When the tempo type is constant, the line between two markers stays
+	horizontal:
+</p>
+
+<figure>
+  <img style="width:75%;" width="75%" src="/images/tempo-type-constant.png"
+  alt="Constant tempo">
+  <figcaption>Constant tempo</figcaption>
+</figure>
+
+<p>
+	When the tempo is ramped, the line between two markers is diagonal:
+</p>
+
+<figure>
+  <img style="width:75%;" width="75%" src="/images/tempo-type-ramped.png"
+  alt="Ramped tempo">
+  <figcaption>Ramped tempo</figcaption>
+</figure>
+
+<p>
+	The toggle between constant and ramped types is available in the tempo marker
+	properties menu and applies forward in the timeline. Alternatively, you can
+	right-click a tempo marker and select the <kbd class="menu">Ramp to Next</kbd>
+	menu item. The tempo change will become gradual.
+</p>
+
+<p>
+	To switch from the ramped type to teh constant type, either open the tempo
+	marker properties dialog and switch it, or right-click a tempo marker and
+	select the <kbd class="menu">Set Constant</kbd> menu item. The tempo will
+	change abruptly at the next tempo marker.
+</p>
+
+<h3>Removing Markers</h3>
+
+<p>
+	To remove a tempo marker, either single-click it and press <kbd>Del</kbd>
+	or right-click it and select the <kbd class="menu">Remove</kbd> menu item.
+</p>
+
+<h3>Locking to music vs audio time</h3>
+
+<p>
+	Audio-locked tempo markers stay in their frame position as their neighbor's
+	positions are altered. Their pulse (musical) position will change as their
+	neighbors move. Music-locked tempo markers move their frame position as their
+	neighbors are moved, but keep their pulse position (they will move as the
+	music is moved).
+</p>
+
+<h2>Working with tempo markers in the Map Tempo mode</h2>
+
+<h3>Adding tempo markers</h3>
+
+<p>
+	In the Map Tempo mode, new tempo markers are only created at bar lines. Hover
+	a bar line on the tempo ruler, this will change the mouse pointer. Then click
+	and drag to align the bar line with an onset. A new tempo marker will be
+	automatically created.
+</p>
+
+<figure>
+  <img style="width:50%;" width="50%" src="/images/map-tempo-bar-line.png"
+  alt="Ramping in Map Tempo mode">
+  <figcaption>Creating a tempo marker in Map Tempo mode</figcaption>
+</figure>
+
+<h3>Tweaking positions of markers</h3>
+
+<p>
+	To tweak the position of a tempo marker, hover the bar line where it's
+	located, then click and drag it left or right.
+</p>
+
+<h3>Ramping between tempo markers</h3>
+
+<p>
+	In some cases, tempo fluctuates gradually during the performance. To deal
+	with that, it's possible to set a tempo ramp. Create two markers, one where
+	tempo begins changing, and one where it starts changing. Then hover the
+	mouse pointer between bar lines and start dragging to the left or to the
+	right. Dragging to the left increases the tempo at the beginning and lowers
+	it towards the end. Dragging to the right increases the tempo towards the
+	end and lowers it towards the beginning.
+</p>
+
+<figure>
+  <img style="width:50%;" width="50%" src="/images/map-tempo-beat-line.png"
+  alt="Ramping in Map Tempo mode">
+  <figcaption>Ramping in Map Tempo mode</figcaption>
+</figure>
+
+<h2>Further Information</h2>
+
+<p>
+  For more details on the workflow, plese refer to the
+  <a href="@@tempo-and-meter">Tempo and Time Signature</a> chapter.
+</p>
