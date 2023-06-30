@@ -32,7 +32,7 @@
 	of an instrument or multiple instruments, with some tempo imperfections. So
 	before more instruments are added, e.g. MIDI-programmed drums, the tempo map
 	needs to be adjusted to match the actual performance. In this mode, MIDI data
-	is not adjusted for tempo map changes, so if the live recording contained
+	is not adjusted for tempo map changes, so if the live recording contains
 	both audio and MIDI tracks, the notes will stay exactly where they are.
 	Additionally, tweaking tempo markers does not change the wall clock position
 	of other tempo markers.
@@ -164,7 +164,7 @@
 <h3>Constant vs ramped tempo</h3>
 
 <p>
-	The tempo between two tempo markers with different bpm start value can stay
+	The tempo between two tempo markers with different bpm start values can stay
 	the same (constant) or change gradually (ramped).
 </p>
 
@@ -193,11 +193,12 @@
 	The toggle between constant and ramped types is available in the tempo marker
 	properties menu and applies forward in the timeline. Alternatively, you can
 	right-click a tempo marker and select the <kbd class="menu">Ramp to Next</kbd>
-	menu item. The tempo change will become gradual.
+	menu item. Tempo will gradually accelerate or decelerate until the target
+	tempo is reached, resulting in a musical <em>accel.</en> or <em>ritard.</em>.
 </p>
 
 <p>
-	To switch from the ramped type to teh constant type, either open the tempo
+	To switch from the ramped type to the constant type, either open the tempo
 	marker properties dialog and switch it, or right-click a tempo marker and
 	select the <kbd class="menu">Set Constant</kbd> menu item. The tempo will
 	change abruptly at the next tempo marker.
@@ -265,6 +266,6 @@
 <h2>Further Information</h2>
 
 <p>
-  For more details on the workflow, plese refer to the
+  For more details on the workflow, please refer to the
   <a href="@@tempo-and-meter">Tempo and Time Signature</a> chapter.
 </p>
