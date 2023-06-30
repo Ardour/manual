@@ -512,6 +512,13 @@ part: subchapter
 ---
 
 ---
+title: Tempo
+include: tempo-ruler.html
+link: tempo-ruler
+part: subchapter
+---
+
+---
 title: Time Signature
 include: time-signature-ruler.html
 link: time-signature-ruler
