@@ -1297,6 +1297,14 @@ part: subchapter
 ---
 
 ---
+title: Sections
+include: sections.html
+link: sections
+uri: editing-and-arranging/sections
+part: chapter
+---
+
+---
 title: Fades and Crossfades
 include: create-region-fades-and-crossfades.html
 link: create-region-fades-and-crossfades
