@@ -5,7 +5,7 @@
 </p>
 
 <p>
-	Currently, sections are only exposed as editor actions that are available
+	Currently, sections are exposed as editor actions that are available
 	when a range is selected on the timeline:
 </p>
 
@@ -14,7 +14,7 @@
 		Cut/Paste Range Section to Edit Point
 	</li>
 	<li>
-		Cut/Paste Range Section to Edit Point
+		Copy/Paste Range Section to Edit Point
 	</li>
 	<li>
 		Delete Range Section
@@ -23,7 +23,8 @@
 
 <p>
 	When Ardour treats a range as a section, it cuts or copies audio and MIDI
-	data and their automation across all tracks. When pasting the cut or copied
-	data, it ripples all tracks at the edit point.
+	data and their automation (hidden or visible) across all tracks, as well
+	as markers and unused playlists. When pasting the cut or copied data, it
+	ripples all tracks at the edit point. It's also possible to repeatedly
+	copy and paste an existing section.
 </p>
-
