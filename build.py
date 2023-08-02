@@ -590,12 +590,12 @@ for header in fileStruct:
 	# but the basic fundamental organizing unit WRT content is still the
 	# chapter.
 	githubedit = ''
-	themechanger = '<span style="float:right;padding: 0 5px 5px 5px;"><button class="theme-changer" onclick="changetheme()" title="Change Theme"></button></span>'
+	themechanger = '<span style="float:right;padding: 0 5px 5px 5px;position:relative;bottom:-5px;"><button class="theme-changer" onclick="changetheme()" title="Change Theme"></button></span>'
 
 	if level > 0:
 		if 'include' in header:
 			srcFile = open('include/' + header['include'])
-			githubedit = '<span style="float:right;padding:5px;"><a class="github-link" title="Edit in GitHub" href="' + global_githuburl + header['include'] + '"><img src="/images/github.png" alt="Edit in GitHub"/></a></span>'
+			githubedit = '<span style="float:right;padding:5px;"><a class="github-link" title="Edit in GitHub" href="' + global_githuburl + header['include'] + '"></a></span>'
 			content = srcFile.read()
 			srcFile.close()
 
