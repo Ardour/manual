@@ -309,6 +309,7 @@ p.subsection {
 }
 
 /* dark theme */
+body.dark-theme,
 body.dark-theme > .container-fluid {
   background-color: #222222;
   color: #f7f1ff;
@@ -424,4 +425,14 @@ body.dark-theme #tree .active > a {
 
 body.dark-theme .invert-in-dark {
   filter: invert(1);
+}
+
+body.dark-theme pre {
+  background: #1f1f1f;
+  color: #9cdcfe;
+}
+
+body.dark-theme .well {
+  background: darkgrey;
+  color: black;
 }
