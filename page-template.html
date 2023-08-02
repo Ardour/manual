@@ -98,6 +98,17 @@
 		if (localStorage.getItem('dark-theme') === 'true') {
 			changetheme();
 		}
+
+		// go to next page and previous page using arrow keys
+		window.addEventListener('keydown', e => {
+			if (e.target.tagName !== 'INPUT') {
+				if (e.key === 'ArrowRight') {
+					document.querySelector('.next a').click()
+				} else if (e.key === 'ArrowLeft') {
+					document.querySelector('.previous a').click()
+				}
+			}
+		})
 	</script>
 
 </body>
