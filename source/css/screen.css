@@ -343,7 +343,7 @@ body.dark-theme #content kbd.input {
 }
 
 body.dark-theme #content .warning {
-background-color: #995555;
+background-color: darkred;
 }
 
 body.dark-theme #content table tr:nth-child(2n+1) {
@@ -414,4 +414,14 @@ body.dark-theme #tree {
 body.dark-theme #tree a {
   color: white;
   text-shadow: 0 0 0 white;
+}
+
+
+body.dark-theme #tree .active > a {
+  color: #FF8080;
+  text-shadow: 0 0 0 #FF8080;
+}
+
+body.dark-theme .invert-in-dark {
+  filter: invert(1);
 }
