@@ -590,11 +590,12 @@ for header in fileStruct:
 	# but the basic fundamental organizing unit WRT content is still the
 	# chapter.
 	githubedit = ''
+	themechanger = '<span style="float:right;padding: 0 5px 5px 5px;"><button class="theme-changer" onclick="changetheme()" title="Change Theme"></button></span>'
 
 	if level > 0:
 		if 'include' in header:
 			srcFile = open('include/' + header['include'])
-			githubedit = '<span style="float:right;"><a title="Edit in GitHub" href="' + global_githuburl + header['include'] + '"><img src="/images/github.png" alt="Edit in GitHub"/></a></span>'
+			githubedit = '<span style="float:right;padding:5px;"><a class="github-link" title="Edit in GitHub" href="' + global_githuburl + header['include'] + '"><img src="/images/github.png" alt="Edit in GitHub"/></a></span>'
 			content = srcFile.read()
 			srcFile.close()
 
@@ -660,6 +661,7 @@ for header in fileStruct:
 	page = page.replace('{% tree %}', sidebar)
 	page = page.replace('{% prevnext %}', prevnext)
 	page = page.replace('{% githubedit %}', githubedit)
+	page = page.replace('{% themechanger %}', themechanger)
 	page = page.replace('{% breadcrumbs %}', breadcrumbs)
 	page = page.replace('{{ content }}', content + more)
 
@@ -685,6 +687,7 @@ page = page.replace('{% tree %}', sidebar)
 page = page.replace('{{ content }}', toc)
 page = page.replace('{% prevnext %}', '')
 page = page.replace('{% githubedit %}', '')
+page = page.replace('{% themechanger %}', themechanger)
 page = page.replace('{% breadcrumbs %}', '')
 
 os.mkdir(global_site_dir + 'toc', 0o775)
