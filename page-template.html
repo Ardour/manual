@@ -60,6 +60,7 @@
 
 				{% breadcrumbs %}
 				{% githubedit %}
+				{% themechanger %}
 
 				<h1 class="title">{{ page.title }}</h1>
 
@@ -82,6 +83,20 @@
 		if ( (isA(/Mac/) || isAbout(/OS X/)) && (!isAbout(/Linux/)) ) {
 			var e = document.getElementsByTagName('body')[0];
 			e.className += ' mac';  // class magic for Cmd vs. Ctrl keys.
+		}
+
+		function changetheme () {
+			if (document.body.classList.contains('dark-theme')) {
+				document.body.classList.remove('dark-theme');
+			} else {
+				document.body.classList.add('dark-theme');
+			}
+
+			localStorage.setItem('dark-theme', document.body.classList.contains('dark-theme'));
+		}
+
+		if (localStorage.getItem('dark-theme') === 'true') {
+			changetheme();
 		}
 	</script>
 
