@@ -10,24 +10,24 @@ This Documentation is Work in Progress and far from complete. Also the documente
 
 <h2 id="Preface">Preface</h2>
 <p>
-There are cases that Ardour cannot reasonably cater to with core functionality alone, either because they're session specific
-or user specific edge cases.
+There are cases that Ardour cannot reasonably cater to with core functionality alone, either because they're session-specific
+or user-specific edge cases.
 </p><p>
 Examples for these include voice-activate (record-arm specific tracks and roll transport depending on signal levels),
 rename all regions after a specific timecode, launch an external application when a certain track is soloed, generate
 automation curves or simply provide a quick shortcut for a custom batch operation.
 </p><p>
-Cases like this call for means to extend the DAW without actually changing the DAW itself. This is where scripting comes in.
+Handling cases like these requires extending the DAW without actually changing the DAW itself. This is where scripting comes in.
 </p><p>
-"Scripting" refers to tasks that could alternatively be executed step-by-step by a human operator.
+"Scripting" refers to automating tasks that would normally be done interactively by a human operator.
 </p><p>
 Lua is a tiny and simple language which is easy to learn, yet allows for comprehensive solutions.
-Lua is also a glue language it allows to tie existing component in Ardour together in unprecedented ways,
-and most importantly Lua is one of the few scripting-languages which can be safely used in a real-time environment.
+Lua also allows tying existing Ardour components together in unprecedented ways,
+and most importantly Lua is one of the few scripting languages which can be safely used in a real-time environment.
 </p><p>
 A good introduction to Lua is the book <a href="http://www.lua.org/pil/">Programming in Lua</a>. The first edition is
-available online, but if you have the means buy a copy of the book, it not only helps to support the Lua project, but provides
-for a much nicer reading and learning experience.
+available online for free, but if you have the means we recommend you buy a copy of the book - it helps support the Lua project and provides
+a much nicer reading and learning experience.
 </p>
 
 <h2 id="Overview">Overview</h2>
