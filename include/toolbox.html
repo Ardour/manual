@@ -1,6 +1,6 @@
 
 <figure>
-<img src="/images/toolbar-tools.png" alt="Editor toolbar's tools, aka toolbox">
+<img width="50%" src="/images/toolbar-tools.png" alt="Editor toolbar's tools, aka toolbox">
 <figcaption>Editor toolbar's tools, AKA toolbox.</figcaption>
 </figure>
 
@@ -96,13 +96,14 @@
 
 <table>
   <tr><th><strong>Mode</strong></th><td><strong>Keyboard Shortcut</strong></td></tr>
-  <tr><th>Grab</th><td><kbd>g</kbd></td></tr>
-  <tr><th>Range</th><td><kbd>r</kbd></td></tr>
-  <tr><th>Cut</th><td><kbd>c</kbd></td></tr>
+  <tr><th>Grab</th><td><kbd>G</kbd></td></tr>
+  <tr><th>Range</th><td><kbd>R</kbd></td></tr>
+  <tr><th>Cut</th><td><kbd>C</kbd></td></tr>
   <tr><th>Audition</th><td>None</td></tr>
-  <tr><th>Stretch</th><td><kbd>t</kbd></td></tr>
-  <tr><th>Draw</th><td><kbd>d</kbd></td></tr>
-  <tr><th>Internal Edit</th><td><kbd>e</kbd></td></tr>
+  <tr><th>Stretch</th><td><kbd>T</kbd></td></tr>
+  <tr><th>Grid</th><td><kbd>Y</kbd></td></tr>
+  <tr><th>Draw</th><td><kbd>D</kbd></td></tr>
+  <tr><th>Internal Edit</th><td><kbd>E</kbd></td></tr>
 </table>
 
 <p class="note">
@@ -171,6 +172,40 @@
   desired; the amount dragged in one direction or the other will determine
   the playback speed.
 </p>
+
+<h3 id="audition">Grid Mode</h3>
+
+<p>
+  The Grid mode has been designed to easily create and edit tempo maps.
+</p>
+
+<p>
+  <kbd class="mouse">Left</kbd>-clicking on the timeline above a bar line
+  creates a new tempo marker.
+</p>
+
+<video controls>
+  <source src="/videos/grid-tool-add.mp4" width="50%" type="video/mp4">
+</video>
+
+<p>
+  <kbd class="mouse">Left</kbd>-clicking and dragging on the timeline above
+  a bar line when a tempo marker already exists in that position changes
+  the value of the current and the previous markers to accomodate for.
+</p>
+
+<video controls>
+  <source src="/videos/grid-tool-edit.mp4" width="50%" type="video/mp4">
+</video>
+
+<p>
+  <kbd class="mouse">Left</kbd>-clicking and dragging on the timeline anywhere
+  between two bar lines creates a tempo ramp.
+</p>
+
+<video controls>
+  <source src="/videos/grid-tool-create-ramp.mp4" width="50%" type="video/mp4">
+</video>
 
 <h3 id="draw">Draw Mode</h3>
 
