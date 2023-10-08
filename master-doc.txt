@@ -598,6 +598,14 @@ part: chapter
 ---
 
 ---
+title: The Tracks and Busses List
+include: the-tracks-and-busses-list.html
+link: the-tracks-and-busses-list
+uri: ardours-interface/editor-lists/tracks-and-busses-list
+part: subchapter
+---
+
+---
 title: The Region List
 include: the-region-list.html
 link: the-region-list
@@ -606,10 +614,10 @@ part: subchapter
 ---
 
 ---
-title: The Tracks and Busses List
-include: the-tracks-and-busses-list.html
-link: the-tracks-and-busses-list
-uri: ardours-interface/editor-lists/tracks-and-busses-list
+title: The Arrangement list
+include: arrangement-list.html
+link: arrangement-list
+uri: ardours-interface/editor-lists/arrangement-list
 part: subchapter
 ---
 
