@@ -1,0 +1,111 @@
+<p>
+	Velocities of notes can be edited on both the timeline by selecting notes
+	and scrolling the mouse wheel above them, or by editing representations of
+	velocities in a dedicated Velocity automation lane.
+</p>
+
+<h2>Velocity lane</h2>
+
+<p>
+	To open the velocity lane, right-click on the MIDI track header, select
+	<kbd class="menu">Automation &gt; Velocity</kbd>.
+</p>
+
+<figure>
+<img width="100%" src="/images/velocity-lane.png" alt="Velocity lane below a MIDI track">
+<figcaption class="center">Velocity lane below a MIDI track</figcaption>
+</figure>
+
+<p>
+	Each notes's velocity is represented as a lollipop-shaped object.
+	Each lollipop object has two characteristics that represent the velocity
+	value:
+</p>
+
+<ol>
+	<li>
+		The vertical position: the lower the lollipop head is, the lower is the
+		velocity value, and vice versa.
+	</li>
+	<li>
+		The color: just like with notes on the timeline, it goes from pale yellow
+		(low velocity) to bright red (high velocity).
+	</li>
+</ol>
+
+<h2>Editing single notes</h2>
+
+<p>
+	To edit a single note's velocity <em>on the timeline</em>, click to select
+	the note in either Draw or Edit mode, then scroll the mouse wheel up or
+	down. The new value will be displayed in an overlay.
+</p>
+
+<video width="75%" controls>
+  <source src="/videos/midi-velocity-timeline-edit-single-note.mp4" type="video/mp4">
+</video>
+
+<p>
+	To edit a single note'velocity <em>on the velocity lane</em>, switch to the
+	Edit mode, grab the note's velocity lollipop, then drag it up or down:
+</p>
+
+<video width="75%" controls>
+  <source src="/videos/midi-velocity-lane-edit-single-note.mp4" type="video/mp4">
+</video>
+
+<p>
+	To edit a single note in a chord <em>on the velocity lane</em>, switch to the
+	Edit mode, select the note in the timeline, then draw its velocity lollipop up
+	or down:
+</p>
+
+<video width="75%" controls>
+  <source src="/videos/midi-velocity-lane-edit-note-in-chord.mp4" type="video/mp4">
+</video>
+
+<h2>Editing multiple notes</h2>
+
+<p>
+	To edit velocities of multiple notes <em>on the timeline</em>, in the Edit
+	mode, do a rubberband selection tp select adjucent notes or press
+	<kbd>Ctrl</kbd> to select non-adjucent notes (<kbd>Shift</kbd> will select
+	entire chords), then hover one of the selected notes and rotate the mouse
+	wheel up or down. Velocities will be adjusted in all selected notes
+	relatively, i.e. by the same amount.
+</p>
+
+<video width="75%" controls>
+  <source src="/videos/midi-velocity-timeline-edit-multiple-notes.mp4" type="video/mp4">
+</video>
+
+<p>
+	It's also possibly to edit the velocity of multiple notes in a MIDI region
+	by drawing free or straight lines in the velocity lane.
+</p>
+
+<p>
+	To draw a free line, in Draw mode, click and draw the mouse pointer over the
+	velocity lane from left to right:
+</p>
+
+<video width="75%" controls>
+  <source src="/videos/midi-velocity-lane-draw-freely.mp4" type="video/mp4">
+</video>
+
+<p>
+	To draw a straight line, in Draw mode, press and hold <kbd>Ctrl</kbd>, then
+	click and drag the mouse pointer to draw a straight line. Once you get the
+	line you expected, release the mouse button and then the <kbd>Ctrl</kbd> key.
+</p>
+
+<video width="75%" controls>
+  <source src="/videos/midi-velocity-lane-draw-straight-iines.mp4" type="video/mp4">
+</video>
+
+<p>
+	Just like with automation lines, you can also combine free and straight lines
+	in one go. Draw a free line, then press <kbd>Ctrl</kbd> to draw straight line,
+	release the <kbd>Ctrl</kbd> key, continue drawing free lines, release the mouse
+	button when you are'done drawing.
+</p>

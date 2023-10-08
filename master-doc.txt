@@ -1473,6 +1473,14 @@ part: subchapter
 ---
 
 ---
+title: Editing Velocity
+include: midi-velocity-editing.html
+link: editing-velocity
+uri: editing-and-arranging/editing-midi/editing-velocity
+part: subchapter
+---
+
+---
 title: Patch Change
 include: patch-change.html
 link: patch-change
