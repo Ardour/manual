@@ -317,6 +317,35 @@
 	</li>
 </ul>
 
+<h2 id="properties-midi">MIDI</h2>
+
+<ul>
+	<li>
+		<dfn>Draw tool creates opaque MIDI regions</dfn>: if selected, creates
+		MIDI regions that, when placed on top of other regions, don't mix with
+		content below during playback.
+	</li>
+	<li>
+		<dfn>MIDI region copies are independent</dfn>: if selected, when a MIDI
+		region is copied or duplicated, the new region is not linked to the
+		region it was copied from. If it is not selected, the copied regions
+		are linked and any editing done on one of the linked regions changes
+		all of the linked regions.
+	</li>
+	<li>
+		<dfn>Policy for handling overlapping notes on the same MIDI channel:</dfn>
+		selects how Ardour reacts to possibly conflicting MIDI notes:
+			<ul>
+				<li>never allow them</li>
+				<li>don't do anything in particular</li>
+				<li>replace any overlapped existing	notes</li>
+				<li>shorten the overlapped existing note</li>
+				<li>shorten	the overlapping new note</li>
+				<li>replace both overlapping notes with a	single note</li>
+			</ul>
+	</li>
+</ul>
+
 <h2 id="properties-misc">Misc</h2>
 
 <p>
@@ -325,44 +354,12 @@
 
 <ul>
 	<li>
-		<dfn>MIDI Options</dfn>
+		<dfn>Miscellaneous Options</dfn>
 		<ul>
 			<li>
-				<dfn>Draw tool creates opaque MIDI regions</dfn>: if selected, creates
-				MIDI regions that, when placed on top of other regions, don't mix with
-				content below during playback.
-			</li>
-			<li>
-				<dfn>MIDI region copies are independent</dfn>: if selected, when a MIDI
-				region is copied or duplicated, the new region is not linked to the
-				region it was copied from. If it is not selected, the copied regions
-				are linked and any editing done on one of the linked regions changes
-				all of the linked regions.
-			</li>
-			<li>
-				<dfn>Policy for handling overlapping notes on the same MIDI channel:</dfn>
-				selects how Ardour reacts to possibly conflicting MIDI notes:
-					<ul>
-						<li>never allow them</li>
-						<li>don't do anything in particular</li>
-						<li>replace any overlapped existing	notes</li>
-						<li>shorten the overlapped existing note</li>
-						<li>shorten	the overlapping new note</li>
-						<li>replace both overlapping notes with a	single note</li>
-					</ul>
-			</li>
-		</ul>
-	</li>
-	<li>
-		<dfn>Glue to Bars and Beats</dfn>
-		<ul>
-			<li>
-				<dfn>Glue new markers to bars and beats</dfn>: if checked, a newly
-				created marker will always be placed at the nearest musical time
-				instead of right where the mouse pointer is.
-			</li>
-			<li>
-				<dfn>Glue new regions to bars and beats</dfn>: same as above, for regions.
+				<dfn>Default time domain</dfn>: allows selecting either audio (wallclock)
+				time, or musical (beats) time. In an already opened session, this changes
+				what units various markers operate in.
 			</li>
 		</ul>
 	</li>
