@@ -574,6 +574,14 @@ part: subchapter
 ---
 
 ---
+title: Arrangement
+include: arrangement-ruler.html
+link: arrangement-ruler
+uri: working-with-markers/arrangement-ruler.html
+part: subchapter
+---
+
+---
 title: Summary
 include: summary.html
 link: summary
