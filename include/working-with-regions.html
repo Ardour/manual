@@ -1,5 +1,5 @@
 
-<h2>Working With Regions</h2>
+<h2>What Regions Are</h2>
 
 <p>
   <dfn>Regions</dfn> are the basic elements of editing and composing in
@@ -28,7 +28,7 @@
   region. Things to know about regions:
 </p>
 
-<h3>Regions Are Cheap</h3>
+<h2>Regions Are Cheap</h3>
 
 <p>
   By themselves, regions consume very little in terms of computer's resources.
@@ -37,7 +37,7 @@
   whenever needed should not be much of an issue CPU wise.
 </p>
 
-<h3>Regions Are Not Files</h3>
+<h2>Regions Are Not Files</h3>
 
 <p>
   Although a region can represent an entire audio file, they are never
@@ -52,3 +52,69 @@
   class="menu">Reverse</kbd> operations create new audio files).
 </p>
 
+<h2>Selecting regions</h2>
+
+<p>
+  Pointing at a region and single-clicking it with the Grab tool selects that
+  region. Multiple regions can be selected at the same time:
+</p>
+
+<ul>
+  <li>
+    <kbd>Ctrl</kbd>-<kbd class="mouse">left</kbd>-click adds individual
+    regions to the selection.
+  </li>
+  <li>
+    <kbd>Shift</kbd>-<kbd class="mouse">left</kbd>-click adds consecutive
+    regions to the selection, Ardour considers all regions of the same track
+    to the right from the currently selected track as consecutive regions.
+  </li>
+</ul>
+
+<p>
+  Selection of multiple regions is always temporary and is not preserved once
+  you click elsewhere or press <kbd>Esc</kbd>. To make such a selection
+  permanent, create a group of regions in one of the following ways:
+</p>
+
+<ul>
+  <li>Press <kbd>Ctrl</kbd>+<kbd>G</kbd></li>
+  <li>
+    Use <kbd class="menu">Region &gt; Group Selected Regions</kbd> in the main
+    menu
+  </li>
+  <li>
+    Use <kbd class="menu">Selected Regions &gt; Group Selected Regions</kbd>
+    in the right-click menu.
+  </li>
+</ul>
+
+<p>
+  To break a group of regions back into individual regions, do one of the
+  following things:
+</p>
+
+<ul>
+  <li>Press <kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>G</kbd></li>
+  <li>
+    Use <kbd class="menu">Region &gt; Ungroup Selected Regions</kbd> in the main
+    menu
+  </li>
+  <li>
+    Use <kbd class="menu">Selected Regions &gt; Ungroup Selected Regions</kbd>
+    in the right-click menu.
+  </li>
+</ul>
+
+<h2>Region Operations</h2>
+
+<p>
+  Selecting a region with a single-click makes it possible to perform various
+  operations on it. These operations are mostly accessible from the
+  main <kbd class="menu">Region</kbd> menu on top or from the right-click menu.
+</p>
+
+<p>
+  Some operations like editing fade in/out are accessible with just the mouse
+  pointer.
+</p>
