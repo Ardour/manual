@@ -68,18 +68,40 @@
 <h3>Drawing an Automation Curve Using the Mouse</h3>
 
 <p>
-  In <a href="@@toolbox"><dfn>Draw</dfn> mode</a>, <dfn>control points</dfn> can be entered in the
-  automation lane by <kbd class=mouse>left</kbd>-clicking in the lane at a
-  point where there is no existing control point.
+  In <a href="@@toolbox"><dfn>Draw</dfn> mode</a>, <dfn>control points</dfn>
+  can be entered in the automation lane in multiple ways.
 </p>
 
+<ul>
+  <li>
+    By <kbd class=mouse>left</kbd>-clicking in the lane at a point where there
+    is no existing control point. Once added, a control point can be
+    <kbd class=mouse>left</kbd>-clicked and dragged to any desired location.
+    Hovering over a control point will show its current value.
+    <strong>Warning:</strong> creating a verbose automation with many control
+    points can cause some plugins to overuse available system resources.
+  </li>
+  <li>
+    By <kbd class=mouse>left</kbd>-clicking in the lane and drawing a free line
+    from left to right.
+  </li>
+  <li>
+    By pressing <kbd>Ctrl</kbd>, then pressing <kbd class=mouse>left</kbd>
+    in the lane and moving the mouse pointer from left to right or from right
+    to left to preview a line segment, then releasing the mouse button to
+    complete the action.
+  </li>
+</ul>
+
 <p>
-  Once added, a control point can be <kbd class=mouse>left</kbd>-clicked and
-  dragged to any desired location. Hovering over a control point will show its
-  current value. To remove a control point, <kbd class=mouse>left</kbd>-click
-  it and press <kbd>Delete</kbd>, or <kbd class=mod3n></kbd><kbd
-  class=mouse>right</kbd>-click on it.
+  It's possible to combine free and straight lines in one go by pressing
+  <kbd>Ctrl</kbd> for when you need a straight line and releasing the button
+  when you're done drawing a straight line segment.
 </p>
+
+<video width="100%" controls>
+  <source src="/videos/automation-draw-free-and-straight-lines.mp4" type="video/mp4">
+</video>
 
 <h2>Controlling the Track</h2>
 
@@ -96,16 +118,22 @@
   in <kbd class=menu>Play</kbd> mode.
 </p>
 
-<h3>Removing Automation</h3>
+<h2>Removing Automation</h2>
+
+<p>
+  To remove a control point, <kbd class=mouse>left</kbd>-click it and press
+  <kbd>Delete</kbd>, or <kbd class=mod3n></kbd>
+  <kbd class=mouse>right</kbd>-click on it.
+</p>
 
 <figure class=right>
-<img src="/images/automation-audio-r-click-menu.png">
-<figcaption class=center>The automation lane context menu.</figcaption>
+  <img src="/images/automation-audio-r-click-menu.png">
+  <figcaption class=center>The automation lane context menu.</figcaption>
 </figure>
 
 <p>
-  Clearing the automation lane is done by <kbd
-  class="mouse">right</kbd>-clicking on the lane to be cleared, and selecting
-  <kbd class="menu">Clear</kbd> from the menu that appears.
+  Clearing the entire automation lane is done by
+  <kbd class="mouse">right</kbd>-clicking on the lane to be cleared, and
+  selecting <kbd class="menu">Clear</kbd> from the menu that appears.
 </p>
 
