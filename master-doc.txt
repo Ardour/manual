@@ -755,6 +755,14 @@ part: chapter
 ---
 
 ---
+title: Quick groups
+include: quick-groups.html
+link: quick-groups
+uri: working-with-tracks/quick-groups
+part: chapter
+---
+
+---
 title: Monitor Section
 include: monitor-section.html
 link: monitor-section
