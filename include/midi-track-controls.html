@@ -1,7 +1,11 @@
+<p>
+  A MIDI track has the same basic controls as an <a
+  href="@@audio-track-controls">audio track</a>, with a number of differences.
+</p>
 
 <figure>
-<img src="/images/typical-midi-track-controls.png" alt="A MIDI track header">
-<figcaption class="center">MIDI track header, stretched to show normally hidden controls.</figcaption>
+  <img width="50%" src="/images/typical-midi-track-controls.png" alt="A MIDI track header">
+  <figcaption class="center">MIDI track header, stretched to show normally hidden controls</figcaption>
 </figure>
 
 <p>
@@ -61,13 +65,47 @@
 		only the note.</li>
 </ul>
 
+<p>
+  Scroomer's user interface looks lightly differently depending on the
+  currently selected tool. For most tools, the UI is the same as on the screenshot
+  above. However, when either the Draw or the Edit tool is selected, the scroomer
+  will additionally display notes (e.g. 048 C, 049 C#):
+</p>
+
+<figure>
+  <img width="50%" src="/images/scroomer-notes.png" alt="Notes in the scroomer">
+  <figcaption class="center">Notes in the scroomer</figcaption>
+</figure>
+
+<p>
+  If a virtual instrument loaded into the MIDI track provides MIDNAM data,
+  Ardour will read and display note names rather than notes:
+</p>
+
+<figure>
+  <img width="50%" src="/images/scroomer-note-names.png" alt="Note names in the scroomer">
+  <figcaption class="center">Note names in the scroomer</figcaption>
+</figure>
+
+<p>
+  You can configure Ardour to always show note names when they are available
+  or never show them. The setting is on the <kbd class="menu">Appearance > Editor</kbd>
+  page of the Preferences dialog.
+</p>
+
+<p>
+  The extent to which scroomer can zoom into the pianoroll depends on the
+  maximum size of a note cell. This setting is available on the
+  <kbd class="menu">MIDI</kbd> page of the Preferences dialog.
+</p>
+
 <h2>Channel and Patch Selection</h2>
 
 <h3>The Channel Selector</h3>
 
 <figure class="right">
-<img src="/images/midi-chan-sel-dlg.png" alt="The MIDI channel control window">
-<figcaption class="center">The MIDI channel control window.</figcaption>
+  <img width="300" src="/images/midi-chan-sel-dlg.png" alt="The MIDI channel control window">
+  <figcaption class="center">The MIDI channel control window.</figcaption>
 </figure>
 
 <p>
