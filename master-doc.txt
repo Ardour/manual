@@ -2267,6 +2267,15 @@ part: chapter
 ---
 
 ---
+title: Using the Novation Launchpad Pro Mk3
+menu_title: Novation Launchpad Pro
+include: control-surfaces-launchpad-pro.html
+link: using-the-launchpad-pro
+uri: using-control-surfaces/Launchpad_Pro
+part: chapter
+---
+
+---
 title: Using the Novation Launch Control XL
 menu_title: Novation Launch Control XL
 include: control-surfaces-novation-lcxl.html
