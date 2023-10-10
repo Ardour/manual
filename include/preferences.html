@@ -91,21 +91,21 @@
     <dfn>Editor Undo</dfn> defines the behaviour of the Undo operations:
     <ul>
       <li>
-         <strong>Limit undo history</strong> sets how many commands can be
-	     undone using <kbd class="mod1">Z</kbd> or <kbd class="menu">Edit &gt; Undo</kbd>.
-         Unchecking will keep an endless memory of operations to undo, at the
-         expense of memory.
+        <strong>Limit undo history</strong> sets how many commands can be
+	      undone using <kbd class="mod1">Z</kbd> or <kbd class="menu">Edit &gt; Undo</kbd>.
+        Unchecking will keep an endless memory of operations to undo, at the
+        expense of memory.
       </li>
       <li>
-	     <strong>Save undo history</strong> sets how many commands are saved so
-	     they are available to be undone after reopening the session. This can
-         also be unchecked to keep all actions undoable, at the cost of bigger
-         session files.
+        <strong>Save undo history</strong> sets how many commands are saved so
+	      they are available to be undone after reopening the session. This can
+        also be unchecked to keep all actions undoable, at the cost of bigger
+        session files.
       </li>
       <li>
-	     <strong>Verify removal of last capture</strong> when enabled prompts to
-	     verify removal the last recording capture when
-	     <kbd class="menu">Edit &gt; Remove Last Capture</kbd> is executed.
+	      <strong>Verify removal of last capture</strong> when enabled prompts to
+	      verify removal the last recording capture when
+	      <kbd class="menu">Edit &gt; Remove Last Capture</kbd> is executed.
       </li>
     </ul>
   </li>
@@ -201,6 +201,10 @@
     <dfn>Theme</dfn>
     <ul>
       <li>
+        <dfn>Color faders with track/bus colors</dfn>: when enabled, fills faders
+        for tracks and busses with respective track or bus colors.
+      </li>
+      <li>
         <dfn>Draw &quot;flat&quot; buttons</dfn>: when enabled, button controls
         in the user interface will be drawn with a flat look. When disabled button
         controls will have a slight 3D appearance.
@@ -214,12 +218,6 @@
         <dfn>LED meter style</dfn> if checked, the bar meters in the editor and
         mixer will be styled to look like if they were made of LEDs, with a dotted
         bar. Unchecking this option makes the bars flat and continuous.
-      </li>
-      <li>
-        <dfn>Icon Set:</dfn> Changes the mouse cursor icons used to indicate
-        different tool modes in the editor. An example would be the icons used to
-        indicate whether the cursor will select a region or change the length of a
-        region.
       </li>
     </ul>
   </li>
@@ -261,7 +259,7 @@
     <dfn>Graphics Acceleration</dfn>
     <ul>
 	  <li>
-        <dfn>Disable Graphics Hardware Acceleration (requires restart)</dfn>:
+        <dfn>Use intermediate image-surface to render canvas (requires restart)</dfn>:
         Ardour uses hardware accelerated UI rendering by default for speed.
         Sometimes though, a buggy driver can cause this to make the system slow or
         unstable. Checking this will make Ardour draw its UI without
@@ -374,6 +372,23 @@
         <dfn>Use colors to show note velocity</dfn>: if checked, makes the
         saturation of the notes color proportional to its velocity, hence making
         a more veloce note more intense in color.
+      </li>
+      <li>
+        <dfn>Display note names in track headers</dfn>: allows selecting in
+        which scenario Ardour will display note names:
+        <ul>
+          <li>
+            <em>Always</em> — Ardour will always try to display note names
+            regardless of whether they are available through a MIDNAM file.
+          </li>
+          <li>
+            <em>When Available</em> — Ardour will only show note names when
+            they are provided in a MIDNAM file.
+          </li>
+          <li>
+            <em>Never</em> — Ardour will never display note names.
+          </li>
+        </ul>
       </li>
     </ul>
   </li>
@@ -499,11 +514,12 @@
 	<dfn>Display Action-Buttons</dfn>
 	  <ul>
 	    <li>
-		  <dfn>Column <em>n</em></dfn> enables or disables the visibility
-	      of the six possible columns of <a href="@@other-toolbar-items#mode_selector">Lua script buttons</a>.
-          Each columns contains two user-assignable buttons.
-        </li>
-      </ul>
+		    <dfn>Column <em>n</em></dfn> enables or disables the visibility of the
+        six possible columns of
+        <a href="@@other-toolbar-items#mode_selector">Lua script buttons</a>.
+        Each columns contains two user-assignable buttons.
+      </li>
+    </ul>
   </li>
 </ul>  
   
@@ -610,15 +626,15 @@
         editor and mixer. This setting requires a restart of Ardour to take effect.
       </li>
       <li>
-        <dfn>Float detached monitor-section window</dfn>: as the <a href="@@monitor-section">
-        monitor section</a> can be detached from the mixer, this option makes it a
-        floating window, which may be handled differently by the windowing system
-        and easier to access.
+        <dfn>Float detached monitor-section window</dfn>: as the
+        <a href="@@monitor-section">monitor section</a> can be detached from
+        the mixer, this option makes it a floating window, which may be handled
+        differently by the windowing system and easier to access.
       </li>
       <li>
-        <dfn>Render Canvas on openGL texture (requires restart)</dfn>: Ardour
-        will render the edutor canvas on an OpenGL texture to try improving
-        graphics performance.
+        <dfn>Allow to resize Engine Dialog</dfn>: allow to resize the engine
+        dialog window to work around a bug on some XWayland systems that render
+        this dialog as blank.
       </li>
     </ul>
   </li>
@@ -639,29 +655,34 @@
     </ul>
   </li>
 </ul>    
-      
+
+<h3 id="preferences-appearance-regions">Regions</h3>
+
+<ul>
+  <li>
+    <dfn>Region Information</dfn>      
+    <ul>
+      <li>
+          <dfn>Show xrun markers in regions</dfn> puts a marker on the region(s)
+          while recording, when a buffer over/underflow happens.
+        </li>      
+        <li>
+          <dfn>Show cue markers in regions</dfn> determines if cue markers,
+          that are bounded to regions, are displayed or not.
+        </li>  
+        <li>
+          <dfn>Show gain envelopes in audio regions:</dfn> sets in which
+          <a href="@@toolbox">modes</a> the gain envelope is displayed in audio regions.
+          The gain envelope is superimposed over the region in the selected modes, and
+          hidden otherwise for a better legibility.
+        </li>
+      </ul>   
+  </li>
+</ul>
+
 <h2 id="preferences-editor">Editor</h2>
      
 <ul>
-  <li>
-	<dfn>Region Information</dfn>      
-	<ul>
-	  <li>
-        <dfn>Show xrun markers in regions</dfn> puts a marker on the region(s)
-        while recording, when a buffer over/underflow happens.
-      </li>      
-      <li>
-        <dfn>Show cue markers in regions</dfn> determines if cue markers,
-        that are bounded to regions, are displayed or not.
-      </li>  
-      <li>
-        <dfn>Show gain envelopes in audio regions:</dfn> sets in which
-        <a href="@@toolbox">modes</a> the gain envelope is displayed in audio regions.
-        The gain envelope is superimposed over the region in the selected modes, and
-        hidden otherwise for a better legibility.
-      </li>
-    </ul>   
-  </li>
   <li>
 	<dfn>Scroll and Zoom Behaviors</dfn>      
 	<ul>   
@@ -723,10 +744,10 @@
         its present value.
       </li>
       <li>
-		<dfn>Automation edit cancels auto hide</dfn> determines whether automation
-		lanes that have been automatically shown because of the 
-		<kbd class="option">Edit &gt; Show Automation Lane on Touch</kbd>
-		option should be kept visible if the automation has been touched.
+    		<dfn>Automation edit cancels auto hide</dfn> determines whether automation
+    		lanes that have been automatically shown because of the 
+    		<kbd class="option">Edit &gt; Show Automation Lane on Touch</kbd>
+    		option should be kept visible if the automation has been touched.
       </li>
       <li>
         <dfn>Default fade shape:</dfn> sets which <a href="@@create-region-fades-and-crossfades">
@@ -751,27 +772,27 @@
         <dfn>After a Separate operation, in Range mode:</dfn> determines what
         should become of the Range selection after a Separate operation:
         <ul>
-			<li>Clear the Range Selection: nothing is selected anymore</li>
-			<li>Preserve the Range Selection: the range selection is kept</li>
-			<li>Force-Select the regions under the range: the regions that
-			were in the range selection are selected in Grab/Object mode</li>
+    			<li>Clear the Range Selection: nothing is selected anymore</li>
+    			<li>Preserve the Range Selection: the range selection is kept</li>
+    			<li>Force-Select the regions under the range: the regions that
+		    	were in the range selection are selected in Grab/Object mode</li>
         </ul>
       </li>
       <li>
         <dfn>After a Split operation, in Object mode:</dfn> determines which,
         if any, regions are selected after a split operation. The options are:
         <ul>
-			<li>Clear the Region Selection: nothing is selected anymore</li>
-			<li>Select only the newly-created regions BEFORE the split point:
-			</li>if regions have been affected by the split, then the regions
-			created by the split before the split point is selected
-			<li>Select only the newly-created regions BEFORE the split point:
-			same as above, for the regions created after the split point</li>
-			<li>Select the newly-created regions: sum of the two above, i.e. all
-			the regions that are created as a result of the split are selected.</li>
-			<li>Preserve the existing selection, AND select all newly-created regions:
-			same as above (all the parts that have been created by the split) plus
-			the unaffected regions that were selected before the split.</li>
+    			<li>Clear the Region Selection: nothing is selected anymore</li>
+    			<li>Select only the newly-created regions BEFORE the split point:
+    			if regions have been affected by the split, then the regions
+    			created by the split before the split point is selected</li>
+    			<li>Select only the newly-created regions BEFORE the split point:
+    			same as above, for the regions created after the split point</li>
+    			<li>Select the newly-created regions: sum of the two above, i.e. all
+    			the regions that are created as a result of the split are selected.</li>
+    			<li>Preserve the existing selection, AND select all newly-created regions:
+    			same as above (all the parts that have been created by the split) plus
+    			the unaffected regions that were selected before the split.</li>
         </ul>
       </li>
     </ul>
@@ -782,7 +803,7 @@
 
 <ul>
   <li>
-	<dfn>General Snap options:</dfn>      
+	<dfn>General Snap options</dfn>      :
 	<ul>
 	  <li>
         <dfn>Snap Threshold (pixels):</dfn> is the maximum distance between
@@ -808,7 +829,7 @@
         and end of the resulting selecting box will both be grid anchors.
       </li>
       <li>
-        <dfn>Grid switches to alternate selection for Internal Edit Tools</dfn>
+        <dfn>Grid switches to alternate selection for Internal Edit Tools</dfn>.
         Two levels of grid mode can coexist in Ardour, one for global regions
         manipulations, and one for finer, in-region editing (e.g. for placing
         MIDI events in a MIDI region). When this option is checked, entering
@@ -822,16 +843,41 @@
     </ul>
   </li>
   <li>
-	<dfn>When "Snap" is enabled, snap to:</dfn>      
-	Lists the different possible anchors to which an object should snap to, among:
-	<ul>
-	  <li>Markers</li>
-    <li>Playhead</li>
-	  <li>Region Sync points</li>
-	  <li>Region Starts</li>
-	  <li>Region Ends</li>
-	  <li>Grid</li>
-	</ul>
+    <dfn>Snap Target Mode</dfn>:
+    <ul>
+      <li>
+      <dfn>When "Snap" is enabled, snap to:</dfn>      
+      Lists the different possible anchors to which an object should snap to, among:
+      <ul>
+        <li>Markers</li>
+        <li>Playhead</li>
+        <li>Region Sync points</li>
+        <li>Region Starts</li>
+        <li>Region Ends</li>
+        <li>Grid</li>
+      </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Snap Targets</dfn>
+    <ul>
+      <li>
+        <dfn>Markers</dfn>: whether markers are snap targets
+      </li>
+      <li>
+        <dfn>Playhead</dfn>: whether the playhead is a snap targets
+      </li>
+      <li>
+        <dfn>Region Sync Points</dfn>: whether region sync points are snap targets
+      </li>
+      <li>
+        <dfn>Regions Starts</dfn>: whether regions starts are snap targets
+      </li>
+      <li>
+        <dfn>Regions Ends</dfn>: whether regions ends are snap targets
+      </li>
+    </ul>
   </li>
 </ul>
       
@@ -905,7 +951,7 @@
         range. E.g. B4 is B on the fourth octave.
       </li>
       <li>
-        <dfn>Maximum note length</dfn> sets the height of MIDI notes in pixels
+        <dfn>Maximum note height</dfn> sets the height of MIDI notes in pixels
         at maximum vertical zoom. Attempting to zoom in closer will result in
         scrolling the pianoroll up or down.
       </li>
@@ -1074,22 +1120,22 @@
   <li>
     <dfn>Transport Masters</dfn>
     <ul>
-	  <li>
-		<dfn>Show Transport Master Window</dfn> Opens the Transport masters
-		window, where all the timecode sources are shown to be selected
-		and/or synchronized; same as clicking <kbd class="menu">Window &gt;
-		Transport Masters</kbd>
-	  </li>
+  	  <li>
+    		<dfn>Show Transport Master Window</dfn> Opens the Transport masters
+    		window, where all the timecode sources are shown to be selected
+    		and/or synchronized; same as clicking <kbd class="menu">Window &gt;
+    		Transport Masters</kbd>
+  	  </li>
       <li>
-		<dfn>Match session video frame rate to external timecode</dfn>
-		controls the value of the video frame rate <em>while chasing</em>
-		an external timecode source. When enabled, the session video frame rate will be
-		changed to match that of the selected external timecode source. When disabled,
-		the session video frame rate will not be changed to match that of the selected
-		external timecode source. Instead, the frame rate indication in the main clock
-		will flash red and Ardour will convert between the external timecode standard
-		and the session standard.
-	  </li>
+  		  <dfn>Match session video frame rate to external timecode</dfn>
+  		  controls the value of the video frame rate <em>while chasing</em>
+  		  an external timecode source. When enabled, the session video frame rate will be
+  		  changed to match that of the selected external timecode source. When disabled,
+  		  the session video frame rate will not be changed to match that of the selected
+  		  external timecode source. Instead, the frame rate indication in the main clock
+  		  will flash red and Ardour will convert between the external timecode standard
+  		  and the session standard.
+  	  </li>
     </ul>
   </li>
 </ul>
@@ -1449,7 +1495,7 @@
         See <a href="@@monitoring">Monitoring</a> for more information.
       </li>
       <li>
-        <dfn>Auto Input does 'Talkback'</dfn> when enabled, the 
+        <dfn>Auto Input does 'talkback'</dfn> when enabled, the 
         <kbd class="option">Transport > Auto Input</kbd> option also sets
         the tracks to monitor its audio input when transport is not rolling.
       </li>
@@ -1647,16 +1693,6 @@
       </li>
     </ul>
   </li>
-  <li>
-    <dfn>Tempo</dfn>
-    <ul>
-      <li>
-        <dfn>Default tempo ruler state for new sessions</dfn>: allows choosing
-        whether a tempo map is created by default or requires the user to
-        build it from mapping performance to bars and beats.
-      </li>
-    </ul>
-  </li>
 </ul>
 
 
@@ -1774,13 +1810,13 @@
     Trying different combinations of these settings may minimize CPU consumption.
     <ul>
       <li>
-	    <dfn>Use DC bias to protect against denormals</dfn> adds a small
-	    constant value to numbers to move the numbers away from zero.
-	  </li>
+	      <dfn>Use DC bias to protect against denormals</dfn> adds a small
+	      constant value to numbers to move the numbers away from zero.
+	    </li>
       <li>
-		<dfn>Processor handling:</dfn>, if the computer's hardware
-	    supports it, offers two methods that can be used individually or
-	    combined. Flush to zero and denormals are zero.
+	     	<dfn>Processor handling:</dfn>, if the computer's hardware
+	      supports it, offers two methods that can be used individually or
+	      combined. Flush to zero and denormals are zero.
       </li>
     </ul>
   </li>
@@ -1820,24 +1856,24 @@
     <dfn>Automation</dfn>
     <ul>
       <li>
-	    <strong>Thinning factor</strong> ranges from 0 to 1000 with larger
-	    values sending fewer automation changes. Thinning is like lossy
-	    audio compression, removing data that is less likely to be noticed,
-	    although the more is removed, the more likely the loss will be noticed.
-	    The advantage to thinning is reduced CPU usage.
+  	    <strong>Thinning factor</strong> ranges from 0 to 1000 with larger
+  	    values sending fewer automation changes. Thinning is like lossy
+  	    audio compression, removing data that is less likely to be noticed,
+  	    although the more is removed, the more likely the loss will be noticed.
+  	    The advantage to thinning is reduced CPU usage.
 	  </li>
       <li>
-	  	<strong>Automation sampling interval</strong> ranges from 1 to
-    	1000&nbsp;ms. Determines how frequently the automation input is
-    	sampled. The shorter the interval the higher the accuracy but also
-    	the higher the CPU requirements.
+  	  	<strong>Automation sampling interval</strong> ranges from 1 to
+      	1000&nbsp;ms. Determines how frequently the automation input is
+      	sampled. The shorter the interval the higher the accuracy but also
+      	the higher the CPU requirements.
       </li>
     </ul>
   </li>
   <li>
 	<dfn>Automatables</dfn>
     <ul>
-	  <li>	  
+  	  <li>	  
         <dfn>Limit automatable parameters per plugin</dfn>: as some plugins
         (synthesizers, &hellip;) have a lot of parameters, and those parameters
         can be automated by Ardour, checking this will limit the number of parameters
@@ -1918,4 +1954,3 @@
     </ul>
   </li>
 </ul>
-
