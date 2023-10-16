@@ -622,6 +622,14 @@ part: subchapter
 ---
 
 ---
+title: The Clips List
+include: the-clips-list.html
+link: the-clips-list
+uri: ardours-interface/editor-lists/clips-list
+part: subchapter
+---
+
+---
 title: The Arrangement list
 include: arrangement-list.html
 link: arrangement-list
