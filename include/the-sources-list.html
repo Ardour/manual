@@ -1,0 +1,75 @@
+<p>
+	The Sources list shows all the original audio and MIDI files in the session,
+	either recorded in takes or imported from existing files. Any column caption
+	can be clicked to sort the list according to the clicked value:
+</p>
+
+<table class="dl">
+	<tr>
+		<th>Name</th>
+		<td>The name of the region, can be modified by double-clicking it.</td>
+	<tr>
+		<th># Ch</th>
+		<td>
+			The number of channels, only displayed for audio files (it is 0
+			for MIDI files).
+		</td>
+	<tr>
+		<th>Captured for</th>
+		<td>The name of the track the source was originally captured in.</td>
+	<tr>
+		<th># Xruns</th>
+		<td>How many dropouts occured while capturing the source.</td>
+	<tr>
+		<th>Tags</th>
+		<td>
+			All the <a href="@searching-for-files-using-tags">tags</a> assigned
+			to the source.
+		</td>
+	<tr>
+		<th>Take ID</th>
+		<td>
+			The unique ID of the source. Uses the timestamp for when the
+			capturing of source was started. E.g. <tt>2023-10-16 14.08.58</tt>
+			means the capturing started on October 16, 2023, at 2.08pm. This is
+			only used for audio and MIDI sources that were captured, not
+			imported.
+		</td>
+	<tr>
+		<th>Orig Pos</th>
+		<td>
+			The original position at which the capturing of the source was
+			started. The time format is whatever the user chose for the primary
+			clock when the source was captured. Switching between time formats
+			when capturing sources means the time format will not be the same
+			for all captured sources.
+		</td>
+	<tr>
+		<th>Path</th>
+		<td>File name of the captured or imported source.</td>
+</table>
+
+<p>
+	Hovering the mouse pointer over a column heading shows a tool-tip which can
+	be handy to remember what the columns are for.
+</p>
+
+<p>
+	<kbd class="mouse">right</kbd>-clicking on a source in the list brings up
+	a context menu with just one item: <kbd class="menu">Remove the selected
+	Sources</kbd>. Choosing it gives several options to the user:
+</p>
+
+<ul>
+	<li>Canceling the requested action and doing nothing.</li>
+	<li>
+		Removing just the regions that use the selected source, but not the
+		sources themselves.
+	</li>
+	<li>
+		Removing both the regions that use selected sources and deleting the
+		selected sources. The latter action cannot be undone and requires using
+		the <kbd class="menu">Session &gt; Cleanup &gt; Flush Wastebasket</kbd>
+		command to physically delete the sources.
+	</li>
+</ul>
