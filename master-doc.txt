@@ -606,6 +606,14 @@ part: subchapter
 ---
 
 ---
+title: The Tracks List
+include: the-tracks-list.html
+link: the-tracks-list
+uri: ardours-interface/editor-lists/tracks-list
+part: subchapter
+---
+
+---
 title: The Sources List
 include: the-sources-list.html
 link: the-sources-list
