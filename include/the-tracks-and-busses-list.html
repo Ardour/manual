@@ -7,27 +7,60 @@
 </p>
 
 <table class="dl">
-  <tr><th id="visible">V</th>
-  <td>whether the track or bus is visible; they can be hidden, in which case they
-    will still play, but just not be visible in the editor; this can be useful for
-    keeping the display uncluttered.</td></tr>
-  <tr><th id="active">A</th>
-  <td>whether the track or bus is active; inactive tracks will not play, and will
-    not consume any CPU.</td></tr>
-  <tr><th id="input">I</th> <td>for MIDI tracks,
-    whether the MIDI input is enabled; this dictates whether MIDI data from the
-    track's input ports will be passed through the track.</td></tr>
-  <tr><th id="record">R</th> <td>whether the track is record-enabled.</td></tr>
-  <tr><th id="record-safe">RS</th> <td>whether the track is record safe; a record safe
-    track cannot be armed for recording, to protect against a mistake.</td></tr>
-  <tr><th id="mute">M</th>
-  <td>whether the track is muted.</td></tr>
-  <tr><th id="solo">S</th>
-  <td>track solo state.</td></tr>
-  <tr><th id="solo-isolated">SI</th>
-  <td>track solo-isolated state.</td></tr>
-  <tr><th id="solo-safe">SS</th>
-  <td>solo safe state. </td></tr>
+  <tr>
+    <th id="visible">V</th>
+    <td>
+      Whether the track or bus is visible; they can be hidden, in which case they
+      will still play, but just not be visible in the editor; this can be useful for
+      keeping the display uncluttered.
+    </td>
+  </tr>
+  <tr>
+    <th id="cue">C</th>
+    <td>
+      Whether the track is visiable on the Cue page, in which case it can be used
+      for non-linear sequencing in the Cue window, but any content in the track
+      visible in the Editor window will not be played.
+    </td>
+  </tr>
+  <tr>
+    <th id="active">A</th>
+    <td>
+      Whether the track or bus is active; inactive tracks will not play, and
+      will not consume any CPU.
+    </td>
+  </tr>
+  <tr>
+    <th id="input">I</th>
+    <td>
+      For MIDI tracks, whether the MIDI input is enabled; this dictates whether
+      MIDI data from the track's input ports will be passed through the track.
+    </td>
+  </tr>
+  <tr>
+    <th id="record">R</th>
+    <td>Whether the track is record-enabled.</td></tr>
+  <tr>
+    <th id="record-safe">RS</th>
+    <td>
+      Whether the track is record safe; a record safe track cannot be armed for
+      recording, to protect against a mistake.
+    </td>
+  </tr>
+  <tr>
+    <th id="mute">M</th>
+    <td>Whether the track is muted.</td>
+  </tr>
+  <tr>
+    <th id="solo">S</th>
+    <td>Track solo state.</td>
+  </tr>
+  <tr>
+    <th id="solo-isolated">SI</th>
+    <td>Track solo-isolated state.</td></tr>
+  <tr>
+    <th id="solo-safe">SS</th>
+    <td>Solo safe state. </td></tr>
 </table>
 
 <p class="note">
