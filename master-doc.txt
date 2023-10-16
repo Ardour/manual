@@ -606,7 +606,15 @@ part: subchapter
 ---
 
 ---
-title: The Region List
+title: The Sources List
+include: the-sources-list.html
+link: the-sources-list
+uri: ardours-interface/editor-lists/sources-list
+part: subchapter
+---
+
+---
+title: The Regions List
 include: the-region-list.html
 link: the-region-list
 uri: ardours-interface/editor-lists/region-list
