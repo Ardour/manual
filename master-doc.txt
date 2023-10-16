@@ -901,6 +901,14 @@ part: subchapter
 ---
 
 ---
+title: Track Templates
+include: track-templates.html
+link: track-templates
+uri: working-with-tracks/track-templates
+part: subchapter
+---
+
+---
 title: Track Types
 include: track-types.html
 link: track-types
