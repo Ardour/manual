@@ -590,7 +590,7 @@ part: chapter
 ---
 
 ---
-title: Editor Lists
+title: Editor and Cue Lists
 include: editor-lists.html
 link: editor-lists
 uri: ardours-interface/editor-lists
