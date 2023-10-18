@@ -46,6 +46,12 @@
   saved, the connections will be made automatically in this and other
   future sessions.
 </p>
+<h3>Checkboxes</h3>
+<p>The checkbox "Swap Solo and Mute" does exactly that. In Ardour and Mixbus, these buttons are arranged exactly the other way round than in Console1. Since this can be irritating, the assignment can be reversed here.
+<p>
+<p><em>Work in Progress</em><br/>
+The checkbox "Create Plugin Mapping Stubs" automatically creates mapping files for external plugins - if they does not already exists. See the last section "External Plugins" for further information.
+<p>
 <h2>Harrison Mixbus &amp; Mixbus 32c</h2>
 <p class="well">
   A lot of functionality is developed to be used with Harrison Mixbus 
@@ -184,8 +190,8 @@
     <td>Depth for the gate</td>
   </tr>
   <tr>
-    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">Sustain</kbd></th>
-    <td>Filter frequency for the gate</td>
+    <th><kbd class="knob">Shift</kbd>+<kbd class="knob">Punch</kbd></th>
+    <td>Sidechain filter frequency</td>
   </tr>
   <tr>
     <th><kbd class="button">Hard Gate</kbd></th>
@@ -356,5 +362,74 @@ the next send below by the send 2 encoder
     <th><kbd class="knob">(High Mid) Shape</kbd></th>
     <td>Send 12</td>
   </tr>  
-
+  
 </table>  
+
+<h4>External Plugins</h4>
+<div class="well">
+  <em>This is work in progress. But things described here are already working but might be unstable!</em><br/>
+  Pressing <kbd class="knob">Group</kbd> will set Console1 into external plugin mode. External plugins are all plugins in case of Ardour and in case of Mixbus all plugins which are not a fixed part of the mixerstrips.
+</div>
+
+<table class="dl">
+  <tr>
+    <th><kbd class="knob">Group</kbd></th>
+    <td>Set or unset the Console 1 into "External Plugin Mode"<td>
+  </tr>  
+  <tr>
+    <th><kbd class="knob">1</kbd>-<kbd class="knob">20</kbd></th>
+    <td>Select the plugin at position [selected number]. Pressing repeatedly then shows or hides the plugin.The LED of the selected channel stay on permanently, the channel LED of the plugin number stays in 'blinking mode'.</td>
+  </tr>
+  <tr>
+    <th><kbd class="knob">Mute</kbd></th>
+    <td>Disables the plugin</td>
+  </tr>
+</table>  
+<p>All other assignements needs to be done with the mapping files. A stub of such a mapping file can be automatically created when the checkbox "Create Plugin Mapping Stubs" in the "Control Protocol Settings" dialog is enabled.</p>
+<p>The mapping files are created in a subdirectory "c1mappings" of the Ardour/Mixbus settings directory</p>
+<p>This is the example of a mapping file for the a-compressor. The file name is created from the unique URL of the plugin. In this case its <b>urn:ardour:a-comp.xml</b>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;c1plugin-mapping 
+        ID="urn:ardour:a-comp" 
+        NAME="ACE Compressor"&gt;
+        &lt;param-mapping id="0"&gt;
+                &lt;name&gt;Attack&lt;/name&gt;
+                &lt;mapping shift="false"&gt;COMP_ATTACK&lt;/mapping&gt;
+        &lt;/param-mapping&gt;
+
+        &lt;param-mapping id="1"&gt;
+                &lt;name&gt;Release&lt;/name&gt;
+                &lt;mapping shift="false"&gt;COMP_RELEASE&lt;/mapping&gt;
+        &lt;/param-mapping&gt;
+
+        &lt;param-mapping id="2"&gt;
+                &lt;name&gt;Knee&lt;/name&gt;
+                &lt;mapping shift="false"&gt;&lt;/mapping&gt;
+        &lt;/param-mapping&gt;
+
+        &lt;param-mapping id="3"&gt;
+                &lt;name&gt;Ratio&lt;/name&gt;
+                &lt;mapping shift="false"&gt;COMP_RATIO&lt;/mapping&gt;
+        &lt;/param-mapping&gt;
+
+        &lt;param-mapping id="4"&gt;
+                &lt;name&gt;Threshold&lt;/name&gt;
+                &lt;mapping shift="false"&gt;COMP_THRESH&lt;/mapping&gt;
+        &lt;/param-mapping&gt;
+
+        &lt;param-mapping id="5"&gt;
+                &lt;name&gt;Makeup&lt;/name&gt;
+                &lt;mapping shift="false"&gt;COMP_PAR&lt;/mapping&gt;
+        &lt;/param-mapping&gt;
+
+        &lt;param-mapping id="6"&gt;
+                &lt;name&gt;Sidechain&lt;/name&gt;
+                &lt;mapping shift="false"&gt;&lt;/mapping&gt;
+        &lt;/param-mapping&gt;
+&lt;/c1plugin-mapping&gt;
+
+</pre>
+</p> 
+<p>It is planned to allow creating the mapping file for the plugins inside the setup dialog. This, however, might take some time.
+</p>
