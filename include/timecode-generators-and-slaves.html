@@ -1,5 +1,3 @@
-
-
 <p>
   Ardour supports three common timecode formats:
   <abbr title="Linear/Longitudinal Time Code"><dfn>LTC</dfn></abbr>,
@@ -15,7 +13,6 @@
   Combining the timecode slave and generator modes, Ardour can also
   <dfn>translate</dfn> timecode. e.g create LTC timecode from incoming MTC.
 </p>
-
 
 <h2>Ardour Timecode Configuration</h2>
 
@@ -83,6 +80,7 @@
 </p>
 
 <h3>MTC Generator</h3>
+
 <p>
   The <dfn>MTC generator</dfn> has no options. Ardour sends full MTC
   frames whenever the transport is relocated or changes state (start/stop).
@@ -91,17 +89,20 @@
 </p>
 
 <h3>LTC Generator</h3>
+
 <p>
   The level of the <dfn>LTC generator</dfn> output signal can be configured
   in the <kbd class="menu">Preferences &gt; Transport</kbd> dialog. By
   default it is set to -18&nbsp;dBFS, which corresponds to 0dBu in an EBU
   calibrated system.
 </p>
+
 <p>
   The LTC generator has an additional option to keep sending timecode even
   when the transport is stopped. This mode is intended to drive analog tape
   machines which unspool the tape if no LTC timecode is received.
 </p>
+
 <p>
   LTC is sent regardless of Ardour's transport speed. It is accurately
   generated even for very slow speeds (&lt;5%) and only limited by the
@@ -111,8 +112,8 @@
   for high speeds.
 </p>
 
-
 <h2>Ardour Slave Configuration</h2>
+
 <p>
   The timecode source can be switched with the button just right of
   Ardour's main clock. By default it is set to <kbd
@@ -121,24 +122,30 @@
   timecode source which is chosen in <kbd class="menu">Edit &gt; Preferences
   &gt; Transport</kbd>.
 </p>
+
 <p>
   When Ardour is <dfn>chasing</dfn> (synchronizing to) an external timecode
   source, the following cases need to be distinguished:
 </p>
+
 <ol>
   <li>the timecode source shares the clock</li>
   <li>the timecode source is independent (no wordclock sync)</li>
 </ol>
+
 <p>and</p>
+
 <ol>
   <li>the timecode source uses the same FPS setting as Ardour</li>
   <li>the timecode source runs at different frames-per-second</li>
 </ol>
+
 <p>
   In both cases the first option is preferred: clock sync + same FPS setting.
 </p>
 
 <h3>Frames-per-second</h3>
+
 <p>
   If the frames-per-second do not match, Ardour can either re-calculate
   and map the frames, or the configured FPS (<kbd class="menu">Session &gt;
@@ -147,6 +154,7 @@
   &gt; Preferences &gt; Transport &gt; Match session video frame rate to
   external timecode</kbd>.
 </p>
+
 <p>
   When enabled, the session video frame rate will be changed to match that
   of the selected external timecode source. When disabled, the session video
@@ -155,6 +163,7 @@
   flash red, and Ardour will convert between the external timecode standard
   and the session standard.
 </p>
+
 <p class="warning">
   29.97 drop-frame timecode is another corner case. While the SMPTE 12M-1999
   specifies 29.97df as 30000/1001 frames per second, not all hardware devices
@@ -173,6 +182,7 @@
 </p>
 
 <h3>Clock Sync Lock</h3>
+
 <p>
   As described in the
   <a href="@@on-clock-and-time">On Clock and Time</a>
@@ -180,30 +190,29 @@
   source is not in sample-sync with the audio hardware (and JACK), Ardour
   needs to run at varispeed to adjust for the discrepancy.
 </p>
+
 <p>
   The checkbox <kbd class="option">External timecode is sync locked</kbd>
   allows to select the behavior according to the setup. When enabled, it
   indicates that the selected external timecode source shares sync (Black
   &amp; Burst, Wordclock, etc) with the audio interface.
 </p>
+
 <p>
   In other words: if enabled, Ardour will only perform initial
   synchronization and keep playing at speed 1.0 instead of vari-speed
   adjusting to compensate for drift.
 </p>
-<p class="note">
-  Note that vari-speed is unavailable when recording in Ardour, and all
-  tracking happens at speed 1.0. So in order to record in sync with
-  external timecode it must be sample-locked or it will drift over time.
-</p>
 
 <h3>MIDI Clock</h3>
+
 <p>
   <dfn>MIDI Clock</dfn> is not a timecode format but tempo-based time. The
   absolute reference point is expressed as beats-per-minute and Bar, Beat
   and Tick. There is no concept of sample-locking for MIDI clock signals.
   Ardour will vari-speed if necessary to chase the incoming signal.
 </p>
+
 <p>
   Note that the MIDI Clock source must be connected to the
   <code>ardour:MIDI clock in</code> port.
@@ -271,23 +280,26 @@
 </p>
 <p>
   When Ardour is chasing MTC, the main transport clock will display the
-  received Timecode as well as the delta between the incoming signal and
+  received timecode as well as the delta between the incoming signal and
   Ardour's transport position.
 </p>
 
 <h3>JACK Transport</h3>
+
 <p>
-  When slaved to jack, Ardour's transport will be identical to
-  JACK-transport. As opposed to other slaves, Ardour can be used to control
-  the JACK transport states (stopped/rolling). No port connections need to
-  be made for jack-transport to work.
+  When slaved to jack, Ardour's transport will be identical to JACK Transport.
+  As opposed to other slaves, Ardour can be used to control the JACK transport
+  states (stopped/rolling). No port connections need to be made for
+  JACK Transport to work.
 </p>
+
 <p>
-  JACK-transport does not support vari-speed, nor offsets. Ardour does not
+  JACK Transport does not support vari-speed, nor offsets. Ardour does not
   chase the timecode but is always in perfect sample-sync with it.
 </p>
+
 <p>
-  JACK-transport also includes temp-based-time information in Bar:Beats:Ticks
+  JACK Transport also includes temp-based time information in Bar:Beats:Ticks
   and beats-per-minute. However, only one JACK application can provide this
   information at a given time. The checkbox
   <kbd class="option">Session &gt; Properties &gt; JACK Time Master</kbd>

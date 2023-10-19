@@ -61,9 +61,9 @@
   allows to <em>temporarily</em> scrub through the audio quickly. The slider
   decides the playback speed: the further from the center it is set,
   the faster the playback will scrub in both directions. The range of
-  this acceleration can be set by <kbd class="mouse">right</kbd>
-  clicking the control and setting the multiplier, between 1.5
-  (&plusmn; 150%) and 8 (&plusmn; 800%).
+  this acceleration can be set by <kbd class="mouse">right</kbd>-clicking
+  the control and setting the multiplier, either 1.5 (&plusmn; 150%) or 2
+  (&plusmn; 200%).
 </p>
 
 <h4 id="transport_varispeed">VariSpeed</h4>
@@ -71,21 +71,22 @@
   The <kbd class="menu">VS</kbd> (for <em>V</em>ari<em>S</em>peed)
   button sets a <em>constant</em> playback/record speed. It can be set
   in semitones (1 semitone = &times; 2 <sup>1&frasl;12</sup> &asymp;
-  105,9%), or cents of semitones, and is armed/disarmed by clicking the
-  button. The <kbd class="menu">VS</kbd> button will blink when VariSpeed
-  is enabled. Whether or not this VariSpeed is persistent when
-  stopping/restarting transport depends on the <kbd class="option">Reset
-  default speed on stop</kbd> parameter in the <a
-  href="@@preferences#preferences-transport">Preferences</a>.
+  105,9%), cents of semitones, or percentages, and is armed/disarmed
+  by clicking the button. The <kbd class="menu">VS</kbd> button will blink
+  when VariSpeed is enabled. Whether or not this VariSpeed is persistent
+  when stopping/restarting transport depends on the
+  <kbd class="option">Reset default speed on stop</kbd> parameter in the
+  <a href="@@preferences#preferences-transport">Preferences</a> dialog.
 </p>
 
 <h4 id="transport_sync">Transport Sync</h4>
 <p>
-  On the left of the slider is the positional sync button (which might show <dfn>Internal</dfn>,
-  or <dfn>MTC</dfn> or several other values), than can be used to control whether or not the
-  transport position and start is controlled by Ardour, or by an external positional
-  synchronization source, such as MIDI Time Code (MTC), Linear Time Code (LTC) or JACK
-  (see <a href="@@timecode-generators-and-slaves">Timecode Generators and Slaves</a>).
+  On the left of the slider is the positional sync button (which might show
+  <dfn>Internal</dfn>, or <dfn>MTC</dfn> or several other values), than can be
+  used to control whether or not the transport position and start is controlled
+  by Ardour, or by an external positional synchronization source, such as MIDI
+  Time Code (MTC), Linear Time Code (LTC) or JACK (see
+  <a href="@@timecode-generators-and-slaves">Timecode Generators and Slaves</a>).
 </p>
 
 <h4 id="transport_status">Transport Status</h4>
