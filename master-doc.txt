@@ -1500,7 +1500,15 @@ part: subchapter
 title: Note Cut, Copy and Paste
 include: note-cut-copy-and-paste.html
 link: note-cut-copy-and-paste
-uri: working-with-midi/note-cut-copy-and-paste-
+uri: working-with-midi/note-cut-copy-and-paste
+part: subchapter
+---
+
+---
+title: Note Splitting and Joining
+include: note-splitting-joining.html
+link: note-splitting-joining
+uri: working-with-midi/note-splitting-joining
 part: subchapter
 ---
 

@@ -1,0 +1,87 @@
+
+<p>
+	It is possible to evenly split (tuple) and join notes in both the Draw
+	and the Internal Edit modes.
+</p>
+
+<h2>Splitting notes</h2>
+
+<p>
+	To split a note or a group of notes into tuplets, first select the notes.
+</p>
+
+<p>
+<figure>
+	<img src="/images/note-split-select.gif" width="50%" alt="">
+</figure>
+</p>
+
+<p>
+	Press <kbd class="button">S</kbd> to split selected notes into two tuplets.
+	In the example below, each note with a duration of two whole notes will be
+	split into two notes, each with a duration of one whole note. For each
+	newly created note Ardour will display its velocity inherited from the
+	original notes.
+</p>
+
+<p>
+<figure>
+	<img src="/images/note-split-into-two.gif" width="50%" alt="Split notes into two">
+</figure>
+</p>
+
+<p>
+	Repeatedly pressing <kbd class="button">S</kbd> will increment the amount
+	of tuplets. Thus, the next key press will divide the original note into
+	3 notes 2 and 2/3 beats long each, then 4 notes 2 beats long each etc.
+	A temporary message will be displayed to tell how many subdivisions have
+	been created.
+</p>
+
+<p>
+<figure>
+	<img src="/images/note-split-sequential.gif" width="50%" alt="">
+</figure>
+</p>
+
+<p>
+	To stop incrementing the amount of subdivisions, deselect notes by
+	clicking elsewhere in the MIDI region or by pressing
+	<kbd class="button">Esc</kbd>.
+</p>
+
+<h2>Joining notes</h2>
+
+<p>
+	To join several notes into one, select the notes, then press
+	<kbd class="button">J</kbd>:
+</p>
+
+<p>
+<figure>
+	<img src="/images/note-join-simple.gif" width="50%" alt="Joining adjacent notes">
+</figure>
+</p>
+
+<p>
+	If non-adjacent notes are selected, and there is a blank space between
+	them, the note will extend from the beginning of the earliest note to
+	the end of the latest note and fill the blank spaces with itself:
+</p>
+
+<p>
+<figure>
+	<img src="/images/note-join-extend.gif" width="50%" alt="Joining and extending notes">
+</figure>
+</p>
+
+<p>
+	If non-adjacent notes are selected, and there is at least one note between
+	them, newly created note will overlay the existing note:
+</p>
+
+<p>
+<figure>
+	<img src="/images/note-join-overlap.gif" width="50%" alt="Joining non-adjacent notes">
+</figure>
+</p>
