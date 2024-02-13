@@ -1,14 +1,14 @@
 <p>
-  The Loudness Analyzer and Normalizer is a tool that is useful at the
+  The <em>Loudness Analyzer and Normalizer</em> tool is useful at the
   end of the mixing process to make the final audio file comply with
   different specs regarding loudness.
 </p>
 
 <p class="note">
-  This is a rather advanced mode. When using the Loudness Analyzer &amp;
-  Normalizer (or <dfn>LAN</dfn>), one has to make sure than normalization
+  This is a rather advanced mode. When using the <em>Loudness Analyzer &amp;
+  Normalizer</em> (or <dfn>LAN</dfn>), one has to make sure than normalization
   is disabled when exporting.
-  <br>
+  <br><br>
   In general, it is recommended to just use <a href="@@export-format-profiles">
   automatic export normalization</a>, in the <a href="@@export-dialog">Export
   dialog</a>. This can also produce results for multiple targets at the
@@ -32,7 +32,9 @@
 <p>Either method show the following window:</p>
 
 <figure>
-  <img src="/images/pre_loudness.png" alt="The Loudness Analyzer realtime selector">
+  <img src="/images/pre_loudness.png"
+  	alt="The Loudness Analyzer realtime selector"
+  	width="50%" >
   <figcaption>
     The Loudness Analyzer realtime selector
   </figcaption>
@@ -52,13 +54,16 @@
 </p>
 
 <figure>
-  <img src="/images/loudness_analyzer.png" alt="The Loudness Analyzer and Normalizer">
+  <img
+  	src="/images/loudness_analyzer.png"
+  	alt="The Loudness Analyzer and Normalizer"
+  	width="75%" >
   <figcaption>
     The Loudness Analyzer and Normalizer
   </figcaption>
 </figure>
 
-<h2>The Loudness Graph</h2>
+<h2 id="loudness-graph">The Loudness Graph</h2>
 
 <p>
 	At the top of the window, a loudness graph visually represents the
@@ -73,7 +78,7 @@
 	<li><span style="color:blue;">Momentary loudness</span> using a sliding time window of 400 ms.</li>
 </ul>
 
-<h2>Normalization Parameters</h2>
+<h2 id="normalization-parameters">Normalization Parameters</h2>
 
 <p>
 	As loudness is a perceived sonic energy, and depends on the level, frequency,
@@ -115,7 +120,7 @@
 		hence the correction to apply</li>
 </ul>
 
-<h2>Presets</h2>
+<h2 id="presets">Presets</h2>
 
 <p>
 	A selection of presets is offered to simplify the normalization. These
@@ -157,8 +162,17 @@
 	Post-<a href="@@export-dialog">Export</a> analysis.
 </p>
 
-<h2>The Conformity Analysis Panel</h2>
+<figure>
+  <img
+  	src="/images/export-loudness-report.png"
+  	alt="The loudness report"
+  	width="75%" >
+  <figcaption>
+    The loudness report
+  </figcaption>
+</figure>
 
+<h2 id="conformity-analysis-panel">The Conformity Analysis Panel</h2>
 
 <p>
 	At the lower right end of the window is a <em>Conformity Analysis</em>
