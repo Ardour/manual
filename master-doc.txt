@@ -1167,7 +1167,7 @@ title: Interchange with other DAWs
 include: interchange-with-other-daws.html
 link: interchange-with-other-daws
 uri: working-with-sessions/interchange-with-other-daws
-part: subchapter
+part: chapter
 ---
 
 ---
