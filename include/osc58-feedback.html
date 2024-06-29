@@ -289,6 +289,30 @@
   <em>state</em> is an int that determines if the named VCA will control
   this strip. Note that this lists all VCAs in a session. (Ardour 6.0)</td></tr>
 </table>
+
+<h3>Selected Plugin</h3>
+<p>
+Feedback about plugin parameters is sent only for a single, selected
+plugin (parameters for other plugins and other strips can be changed
+with <kbd class="osc">/select/plugin/parameter</kbd> and <kbd
+class="osc">/strip/plugin/parameter</kbd>, but without feedback).
+Whenever the plugin (or strip) changes, the name and activation of the
+plugin and name and value of a number of its parameters (determined by
+the plugin page size) is sent as feedback.
+</p>
+
+<table class="dl">
+  <tr><th><kbd class="osc">/select/plugin/name <em>name</em></kbd></th>
+  <td>where <em>name</em> is a string with the name of the selected
+    plugin</td></tr>
+  <tr><th><kbd class="osc">/select/plugin/parameter/name <em>paid</em> <em>name</em></kbd></th>
+  <td>where <em>name</em> is a string with the name of the specified
+    parameter.</td></tr>
+  <tr><th><kbd class="osc">/select/plugin/parameter <em>paid</em> <em>value</em></kbd></th>
+  <td>where <em>value</em> is a float ranging from 0 to 1 representing
+    the current parameter value.</td></tr>
+</table>
+
 <h3>Menu actions</h3>
 <p class="note">
 	There is no feedback for Menu actions.

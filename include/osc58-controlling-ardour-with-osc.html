@@ -45,6 +45,9 @@
     <a href="#osc_select">Selected Strip Operations</a>
   </li>
   <li>
+    <a href="#osc_plugins">Selected Plugin Operations</a>
+  </li>
+  <li>
     <a href="#osc_menu">Menu actions</a>
   </li>
 </ul>
@@ -113,7 +116,7 @@ here</em>"/&gt;</kbd>
 	  <li><em>Feedback</em>: 0 &mdash; All off.</li>
 	  <li><em>Fader Mode</em>: 0 &mdash; gain in dB (not relevant with feedback off)</li>
 	  <li><em>Send Page Size</em>: 0 &mdash; No Send Paging.</li>
-	  <li><em>Plugin Page Size</em>: 0 &mdash; No Plugin Paging.</li>
+	  <li><em>Plugin Page Size</em>: 0 &mdash; No Plugin (parameter) Paging.</li>
 	  <li><em>reply port</em>: 8000 &mdash; control surface will receive feedback on port 8000</li>
 	  <li><em>Link set</em>: 0 &mdash; no linking for this control surface</li>
 	  <li><em>Link ID</em>: 0 &mdash; no link ID</li>
@@ -724,12 +727,6 @@ here</em>"/&gt;</kbd>
   <td>where <em>sendid</em> = nth_send, <em>state</em> is 1 for enabled and 0 for disabled</td></tr>
   <tr><th><kbd class="osc">/select/send_page <em>delta</em></kbd></th>
   <td>where <em>delta</em> is an int or float selecting another send as a delta from the current send.</td></tr>
-  <tr><th><kbd class="osc">/select/plugin_page <em>delta</em></kbd></th>
-  <td>where <em>delta</em> is an int or float selecting another plugin parameter as a delta from the current parameter.</td></tr>
-  <tr><th><kbd class="osc">/select/plugin/activate <em>state</em></kbd></th>
-  <td>where <em>state</em> is an int or float with the desired state of the current plugin activation.(new Ardour 6.0)</td></tr>
-  <tr><th><kbd class="osc">/select/plugin/parameter <em>plugin</em> <em>parameter</em> <em>value</em></kbd></th>
-  <td>where <em>plugin</em> = nth plugin, <em>parameter</em> = nth parameter and <em>value</em> is a float from 0 to 1</td></tr>
 </table>
 <p class="note">
 	<code>/select/send_page</code> and <code>/select/plugin_page</code> may be used
@@ -737,6 +734,56 @@ here</em>"/&gt;</kbd>
 	for page up and a switch with a value of <code>-1</code> for page down. An encoder
 	can be used as well. (these commands were added in Ardour version 5.10)
 </p>
+
+<h3 id="osc_plugins">Selected Plugin Operations</h3>
+<p>
+  These operations control the selected plugin on the selected strip.
+  Plugins and parameters are specified by their position in the list of
+  plugins and controllable parameters. Parameters are paged to allow accessing
+  all parameters on a surface with limited inputs, the plugin
+  (parameter) page size is configured with <kbd class="osc">/set_surface</kbd>.
+</p>
+<p>
+  When the selected strip is changed, the plugin in the same position in
+  the newly selected strip is made the selected plugin (even if it is
+  a different type of plugin). If the new strip has fewer plugins, the
+  last plugin is selected. If the new strip has no plugins, no plugin is
+  selected.
+</p>
+
+<table class="dl">
+  <tr><th><kbd class="osc">/select/plugin <em>delta</em></kbd></th>
+  <td>where <em>delta</em> is an int or float selecting another plugin as a delta from the currently selected plugin index.</td></tr>
+  <tr><th><kbd class="osc">/select/plug_page <em>up_or_down</em></kbd></th>
+  <td>where <em>up_or_down</em> is 1 for page up or -1 for page down (0 is ignored).</td></tr>
+  <tr><th><kbd class="osc">/select/plugin/activate <em>y/n</em></kbd></th>
+  <td>where <em>y/n</em> is 1 for activating and 0 for deactivating the selected plugin. (new Ardour 6.0)</td></tr>
+  <tr><th>
+      <kbd class="osc">/select/plugin/parameter <em>piid</em> <em>paid</em> <em>value</em></kbd><br/>
+      <kbd class="osc">/select/plugin/parameter <em>paid</em> <em>value</em></kbd><br/>
+      <kbd class="osc">/select/plugin/parameter/<em>piid</em>/<em>paid</em> <em>value</em></kbd><br/>
+      <kbd class="osc">/select/plugin/parameter/<em>paid</em> <em>value</em></kbd>
+  </th><td>
+    where <em>piid</em> = nth plugin, <em>paid</em> = nth
+    parameter and <em>value</em> is a float from 0 to 1. If
+    <em>piid</em> is omitted, the currently selected plugin is used.
+    Otherwise, the specified plugin is made the selected plugin and its
+    parameter modified.<br/>
+    Feedback messages omit the <em>piid</em> argument. The <em>paid</em>
+    is normally passed as an argument (second form) but can be put in
+    the path (last form) using the /set_surface/feedback state command.
+    See <a href="@@osc58-feedback-and-strip-types-values#feedback">
+    Calculating Feedback and Strip-types Values.</a>
+  </td></tr>
+</table>
+<p class="note">
+  The <em>paid</em> argument is specified as a 1-based index into the list
+  of <em>controllable</em> parameters only (as specified by the
+  controllable flag in the <a href="@@osc58-querying-ardour">
+  <kbd class="osc">/strip/plugin/descriptor</kbd> query message</a>,
+  skipping non-controllable-only parameters).
+</p>
+
 <h4 id="osc_groups">Using groups with strip and select (new for Ardour 6.0)</h4>
 <p class="note">
 	No grouping will occur unless <code>use_group</code> is set either
@@ -813,6 +860,9 @@ here</em>"/&gt;</kbd>
 	inputs or only busses etc and of course one to give a full mix. Another
 	option is to reselect the custom set of strips with
 	<kbd class="osc">/strip/custom/mode <em>mode</em></kbd>.
+</p>
+<h4 id="osc_plugins_details">Controlling plugins</h4>
+<p>
 </p>
 
 <h3 id="osc_menu">Menu actions</h3>
