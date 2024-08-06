@@ -135,6 +135,12 @@ code {
   background-color: #ffeeee;
 }
 
+.footnote {
+	vertical-align: super;
+	font-size: 70%;
+	text-decoration: none;
+}
+
 .fixme {
   display: none;
 }
