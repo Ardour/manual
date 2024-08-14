@@ -35,7 +35,7 @@
 <ul>
 	<li>Fader position in tracks, all types of busses, and VCA masters</li>
 	<li>Panner position in tracks and all types of busses</li>
-	<li>Monitor and foldback bus output levels</li>
+	<li>Foldback bus output levels</li>
 	<li>State of record arm</li>
 	<li>State of monitor input and monitor playback</li>
 	<li>State of solo and mute</li>
@@ -49,7 +49,7 @@
 	are loaded in whatever order</li>
 	<li>Plugin bypass states</li>
 	<li>Comments for mixer channels</li>
-	<li>Any monitor section controls other than the output level</li>
+	<li>Any monitor section controls <a href="#footnote-1" class="footnote">&dagger;</a> (since 8.6-318-gb50477e608)</li>
 </ul>
 
 <h2>Storing a mixer scene</h2>
@@ -153,10 +153,12 @@
 		mixer scenes and to F1..F12 for recalling them, which gives you 4 more
 		scenes that are, however, not visible in the list. You can also manually
 		assign any keyboard shortcuts
-		(<kbd class="menu">Window > Keyboard Shortcuts</kbd>) to mixer scene actions.
+		(<kbd class="menu">Window &gt; Keyboard Shortcuts</kbd>) to mixer scene actions.
 	</li>
 	<li>
 		Scripting: you can use <a href="@@lua-scripting">Lua scripts</a> to access
 		the full range of available mixer scenes, which is 2<sup>64</sup>.
 	</li>
 </ol>
+
+<p id="footnote-1">&dagger; Until Ardour 8.6.318 monitor output level was saved with mixer scenes.</p>
