@@ -1,4 +1,6 @@
 
+<h2 id="how-to-start">How to Launch Ardour</h2>
+
 <p>
   There are several ways of <dfn>starting Ardour</dfn>, which may vary
   depending on which platform it is being used on:
@@ -39,20 +41,21 @@
   of those dialogs.
 </p>
 
-<h2>Starting Ardour From the Command Line (Linux)</h2>
+<h2 id="from-cli">Starting Ardour From the Command Line (Linux)</h2>
 
 <p>
   Like (almost) any other program on Linux, Ardour can be started on the
-  command line. Type the following command in a terminal window:
+  command line. Type the following command in a terminal window, adjust the path
+  for your version of the program:
 </p>
 
-<kbd class="cmd lin">Ardour6</kbd>
+<kbd class="cmd lin">/opt/Ardour-8.6.0/bin/ardour8</kbd>
 
 <p>
   To start Ardour with an existing session, use:
 </p>
 
-<kbd class="cmd lin">Ardour6 <em>/path/to/session</em></kbd>
+<kbd class="cmd lin">/opt/Ardour-8.6.0/bin/ardour8 <em>/path/to/session</em></kbd>
 
 <p>
   Replace /path/to/session with the actual path of the session. Either the
@@ -64,5 +67,4 @@
   To start Ardour with a new, named session, use:
 </p>
 
-<kbd class="cmd lin">Ardour6 -N <em>/path/to/session</em></kbd>
-
+<kbd class="cmd lin">/opt/Ardour-8.6.0/bin/ardour8 -N <em>/path/to/session</em></kbd>

@@ -8,9 +8,9 @@
   compensated for.
 </p>
 
-<h2>Sources of Latency</h2>
+<h2 id="sources-of-latency">Sources of Latency</h2>
 
-<h3>Sound propagation through the air</h3>
+<h3 id="sound-propagation">Sound propagation through the air</h3>
 <p>
   Since sound is a mechanical perturbation in a fluid, it travels at
   comparatively slow <a href="http://en.wikipedia.org/wiki/Speed_of_sound">speed</a>
@@ -19,7 +19,7 @@
   between the instrument and the player's ear.
 </p>
 
-<h3>Digital-to-Analog and Analog-to-Digital conversion</h3>
+<h3 id="dac-adc">Digital-to-Analog and Analog-to-Digital conversion</h3>
 <p>
   Electric signals travel quite fast (on the order of the speed of light),
   so their propagation time is negligible in this context. But the conversions
@@ -28,7 +28,7 @@
   otherwise very low-latency systems. Conversion delay is usually below 1&nbsp;ms.
 </p>
 
-<h3>Digital Signal Processing</h3>
+<h3 id="dsp">Digital Signal Processing</h3>
 <p>
   Digital processors tend to process audio in chunks, and the size of that chunk
   depends on the needs of the algorithm and performance/cost considerations.
@@ -36,7 +36,7 @@
   can be predicted and optimized.
 </p>
 
-<h3>Computer I/O Architecture</h3>
+<h3 id="io-arch">Computer I/O Architecture</h3>
 <p>
   A computer is a general purpose processor, not a digital audio processor.
   This means the audio data has to jump a lot of fences in its path from the
@@ -44,7 +44,7 @@
   of the system vying for the same resources (CPU time, bus bandwidth, etc.)
 </p>
 
-<h2>The Latency chain</h2>
+<h2 id="latency-chain">The Latency Chain</h2>
 
 <p class="note">
   Note! the rest of this document assumes the use of jackd for the audio
@@ -92,7 +92,7 @@
   milliseconds.
 </p>
 
-<h2>Low Latency use cases</h2>
+<h2 id="ll-use-cases">Low Latency Use Cases</h2>
 
 <p>
   Low latency is <strong>not</strong> always a feature one wants to have. It
@@ -108,21 +108,21 @@
   For a few applications, low latency is critical:
 </p>
 
-<h3>Playing virtual instruments</h3>
+<h3 id="playing-virtual-instruments">Playing virtual instruments</h3>
 <p>
   A large delay between the pressing of the keys and the sound the instrument
   produces will throw off the timing of most instrumentalists (save church
   organists, whom we believe to be awesome latency-compensation organic systems.)
 </p>
 
-<h3>Software audio monitoring</h3>
+<h3 id="software-monitoring">Software audio monitoring</h3>
 <p>
   If a singer is hearing her own voice through two different paths, her head
   bones and headphones, even small latencies can be very disturbing and
   manifest as a tinny, irritating sound.
 </p>
 
-<h3>Live effects</h3>
+<h3 id="live-fx">Live effects</h3>
 <p>
   Low latency is important when using the computer as an effect rack for
   inline effects such as compression or EQ. For reverbs, slightly higher
@@ -130,7 +130,7 @@
   computer.
 </p>
 
-<h3>Live mixing</h3>
+<h3 id="live-mixing">Live mixing</h3>
 <p>
   Some sound engineers use a computer for mixing live performances.
   Basically that is a combination of the above: monitoring on stage,
@@ -147,7 +147,7 @@
   and the sound coming from the speaker. The same is true when recording with a count in.
 </p>
 
-<h2>Latency compensation</h2>
+<h2 id="latency-compensation">Latency compensation</h2>
 <p>
   During tracking it is important that the sound that is currently being
   played back is internally aligned with the sound that is being recorded.
@@ -177,7 +177,7 @@
   systems/software/hardware that you may inter-operate with may behave the same.
 </p>
 
-<h2>Latency Compensation And Clock Sync</h2>
+<h2 id="latency-compensation-and-clock-sync">Latency Compensation And Clock Sync</h2>
 
 <p>
   To achieve sample accurate timecode synchronization, the latency introduced
@@ -225,7 +225,7 @@
   measure it.
 </p>
 
-<h2>Calibrating JACK Latency</h2>
+<h2 id="calibrating-jack-latency">Calibrating JACK Latency</h2>
 <p>
   Linux DSP guru Fons Adriaensen wrote a tool called <dfn>jack_delay</dfn>
   to accurately measure the round-trip latency of a closed loop audio chain,

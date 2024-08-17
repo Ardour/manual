@@ -7,7 +7,7 @@
   tools for music creation and pro-audio work.
 </p>
 
-<h2>High Level Recommendations for Ubuntu Users</h2>
+<h2 id="high-level-reqs">High Level Recommendations for Ubuntu Users</h2>
 
 <p>
   Currently, installing pro audio applications on vanilla Ubuntu requires some
@@ -19,7 +19,7 @@
   customized versions of Ubuntu packages, which often are more up to date.
 </p>
 
-<h2>Installing Ardour</h2>
+<h2 id="install-ardour">Installing Ardour</h2>
 
 <p>
   There may be unintended differences, and even bugs in Ubuntu native packages,
@@ -46,9 +46,9 @@
   <li>Follow the prompts.</li>
 </ol>
 
-<h2>Problems with JACK configuration</h2>
+<h2 id="jack-issues">Problems with JACK configuration</h2>
 
-<h3>What is the problem?</h3>
+<h3 id="-jack-problem">What is the problem?</h3>
 
 <p>
   To function as intended, JACK needs to run with access to two operating
@@ -60,7 +60,7 @@
   the user will not have permission to run JACK in the way they should.
 </p>
 
-<h3>Symptoms</h3>
+<h3 id="symptoms">Symptoms</h3>
 
 <p>
   A message like <samp>Cannot lock down memory</samp> in the output from JACK
@@ -68,7 +68,7 @@
   (aka JACK Control), so one should check there.
 </p>
 
-<h3>How to fix</h3>
+<h3 id="how-to-fix">How to fix</h3>
 
 <p>
   Make sure the file /etc/security/limits.d/audio.conf exists. If it is named
@@ -83,7 +83,7 @@
   group by default, but not on other official flavors.
 </p>
 
-<h2>Reporting Issues</h2>
+<h2 id="reporting-issues">Reporting Issues</h2>
 
 <p>
   Given the difficulties in supporting Ubuntu and the limited time and
@@ -92,7 +92,7 @@
   other derivatives be directed to them.
 </p>
 
-<h3>Contact Information for Ubuntu Studio</h3>
+<h3 id="ubuntu-studio-contacts">Contact Information for Ubuntu Studio</h3>
 
 <p>
   <a href="http://ubuntustudio.org">The Ubuntu Studio Homepage</a>
@@ -112,4 +112,3 @@
   <a href="https://help.ubuntu.com/community/UbuntuStudio/IRC">Information on
   the Ubuntu Studio IRC channel.</a> #ubuntustudio on irc.freenode.net
 </p>
-

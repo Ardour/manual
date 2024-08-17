@@ -14,7 +14,7 @@
   <dfn>translate</dfn> timecode. e.g create LTC timecode from incoming MTC.
 </p>
 
-<h2>Ardour Timecode Configuration</h2>
+<h2 id="tc-configuration">Ardour Timecode Configuration</h2>
 
 <p>
   Each Ardour session has a specific timecode frames-per-second setting which
@@ -36,7 +36,7 @@
   may be a good start.
 </p>
 
-<h2>Ardour Timecode Generator Configuration</h2>
+<h2 id="tc-gen-configuration">Ardour Timecode Generator Configuration</h2>
 
 <p>
   This is pretty straightforward: simply turn it on. The MTC and MIDI-Clock
@@ -79,7 +79,7 @@
   SMPTE-12M, EU and the MIDI standard).
 </p>
 
-<h3>MTC Generator</h3>
+<h3 id="mtc-gen">MTC Generator</h3>
 
 <p>
   The <dfn>MTC generator</dfn> has no options. Ardour sends full MTC
@@ -88,7 +88,7 @@
   the transport speed is within 93% and 107%.
 </p>
 
-<h3>LTC Generator</h3>
+<h3 id="ltc-gen">LTC Generator</h3>
 
 <p>
   The level of the <dfn>LTC generator</dfn> output signal can be configured
@@ -112,7 +112,7 @@
   for high speeds.
 </p>
 
-<h2>Ardour Slave Configuration</h2>
+<h2 id="slave-config">Ardour Slave Configuration</h2>
 
 <p>
   The timecode source can be switched with the button just right of
@@ -144,7 +144,7 @@
   In both cases the first option is preferred: clock sync + same FPS setting.
 </p>
 
-<h3>Frames-per-second</h3>
+<h id="fps"3>Frames-per-second</h3>
 
 <p>
   If the frames-per-second do not match, Ardour can either re-calculate
@@ -181,7 +181,7 @@
   timecode drift.
 </p>
 
-<h3>Clock Sync Lock</h3>
+<h3 id="clock-sync-lock">Clock Sync Lock</h3>
 
 <p>
   As described in the
@@ -204,7 +204,7 @@
   adjusting to compensate for drift.
 </p>
 
-<h3>MIDI Clock</h3>
+<h3 id="midi-clock">MIDI Clock</h3>
 
 <p>
   <dfn>MIDI Clock</dfn> is not a timecode format but tempo-based time. The
@@ -218,7 +218,7 @@
   <code>ardour:MIDI clock in</code> port.
 </p>
 
-<h3>LTC&mdash;Linear Timecode</h3>
+<h3 id="ltc">LTC&mdash;Linear Timecode</h3>
 <p>
   The <dfn>LTC</dfn> slave decodes an incoming LTC signal on a JACK audio
   port. It will auto-detect the frame rate and start locking to the signal
@@ -266,7 +266,7 @@
   The user-bits in the received LTC frame are ignored.
 </p>
 
-<h3>MTC&mdash;MIDI Timecode</h3>
+<h3 id="midi-timecode">MTC&mdash;MIDI Timecode</h3>
 <p>
   Ardour's MTC slave parses <dfn>full timecode messages</dfn> as well as
   MTC <dfn>quarter-frame messages</dfn> arriving on the
@@ -284,7 +284,7 @@
   Ardour's transport position.
 </p>
 
-<h3>JACK Transport</h3>
+<h3 id="jack-transport">JACK Transport</h3>
 
 <p>
   When slaved to jack, Ardour's transport will be identical to JACK Transport.
