@@ -20,6 +20,16 @@ body {
   line-height: 1.8em;
 }
 
+/* Style heading link */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  visibility: hidden;
+  text-decoration: none;
+}
+
+h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a {
+  visibility: visible;
+}
+
 h1, h2, h3, h4 {
   font-weight: normal;
   padding-bottom: .3ex;
