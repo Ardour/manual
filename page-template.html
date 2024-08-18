@@ -108,8 +108,23 @@
 					document.querySelector('.previous a').click()
 				}
 			}
-		})
+		});
+
+    // Add links to headings automatically
+    window.onload = (e) => {
+      document.querySelectorAll('h2, h3, h4, h5, h6').forEach( el => {
+        let a = document.createElement('a');
+        let slug = el.id !== ''
+          ? el.id
+          : el.innerText;
+        el.id = slug;
+        a.href = `#${slug}`;
+        a.innerText = ' 🔗';
+        el.appendChild( a );
+      });
+    };
 	</script>
+
 
 </body>
 </html>
