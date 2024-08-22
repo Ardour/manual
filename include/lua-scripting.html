@@ -364,13 +364,23 @@ exposes the <code>AudioEngine</code> instance as global variable.
 <pre><code class="lua">
 for i,_ in AudioEngine:available_backends():iter() do print (i.name) end
 
-backend = AudioEngine:set_backend("ALSA", "", "")
+-- pick one --
+if false then
+	backend = AudioEngine:set_backend("JACK", "", "")
+elseif false then
+
+	backend = AudioEngine:set_backend("ALSA", "", "")
+	for i,_ in backend:enumerate_devices():iter() do print (i.name) end
+
+	backend:set_device_name("HDA Intel PCH")
+	backend:set_peridod_size(3)
+	backend:set_buffer_size(1024)
+
+else
+	AudioEngine:set_backend("None (Dummy)", "", "")
+end
+
 print (AudioEngine:current_backend_name())
-
-for i,_ in backend:enumerate_devices():iter() do print (i.name) end
-
-backend:set_device_name("HDA Intel PCH")
-backend:set_buffer_size(1024)
 
 print (backend:buffer_size())
 print (AudioEngine:get_last_backend_error())
@@ -379,7 +389,7 @@ s = load_session ("/home/rgareus/Documents/ArdourSessions/lua2/", "lua2")
 
 assert (s)
 
-s:request_transport_speed (1.0, true, ARDOUR.TransportRequestSource.TRS_UI)
+s:request_roll (ARDOUR.TransportRequestSource.TRS_UI)
 print (s:transport_rolling())
 
 s:goto_start()
