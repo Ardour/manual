@@ -15,4 +15,93 @@
 
 <h2 id="configuration">Configuration</h2>
 
-<h2 id="supported-features">Supported features</h2>
+<p>
+	You can select ports for incoming and outgoing MIDI messages.
+</p>
+
+<h2 id="general-behavior">General behavior</h2>
+
+<p>
+	The control surface comes with a number of predefined mappings
+	that are typically done either with a MIDI map or with MIDI Learn:
+</p>
+
+<ul>
+	<li>
+		<strong>Track selection</strong>: you can press left-pointing
+		and right-pointing buttons to select the previous or the next
+		track.
+	</li>
+	<li>
+		<strong>Basic transport controls</strong>: rolling, stopping,
+		toggling rec-mode.
+	</li>
+	<li>
+		<strong>Workflow buttons</strong>: Undo/Redo (Shift+Undo),
+		Quantize, Metronome toggle. <em>Note</em>: Capture MIDI is not
+		a function available in Ardour, thus unsupported.
+	</li>
+	<li>
+		<strong>Faders</strong>: 8 faders are mapped to the first 8 tracks,
+		1 fader is mapped either to the monitor (if the monitor section exists)
+		or the master bus (if there is no monitor section).
+	</li>
+</ul>
+
+<h2 id="modes-support">Modes support</h2>
+
+<table class="dl">
+  <tr>
+  	<th>Plugin</th>
+  	<td>
+  		Encoders control plugin parameters, right now i don't recall how to navigate between plugins
+  	</td>
+  </tr>
+  <tr>
+  	<th>Mixer</th>
+  	<td>Encoders can be used for pan, the first 2 sends, and additional gain controls; pads do solo & mute</td>
+  </tr>
+  <tr>
+  	<th>Sends</th>
+  	<td>
+  		Encoders control 8 sends of the selected track
+  	</td>
+  </tr>
+  <tr>
+  	<th>Transport</th>
+  	<td>
+  		Encoders control playhead, loop points, can be used to jump between markers, visual zoom
+  	</td>
+  </tr>
+  <tr>
+  	<th>DAW</th>
+  	<td>
+  		Pads function to control 2 scenes of 8 tracks (can "scroll around" to get to others), including scene launch and individual cue/clip/slot launching
+  	</td>
+  </tr>
+</table>
+
+<p>
+	Please note that additional modes — Drum, User Chord,
+	Chord Map — do not require DAW involvement.
+	All MIDI processing happens inside the box, the
+	keyboard only sends final MIDI events.
+</p>
+
+<h2 id="cue-support">Cue support</h2>
+
+<p>
+	In the DAW mode, the 2 by 8 pads matrix
+
+
+	each pad  pads function to control 2 scenes of 8 tracks (can "scroll around" to get to others), including scene launch and individual cue/clip/slot launching
+</p>
+
+Pad bank ˄ up and ˅ down buttons - two buttons to the left of the pads to move up and down the
+pads, e.g. moving clips in Live, accessing different chords etc.
+10. Pads [21] - 16 velocity-sensitive, aftertouch-enabled, pads that change functionality depending on
+the pad mode.
+11. To the right of the pads are the:
+• > Button - Scene Launch button.
+• Function button - enables various secondary functions based on the pad mode
+
