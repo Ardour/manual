@@ -2315,6 +2315,15 @@ part: chapter
 ---
 
 ---
+title: Using the Novation Launchkey mk4
+menu_title: Novation Launchkey mk4
+include: control-surfaces-novation-launchkey-mk4.html
+link: using-the-launchkey-mk4
+uri: using-control-surfaces/Launchkey_mk4
+part: chapter
+---
+
+---
 title: Using the Novation Launchpad Pro Mk3
 menu_title: Novation Launchpad Pro
 include: control-surfaces-launchpad-pro.html
