@@ -1,10 +1,10 @@
 <p>
-  Ardour supports multiple type of markers, all designed for particular tasks:
+  Ardour supports multiple types of markers, all designed for particular tasks:
   single markers that define a location, single markers that change a value,
   paired markers that define a range on a timeline etc.
 </p>
 
-<h2>Creating New Markers</h2>
+<h2 id="creating-new-markers">Creating New Markers</h2>
 
 <p>
   There are several ways to create markers in Ardour.
@@ -12,14 +12,14 @@
 
 <p>
   The most common way is to right-click over a ruler and select a menu item
-  called like <kbd class="menu">New Loop Range</kbd> (for the
-  <kbd class="title">Loop/Punch Ranges</kbd> ruler) or
-  <kbd class="menu">New Tempo</kbd> (for the
+  called like <kbd class="menu">Add &gt; Loop Range</kbd> (for the
+  <kbd class="title">Range Markers</kbd> ruler) or
+  <kbd class="menu">Add New Tempo</kbd> (for the
   <kbd class="title">Tempo</kbd> ruler).
 </p>
 
 <figure>
-    <img class="hdimage" src="/images/new-range-markers.gif" alt="Adding a New Range Marker">
+    <img style="width:50%;" src="/images/new-range-markers.gif" alt="Adding a New Range Marker">
     <figcaption>
       Adding a New Range Marker
     </figcaption>
@@ -38,13 +38,13 @@
   <kbd class="title">Ranges&nbsp;&amp; Marks</kbd> respectively.
 </p>
 
-<h2>Moving Markers</h2>
+<h2 id="moving-markers">Moving Markers</h2>
 
 <p>
   Once a single or a paired marker has been added, it can be moved around.
 </p>
 
-<h3>Single marker</h3>
+<h3 id="moving-single-marker">Single marker</h3>
 <p>
   <kbd class="mouse">Left</kbd>-clicking and dragging moves a single marker to a
   new location on the timeline.
@@ -55,7 +55,7 @@
   choosing the <kbd class="menu">Move Mark to Playhead</kbd> menu item.
 </p>
 
-<h3>Multiple markers</h3>
+<h3 id="moving-multiple-marker">Multiple markers</h3>
 <p>
   It is possible to move multiple markers by the same distance. <kbd
   class="mouse mod1">Left</kbd>-clicking each discrete marker, or <kbd
@@ -68,13 +68,13 @@
   first marker in the selection cannot move to the left of zero on the timeline.
 </p>
 
-<h3>Both ends of a range marker</h3>
+<h3 id="moving-entire-range-marker">Both ends of a range marker</h3>
 <p>
   By <kbd class="mod1 mouse">left</kbd>-dragging either end of the range marker,
   the other end will move by the same distance.
 </p>
 
-<h2>Renaming Markers</h2>
+<h2 id="renaming-markers">Renaming Markers</h2>
 
 <p>
   Some markers on the ruler can have unique names: location markers, CD markers,
@@ -96,7 +96,7 @@
   The same dialog for submitting a new name will appear.
 </p>
 
-<h2>Editing Marker's Properties</h2>
+<h2 id="editing-marker-properties">Editing Marker's Properties</h2>
 
 <p>
   Markers on rulers such as <kbd class="title">Time Signature</kbd> or
@@ -106,7 +106,7 @@
   <kbd class="title">Edit...</kbd> menu item.
 </p>
 
-<h2>Hiding Markers</h2>
+<h2 id="hiding-markers">Hiding Markers</h2>
 
 <p>
   Most marker types can be temporarily hidden from the ruler if the user chooses
@@ -127,7 +127,7 @@
   reveal the marker on the ruler again.
 </p>
 
-<h2>Removing Markers</h2>
+<h2 id="removing-markers">Removing Markers</h2>
 
 <p>
   There are three ways to permanently delete a marker. The first one is to
@@ -152,7 +152,7 @@
   the <em>Ranges&nbsp;&amp; Marks</em> sidebar.
 </p>
 
-<h2>Additional Actions</h2>
+<h2 id="additional actions">Additional Actions</h2>
 
 <p>
   Depending on the type of a marker additional actions are possible, such as
