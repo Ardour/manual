@@ -1044,6 +1044,16 @@
         recording when using a preroll. Can be a musical duration (in bars) or a
         duration in seconds.
       </li>
+      <li>
+        <dfn>Create a marker when a MIDI program change is received (and RECORDING)</dfn>
+        allows capturing a MIDI program change when recording from an external MIDI
+        device.
+      </li>
+      <li>
+        <dfn>Locate to the next matching scene marker when a MIDI program change
+        is received (and NOT recording)</dfn>: allows moving the playhead to a
+        previously captured MIDI scene event when received a MIDI program change.
+      </li>
     </ul>
   </li>  
   <li>
@@ -1114,6 +1124,10 @@
         <dfn>Inbound MMC device ID:</dfn> is the only device ID Ardour will
         respond to when an MMC command is received on the <code>ardour:MMC in</code>
         MIDI port.
+      </li>
+      <li>
+        <dfn>MMC Fast-wind behavior:</dfn> how to respond to the "fast-wind"
+        command that allows quickly navigating through the timeline.
       </li>
     </ul>
   </li>
