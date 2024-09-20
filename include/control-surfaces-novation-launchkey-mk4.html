@@ -1,0 +1,150 @@
+<p>
+	Novation Launchkey mk4 series was introduced in August 2024 and has been
+	supported in Ardour since v8.7.
+</p>
+
+<p>
+	There are currently 6 devices in the series:
+</p>
+
+<ul>
+	<li>
+		Launchkey Mini 25 and 37 have 16 pads, 8 encoders, no faders, and only
+		2 transport controls.
+	</li>
+	<li>
+		Launchkey 25 and 37 have 16 pads, 8 encoders, no faders, all transport
+		controls.
+	</li>
+	<li>
+		Launchkey 49 and 61 have 16 pads, 8 encoders, 9 faders, 9 track buttons,
+		all transport controls.
+	</li>
+</ul>
+
+<p>
+	This documentation covers the full set of features that is only available
+	in Launchkey 49 and 61. It partially applies to junior models in the series.
+	Please refer to the Launchkey user manual for specifics on operating your
+	controller.
+</p>
+
+<figure>
+  <img
+  	style="width:75%;"
+	src="/images/novation-launchkey-mk4-61.svg"
+	alt="Novation Launchkey mk4 61"
+	class="invert-in-dark">
+  <figcaption>
+    Novation Launchkey mk4 61
+  </figcaption>
+</figure>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>
+	All configuration of the devices is expected to be done in Novation
+	Components. Thus in Ardour, you can only select ports for incoming and
+	outgoing MIDI messages.
+</p>
+
+<h2 id="general-behavior">General behavior</h2>
+
+<p>
+	Ardour ships with a number of hardcoded mappings between hardware controls
+	and the DAW's features:
+</p>
+
+<ul>
+	<li>
+		<strong>Track selection</strong>: you can press left-pointing
+		and right-pointing buttons to select the previous or the next
+		track.
+	</li>
+	<li>
+		<strong>Faders</strong>: 8 faders are mapped to the first 8 tracks,
+		1 fader (on the right) is mapped either to the monitor (if the monitor
+		section exists) or to the master bus (if there is no monitor section).
+	</li>
+	<li>
+		<strong>Basic transport controls</strong>: rolling, stopping,
+		toggling rec-mode.
+	</li>
+	<li>
+		<strong>Workflow buttons</strong>: Undo/Redo (Shift+Undo),
+		Metronome toggle. Capture MIDI is not
+		a function available in Ardour, thus there is no mapping for it.
+	</li>
+</ul>
+
+<h2 id="encoder-modes">Encoder modes</h2>
+
+<p>
+	Launchkey mk4 controllers come with 4 predefined encoder modes
+	and 4 custom modes. To switch to a particular mode, press and hold
+	the <kbd class="button">Shift</kbd> button and then press
+	the corresponding pad.
+</p>
+
+<table class="dl">
+  <tr>
+  	<th>Plugin</th>
+  	<td>
+  		Encoders control plugin parameters, right now i don't recall how
+  		to navigate between plugins
+  	</td>
+  </tr>
+  <tr>
+  	<th>Mixer</th>
+  	<td>
+  		Encoders can be used for pan, the first 2 sends, and additional
+  		gain controls; pads do solo & mute
+  	</td>
+  </tr>
+  <tr>
+  	<th>Sends</th>
+  	<td>
+  		Encoders control 8 sends of the selected track
+  	</td>
+  </tr>
+  <tr>
+  	<th>Transport</th>
+  	<td>
+  		Encoders control playhead, loop points, can be used to jump between markers, visual zoom
+  	</td>
+  </tr>
+</table>
+
+<h2 id="pad-modes">Pad modes</h2>
+
+<p>
+	Launchkey mk4 controllers come with 4 predefined pad modes
+	and 4 custom modes. To switch to a particular mode, press and hold
+	the <kbd class="button">Shift</kbd> button and then press
+	the corresponding pad.
+</p>
+
+<p>
+	Ardour only requires predefined mappings for the DAW pad mode.
+	In that case pads function to control 2 scenes/cues of 8 tracks.
+	See the <a href="#cue-support">Cue support</a> section below
+	for more details.
+</p>
+
+<p>
+	Additional modes — Drum, User Chord, Arp Patterns — do not require
+	DAW involvement. All MIDI processing happens inside the box,
+	the keyboard only sends final MIDI events to the output.
+</p>
+
+<h2 id="cue-support">Cue support</h2>
+
+<p>
+	In the DAW mode, the 2 by 8 pads matrix represents 2 cues in 8 tracks.
+	You can use arrow up/down buttons to scroll up and down the cues.
+	Pressing pads will toggle playback of individul cues. The arrow-up
+	button will trigger an entire cue.
+</p>
+
+<!-- Function button - enables various secondary functions based on the pad mode -->
+

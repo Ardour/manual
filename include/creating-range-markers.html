@@ -6,7 +6,12 @@
   the beginning and end of a section on the timeline.
 </p>
 
-<h2>Creating a Range on the Timeline</h2>
+<p>
+  Ardour combines regular range markers, loop ranges, and punch ranges in the
+  same Range Markers ruler.
+</p>
+
+<h2 id="creating-range-on-timeline">Creating a Range on the Timeline</h2>
 
 <p>
   There are multiple ways to create range markers:
@@ -15,18 +20,23 @@
 <ul>
   <li>
     <kbd class="mouse">Right</kbd>-clicking on the Range Markers ruler at the
-    top of the timeline, then selecting <kbd class="menu">New Range</kbd>.
+    top of the timeline, then selecting <kbd class="menu">Add &gt; Range</kbd>.
+    For loop ranges and punch ranges, please select
+    <kbd class="menu">Add &gt; Loop Range</kbd> and
+    <kbd class="menu">Add &gt; Punch Range</kbd> respectively.
   </li>
-  <li>
+<!--   <li>
     <kbd class="mouse mod1">Left</kbd>-clicking and dragging right on the Range
     Markers ruler. This will render a red-filled area across all tracks and
     busses to help preview the extent of the range in creation. Once the mouse
     button is released, a paired range marker will be created.
-  </li>
+  </li> -->
   <li>
     Selecting a range in the Editor window, then
     <kbd class="mouse">right</kbd>-clicking and selecting
-    <kbd class="menu">Add Range Markers</kbd>.
+    <kbd class="menu">Add Range Markers</kbd>,
+    <kbd class="menu">Set Loop from Selection</kbd> or
+    <kbd class="menu">Set Punch from Selection</kbd>.
   </li>
   <li>
     Clicking <kbd class="button">New Range</kbd> button at the bottom of the
@@ -44,7 +54,7 @@
   </li>
 </ul>
 
-<h2>Editing a Range</h2>
+<h2 id="editing-range">Editing a Range</h2>
 
 <p>
   Both markers of a range can be independently moved along the timeline by
@@ -59,7 +69,7 @@
   <kbd class="menu">Set Range from Selection</kbd> in the menu.
 </p>
 
-<h3>Renaming Range Markers</h3>
+<h3 id="renaming-range-markers">Renaming Range Markers</h3>
 
 <p>
   Ardour provides several ways to rename an existing pair of range markers:
@@ -80,7 +90,7 @@
   </li>
 </ul>
 
-<h2>Removing Range Markers</h2>
+<h2 id="removing-range-markers">Removing Range Markers</h2>
 
 <p>
   Range markers can be deleted in several ways:
@@ -105,7 +115,7 @@
   <kbd class="mouse">right</kbd>-clicking on an empty part of the Range Markers
   ruler and selecting the <kbd class="menu">Clear All Ranges</kbd> menu item.
 
-<h2>More Options</h2>
+<h2 id="more-options">More Options</h2>
 
 <p>
   The context (right-click) menu for range markers has more options than the

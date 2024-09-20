@@ -2142,7 +2142,136 @@ part: part
 ---
 
 ---
-title: Controlling Ardour with OSC
+title: Using the Ableton Push 2
+menu_title: Ableton Push 2
+include: control-surfaces-ableton-push-2.html
+link: using-the-ableton-push-2
+uri: using-control-surfaces/Ableton_Push2
+part: chapter
+---
+
+---
+title: Using the Contour Design Shuttle Devices
+menu_title: Contour Design
+include: control-surfaces-countourdesign.html
+link: control-surfaces-countourdesign
+uri: using-control-surfaces/Countour_Design
+part: chapter
+---
+
+---
+title: Generic MIDI
+include: generic-midi.html
+link: generic-midi
+uri: using-control-surfaces/midi-binding-maps
+part: chapter
+---
+
+---
+title: Generic MIDI Binding Maps
+include: generic-midi-binding-maps.html
+link: generic-midi-binding-maps
+uri: using-control-surfaces/generic-midi/midi-binding-maps
+part: subchapter
+---
+
+---
+title: Generic MIDI Learn
+include: generic-midi-learn.html
+link: generic-midi-learn
+uri: using-control-surfaces/generic-midi/midi-learn
+part: subchapter
+---
+
+---
+title: Generic MIDI and Encoders
+menu_title: Working With Encoders
+include: generic-midi-and-encoders.html
+link: generic-midi-and-encoders
+uri: using-control-surfaces/generic-midi/working-with-encoders
+part: subchapter
+---
+
+---
+title: Mackie Control Devices
+include: controlling-ardour-with-mackie-control-devices.html
+link: controlling-ardour-with-mackie-control-devices
+uri: using-control-surfaces/mackie-control-protocol
+part: chapter
+---
+
+---
+title: Devices Using Mackie/Logic Control Protocol
+include: devices-using-mackielogic-control-protocol.html
+link: devices-using-mackielogic-control-protocol
+uri: using-control-surfaces/devices-using-mackielogic-control-protocol
+part: subchapter
+---
+
+---
+title: SSL Nucleus
+include: ssl-nucleus.html
+link: ssl-nucleus
+uri: using-control-surfaces/mackie-control-protocol/ssl-nucleus
+part: subchapter
+---
+
+---
+title: Behringer Devices in Mackie/Logic Control Mode
+menu_title: Behringer Devices
+include: behringer-devices-in-mackielogic-control-mode.html
+link: behringer-devices-in-mackielogic-control-mode
+uri: using-control-surfaces/mackie-control-protocol/behringer-devices-in-mackielogic-control-mode
+part: subchapter
+---
+
+---
+title: What to do if your Device is not Listed
+menu_title: Unlisted Devices
+include: what-to-do-if-your-device-is-not-listed.html
+link: what-to-do-if-your-device-is-not-listed
+uri: using-control-surfaces/mackie-control-protocol/devices-not-listed
+part: subchapter
+---
+
+---
+title: Working With Extenders
+menu_title: Working With Extenders
+include: working-with-extenders.html
+link: working-with-extenders
+uri: using-control-surfaces/mackie-control-protocol/working-with-extenders
+part: subchapter
+---
+
+---
+title: Using the Novation Launch Control XL
+menu_title: Novation Launch Control XL
+include: control-surfaces-novation-lcxl.html
+link: control-surfaces-novation-lcxl
+uri: using-control-surfaces/Launch_Control_XL
+part: chapter
+---
+
+---
+title: Using the Novation Launchkey mk4
+menu_title: Novation Launchkey mk4
+include: control-surfaces-novation-launchkey-mk4.html
+link: using-the-launchkey-mk4
+uri: using-control-surfaces/Launchkey_mk4
+part: chapter
+---
+
+---
+title: Using the Novation Launchpad Pro Mk3
+menu_title: Novation Launchpad Pro
+include: control-surfaces-launchpad-pro.html
+link: using-the-launchpad-pro
+uri: using-control-surfaces/Launchpad_Pro
+part: chapter
+---
+
+---
+title: Open Sound Control (OSC)
 include: controlling-ardour-with-osc.html
 pdf-exclude: yes
 link: controlling-ardour-with-osc
@@ -2151,7 +2280,7 @@ part: chapter
 ---
 
 ---
-title: Controlling Ardour with OSC
+title: Basics
 include: osc58-controlling-ardour-with-osc.html
 link: osc58-controlling-ardour-with-osc
 uri: using-control-surfaces/controlling-ardour-with-osc/osc-control
@@ -2159,7 +2288,7 @@ part: subchapter
 ---
 
 ---
-title: Using the Setup Dialog
+title: Using the setup dialog
 include: osc58-using-the-setup-dialog.html
 link: osc58-using-the-setup-dialog
 uri: using-control-surfaces/controlling-ardour-with-osc/osc-setup-dialog
@@ -2191,7 +2320,7 @@ part: subchapter
 ---
 
 ---
-title: Feedback and Strip-types Values
+title: Feedback and strip-types values
 include: osc58-feedback-and-strip-types-values.html
 link: osc58-feedback-and-strip-types-values
 uri: using-control-surfaces/controlling-ardour-with-osc/calculating-feedback-and-strip-types-values
@@ -2251,126 +2380,6 @@ title: OSC control for Ardour 4.7 and Prior
 include: osc-control-for-ardour-4.7-and-prior.html
 link: osc-control-for-ardour-4.7-and-prior
 uri: using-control-surfaces/controlling-ardour-with-osc/osc-control-in-ardour-4.7-and-prior
-part: subchapter
----
-
----
-title: Controlling Ardour with Mackie Control Devices
-include: controlling-ardour-with-mackie-control-devices.html
-link: controlling-ardour-with-mackie-control-devices
-uri: using-control-surfaces/mackie-control-protocol
-part: chapter
----
-
----
-title: Devices Using Mackie/Logic Control Protocol
-include: devices-using-mackielogic-control-protocol.html
-link: devices-using-mackielogic-control-protocol
-uri: using-control-surfaces/devices-using-mackielogic-control-protocol
-part: subchapter
----
-
----
-title: SSL Nucleus
-include: ssl-nucleus.html
-link: ssl-nucleus
-uri: using-control-surfaces/mackie-control-protocol/ssl-nucleus
-part: subchapter
----
-
----
-title: Behringer Devices in Mackie/Logic Control Mode
-menu_title: Behringer Devices
-include: behringer-devices-in-mackielogic-control-mode.html
-link: behringer-devices-in-mackielogic-control-mode
-uri: using-control-surfaces/mackie-control-protocol/behringer-devices-in-mackielogic-control-mode
-part: subchapter
----
-
----
-title: What to do if your Device is not Listed
-menu_title: Unlisted Devices
-include: what-to-do-if-your-device-is-not-listed.html
-link: what-to-do-if-your-device-is-not-listed
-uri: using-control-surfaces/mackie-control-protocol/devices-not-listed
-part: subchapter
----
-
----
-title: Working With Extenders
-menu_title: Working With Extenders
-include: working-with-extenders.html
-link: working-with-extenders
-uri: using-control-surfaces/mackie-control-protocol/working-with-extenders
-part: subchapter
----
-
----
-title: Using the Ableton Push 2
-menu_title: Ableton Push 2
-include: control-surfaces-ableton-push-2.html
-link: using-the-ableton-push-2
-uri: using-control-surfaces/Ableton_Push2
-part: chapter
----
-
----
-title: Using the Novation Launchpad Pro Mk3
-menu_title: Novation Launchpad Pro
-include: control-surfaces-launchpad-pro.html
-link: using-the-launchpad-pro
-uri: using-control-surfaces/Launchpad_Pro
-part: chapter
----
-
----
-title: Using the Novation Launch Control XL
-menu_title: Novation Launch Control XL
-include: control-surfaces-novation-lcxl.html
-link: control-surfaces-novation-lcxl
-uri: using-control-surfaces/Launch_Control_XL
-part: chapter
----
-
----
-title: Using the Contour Design Shuttle Devices
-menu_title: Contour Design
-include: control-surfaces-countourdesign.html
-link: control-surfaces-countourdesign
-uri: using-control-surfaces/Countour_Design
-part: chapter
----
-
----
-title: Generic MIDI
-include: generic-midi.html
-link: generic-midi
-uri: using-control-surfaces/midi-binding-maps
-part: chapter
----
-
----
-title: Generic MIDI Binding Maps
-include: generic-midi-binding-maps.html
-link: generic-midi-binding-maps
-uri: using-control-surfaces/generic-midi/midi-binding-maps
-part: subchapter
----
-
----
-title: Generic MIDI Learn
-include: generic-midi-learn.html
-link: generic-midi-learn
-uri: using-control-surfaces/generic-midi/midi-learn
-part: subchapter
----
-
----
-title: Generic MIDI and Encoders
-menu_title: Working With Encoders
-include: generic-midi-and-encoders.html
-link: generic-midi-and-encoders
-uri: using-control-surfaces/generic-midi/working-with-encoders
 part: subchapter
 ---
 
