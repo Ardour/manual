@@ -1023,26 +1023,10 @@ part: chapter
 ---
 
 ---
-title: I/O Plugins
-include: io-plugins.html
-link: io-plugins
-part: chapter
----
-
----
 title: Monitoring
 include: monitoring.html
 link: monitoring
 uri: recording/monitoring
-part: chapter
----
-
----
-title: Latency Considerations
-menu_title: Latency Considerations
-include: latency-considerations.html
-link: latency-considerations
-uri: recording/monitoring/latency-considerations
 part: chapter
 ---
 
@@ -1056,8 +1040,33 @@ part: chapter
 ---
 
 ---
+title: Metronome
+menu_title: Metronome
+include: metronome.html
+link: Metronome
+uri: recording/Metronome
+part: chapter
+---
+
+---
 title: Punch Recording Modes
 link: punch-recording-modes
+part: chapter
+---
+
+---
+title: Latency Considerations
+menu_title: Latency Considerations
+include: latency-considerations.html
+link: latency-considerations
+uri: recording/monitoring/latency-considerations
+part: chapter
+---
+
+---
+title: I/O Plugins
+include: io-plugins.html
+link: io-plugins
 part: chapter
 ---
 

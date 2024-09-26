@@ -1,0 +1,92 @@
+<p>
+	The metronome helps performing in correct tempo and time signature
+	when recording. Musicians hear the metronome clicking with an optional
+	emphasis on the first beat.
+</p>
+
+<p>
+	The button switching the metronome on and off is located to the left
+	from the transport panel:
+</p>
+
+<p>
+	<img width="25%" src="/images/metronome-toggle.png" alt="Metronome toggle"/>
+</p>
+
+<h2 id="launching-and-stopping">Launching and stopping the metronome</h2>
+
+<p>
+	There are several ways to toggle the metronome:
+</p>
+
+<ul>
+	<li>
+		You can click the button to the left of the transport panel.
+	</li>
+	<li>
+		You can press the <kbd>`</kbd> shortcut.
+	</li>
+	<li>
+		For some control surfaces, you can press either the designated button
+		or any button that is mapped to the metronome via
+		a <a href="/using-control-surfaces/generic-midi/midi-binding-maps/">MIDI map</a>.
+	</li>
+</ul>
+
+<h2 id="setting-up">Setting up the metronome</h2>
+
+<p>
+	You can right-click on the metronome icon in the toolbar to open
+	the Preferences dialog on the Metronome page. This gives you
+	the following options:
+</p>
+
+<ul>
+	<li>
+		<strong>Emphasis on the first beat</strong>: when enabled, the metronome
+		will make a louder click on the first beat to help musicians with the
+		time signature.
+	</li>
+	<li>
+		<strong>Use built-in default sounds</strong>: when this optiion is disabled,
+		you can load your preferred audio files for the metronome. Otherwise, Ardour
+		will use built-in audio files.
+	</li>
+	<li>
+		<strong>Gain level</strong>: you can set here how loud you want metronome
+		clicks to be. You can also adjust this setting by hovering the metronome
+		toggle button in the main window and scrolling the mouse wheel up or down.
+		As you change the value, the tooltip will update to show the new gain level.
+	</li>
+	<li>
+		<strong>Enable metronome only while recording</strong>: when enabled,
+		you will only hear metronome clicks while recording; there will be no
+		metronome clicks while playing back the takes.
+	</li>
+</ul>
+
+<h2 id="routing-metronome">Routing metronome clicks</h2>
+
+<p>
+	The metronome has separate outputs in Ardour, so you can route that signal
+	in the Audio Connections dialog (<kbd class="menu">Window&nbsp;&gt; Audio Connections</kbd>)
+	however you like, e.g. to
+	a <a href="/ardours-interface/foldback-strip/">foldback bus</a> for each
+	performer in the studio or on stage.
+</p>
+
+<p>
+	The Click Out port with L and R channels is located on the Ardour Misc tab
+	on the left:
+</p>
+
+<p>
+	<img width="50%" src="/images/metronome-click-out-ports.png" alt="Click out ports"/>
+</p>
+
+<p>
+	By default, the metronome omits the master bus entirely and connects
+	directly to the first pair of hardware outputs in the output device you
+	selected. This way the clicks don't get processed in the master bus and don't
+	show up in the exported mix.
+</p>
