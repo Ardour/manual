@@ -1043,8 +1043,8 @@ part: chapter
 title: Metronome
 menu_title: Metronome
 include: metronome.html
-link: Metronome
-uri: recording/Metronome
+link: metronome
+uri: recording/metronome
 part: chapter
 ---
 
