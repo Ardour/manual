@@ -42,8 +42,8 @@
 	<li>Clip progress, in the form of a sliding pie chart</li>
 	<li>Which cue is playing (it's C on the screenshot)</li>
 	<li>MIDI clip indication, an icon representing two beamed 1/16 notes</li>
-	<li>Follow count, e.g. '1/2' on the screenshot means the clip is currently being played
-	the first time out of two times total</li>
+	<li>Follow count, e.g. '1/2' on the screenshot means the clip is currently
+	being played the first time out of two times total</li>
 </ul>
 
 <p>
@@ -53,18 +53,18 @@
 
 <p>
 	Ardour allows assigning arbitrary keys on MIDI controllers to trigger
-	cue slots:
+	cue slots by:
 </p>
 
 <ol>
 	<li>
-		<kbd class="mouse">Right</kbd>-click on the trigger slot of interest
+		<kbd class="mouse">Right</kbd>-clicking on the trigger slot of interest
 	</li>
 	<li>
-		Choose <kbd class="menu">MIDI Learn</kbd> in the newly opened window
+		Choosing <kbd class="menu">MIDI Learn</kbd> in the newly opened window
 	</li>
 	<li>
-		Press a key on your MIDI controller
+		Pressing a key on the MIDI controller
 	</li>
 </ol>
 
@@ -74,14 +74,16 @@
 </p>
 
 <p class="note">
-	This use of MIDI devices and its learning function is separate from, functions
-	differently to, and is not to be confused with the use of MIDI devices as control surfaces.
+	This use of MIDI devices and its learning function is separate
+	from, functions differently to, and is not to be confused with the
+	use of MIDI devices as control surfaces.
 </p>
 
 <p>
-	For a MIDI device to be used to trigger clips it must be defined as Default trigger input
-	in the <kbd class="menu">Triggering</kbd> page of the <kbd class="menu">Preferences</kbd>
-	dialog and/or be connected to the <code>ardour:Cue Control in</code> MIDI port.
+	For a MIDI device to be used to trigger clips it must be defined as
+	Default trigger input in the <kbd class="menu">Triggering</kbd>
+	page of the <kbd class="menu">Preferences</kbd> dialog and/or be
+	connected to the <code>ardour:Cue Control in</code> MIDI port.
 </p>
 
 
@@ -100,12 +102,13 @@
 </figure>
 
 <p>
-	The time when playback of each slot starts depends on the launch quantization
-	setting. If there is no quantization selected, playback will start
-	immediately regardless of the playhead's position. However, if the launch
-	quantization is set to 1 bar, playback will only start once the playhead
-	passes the start of the closest bar. This ensures that however long each clip
-	is when measured in beats, all clips in one cue will play in sync.
+	The time when playback of each slot starts depends on the launch 
+	quantization setting. If there is no quantization selected,
+	playback will start immediately regardless of the playhead's
+	position. However, if the launch quantization is set to 1 bar,
+	playback will only start once the playhead passes the start of the
+	closest bar. This ensures that however long each clip is when
+	measured in beats, all clips in one cue will play in sync.
 </p>
 
 <p>
