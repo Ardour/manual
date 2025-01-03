@@ -1,28 +1,28 @@
 <h2>Velocity Sense</h2>
 
 <p>
-  This control defines how much the velocity coming off your MIDI device
+  This control defines how much the velocity coming off a MIDI device
   affects clip's volume. At 0%, which is the default, it doesn't matter how
-  hard you press a key or a pad, the volume will be what you set it to.
-  At 100%, hitting a key as hard as you can produces maximum volume, and
+  hard a key or a pad is pressed, the volume will be what it is set to.
+  At 100%, hitting a key as hard as possible produces maximum volume, and
   pressing the key or a pad really softly produces a barely audible sound.
 </p>
 
 <h2>Launch Style</h2>
 
 <p>
-  The <dfn>Launch Style</dfn> defines how you interact with the clip's
+  The <dfn>Launch Style</dfn> defines how the user interacts with the clip's
   playback. Ardour makes a distinction between pressing a button or a key
   (the 'down' event for a mouse or the note-on MIDI event) and releasing
   a button or a key (the 'up' event for a mouse or the note-off MIDI event).
 </p>
 
 <p>
-  You can setup a trigger slot so that you would press a silicon pad on your
-  external grid controller, and Ardour would play the clip in that slot
-  indefinitely on repeat. Or you could set it up so that it would only repeat
-  that clip as long as you are keeping the pad pressed and stop playing it
-  as soon as you stop pressing the pad.
+  A trigger slot can be set up so that pressing a silicon pad on an
+  external grid controller, would make Ardour play the clip in that slot
+  indefinitely on repeat. Or it could be set up so that Ardour would only repeat
+  that clip as long as the pad is kept pressed and stop playing it
+  as soon as the pad is released.
 </p>
 
 <table>
@@ -40,16 +40,16 @@
   <tr>
     <th><kbd class="menu">Gate</kbd></th>
     <td width="100px"><img src="/images/launch-style-icons-gate.png" /></td>
-    <td>The clip will be played back as long as you keep the mouse button
-    or the MIDI key/pad pressed. Quantization defines how soon playback starts
-    after pressing the button/key down and ends after releasing the button/key.
-    </td>
+	<td>The clip will be played back as long as the mouse button or the 
+	MIDI key/pad is kept pressed. Quantization defines how soon 
+	playback starts after pressing the button/key down and ends after 
+	releasing the button/key. </td>
   </tr>
   <tr>
     <th><kbd class="menu">Toggle</kbd></th>
     <td width="100px"><img src="/images/launch-style-icons-toggle.png" /></td>
-    <td>The clip will keep playing until you click the button again or send
-    another note-on event from your MIDI device</td>
+    <td>The clip will keep playing until the button is clicked again or 
+    another note-on event is sent from a MIDI device</td>
   </tr>
   <tr>
     <th><kbd class="menu">Repeat</kbd></th>
@@ -79,7 +79,7 @@
 
 <p>
   The <dfn>Legato</dfn> mode helps keeping two clips of the same track in sync
-  when you switch from one to another. With Legato on, Ardour will pick up
+  when switching from one to another. With Legato on, Ardour will pick up
   the playback of the second clip at the position where the first one left off.
   Please note that quantization applies here.
 </p>
