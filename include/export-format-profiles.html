@@ -15,14 +15,14 @@
   Profile</kbd> dialog.
 </p>
 
-<h2>Label</h2>
+<h2 id="label">Label</h2>
 <p>
   The <kbd class="menu">Label</kbd> field allows to choose the name which will be
   shown for this format in the drop-down list of export formats in the
   'File Formats' tab of the <a href="@@export-dialog">Export dialog</a>.
 </p>
 
-<h2>Pre-Process</h2>
+<h2 id="pre-process">Pre-Process</h2>
 <p>
   If enabled, levels of exported files will be normalized to the level chosen here.
   The normalization can be either:
@@ -41,20 +41,20 @@
   </li>
 </ul>
 
-<h3>Trim silence at start/end</h3>
+<h3 id="trim-silence-at-start-end">Trim silence at start/end</h3>
 <p>
   These checkboxes allow to remove any part Ardour considers silent (&lt; &minus;90dB),
   at the beginning or/and end of each exported track.
 </p>
 
-<h3>Add silence at start/end</h3>
+<h3 id="add-silence-at-start-end">Add silence at start/end</h3>
 <p>
   These checkboxes allow to add silence at the beginning or/and end of each
   exported track. The duration of the added silence can be manually fixed in the
   adjacent 'timer' input fields.
 </p>
 
-<h2>Watermark</h2>
+<h2 id="watermark">Watermark</h2>
 <p>
   This section adds watermarks to the exported audio (e.g. for limited/demo
   distribution), by overwriting part of the audio with white noise in the
@@ -65,9 +65,9 @@
   (how loud) can be set.
 </p>
 
-<h2>Format</h2>
+<h2 id="format">Format</h2>
 
-<h3>Compatibility</h3>
+<h3 id="compatibility">Compatibility</h3>
 <p>
   Selecting an item in the 'Compatibility' emphasizes the settings in the other
   columns that are compatible with the selected standard, by turning incompatible
@@ -75,14 +75,14 @@
   compatibility column checkbox disappears.
 </p>
 
-<h3>Quality</h3>
+<h3 id="quality">Quality</h3>
 <p>
   The appropriate item in the 'Quality' column will be highlighted when a file format
   is chosen. At the moment, selecting a Quality setting does not show the
   compatible File formats.
 </p>
 
-<h3>File format</h3>
+<h3 id="file-format">File format</h3>
 <p>
   This column contains a list of Ardour's supported export file types. Selecting
   one updates the options underneath it.
@@ -93,26 +93,26 @@
   (or future 1.2.0 release). This comes bundled with official Ardour binaries.
 </p>
 
-<h3>Sample rate</h3>
+<h3 id="sample-rate">Sample rate</h3>
 <p>
   A specific sample rate can be chosen for the exported files, or the current session's
   sample rate (by choosing 'Session rate'), without sample rate conversion.
 </p>
 
-<h2>Encoding</h2>
+<h2 id="encoding">Encoding</h2>
 <p>
   Options relevant to the chosen file format will appear just to the right of the
   Compatibility/Quality/File format/Sample rate table.
 </p>
 
-<h3>Sample rate conversion quality</h3>
+<h3 id="sample-rate-conversion-quality">Sample rate conversion quality</h3>
 <p>
   In case the chosen sample rate does not match the current session's sample rate,
   the sample rate conversion quality can be chosen here. Better quality options are
   slower.
 </p>
 
-<h2>Metadata</h2>
+<h2 id="metadata">Metadata</h2>
 <p>
   These options are presented whatever the chosen format is:
 </p>
@@ -124,7 +124,7 @@
   exported files.
 </p>
 
-<h3>Create CUE/TOC/chapter mark file</h3>
+<h3 id="create-toc-cue-chapter-mark-file">Create CUE/TOC/chapter mark file</h3>
 <p>
   As well as exporting an audio file, Ardour can create a file (in CUE, TOC or MP4ch format
   respectively) containing CD track information, as defined in the
@@ -132,7 +132,7 @@
   Those files can then be used to either burn a CD or DVD, or to create "chapters"
   inside a compatible mp4 video container.
 
-<h2>Post Export</h2>
+<h2 id="post-export">Post Export</h2>
 <p>
   If this is not blank, it is considered as a command to be run after the export
   of each file. Either the command must exist in $PATH, or an absolute path to
