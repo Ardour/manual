@@ -48,57 +48,21 @@
 
 <p>
   To access the server from any device in the same network you need to know the
-  broadcast IP address of the computer running Ardour. Here is how to do that
-  on supported operating systems.
+  broadcast IP address or the hostname of the computer running Ardour. To do
+  that, open <kbd class="menu">Window &gt; Log</kbd> right after enabling the
+  control surface and look at the message that says something like this:
 </p>
 
 <p>
-  Windows 10:
+  <code>
+  2025-02-28T21:42:14 [INFO]: ArdourWebsockets: listening on: http://fedora:3818/
+  </code>
 </p>
 
-<ol>
-  <li>Open the <em>Settings</em> application.</li>
-  <li>Go to the <em>Network &amp; internet</em> from the menu on the left, then click Properties along the top.</li>
-  <li>Select the type of network connection (WiFi or Ethernet)</li>
-  <li>Click <em>Network</em> in the center.</li>
-  <li>In the newly opened page, the local IPv4 address be displayed.</li>
-</ol>
-
-<p>&hellip;or&hellip;</p>
-
-<ol>
-  <li>Open the <em>Start</em> menu and type <tt>cmd</tt>. This will  to open the
-  command prompt.</li>
-  <li>Type <tt>ipconfig</tt> and press <strong>Enter</strong>.</li>
-  <li>In the output, look for IPv4 address.</li>
-</ol>
-
 <p>
-  macOS:
-</p>
-
-<ol>
-  <li>Open the <em>System Preferences</em> dialog.</li>
-  <li>Select <em>Network</em>, then choose connection type (typically WiFi,
-  Ethernet, or USB).</li>
-  <li>The IP address will be displayed on the newly opened page under the
-  connection status.</li>
-</ol>
-
-<p>
-  Linux:
-</p>
-
-<ol>
-  <li>Open a terminal program.</li>
-  <li>Run this command: <tt>$ ip -4 address</tt>.</li>
-  <li>The output will list several network devices. You want the one that has
-  "BROADCAST" rather than "LOOPBACK" in the description.</li>
-</ol>
-
-<p>
-  Once you know the address, you can open the control surface web app
-  in a browser by visiting the IP address with appended port number.
+  Alternatively, you can use system's specific tools to discover the IP address.
+  Once you know the address or the hostname, you can open the control surface
+  web app in a browser by visiting the IP address with appended port number.
   E.g. if the IP address of the computer running Ardour is <tt>192.168.1.68</tt>,
   the entire URL will be <tt>http://192.168.1.68:3818/</tt>.
 </p>
