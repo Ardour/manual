@@ -1,14 +1,9 @@
 <!-- exploded -->
 
 ---
-title: Introduction to Ardour
+title: About Ardour
+link: about-ardour
 part: part
----
-
----
-title: Welcome to Ardour
-link: welcome-to-ardour
-part: chapter
 ---
 
 ---
@@ -16,7 +11,7 @@ title: About Ardour's documentation
 include: about-ardours-documentation.html
 link: about-ardour-doc
 uri: welcome-to-ardour/about-ardour-documentation
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -24,7 +19,7 @@ title: Ardour Overview
 include: ardour-overview.html
 link: ardour-overview
 uri: welcome-to-ardour
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -32,7 +27,7 @@ title: Why is it called Ardour?
 include: why-is-it-called-ardour.html
 link: why-is-it-called-ardour
 uri: welcome-to-ardour/about-ardour/why-is-it-called-ardour
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -40,7 +35,7 @@ title: Why Write a DAW for Linux?
 include: why-write-a-daw-for-linux.html
 link: why-write-a-daw-for-linux
 uri: welcome-to-ardour/about-ardour/why-write-a-daw-for-linux
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -49,7 +44,7 @@ menu_title: Isn't This a Complex Program?
 include: isnt-this-a-really-complicated-program.html
 link: isnt-this-a-really-complicated-program
 uri: welcome-to-ardour/about-ardour/isnt-this-a-really-complicated-program
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -57,7 +52,7 @@ title: Creating Music with Ardour
 include: creating-music-with-ardour.html
 link: creating-music-with-ardour
 uri: introducing-ardour/creating-music-with-ardour
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -65,14 +60,14 @@ title: Additional Resources
 include: additional-resources.html
 link: additional-resources
 uri: welcome-to-ardour/additional-resources
-part: subchapter
+part: chapter
 ---
 
 ---
-title: Ardour Basics
+title: Getting Started
 link: ardour-basics
 uri: introducing-ardour
-part: chapter
+part: part
 ---
 
 ---
@@ -80,7 +75,7 @@ title: Starting Ardour
 include: starting-ardour.html
 link: starting-ardour
 uri: setting-up-your-system/starting-ardour
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -89,7 +84,7 @@ menu_title: Basic Concepts and Terminology
 include: understanding-basic-concepts-and-terminology.html
 link: understanding-basic-concepts-and-terminology
 uri: introducing-ardour/understanding-basic-concepts-and-terminology
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -97,7 +92,7 @@ title: Using the Mouse
 include: using-the-mouse.html
 link: using-the-mouse
 uri: introducing-ardour/basic-gui-operations/using-the-mouse
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -106,7 +101,7 @@ menu_title: Default Key Bindings
 include: default-keyboard-bindings.html
 link: default-keyboard-bindings
 uri: default-keyboard-bindings
-part: subchapter
+part: chapter
 ---
 
 ---
@@ -114,7 +109,7 @@ title: Basic GUI Operations
 include: basic-gui-operations.html
 link: basic-gui-operations
 uri: introducing-ardour/basic-gui-operations
-part: subchapter
+part: chapter
 ---
 
 
@@ -1045,12 +1040,6 @@ menu_title: Metronome
 include: metronome.html
 link: metronome
 uri: recording/metronome
-part: chapter
----
-
----
-title: Punch Recording Modes
-link: punch-recording-modes
 part: chapter
 ---
 
