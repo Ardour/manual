@@ -27,7 +27,8 @@
   then click on "Control Surfaces". Click on the "Enable" button
   in the line that says "Console1" in order to activate Ardour's
   Console1 support. Then double click on the line that says
-  "Console1". A new dialog will open, containing two dropdown selectors 
+  "Console1". or hit the "Show Protocol Settings" button. 
+  A new dialog will open, containing two dropdown selectors 
   that will allow you to identify the MIDI ports where your Console1 
   is connected.
 </p>
@@ -49,16 +50,19 @@
 <h3>Checkboxes</h3>
 <p>The checkbox "Swap Solo and Mute" does exactly that. In Ardour and Mixbus, these buttons are arranged exactly the other way round than in Console1. Since this can be irritating, the assignment can be reversed here.
 <p>
+<p>[Mixbus] The checkbox "Use Mid-Q Buttons as send 11/12" hardcodes the Low Mid and High Mid Q-Factor to the send 11 and 12 dials. If not checked, when switching to the SSL Equalizer, the Q-Values of this are controled by this dials. 
+    <em>Default is checked for compatibility with former versions</em>
+<p>
 <p><em>Work in Progress</em><br/>
 The checkbox "Create Plugin Mapping Stubs" automatically creates mapping files for external plugins - if they does not already exists. See the last section "External Plugins" for further information.
 <p>
-<h2>Harrison Mixbus &amp; Mixbus 32c</h2>
+<h2>Harrison Mixbus</h2>
 <p class="well">
-  A lot of functionality is developed to be used with Harrison Mixbus 
-  and Harrison Mixbus32c, therefore the  assignment of the controls might 
+  A lot of functionality is developed to be used with Harrison Mixbus, 
+  therefore the  assignment of the controls might 
   sometimes  feels a little arbitrary. However, in the future it might 
   be possible, to control plugins with this surface.<br/>
-  <strong>Controls only used by Harrison Mixbus (32c) are marked with
+  <strong>Controls only used by Harrison Mixbus are marked with
   [Mixbus]</strong><br/>
   <strong>Controls inside a Mixbus only section which are working in 
   Ardour as well marked with [Ardour]</strong><br/>
@@ -79,7 +83,7 @@ The checkbox "Create Plugin Mapping Stubs" automatically creates mapping files f
   <tr> 
     <th><kbd class="button">On</kbd></th>
     <td>Is lit when a mixer strip is in solo mode and 
-    can disables all solo modes.<em>Rude Solo</em></td>
+    can disables all solo modes.<em>Rude Solo / Clear Solos</em></td>
   </tr>
   <tr>
     <th><kbd class="button">Mode</kbd></th>
@@ -87,7 +91,7 @@ The checkbox "Create Plugin Mapping Stubs" automatically creates mapping files f
   </tr>
   <tr>
     <th><kbd class="button">Page Up</kbd> / <kbd class="button">Page Down</kbd></th>
-    <td>Switches 20 mixer strips up or down. Only lit if there is another page/bank<td>
+    <td>Switches 20 mixer strips up or down. Only lit if there is another page/bank. The lights above this buttons show if you can an upper or lower bank<td>
   </tr>
   <tr>
     <th><kbd class="button">1</kbd>...<kbd class="button">20</kbd></th>
@@ -95,7 +99,7 @@ The checkbox "Create Plugin Mapping Stubs" automatically creates mapping files f
   </tr>
   <tr>
     <th><kbd class="button">Track Group</kbd>/<kbd class="button">Track Copy</kbd></th>
-    <td>Unused</td>
+    <td>Currently Unused</td>
   </tr>
   <tr>
     <th><kbd class="button">Order</kbd></th>
@@ -111,7 +115,7 @@ The checkbox "Create Plugin Mapping Stubs" automatically creates mapping files f
   </tr>
   <tr>
     <th><kbd class="fader">Input Meter</kbd></th>
-    <td>Unused</td>
+    <td>Currently Unused</td>
   </tr>
   <tr>
     <th><kbd class="knob">High Cut</kbd></th>
@@ -131,7 +135,7 @@ The checkbox "Create Plugin Mapping Stubs" automatically creates mapping files f
   </tr>
   <tr>
     <th><kbd class="button">Preset</kbd></th>
-    <td>The Global 'Shift' button</td>
+    <td>The global 'Shift' button</td>
   </tr>
   <tr>
     <th><kbd class="knob">Pan</kbd></th>
@@ -159,11 +163,11 @@ The checkbox "Create Plugin Mapping Stubs" automatically creates mapping files f
 <table class="dl">
   <tr> 
     <th><kbd class="button">Shape</kbd></th>
-    <td>Switches the Gate section on or off</td>
+    <td>Switches the "Gate" on or off</td>
   </tr>
   <tr>
     <th><kbd class="fader">Shape Meter</kbd></th>
-    <td>Shows the Gain reduction of the gate<td>
+    <td>Shows the gain reduction of the gate<td>
   </tr>  
   <tr>
     <th><kbd class="knob">Gate</kbd></th>
@@ -212,11 +216,11 @@ The checkbox "Create Plugin Mapping Stubs" automatically creates mapping files f
 <table class="dl">
   <tr> 
     <th><kbd class="button">Equalizer</kbd></th>
-    <td>Switches the Equalizer section on or off</td>
+    <td>Switches the "Equalizer" on or off</td>
   </tr>
   <tr>
     <th><kbd class="knob">Low Gain</kbd></th>
-    <td>The Gain (reduction or boost) of the semiparametric bass eq<td>
+    <td>The gain (reduction or boost) of the semiparametric bass eq<td>
   </tr>  
   <tr>
     <th><kbd class="knob">(Low) Frequency</kbd></th>
@@ -224,11 +228,11 @@ The checkbox "Create Plugin Mapping Stubs" automatically creates mapping files f
   </tr>  
   <tr> 
     <th><kbd class="button">(Low) Cut / Bell / Shelf</kbd></th>
-    <td>Switches between Cut/Boost or Shelf (this uses only two of the three states</td>
+    <td>Switches between cut/boost or shelf (this uses only two of the three states</td>
   </tr>
   <tr>
     <th><kbd class="knob">Low Mid Gain</kbd></th>
-    <td>The Gain (reduction or boost) of the semiparametric low mid eq</td>
+    <td>The gain (reduction or boost) of the semiparametric low mid eq</td>
   </tr>  
   <tr>
     <th><kbd class="knob">(Low Mid) Frequency</kbd></th>
@@ -236,12 +240,16 @@ The checkbox "Create Plugin Mapping Stubs" automatically creates mapping files f
   </tr>
   <tr>
     <th><kbd class="knob">(Low Mid) Shape</kbd></th>
-    <td>[Ardour]The eleventh send of a mixer strip / Send to the eleventh mixbus</td>
+    <td>If the checkbox <em>Use Mid-Q Buttons as send 11/12</em> in the <em>settings dialog</em> is checked or the Harrison EQ is selected, the dial controls send 11. 
+        If the <em>Use Mid-Q Buttons as send 11/12</em> is not checked and the SSL EQ is selected, this dial controls the Q-factor of the low mids. 
+        [Ardour] The eleventh send of a mixer strip 
+        (see section Mixbusses) 
+    </td>
   </tr>  
 
   <tr>
     <th><kbd class="knob">High Mid Gain</kbd></th>
-    <td>The Gain (reduction or boost) of the semiparametric high mid eq</td>
+    <td>The gain (reduction or boost) of the semiparametric high mid eq</td>
   </tr>  
   <tr>
     <th><kbd class="knob">(High Mid) Frequency</kbd></th>
@@ -249,13 +257,16 @@ The checkbox "Create Plugin Mapping Stubs" automatically creates mapping files f
   </tr>
   <tr>
     <th><kbd class="knob">(High Mid) Shape</kbd></th>
-    <td>[Ardour]The twelfth send of a mixer strip / Send to the twelfth mixbus
-    (see section Mixbusses) </td>
+    <td>If the checkbox <em>Use Mid-Q Buttons as send 11/12</em> in the <em>settings dialog</em> is checked or the Harrison EQ is selected, the dial controls send 12. 
+        If the <em>Use Mid-Q Buttons as send 11/12</em> is not checked and the SSL EQ is selected, this dial controls the Q-factor of the high mids. 
+        [Ardour] The twelfth send of a mixer strip
+        (see section Mixbusses) 
+    </td>
   </tr>  
 
   <tr>
     <th><kbd class="knob">High Gain</kbd></th>
-    <td>The Gain (reduction or boost) of the semiparametric treble eq</td>
+    <td>The gain (reduction or boost) of the semiparametric treble eq</td>
   </tr>  
   <tr>
     <th><kbd class="knob">(High) Frequency</kbd></th>
@@ -268,7 +279,7 @@ The checkbox "Create Plugin Mapping Stubs" automatically creates mapping files f
 <table class="dl">
   <tr> 
     <th><kbd class="button">Compressor</kbd></th>
-    <td>Switches the Compressor on or off</td>
+    <td>Switches the "Compressor" on or off</td>
   </tr>
   <tr>
     <th><kbd class="fader">Compressor Meter</kbd></th>
@@ -303,7 +314,7 @@ The checkbox "Create Plugin Mapping Stubs" automatically creates mapping files f
 <h4>Sends</h4>
 <div class="well">
 All Encoders in the equalizer-section are working as sends when 'shift' is selected.<br/>
-Additionally the Low-Mid and High-Mid shape encoders are sends to the mixbusses 
+Additionally the "Low-Mid" and "High-Mid" shape encoders <em>can</em> act as sends to the mixbusses (see below)
 eleven and twelfe. The Idea behind this is to have some common effects on this two 
 mixbusses which are accessible without 'shift'. Currently, this is focused on Mixbus. <br/>
 The functionality will be extended to fit better with Ardour in a second development phase.
@@ -356,11 +367,11 @@ the next send below by the send 2 encoder
   </tr>  
   <tr>
     <th><kbd class="knob">(Low Mid) Shape</kbd></th>
-    <td>Send 11</td>
+    <td>If the <em>Use Mid-Q Buttons as send 11/12</em> is checked or the Harrison EQ is selected, this dial controls the Send 11</td>
   </tr>  
   <tr>
     <th><kbd class="knob">(High Mid) Shape</kbd></th>
-    <td>Send 12</td>
+    <td>If the <em>Use Mid-Q Buttons as send 11/12</em> is checked or the Harrison EQ is selected, this dial controls the Send 12</td>
   </tr>  
   
 </table>  
