@@ -1,10 +1,9 @@
 
 <p>
-This shows the track/bus groups that exist in the session. These groups allow
-related tracks to share various properties (such as mute or record enable
-state). For full details, see the section called
-<a href="@@track-and-bus-groups">Track and Bus Groups</a>.
+This docks helps manage track/bus groups that exist in the session. These groups allow related tracks to share various properties (such as mute or record enable state). For full details, see the section called <a href="@@track-and-bus-groups">Track and Bus Groups</a>.
 </p>
+
+<h2 id="track-and-bus-group-list-columns">Columns</h2>
 
 <p>
   The columns in this list are as follows:
@@ -37,3 +36,47 @@ state). For full details, see the section called
   <td>whether the constituents share active status. </td></tr>
 </table>
 
+<h2 id="track-and-bus-group-list-buttons">Buttons</h2>
+
+<p>
+  The <kbd class="menu">&plus;</kbd> button under the list allows the creation
+  of an (empty) group, while the <kbd class="menu">&minus;</kbd> button
+  deletes the selected group (but not the tracks in this group).
+</p>
+
+<h2 id="track-and-bus-group-list-right-click-menu">Right-click menu</h2>
+
+<p>
+  The context menu, reached by <kbd class="mouse">right</kbd>-clicking a group,
+  allows for multiple mixing actions:
+</p>
+
+<table class="dl">
+  <tr><th>Create New Group From&hellip;</th><td>Creates a new group based on some track properties. The choice is:
+    <ul>
+      <li><kbd class="menu">Selection&hellip;</kbd> to create a group of all selected tracks</li>
+      <li><kbd class="menu">Record Enabled&hellip;</kbd> to create a group of all the tracks that are record enabled</li>
+      <li><kbd class="menu">Soloed&hellip;</kbd> to create a group of all the soloed tracks</li>
+    </ul></td></tr>
+  <tr><th>Create New Group with Master From&hellip;</th><td>Acts exactly as the previous choice, but also creates a Control Master tied to these tracks.</td></tr>
+  <tr><th>Assign Selection to Control Master&hellip;</th><td>Allows to link all the selected tracks to a chosen Control Master, whether or not they belong to a group.</td></tr>
+  <tr><th>Assign Record Enabled to Control Master&hellip;</th><td>Allows to link all the record armed tracks to a chosen Control Master.</td></tr>
+  <tr><th>Assign Soloed to Control Master&hellip;</th><td>Allows to link all the soloed tracks to a chosen Control Master.</td></tr>
+  <tr><th>Enable All Groups</th><td>Enable all the groups, i.e. their selected properties are synchronized.</td></tr>
+  <tr><th>Disable All Groups</th><td>Disable all the groups, i.e. changing a property in a track won't affect the others.</td></tr>
+
+</table>
+
+<p>
+  When a group is selected, <kbd class="mouse">right</kbd> clicking it adds the following menu entries:
+</p>
+
+<table class="dl">
+  <tr><th>Create New Group with Master From&hellip;</th><td>Acts exactly as the previous choice, but also creates a Control Master tied to these tracks.</td></tr>
+  <tr><th>Edit Group&hellip;</th><td>Shows the <kbd class="menu">Track/bus Group</kbd> <a href="@@the-track-and-bus-group-list">window</a>.</td></tr>
+  <tr><th>Collect Group</th><td>Rearranges the tracks/busses order to visually group together the tracks belonging to the same group.</td></tr>
+  <tr><th>Remove Group</th><td>Deletes the group (but not the tracks/busses belonging to this group).</td></tr>
+  <tr><th>Assign Group to Control Master&hellip;</th><td>Allows to link all the tracks in the group to a chosen VCA.</td></tr>
+  <tr><th>Add/Remove Subgroup Bus</th><td>Creates/removes a new bus connected to the Master, and send the output of all the tracks in the group to this new bus.</td></tr>
+  <tr><th>Add New Aux Bus (pre/post-fader)</th><td>Creates a new bus connected to the Master, and create <a href="@@aux-sends">Aux Sends</a> (pre or post-fader) in all the tracks in the group to this new bus.</td></tr>
+</table>

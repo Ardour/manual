@@ -601,14 +601,6 @@ part: subchapter
 ---
 
 ---
-title: The Tracks List
-include: the-tracks-list.html
-link: the-tracks-list
-uri: ardours-interface/editor-lists/tracks-list
-part: subchapter
----
-
----
 title: The Sources List
 include: the-sources-list.html
 link: the-sources-list
@@ -677,14 +669,6 @@ title: Strips list
 include: strips-list.html
 link: strips-list
 uri: ardours-interface/the-strips-list
-part: chapter
----
-
----
-title: Groups list
-include: groups-list.html
-link: groups-list
-uri: ardours-interface/the-groups-list
 part: chapter
 ---
 
