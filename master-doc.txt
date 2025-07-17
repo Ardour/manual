@@ -703,19 +703,19 @@ part: subchapter
 ---
 
 ---
+title: Foldback Section
+include: foldback-strip.html
+link: foldback-strip
+uri: ardours-interface/foldback-strip
+part: subchapter
+---
+
+---
 title: Master Bus Strip
 include: master-bus-strip.html
 link: master-bus-strip
 uri: ardours-interface/the-master-bus-strip
 part: subchapter
----
-
----
-title: Foldback Section
-include: foldback-strip.html
-link: foldback-strip
-uri: ardours-interface/foldback-strip
-part: chapter
 ---
 
 ---
