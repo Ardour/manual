@@ -1058,6 +1058,14 @@ part: chapter
 ---
 
 ---
+title: Adding Pre-existing Material
+include: adding-pre-existing-material.html
+link: adding-pre-existing-material
+uri: adding-pre-existing-material
+part: subchapter
+---
+
+---
 title: Import Dialog
 include: import-dialog.html
 link: import-dialog
@@ -1070,14 +1078,6 @@ title: Supported File Formats
 include: supported-file-formats.html
 link: supported-file-formats
 uri: adding-pre-existing-material/supported-file-formats
-part: subchapter
----
-
----
-title: Adding Pre-existing Material
-include: adding-pre-existing-material.html
-link: adding-pre-existing-material
-uri: adding-pre-existing-material
 part: subchapter
 ---
 
