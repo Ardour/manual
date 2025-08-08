@@ -2358,14 +2358,6 @@ part: subchapter
 ---
 
 ---
-title: OSC control for Ardour 4.7 and Prior
-include: osc-control-for-ardour-4.7-and-prior.html
-link: osc-control-for-ardour-4.7-and-prior
-uri: using-control-surfaces/controlling-ardour-with-osc/osc-control-in-ardour-4.7-and-prior
-part: subchapter
----
-
----
 title: Using the PreSonus FaderPort
 menu_title: PreSonus FaderPort
 include: control-surfaces-presonus-faderport.html
