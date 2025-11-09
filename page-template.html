@@ -78,7 +78,7 @@
 	<script type="text/javascript">
 		// I'll go to hell for this
 		var isA = function(regex) { return navigator.userAgent.match(regex) };
-		var isAbout = function(regex) { return document.getElementsByTagName('h1')[1].textContent.match(regex) };
+		var isAbout = function(regex) { return document.getElementsByTagName('h1')[1]?.textContent.match(regex) };
 
 		if ( (isA(/Mac/) || isAbout(/OS X/)) && (!isAbout(/Linux/)) ) {
 			var e = document.getElementsByTagName('body')[0];
