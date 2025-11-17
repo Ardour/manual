@@ -1,0 +1,174 @@
+<p>
+	Pianoroll windows are a conventional user interface for editing MIDI data. It's possible to open several regions for editing in dedicated pianoroll windows at a time:
+</p>
+
+<ol>
+	<li>Select a MIDI region on the timeline.</li>
+	<li>Right-click, then select <kbd
+  class="menu">{region name} &gt; Edit in a separate window…</kbd></li>
+</ol>
+
+<p>
+	The user interface largely resembles that of in-place editing in the main window on the timeline.
+</p>
+
+<figure class="right">
+  <img width="75%" src="/images/pianoroll-window.png" alt="A pianoroll window">
+  <figcaption>
+    A pianoroll window
+  </figcaption>
+</figure>
+
+<ol>
+	<li>Region properties pane</li>
+	<li>Editor toolbar</li>
+	<li>Note editing area</li>
+	<li>Automation editing area</li>
+</ol>
+
+<h2>Region properties pane</h2>
+
+<figure class="right">
+  <img class="mini" style="width:300px;" src="/images/pianoroll-window-region-properties.png" alt="Region properties">
+  <figcaption>
+    Region properties
+  </figcaption>
+</figure>
+
+<p>
+	Displays essential information about the MIDI region:
+</p>
+
+<ul>
+	<li>Name: the name of the region</li>
+	<li>Source: the MIDI file where the notes are stored</li>
+	<li>Position: where on the timeline the region starts</li>
+	<li>End: where on the timeline the region ends</li>
+	<li>Length: the duration of the region </li>
+	<li>File start: where the visible part of the region begins, counting from the region's start</li>
+	<li>Sync point (relative to the region)</li>
+	<li>Sync point (absolute)</li>
+</ul>
+
+<h2>Editor toolbar</h2>
+
+<p>
+	The editor toolbar provides playback, editing, and zoom controls.
+</p>
+
+<figure class="right">
+  <img width="100%" src="/images/pianoroll-window-toolbar.png" alt="Pianoroll toobar">
+<!--   <figcaption>
+    Pianoroll toolbar
+  </figcaption> -->
+</figure>
+
+<p>
+	Playback controls:
+</p>
+
+<ul>
+	<li>Play once starting at the beginning of the region</li>
+	<li>Loop-playback the region until stopped</li>
+	<li>Solo toggle for the track where the region is located</li>
+</ul>
+
+<p>
+	Note display controls:
+</p>
+
+<ul>
+	<li>Select visible MIDI channel: notes on this channel will be editable, notes on other channels will be displayed as ghost notes that cannot be edited</li>
+	<li>Note mode selector: whether to display notes in regular or drum (diamond-shaped) mode</li>
+	<li>Follow playhead: whether the pianoroll window should automatocally scroll horizontally to follow the playhead</li>
+</ul>
+
+<p>
+	Note editing controls:
+</p>
+
+<ul>
+	<li>
+		Draw vs Edit mode selection
+	</li>
+	<li>
+		Snapping toggle: enables or disables snapping to selected grid units
+	</li>
+	<li>
+		Grid mode: allows selecting a specific grid unit or no grid at all
+	</li>
+	<li>
+		Length: default note length for notes created by single-clicking on the timeline
+	</li>
+	<li>
+		Velocity: default note velocity. The 'Auto' option inherits the velocity from the nearest note
+	</li>
+</ul>
+
+<p>
+	Zoom controls:
+</p>
+
+<ul>
+	<li>Zoom in</li>
+	<li>Zoom out</li>
+	<li>Zoom to show the entire region</li>
+	<li>Zoom focus mode</li>
+</ul>
+
+<h2>Note area</h2>
+
+<p>
+	This areas displays all editable notes and provides control for panning between staves and tweaking the beginning and the end of the region.
+</p>
+
+<figure class="right">
+  <img width="100%" src="/images/pianoroll-window-editing-area.png" alt="Note editing area in the pianoroll window">
+<!--   <figcaption>
+    Pianoroll toolbar
+  </figcaption> -->
+</figure>
+
+<p>
+	The area on the left controls the visible note range. <a href="@@controlling-midi-range">See here</a> for the detailed explanation how to use the widget.
+</p>
+
+<p>
+	The orange handles on the left and on the right control the start and the end of the region's visible part. For example, dragging the orange start marker (on the left) to the right is equivalent to using the Grab tool to pick the left side of the region and trim the beginning of the region.
+</p>
+
+<p>
+	Drawing and editing MIDI notes works the same way as in the main window:
+</p>
+
+<ul>
+	<li>Select the Draw mode and then click and drag to add a note. Alternatively, press and hold <kbd>Shift</kbd> and click and drag to brush notes at the interval defined by global quantization.</li>
+	<li>Select the Edit mode, click on a note or rubberband-select multiple note, then click and drag notes by their middle to move them, or click and drag on the left or the right side of one note to trim or extend.</li>
+</ul>
+
+
+<h2>Automation area</h2>
+
+<p>
+	This area displays note velocity and controllers and is disabled by default. Clicking on any of the available controller options (Velocity, Bender, Pressure, Modulation) enables it.
+</p>
+
+<figure class="right">
+  <img width="100%" src="/images/pianoroll-window-automation-area.png" alt="Automation area in the pianoroll window">
+<!--   <figcaption>
+    Pianoroll toolbar
+  </figcaption> -->
+</figure>
+
+<p>
+	To enable or disable an automation lane, click on the small LED indicator to the left of its name on the bottoom toolbar.
+</p>
+
+<p>
+	The area can display data from multiple controllers, overlaid on top of each other, but only one automation lane is editable at the time.
+</p>
+
+<p>
+	To select the automation lane to edit, click on the controller name. The lane data will become editable, and the relevant button will get a red outline (Velocity on the screenshot above).
+</p>
+

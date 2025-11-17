@@ -1446,6 +1446,14 @@ part: chapter
 ---
 
 ---
+title: Pianoroll Window
+include: pianoroll-window.html
+link: pianoroll-window
+uri: working-with-midi/pianoroll-window
+part: subchapter
+---
+
+---
 title: Controlling Visible Note Range
 include: controlling-midi-range.html
 link: controlling-midi-range
@@ -1551,7 +1559,7 @@ part: subchapter
 ---
 
 ---
-title: Transforming MIDI&mdash;Mathematical Operations
+title: Transforming MIDI with Mathematical Operations
 menu_title: Transforming MIDI
 include: transforming-midi---mathematical-operations.html
 link: transforming-midi---mathematical-operations
