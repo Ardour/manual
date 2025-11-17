@@ -33,7 +33,7 @@
 		<li><a href="#preferences-appearance-editor">Editor</a></li>
     <li><a href="#preferences-appearance-waveform">Waveform</a></li>
 		<li><a href="#preferences-appearance-mixer">Mixer</a></li>
-		<li><a href="#preferences-appearance-toolbar">Toolbar</a></li>
+		<li><a href="#preferences-appearance-application-bar">Application Bar</a></li>
 		<li><a href="#preferences-appearance-size-and-scale">Size and Scale</a></li>
 		<li><a href="#preferences-appearance-colors">Colors</a></li>
 		<li><a href="#preferences-appearance-quirks">Quirks</a></li>
@@ -129,6 +129,17 @@
         <strong>Maximum number of recent sessions:</strong> determines how 
         many of the last opened sessions shows in the <em>Recent&nbsp;Sessions</em>
         dialog displayed by <kbd class="menu">Session &gt; Recent</kbd>.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <dfn>Selection</dfn>:
+    <ul>
+      <li>
+        <dfn>Group operations on selected tracks:</dfn> this controls
+        the behavior where selecting multiple tracks in the mixer and
+        e.g. dragging the gain fader in one track drags faders in other
+        selected tracks by the same amount.
       </li>
     </ul>
   </li>
@@ -464,49 +475,49 @@
   </li>
 </ul> 
   
-<h3 id="preferences-appearance-toolbar">Toolbar</h3>
+<h3 id="preferences-appearance-application-bar">Application Bar</h3>
 
 <ul>
   <li>
     <dfn>Main Transport Toolbar Items</dfn>: this section allows to toggle the
-    visibility of some elements of the main toolbar:
+    visibility of some elements of the application bar:
     <ul>
       <li>
         <dfn>Display Record/Punch Options</dfn> toggles the visibility of the
         <a href="@@selection-and-punch-clocks#punch_controls">punch and record</a> slice of
-        the main toolbar.
+        the application bar.
       </li>
       <li>
-        <dfn>Display Latency Compensation Info</dfn> toggles the visibility of the
-        Latency Compensation slice of the main toolbar.
+        <dfn>Display Plugin Delay Compensation Info</dfn> toggles the visibility of the
+        Latency Compensation slice of the application bar.
       </li>
       <li>
         <dfn>Display Secondary Clock</dfn> toggles the visibility of the
         <a href="@@transport-clocks">secondary clocks</a> slice of
-        the main toolbar.
-      </li>
-      <li>
-        <dfn>Display Selection Clock</dfn> toggles the visibility of the
-        <a href="@@selection-and-punch-clocks#selection_clocks">selection clocks</a> slice of
-        the main toolbar.
-      </li>
-      <li>
-        <dfn>Display Monitor Section Info</dfn> toggles the visibility of the
-       Monitor Info slice of the main toolbar.
+        the application bar.
       </li>
       <li>
         <dfn>Display Cue Rec/Play Controls</dfn> toggles the visibility of the
        buttons that enable creating and playing back cue markers.
       </li>
       <li>
+        <dfn>Display Selection Clock</dfn> toggles the visibility of the
+        <a href="@@selection-and-punch-clocks#selection_clocks">selection clocks</a> slice of
+        the application bar.
+      </li>
+      <li>
         <dfn>Display Navigation Timeline</dfn> toggles the visibility of the
         <a href="@@mini-timeline">navigation/mini timeline</a> slice of
-        the main toolbar.
+        the application bar.
       </li>
       <li>
         <dfn>Display Master Level Meter</dfn> toggles the visibility of the
         <a href="@@other-toolbar-items#mode_selector">selection clocks</a> slice of
-        the main toolbar.
+        the application bar.
+      </li>
+      <li>
+        <dfn>Display Monitor Section Info</dfn> toggles the visibility of the
+       Monitor Info slice of the application bar.
       </li>
     </ul>
   </li>
@@ -530,10 +541,14 @@
     <dfn>User Interface Size and Scale</dfn>
     <ul>
 	  <li>
-	    <dfn>GUI and Font scaling:</dfn> allows the display size of most of the
+	    <dfn>GUI and Font scaling</dfn>: allows the display size of most of the
 	    text and buttons in the user interface to be scaled up or down. May
 	    require a restart to take effect.
       </li>
+    <li>
+      <dfn>Drag deadzone</dfn>: provides broad control over how many pixels
+      the pointer must move before a drag (or copy-drag) begins.
+    </li>
     </ul>
   </li>
 </ul>
@@ -797,6 +812,15 @@
       </li>
     </ul>
   </li>
+  <li>
+    <dfn>Region Editing</dfn>
+    <ul>
+      <li>
+        <dfn>Region Editing Preference:</dfn> this controls whether double-clicking
+        to edit a region opens a new window or uses the bottom panel of the editor.
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="preferences-editor-snap">Snap</h3>
@@ -1053,6 +1077,9 @@
         <dfn>Locate to the next matching scene marker when a MIDI program change
         is received (and NOT recording)</dfn>: allows moving the playhead to a
         previously captured MIDI scene event when received a MIDI program change.
+      </li>
+      <li>
+        <dfn>Stop transport using the current grid (if any)</dfn>: if enabled, stopping the transport (playback or recording) will happen at the next grid point instead of immediately.
       </li>
     </ul>
   </li>  
@@ -1347,6 +1374,10 @@
         only be shown when <kbd class="mouse">double clicking</kbd> it.
       </li>
       <li>
+        <dfn>Automatically open instrument plugin GUI when adding a new MIDI
+        Track/Bus</dfn>: Ardour defaults to automatically showing instrument plugin GUIs when new tracks/busses with instruments are added. If multiple tracks are added, Ardour will only show the GUI for the first one. This setting allows you to opt out of that behavior.
+      </li>
+      <li>
         <dfn>Show only one plugin window at a time</dfn>: when enabled, only
         one plugin window will be displayed on the screen; when disabled, you
         can open as many plugin windows as you like.
@@ -1463,9 +1494,12 @@
     <dfn>VST2/VST3</dfn>
     <ul>
       <li>
-        <dfn>Conceal VST2 Plugin if matching LV3 exists</dfn> When 
+        <dfn>Conceal VST2 Plugin if matching LV3 exists:</dfn> When 
         enabled, gives precedence to the VST3 (more up-to-date) version of
         a plugin over its VST2 version, if both exists.
+      </li>
+      <li>
+        <dfn>VST3 Knob Mode:</dfn> Enforce a knob mode for VST3 plugins: use plugin default or switch between linear (depends on vertical movement) and two variation of circular, with and without a jump to a clicked position.
       </li>
     </ul>
   </li>
