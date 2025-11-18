@@ -1739,6 +1739,14 @@ part: subchapter
 ---
 
 ---
+title: Recording cues
+link: cue-recording
+include: cue-recording.html
+uri: cue/cue-recording
+part: chapter
+---
+
+---
 title: Mixing Linear and Non-Linear Workflows
 link: mixing-linear-nonlinear-workflows
 include: mixing-linear-nonlinear-workflows.html
