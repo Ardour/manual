@@ -1,0 +1,74 @@
+<figure class="right">
+  <img width="400" src="/images/rta.png" alt="Real-Time Perceptual Analyzer">
+</figure>
+
+<p>
+	The built-in perceptual analyzer allows one to visualize the live spectrum of multiple tracks and/or busses. 
+
+<p>
+	The overlaid visualization of multiple sources helps discover which track contributes a given of frequency range to the overall mix, find conflicting ranges or holes in the spectrum.
+</p>
+
+<h2>Adding sources to analysis</h2>
+
+<p>
+	By default, the real-time analyzer (RTA) window displays the spectrum of the signal coming out of the master bus. To add more sources, toggle the RTA button on either the Editor Mixer or the channel strip in the Mixer window. This will add a new source to the analyzer and open the RTA window.
+</p>
+
+<figure>
+  <img width="50%" src="/images/rta-button.png" alt="Real-Time Analyzer Button">
+</figure>
+
+<h2>Reading the spectrum display</h2>
+
+<p>
+	The perceptual analyzer displays how much power (dB) each part of the sound spectrum (Hz) contains. The horizontal axis represents frequency from low (20Hz) on the left to high (20kHz) on the right, while the vertical axis shows power level going from 0dB at the top to -60dB at the bottom.
+</p>
+
+<figure>
+  <img width="100%" src="/images/rta-chart.png" alt="Real-Time Analyzer chart">
+</figure>
+
+<p>
+	Taller "peaks" indicate frequencies with more power, while "valleys" show frequencies with less power.
+</p>
+
+<p>
+	Hovering over the chart displays the frequency/power pair at the bottom of the dialog numerically.
+</p>
+
+<p>
+	As audio plays, the display updates continuously. It's possible to temporarily pause the visual update of the spectrum display to inspect it in detail. There are two ways to do it:
+</p>
+
+<ul>
+	<li>Left-click and hold freezes pauses the update until you release the mouse button. THis is useful when you only need a quick inspection.</li>
+	<li>Clicking on the <kbd>Freeze</kbd> button pauses the update until you click the button again. This is useful when you need to go into details and hover spectrograph to see the frequency/</li>
+</ul>
+
+<h2>Removing sources from analysis</h2>
+
+<p>
+	To remove selected sources from analysis, toggle the RTA button in respective mixer channels.
+</p>
+
+<p>
+	To remove all sources except the master bus, click on the <kbd>Clear</kbd> button in the RTA window.
+</p>
+
+<h2>Real-time analyzer options</h2>
+
+<p>
+	The real-time analyzer has two options:
+</p>
+
+<ul>
+	<li><dfn>Speed</dfn>: Sets the analysis return time, or how many dBs fall in a given period, from 1dB in 2 seconds for the Noise Measurement mode to 96dB/s for the Fast mode.</li>
+	<li><dfn>Warp</dfn>: Warps spectrum frequencies to focus on given range. A high warp factor increases resolution in the low frequency range, while the Bark scale is a frequency scale on which equal distances correspond with perceptually equal distances.</li>
+</ul>
+
+<h2>Controlling RTA performance</h2>
+
+<p>
+	Real-time spectrum analysis is CPU-intensive. You can control how many spectrum displays Ardour should attempt to handle simultaneously. The <kbd class="menu">Limit concurrent RTA spectra</kbd> setting is available on the Metering page of the Preferences dialog.
+</p>

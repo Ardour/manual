@@ -1961,6 +1961,13 @@ part: subchapter
 ---
 
 ---
+title: Realtime Perceptual Analyzer
+include: real-time-analyzer.html
+link: real-time-analyzer
+part: subchapter
+---
+
+---
 title: Plugin and Hardware Inserts
 link: plugin-and-hardware-inserts
 part: chapter
