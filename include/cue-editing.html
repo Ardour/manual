@@ -1,0 +1,89 @@
+<p>
+	You can edit pre-loaded or recorded clips in trigger slots directly on the Cue page. Simply click on a clip to open clip properties and the editor in the bottom pane.
+</p>
+
+<p>
+	The editor interface is largely the same as in the <a href="@@region-editor">region editor</a> on the Editor page and the separate pianoroll window.
+</p>
+
+<figure class="right">
+  <img width="75%" src="/images/cue-editor.png" alt="Cue editor">
+  <figcaption>
+    Cue editor
+  </figcaption>
+</figure>
+
+<p>The main areas are:</p>
+
+<ul>
+	<li>Editor toolbar, with view options, editing mode selection, and other controls.</li>
+	<li>Zoom control on the left that sets how many octaves you see at once and which ones.</li>
+	<li>The main pianoroll area that displays notes.</li>
+	<li>The automation editing area below.</li>
+</ul>
+
+<h2>Editing notes</h2>
+
+<p>
+	There are two available editing modes: Draw and Edit.
+</p>
+
+<p>
+	With the Draw mode, you can:
+</p>
+
+<ul>
+	<li>
+		Add new notes with predefined length by setting the length in the editor toolbar and single-clicking on the timeline.
+	</li>
+	<li>
+		Draw notes with custom length by clicking on the timeline and dragging to the right.
+	</li>
+	<li>
+		Brush notes by pressing <kbd>Shift</kbd>, clicking, and dragging to the right. New notes will be painted at an interval defined by global quantization, with the length defined in the editor toolbar.
+	</li>
+</ul>
+
+<p>
+	See this <a href="@@add-new-notes#add-new-notes-using-the-mouse">chapter</a> for details on adding MIDI notes.
+</p>
+
+<p>
+	With the Edit mode, you can:
+</p>
+
+<ul>
+	<li>
+		Select multiple notes:
+		<ul>
+			<li>with <kbd>Ctrl</kbd> for any separate notes you click;</li>
+			<li>with <kbd>Shift</kbd> for all notes between the currently selected note and the clicked-on note;</li>
+			<li>with rubberband selection cue by clicking on an empty area and draggin towards notes.</li>
+		</ul>
+	</li>
+	<li>
+		Move notes by selecting them, then clicking on their middle parts and dragging up/down or left/right.
+	</li>
+	<li>
+		Trim and extend notes by pointing at their left/right sides, clicking, and dragging the edges.
+	</li>
+	<li>Split and join notes using <kbd>S</kbd> and <kbd>J</kbd> shortcuts. <a href="@@note-splitting-joining">See this chapter</a> for more information.</li>
+</ul>
+
+<h2>Editing automation</h2>
+
+<p>
+	You can create new automation in the Draw mode and edit existing automation in the Edit mode. Please refer to <a href="@@track-automation">this chapter</a> for details on editing workflows and methods.
+</p>
+
+<p>
+	The automation editing area displays note velocity and controllers and is disabled by default. Clicking on any of the available controller options (Velocity, Bender, Pressure, Modulation) enables it.
+</p>
+
+<p>
+	To enable or disable an automation lane, click on the small LED indicator to the left of its name on the bottom toolbar.
+</p>
+
+<p>
+	The area can display data from multiple controllers, overlaid on top of each other, but only one automation lane is editable at the time.
+</p>

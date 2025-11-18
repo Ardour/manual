@@ -1747,6 +1747,14 @@ part: chapter
 ---
 
 ---
+title: Editing Cues
+link: cue-editing
+include: cue-editing.html
+uri: cue/cue-editing
+part: chapter
+---
+
+---
 title: Mixing Linear and Non-Linear Workflows
 link: mixing-linear-nonlinear-workflows
 include: mixing-linear-nonlinear-workflows.html
