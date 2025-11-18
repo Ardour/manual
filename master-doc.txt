@@ -2066,6 +2066,14 @@ part: subchapter
 ---
 
 ---
+title: Applying effects to regions separately
+menu_title: Region FX
+include: region-fx.html
+link: region-fx
+part: subchapter
+---
+
+---
 title: Bundled Plugins
 link: bundled-plugins
 part: part
