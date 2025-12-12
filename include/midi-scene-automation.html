@@ -1,6 +1,3 @@
-
-<p class=fixme>ADD IMAGES PLEASE</p>
-
 <p>
   Ardour is capable of being used to both record and deliver MIDI "scene"
   automation. These are MIDI messages typically used to switch presets or
@@ -24,9 +21,9 @@
 <h2>Recording Scene Changes</h2>
 
 <p>
-  Ardour has a dedicated MIDI port named "Scene In". Recording scene changes can
-  be done by connecting this port to whatever source(s) of MIDI scene (bank/program
-  change) messages should be recorded.
+  Ardour has a dedicated MIDI port named "Scene In". Recording scene
+  changes can be done by connecting this port to whatever source(s) of
+  MIDI scene (bank/program change) messages should be recorded.
 </p>
 
 <p>
@@ -34,6 +31,18 @@
   transport is rolling, a new marker will be created for each scene
   change message received via the "Scene In" port.
 </p>
+
+<p>
+  Ardour will also capture program change events as MIDI data and
+  display them inside MIDI regions.
+</p>
+
+<figure class="left">
+  <img width="100%" src="/images/pg-change-in-midi-region.png" alt="Program change marker inside a MIDI region">
+  <figcaption>
+    Program change marker inside a MIDI region
+  </figcaption>
+</figure>
 
 <p>
   If two different scene changes are received within a certain time
@@ -52,10 +61,13 @@
 <h2>Manually Creating Scene Changes</h2>
 
 <p>
-  This feature is not currently implemented.
+  All location markers carry MIDI scene change information, thus adding
+  a new location marker creates a scene change. Whether this information
+  is processed depends on what plugin, software, or hardware unit is
+  listening to the MIDI events that Ardour transmits.
 </p>
 
-<h2>Playing back Scene Changes</h2>
+<h2>Playing Back Scene Changes</h2>
 
 <p>
   Ardour has a dedicated MIDI port named "Scene Out". Playing back scene
@@ -71,13 +83,32 @@
 
 <h2>Editing Scene Changes</h2>
 
+<figure class="left">
+  <img class="mini" src="/images/edit-midi-scene-change.png" alt="Edit MIDI scene change">
+  <figcaption>
+    Editing MIDI scene change
+  </figcaption>
+</figure>
+
 <p>
-  This feature is not currently implemented.
+  To edit a MIDI scene change, double-click on a location marker and
+  change program number, bank number, and channel number as required, , and click <kbd
+  class="key">Edit</kbd> to confirm the changes.
+</p>
+
+<p>
+  To reset scene change to defaults (program number 1, bank number 1,
+  channel 1), double-click on a location marker, enable the <kbd
+  class="gui">Clear scene change</kbd> checkbox, and click <kbd
+  class="key">Edit</kbd>.
 </p>
 
 <h2>Disabling Scene Changes</h2>
 
 <p>
-  This feature is not currently implemented.
+  This feature is not currently implemented. However, you can prevent
+  MIDI scene change data from being transmitted outside Ardour. To do
+  that, disconnect the Scene Out port from whatever port it is connected
+  to.
 </p>
 
