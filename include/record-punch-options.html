@@ -1,0 +1,63 @@
+<h2 id="punch_controls">Punch controls</h2>
+
+<figure>
+  <img src="/images/punch-controls.png" alt="The punch controls">
+  <!-- <img src="/images/punch-clocks.png" alt="The punch clocks"> -->
+  <figcaption>
+    The punch controls<!--  and corresponding clocks -->
+  </figcaption>
+</figure>
+
+<p>
+  The punch controls available in the main toolbar, work in conjunction with the
+  punch clocks, only visible while in Editor Mode.
+</p>
+
+<p>
+  The <kbd class="menu">In</kbd> and <kbd class="menu">Out</kbd> buttons relate
+  to the Punch range, and allow to use only one of the two punch boundaries, or both:
+</p>
+<table class="dl">
+  <tr><th>In only</th><td>Records from the In marker on, without an end boundary</td></tr>
+  <tr><th>Out only</th><td>Records until the Out marker, without a beginning boundary</td></tr>
+  <tr><th>In <em>and</em> Out</th><td>Records only between the In and Out markers</td></tr>
+</table>
+
+<!-- <p>
+  The punch clocks can be controlled the same way as the range clocks (moving the playhead,
+  and changing the display mode).
+</p>
+ -->
+<h2 id="rec-mode">Recording mode</h2>
+
+<p>
+  The recording mode affects how the tracks behave when overdubbing:
+</p>
+
+<table class="dl">
+  <tr><th>Layered</th>
+  <td>
+    New regions will be layered on top of existing ones. Only the top
+    layer will be played. This is the recommended mode for most workflows.
+  </td></tr>
+  <tr><th>Non-Layered</th>
+  <td>
+    The existing regions are trimmed so that there are no overlaps.
+    This does not affect the previously recorded audio data, and trimmed
+    regions can be expanded again at will. Non-layered mode can be very
+    useful for spoken word material, especially in combination with
+    <a href="@@pushpull-trimming">push/pull trimming</a>.
+  </td></tr>
+  <tr><th>Snd on Snd</th>
+  <td>
+    New regions will be layered on top of existing ones and made
+    transparent. This means all overlapping layers will be played
+    at the same time. This mode is typically recommended for progressively
+    building up MIDI tracks, e.g. a drum track, in each individual take.
+  </td></tr>
+</table>
+
+<p>
+  See <a href="@@track-types">Track Modes</a> for more information.
+</p>
+
