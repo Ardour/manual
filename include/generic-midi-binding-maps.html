@@ -399,6 +399,25 @@ bindings"&gt;
   keybinding definition.
 </p>
 
+<h4>Transport controls via MMC</h4>
+<p>
+  Some controllers like the Arturia KeyLab 49 have transport control
+  buttons that send MIDI Machine Control (MMC) commands by default. In
+  Ardour, MMC commands are mapped automatically to their corresponding
+  transport functions, but need to be received on the
+  <code>ardour:MMC in</code> MIDI port. In <kbd class="menu">Window
+  &gt; MIDI Connections</kbd>, ensure that the MIDI controller is
+  connected to the <code>MMC in</code> port found in the <code>Ardour
+  Misc</code> right-hand side tab.
+</p>
+<p>
+  Additionally
+  in <a href="@@preferences#preferences-transport-chase"> Transport &gt; Chase
+  </a> preferences, make sure that <dfn>Respond to MMC commands</dfn>
+  is checked and <dfn>Inbound MMC device ID:</dfn> is the same as the
+  MIDI controller's internal setting (usually 127 or 0).
+</p>
+
 <h3>Banks and Banking</h3>
 <p>
   Because many modern control surfaces offer per-track/bus controls
