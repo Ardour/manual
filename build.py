@@ -14,7 +14,9 @@
 import os
 import re
 import shutil
+import sys
 import argparse
+import subprocess
 import datetime
 
 # Global vars
@@ -426,11 +428,13 @@ parser.add_argument('-v', '--verbose', action='store_true', help='Display the hi
 parser.add_argument('-q', '--quiet', action='store_true', help='Suppress all output (overrides -v)')
 parser.add_argument('-d', '--devmode', action='store_true', help='Add content to pages to help developers debug them')
 parser.add_argument('-p', '--pdf', action='store_true', help='Automatically generate PDF from content')
+parser.add_argument('-e', '--epub', action='store_true', help='Automatically generate EPUB from content')
 args = parser.parse_args()
 verbose = args.verbose
 noisy = not args.quiet
 devmode = args.devmode
 pdf = args.pdf
+epub = args.epub
 
 # --quiet overrides --verbose, so tell it to shut up if user did both
 if not noisy:
@@ -443,6 +447,7 @@ lastFile = ''
 page = ''
 onepage = ''
 pdfpage = ''
+epubpage = ''
 toc = ''
 pageNumber = 0
 
@@ -476,12 +481,15 @@ temp.close()
 onepage = onepage.replace('{{page.bootstrap_path}}', global_bootstrap_path)
 onepage = onepage.replace('{{page.page_title}}', global_page_title)
 
-if pdf:
-	# Same as above, but for the PDF version
+if pdf or epub:
 	temp = open(global_pdf_template)
-	pdfpage = temp.read()
+	base = temp.read()
 	temp.close()
-	pdfpage = pdfpage.replace('{{page.page_title}}', global_page_title)
+	base = base.replace('{{page.page_title}}', global_page_title)
+	if pdf:
+		pdfpage = base
+	if epub:
+		epubpage = base
 
 # Parse out the master document's structure into a dictionary list
 fileStruct = GetFileStructure()
@@ -644,6 +652,12 @@ for header in fileStruct:
 		else:
 			pdfpage = pdfpage.replace('{{ content }}', oph + '\n' + 'Please refer to the <a href="' + global_manual_url + '/' + header['filename'] + '/">online manual</a>.\n{{ content }}')
 
+	if epub:
+		if not 'pdf-exclude' in header:
+			epubpage = epubpage.replace('{{ content }}', oph + '\n' + opcontent + '\n{{ content }}')
+		else:
+			epubpage = epubpage.replace('{{ content }}', oph + '\n' + 'Please refer to the <a href="' + global_manual_url + '/' + header['filename'] + '/">online manual</a>.\n{{ content }}')
+
 	# ----- Normal version -----
 
 	# Fix up any internal links
@@ -716,6 +730,17 @@ if pdf:
 	pdfpage = pdfpage.replace('{{ today }}', global_today)
 	pdfpage = pdfpage.replace('src="/images/', 'src="images/') # makes images links relative
 	pdfpage = pdfpage.replace('url(\'/images/', 'url(\'images/') # CSS images links relative
+
+	def drop_missing_images(html, site_dir):
+		def repl(m):
+			fpath = site_dir + 'images/' + m.group(1)
+			if os.path.isfile(fpath):
+				return m.group(0)
+			return '<span class="missing-image">[Image: ' + m.group(1) + ' not found]</span>'
+		return re.sub(r'<img[^>]*\ssrc="images/([^"]+)"[^>]*>', repl, html)
+
+	pdfpage = drop_missing_images(pdfpage, global_site_dir)
+
 	# Write it to disk (optional, can be removed)
 	pdfpageFile = open(global_site_dir + 'pdf.html', 'w')
 	pdfpageFile.write(pdfpage)
@@ -731,6 +756,42 @@ if pdf:
 	html_font_config = FontConfiguration()
 	doc = HTML(string = pdfpage, base_url = global_site_dir)
 	doc.write_pdf(global_site_dir + 'manual.pdf', font_config = html_font_config)
+
+if epub:
+	if noisy:
+		print('Generating the EPUB...')
+	epubpage = epubpage.replace('{% tree %}', opsidebar)
+	epubpage = epubpage.replace('{{ content }}', '')
+	epubpage = epubpage.replace('{{ today }}', global_today)
+	epubpage = epubpage.replace('src="/images/', 'src="images/')
+	epubpage = epubpage.replace('url(\'/images/', 'url(\'images/')
+
+	try:
+		import html5lib
+	except ImportError:
+		sys.exit('EPUB build requires html5lib; install with: pip install html5lib')
+
+	doc = html5lib.parse(epubpage)
+	walker = html5lib.getTreeWalker('etree')
+	stream = walker(doc)
+	serializer = html5lib.serializer.HTMLSerializer()
+	epubpage = ''.join(serializer.serialize(stream))
+
+	epub_html_path = global_site_dir + 'epub.html'
+	with open(epub_html_path, 'w') as f:
+		f.write(epubpage)
+
+	result = subprocess.run(
+		['pandoc', 'epub.html', '-o', 'manual.epub', '-f', 'html', '-t', 'epub3',
+		 '--resource-path=.',
+		 '--metadata', 'title=' + global_page_title, '--metadata', 'creator=The Ardour Team'],
+		cwd=global_site_dir, capture_output=True, text=True
+	)
+	if result.returncode != 0:
+		if result.stderr:
+			print(result.stderr, file=sys.stderr)
+		raise subprocess.CalledProcessError(result.returncode, result.args, result.stdout, result.stderr)
+	os.remove(epub_html_path)
 
 # URI redirects
 if os.path.exists(global_redirects_file):
