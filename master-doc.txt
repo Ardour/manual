@@ -2483,6 +2483,15 @@ part: chapter
 ---
 
 ---
+title: Using the MCP HTTP Surface
+menu_title: MCP HTTP
+include: control-surfaces-mcp-http.html
+link: control-surfaces-mcp-http
+uri: using-control-surfaces/mcp-http
+part: chapter
+---
+
+---
 title: Troubleshooting
 part: part
 ---

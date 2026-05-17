@@ -1,0 +1,234 @@
+<p>
+  The <abbr title="Model Context Protocol"><dfn>MCP</dfn></abbr> HTTP
+  control surface is an experimental server that lets an MCP-capable assistant
+  inspect and control a running Ardour session.
+</p>
+
+<p>
+  In this context, MCP means <em>Model Context Protocol</em>. It is not the
+  Mackie Control Protocol used by hardware control surfaces. Model Context
+  Protocol is a way for applications to expose tools and data to AI assistants
+  and other compatible clients.
+</p>
+
+<p>
+  It is intended for practical assisted workflows such as session setup,
+  transport control, track and bus management, plugin adjustment, marker and
+  range editing, and MIDI region editing. The surface exposes these operations
+  as MCP tools over a local HTTP endpoint.
+</p>
+
+<p class="warning">
+  MCP clients can make changes to the current session. Use snapshots or save the
+  session before asking an assistant to perform destructive edits such as
+  deleting markers, moving regions, normalizing audio, or changing many plugin
+  parameters.
+</p>
+
+<h2>Enabling the MCP HTTP Surface</h2>
+
+<p>
+  To enable the surface, open the <em>Preferences</em> dialog and go to the
+  <em>Control Surfaces</em> page. Enable <em>MCPHttp</em>, then open its
+  settings dialog.
+</p>
+
+<p>
+  The settings dialog provides the MCP endpoint information and these options:
+</p>
+
+<ul>
+  <li>The HTTP listen port. The default port is <code>4820</code>.</li>
+  <li>A debug level for logging MCP requests in Ardour's log window.</li>
+  <li>An option to listen on all network interfaces.</li>
+</ul>
+
+<p>
+  By default, the server listens only on the local machine:
+</p>
+
+<pre>http://127.0.0.1:4820/mcp</pre>
+
+<p class="warning">
+  Listening on all network interfaces can expose Ardour control to other
+  devices on the network. Only enable this on trusted networks and only when a
+  remote MCP client needs to connect to Ardour.
+</p>
+
+<h2>Client Setup</h2>
+
+<p>
+  Use the endpoint shown in the MCPHttp settings dialog when configuring an MCP
+  client. The transport is HTTP. Server-Sent Events transport is not used.
+</p>
+
+<h3>Codex CLI</h3>
+
+<pre>codex mcp add ardour_http --url http://127.0.0.1:4820/mcp</pre>
+
+<p>
+  The equivalent entry in <code>~/.codex/config.toml</code> is:
+</p>
+
+<pre>[mcp_servers.ardour_http]
+url = "http://127.0.0.1:4820/mcp"</pre>
+
+<h3>Gemini CLI</h3>
+
+<pre>gemini mcp add ardour-http http://127.0.0.1:4820/mcp --type http</pre>
+
+<h3>Claude Desktop</h3>
+
+<p>
+  Claude Desktop can connect through <code>mcp-remote</code>. In
+  <em>Settings &gt; Developer</em>, add:
+</p>
+
+<pre>{
+  "mcpServers": {
+    "ardour-http": {
+      "command": "npx",
+      "args": [
+        "mcp-remote@latest",
+        "http://127.0.0.1:4820/mcp"
+      ]
+    }
+  }
+}</pre>
+
+<h3>Copilot CLI</h3>
+
+<p>
+  In Copilot CLI, run <code>/mcp add</code> and fill in the form with an HTTP
+  MCP server named <code>ardour-http</code> using the URL
+  <code>http://127.0.0.1:4820/mcp</code>.
+</p>
+
+<h2>Available Tool Areas</h2>
+
+<p>
+  Exact tool names can be inspected through the MCP client's tool listing. The
+  MCP HTTP surface currently exposes tools in these areas:
+</p>
+
+<ul>
+  <li>Session information, saving, undo, redo, renaming, snapshots, and mixer
+  scenes.</li>
+  <li>Transport state, locate, play, stop, loop, punch, record enable, and
+  marker navigation.</li>
+  <li>Track and bus listing, creation, selection, renaming, fader, pan, mute,
+  solo, record enable, and record safe.</li>
+  <li>Sends, including adding sends, removing sends, level control, and
+  pre-fader or post-fader placement.</li>
+  <li>Plugin discovery, insertion, removal, order, position, bypass, and
+  parameter control.</li>
+  <li>Markers, ranges, loop ranges, punch ranges, and arrangement markers.</li>
+  <li>Region inspection, move, copy, resize, split, gain, and normalization.</li>
+  <li>MIDI region creation, note insertion, note listing, note editing, and bulk
+  JSON import or export.</li>
+</ul>
+
+<h2>Example Tool Names</h2>
+
+<p>
+  Some tools use explicit names to avoid ambiguous argument combinations. For
+  example, locating by bars and beats uses a different tool from locating by
+  sample.
+</p>
+
+<ul>
+  <li><code>transport_get_state</code></li>
+  <li><code>transport_locate_bbt</code></li>
+  <li><code>transport_locate_sample</code></li>
+  <li><code>tracks_list</code></li>
+  <li><code>tracks_add</code></li>
+  <li><code>buses_add</code></li>
+  <li><code>track_get_info</code></li>
+  <li><code>track_set_fader_db</code></li>
+  <li><code>track_set_fader_position</code></li>
+  <li><code>track_set_send_level_db</code></li>
+  <li><code>plugin_list_available</code></li>
+  <li><code>plugin_add_by_plugin_id</code></li>
+  <li><code>plugin_set_parameter_by_index_value</code></li>
+  <li><code>markers_list</code></li>
+  <li><code>markers_add</code></li>
+  <li><code>markers_add_range_bbt</code></li>
+  <li><code>region_move_by_beats</code></li>
+  <li><code>region_copy_to_bbt</code></li>
+  <li><code>midi_region_add_bbt</code></li>
+  <li><code>midi_note_import_json_into_region</code></li>
+</ul>
+
+<h2>Working With MIDI JSON</h2>
+
+<p>
+  For creating more than a few notes, prefer the MIDI JSON tools over adding
+  one note at a time. They allow an assistant to create or edit a complete
+  phrase, drum groove, or chord pattern in one tool call.
+</p>
+
+<p>
+  MIDI JSON timing is relative to the start of the target region. In this
+  format, <code>bar: 1</code> and <code>b: 1</code> mean the first beat of the
+  region, regardless of where that region starts in the session timeline.
+</p>
+
+<p>
+  The <code>b</code> value is the beat within the bar and may be fractional.
+  For example, <code>b: 1.5</code> represents an off-beat eighth-note position
+  in common 4/4 timing. The <code>t</code> value is an additional tick offset
+  within the beat, using the JSON file's <code>ticks_per_quarter</code> value.
+</p>
+
+<p>
+  In drum mode, note-off events are optional. Drum hits can be supplied as
+  note-on events only; Ardour writes them as zero-length notes, with note-on and
+  note-off at the same timestamp. For non-drum material, use note-on and
+  note-off timing pairs for sustained notes and chords.
+</p>
+
+<h2>Prompt Examples</h2>
+
+<p>
+  The following examples show the kind of requests an MCP-capable assistant can
+  translate into Ardour operations:
+</p>
+
+<ul>
+  <li>Show the transport state and list all markers.</li>
+  <li>Set the loop range from bar 32 for 8 bars and enable loop playback.</li>
+  <li>Create tracks for a live band: lead vocal, two backing vocals, two
+  guitars, bass, stereo drums, and stereo keys.</li>
+  <li>Create a bus called Vocal Verb and add post-fader sends from the vocal
+  tracks to it.</li>
+  <li>List available EQ plugins and add one to the Rose track.</li>
+  <li>Set the send level from Frank to Vocal Verb to -12 dB.</li>
+  <li>Add marker Frank at bar 7 beat 3.5.</li>
+  <li>Add arrangement section Solo 2 at bar 40.</li>
+  <li>Create a MIDI region on MCP MIDI Test from bar 3 for 2 bars.</li>
+  <li>Insert a C major up-and-down scale using eighth notes with velocity around
+  80.</li>
+  <li>Add 4 bars of steady drum groove in the existing drum MIDI region.</li>
+  <li>In bar 4, add solid quarter-note chords in the key of F on each beat.</li>
+  <li>Move region Test Part A by 2.5 beats later on the same track.</li>
+  <li>Copy this region four times every two bars.</li>
+</ul>
+
+<h2>Client Compatibility</h2>
+
+<p>
+  Tool responses include structured MCP data and a JSON text fallback. The text
+  fallback is intentional because some MCP clients display only text content and
+  do not expose structured result data to the assistant.
+</p>
+
+<h2>Known Limitations</h2>
+
+<ul>
+  <li>The surface is experimental and may change based on user feedback.</li>
+  <li>Most edit operations identify tracks, plugins, regions, and markers by
+  explicit IDs or names.</li>
+  <li>Selected-region targeting is not implemented.</li>
+  <li>MCP clients and models vary in how well they use tool descriptions and
+  structured return data.</li>
+</ul>
