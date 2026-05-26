@@ -1,0 +1,143 @@
+<p>
+	The Chord Editing part of the pianoroll sidebar helps insert new chords
+	to MIDI regions and edit existing chords.
+</p>
+
+<p>
+	The pianoroll sidebar is hidden by default for both pianoroll windows
+	and the bottom region editor. To enable it, click on this button
+	in the toolbar:
+</p>
+
+<figure>
+<img style="width:75%" src="/images/midi-chords-open-sidebar.png" alt="Opening pianoroll sidebar">
+<figcaption>Opening the pianoroll sidebar</figcaption>
+</figure>
+
+<p>
+	The controls in Chord Editing are separated into the following groups:
+</p>
+
+<table border="1">
+  <tr>
+    <th>Group</th>
+    <th>Can create new chords</th>
+    <th>Can edit existing chords</th>
+  </tr>
+  <tr>
+    <td>3-Note Chords (Triads)</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>4-Note Chords (Tetrads)</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Extended Chords</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Inversions</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Drop Notes</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+</table>
+
+<h2 id="adding-chords">Adding chords</h2>
+
+<p>
+	To add a new 3-note, 4-note, or an extended chord, follow these steps:
+</p>
+
+<ol>
+	<li>For an already opened MIDI region, switch to the Draw mode.</li>
+	<li>Click on the pencil button next to the chord you want to add.</li>
+	<li>Draw the root note in the region.</li>
+</ol>
+
+<p>
+	The rest of the chord's note will be added as soon as you stop drawing
+	the root note.
+</p>
+
+<video controls width="75%">
+  <source src="/videos/midi-chords-draw-tetrad.mp4" type="video/mp4">
+</video>
+
+<h2 id="editing-chords">Editing chords</h2>
+
+<p>
+	Ardour provides three ways to manipulate the existing chords in MIDI regions:
+	changing them to other chords (swapping), inverting them, and dropping notes.
+</p>
+
+<h3 id="changing-chords">Swapping chords</h3>
+
+<p>
+	To change an existing chord to a different one, follow these steps:
+</p>
+
+<ol>
+	<li>Select all the chord notes. Ardour will attempt to identify the chord
+	and display it at the top of the Chord Editing section.</li>
+	<li>Find the chord you want to change it to and click on the respective
+	button.</li>
+</ol>
+
+<video controls width="75%">
+  <source src="/videos/midi-chords-edit-tetrad.mp4" type="video/mp4">
+</video>
+
+<p>
+	Note that you can freely switch between 3-note, 4-note, and extended
+	chords, e.g., go from a 3-note chord to a 5-note chord and vice versa.
+</p>
+
+<h3 id="inverting-chords">Inverting chords</h3>
+
+<p>
+	You can invert chords by either moving the lowest pitch up by 1 octave
+	(<guilabel>Move Up</guilabel>) or moving the highest pitch down
+	by 1 octave (<guilabel>Move Down</guilabel>).
+</p>
+
+<p>
+	To invert a chord, follow these steps:
+</p>
+
+<ol>
+	<li>Select all the chord notes.</li>
+	<li>Click on one of the two buttons: <guilabel>Move Up</guilabel> or
+		<guilabel>Move Down</guilabel>.</li>
+</ol>
+
+<h3 id="dropping-notes">Dropping notes</h3>
+
+<p>
+	You can transform tight, closely-spaced chords into wider, more open ones.
+	Ardour provides three options to do that:
+</p>
+
+<ul>
+	<li>Drop 2: moves the second lowest pitch by 1 octave</li>
+	<li>Drop 3: moves the thiord lowest pitch by 1 octave</li>
+	<li>Drop 2+4: moves the second and the fourth pitches by 1 octave</li>
+</ul>
+
+<p>
+	To drop notes, follow these steps:
+</p>
+
+<ol>
+	<li>Select all the chord notes.</li>
+	<li>Click on one of the two buttons: <guilabel>Drop 2</guilabel>, 
+		<guilabel>Drop 3</guilabel>, or <guilabel>Drop 2+4</guilabel>.</li>
+</ol>

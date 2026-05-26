@@ -1527,6 +1527,14 @@ part: subchapter
 ---
 
 ---
+title: Adding and Editing Chords
+include: midi-chords.html
+link: midi-chords
+uri: working-with-midi/chords
+part: subchapter
+---
+
+---
 title: Changing Note Properties
 include: change-note-properties.html
 link: change-note-properties
