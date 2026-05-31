@@ -1478,6 +1478,14 @@ part: subchapter
 ---
 
 ---
+title: Editing Multiple MIDI Regions
+include: pianoroll-window-multiple-regions.html
+link: pianoroll-window-multiple-regions
+uri: working-with-midi/pianoroll-window-multiple-regions
+part: subchapter
+---
+
+---
 title: Controlling Visible Note Range
 include: controlling-midi-range.html
 link: controlling-midi-range
