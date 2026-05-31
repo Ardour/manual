@@ -3,7 +3,7 @@
 </p>
 
 <ol>
-	<li>Select a MIDI region on the timeline.</li>
+	<li>Select one or multiple MIDI regions on the timeline.</li>
 	<li>Right-click, then select <kbd
   class="menu">{region name} &gt; Edit in a separate window…</kbd></li>
 </ol>
@@ -20,24 +20,69 @@
 </figure>
 
 <ol>
-	<li>Region properties pane</li>
+	<li>MIDI Inspector pane</li>
 	<li>Editor toolbar</li>
 	<li>Note editing area</li>
 	<li>Automation editing area</li>
 </ol>
 
-<h2>Region properties pane</h2>
+<h2 id="midi-inspector-pane">MIDI Inspector pane</h2>
+
+<p>
+	The MIDI Inspector pane contains three section:
+</p>
+
+<ul>
+	<li>Chord Editing</li>
+	<li>Quantize</li>
+	<li>Region Properties</li>
+</ul>
+
+<p>
+	The pane is hidden by default. To enable it, click on this button
+	in the toolbar:
+</p>
+
+<figure>
+<img style="width:75%" src="/images/midi-chords-open-sidebar.png" alt="Opening pianoroll sidebar">
+<figcaption>Opening the pianoroll sidebar</figcaption>
+</figure>
+
+<h3 id="chord-editing">Chord Editing</h3>
+
+<p>
+	The Chord Editing part of the pianoroll sidebar helps insert new chords to MIDI regions and edit existing chords.
+</p>
+
+<p>
+	For a guide on adding and editing chords, see <a href="@@midi-chords">Adding and Editing Chords</a>.
+</p>
+
+<h3 id="quantize">Quantize</h3>
+
+<p>
+	The Quantize section of the pane help quickly quantize notes to a specific grid unit for captured live MIDI performance.
+</p>
+
+<figure>
+<img style="width:75%" src="/images/pianoroll-window-quantize.png" alt="Quantize in pianoroll interfaces">
+<figcaption>Quantize in pianoroll interfaces</figcaption>
+</figure>
+
+<p>
+	The user interface is the same as in the separate <a href="@@quantize-midi">Quantize dialog</a> used in the inline MIDI editor of the main Editor window. To apply quantization in the pianoroll window, select notes, set quantization parameters, then hover over the notes, and press <kbd>Q</kbd>.
+</p>
+
+<h3 id="region-properties">Region properties</h3>
 
 <figure class="right">
-  <img class="mini" style="width:300px;" src="/images/pianoroll-window-region-properties.png" alt="Region properties">
+  <img class="mini" style="width:500px;" src="/images/pianoroll-window-region-properties.png" alt="Region properties">
   <figcaption>
     Region properties
   </figcaption>
 </figure>
 
-<p>
-	Displays essential information about the MIDI region:
-</p>
+<p>Displays essential information about the MIDI region:</p>
 
 <ul>
 	<li>Name: the name of the region</li>
@@ -149,7 +194,7 @@
 <h2>Automation area</h2>
 
 <p>
-	This area displays note velocity and controllers and is disabled by default. Clicking on any of the available controller options (Velocity, Bender, Pressure, Modulation) enables it.
+	This area displays note velocity and controllers and is disabled by default. The area can display data from multiple controllers, stacked above each other.
 </p>
 
 <figure class="right">
@@ -160,14 +205,24 @@
 </figure>
 
 <p>
-	To enable or disable an automation lane, click on the small LED indicator to the left of its name on the bottom toolbar.
+	To enable or disable an automation lane, click the <kbd>A</kbd> button at the right end of the pianoroll toolbar and select a controller.
+</p>
+
+<figure class="right">
+  <img width="50%" src="/images/pianoroll-window-add-automation.png" alt="Add automation lanes in the pianoroll window">
+<!--   <figcaption>
+    Pianoroll toolbar
+  </figcaption> -->
+</figure>
+
+<p>
+	You can toggle multiple lanes by hovering over them one by one and pressing spacebar on your keyboard.
 </p>
 
 <p>
-	The area can display data from multiple controllers, overlaid on top of each other, but only one automation lane is editable at the time.
+	To draw new automation or edit existing one, use the Draw and Internal Edit modes just like when you do <a href="@@automation">edit automation in the main Editor window</a>.
 </p>
 
 <p>
-	To select the automation lane to edit, click on the controller name. The lane data will become editable, and the relevant button will get a red outline (Velocity on the screenshot above).
+	To clear all automation in a lane, click on the respective <guilabel>Clear</guilabel> button.
 </p>
-
