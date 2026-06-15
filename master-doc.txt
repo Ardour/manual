@@ -601,6 +601,14 @@ part: chapter
 ---
 
 ---
+title: Bottom pane
+include: bottom-pane.html
+link: bottom-pane
+uri: ardours-interface/bottom-pane
+part: chapter
+---
+
+---
 title: Editor and Cue Lists
 include: editor-lists.html
 link: editor-lists
