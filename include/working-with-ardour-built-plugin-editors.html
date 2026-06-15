@@ -1,9 +1,17 @@
-
 <p>
-  The plugin editor can be shown by double-clicking on the plugin within the
-  <a href="@@processor-box">processor box</a>.
-  A new window will appear showing the editor/GUI for the plugin.
+  Ardour displays its generic user interface for arbitrary plugins in two
+  places: 
 </p>
+
+<ul>
+  <li>The generic plugin editor window when no custom UI is available
+  (typically with LADSPA plugins or some VSTs), or the generic plugin UI
+  was specifically selected.</li>
+  <li>The bottom pane in the Editor window when a track rather than a region
+  is selected on the timeline.</li>
+</ul>
+
+<h2 id="generic-plugin-editor">Generic Plugin Editor</h2>
 
 <figure class="right">
   <img class="mini" style="width:400px;" src="/images/example-plugin.png" alt="A generic plugin Editor (A-Eq)">
@@ -18,8 +26,6 @@
   </figcaption>
 </figure>
 
-<h2>Generic Plugin Editor</h2>
-
 <p>
   If a plugin does not have its own GUI, Ardour will construct a
   <dfn>generic plugin editor</dfn> from a small set of common control
@@ -29,7 +35,8 @@
 </p>
 
 <p>
-  The generic UI can be temporarily switched to by <kbd class="mouse">right</kbd> clicking on
+  The generic UI can be temporarily switched to by 
+  <kbd class="mouse">right</kbd>-clicking on
   a processor and selecting <kbd class="menu">Edit with generic controls</kbd>.
   This is necessary in order to access the <a href="@@automation">plugin
   automation controls</a>.
@@ -104,3 +111,28 @@
   be used either with the mouse, or by using a QWERTY keyboard as a piano. Both the
   channel and the velocity can be set above the keyboard.
 </p>
+
+<h2 id="bottom-pane-editor">Bottom pane in the Editor window</h2>
+
+<figure class="right">
+  <img class="mini" style="width:458px;" src="/images/bottom-pane-plugins.png" alt="Plugins in the bottom pane">
+  <figcaption>
+    Plugin UI in the bottom pane of the Editor
+  </figcaption>
+</figure>
+
+<p>
+  Enabling the bottom pane in the editor makes it possible to see all parameters of all plugins used in a selected track or buss with generic user interface.
+</p>
+
+<p>
+  For every plugin, Ardour will rendering the following:
+</p>
+
+<ul>
+  <li>The name of the plugin</li>
+  <li>A host-side bypass button</li>
+  <li>A button that toggles collapse/expansion of the plugin's user interface</li>
+  <li>Switches, such as plugin-side bypass</li>
+  <li>Controls, or parameters, with a rotary knob for control and a drop-down list to choose automation style for each parameter</li>
+</ul>
