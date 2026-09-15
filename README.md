@@ -46,7 +46,7 @@ Here are the keywords you can put in, and a brief description of what they do:
 | link    | Sets the unbreakable link to the content that follows. Links in the *content* should be prefixed with a double at-sign (@@) to tell the build system that the link is an internal one |
 | include | Tells the build system that the content lives in an external file; these normally live in the `include/` directory. Note that the filename should **not** be prefixed with `include/` |
 | exclude | Tells the `implode` and `explode` scripts that file referred to by the `include` keyword should be ignored. Note that the value of this keyword is ignored |
-| pdf-exclude | Does not include the content in the generated PDF, but links to its online contents. The value is also ignored. |
+| pdf-exclude | Does not include the content in the generated PDF or EPUB, but links to its online contents. The value is also ignored. |
 | style   | Sets an alternate CSS stylesheet; the name should match the one referred to (sans the `.css` suffix) in the `source/css` directory |
 | uri     | Sets an absolute URI where this page will go in the hierarchy of the created website. It does *not* change the document structure |
 
@@ -119,6 +119,8 @@ The `build.py` script that builds the manual accepts the following options:
 (link, file name, URL)
 - '-p', or '--pdf', to automatically generate a PDF from the content
 (requires [WeasyPrint](https://weasyprint.org/) to run)
+- '-e', or '--epub', to automatically generate an EPUB from the content
+(requires [Pandoc](https://pandoc.org/) and the Python package [html5lib](https://pypi.org/project/html5lib/))
 
 ### Redirects
 
