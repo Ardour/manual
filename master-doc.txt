@@ -1600,6 +1600,14 @@ part: subchapter
 ---
 
 ---
+title: Key, scale, and tuning system
+include: key-scale-tuning-system.html
+link: key-scale-tuning-system
+uri: working-with-midi/key-scale-tuning-system
+part: subchapter
+---
+
+---
 title: MIDI List Editor
 include: midi-list-editor.html
 link: midi-list-editor
