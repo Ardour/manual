@@ -1,9 +1,3 @@
-
-<figure class="right">
-<img src="/images/session_properties.png" alt="The Session Properties window">
-<figcaption>The Session Properties window</figcaption>
-</figure>
-
 <p>
   <dfn>Session properties</dfn> control aspects of the workflow or
   configuration that pertain to the current session only; these settings are
@@ -11,6 +5,13 @@
   in <kbd class="menu">Session &gt; Properties</kbd>, and are stored in the
   session file.
 </p>
+
+<figure class="right">
+  <img class="mini" style="width:600px;" src="/images/session_properties.png" alt="The Session Properties window">
+  <figcaption>
+    The Session Properties window
+  </figcaption>
+</figure>
 
 <p>
   Settings can be searched for using the input box in the lower left corner
@@ -33,6 +34,8 @@
   <li><a href="#properties-filenames">Filenames</a></li>
   <li><a href="#properties-monitoring">Monitoring</a></li>
   <li><a href="#properties-meterbridge">Meterbridge</a></li>
+  <li><a href="#properties-midi">MIDI</a></li>
+  <li><a href="#properties-scale-and-tuning">Scale and Tuning</a></li>
   <li><a href="#properties-misc">Misc</a></li>
 </ul>
 
@@ -345,6 +348,22 @@
 			</ul>
 	</li>
 </ul>
+
+<h2 id="properties-scale-and-tuning">Scale and Tuning</h2>
+
+<p>
+	This tab helps define session-level key/scale and tuning.
+</p>
+
+<ul>
+	<li><strong>Tuning System</strong>: The framework of pitches and intervals used to define the specific frequencies of notes in music. Ardour currently only supports a 12-tone tuning system.</li>
+	<li><strong>Root note</strong>: The starting pitch chosen from the tuning system. For the 12-tone tuning system, it goes from A to G#/Ab.</li>
+	<li><strong>Scale</strong>: A specific pattern of step intervals selected from the tuning system, such as Major, Minor, Lydian, Phrygian, etc.</li>
+</ul>
+
+<p>
+	Clicking <guilabel>Use this scale</guilabel> sets the session-level key/scale. Existing tracks will retain their current key/scale. New tracks will inherit the new default key/scale.
+</p>
 
 <h2 id="properties-misc">Misc</h2>
 
