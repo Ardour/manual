@@ -56,6 +56,13 @@
   <tr><th><dfn>Percent</dfn></th><td>The target duration of the region, expressed as a percentage
     of the region's original length. Can be either higher than 100&#37; (to
     expand the region) or lower (to shrink it)</td></tr>
+  <tr><th><dfn>Source BPM</dfn></th><td>The tempo at which the material in the
+    region was recorded. Together with the target BPM, this is an alternative
+    way to specify the stretch</td></tr>
+  <tr><th><dfn>Target BPM</dfn></th><td>The tempo at which the material should
+    be played after the stretch. A target lower than the source stretches the
+    region (making it longer), a higher target shrinks it. Both fields start
+    with the session tempo at the region's position</td></tr>
   <tr><th><dfn>Contents</dfn></th><td>The type of audio the region is made of. Ardour will fine-tune
     its algorithm based on this content, see below</td></tr>
   <tr><th><dfn>Minimize time distortion</dfn></th><td>Tries to reduce the smearing
